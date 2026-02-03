@@ -18,7 +18,7 @@ export default function HomePage() {
           }}
         />
 
-        <div className="container-narrow relative z-10 pt-20">
+        <div className="container-narrow relative z-10">
           <div className="max-w-4xl">
             {/* Eyebrow */}
             <motion.p

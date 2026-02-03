@@ -3,6 +3,7 @@ import { Sora, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import TopBanner from "@/components/layout/TopBanner";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -72,7 +73,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sora.variable} ${jetbrainsMono.variable}`}>
       <body className="antialiased min-h-screen flex flex-col">
-        <Header />
+        <div className="sticky top-0 z-50">
+          <TopBanner />
+          <Header />
+        </div>
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

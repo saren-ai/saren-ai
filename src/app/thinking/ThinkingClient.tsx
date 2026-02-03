@@ -18,7 +18,7 @@ function formatDate(dateString: string): string {
 
 export default function ThinkingClient({ posts }: ThinkingClientProps) {
   return (
-    <article className="pt-20">
+    <article>
       {/* Hero */}
       <section className="section bg-gradient-to-br from-charcoal to-offblack text-ash">
         <div className="container-narrow">

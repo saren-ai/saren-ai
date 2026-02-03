@@ -76,7 +76,7 @@ const personalLinks = [
 
 export default function AboutPage() {
   return (
-    <article className="pt-20">
+    <article>
       {/* Hero */}
       <section className="section bg-gradient-to-br from-charcoal to-offblack text-ash">
         <div className="container-narrow">

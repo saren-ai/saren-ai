@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function TenTouchSalesPlayPage() {
   return (
-    <article className="pt-20">
+    <article>
       {/* Hero */}
       <section className="section bg-gradient-to-br from-charcoal to-offblack text-ash">
         <div className="container-narrow">
