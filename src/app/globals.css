@@ -35,30 +35,30 @@
 /* Dark Mode */
 .dark {
   /* Primary Colors - adjusted for dark */
-  --ember-red: #FF4D5A;
-  --charcoal-black: #E8EEF2;
-  --ash-white: #0F1419;
+  --ember-red: #FF5563;
+  --charcoal-black: #F5F7FA;
+  --ash-white: #151B23;
   
   /* Accent Colors */
-  --electric-blue: #5B9BBF;
-  --copper: #D4995A;
+  --electric-blue: #6BAED6;
+  --copper: #DDA756;
   
   /* Neutrals */
-  --slate-gray: #9CA3AF;
-  --off-black: #000000;
+  --slate-gray: #A8B2BC;
+  --off-black: #0A0E14;
   
   /* Semantic mappings */
-  --background: #0F1419;
-  --background-secondary: #1A2332;
-  --foreground: #E8EEF2;
-  --foreground-muted: #9CA3AF;
-  --border: rgba(232, 238, 242, 0.1);
-  --border-hover: #5B9BBF;
+  --background: #151B23;
+  --background-secondary: #1E2732;
+  --foreground: #F5F7FA;
+  --foreground-muted: #A8B2BC;
+  --border: rgba(245, 247, 250, 0.12);
+  --border-hover: #6BAED6;
   
   /* Component specific */
-  --card-bg: #1A2332;
-  --header-bg: rgba(15, 20, 25, 0.95);
-  --dropdown-bg: #1A2332;
+  --card-bg: #1E2732;
+  --header-bg: rgba(21, 27, 35, 0.95);
+  --dropdown-bg: #1E2732;
 }
 
 @theme inline {
@@ -149,7 +149,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .dark .gradient-dark {
-  background: linear-gradient(135deg, #0F1419 0%, #000000 100%);
+  background: linear-gradient(135deg, #1E2732 0%, #151B23 100%);
 }
 
 .gradient-accent {
@@ -302,7 +302,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .dark .bg-charcoal\/5 {
-  background-color: rgba(232, 238, 242, 0.05);
+  background-color: rgba(245, 247, 250, 0.05);
+}
+
+.dark .bg-charcoal {
+  background-color: #1E2732;
 }
 
 /* Dark mode header and dropdowns */
@@ -312,6 +316,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .dark .bg-white {
   background-color: var(--dropdown-bg);
+}
+
+/* Dark mode hero sections - improve contrast */
+.dark .bg-gradient-to-br.from-charcoal.to-offblack {
+  background: linear-gradient(135deg, #1E2732 0%, #151B23 100%);
 }
 
 /* Prose dark mode */
