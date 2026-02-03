@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function TopBanner() {
   const [isVisible, setIsVisible] = useState(true);
@@ -10,18 +11,20 @@ export default function TopBanner() {
   return (
     <div className="bg-gradient-to-r from-ember via-copper to-ember text-white text-sm relative">
       <div className="container-narrow py-2 flex items-center justify-center gap-2 pr-8">
-        <span className="hidden sm:inline">🚀</span>
+        <span className="hidden sm:inline">🚧</span>
         <p className="text-center">
-          <span className="font-semibold">Build in Public:</span>{" "}
+          <span className="font-semibold">Building in Public:</span>{" "}
           <span className="opacity-90">
-            This site was built with{" "}
-            <span className="font-medium">Cursor</span>,{" "}
-            <span className="font-medium">Claude Opus 4.5</span>,{" "}
-            <span className="font-medium">GitHub</span> &{" "}
-            <span className="font-medium">Vercel</span>
+            I&apos;m currently building this site with AI-native tools.{" "}
           </span>
+          <Link
+            href="/about/stack"
+            className="underline underline-offset-2 hover:text-white/80 font-medium transition-colors"
+          >
+            See the full stack →
+          </Link>
         </p>
-        <span className="hidden sm:inline">✨</span>
+        <span className="hidden sm:inline">🔨</span>
       </div>
       
       {/* Dismiss button */}
