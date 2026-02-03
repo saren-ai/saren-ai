@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
 
 interface NavItem {
   href: string;
@@ -92,21 +93,21 @@ function DropdownMenu({
           transition={{ duration: 0.15 }}
           className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50"
         >
-          <div className="bg-white rounded-xl shadow-xl border border-charcoal/10 overflow-hidden min-w-[280px]">
+          <div className="bg-white dark:bg-offblack rounded-xl shadow-xl border border-charcoal/10 dark:border-ash/10 overflow-hidden min-w-[280px]">
             {items.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={onClose}
-                className={`block px-4 py-3 hover:bg-charcoal/5 transition-colors ${
-                  index !== items.length - 1 ? "border-b border-charcoal/5" : ""
+                className={`block px-4 py-3 hover:bg-charcoal/5 dark:hover:bg-ash/5 transition-colors ${
+                  index !== items.length - 1 ? "border-b border-charcoal/5 dark:border-ash/5" : ""
                 }`}
               >
-                <span className="font-medium text-charcoal hover:text-ember transition-colors block">
+                <span className="font-medium text-charcoal dark:text-ash hover:text-ember transition-colors block">
                   {item.label}
                 </span>
                 {item.description && (
-                  <span className="text-sm text-slate mt-0.5 block">
+                  <span className="text-sm text-slate dark:text-slate mt-0.5 block">
                     {item.description}
                   </span>
                 )}
@@ -125,13 +126,13 @@ export default function Header() {
   const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(null);
 
   return (
-    <header className="bg-ash/95 backdrop-blur-sm border-b border-charcoal/10">
+    <header className="bg-ash/95 dark:bg-offblack/95 backdrop-blur-sm border-b border-charcoal/10 dark:border-ash/10 transition-colors">
       <nav className="container-narrow">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link
             href="/"
-            className="text-xl md:text-2xl font-bold text-charcoal tracking-tight hover:text-ember transition-colors"
+            className="text-xl md:text-2xl font-bold text-charcoal dark:text-ash tracking-tight hover:text-ember transition-colors"
           >
             saren<span className="text-ember">.</span>ai
           </Link>
@@ -146,7 +147,7 @@ export default function Header() {
                       setOpenDropdown(openDropdown === link.label ? null : link.label)
                     }
                     onMouseEnter={() => setOpenDropdown(link.label)}
-                    className="text-charcoal/80 hover:text-ember font-medium transition-colors relative group flex items-center gap-1"
+                    className="text-charcoal/80 dark:text-ash/80 hover:text-ember font-medium transition-colors relative group flex items-center gap-1"
                   >
                     {link.label}
                     <svg
@@ -169,7 +170,7 @@ export default function Header() {
                 ) : (
                   <Link
                     href={link.href}
-                    className="text-charcoal/80 hover:text-ember font-medium transition-colors relative group"
+                    className="text-charcoal/80 dark:text-ash/80 hover:text-ember font-medium transition-colors relative group"
                   >
                     {link.label}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-ember transition-all duration-300 group-hover:w-full" />
@@ -190,38 +191,44 @@ export default function Header() {
                 )}
               </div>
             ))}
+            
+            {/* Theme Toggle */}
+            <ThemeToggle />
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-charcoal hover:text-ember transition-colors"
-            aria-label="Toggle menu"
-            aria-expanded={isMenuOpen}
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          {/* Mobile: Theme Toggle + Menu Button */}
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 text-charcoal dark:text-ash hover:text-ember transition-colors"
+              aria-label="Toggle menu"
+              aria-expanded={isMenuOpen}
             >
-              {isMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {isMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -234,7 +241,7 @@ export default function Header() {
               transition={{ duration: 0.2 }}
               className="md:hidden overflow-hidden"
             >
-              <div className="py-4 space-y-1 border-t border-charcoal/10">
+              <div className="py-4 space-y-1 border-t border-charcoal/10 dark:border-ash/10">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.href}
@@ -250,7 +257,7 @@ export default function Header() {
                               expandedMobileItem === link.label ? null : link.label
                             )
                           }
-                          className="flex items-center justify-between w-full py-3 px-4 text-charcoal/80 hover:text-ember hover:bg-charcoal/5 rounded-lg font-medium transition-all"
+                          className="flex items-center justify-between w-full py-3 px-4 text-charcoal/80 dark:text-ash/80 hover:text-ember hover:bg-charcoal/5 dark:hover:bg-ash/5 rounded-lg font-medium transition-all"
                         >
                           <span>{link.label}</span>
                           <svg
@@ -284,9 +291,9 @@ export default function Header() {
                                     key={child.href}
                                     href={child.href}
                                     onClick={() => setIsMenuOpen(false)}
-                                    className="block py-2 px-4 text-slate hover:text-ember hover:bg-charcoal/5 rounded-lg transition-all"
+                                    className="block py-2 px-4 text-slate dark:text-slate hover:text-ember hover:bg-charcoal/5 dark:hover:bg-ash/5 rounded-lg transition-all"
                                   >
-                                    <span className="font-medium text-charcoal/80">
+                                    <span className="font-medium text-charcoal/80 dark:text-ash/80">
                                       {child.label}
                                     </span>
                                     {child.description && (
@@ -305,7 +312,7 @@ export default function Header() {
                       <Link
                         href={link.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className="block py-3 px-4 text-charcoal/80 hover:text-ember hover:bg-charcoal/5 rounded-lg font-medium transition-all"
+                        className="block py-3 px-4 text-charcoal/80 dark:text-ash/80 hover:text-ember hover:bg-charcoal/5 dark:hover:bg-ash/5 rounded-lg font-medium transition-all"
                       >
                         {link.label}
                       </Link>

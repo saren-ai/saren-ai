@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import TopBanner from "@/components/layout/TopBanner";
+import ThemeProvider from "@/components/layout/ThemeProvider";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -71,14 +72,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sora.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${sora.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Prevent flash of wrong theme */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const theme = localStorage.getItem('theme') || 
+                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.classList.add(theme);
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className="antialiased min-h-screen flex flex-col">
-        <div className="sticky top-0 z-50">
-          <TopBanner />
-          <Header />
-        </div>
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <ThemeProvider>
+          <div className="sticky top-0 z-50">
+            <TopBanner />
+            <Header />
+          </div>
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
