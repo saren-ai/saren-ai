@@ -1,36 +1,164 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Saren.ai - Portfolio Website
 
-## Getting Started
+A modern, interactive portfolio website for Saren Sakurai, Fractional CMO & AI Operations Consultant.
 
-First, run the development server:
+## 🚀 Tech Stack
 
-```bash
+- **Framework:** Next.js 14+ (App Router)
+- **Styling:** Tailwind CSS with Fire Horse 2026 design system
+- **Animation:** Framer Motion
+- **Content:** Markdown files for blog posts
+- **Deployment:** Optimized for Vercel
+
+## 🎨 Design System: Fire Horse 2026
+
+### Colors
+- **Ember Red:** `#E63946` - CTAs, key metrics, bold accents
+- **Charcoal Black:** `#1D3557` - Backgrounds, primary text
+- **Ash White:** `#F1FAEE` - Page backgrounds, card fills
+- **Electric Blue:** `#457B9D` - Interactive elements, hover states
+- **Copper:** `#A8763E` - Borders, subtle highlights
+- **Slate Gray:** `#6C757D` - Secondary text, labels
+
+### Typography
+- **Headings:** Sora (bold weights)
+- **Body:** Sora
+- **Monospace:** JetBrains Mono (for metrics/data)
+
+## 📁 Project Structure
+
+\`\`\`
+saren-ai/
+├── src/
+│   ├── app/                    # Next.js App Router pages
+│   │   ├── page.tsx           # Homepage
+│   │   ├── about/             # About page
+│   │   ├── thinking/          # Micro-blog
+│   │   ├── contact/           # Contact form
+│   │   └── portfolio/         # Case study pages
+│   │       ├── golden-dashboard/
+│   │       ├── sovereign-personas/
+│   │       ├── 10-touch-sales-play/
+│   │       └── 120-day-content-journey/
+│   ├── components/            # React components
+│   │   ├── layout/           # Header, Footer, Nav
+│   │   ├── portfolio/        # Portfolio grid and cards
+│   │   ├── golden-dashboard/ # Interactive dashboard
+│   │   └── ui/               # Shared UI components
+│   ├── content/              # Markdown content
+│   │   └── thinking/         # Blog posts
+│   └── lib/                  # Utility functions
+└── public/                   # Static assets
+\`\`\`
+
+## 🏃‍♂️ Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+\`\`\`bash
+# Clone the repository
+cd saren-ai
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+\`\`\`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+\`\`\`bash
+npm run build
+npm run start
+\`\`\`
 
-## Learn More
+## 🔧 Configuration
 
-To learn more about Next.js, take a look at the following resources:
+### Environment Variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Create a \`.env.local\` file for local development:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+\`\`\`env
+# Site URL (used for SEO and sitemap)
+SITE_URL=https://saren.ai
 
-## Deploy on Vercel
+# HubSpot Integration (TODO: Add when available)
+# HUBSPOT_PORTAL_ID=your-portal-id
+# HUBSPOT_FORM_ID=your-form-id
+\`\`\`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### HubSpot Integration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The contact form is currently set up with placeholder functionality. To integrate with HubSpot:
+
+1. Get your HubSpot Portal ID and Form ID
+2. Update \`src/app/contact/page.tsx\` with actual API calls
+3. Add live chat widget code to the layout
+
+## 📝 Adding Blog Posts
+
+Add new posts to \`src/content/thinking/\` as Markdown files:
+
+\`\`\`markdown
+---
+title: "Your Post Title"
+date: "2026-02-03"
+excerpt: "A brief description of the post."
+---
+
+Your post content here...
+\`\`\`
+
+Posts are automatically sorted by date (newest first).
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+1. Push to GitHub
+2. Import project in Vercel
+3. Configure environment variables
+4. Deploy
+
+### Manual Deployment
+
+\`\`\`bash
+npm run build
+# Deploy the .next folder to your hosting provider
+\`\`\`
+
+## 📊 Analytics
+
+The site is configured for Vercel Analytics. Additional analytics can be added:
+
+1. **Google Analytics 4:** Add tracking code to layout
+2. **Plausible:** Add script tag for privacy-focused analytics
+3. **Custom events:** Use the analytics utilities in \`src/lib/\`
+
+## 🔒 Security Headers
+
+The following security headers are configured:
+- X-Frame-Options: DENY
+- X-Content-Type-Options: nosniff
+- Referrer-Policy: strict-origin-when-cross-origin
+
+## 📋 TODO
+
+- [ ] Add actual HubSpot integration (Portal ID, Form ID)
+- [ ] Add HubSpot live chat widget
+- [ ] Update LinkedIn profile URL
+- [ ] Add personal interest links (Comic Geeks, Discogs, Letterboxd)
+- [ ] Add portfolio images/screenshots
+- [ ] Configure Google Analytics or Plausible
+- [ ] Add OG images for social sharing
+
+## 📄 License
+
+© 2026 Saren Sakurai. All rights reserved.

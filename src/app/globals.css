@@ -1,26 +1,221 @@
 @import "tailwindcss";
 
+/* ===== Fire Horse 2026 Design System ===== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary Colors */
+  --ember-red: #E63946;
+  --charcoal-black: #1D3557;
+  --ash-white: #F1FAEE;
+  
+  /* Accent Colors */
+  --electric-blue: #457B9D;
+  --copper: #A8763E;
+  
+  /* Neutrals */
+  --slate-gray: #6C757D;
+  --off-black: #212529;
+  
+  /* Semantic mappings */
+  --background: var(--ash-white);
+  --foreground: var(--charcoal-black);
+  --muted: var(--slate-gray);
+  --accent: var(--electric-blue);
+  --highlight: var(--ember-red);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Fire Horse Color Palette */
+  --color-ember: #E63946;
+  --color-charcoal: #1D3557;
+  --color-ash: #F1FAEE;
+  --color-electric: #457B9D;
+  --color-copper: #A8763E;
+  --color-slate: #6C757D;
+  --color-offblack: #212529;
+  
+  /* Semantic Colors */
+  --color-background: var(--ash-white);
+  --color-foreground: var(--charcoal-black);
+  
+  /* Fonts */
+  --font-heading: var(--font-sora), system-ui, sans-serif;
+  --font-body: var(--font-sora), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
 }
+
+/* Typography Scale */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* Selection Styling */
+::selection {
+  background: var(--electric-blue);
+  color: var(--ash-white);
+}
+
+/* Focus States */
+:focus-visible {
+  outline: 2px solid var(--electric-blue);
+  outline-offset: 2px;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ash-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--slate-gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--charcoal-black);
+}
+
+/* Utility Classes */
+.gradient-dark {
+  background: linear-gradient(135deg, var(--charcoal-black) 0%, var(--off-black) 100%);
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, var(--electric-blue) 0%, var(--charcoal-black) 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--ember-red), var(--copper));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button Base Styles */
+.btn-primary {
+  background: var(--ember-red);
+  color: white;
+  padding: 0.875rem 2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary:hover {
+  background: color-mix(in srgb, var(--ember-red), black 10%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--charcoal-black);
+  padding: 0.875rem 2rem;
+  border: 2px solid var(--charcoal-black);
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-secondary:hover {
+  background: var(--charcoal-black);
+  color: var(--ash-white);
+  transform: translateY(-2px);
+}
+
+/* Card Styles */
+.card {
+  background: var(--ash-white);
+  border: 1px solid color-mix(in srgb, var(--charcoal-black), transparent 90%);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--electric-blue);
+  box-shadow: 0 8px 32px rgba(69, 123, 157, 0.15);
+  transform: translateY(-4px);
+}
+
+/* Metric Display */
+.metric-value {
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--ember-red);
+  line-height: 1;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: var(--slate-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Section Spacing */
+.section {
+  padding: 6rem 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 0;
+  }
+}
+
+/* Container */
+.container-narrow {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Animation Classes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Stagger delays for lists */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
