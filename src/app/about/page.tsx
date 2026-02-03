@@ -51,25 +51,25 @@ const personalLinks = [
   {
     name: "Comic Collection",
     description: "My pulls and collection on League of Comic Geeks",
-    href: "https://leagueofcomicgeeks.com/profile/sarensakurai",
+    href: "https://leagueofcomicgeeks.com/profile/saren/collection",
     icon: "📚",
   },
   {
     name: "Vinyl Collection",
     description: "Browse my record collection on Discogs",
-    href: "https://discogs.com/user/saren",
+    href: "https://www.discogs.com/user/saren13",
     icon: "🎵",
   },
   {
     name: "Letterboxd",
     description: "Films I've watched and reviewed",
-    href: "https://letterboxd.com/saren",
+    href: "https://letterboxd.com/saren13/films/",
     icon: "🎬",
   },
   {
-    name: "Funko Collection",
-    description: "Pop culture collectibles",
-    href: "#",
+    name: "Funko Pop Collection",
+    description: "Pop culture collectibles on Pops.Today",
+    href: "https://pops.today/user/Saren/collection/",
     icon: "🎭",
   },
 ];
