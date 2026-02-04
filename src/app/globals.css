@@ -388,3 +388,65 @@ h1, h2, h3, h4, h5, h6 {
 .dark .prose blockquote {
   color: var(--foreground);
 }
+
+/* Calculator-specific styles */
+.calculator-input {
+  background-color: #ffffff;
+  border: 1px solid rgba(29, 53, 87, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: #1D3557;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.calculator-input::placeholder {
+  color: rgba(108, 117, 125, 0.5);
+}
+
+.calculator-input:focus {
+  border-color: #457B9D;
+  box-shadow: 0 0 0 1px rgba(69, 123, 157, 0.5);
+}
+
+.dark .calculator-input {
+  background-color: var(--card-bg);
+  border-color: rgba(227, 66, 52, 0.2);
+  color: var(--foreground);
+}
+
+.dark .calculator-input::placeholder {
+  color: rgba(176, 184, 196, 0.5);
+}
+
+.dark .calculator-input:focus {
+  border-color: #4A9FD8;
+  box-shadow: 0 0 0 1px rgba(74, 159, 216, 0.5);
+}
+
+.funnel-stage {
+  border-radius: 0.75rem;
+  padding: 1rem 1.5rem;
+  border-width: 2px;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s;
+}
+
+@media (min-width: 768px) {
+  .funnel-stage {
+    padding: 1.5rem;
+  }
+}
+
+.funnel-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.025em;
+}
+
+@media (min-width: 768px) {
+  .funnel-value {
+    font-size: 1.875rem;
+  }
+}

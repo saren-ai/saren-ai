@@ -18,6 +18,11 @@ export const portfolioMegaMenu: MegaMenuContent = {
           label: "120-Day Content Journey",
           description: "$4M quarterly pipeline from systematic content",
         },
+        {
+          href: "/portfolio/calculator",
+          label: "SaaS Revenue Calculator",
+          description: "Reverse-engineer funnel metrics from revenue goals",
+        },
       ],
     },
     {

@@ -59,6 +59,14 @@ const portfolioItems = [
     metricLabel: "SQL Threshold",
     href: "/portfolio/behavioral-lead-scoring",
   },
+  {
+    title: "SaaS Revenue Calculator",
+    description:
+      "Work backwards from revenue to see exactly what it takes. Interactive annual planning tool using industry benchmarks to reverse-engineer your funnel metrics.",
+    metric: "18",
+    metricLabel: "Industries",
+    href: "/portfolio/calculator",
+  },
 ];
 
 export default function PortfolioGrid() {
