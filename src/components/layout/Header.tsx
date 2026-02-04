@@ -101,7 +101,7 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="sticky top-0 z-40 bg-ash/95 dark:bg-offblack/95 backdrop-blur-sm border-b border-charcoal/10 dark:border-ash/10"
+      className="sticky top-0 z-40 bg-ash/95 dark:bg-background/95 backdrop-blur-sm border-b border-charcoal/10 dark:border-ember/20"
       onMouseLeave={handleMouseLeave}
     >
       <nav className="container-wide py-4">
@@ -125,14 +125,14 @@ export default function Header() {
                 {link.href ? (
                   <Link
                     href={link.href}
-                    className="text-charcoal/80 dark:text-ash/80 hover:text-ember font-medium transition-colors relative group"
+                    className="text-charcoal dark:text-foreground hover:text-ember dark:hover:text-ember font-medium transition-colors relative group"
                   >
                     {link.label}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-ember transition-all duration-300 group-hover:w-full" />
                   </Link>
                 ) : (
                   <button
-                    className={`text-charcoal/80 dark:text-ash/80 hover:text-ember font-medium transition-colors relative group ${
+                    className={`text-charcoal dark:text-foreground hover:text-ember dark:hover:text-ember font-medium transition-colors relative group ${
                       openMegaMenu === link.label ? "text-ember" : ""
                     }`}
                     aria-expanded={openMegaMenu === link.label}
@@ -158,7 +158,7 @@ export default function Header() {
             <ThemeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 text-charcoal dark:text-ash hover:text-ember transition-colors"
+              className="p-2 text-charcoal dark:text-foreground hover:text-ember transition-colors"
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
             >
@@ -198,7 +198,7 @@ export default function Header() {
               transition={{ duration: 0.2 }}
               className="md:hidden overflow-hidden"
             >
-              <div className="py-4 space-y-1 border-t border-charcoal/10 dark:border-ash/10">
+              <div className="py-4 space-y-1 border-t border-charcoal/10 dark:border-ember/20">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.label}
@@ -214,7 +214,7 @@ export default function Header() {
                               expandedMobileItem === link.label ? null : link.label
                             )
                           }
-                          className="flex items-center justify-between w-full py-3 px-4 text-charcoal/80 dark:text-ash/80 hover:text-ember hover:bg-charcoal/5 dark:hover:bg-ash/5 rounded-lg font-medium transition-all"
+                          className="flex items-center justify-between w-full py-3 px-4 text-charcoal dark:text-foreground hover:text-ember hover:bg-charcoal/5 dark:hover:bg-ember/10 rounded-lg font-medium transition-all"
                         >
                           <span>{link.label}</span>
                           <svg
@@ -247,7 +247,7 @@ export default function Header() {
                                   const isExternal = child.isExternal || child.href.startsWith('http');
                                   const linkContent = (
                                     <>
-                                      <span className="font-medium text-charcoal/80 dark:text-ash/80">
+                                      <span className="font-medium text-charcoal dark:text-foreground">
                                         {child.label}
                                         {isExternal && (
                                           <svg
@@ -266,7 +266,7 @@ export default function Header() {
                                         )}
                                       </span>
                                       {child.description && (
-                                        <span className="block text-xs text-slate mt-0.5">
+                                        <span className="block text-xs text-foreground-muted mt-0.5">
                                           {child.description}
                                         </span>
                                       )}
@@ -274,7 +274,7 @@ export default function Header() {
                                   );
 
                                   const className =
-                                    "block py-2 px-4 text-slate dark:text-slate hover:text-ember hover:bg-charcoal/5 dark:hover:bg-ash/5 rounded-lg transition-all";
+                                    "block py-2 px-4 hover:text-ember hover:bg-charcoal/5 dark:hover:bg-ember/10 rounded-lg transition-all";
 
                                   return isExternal ? (
                                     <a
@@ -307,7 +307,7 @@ export default function Header() {
                       <Link
                         href={link.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className="block py-3 px-4 text-charcoal/80 dark:text-ash/80 hover:text-ember hover:bg-charcoal/5 dark:hover:bg-ash/5 rounded-lg font-medium transition-all"
+                        className="block py-3 px-4 text-charcoal dark:text-foreground hover:text-ember hover:bg-charcoal/5 dark:hover:bg-ember/10 rounded-lg font-medium transition-all"
                       >
                         {link.label}
                       </Link>
