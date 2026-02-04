@@ -28,7 +28,7 @@ export default function SovereignPersonasPage() {
                 <li>/</li>
                 <li>
                   <Link
-                    href="/portfolio/golden-dashboard"
+                    href="/portfolio"
                     className="hover:text-ash transition-colors"
                   >
                     Portfolio

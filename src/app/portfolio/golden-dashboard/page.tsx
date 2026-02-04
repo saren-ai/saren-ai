@@ -33,7 +33,7 @@ export default function GoldenDashboardPage() {
                 <li>/</li>
                 <li>
                   <Link
-                    href="/portfolio/golden-dashboard"
+                    href="/portfolio"
                     className="hover:text-ash transition-colors"
                   >
                     Portfolio
