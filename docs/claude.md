@@ -80,3 +80,32 @@ Transformed the Sovereign Personas page from a static placeholder into a fully i
 - [ ] Monitor: Track which personas get the most PDF downloads and drawer opens
 - [ ] Content: Add a downloadable "Sovereign Persona Template" for DIY teams
 - [ ] Future: Create a blog post series diving deeper into each persona's decision journey
+
+---
+
+# 2026-02-03 - Mega Menu Navigation System
+
+## Summary
+Implemented a full-width mega menu navigation system to replace the compact dropdowns, providing significantly more real estate for portfolio content and promotional opportunities. Built with a 3-column layout (2/3 navigation + 1/3 promotional box) and smooth Framer Motion animations. The system makes portfolio discovery much easier and adds space for strategic CTAs.
+
+## Key Decisions/Changes
+- **3-column mega menu architecture**: Left 2/3 for navigation organized by category, right 1/3 for promotional content with images and CTAs
+- **Hover behavior with delay**: Opens immediately on hover, closes with 150ms delay to prevent accidental dismissal
+- **One mega menu at a time**: Opening a new menu automatically closes the previous one
+- **Portfolio categorization**: Organized 6 portfolio pieces into 4 categories (Revenue Systems, GTM Architecture, Buyer Intelligence, Creative Production)
+- **Promotional boxes**: Each mega menu has custom promotional content (featured work for Portfolio, build-in-public for Thinking, positioning for About)
+- **Mobile fallback**: Mega menus hidden on mobile; existing accordion menu preserved
+- **Reusable system**: Content definitions separated from component logic for easy updates
+- **External link support**: Visual indicators for Substack and other external links
+
+## Files Modified
+- `@src/components/layout/MegaMenu.tsx` (created) - Full-width dropdown component with 3-column grid
+- `@src/lib/mega-menu-content.ts` (created) - Content definitions for Portfolio, Thinking, and About mega menus
+- `@src/components/layout/Header.tsx` (completely redesigned) - New navigation system with hover management and timeout logic
+
+## TODO / Next Steps
+- [ ] Monitor: Track which portfolio items get clicked most from mega menu vs. portfolio page
+- [ ] Consider: Add visual category icons to Portfolio mega menu sections
+- [ ] Future: A/B test different promotional box content (featured work vs. testimonial vs. CTA)
+- [ ] Content: Create promotional images specifically sized for mega menu boxes (currently using storyboard image)
+- [ ] Enhancement: Add "Recently Updated" badge to portfolio items in mega menu
