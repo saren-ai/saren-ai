@@ -178,9 +178,9 @@ export default function TenTouchSalesPlayPage() {
             </h2>
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               {[
-                { value: "42%", label: "Meeting Rate" },
-                { value: "3.2x", label: "Response Rate" },
-                { value: "68%", label: "Executive Reach" },
+                { value: "5x", label: "Contacts Managed per BDR" },
+                { value: "<1 hour", label: "Daily Task Completion" },
+                { value: "45%", label: "Reduction in Task Time" },
               ].map((stat, index) => (
                 <div
                   key={index}
