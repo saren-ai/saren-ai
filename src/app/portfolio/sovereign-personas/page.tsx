@@ -14,14 +14,14 @@ export default function SovereignPersonasPage() {
   return (
     <article>
       {/* Hero */}
-      <section className="section bg-gradient-to-br from-charcoal to-offblack dark:from-background dark:to-background-secondary text-ash dark:text-foreground">
+      <section className="section bg-gradient-to-br from-charcoal to-offblack text-ash">
         <div className="container-narrow">
           <div className="max-w-3xl">
             {/* Breadcrumb */}
             <nav className="mb-6">
-              <ol className="flex items-center gap-2 text-sm text-ash/60 dark:text-foreground-muted">
+              <ol className="flex items-center gap-2 text-sm text-ash/60">
                 <li>
-                  <Link href="/" className="hover:text-ash dark:hover:text-foreground transition-colors">
+                  <Link href="/" className="hover:text-ash transition-colors">
                     Home
                   </Link>
                 </li>
@@ -29,7 +29,7 @@ export default function SovereignPersonasPage() {
                 <li>
                   <Link
                     href="/portfolio/golden-dashboard"
-                    className="hover:text-ash dark:hover:text-foreground transition-colors"
+                    className="hover:text-ash transition-colors"
                   >
                     Portfolio
                   </Link>
@@ -39,32 +39,12 @@ export default function SovereignPersonasPage() {
               </ol>
             </nav>
 
-            {/* Hero Content */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Designing Sovereign Buyer Personas
+              Sovereign Buyer Personas
             </h1>
-            <p className="text-xl md:text-2xl text-ash/80 dark:text-foreground-muted leading-relaxed mb-6">
-              When you sell infrastructure to sovereign clients, you&apos;re
-              selling national outcomes—not technology.
+            <p className="text-xl md:text-2xl text-ash/80 leading-relaxed">
+              Making complex markets legible—a framework for personas that drive targeting, messaging, and content decisions in sovereign infrastructure deals.
             </p>
-            <p className="text-lg text-ash/70 dark:text-foreground-muted">
-              Three personas. One buying system. Built to help teams speak the
-              right language at the right altitude.
-            </p>
-
-            {/* Tags */}
-            <div className="flex flex-wrap gap-3 mt-8">
-              {["Sovereign cloud", "Long-cycle deals", "Committee buying"].map(
-                (tag) => (
-                  <span
-                    key={tag}
-                    className="px-4 py-2 bg-ash/10 dark:bg-background-secondary text-ash dark:text-foreground text-sm font-semibold rounded-full border border-ash/20 dark:border-border"
-                  >
-                    {tag}
-                  </span>
-                )
-              )}
-            </div>
           </div>
         </div>
       </section>
@@ -220,6 +200,63 @@ export default function SovereignPersonasPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Substack Blog Post CTA */}
+      <section className="section bg-gradient-to-br from-copper/10 to-ember/10 border-y-2 border-copper/30">
+        <div className="container-narrow">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-1">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-copper/20 text-copper rounded-full text-sm font-semibold mb-4">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                  How to Build This
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                  Build Your Own Personas with Notebook LLM
+                </h2>
+                <p className="text-foreground-muted text-lg mb-6">
+                  Learn how to set up a Notebook LLM project to create strategic buyer personas like these. Step-by-step guide with prompts, frameworks, and real examples.
+                </p>
+                <ul className="space-y-2 mb-6">
+                  {[
+                    "Complete setup walkthrough for Notebook LLM",
+                    "Persona research prompts and interview frameworks",
+                    "How to structure mandate, risks, and trust signals",
+                    "Real examples from sovereign infrastructure deals",
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start gap-3 text-foreground">
+                      <span className="flex-shrink-0 w-5 h-5 bg-copper/20 rounded-full flex items-center justify-center mt-0.5">
+                        <svg className="w-3 h-3 text-copper" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex-shrink-0">
+                <a
+                  href="https://sarenai.substack.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-ember to-copper hover:from-ember/90 hover:to-copper/90 text-white rounded-lg font-bold text-lg transition-all shadow-lg hover:shadow-xl"
+                >
+                  Read on Substack
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+                <p className="text-center text-sm text-foreground-muted mt-3">
+                  Free guide + templates
+                </p>
+              </div>
             </div>
           </div>
         </div>

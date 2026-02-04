@@ -43,7 +43,22 @@ const navLinks: NavItem[] = [
       },
     ],
   },
-  { href: "/thinking", label: "Thinking" },
+  {
+    href: "/thinking",
+    label: "Thinking",
+    children: [
+      {
+        href: "/thinking",
+        label: "Micro-Blog",
+        description: "Quick takes and insights",
+      },
+      {
+        href: "https://sarenai.substack.com",
+        label: "Substack",
+        description: "Long-form articles and guides",
+      },
+    ],
+  },
   {
     href: "/about",
     label: "About",
@@ -99,25 +114,52 @@ function DropdownMenu({
           className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50"
         >
           <div className="bg-white dark:bg-offblack rounded-xl shadow-xl border border-charcoal/10 dark:border-ash/10 overflow-hidden min-w-[280px]">
-            {items.map((item, index) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={onClose}
-                className={`block px-4 py-3 hover:bg-charcoal/5 dark:hover:bg-ash/5 transition-colors ${
-                  index !== items.length - 1 ? "border-b border-charcoal/5 dark:border-ash/5" : ""
-                }`}
-              >
-                <span className="font-medium text-charcoal dark:text-ash hover:text-ember transition-colors block">
-                  {item.label}
-                </span>
-                {item.description && (
-                  <span className="text-sm text-slate dark:text-slate mt-0.5 block">
-                    {item.description}
+            {items.map((item, index) => {
+              const isExternal = item.href.startsWith('http');
+              const linkContent = (
+                <>
+                  <span className="font-medium text-charcoal dark:text-ash hover:text-ember transition-colors block">
+                    {item.label}
+                    {isExternal && (
+                      <svg className="w-3 h-3 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    )}
                   </span>
-                )}
-              </Link>
-            ))}
+                  {item.description && (
+                    <span className="text-sm text-slate dark:text-slate mt-0.5 block">
+                      {item.description}
+                    </span>
+                  )}
+                </>
+              );
+
+              const className = `block px-4 py-3 hover:bg-charcoal/5 dark:hover:bg-ash/5 transition-colors ${
+                index !== items.length - 1 ? "border-b border-charcoal/5 dark:border-ash/5" : ""
+              }`;
+
+              return isExternal ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={onClose}
+                  className={className}
+                >
+                  {linkContent}
+                </a>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={onClose}
+                  className={className}
+                >
+                  {linkContent}
+                </Link>
+              );
+            })}
           </div>
         </motion.div>
       )}
@@ -291,23 +333,50 @@ export default function Header() {
                               className="overflow-hidden"
                             >
                               <div className="pl-4 py-2 space-y-1">
-                                {link.children.map((child) => (
-                                  <Link
-                                    key={child.href}
-                                    href={child.href}
-                                    onClick={() => setIsMenuOpen(false)}
-                                    className="block py-2 px-4 text-slate dark:text-slate hover:text-ember hover:bg-charcoal/5 dark:hover:bg-ash/5 rounded-lg transition-all"
-                                  >
-                                    <span className="font-medium text-charcoal/80 dark:text-ash/80">
-                                      {child.label}
-                                    </span>
-                                    {child.description && (
-                                      <span className="block text-xs text-slate mt-0.5">
-                                        {child.description}
+                                {link.children.map((child) => {
+                                  const isExternal = child.href.startsWith('http');
+                                  const linkContent = (
+                                    <>
+                                      <span className="font-medium text-charcoal/80 dark:text-ash/80">
+                                        {child.label}
+                                        {isExternal && (
+                                          <svg className="w-3 h-3 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                          </svg>
+                                        )}
                                       </span>
-                                    )}
-                                  </Link>
-                                ))}
+                                      {child.description && (
+                                        <span className="block text-xs text-slate mt-0.5">
+                                          {child.description}
+                                        </span>
+                                      )}
+                                    </>
+                                  );
+
+                                  const className = "block py-2 px-4 text-slate dark:text-slate hover:text-ember hover:bg-charcoal/5 dark:hover:bg-ash/5 rounded-lg transition-all";
+
+                                  return isExternal ? (
+                                    <a
+                                      key={child.href}
+                                      href={child.href}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      onClick={() => setIsMenuOpen(false)}
+                                      className={className}
+                                    >
+                                      {linkContent}
+                                    </a>
+                                  ) : (
+                                    <Link
+                                      key={child.href}
+                                      href={child.href}
+                                      onClick={() => setIsMenuOpen(false)}
+                                      className={className}
+                                    >
+                                      {linkContent}
+                                    </Link>
+                                  );
+                                })}
                               </div>
                             </motion.div>
                           )}
