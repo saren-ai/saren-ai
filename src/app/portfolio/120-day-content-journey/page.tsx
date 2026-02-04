@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import JourneyMatrix from "@/components/content-journey/JourneyMatrix";
+import { enterpriseMatrix } from "@/lib/content-journey";
 
 export const metadata: Metadata = {
   title: "120-Day Content Journey: Engineering Demand at Scale",
   description:
-    "A content system designed to move buyers from awareness through purchase consideration—the framework we used at Cylance.",
+    "A buyer-led content system that moves enterprise deals from panic to purchase—without spraying content. Interactive demand architecture map.",
+  openGraph: {
+    title: "120-Day Content Journey | Saren.ai",
+    description:
+      "An interactive buyer journey matrix showing how content reduces friction across the buying cycle.",
+    images: ["/portfolio/content-journey-og.png"],
+  },
 };
 
 export default function ContentJourneyPage() {
@@ -25,7 +33,7 @@ export default function ContentJourneyPage() {
                 <li>/</li>
                 <li>
                   <Link
-                    href="/portfolio/golden-dashboard"
+                    href="/portfolio"
                     className="hover:text-ash transition-colors"
                   >
                     Portfolio
@@ -37,12 +45,113 @@ export default function ContentJourneyPage() {
             </nav>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              120-Day Content Journey
+              The 120-Day Content Journey
             </h1>
             <p className="text-xl md:text-2xl text-ash/80 leading-relaxed">
-              How we engineered demand at Cylance—a content system that moves
-              buyers from awareness through purchase consideration.
+              A buyer-led content system that moves enterprise deals from panic to purchase—without spraying content.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Matrix */}
+      <section className="section bg-gradient-to-br from-charcoal/5 to-electric/5">
+        <div className="container-wide">
+          <div className="text-center mb-10">
+            <span className="inline-block px-4 py-1 bg-ember/10 text-ember text-sm font-semibold rounded-full mb-4">
+              Interactive Demand Architecture Map
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Explore the Matrix
+            </h2>
+            <p className="text-foreground-muted text-lg max-w-3xl mx-auto mb-6">
+              This isn't a content calendar—it's a go-to-market operating system that aligns content, sales, and scoring to how buyers actually move from anxiety to confidence.
+            </p>
+            
+            {/* How to Read This */}
+            <div className="bg-card-bg border border-border rounded-lg p-6 max-w-3xl mx-auto text-left mb-8">
+              <h3 className="text-lg font-semibold text-foreground mb-4">How to Read This Matrix</h3>
+              <ul className="space-y-2 text-foreground-muted">
+                <li className="flex items-start gap-3">
+                  <span className="flex-shrink-0 w-5 h-5 bg-electric/10 rounded-full flex items-center justify-center mt-0.5">
+                    <span className="text-electric text-xs">1</span>
+                  </span>
+                  <span>Each <strong className="text-foreground">column</strong> is a buyer stage—from problem identification through renewal</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="flex-shrink-0 w-5 h-5 bg-electric/10 rounded-full flex items-center justify-center mt-0.5">
+                    <span className="text-electric text-xs">2</span>
+                  </span>
+                  <span>Each <strong className="text-foreground">row</strong> is a planning layer (tasks, personas, KPIs, content, scoring, emotional state)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="flex-shrink-0 w-5 h-5 bg-electric/10 rounded-full flex items-center justify-center mt-0.5">
+                    <span className="text-electric text-xs">3</span>
+                  </span>
+                  <span><strong className="text-foreground">Hover</strong> for quick definitions • <strong className="text-foreground">Click</strong> for deep consulting insights</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <JourneyMatrix data={enterpriseMatrix} />
+        </div>
+      </section>
+
+      {/* Notion Template CTA */}
+      <section className="section bg-gradient-to-br from-copper/10 to-ember/10 border-y-2 border-copper/30">
+        <div className="container-narrow">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-1">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-copper/20 text-copper rounded-full text-sm font-semibold mb-4">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
+                  </svg>
+                  Template Available
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                  Get the Notion Template
+                </h2>
+                <p className="text-foreground-muted text-lg mb-6">
+                  Use this exact matrix to plan your own content journey. Fully editable Notion template with all 10 stages, 12 planning layers, and built-in scoring framework.
+                </p>
+                <ul className="space-y-2 mb-6">
+                  {[
+                    "Pre-filled with best-practice content strategies",
+                    "Customizable for your buyer journey",
+                    "Includes scoring methodology and KPI frameworks",
+                    "Instant access + lifetime updates",
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start gap-3 text-foreground">
+                      <span className="flex-shrink-0 w-5 h-5 bg-copper/20 rounded-full flex items-center justify-center mt-0.5">
+                        <svg className="w-3 h-3 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div className="flex-shrink-0">
+                <a
+                  href="https://saren.notion.site/120-Day-Content-Journey-Template"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-copper hover:bg-copper/90 text-white rounded-lg font-semibold text-lg transition-colors shadow-lg hover:shadow-xl"
+                >
+                  Get Template
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+                <p className="text-xs text-foreground-muted text-center mt-3">
+                  Instant access • No signup required
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
