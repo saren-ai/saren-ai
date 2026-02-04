@@ -35,6 +35,14 @@ const portfolioItems = [
     metricLabel: "Quarterly Pipeline",
     href: "/portfolio/120-day-content-journey",
   },
+  {
+    title: "B2B Marketing Framework",
+    description:
+      "A 7-layer prompt matrix for building B2B SaaS messaging infrastructure from scratch. The essential system for teams who can't afford to build on quicksand.",
+    metric: "21",
+    metricLabel: "Prompts",
+    href: "/portfolio/b2b-marketing-framework",
+  },
 ];
 
 export default function PortfolioGrid() {
