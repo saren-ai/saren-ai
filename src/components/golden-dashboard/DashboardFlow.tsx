@@ -201,11 +201,16 @@ export default function DashboardFlow() {
         </button>
       </div>
 
-      {/* Desktop View - Horizontal Flow */}
-      <div className="hidden lg:block">
-        <div className="overflow-x-auto pb-4">
-          <div className="flex items-stretch gap-0 min-w-max">
-            {stageCards.map((card, index) => {
+      {/* Desktop View - Two Row Split (Marketing → Sales) */}
+      <div className="hidden lg:block space-y-6">
+        {/* Marketing Funnel (Row 1) */}
+        <div>
+          <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-3 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-electric" />
+            Marketing Funnel
+          </h3>
+          <div className="flex items-stretch gap-0">
+            {stageCards.slice(0, 5).map((card, index) => {
               const baselineValue =
                 card.id === "spend"
                   ? baselineAssumptions.spend
@@ -231,7 +236,7 @@ export default function DashboardFlow() {
                       {...card}
                       index={index}
                       isFirst={index === 0}
-                      isLast={index === stageCards.length - 1}
+                      isLast={false}
                       tooltipMeta={card.meta}
                       delta={delta}
                       onClick={() => setSelectedMetric(card.meta)}
@@ -239,7 +244,7 @@ export default function DashboardFlow() {
                       benchmark={card.meta.bench}
                     />
                   </div>
-                  {index < stageCards.length - 1 && (
+                  {index < 4 && (
                     <StageConnector
                       rate={conversionRates[index].rate}
                       label={conversionRates[index].label}
@@ -251,88 +256,178 @@ export default function DashboardFlow() {
             })}
           </div>
         </div>
+
+        {/* Handoff Connector */}
+        <div className="flex items-center justify-center py-2">
+          <div className="flex items-center gap-4 px-6 py-3 bg-copper/10 border-2 border-copper/30 rounded-lg">
+            <div className="text-center">
+              <div className="text-xs text-copper uppercase tracking-wider font-semibold mb-1">
+                Marketing → Sales Handoff
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-foreground-muted text-sm">MQL-to-Opp Rate:</span>
+                <span className="font-mono text-lg font-bold text-copper">
+                  {formatPercent(currentModel.conversionRates.mqlToOpp)}
+                </span>
+              </div>
+            </div>
+            <svg
+              className="w-6 h-6 text-copper"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              />
+            </svg>
+          </div>
+        </div>
+
+        {/* Sales Funnel (Row 2) */}
+        <div>
+          <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-3 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-copper" />
+            Sales Funnel
+          </h3>
+          <div className="flex items-stretch gap-0">
+            {stageCards.slice(5).map((card, index) => {
+              const baselineValue =
+                baselineModel.stages[
+                  card.id as keyof typeof baselineModel.stages
+                ];
+              const currentValue =
+                currentModel.stages[card.id as keyof typeof currentModel.stages];
+              const delta =
+                typeof baselineValue === "number" &&
+                typeof currentValue === "number"
+                  ? calculateDelta(currentValue, baselineValue)
+                  : undefined;
+
+              return (
+                <div key={card.id} className="flex items-center">
+                  <div className="w-[190px]">
+                    <MetricCard
+                      {...card}
+                      index={index + 5}
+                      isFirst={false}
+                      isLast={index === 2}
+                      tooltipMeta={card.meta}
+                      delta={delta}
+                      onClick={() => setSelectedMetric(card.meta)}
+                      showBenchmark={showBenchmarks && card.meta.bench !== undefined}
+                      benchmark={card.meta.bench}
+                    />
+                  </div>
+                  {index < 2 && (
+                    <StageConnector
+                      rate={conversionRates[index + 5].rate}
+                      label={conversionRates[index + 5].label}
+                      index={index + 5}
+                    />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
-      {/* Tablet View - 2x4 Grid */}
-      <div className="hidden md:block lg:hidden">
-        <div className="grid grid-cols-4 gap-3">
-          {stageCards.slice(0, 4).map((card, index) => {
-            const baselineValue =
-              card.id === "spend"
-                ? baselineAssumptions.spend
-                : baselineModel.stages[
-                    card.id as keyof typeof baselineModel.stages
-                  ];
-            const currentValue =
-              card.id === "spend"
-                ? currentAssumptions.spend
-                : currentModel.stages[
-                    card.id as keyof typeof currentModel.stages
-                  ];
-            const delta =
-              typeof baselineValue === "number" &&
-              typeof currentValue === "number"
-                ? calculateDelta(currentValue, baselineValue)
-                : undefined;
+      {/* Tablet View - Marketing & Sales Split */}
+      <div className="hidden md:block lg:hidden space-y-6">
+        {/* Marketing Row */}
+        <div>
+          <h3 className="text-xs font-semibold text-foreground uppercase tracking-wider mb-2 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-electric" />
+            Marketing
+          </h3>
+          <div className="grid grid-cols-3 gap-3">
+            {stageCards.slice(0, 5).map((card, index) => {
+              const baselineValue =
+                card.id === "spend"
+                  ? baselineAssumptions.spend
+                  : baselineModel.stages[
+                      card.id as keyof typeof baselineModel.stages
+                    ];
+              const currentValue =
+                card.id === "spend"
+                  ? currentAssumptions.spend
+                  : currentModel.stages[
+                      card.id as keyof typeof currentModel.stages
+                    ];
+              const delta =
+                typeof baselineValue === "number" &&
+                typeof currentValue === "number"
+                  ? calculateDelta(currentValue, baselineValue)
+                  : undefined;
 
-            return (
-              <MetricCard
-                key={card.id}
-                {...card}
-                index={index}
-                isFirst={index === 0}
-                tooltipMeta={card.meta}
-                delta={delta}
-                onClick={() => setSelectedMetric(card.meta)}
-                showBenchmark={showBenchmarks && card.meta.bench !== undefined}
-                benchmark={card.meta.bench}
-              />
-            );
-          })}
+              return (
+                <MetricCard
+                  key={card.id}
+                  {...card}
+                  index={index}
+                  isFirst={index === 0}
+                  tooltipMeta={card.meta}
+                  delta={delta}
+                  onClick={() => setSelectedMetric(card.meta)}
+                  showBenchmark={showBenchmarks && card.meta.bench !== undefined}
+                  benchmark={card.meta.bench}
+                />
+              );
+            })}
+          </div>
         </div>
-        <div className="flex justify-center my-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex items-center gap-2 text-electric"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 16l-6-6h12l-6 6z" />
-            </svg>
-            <span className="text-sm font-mono">Funnel Continues</span>
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 16l-6-6h12l-6 6z" />
-            </svg>
-          </motion.div>
-        </div>
-        <div className="grid grid-cols-4 gap-3">
-          {stageCards.slice(4).map((card, index) => {
-            const baselineValue =
-              baselineModel.stages[
-                card.id as keyof typeof baselineModel.stages
-              ];
-            const currentValue =
-              currentModel.stages[card.id as keyof typeof currentModel.stages];
-            const delta =
-              typeof baselineValue === "number" &&
-              typeof currentValue === "number"
-                ? calculateDelta(currentValue, baselineValue)
-                : undefined;
 
-            return (
-              <MetricCard
-                key={card.id}
-                {...card}
-                index={index + 4}
-                isLast={index === 3}
-                tooltipMeta={card.meta}
-                delta={delta}
-                onClick={() => setSelectedMetric(card.meta)}
-                showBenchmark={showBenchmarks && card.meta.bench !== undefined}
-                benchmark={card.meta.bench}
-              />
-            );
-          })}
+        {/* Handoff */}
+        <div className="flex justify-center">
+          <div className="flex items-center gap-2 px-4 py-2 bg-copper/10 border border-copper/30 rounded-lg">
+            <span className="text-xs text-copper font-semibold">
+              MQL→Opp: {formatPercent(currentModel.conversionRates.mqlToOpp)}
+            </span>
+            <svg className="w-4 h-4 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
+        </div>
+
+        {/* Sales Row */}
+        <div>
+          <h3 className="text-xs font-semibold text-foreground uppercase tracking-wider mb-2 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-copper" />
+            Sales
+          </h3>
+          <div className="grid grid-cols-3 gap-3">
+            {stageCards.slice(5).map((card, index) => {
+              const baselineValue =
+                baselineModel.stages[
+                  card.id as keyof typeof baselineModel.stages
+                ];
+              const currentValue =
+                currentModel.stages[card.id as keyof typeof currentModel.stages];
+              const delta =
+                typeof baselineValue === "number" &&
+                typeof currentValue === "number"
+                  ? calculateDelta(currentValue, baselineValue)
+                  : undefined;
+
+              return (
+                <MetricCard
+                  key={card.id}
+                  {...card}
+                  index={index + 5}
+                  isLast={index === 2}
+                  tooltipMeta={card.meta}
+                  delta={delta}
+                  onClick={() => setSelectedMetric(card.meta)}
+                  showBenchmark={showBenchmarks && card.meta.bench !== undefined}
+                  benchmark={card.meta.bench}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
 
