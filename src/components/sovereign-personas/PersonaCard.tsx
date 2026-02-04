@@ -48,7 +48,7 @@ export default function PersonaCard({ persona, onShowDetails }: PersonaCardProps
         {/* Action */}
         <button
           onClick={() => onShowDetails(persona)}
-          className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-ember hover:bg-ember/90 text-white rounded-lg font-semibold transition-colors"
+          className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-card-bg dark:bg-background border-2 border-border hover:border-electric hover:bg-electric/5 text-foreground hover:text-electric rounded-lg font-semibold transition-all"
         >
           <svg
             className="w-5 h-5"
