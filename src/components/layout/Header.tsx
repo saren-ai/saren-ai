@@ -4,187 +4,112 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
+import MegaMenu, { type MegaMenuContent } from "./MegaMenu";
+import {
+  portfolioMegaMenu,
+  thinkingMegaMenu,
+  aboutMegaMenu,
+} from "@/lib/mega-menu-content";
 
 interface NavItem {
-  href: string;
   label: string;
-  children?: { href: string; label: string; description?: string }[];
+  href?: string;
+  megaMenu?: MegaMenuContent;
+  mobileChildren?: { href: string; label: string; description?: string; isExternal?: boolean }[];
 }
 
 const navLinks: NavItem[] = [
   {
-    href: "/portfolio/golden-dashboard",
     label: "Portfolio",
-    children: [
-      {
-        href: "/portfolio/golden-dashboard",
-        label: "Golden Dashboard",
-        description: "Full-funnel attribution analytics",
-      },
-      {
-        href: "/portfolio/sovereign-personas",
-        label: "Sovereign Personas",
-        description: "Buyer personas that drive action",
-      },
-      {
-        href: "/portfolio/10-touch-sales-play",
-        label: "10-Touch Sales Play",
-        description: "Multi-channel outbound system",
-      },
-      {
-        href: "/portfolio/120-day-content-journey",
-        label: "120-Day Content Journey",
-        description: "Content-driven demand engine",
-      },
-      {
-        href: "/portfolio/b2b-marketing-framework",
-        label: "B2B Marketing Framework",
-        description: "7-layer messaging system",
-      },
-      {
-        href: "/portfolio/its-good-to-be-pitched",
-        label: "It's Good to Be Pitched",
-        description: "30-second TV spot storyboard",
-      },
+    megaMenu: portfolioMegaMenu,
+    mobileChildren: [
+      { href: "/portfolio", label: "View All Work" },
+      { href: "/portfolio/golden-dashboard", label: "Golden Dashboard" },
+      { href: "/portfolio/sovereign-personas", label: "Sovereign Personas" },
+      { href: "/portfolio/10-touch-sales-play", label: "10-Touch Sales Play" },
+      { href: "/portfolio/120-day-content-journey", label: "120-Day Content Journey" },
+      { href: "/portfolio/b2b-marketing-framework", label: "B2B Marketing Framework" },
+      { href: "/portfolio/its-good-to-be-pitched", label: "It's Good to Be Pitched" },
     ],
   },
   {
-    href: "/thinking",
     label: "Thinking",
-    children: [
-      {
-        href: "/thinking",
-        label: "Micro-Blog",
-        description: "Quick takes and insights",
-      },
-      {
-        href: "https://sarenai.substack.com",
-        label: "Substack",
-        description: "Long-form articles and guides",
-      },
+    megaMenu: thinkingMegaMenu,
+    mobileChildren: [
+      { href: "/thinking", label: "Micro-Blog" },
+      { href: "https://sarenai.substack.com", label: "Substack", isExternal: true },
     ],
   },
   {
-    href: "/about",
     label: "About",
-    children: [
-      {
-        href: "/about",
-        label: "About Me",
-        description: "Career journey and background",
-      },
-      {
-        href: "/about/stack",
-        label: "My Stack",
-        description: "Tools I use to build and grow",
-      },
+    megaMenu: aboutMegaMenu,
+    mobileChildren: [
+      { href: "/about", label: "About Me" },
+      { href: "/about/stack", label: "My Stack" },
     ],
   },
-  { href: "/contact", label: "Contact" },
+  {
+    label: "Contact",
+    href: "/contact",
+  },
 ];
 
-function DropdownMenu({
-  items,
-  isOpen,
-  onClose,
-}: {
-  items: NavItem["children"];
-  isOpen: boolean;
-  onClose: () => void;
-}) {
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        onClose();
-      }
-    }
-
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isOpen, onClose]);
-
-  return (
-    <AnimatePresence>
-      {isOpen && items && (
-        <motion.div
-          ref={dropdownRef}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 8 }}
-          transition={{ duration: 0.15 }}
-          className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50"
-        >
-          <div className="bg-white dark:bg-offblack rounded-xl shadow-xl border border-charcoal/10 dark:border-ash/10 overflow-hidden min-w-[280px]">
-            {items.map((item, index) => {
-              const isExternal = item.href.startsWith('http');
-              const linkContent = (
-                <>
-                  <span className="font-medium text-charcoal dark:text-ash hover:text-ember transition-colors block">
-                    {item.label}
-                    {isExternal && (
-                      <svg className="w-3 h-3 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    )}
-                  </span>
-                  {item.description && (
-                    <span className="text-sm text-slate dark:text-slate mt-0.5 block">
-                      {item.description}
-                    </span>
-                  )}
-                </>
-              );
-
-              const className = `block px-4 py-3 hover:bg-charcoal/5 dark:hover:bg-ash/5 transition-colors ${
-                index !== items.length - 1 ? "border-b border-charcoal/5 dark:border-ash/5" : ""
-              }`;
-
-              return isExternal ? (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={onClose}
-                  className={className}
-                >
-                  {linkContent}
-                </a>
-              ) : (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={onClose}
-                  className={className}
-                >
-                  {linkContent}
-                </Link>
-              );
-            })}
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-}
-
 export default function Header() {
+  const [openMegaMenu, setOpenMegaMenu] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(null);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
+
+  // Handle mega menu hover with delay
+  const handleMouseEnter = (label: string, hasMegaMenu: boolean) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    if (hasMegaMenu) {
+      setOpenMegaMenu(label);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setOpenMegaMenu(null);
+    }, 150);
+  };
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  // Close mega menu on escape
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpenMegaMenu(null);
+      }
+    };
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, []);
 
   return (
-    <header className="bg-ash/95 dark:bg-offblack/95 backdrop-blur-sm border-b border-charcoal/10 dark:border-ash/10 transition-colors">
-      <nav className="container-narrow">
-        <div className="flex items-center justify-between h-16 md:h-20">
+    <header
+      ref={headerRef}
+      className="sticky top-0 z-40 bg-ash/95 dark:bg-offblack/95 backdrop-blur-sm border-b border-charcoal/10 dark:border-ash/10"
+      onMouseLeave={handleMouseLeave}
+    >
+      <nav className="container-wide py-4">
+        <div className="flex items-center justify-between">
           {/* Logo */}
           <Link
             href="/"
-            className="text-xl md:text-2xl font-bold text-charcoal dark:text-ash tracking-tight hover:text-ember transition-colors"
+            className="text-2xl font-bold text-charcoal dark:text-ash tracking-tight hover:text-ember transition-colors"
           >
             saren<span className="text-ember">.</span>ai
           </Link>
@@ -192,34 +117,12 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <div key={link.href} className="relative">
-                {link.children ? (
-                  <button
-                    onClick={() =>
-                      setOpenDropdown(openDropdown === link.label ? null : link.label)
-                    }
-                    onMouseEnter={() => setOpenDropdown(link.label)}
-                    className="text-charcoal/80 dark:text-ash/80 hover:text-ember font-medium transition-colors relative group flex items-center gap-1"
-                  >
-                    {link.label}
-                    <svg
-                      className={`w-4 h-4 transition-transform ${
-                        openDropdown === link.label ? "rotate-180" : ""
-                      }`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-ember transition-all duration-300 group-hover:w-full" />
-                  </button>
-                ) : (
+              <div
+                key={link.label}
+                className="relative"
+                onMouseEnter={() => handleMouseEnter(link.label, !!link.megaMenu)}
+              >
+                {link.href ? (
                   <Link
                     href={link.href}
                     className="text-charcoal/80 dark:text-ash/80 hover:text-ember font-medium transition-colors relative group"
@@ -227,23 +130,25 @@ export default function Header() {
                     {link.label}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-ember transition-all duration-300 group-hover:w-full" />
                   </Link>
-                )}
-
-                {link.children && (
-                  <div
-                    onMouseEnter={() => setOpenDropdown(link.label)}
-                    onMouseLeave={() => setOpenDropdown(null)}
+                ) : (
+                  <button
+                    className={`text-charcoal/80 dark:text-ash/80 hover:text-ember font-medium transition-colors relative group ${
+                      openMegaMenu === link.label ? "text-ember" : ""
+                    }`}
+                    aria-expanded={openMegaMenu === link.label}
+                    aria-haspopup="true"
                   >
-                    <DropdownMenu
-                      items={link.children}
-                      isOpen={openDropdown === link.label}
-                      onClose={() => setOpenDropdown(null)}
+                    {link.label}
+                    <span
+                      className={`absolute -bottom-1 left-0 h-0.5 bg-ember transition-all duration-300 ${
+                        openMegaMenu === link.label ? "w-full" : "w-0 group-hover:w-full"
+                      }`}
                     />
-                  </div>
+                  </button>
                 )}
               </div>
             ))}
-            
+
             {/* Theme Toggle */}
             <ThemeToggle />
           </div>
@@ -296,12 +201,12 @@ export default function Header() {
               <div className="py-4 space-y-1 border-t border-charcoal/10 dark:border-ash/10">
                 {navLinks.map((link, index) => (
                   <motion.div
-                    key={link.href}
+                    key={link.label}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
                   >
-                    {link.children ? (
+                    {link.mobileChildren ? (
                       <div>
                         <button
                           onClick={() =>
@@ -338,15 +243,25 @@ export default function Header() {
                               className="overflow-hidden"
                             >
                               <div className="pl-4 py-2 space-y-1">
-                                {link.children.map((child) => {
-                                  const isExternal = child.href.startsWith('http');
+                                {link.mobileChildren.map((child) => {
+                                  const isExternal = child.isExternal || child.href.startsWith('http');
                                   const linkContent = (
                                     <>
                                       <span className="font-medium text-charcoal/80 dark:text-ash/80">
                                         {child.label}
                                         {isExternal && (
-                                          <svg className="w-3 h-3 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                          <svg
+                                            className="w-3 h-3 inline-block ml-1"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                          >
+                                            <path
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                              strokeWidth={2}
+                                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                            />
                                           </svg>
                                         )}
                                       </span>
@@ -358,7 +273,8 @@ export default function Header() {
                                     </>
                                   );
 
-                                  const className = "block py-2 px-4 text-slate dark:text-slate hover:text-ember hover:bg-charcoal/5 dark:hover:bg-ash/5 rounded-lg transition-all";
+                                  const className =
+                                    "block py-2 px-4 text-slate dark:text-slate hover:text-ember hover:bg-charcoal/5 dark:hover:bg-ash/5 rounded-lg transition-all";
 
                                   return isExternal ? (
                                     <a
@@ -387,7 +303,7 @@ export default function Header() {
                           )}
                         </AnimatePresence>
                       </div>
-                    ) : (
+                    ) : link.href ? (
                       <Link
                         href={link.href}
                         onClick={() => setIsMenuOpen(false)}
@@ -395,7 +311,7 @@ export default function Header() {
                       >
                         {link.label}
                       </Link>
-                    )}
+                    ) : null}
                   </motion.div>
                 ))}
               </div>
@@ -403,6 +319,19 @@ export default function Header() {
           )}
         </AnimatePresence>
       </nav>
+
+      {/* Mega Menus */}
+      {navLinks.map(
+        (link) =>
+          link.megaMenu && (
+            <MegaMenu
+              key={link.label}
+              isOpen={openMegaMenu === link.label}
+              content={link.megaMenu}
+              onClose={() => setOpenMegaMenu(null)}
+            />
+          )
+      )}
     </header>
   );
 }

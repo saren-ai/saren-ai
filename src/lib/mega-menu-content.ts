@@ -1,0 +1,138 @@
+import type { MegaMenuContent } from "@/components/layout/MegaMenu";
+
+/**
+ * Portfolio Mega Menu Content
+ */
+export const portfolioMegaMenu: MegaMenuContent = {
+  sections: [
+    {
+      title: "Revenue Systems",
+      links: [
+        {
+          href: "/portfolio/golden-dashboard",
+          label: "The Golden Dashboard",
+          description: "Full-funnel attribution analytics framework",
+        },
+        {
+          href: "/portfolio/120-day-content-journey",
+          label: "120-Day Content Journey",
+          description: "$4M quarterly pipeline from systematic content",
+        },
+      ],
+    },
+    {
+      title: "GTM Architecture",
+      links: [
+        {
+          href: "/portfolio/b2b-marketing-framework",
+          label: "B2B Marketing Framework",
+          description: "7-layer prompt matrix for messaging infrastructure",
+        },
+        {
+          href: "/portfolio/10-touch-sales-play",
+          label: "10-Touch Sales Play",
+          description: "Multi-channel outbound system (42% meeting rate)",
+        },
+      ],
+    },
+    {
+      title: "Buyer Intelligence",
+      links: [
+        {
+          href: "/portfolio/sovereign-personas",
+          label: "Sovereign Buyer Personas",
+          description: "Committee buying frameworks for complex deals",
+        },
+      ],
+    },
+    {
+      title: "Creative Production",
+      links: [
+        {
+          href: "/portfolio/its-good-to-be-pitched",
+          label: "It's Good to Be Pitched",
+          description: "AI-assisted storyboard for 30-second TV spot",
+        },
+        {
+          href: "/portfolio",
+          label: "View All Work →",
+          description: "Complete portfolio with interactive case studies",
+        },
+      ],
+    },
+  ],
+  promotional: {
+    image: "/portfolio/storyboards/storyboard_06.png",
+    imageAlt: "Featured portfolio work",
+    headline: "Interactive Case Studies",
+    description:
+      "Each project includes live demos, data models, and frameworks you can explore. Not just outcomes—actual systems.",
+    cta: {
+      label: "Explore Portfolio",
+      href: "/portfolio",
+    },
+  },
+};
+
+/**
+ * Thinking Mega Menu Content
+ */
+export const thinkingMegaMenu: MegaMenuContent = {
+  sections: [
+    {
+      links: [
+        {
+          href: "/thinking",
+          label: "Micro-Blog",
+          description: "Quick takes and tactical insights",
+        },
+        {
+          href: "https://sarenai.substack.com",
+          label: "Substack",
+          description: "Long-form articles and guides",
+          isExternal: true,
+        },
+      ],
+    },
+  ],
+  promotional: {
+    headline: "How I Build",
+    description:
+      "Behind-the-scenes looks at the systems, prompts, and processes that power fractional CMO work. From Notebook LLM setups to demand architecture.",
+    cta: {
+      label: "Read on Substack",
+      href: "https://sarenai.substack.com",
+    },
+  },
+};
+
+/**
+ * About Mega Menu Content
+ */
+export const aboutMegaMenu: MegaMenuContent = {
+  sections: [
+    {
+      links: [
+        {
+          href: "/about",
+          label: "About Me",
+          description: "Career journey and background",
+        },
+        {
+          href: "/about/stack",
+          label: "My Stack",
+          description: "Tools I use to build and grow",
+        },
+      ],
+    },
+  ],
+  promotional: {
+    headline: "Fractional CMO for Series A Founders",
+    description:
+      "I help technical founders build their first real marketing engine—from demand gen to attribution to category creation. Without ripping out what's working.",
+    cta: {
+      label: "Book a Call",
+      href: "/contact",
+    },
+  },
+};
