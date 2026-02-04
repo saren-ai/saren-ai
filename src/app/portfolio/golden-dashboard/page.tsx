@@ -55,6 +55,25 @@ export default function GoldenDashboardPage() {
         </div>
       </section>
 
+      {/* The Interactive Deliverable */}
+      <section className="section bg-gradient-to-br from-charcoal/5 to-electric/5">
+        <div className="container-narrow">
+          <div className="text-center mb-10">
+            <span className="inline-block px-4 py-1 bg-ember/10 text-ember text-sm font-semibold rounded-full mb-4">
+              Interactive Demo
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Try It Yourself
+            </h2>
+            <p className="text-foreground-muted text-lg max-w-2xl mx-auto">
+              This isn't just a screenshot—it's a live decision model. Click Calculator Mode to simulate scenarios, hover for insights, click any stage for deep consulting playbooks.
+            </p>
+          </div>
+
+          <DashboardFlow />
+        </div>
+      </section>
+
       {/* The Problem */}
       <section className="section bg-ash">
         <div className="container-narrow">
@@ -230,26 +249,6 @@ export default function GoldenDashboardPage() {
               ))}
             </ul>
           </div>
-        </div>
-      </section>
-
-      {/* The Interactive Deliverable */}
-      <section className="section bg-gradient-to-br from-charcoal/5 to-electric/5">
-        <div className="container-narrow">
-          <div className="text-center mb-10">
-            <span className="inline-block px-4 py-1 bg-ember/10 text-ember text-sm font-semibold rounded-full mb-4">
-              Interactive Demo
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">
-              The Golden Dashboard
-            </h2>
-            <p className="text-slate text-lg max-w-2xl mx-auto">
-              Hover over each stage to understand the metrics. Follow the flow
-              from ad spend to closed-won deals.
-            </p>
-          </div>
-
-          <DashboardFlow />
         </div>
       </section>
 
