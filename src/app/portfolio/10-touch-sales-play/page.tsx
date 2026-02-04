@@ -77,96 +77,93 @@ export default function TenTouchSalesPlayPage() {
       {/* The Approach */}
       <section className="section bg-charcoal/5">
         <div className="container-narrow">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-6">
               The Approach
             </h2>
             <p className="text-slate text-lg mb-8">
               The 10-Touch Sales Play is a structured sequence that combines
-              multiple channels, personalized messaging, and strategic timing:
+              multiple channels, personalized messaging, and strategic timing
+              over 25 days:
             </p>
 
-            {/* Timeline Visual */}
-            <div className="space-y-4">
-              {[
-                {
-                  day: "Day 1",
-                  channel: "LinkedIn",
-                  action: "Connection request with personalized note",
-                },
-                {
-                  day: "Day 2",
-                  channel: "Email",
-                  action: "Value-first cold email (no pitch)",
-                },
-                {
-                  day: "Day 4",
-                  channel: "LinkedIn",
-                  action: "Engage with their content",
-                },
-                {
-                  day: "Day 6",
-                  channel: "Email",
-                  action: "Follow-up with relevant insight",
-                },
-                {
-                  day: "Day 8",
-                  channel: "Phone",
-                  action: "Cold call with specific reason",
-                },
-                {
-                  day: "Day 10",
-                  channel: "LinkedIn",
-                  action: "Share relevant content directly",
-                },
-                {
-                  day: "Day 13",
-                  channel: "Email",
-                  action: "Case study or social proof",
-                },
-                {
-                  day: "Day 16",
-                  channel: "LinkedIn",
-                  action: "Voice message or video",
-                },
-                {
-                  day: "Day 20",
-                  channel: "Phone",
-                  action: "Follow-up call",
-                },
-                {
-                  day: "Day 25",
-                  channel: "Email",
-                  action: "Break-up email with value offer",
-                },
-              ].map((touch, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-4 bg-ash p-4 rounded-lg border border-charcoal/10"
-                >
-                  <div className="flex-shrink-0 w-16 text-center">
-                    <span className="font-mono text-sm font-semibold text-ember">
-                      {touch.day}
-                    </span>
-                  </div>
-                  <div className="flex-shrink-0 w-24">
-                    <span
-                      className={`inline-block px-2 py-1 rounded text-xs font-medium ${
-                        touch.channel === "LinkedIn"
-                          ? "bg-[#0077B5]/10 text-[#0077B5]"
-                          : touch.channel === "Email"
-                          ? "bg-electric/10 text-electric"
-                          : "bg-copper/10 text-copper"
+            {/* Calendar Grid */}
+            <div className="grid grid-cols-5 gap-3 md:gap-4">
+              {(() => {
+                const touches = {
+                  1: { channel: "LinkedIn", action: "Connection request with personalized note" },
+                  2: { channel: "Email", action: "Value-first cold email (no pitch)" },
+                  4: { channel: "LinkedIn", action: "Engage with their content" },
+                  6: { channel: "Email", action: "Follow-up with relevant insight" },
+                  8: { channel: "Phone", action: "Cold call with specific reason" },
+                  10: { channel: "LinkedIn", action: "Share relevant content directly" },
+                  13: { channel: "Email", action: "Case study or social proof" },
+                  16: { channel: "LinkedIn", action: "Voice message or video" },
+                  20: { channel: "Phone", action: "Follow-up call" },
+                  25: { channel: "Email", action: "Break-up email with value offer" },
+                };
+
+                return Array.from({ length: 25 }, (_, i) => {
+                  const dayNumber = i + 1;
+                  const touch = touches[dayNumber as keyof typeof touches];
+                  const hasTouch = !!touch;
+
+                  return (
+                    <div
+                      key={dayNumber}
+                      className={`aspect-square rounded-lg border-2 p-2 md:p-3 flex flex-col ${
+                        hasTouch
+                          ? "bg-white border-ember/20 shadow-sm"
+                          : "bg-ash/30 border-charcoal/10"
                       }`}
                     >
-                      {touch.channel}
-                    </span>
-                  </div>
-                  <div className="flex-1">
-                    <span className="text-charcoal">{touch.action}</span>
-                  </div>
-                </div>
-              ))}
+                      <div className="flex items-start justify-between mb-1">
+                        <span
+                          className={`text-xs md:text-sm font-mono font-semibold ${
+                            hasTouch ? "text-ember" : "text-slate/40"
+                          }`}
+                        >
+                          {dayNumber}
+                        </span>
+                      </div>
+                      {hasTouch && touch && (
+                        <div className="flex-1 flex flex-col gap-1.5 md:gap-2">
+                          <span
+                            className={`inline-block px-1.5 py-0.5 rounded text-[10px] md:text-xs font-medium self-start ${
+                              touch.channel === "LinkedIn"
+                                ? "bg-[#0077B5]/10 text-[#0077B5]"
+                                : touch.channel === "Email"
+                                ? "bg-electric/10 text-electric"
+                                : "bg-copper/10 text-copper"
+                            }`}
+                          >
+                            {touch.channel}
+                          </span>
+                          <p className="text-[10px] md:text-xs text-charcoal leading-tight line-clamp-3 md:line-clamp-4">
+                            {touch.action}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  );
+                });
+              })()}
+            </div>
+
+            {/* Legend */}
+            <div className="mt-8 flex flex-wrap gap-4 justify-center">
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded bg-[#0077B5]/20 border-2 border-[#0077B5]"></span>
+                <span className="text-sm text-slate">LinkedIn</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded bg-electric/20 border-2 border-electric"></span>
+                <span className="text-sm text-slate">Email</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded bg-copper/20 border-2 border-copper"></span>
+                <span className="text-sm text-slate">Phone</span>
+              </div>
             </div>
           </div>
         </div>
