@@ -41,6 +41,11 @@ const navLinks: NavItem[] = [
         label: "B2B Marketing Framework",
         description: "7-layer messaging system",
       },
+      {
+        href: "/portfolio/its-good-to-be-pitched",
+        label: "It's Good to Be Pitched",
+        description: "30-second TV spot storyboard",
+      },
     ],
   },
   {

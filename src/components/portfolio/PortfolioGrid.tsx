@@ -43,6 +43,14 @@ const portfolioItems = [
     metricLabel: "Prompts",
     href: "/portfolio/b2b-marketing-framework",
   },
+  {
+    title: "It's Good to Be Pitched",
+    description:
+      "A 30-second TV spot storyboard about the pleasure of having three great options. Interactive narrative showing AI-assisted creative production.",
+    metric: "8",
+    metricLabel: "Storyboard Frames",
+    href: "/portfolio/its-good-to-be-pitched",
+  },
 ];
 
 export default function PortfolioGrid() {
