@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 interface TooltipProps {
   title: string;
   description: string;
+  formula?: string;
+  whyItMatters?: string;
   isVisible: boolean;
   position?: "top" | "bottom";
 }
@@ -12,6 +14,8 @@ interface TooltipProps {
 export default function Tooltip({
   title,
   description,
+  formula,
+  whyItMatters,
   isVisible,
   position = "top",
 }: TooltipProps) {
@@ -23,7 +27,7 @@ export default function Tooltip({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: position === "top" ? 10 : -10 }}
           transition={{ duration: 0.2 }}
-          className={`absolute z-50 w-64 p-4 bg-offblack border border-electric/30 rounded-lg shadow-xl ${
+          className={`absolute z-50 w-72 p-4 bg-offblack border border-electric/30 rounded-lg shadow-xl ${
             position === "top"
               ? "bottom-full mb-2 left-1/2 -translate-x-1/2"
               : "top-full mt-2 left-1/2 -translate-x-1/2"
@@ -38,8 +42,36 @@ export default function Tooltip({
             }`}
           />
 
-          <h4 className="text-ash font-semibold text-sm mb-1">{title}</h4>
-          <p className="text-ash/70 text-xs leading-relaxed">{description}</p>
+          <div className="space-y-2">
+            <h4 className="text-ash font-semibold text-sm">{title}</h4>
+            <p className="text-ash/70 text-xs leading-relaxed">{description}</p>
+
+            {formula && (
+              <div className="pt-2 border-t border-electric/20">
+                <div className="text-[10px] text-ash/50 uppercase tracking-wide mb-1">
+                  Formula
+                </div>
+                <code className="text-electric/90 text-xs font-mono">
+                  {formula}
+                </code>
+              </div>
+            )}
+
+            {whyItMatters && (
+              <div className="pt-2 border-t border-electric/20">
+                <div className="text-[10px] text-ash/50 uppercase tracking-wide mb-1">
+                  Why it matters
+                </div>
+                <p className="text-ash/70 text-xs leading-relaxed">
+                  {whyItMatters}
+                </p>
+              </div>
+            )}
+
+            <p className="text-[10px] text-ash/40 pt-2 border-t border-electric/20">
+              💡 Click for detailed insights
+            </p>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
