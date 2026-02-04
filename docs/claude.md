@@ -141,3 +141,40 @@ Resolved critical dark mode contrast issues in global navigation and mega menu. 
 - [ ] Monitor user feedback on new homepage messaging
 - [ ] Potential: Add FAQ section to 10-touch sales play page
 - [ ] Future: Consider adding case study client logo or testimonial to 10-touch page
+
+---
+
+# 2026-02-03 - Behavioral Lead Scoring Interactive Portfolio Page
+
+## Summary
+Built a comprehensive new interactive portfolio page demonstrating a behavioral lead scoring system. The page transforms complex scoring logic into an intuitive, explorable experience where users can adjust fit factors and trigger engagement actions to see how scoring drives buyer progression through 5 distinct states (Unknown Unknown → Known Unknown → Known Lead → MQL → SQL). The system emphasizes legibility and human judgment while showcasing demand systems expertise.
+
+## Key Decisions/Changes
+- **Interactive scoring simulator**: Real-time calculation of fit score (0-50, identity-based) + engagement score (0-50, behavior-based) = total score (0-100). Users manipulate both sides to see impact.
+- **5-state buyer journey timeline**: Horizontal left-to-right progression with score indicator traveling through states. Click states to reveal definitions, typical behaviors, system responses, and next steps.
+- **Fit score configurator**: 4 firmographic factors (company size, industry, role, geography) with explicit point values and visual confidence meter. Demonstrates intentional, non-vibes-based qualification.
+- **Engagement signal simulator**: 9 actions across 3 intent levels (low/medium/high). Each action shows point value, one-time vs. repeatable status, and running count. Reinforces cumulative evidence model.
+- **Threshold visualization**: Real-time feedback on MQL (60) and SQL (75) thresholds. System triggers "Sales Review Ready" alert at 75+, showing human gate.
+- **Content journey connector**: Explicitly links to existing 120-Day Content Journey as upstream system, reinforcing "content creates motion → behavior reveals intent → scoring measures momentum → humans decide action" loop.
+- **Calm, explanatory tone**: No gamification, no AI hype. Emphasizes legibility, evidence-based decisions, and systems that inform human judgment.
+- **Core positioning**: "Making complex behavior-driven systems intuitive enough for humans to act on with confidence."
+
+## Files Modified
+- `@src/app/portfolio/behavioral-lead-scoring/page.tsx` (created) - Main page with all sections, hero, feedback loop model, interactive demo, content connection, system architecture, CTA
+- `@src/lib/behavioral-scoring.ts` (created) - Complete data model with types (BuyerState, BuyerProfile, ScoringResult), scoring logic, state determination, 4 fit factors, 9 engagement actions
+- `@src/components/behavioral-scoring/BehaviorJourneyTimeline.tsx` (created) - Horizontal timeline with state nodes, score indicator, expandable details, responsive mobile vertical layout
+- `@src/components/behavioral-scoring/ScoreVisualizer.tsx` (created) - Dashboard showing total score, fit/engagement bars with animations, threshold progress, SQL trigger alert
+- `@src/components/behavioral-scoring/FitScoreBreakdown.tsx` (created) - Configurable fit factors with button selectors, point values, confidence meter, explanatory text
+- `@src/components/behavioral-scoring/EngagementSimulator.tsx` (created) - Grid of action buttons organized by intent level, action counts, point badges, one-time restrictions
+- `@src/app/sitemap.ts` (added /portfolio/behavioral-lead-scoring route)
+- `@src/components/portfolio/PortfolioGrid.tsx` (added as 7th portfolio item: "75+ SQL Threshold")
+- `@src/lib/mega-menu-content.ts` (added to "Buyer Intelligence" section alongside Sovereign Personas)
+
+## TODO / Next Steps
+- [ ] Consider adding FAQ section with schema markup
+- [ ] Potential: Add "preset buyer profiles" (e.g., "Enterprise Champion", "SMB User") for quick exploration
+- [ ] Monitor: Track which engagement actions users trigger most in simulator
+- [ ] Content: Add case study testimonial about scoring system implementation
+- [ ] Future: Create downloadable "Behavioral Scoring Design Template" spreadsheet
+- [ ] Enhancement: Add timeline animation showing score progression over days/weeks
+- [ ] Consider: Add "Export this model" button that generates scoring criteria as JSON/CSV
