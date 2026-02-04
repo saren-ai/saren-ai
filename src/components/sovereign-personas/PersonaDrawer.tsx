@@ -1,6 +1,7 @@
 "use client";
 
 import { X } from "lucide-react";
+import Image from "next/image";
 import type { PersonaCard } from "@/lib/sovereign-personas";
 
 interface PersonaDrawerProps {
@@ -23,14 +24,8 @@ export default function PersonaDrawer({ persona, onClose }: PersonaDrawerProps) 
       {/* Drawer */}
       <div className="fixed right-0 top-0 h-full w-full md:w-[600px] bg-background dark:bg-card-bg shadow-2xl z-50 overflow-y-auto">
         <div className="p-6 md:p-8">
-          {/* Header */}
-          <div className="flex items-start justify-between mb-6">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-                {persona.title}
-              </h2>
-              <p className="text-foreground-muted">{persona.subtitle}</p>
-            </div>
+          {/* Close Button */}
+          <div className="flex justify-end mb-4">
             <button
               onClick={onClose}
               className="flex-shrink-0 p-2 hover:bg-border rounded-lg transition-colors"
@@ -38,6 +33,25 @@ export default function PersonaDrawer({ persona, onClose }: PersonaDrawerProps) 
             >
               <X className="w-6 h-6 text-foreground-muted" />
             </button>
+          </div>
+
+          {/* Thumbnail */}
+          <div className="relative aspect-video overflow-hidden rounded-lg mb-6 border border-border">
+            <Image
+              src={persona.thumbSrc}
+              alt={`${persona.title} persona`}
+              fill
+              className="object-cover"
+              sizes="600px"
+            />
+          </div>
+
+          {/* Header */}
+          <div className="mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+              {persona.title}
+            </h2>
+            <p className="text-foreground-muted">{persona.subtitle}</p>
           </div>
 
           {/* Mandate */}
@@ -152,16 +166,16 @@ export default function PersonaDrawer({ persona, onClose }: PersonaDrawerProps) 
             </ul>
           </div>
 
-          {/* CTA */}
+          {/* CTA - Download PDF */}
           <div className="pt-6 border-t border-border">
             <a
               href={persona.pdfHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-ember hover:bg-ember/90 text-white rounded-lg font-semibold transition-colors"
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-ember hover:bg-ember/90 text-white rounded-lg font-semibold text-lg transition-colors shadow-lg hover:shadow-xl"
             >
               <svg
-                className="w-5 h-5"
+                className="w-6 h-6"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -175,6 +189,9 @@ export default function PersonaDrawer({ persona, onClose }: PersonaDrawerProps) 
               </svg>
               Download Full Persona PDF
             </a>
+            <p className="text-center text-sm text-foreground-muted mt-3">
+              Complete persona with frameworks and examples
+            </p>
           </div>
         </div>
       </div>
