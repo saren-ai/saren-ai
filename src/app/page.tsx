@@ -27,7 +27,7 @@ export default function HomePage() {
               transition={{ duration: 0.5 }}
               className="text-electric font-mono text-sm md:text-base mb-4 tracking-wider uppercase"
             >
-              Fractional CMO & AI Operations
+              Fractional CMO for Founders Who Need Pipeline, Not Process
             </motion.p>
 
             {/* Headline */}
@@ -37,9 +37,10 @@ export default function HomePage() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-charcoal leading-[1.1] mb-6"
             >
-              I build growth engines where{" "}
-              <span className="text-gradient">strategy, storytelling,</span> and{" "}
-              <span className="text-gradient">systems</span> converge
+              I architect{" "}
+              <span className="text-gradient">AI-powered growth systems</span> that
+              turn chaotic marketing spend into{" "}
+              <span className="text-gradient">predictable revenue</span>
             </motion.h1>
 
             {/* Subhead */}
@@ -47,12 +48,38 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl lg:text-2xl text-slate max-w-3xl leading-relaxed mb-10"
+              className="text-lg md:text-xl lg:text-2xl text-slate max-w-3xl leading-relaxed mb-8"
             >
-              Helping Series A founders turn vision into velocity through
-              AI-driven operations. From demand generation to full-funnel
-              attribution, I make marketing measurable.
+              From demand generation to full-funnel attribution, I build marketing
+              engines that scale—without ripping out what&apos;s already working.
             </motion.p>
+
+            {/* Proof Section */}
+            <motion.ul
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              className="space-y-3 mb-10 text-slate max-w-3xl"
+            >
+              <li className="flex items-start gap-3">
+                <span className="flex-shrink-0 w-1.5 h-1.5 bg-ember rounded-full mt-2.5" />
+                <span className="text-base md:text-lg">
+                  <strong className="text-charcoal font-semibold">344% inbound lift, 70% CAC reduction</strong> (Qwiet AI)
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="flex-shrink-0 w-1.5 h-1.5 bg-ember rounded-full mt-2.5" />
+                <span className="text-base md:text-lg">
+                  <strong className="text-charcoal font-semibold">550% pipeline expansion</strong> (Cylance, $1.4B exit)
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="flex-shrink-0 w-1.5 h-1.5 bg-ember rounded-full mt-2.5" />
+                <span className="text-base md:text-lg">
+                  <strong className="text-charcoal font-semibold">Built "Collaborative AI" category from zero</strong> (WethosAI, Series A)
+                </span>
+              </li>
+            </motion.ul>
 
             {/* CTAs */}
             <motion.div
@@ -61,7 +88,7 @@ export default function HomePage() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Link href="/portfolio/golden-dashboard" className="btn-primary">
+              <Link href="/portfolio" className="btn-primary">
                 See the work
                 <svg
                   className="w-5 h-5"
