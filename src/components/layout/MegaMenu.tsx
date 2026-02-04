@@ -47,7 +47,7 @@ export default function MegaMenu({ isOpen, content, onClose }: MegaMenuProps) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2 }}
-          className="absolute left-0 right-0 top-full z-50 bg-white dark:bg-offblack shadow-2xl border-t border-charcoal/10 dark:border-ash/10"
+          className="absolute left-0 right-0 top-full z-50 bg-white dark:bg-card-bg shadow-2xl border-t border-charcoal/10 dark:border-ember/20"
         >
           <div className="max-w-7xl mx-auto px-6 py-12">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -137,7 +137,7 @@ export default function MegaMenu({ isOpen, content, onClose }: MegaMenuProps) {
                   transition={{ delay: 0.1 }}
                   className="lg:col-span-1"
                 >
-                  <div className="bg-gradient-to-br from-charcoal/5 to-electric/5 dark:from-ash/5 dark:to-electric/10 rounded-xl p-6 border border-border">
+                  <div className="bg-gradient-to-br from-charcoal/5 to-electric/5 dark:from-background-secondary dark:to-background-secondary rounded-xl p-6 border border-border dark:border-ember/20">
                     {content.promotional.image && (
                       <div className="relative aspect-video rounded-lg overflow-hidden mb-4 bg-charcoal/10">
                         <Image
