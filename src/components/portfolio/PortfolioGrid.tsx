@@ -51,6 +51,14 @@ const portfolioItems = [
     metricLabel: "Storyboard Frames",
     href: "/portfolio/its-good-to-be-pitched",
   },
+  {
+    title: "Behavioral Lead Scoring",
+    description:
+      "Making buyer motion legible across the journey. An interactive system that connects behavior, engagement, lifecycle, and sales readiness into explainable intelligence.",
+    metric: "75+",
+    metricLabel: "SQL Threshold",
+    href: "/portfolio/behavioral-lead-scoring",
+  },
 ];
 
 export default function PortfolioGrid() {

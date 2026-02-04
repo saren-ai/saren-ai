@@ -43,6 +43,11 @@ export const portfolioMegaMenu: MegaMenuContent = {
           label: "Sovereign Buyer Personas",
           description: "Committee buying frameworks for complex deals",
         },
+        {
+          href: "/portfolio/behavioral-lead-scoring",
+          label: "Behavioral Lead Scoring",
+          description: "Making buyer motion legible across the journey",
+        },
       ],
     },
     {
