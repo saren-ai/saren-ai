@@ -178,3 +178,49 @@ Built a comprehensive new interactive portfolio page demonstrating a behavioral 
 - [ ] Future: Create downloadable "Behavioral Scoring Design Template" spreadsheet
 - [ ] Enhancement: Add timeline animation showing score progression over days/weeks
 - [ ] Consider: Add "Export this model" button that generates scoring criteria as JSON/CSV
+
+---
+
+# 2026-02-03 - SaaS Revenue Goal Calculator Interactive Tool
+
+## Summary
+Built a comprehensive interactive calculator for annual marketing planning. The tool works backwards from revenue goals using industry-specific conversion rate benchmarks to show exactly what volume is needed at each funnel stage. Demonstrates mastery of demand planning, funnel mathematics, and data-driven decision-making. Features 18 industry profiles, CAC comparison by company scale, and animated funnel visualization with annual/monthly toggle.
+
+## Key Decisions/Changes
+- **Reverse-funnel methodology**: Calculator works backwards (revenue → deals → opps → SQLs → MQLs → leads → visitors) rather than forwards, matching how real planning happens
+- **Industry-specific conversion rates**: 18 pre-loaded industry profiles from FirstPageSage benchmarks (Adtech, CRMs, Fintech, Medtech, etc.) that auto-adjust all calculations
+- **6-stage funnel visualization**: Web Visitors → Leads → MQLs → SQOs/SQLs → Opportunities → Closed/Won, color-coded from red (cold) to green (closed) with conversion arrows between stages
+- **CAC comparison module**: Shows required marketing budget by company scale (Consumer/SMB/Mid-Market/Enterprise) with % of revenue calculation
+- **Annual/Monthly toggle**: Switch between views to see monthly targets vs. annual totals
+- **Animated transitions**: Framer Motion animations on all value changes, smooth and purposeful (not gratuitous)
+- **Currency formatting**: Dollar sign inputs with comma separators, proper number formatting throughout
+- **Responsive design**: Horizontal funnel on desktop, vertical stack on mobile for readability
+- **Data attribution**: Clear source attribution to FirstPageSage with external links to benchmark studies
+- **Educational content**: "How It Works" (reverse-funnel methodology), "About the Data" (source transparency), "Interpreting Your Results" (4 common scenarios with guidance)
+- **Fire Horse 2026 aesthetic**: Color-coded funnel stages with ember/electric/copper accents, high-contrast dark mode
+
+## Files Modified
+- `@src/app/portfolio/calculator/page.tsx` (created) - Main page with hero, calculator, educational content, CTA sections
+- `@src/lib/calculator/types.ts` (created) - Complete type system: FunnelResult, ConversionRates, IndustryRates, CACData, CalculatorState, ViewMode
+- `@src/lib/calculator/conversion-rates.ts` (created) - 18 industry profiles, 12 CAC-by-scale datasets, 13 traffic source rates, 8 free trial/freemium profiles
+- `@src/lib/calculator/funnel-calculations.ts` (created) - Calculation logic: calculateFunnel (reverse math), calculateCAC, validation, formatting utilities
+- `@src/components/calculator/SaasCalculator.tsx` (created) - Main orchestrator with state management, industry selection, view mode toggle
+- `@src/components/calculator/InputFields.tsx` (created) - Revenue goal and avg deal size inputs with currency formatting and icons
+- `@src/components/calculator/IndustrySelector.tsx` (created) - Dropdown that auto-adjusts conversion rates based on selection
+- `@src/components/calculator/FunnelDisplay.tsx` (created) - Animated funnel visualization with horizontal/vertical responsive layouts
+- `@src/components/calculator/CacComparison.tsx` (created) - Budget calculator by company scale with % of revenue analysis
+- `@src/app/globals.css` (added calculator-specific styles) - Custom input styles, funnel stage styling, dark mode support
+- `@src/app/sitemap.ts` (added /portfolio/calculator route)
+- `@src/components/portfolio/PortfolioGrid.tsx` (added as 8th portfolio item: "18 Industries")
+- `@src/lib/mega-menu-content.ts` (added to Revenue Systems section)
+
+## TODO / Next Steps
+- [ ] Phase 2: Add custom rate editing (sliders/inputs for each stage conversion)
+- [ ] Phase 2: Add export functionality (CSV download, shareable link with state encoded)
+- [ ] Phase 3: Traffic source breakdown (show visitors needed by channel)
+- [ ] Phase 3: CAC by channel comparison (organic vs inorganic, B2B vs B2C)
+- [ ] Phase 3: Free trial/freemium path (alternative funnel for PLG companies)
+- [ ] Enhancement: Benchmark tooltips on conversion rates (industry average, top performer, what "good" looks like)
+- [ ] Content: Add FAQ section with schema markup
+- [ ] Analytics: Track which industries are most commonly selected
+- [ ] Future: Add "Save my calculation" feature with shareable URLs
