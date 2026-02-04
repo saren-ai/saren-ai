@@ -50,3 +50,33 @@ Created a comprehensive new portfolio page showcasing the 7-layer, 21-prompt B2B
 - [ ] Future: Create visual flowchart of layer dependencies (L1→L2→L3...) as an SVG or Mermaid diagram
 - [ ] Monitor: Check Google Search Console for FAQ rich snippets appearing in search results
 - [ ] Content: Consider adding testimonials from teams who've used the framework
+
+---
+
+# 2026-02-03 - Sovereign Personas Interactive Gallery
+
+## Summary
+Transformed the Sovereign Personas page from a static placeholder into a fully interactive portfolio showcase with 3-card persona gallery, hover states, messaging implications drawers, and comprehensive FAQ. Integrated user-provided 1920x1080 thumbnails and built responsive components that work across desktop/tablet/mobile. The page now demonstrates strategic persona methodology for sovereign infrastructure deals.
+
+## Key Decisions/Changes
+- **Interactive persona cards with hover overlays**: Desktop hover reveals mandate and primary risks; mobile users can tap "Messaging Implications" button
+- **PersonaDrawer component**: Side drawer shows full messaging strategy—altitude, trust signals, dismissals, best content types, and anti-patterns
+- **Three personas with complete data**: Minister (political sponsor), Architect (technical authority), Sovereign Cloud Chief (operator)—each with mandate, risks, trusts, dismisses, messaging altitude, best content, and anti-patterns
+- **Next.js Image optimization**: User provided 1920x1080 PNGs; Next.js handles responsive sizing and optimization automatically
+- **New page sections**: "The Sovereign Buying System" explainer, "How These Personas Get Used" with 5 use cases, 7-question FAQ with FAQPage schema
+- **PDF linking**: All cards link to existing persona PDFs in `/public/portfolio/personas/` with both "Open PDF" primary CTA and "Download" option in drawer
+
+## Files Modified
+- `@src/lib/sovereign-personas.ts` (created) - Data model with PersonaCard type and full content for 3 personas
+- `@src/components/sovereign-personas/PersonaCard.tsx` (created) - Card with thumbnail, hover overlay, and dual CTAs
+- `@src/components/sovereign-personas/PersonaDrawer.tsx` (created) - Full-screen side drawer with messaging strategy details
+- `@src/components/sovereign-personas/PersonaGallery.tsx` (created) - State orchestrator for gallery + drawer
+- `@src/app/portfolio/sovereign-personas/page.tsx` (redesigned) - Complete page overhaul with hero, system explainer, gallery, use cases, FAQ
+- `@public/portfolio/personas/thumbnails/` (added 3 images) - minister-al-rashid.png, dr-wei-chen.png, sovereign-cloud-chief.png
+
+## TODO / Next Steps
+- [ ] Consider adding video testimonials from sovereign infrastructure clients
+- [ ] Potential: Create an interactive "buying committee mapper" tool for other complex deals
+- [ ] Monitor: Track which personas get the most PDF downloads and drawer opens
+- [ ] Content: Add a downloadable "Sovereign Persona Template" for DIY teams
+- [ ] Future: Create a blog post series diving deeper into each persona's decision journey
