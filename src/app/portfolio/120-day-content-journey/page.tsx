@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import JourneyMatrix from "@/components/content-journey/JourneyMatrix";
 import { enterpriseMatrix } from "@/lib/content-journey";
+import FAQ from "@/components/ui/FAQ";
 
 export const metadata: Metadata = {
   title: "120-Day Content Journey: Engineering Demand at Scale",
@@ -330,6 +331,36 @@ export default function ContentJourneyPage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <FAQ
+        items={[
+          {
+            question: "Why 120 days? Is that a hard requirement?",
+            answer: "The 120-day timeframe comes from observing typical enterprise B2B buying cycles. Most complex sales take 90-150 days from first touch to close. The framework is flexible—you can compress it for SMB (60-90 days) or extend it for large enterprise (180+ days). The key is mapping content to buyer stages, not calendar days."
+          },
+          {
+            question: "How is this different from a content calendar?",
+            answer: "A content calendar tells you when to publish. This framework tells you what to publish, for whom, and why. It's a go-to-market operating system that aligns content, sales enablement, and lead scoring to how buyers actually progress. Think of it as the strategy layer that sits above your content calendar."
+          },
+          {
+            question: "Can this work for product-led growth (PLG) companies?",
+            answer: "Yes, but the stages shift. Instead of 'Sales Meetings,' you'd have 'Trial Activation' and 'Upgrade Consideration.' The principle remains: map content to the buyer's actual journey, score behavior based on intent, and create content that reduces emotional friction. I've adapted this framework for PLG companies at both early stage (Cylance) and growth stage."
+          },
+          {
+            question: "What's the difference between 'User Thoughts' and 'User Feelings' rows?",
+            answer: "User Thoughts are cognitive (what they're trying to figure out). User Feelings are emotional (how they feel about the decision). Great content addresses both. For example, at the 'Shortlist' stage, a buyer is thinking 'Which vendor is best?' (cognitive) but feeling 'pressured' and 'analytical' (emotional). Your content needs to provide comparison data (cognitive) while reducing decision anxiety (emotional)."
+          },
+          {
+            question: "How do I implement the content scoring system?",
+            answer: "Content scoring translates behavior into intent signals. Start simple: assign point values to actions based on buying stage. Early-stage actions (blog reads) = low points. Late-stage actions (pricing page views, business case downloads) = high points. Feed these scores into your MAP or CRM. Most companies start with 4 categories: Passive, Active, Commercial, Sales-Ready. The Notion template includes a starter scoring framework."
+          },
+          {
+            question: "Did you really generate $4M in pipeline with this at Cylance?",
+            answer: "Yes. That was quarterly pipeline generated from content-influenced deals during my engagement. The key was ruthless focus: we killed 60% of existing content programs and doubled down on what actually moved buyers through stages. We also instrumented everything—every click, download, and revisit was scored and routed. The framework works, but execution matters more than theory."
+          }
+        ]}
+      />
 
       {/* CTA */}
       <section className="section gradient-dark text-ash">

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import FAQ from "@/components/ui/FAQ";
 
 export default function ContactPage() {
   const [formState, setFormState] = useState({
@@ -367,6 +368,38 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <FAQ
+        title="Before You Reach Out"
+        description="Quick answers to common questions"
+        items={[
+          {
+            question: "What's the best way to work with you?",
+            answer: "Most clients engage me as a fractional CMO (10-20 hours/week) for strategic leadership and system building. Some bring me in for project-based work like building a demand gen engine, implementing analytics frameworks, or creating a growth strategy. Start with the contact form above and we'll figure out the best fit."
+          },
+          {
+            question: "Do you take on short-term projects?",
+            answer: "It depends. If it's a well-defined deliverable (like 'build an attribution dashboard' or 'create a content strategy'), yes. But most of my engagements start with at least 3 months to properly diagnose, build strategy, and start implementation. I'm not a good fit for one-off campaigns or quick audits."
+          },
+          {
+            question: "What industries do you specialize in?",
+            answer: "I focus on B2B SaaS, with deep experience in cybersecurity, AI/ML, and infrastructure software. But the principles of demand generation apply across complex B2B sales. What matters more is your sales motion (enterprise vs PLG), deal size ($10K+ ACV), and sales cycle length (60+ days)."
+          },
+          {
+            question: "How quickly can you start?",
+            answer: "I typically have 1-2 fractional slots available at any time. If we're a good fit, we can usually kick off within 2-3 weeks. Project-based work has more flexibility. Enterprise consulting engagements (through my network) can start immediately."
+          },
+          {
+            question: "Do you work with agencies or only direct with companies?",
+            answer: "Both. Many agencies bring me in for strategic guidance when their client needs demand gen architecture, analytics frameworks, or fractional CMO leadership. I also work directly with companies that have agencies handling execution but need strategic direction."
+          },
+          {
+            question: "What if I'm not sure what I need?",
+            answer: "That's normal. Most companies reach out because they know something isn't working but can't diagnose it. Start with the form above and describe your situation—what's working, what's not, what you've tried. We'll schedule a 30-min call to figure out if I can help and how."
+          }
+        ]}
+      />
     </article>
   );
 }

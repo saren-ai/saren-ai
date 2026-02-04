@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import DashboardFlow from "@/components/golden-dashboard/DashboardFlow";
+import FAQ from "@/components/ui/FAQ";
 
 export const metadata: Metadata = {
   title: "The Golden Dashboard: Seeing ROI Across the Full Demand Funnel",
@@ -280,6 +281,36 @@ export default function GoldenDashboardPage() {
           </Link>
         </div>
       </section>
+
+      {/* FAQ */}
+      <FAQ
+        items={[
+          {
+            question: "What exactly is the Golden Dashboard?",
+            answer: "The Golden Dashboard is a single-view analytics framework that tracks marketing spend from initial impression all the way through to closed-won deals. It was built to answer the question every CMO asks: 'Which channel spend is actually creating revenue?' Unlike traditional dashboards that only show top-of-funnel metrics or rely on last-touch attribution, this connects every dollar spent to every deal closed."
+          },
+          {
+            question: "How is this different from Google Analytics or HubSpot reporting?",
+            answer: "GA and HubSpot show you what happened, but they don't normalize costs across the entire funnel. The Golden Dashboard shows CPM, CPC, CPL, CPQL, CPO, cost per meeting, and CAC all in one view—so you can see exactly where your budget is efficient and where it's not. It's designed for decision-making, not just reporting."
+          },
+          {
+            question: "Can you build something like this for my company?",
+            answer: "Yes. I build custom analytics frameworks for B2B SaaS companies that need clarity on what's working. The exact metrics and stages depend on your sales motion, but the principle is the same: one source of truth that connects marketing spend to revenue. Typical engagement is 4-6 weeks. Reach out via the contact page and we can discuss your specific needs."
+          },
+          {
+            question: "What tools did you use to build this at CloudKitchens?",
+            answer: "The original dashboard was built in Looker, pulling data from Salesforce (CRM), Marketo (MAP), and ad platforms (Google, LinkedIn, Facebook). The key wasn't the tool—it was the data model. We built a unified attribution schema that normalized spend and conversions across all channels. I can adapt this to whatever stack you're using."
+          },
+          {
+            question: "How long does it take to see results from a dashboard like this?",
+            answer: "The dashboard itself can be built in 4-6 weeks. But the real value comes from using it to make decisions. Within 30 days of launch at CloudKitchens, we identified $50K+ in monthly waste and reallocated budget to higher-performing channels. Within 90 days, we had aligned marketing, sales, and finance around one set of metrics."
+          },
+          {
+            question: "Do I need a data team to maintain this?",
+            answer: "Not necessarily. The initial build requires data engineering (setting up connectors, building the schema, QA-ing the numbers). But once it's built, most marketing ops teams can maintain it. I typically include documentation and a handoff session so your team owns it going forward."
+          }
+        ]}
+      />
 
       {/* More Portfolio */}
       <section className="section bg-ash">
