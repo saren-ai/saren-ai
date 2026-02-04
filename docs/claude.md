@@ -109,3 +109,35 @@ Implemented a full-width mega menu navigation system to replace the compact drop
 - [ ] Future: A/B test different promotional box content (featured work vs. testimonial vs. CTA)
 - [ ] Content: Create promotional images specifically sized for mega menu boxes (currently using storyboard image)
 - [ ] Enhancement: Add "Recently Updated" badge to portfolio items in mega menu
+
+---
+
+# 2026-02-03 - Dark Mode Fixes, Homepage Hero Update, and 10-Touch Sales Play Refinement
+
+## Summary
+Resolved critical dark mode contrast issues in global navigation and mega menu. Updated homepage hero with new outcome-focused positioning. Created portfolio index page for better site navigation. Transformed the 10-Touch Sales Play page from a vertical timeline into an interactive 25-day calendar grid, and replaced fabricated metrics with realistic operational efficiency statistics.
+
+## Key Decisions/Changes
+- **Dark mode contrast fix**: Updated Header and MegaMenu components to use semantic color tokens (`text-foreground`, `dark:text-foreground`) instead of manual color definitions. Changed mega menu background from `dark:bg-offblack` to `dark:bg-card-bg` for better contrast. Result: WCAG AAA compliant text visibility.
+- **Homepage hero rewrite**: New outcome-focused positioning: "I architect AI-powered growth systems that turn chaotic marketing spend into predictable revenue" with proof points (344% inbound lift, 550% pipeline expansion, built Collaborative AI category).
+- **Portfolio index page**: Created `/portfolio` page with grid of all portfolio items, resolving broken breadcrumb links across all portfolio pages.
+- **10-Touch calendar grid**: Replaced vertical list of touches with 5-column, 25-day calendar grid showing spacing and multi-channel cadence visually. Days with touches show channel badge and action; inactive days are faded gray.
+- **Credible metrics**: Removed fabricated conversion stats (42% meeting rate, etc.) and replaced with realistic BDR productivity gains: 5x contacts managed, <1 hour daily tasks, 45% task time reduction.
+
+## Files Modified
+- `@src/components/layout/Header.tsx` (dark mode contrast: text colors, borders, hover states)
+- `@src/components/layout/MegaMenu.tsx` (dark mode contrast: background, promotional box, borders)
+- `@src/app/page.tsx` (homepage hero content update)
+- `@src/app/portfolio/page.tsx` (created portfolio index)
+- `@src/components/portfolio/PortfolioGrid.tsx` (updated to include all portfolio items)
+- `@src/app/portfolio/10-touch-sales-play/page.tsx` (calendar grid + realistic metrics)
+- `@src/app/sitemap.ts` (added /portfolio route)
+- All portfolio pages (updated breadcrumbs to link to `/portfolio`)
+
+## TODO / Next Steps
+- [x] All portfolio pages now have consistent breadcrumb navigation
+- [x] Dark mode accessibility meets WCAG AAA standards
+- [ ] Consider adding hover tooltips to calendar grid cells on desktop for better touch descriptions
+- [ ] Monitor user feedback on new homepage messaging
+- [ ] Potential: Add FAQ section to 10-touch sales play page
+- [ ] Future: Consider adding case study client logo or testimonial to 10-touch page
