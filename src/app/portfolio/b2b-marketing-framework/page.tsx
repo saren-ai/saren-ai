@@ -294,6 +294,45 @@ export default function MarketingFrameworkPage() {
           </div>
         </div>
       </section>
+
+      {/* More Portfolio */}
+      <section className="section bg-ash dark:bg-background-secondary">
+        <div className="container-narrow">
+          <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
+            Explore More Work
+          </h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "The Golden Dashboard",
+                desc: "Seeing ROI across the full demand funnel",
+                href: "/portfolio/golden-dashboard",
+              },
+              {
+                title: "120-Day Content Journey",
+                desc: "Engineering demand at scale",
+                href: "/portfolio/120-day-content-journey",
+              },
+              {
+                title: "Sovereign Personas",
+                desc: "Making complex markets legible",
+                href: "/portfolio/sovereign-personas",
+              },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="block p-6 bg-card-bg border border-border rounded-lg hover:bg-electric/10 transition-colors group"
+              >
+                <h4 className="font-semibold text-foreground group-hover:text-ember transition-colors mb-2">
+                  {item.title}
+                </h4>
+                <p className="text-foreground-muted text-sm">{item.desc}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
     </article>
   );
 }

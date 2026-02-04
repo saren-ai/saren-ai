@@ -321,19 +321,19 @@ export default function GoldenDashboardPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                title: "Sovereign Personas",
-                desc: "Making complex markets legible",
-                href: "/portfolio/sovereign-personas",
-              },
-              {
-                title: "10-Touch Sales Play",
-                desc: "Cold outreach to executive conversations",
-                href: "/portfolio/10-touch-sales-play",
+                title: "B2B Marketing Framework",
+                desc: "7-layer prompt system for messaging infrastructure",
+                href: "/portfolio/b2b-marketing-framework",
               },
               {
                 title: "120-Day Content Journey",
                 desc: "Engineering demand at scale",
                 href: "/portfolio/120-day-content-journey",
+              },
+              {
+                title: "Sovereign Personas",
+                desc: "Making complex markets legible",
+                href: "/portfolio/sovereign-personas",
               },
             ].map((item) => (
               <Link
