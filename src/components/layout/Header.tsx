@@ -36,6 +36,11 @@ const navLinks: NavItem[] = [
         label: "120-Day Content Journey",
         description: "Content-driven demand engine",
       },
+      {
+        href: "/portfolio/b2b-marketing-framework",
+        label: "B2B Marketing Framework",
+        description: "7-layer messaging system",
+      },
     ],
   },
   { href: "/thinking", label: "Thinking" },

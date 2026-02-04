@@ -39,22 +39,15 @@ const socialLinks = [
   },
 ];
 
-const otherSites = [
-  { name: "SarenSakurai.com", href: "https://sarensakurai.com" },
-  { name: "Japanifornia.com", href: "https://japanifornia.com" },
-  { name: "Surfmint.co", href: "https://surfmint.co" },
-  { name: "Unklamned.com", href: "https://unklamned.com" },
-];
-
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-charcoal dark:bg-offblack text-ash border-t border-charcoal/20 dark:border-ash/10">
       <div className="container-narrow py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* Brand */}
-          <div className="md:col-span-2">
+          <div>
             <Link
               href="/"
               className="text-2xl font-bold text-ash tracking-tight inline-block mb-4"
@@ -109,38 +102,26 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Other Sites */}
+          {/* Social Links Column */}
           <div>
             <h3 className="text-ash font-semibold mb-4 text-sm uppercase tracking-wider">
-              Other Projects
+              Connect
             </h3>
-            <ul className="space-y-2">
-              {otherSites.map((site) => (
-                <li key={site.href}>
-                  <a
-                    href={site.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-ember transition-colors inline-flex items-center gap-1"
-                  >
-                    {site.name}
-                    <svg
-                      className="w-3 h-3 opacity-50"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
-                  </a>
-                </li>
+            <div className="flex flex-wrap gap-4">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-ash/50 hover:text-ember transition-colors p-2"
+                  aria-label={link.name}
+                  title={link.name}
+                >
+                  {link.icon}
+                </a>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
 
@@ -151,22 +132,6 @@ export default function Footer() {
             <p className="text-ash/50 text-sm">
               © {currentYear} Saren Sakurai. All rights reserved.
             </p>
-
-            {/* Social Links */}
-            <div className="flex items-center gap-4">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-ash/50 hover:text-ember transition-colors p-2"
-                  aria-label={link.name}
-                >
-                  {link.icon}
-                </a>
-              ))}
-            </div>
 
             {/* Legal Links */}
             <div className="flex items-center gap-4 text-sm">
