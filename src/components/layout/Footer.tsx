@@ -44,8 +44,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-charcoal dark:bg-offblack text-ash border-t border-charcoal/20 dark:border-ash/10">
-      <div className="container-narrow py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+      <div className="container-narrow pt-20 pb-16 md:pt-24 md:pb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
           {/* Brand */}
           <div>
             <Link
@@ -54,23 +54,31 @@ export default function Footer() {
             >
               saren<span className="text-ember">.</span>ai
             </Link>
-            <p className="text-ash/60 max-w-md leading-relaxed">
+            <p className="text-ash/60 max-w-xs leading-relaxed text-sm">
               Building AI-driven growth engines for early-stage and Series A
               startups. Scalable strategy, systems, and storytelling that turns
               vision into velocity.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Navigation */}
           <div>
             <h3 className="text-ash font-semibold mb-4 text-sm uppercase tracking-wider">
               Navigation
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link
+                  href="/about"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  About
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/portfolio/golden-dashboard"
-                  className="hover:text-ember transition-colors"
+                  className="text-ash/70 hover:text-ember transition-colors"
                 >
                   Portfolio
                 </Link>
@@ -78,23 +86,15 @@ export default function Footer() {
               <li>
                 <Link
                   href="/thinking"
-                  className="hover:text-ember transition-colors"
+                  className="text-ash/70 hover:text-ember transition-colors"
                 >
                   Thinking
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/about"
-                  className="hover:text-ember transition-colors"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/contact"
-                  className="hover:text-ember transition-colors"
+                  className="text-ash/70 hover:text-ember transition-colors"
                 >
                   Contact
                 </Link>
@@ -102,19 +102,60 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Social Links Column */}
+          {/* Featured Work */}
+          <div>
+            <h3 className="text-ash font-semibold mb-4 text-sm uppercase tracking-wider">
+              Featured Work
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link
+                  href="/portfolio/golden-dashboard"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  Golden Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/portfolio/content-journey"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  Content Journey Map
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/portfolio/marketing-framework"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  B2B Framework
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about/clients"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  Client Brands
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Connect */}
           <div>
             <h3 className="text-ash font-semibold mb-4 text-sm uppercase tracking-wider">
               Connect
             </h3>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-3 mb-6">
               {socialLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-ash/50 hover:text-ember transition-colors p-2"
+                  className="text-ash/50 hover:text-ember transition-colors p-2 bg-ash/5 hover:bg-ash/10 rounded"
                   aria-label={link.name}
                   title={link.name}
                 >
@@ -122,6 +163,9 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+            <p className="text-ash/50 text-xs leading-relaxed">
+              Open for select consulting engagements and advisory roles.
+            </p>
           </div>
         </div>
 

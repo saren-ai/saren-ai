@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import FAQ from "@/components/ui/FAQ";
 
@@ -161,6 +162,71 @@ export default function AboutPage() {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Client Logo Teaser */}
+      <section className="section bg-charcoal/5">
+        <div className="container-narrow">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">
+              Trusted by Leading Brands
+            </h2>
+            <p className="text-slate text-lg max-w-2xl mx-auto mb-8">
+              From B2B tech unicorns to Fortune 500 consumer brands
+            </p>
+          </div>
+
+          {/* Logo Preview Grid */}
+          <div className="grid grid-cols-4 md:grid-cols-6 gap-4 max-w-4xl mx-auto mb-8">
+            {[
+              "blackberry.png",
+              "cisco.png",
+              "nike.png",
+              "red-bull.png",
+              "palo-alto.png",
+              "coca-cola.png",
+            ].map((logo, index) => (
+              <motion.div
+                key={logo}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className="aspect-square flex items-center justify-center p-3 rounded-lg bg-offblack/80 border border-ash/10"
+              >
+                <Image
+                  src={`/logos/clients/${logo}`}
+                  alt="Client logo"
+                  width={100}
+                  height={100}
+                  className="w-full h-auto object-contain opacity-70"
+                />
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link
+              href="/about/clients"
+              className="inline-flex items-center gap-2 text-electric hover:text-ember transition-colors font-medium"
+            >
+              View all {26} brands
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>

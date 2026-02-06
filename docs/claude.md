@@ -224,3 +224,156 @@ Built a comprehensive interactive calculator for annual marketing planning. The 
 - [ ] Content: Add FAQ section with schema markup
 - [ ] Analytics: Track which industries are most commonly selected
 - [ ] Future: Add "Save my calculation" feature with shareable URLs
+
+---
+
+# 2026-02-04 - Golden Dashboard Major Restructure & UI Polish
+
+## Summary
+Completed a comprehensive restructure of the Golden Dashboard interactive funnel simulator. Added a new SQL stage between MQL and Opportunity to better reflect real B2B sales processes, implemented a 4-row serpentine layout, created dedicated components for Lead Scoring visualization and funnel handoffs, and made numerous UI/UX improvements across the site including the top alert banner, global navigation, and footer.
+
+## Key Decisions/Changes
+
+### Data Model Updates (`@src/lib/golden-dashboard.ts`)
+- **Added SQL stage**: New stage between MQL and Opportunity with `sqls` in stages, `cpsql` in unit costs
+- **New conversion rates**: Added `mqlToSql` (38%) and `sqlToOpp` (43%) to match FirstPageSage B2B SaaS benchmarks
+- **Renamed `mqlToOpp` → `oppToClose`**: Now at 20% default (realistic win rate)
+- **Updated presets**: All 3 presets (Early-Stage SaaS, Mid-Market, Enterprise) updated with new rate structure
+- **New metric metadata**: Full documentation for SQL stage with definition, formula, levers, failure modes, and playbook
+
+### Layout Restructure (`DashboardFlow.tsx`)
+- **4-row vertical structure**:
+  - Row 1: Total Ad Spend (centered)
+  - Row 2: Marketing Funnel (Impressions → Clicks → Leads)
+  - Row 3: Lead Scoring Container (Fit + Engagement → MQLs)
+  - Row 4: Sales Funnel (SQLs → Opportunities → Closed-Won)
+- **Desktop/Tablet/Mobile responsive layouts**: Each breakpoint has appropriate density and flow
+
+### New Components Created
+- **`LeadScoringContainer.tsx`**: Dedicated component showing Fit (0-50 pts) + Engagement (0-50 pts) = MQL scoring model. Links to Behavioral Lead Scoring page. Shows threshold legend (75+ = MQL, 50-74 = Nurture, <50 = Low Priority)
+- **`StaticSConnector.tsx` → `FunnelHandoff`**: After multiple iterations (animated S-curves → orthogonal SVG paths → simple CSS), settled on clean "handoff indicators" with chevron arrows and prominent conversion rate badges. Design rationale: the conversion rate IS the hero element, not the line connecting boxes
+
+### Connector Design Evolution
+1. **Attempt 1**: Animated SVG S-curves with traveling dots - looked disconnected
+2. **Attempt 2**: Static S-curves with solid strokes - still looked like floating lines
+3. **Attempt 3**: Orthogonal paths with rounded corners - complex but still didn't "connect"
+4. **Final solution**: Simple vertical handoff indicators with chevrons (↓) and large conversion rate badges. The direction is obvious, the rate is prominent, no pretense of physical connection
+
+### Site-Wide UI Polish
+- **Top Alert Banner**: Increased height to 60px, improved contrast with red gradient (`from-ember/70 via-ember to-ember/70`), white text
+- **Global Navigation**: Added `container-narrow` constraint with ~20px margins, increased vertical padding from `py-4` to `py-6` for breathing room
+- **Footer**: Increased padding from `py-12/py-16` to `py-16/py-20`
+
+### Calculator Controls Updated (`FunnelControls.tsx`)
+- Removed deprecated MQL→Opp slider
+- Added new sliders: MQL→SQL Rate, SQL→Opp Rate
+- Updated Opportunity→Close (Win Rate) slider
+- Presets load correct new rate values
+
+### Insight Narrative Updated (`InsightNarrative.tsx`)
+- Updated delta calculations for new conversion stages
+- Driver and bottleneck candidates reflect new funnel structure
+
+## Files Modified
+- `@src/lib/golden-dashboard.ts` - Data model with SQL stage, new types, updated defaults
+- `@src/components/golden-dashboard/DashboardFlow.tsx` - 4-row layout, responsive views
+- `@src/components/golden-dashboard/LeadScoringContainer.tsx` (created) - Lead scoring visualization
+- `@src/components/golden-dashboard/StaticSConnector.tsx` (created/refactored) - FunnelHandoff component
+- `@src/components/golden-dashboard/FunnelControls.tsx` - New rate sliders
+- `@src/components/golden-dashboard/InsightNarrative.tsx` - Updated for new rates
+- `@src/components/layout/TopBanner.tsx` - Height and contrast improvements
+- `@src/components/layout/Header.tsx` - Container constraints and padding
+- `@src/components/layout/Footer.tsx` - Increased padding
+- Deleted: `@src/components/golden-dashboard/SerpentineConnector.tsx` (replaced by StaticSConnector)
+
+## Verified Working
+- ✅ TypeScript compiles clean (`npx tsc --noEmit`)
+- ✅ All conversion rates calculate correctly for $100K spend scenario
+- ✅ Calculator mode sliders update model in real-time
+- ✅ Metric drawers open with correct content
+- ✅ Dark/light mode consistent across new components
+- ✅ Responsive layouts work on desktop/tablet/mobile breakpoints
+- ✅ Lead Scoring container links to Behavioral Lead Scoring page
+
+## TODO / Next Steps
+- [ ] Consider adding visual connector from Row 2 (Leads) to Row 3 (Lead Scoring) that touches card edges - current handoff style works but original vision was edge-to-edge paths
+- [ ] Monitor user feedback on whether funnel flow is clear without physical connector lines
+- [ ] Potential: Add animated "pulse" effect on handoff badges when calculator values change
+- [ ] Future: Consider collapsible Lead Scoring container on mobile for space efficiency
+- [ ] Enhancement: Add benchmark comparison badges to SQL and Opportunity cards
+- [ ] Content: Add industry-specific conversion rate presets to calculator mode
+
+---
+
+# 2026-02-04 - Client Brands Page, Footer Redesign, Substack RSS Integration
+
+## Summary
+Created a new `/about/clients` page showcasing 26 client brands worked with, redesigned the global footer for better balance and visual hierarchy, and integrated live Substack RSS feed into the Thinking mega menu with a custom 3-column layout. All changes are production-ready with full dark mode support and responsive design.
+
+## Key Decisions/Changes
+
+### Client Brands Page (`/about/clients`)
+- **NASCAR-style animated grid**: 5-column grid (desktop) scaling down to 2 columns (mobile) with staggered fade-in animations (Framer Motion)
+- **26 client logos**: Organized by category (9 B2B Tech, 10 Consumer, 5 Other). User-provided 500x500px PNGs on black backgrounds displayed on dark `bg-offblack` section to minimize blockiness
+- **Hover effects**: Scale, opacity, and border color transitions on each logo card
+- **Stats breakdown section**: Dynamic counts by category (B2B Technology: 9, Consumer Brands: 10), 15+ years experience
+- **Context and storytelling**: Narrative section explaining dual background (B2B tech demand gen + consumer brand marketing), unique value proposition
+- **CTA section**: "Want to add your brand to this list?" with contact link
+- **Next.js Image optimization**: All logos use Next.js Image component for automatic optimization and lazy loading
+- **Linked in global navigation**: Added to About mega menu and updated sitemap
+
+### Footer Redesign
+- **4-column balanced layout**: Brand (tagline + description) | Navigation | Featured Work | Connect
+- **Increased top padding**: From `py-16 md:py-20` to `pt-20 pb-16 md:pt-24 md:pb-20` for better visual breathing room
+- **Featured Work column (new)**: Links to Golden Dashboard, Content Journey Map, B2B Framework, Client Brands for quick access to portfolio
+- **Enhanced Connect column**: Social icons now have subtle background (`bg-ash/5 hover:bg-ash/10`), added tagline "Open for select consulting engagements and advisory roles"
+- **Typography refinements**: Smaller, tighter text with better hierarchy and consistent `text-ash/70` for links
+- **Responsive**: 1 column (mobile) → 2 columns (tablet) → 4 columns (desktop)
+
+### Substack RSS Feed Integration (Thinking Mega Menu)
+- **3-column mega menu layout**: Left (1/3): navigation links | Middle + Right (2/3): latest Substack post
+- **Live RSS parsing**: Installed `rss-parser` package, created server-side fetch utility at `@src/lib/substack-rss.ts`
+- **Feed URL**: `https://sarenai.substack.com/feed`
+- **Latest post display**: 2-column grid showing post title, description snippet (160 chars), publication date, and square thumbnail image
+- **Fallback placeholder**: If no thumbnail available, shows document icon placeholder
+- **Server Component**: `SubstackLatestPost.tsx` runs server-side for better performance and SEO
+- **Dynamic injection**: Header component detects Thinking menu and injects RSS feed component via `customContent` prop
+- **Dual layout support**: MegaMenu component supports both default layout (2/3 nav + 1/3 promo) and new `three-column` layout
+- **External link handling**: All Substack links open in new tabs with proper ARIA labels
+
+## Files Created
+- `@src/app/about/clients/page.tsx` - Server Component page with metadata
+- `@src/app/about/clients/ClientsPageContent.tsx` - Client-side gallery with animations
+- `@public/logos/clients/` - 26 client logo PNGs (ampd, blackberry, cisco, cloudkitchens, coca-cola, cylance, digiorno, honda, kraft, method, nike, number-one, palo-alto, paramount, peak-nano, philadelphia, qwiet, red-bull, sony, sprite, symantec, toyota, veritas, wethos)
+- `@src/lib/substack-rss.ts` - RSS parser utility with error handling
+- `@src/components/layout/SubstackLatestPost.tsx` - Server Component for latest post display
+
+## Files Modified
+- `@src/components/layout/Footer.tsx` - Redesigned with 4-column layout, increased padding
+- `@src/components/layout/Header.tsx` - Added SubstackLatestPost import, dynamic content injection for Thinking menu
+- `@src/components/layout/MegaMenu.tsx` - Added `layout: 'three-column'` support, `customContent` prop, Suspense wrapper
+- `@src/lib/mega-menu-content.ts` - Updated `thinkingMegaMenu` to use `layout: "three-column"`, renamed Substack link to "Substack Newsletter"
+- `@src/app/about/page.tsx` - Added "Trusted by Leading Brands" section with preview of 6 logos, link to full page
+- `@src/app/sitemap.ts` - Added `/about/clients` route
+- `@package.json` - Added `rss-parser` dependency
+
+## Verified Working
+- ✅ Production build succeeds (`npm run build`) with 20 static pages
+- ✅ TypeScript compiles clean (`npx tsc --noEmit`)
+- ✅ No linter errors across all new/modified files
+- ✅ Client logos load and animate correctly on `/about/clients`
+- ✅ Footer displays 4 balanced columns on desktop, stacks on mobile
+- ✅ Substack RSS feed fetches and displays latest post in Thinking mega menu
+- ✅ All links (internal and external) work correctly
+- ✅ Dark mode consistent across all new components
+- ✅ Responsive layouts work on desktop/tablet/mobile breakpoints
+- ✅ Next.js Image optimization working for all client logos and Substack thumbnails
+
+## TODO / Next Steps
+- [ ] Add third link to Thinking mega menu left column (user mentioned wanting to add one)
+- [ ] Monitor Substack RSS fetch performance in production (consider caching strategy)
+- [ ] Potential: Add client testimonials or case study snippets to client brands page
+- [ ] Enhancement: Consider adding logo hover tooltips with project/role details
+- [ ] Content: Write first Substack post to test RSS feed display in production
+- [ ] Analytics: Track which client logos get the most clicks (if linking to case studies in future)
+- [ ] Future: Add filter/sort options to client brands page (by industry, year, etc.)
