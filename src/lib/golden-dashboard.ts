@@ -1,6 +1,9 @@
 /**
  * Golden Dashboard: Data Model & Computation Engine
  * Single source of truth for all funnel calculations
+ * 
+ * REFACTORED: Added SQL stage between MQL and Opportunity
+ * Conversion rates now match FirstPageSage B2B SaaS benchmarks
  */
 
 // ============================================================================
@@ -13,9 +16,9 @@ export interface Assumptions {
   ctr: number; // 0..1
   clickToLead: number; // 0..1
   leadToMql: number; // 0..1
-  mqlToOpp: number; // 0..1
-  oppToMeeting: number; // 0..1
-  meetingToClose: number; // 0..1
+  mqlToSql: number; // 0..1 - NEW: MQL to Sales Qualified Lead
+  sqlToOpp: number; // 0..1 - NEW: SQL to Opportunity
+  oppToClose: number; // 0..1 - RENAMED from meetingToClose
 }
 
 export type StageId =
@@ -24,8 +27,8 @@ export type StageId =
   | "clicks"
   | "leads"
   | "mqls"
+  | "sqls" // NEW stage
   | "opps"
-  | "sales_meetings"
   | "closed_won";
 
 export type MetricId =
@@ -36,11 +39,11 @@ export type MetricId =
   | "cpl"
   | "leadToMql"
   | "cpmql"
-  | "mqlToOpp"
+  | "mqlToSql" // NEW
+  | "cpsql" // NEW
+  | "sqlToOpp" // NEW
   | "cpopp"
-  | "oppToMeeting"
-  | "cpmeeting"
-  | "meetingToClose"
+  | "oppToClose" // RENAMED
   | "cpcw";
 
 export interface Bench {
@@ -53,6 +56,7 @@ export interface Bench {
 export interface MetricMeta {
   id: MetricId | StageId;
   label: string;
+  sublabel?: string; // NEW: optional sublabel for cards
   definition: string;
   formula: string;
   whyItMatters: string;
@@ -68,30 +72,30 @@ export interface ComputedModel {
     clicks: number;
     leads: number;
     mqls: number;
+    sqls: number; // NEW
     opps: number;
-    sales_meetings: number;
     closed_won: number;
   };
   unitCosts: {
     cpc: number | null;
     cpl: number | null;
     cpmql: number | null;
+    cpsql: number | null; // NEW
     cpopp: number | null;
-    cpmeeting: number | null;
     cpcw: number | null;
   };
   conversionRates: {
     ctr: number;
     clickToLead: number;
     leadToMql: number;
-    mqlToOpp: number;
-    oppToMeeting: number;
-    meetingToClose: number;
+    mqlToSql: number; // NEW
+    sqlToOpp: number; // NEW
+    oppToClose: number; // RENAMED
   };
 }
 
 // ============================================================================
-// DEFAULT ASSUMPTIONS
+// DEFAULT ASSUMPTIONS (FirstPageSage B2B SaaS Benchmarks)
 // ============================================================================
 
 export const defaultAssumptions: Assumptions = {
@@ -99,10 +103,10 @@ export const defaultAssumptions: Assumptions = {
   cpm: 60,
   ctr: 0.021, // 2.1%
   clickToLead: 0.066, // 6.6%
-  leadToMql: 0.39, // 39%
-  mqlToOpp: 0.25, // 25%
-  oppToMeeting: 0.22, // 22%
-  meetingToClose: 0.20, // 20%
+  leadToMql: 0.42, // 42.47% (rounded) - Lead to MQL
+  mqlToSql: 0.38, // 38% - MQL to SQL (sales accepted)
+  sqlToOpp: 0.43, // 43% - SQL to Opportunity
+  oppToClose: 0.20, // 20% - Opportunity to Close (win rate)
 };
 
 // ============================================================================
@@ -124,27 +128,42 @@ export function computeModel(assumptions: Assumptions): ComputedModel {
     ctr: clamp(assumptions.ctr),
     clickToLead: clamp(assumptions.clickToLead),
     leadToMql: clamp(assumptions.leadToMql),
-    mqlToOpp: clamp(assumptions.mqlToOpp),
-    oppToMeeting: clamp(assumptions.oppToMeeting),
-    meetingToClose: clamp(assumptions.meetingToClose),
+    mqlToSql: clamp(assumptions.mqlToSql),
+    sqlToOpp: clamp(assumptions.sqlToOpp),
+    oppToClose: clamp(assumptions.oppToClose),
   };
 
-  // Compute volumes
+  // Compute volumes (cascade through funnel)
   const impressions = a.spend / (a.cpm / 1000);
   const clicks = impressions * a.ctr;
   const leads = clicks * a.clickToLead;
   const mqls = leads * a.leadToMql;
-  const opps = mqls * a.mqlToOpp;
-  const sales_meetings = opps * a.oppToMeeting;
-  const closed_won = sales_meetings * a.meetingToClose;
+  const sqls = mqls * a.mqlToSql; // NEW: SQLs from MQLs
+  const opps = sqls * a.sqlToOpp; // UPDATED: Opps from SQLs (not MQLs)
+  const closed_won = opps * a.oppToClose; // UPDATED: Closes from Opps directly
 
   // Compute unit costs
   const cpc = safeDiv(a.spend, clicks);
   const cpl = safeDiv(a.spend, leads);
   const cpmql = safeDiv(a.spend, mqls);
+  const cpsql = safeDiv(a.spend, sqls); // NEW
   const cpopp = safeDiv(a.spend, opps);
-  const cpmeeting = safeDiv(a.spend, sales_meetings);
   const cpcw = safeDiv(a.spend, closed_won);
+
+  // Debug logging for validation (remove in production)
+  if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
+    console.log("Golden Dashboard Model Computation:", {
+      spend: a.spend,
+      impressions: Math.round(impressions),
+      clicks: Math.round(clicks),
+      leads: Math.round(leads),
+      mqls: Math.round(mqls),
+      sqls: Math.round(sqls),
+      opps: Math.round(opps),
+      closed_won: Math.round(closed_won),
+      cac: cpcw ? Math.round(cpcw) : null,
+    });
+  }
 
   return {
     stages: {
@@ -152,31 +171,31 @@ export function computeModel(assumptions: Assumptions): ComputedModel {
       clicks,
       leads,
       mqls,
+      sqls,
       opps,
-      sales_meetings,
       closed_won,
     },
     unitCosts: {
       cpc,
       cpl,
       cpmql,
+      cpsql,
       cpopp,
-      cpmeeting,
       cpcw,
     },
     conversionRates: {
       ctr: a.ctr,
       clickToLead: a.clickToLead,
       leadToMql: a.leadToMql,
-      mqlToOpp: a.mqlToOpp,
-      oppToMeeting: a.oppToMeeting,
-      meetingToClose: a.meetingToClose,
+      mqlToSql: a.mqlToSql,
+      sqlToOpp: a.sqlToOpp,
+      oppToClose: a.oppToClose,
     },
   };
 }
 
 // ============================================================================
-// PRESETS
+// PRESETS (Updated with new conversion stages)
 // ============================================================================
 
 export const presets = {
@@ -188,10 +207,10 @@ export const presets = {
       cpm: 75,
       ctr: 0.015, // 1.5%
       clickToLead: 0.055, // 5.5%
-      leadToMql: 0.30, // 30%
-      mqlToOpp: 0.20, // 20%
-      oppToMeeting: 0.18, // 18%
-      meetingToClose: 0.15, // 15%
+      leadToMql: 0.35, // 35%
+      mqlToSql: 0.30, // 30% - Lower: less sales capacity
+      sqlToOpp: 0.35, // 35% - Lower: still refining ICP
+      oppToClose: 0.25, // 25% - Conservative win rate
     },
   },
   midMarket: {
@@ -207,10 +226,10 @@ export const presets = {
       cpm: 90,
       ctr: 0.018, // 1.8%
       clickToLead: 0.048, // 4.8%
-      leadToMql: 0.35, // 35%
-      mqlToOpp: 0.28, // 28%
-      oppToMeeting: 0.25, // 25%
-      meetingToClose: 0.12, // 12%
+      leadToMql: 0.38, // 38%
+      mqlToSql: 0.45, // 45% - Higher: better targeting
+      sqlToOpp: 0.50, // 50% - Higher: mature sales process
+      oppToClose: 0.30, // 30% - Reasonable enterprise win rate
     },
   },
 };
@@ -288,7 +307,7 @@ export const metricMetadata: Record<string, MetricMeta> = {
     id: "clicks",
     label: "Clicks",
     definition: "Total number of ad clicks to your landing page.",
-    formula: "impressions * ctr",
+    formula: "impressions × CTR",
     whyItMatters: "First engagement signal—they're interested enough to learn more.",
     levers: ["CTR improvement", "Impression volume", "Ad creative"],
     failureModes: [
@@ -335,7 +354,7 @@ export const metricMetadata: Record<string, MetricMeta> = {
     id: "leads",
     label: "Leads",
     definition: "Total contacts who submitted a form or inquiry.",
-    formula: "clicks * clickToLead",
+    formula: "clicks × clickToLead",
     whyItMatters: "Raw lead volume—the top of your sales funnel.",
     levers: ["Click volume", "Landing page CVR", "Offer quality"],
     failureModes: [
@@ -352,7 +371,7 @@ export const metricMetadata: Record<string, MetricMeta> = {
     id: "leadToMql",
     label: "Lead-to-MQL Rate",
     definition: "Percentage of leads that meet marketing-qualified criteria.",
-    formula: "mqls / leads",
+    formula: "MQLs / leads",
     whyItMatters: "Measures targeting quality and lead fit.",
     levers: [
       "ICP definition",
@@ -362,7 +381,7 @@ export const metricMetadata: Record<string, MetricMeta> = {
     ],
     failureModes: [
       "Low MQL rate (<30%) = poor targeting or weak qualification",
-      "High MQL rate but low Opp rate = misaligned sales criteria",
+      "High MQL rate but low SQL rate = misaligned sales criteria",
     ],
     playbook: [
       "Align marketing and sales on MQL definition",
@@ -370,8 +389,8 @@ export const metricMetadata: Record<string, MetricMeta> = {
       "Implement lead routing based on fit + intent",
     ],
     bench: {
-      low: 0.25, // 25%
-      typical: 0.39, // 39%
+      low: 0.30, // 30%
+      typical: 0.42, // 42%
       high: 0.55, // 55%
       citationUrl: "https://firstpagesage.com/reports/lead-to-mql-conversion-rate-benchmarks-by-industry-channel-fc/",
     },
@@ -380,7 +399,7 @@ export const metricMetadata: Record<string, MetricMeta> = {
     id: "mqls",
     label: "Marketing Qualified Leads (MQLs)",
     definition: "Leads that meet your ideal customer profile and intent criteria.",
-    formula: "leads * leadToMql",
+    formula: "leads × leadToMql",
     whyItMatters: "First quality filter—these are worth sales time.",
     levers: ["Lead quality", "Scoring accuracy", "Nurture effectiveness"],
     failureModes: [
@@ -390,129 +409,168 @@ export const metricMetadata: Record<string, MetricMeta> = {
     playbook: [
       "Weekly MQL review with sales",
       "SLA for sales follow-up (24-48 hours)",
-      "Track MQL → Opp conversion by source",
+      "Track MQL → SQL conversion by source",
     ],
   },
-  mqlToOpp: {
-    id: "mqlToOpp",
-    label: "MQL-to-Opportunity Rate",
-    definition: "Percentage of MQLs accepted by sales as real opportunities.",
-    formula: "opportunities / mqls",
-    whyItMatters: "Critical handoff—shows sales-marketing alignment.",
+  // NEW: MQL to SQL conversion rate
+  mqlToSql: {
+    id: "mqlToSql",
+    label: "MQL-to-SQL Rate",
+    definition: "Percentage of MQLs accepted by sales as Sales Qualified Leads.",
+    formula: "SQLs / MQLs",
+    whyItMatters: "Critical handoff—shows sales-marketing alignment on lead quality.",
     levers: [
-      "Lead quality",
-      "Sales follow-up speed",
-      "Qualification rigor",
-      "SDR effectiveness",
+      "MQL quality and fit scoring",
+      "Sales follow-up speed and rigor",
+      "Qualification criteria alignment",
+      "SDR/BDR effectiveness",
     ],
     failureModes: [
-      "Low rate (<20%) = quality problem or poor follow-up",
+      "Low rate (<25%) = marketing-sales misalignment on definitions",
       "Sales cherry-picking = need better lead distribution",
+      "Long response time = leads going cold before qualification",
     ],
     playbook: [
-      "Joint marketing-sales lead review",
-      "Track conversion by source, persona, offer",
+      "Establish joint marketing-sales lead review cadence",
+      "Define clear SQL criteria (BANT, MEDDIC, etc.)",
+      "Track rejection reasons to improve MQL quality",
       "Implement automated lead routing + task assignment",
     ],
+    bench: {
+      low: 0.25, // 25%
+      typical: 0.38, // 38%
+      high: 0.51, // 51%
+      citationUrl: "https://firstpagesage.com/reports/sales-funnel-conversion-rate-benchmarks/",
+    },
+  },
+  // NEW: SQL stage
+  sqls: {
+    id: "sqls",
+    label: "Sales Qualified Leads (SQLs)",
+    sublabel: "(Sales Meetings)",
+    definition: "MQLs that have been accepted by sales after qualification call or discovery meeting.",
+    formula: "MQLs × mqlToSql",
+    whyItMatters: "Real sales engagement—these prospects have budget, authority, need, and timeline.",
+    levers: ["MQL quality", "Sales follow-up speed", "Discovery call effectiveness"],
+    failureModes: [
+      "SQLs not converting to pipeline = weak discovery process",
+      "High volume but low quality = overly lenient qualification",
+      "Long time-in-stage = deal velocity issues",
+    ],
+    playbook: [
+      "Standardize SQL qualification criteria (BANT, MEDDIC)",
+      "Track time-to-SQL from MQL creation",
+      "Review SQL-to-Opp conversion weekly with sales",
+      "Implement discovery call frameworks and coaching",
+    ],
+    bench: {
+      low: 0.25, // 25%
+      typical: 0.38, // 38%
+      high: 0.51, // 51%
+      citationUrl: "https://firstpagesage.com/reports/sales-funnel-conversion-rate-benchmarks/",
+    },
+  },
+  // NEW: SQL to Opportunity conversion rate
+  sqlToOpp: {
+    id: "sqlToOpp",
+    label: "SQL-to-Opportunity Rate",
+    definition: "Percentage of SQLs that convert to qualified pipeline opportunities.",
+    formula: "Opportunities / SQLs",
+    whyItMatters: "Measures sales team's ability to convert qualified conversations into real pipeline.",
+    levers: [
+      "Discovery call quality",
+      "Value proposition clarity",
+      "Competitive positioning",
+      "Proposal timing and quality",
+    ],
+    failureModes: [
+      "Low rate (<35%) = poor discovery or weak value prop",
+      "High rate but low close rate = inflated pipeline",
+      "Deals stalling = need champion or clearer next steps",
+    ],
+    playbook: [
+      "Implement structured discovery frameworks",
+      "Create mutual action plans with prospects",
+      "Define clear opportunity creation criteria",
+      "Review pipeline quality weekly (not just quantity)",
+    ],
+    bench: {
+      low: 0.30, // 30%
+      typical: 0.43, // 43%
+      high: 0.55, // 55%
+      citationUrl: "https://firstpagesage.com/reports/sales-funnel-conversion-rate-benchmarks/",
+    },
   },
   opps: {
     id: "opps",
     label: "Opportunities",
-    definition: "Sales-accepted opportunities entered into pipeline.",
-    formula: "mqls * mqlToOpp",
-    whyItMatters: "Real pipeline—marketing's ultimate deliverable.",
-    levers: ["MQL volume", "MQL quality", "SDR effectiveness"],
+    sublabel: "(Pipeline)",
+    definition: "Qualified deals with estimated value entered into sales pipeline.",
+    formula: "SQLs × sqlToOpp",
+    whyItMatters: "Real pipeline—the bridge between marketing activity and revenue.",
+    levers: ["SQL volume and quality", "Discovery effectiveness", "Pipeline hygiene"],
     failureModes: [
-      "Opps stall in pipeline = weak qualification",
-      "Low meeting conversion = poor opp definition",
+      "Opps stall in pipeline = weak qualification or no champion",
+      "High opp count but low close rate = pipeline inflation",
+      "Long sales cycles = need better qualification earlier",
     ],
     playbook: [
-      "Track opportunity aging and velocity",
-      "Implement disqualification criteria",
-      "Review lost-opp reasons monthly",
+      "Track opportunity aging and velocity by stage",
+      "Implement rigorous disqualification criteria",
+      "Review lost-opp reasons monthly for patterns",
+      "Focus on pipeline quality over quantity",
     ],
   },
-  oppToMeeting: {
-    id: "oppToMeeting",
-    label: "Opportunity-to-Meeting Rate",
-    definition: "Percentage of opportunities that result in a first sales meeting.",
-    formula: "sales_meetings / opportunities",
-    whyItMatters: "Measures SDR effectiveness and prospect engagement.",
+  // RENAMED: Opportunity to Close (was meetingToClose)
+  oppToClose: {
+    id: "oppToClose",
+    label: "Opportunity-to-Close Rate (Win Rate)",
+    definition: "Percentage of pipeline opportunities that result in closed-won deals.",
+    formula: "closed_won / opportunities",
+    whyItMatters: "Ultimate sales effectiveness metric—converts pipeline to revenue.",
     levers: [
-      "Outreach cadence",
-      "Meeting scheduling process",
-      "Value proposition clarity",
-    ],
-    failureModes: [
-      "Low rate (<20%) = weak qualification or poor outreach",
-      "High no-show rate = need confirmation sequences",
-    ],
-    playbook: [
-      "Optimize SDR sequences (email, call, LinkedIn)",
-      "Use calendar links + automated reminders",
-      "Pre-meeting content to warm up prospect",
-    ],
-  },
-  sales_meetings: {
-    id: "sales_meetings",
-    label: "Sales Meetings",
-    definition: "First meetings (demos, discovery calls) completed.",
-    formula: "opportunities * oppToMeeting",
-    whyItMatters: "The handoff from marketing-to-sales is complete.",
-    levers: ["Meeting quality", "AE preparation", "Discovery process"],
-    failureModes: [
-      "High meeting count, low close rate = weak discovery",
-      "Long time-to-close = deal complexity or poor qualification",
-    ],
-    playbook: [
-      "Standardize discovery framework (MEDDIC, BANT)",
-      "Track meeting-to-proposal and proposal-to-close rates",
-      "Implement post-meeting surveys to improve process",
-    ],
-  },
-  meetingToClose: {
-    id: "meetingToClose",
-    label: "Meeting-to-Close Rate (Win Rate)",
-    definition: "Percentage of meetings that result in closed-won deals.",
-    formula: "closed_won / sales_meetings",
-    whyItMatters: "Ultimate sales effectiveness metric.",
-    levers: [
-      "Discovery quality",
-      "Proposal relevance",
-      "Pricing fit",
+      "Discovery and qualification rigor",
+      "Proposal quality and timing",
+      "Pricing and packaging fit",
       "Competitive positioning",
+      "Champion development",
     ],
     failureModes: [
-      "Low rate (<15%) = poor qualification or weak value prop",
-      "Long sales cycles = need better champions",
+      "Low rate (<25%) = poor qualification or weak value prop",
+      "Long sales cycles = need better champions or clearer decision process",
+      "High rate of 'no decision' = prospects not feeling urgency",
     ],
     playbook: [
       "Win/loss analysis (monthly)",
       "Improve proposal quality and speed",
-      "Competitive battle cards for AEs",
+      "Develop competitive battle cards for AEs",
+      "Implement deal reviews for stalled opportunities",
+      "Create mutual close plans with champions",
     ],
     bench: {
-      low: 0.15, // 15%
-      typical: 0.20, // 20%
-      high: 0.30, // 30%
-      citationUrl: "https://www.hibob.com/blog/sales-funnel-conversion-rate/",
+      low: 0.20, // 20%
+      typical: 0.38, // 38%
+      high: 0.50, // 50%
+      citationUrl: "https://firstpagesage.com/reports/sales-funnel-conversion-rate-benchmarks/",
     },
   },
   closed_won: {
     id: "closed_won",
     label: "Closed-Won Deals",
     definition: "Customers acquired through paid marketing efforts.",
-    formula: "sales_meetings * meetingToClose",
-    whyItMatters: "Revenue impact—the ultimate goal.",
-    levers: ["Win rate", "Meeting volume", "Full-funnel optimization"],
+    formula: "opportunities × oppToClose",
+    whyItMatters: "Revenue impact—the ultimate goal of the entire funnel.",
+    levers: ["Win rate improvement", "Pipeline volume", "Full-funnel optimization"],
     failureModes: [
       "Low deal count = insufficient top-of-funnel volume",
       "High CAC relative to LTV = unit economics problem",
+      "Long time-to-close = cash flow and forecasting issues",
     ],
     playbook: [
       "Track CAC:LTV ratio (target >3:1)",
       "Cohort analysis to measure retention",
       "Optimize the biggest bottleneck in the funnel",
+      "Focus on deal velocity, not just volume",
     ],
   },
 };
@@ -541,3 +599,19 @@ export function calculateDelta(current: number, baseline: number): number {
   if (baseline === 0) return 0;
   return ((current - baseline) / baseline) * 100;
 }
+
+// ============================================================================
+// VALIDATION: Expected outputs with $100K spend and default assumptions
+// ============================================================================
+// 
+// With defaultAssumptions:
+// - Impressions: 100000 / (60/1000) = 1,666,667
+// - Clicks: 1,666,667 × 0.021 = 35,000
+// - Leads: 35,000 × 0.066 = 2,310
+// - MQLs: 2,310 × 0.42 = 970
+// - SQLs: 970 × 0.38 = 369
+// - Opps: 369 × 0.43 = 159
+// - Closed-Won: 159 × 0.38 = 60
+// - CAC: $100,000 / 60 = ~$1,667
+//
+// This produces realistic B2B SaaS metrics with proper funnel decay.

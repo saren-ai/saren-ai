@@ -17,7 +17,7 @@ export default function InsightNarrative({
   currentAssumptions,
   baselineAssumptions,
 }: InsightNarrativeProps) {
-  // Calculate deltas
+  // Calculate deltas - Updated with new conversion stages
   const deltas = {
     spend: calculateDelta(currentAssumptions.spend, baselineAssumptions.spend),
     ctr: calculateDelta(currentAssumptions.ctr, baselineAssumptions.ctr),
@@ -29,17 +29,17 @@ export default function InsightNarrative({
       currentAssumptions.leadToMql,
       baselineAssumptions.leadToMql
     ),
-    mqlToOpp: calculateDelta(
-      currentAssumptions.mqlToOpp,
-      baselineAssumptions.mqlToOpp
+    mqlToSql: calculateDelta(
+      currentAssumptions.mqlToSql,
+      baselineAssumptions.mqlToSql
     ),
-    oppToMeeting: calculateDelta(
-      currentAssumptions.oppToMeeting,
-      baselineAssumptions.oppToMeeting
+    sqlToOpp: calculateDelta(
+      currentAssumptions.sqlToOpp,
+      baselineAssumptions.sqlToOpp
     ),
-    meetingToClose: calculateDelta(
-      currentAssumptions.meetingToClose,
-      baselineAssumptions.meetingToClose
+    oppToClose: calculateDelta(
+      currentAssumptions.oppToClose,
+      baselineAssumptions.oppToClose
     ),
     closedWon: calculateDelta(
       currentModel.stages.closed_won,
@@ -49,31 +49,36 @@ export default function InsightNarrative({
 
   // Find primary driver (largest absolute change)
   const driverCandidates = [
-    { name: "CTR", value: Math.abs(deltas.ctr), label: "click-through rate" },
+    { name: "CTR", value: Math.abs(deltas.ctr), label: "click-through rate", key: "ctr" as const },
     {
       name: "Click→Lead CVR",
       value: Math.abs(deltas.clickToLead),
       label: "landing page conversion",
+      key: "clickToLead" as const,
     },
     {
       name: "Lead→MQL",
       value: Math.abs(deltas.leadToMql),
       label: "lead qualification rate",
+      key: "leadToMql" as const,
     },
     {
-      name: "MQL→Opp",
-      value: Math.abs(deltas.mqlToOpp),
-      label: "opportunity conversion",
+      name: "MQL→SQL",
+      value: Math.abs(deltas.mqlToSql),
+      label: "sales acceptance rate",
+      key: "mqlToSql" as const,
     },
     {
-      name: "Opp→Meeting",
-      value: Math.abs(deltas.oppToMeeting),
-      label: "meeting booking rate",
+      name: "SQL→Opp",
+      value: Math.abs(deltas.sqlToOpp),
+      label: "pipeline creation rate",
+      key: "sqlToOpp" as const,
     },
     {
       name: "Win Rate",
-      value: Math.abs(deltas.meetingToClose),
+      value: Math.abs(deltas.oppToClose),
       label: "close rate",
+      key: "oppToClose" as const,
     },
   ];
 
@@ -81,7 +86,7 @@ export default function InsightNarrative({
     curr.value > max.value ? curr : max
   );
 
-  // Identify bottleneck (lowest conversion rate)
+  // Identify bottleneck (lowest conversion rate) - Updated with new stages
   const bottleneckCandidates = [
     { name: "CTR", rate: currentAssumptions.ctr, label: "ad creative" },
     {
@@ -95,18 +100,18 @@ export default function InsightNarrative({
       label: "lead qualification",
     },
     {
-      name: "MQL→Opp",
-      rate: currentAssumptions.mqlToOpp,
-      label: "opportunity creation",
+      name: "MQL→SQL",
+      rate: currentAssumptions.mqlToSql,
+      label: "sales acceptance",
     },
     {
-      name: "Opp→Meeting",
-      rate: currentAssumptions.oppToMeeting,
-      label: "meeting booking",
+      name: "SQL→Opp",
+      rate: currentAssumptions.sqlToOpp,
+      label: "pipeline creation",
     },
     {
       name: "Win Rate",
-      rate: currentAssumptions.meetingToClose,
+      rate: currentAssumptions.oppToClose,
       label: "sales close",
     },
   ];
@@ -159,21 +164,7 @@ export default function InsightNarrative({
           {primaryDriver.value > 1 && (
             <p className="text-sm text-foreground-muted leading-relaxed">
               When {primaryDriver.name}{" "}
-              {deltas[
-                primaryDriver.name === "CTR"
-                  ? "ctr"
-                  : primaryDriver.name === "Click→Lead CVR"
-                  ? "clickToLead"
-                  : primaryDriver.name === "Lead→MQL"
-                  ? "leadToMql"
-                  : primaryDriver.name === "MQL→Opp"
-                  ? "mqlToOpp"
-                  : primaryDriver.name === "Opp→Meeting"
-                  ? "oppToMeeting"
-                  : "meetingToClose"
-              ] > 0
-                ? "increased"
-                : "decreased"}
+              {deltas[primaryDriver.key] > 0 ? "increased" : "decreased"}
               , it created a ripple effect downstream through the entire funnel.
             </p>
           )}

@@ -202,80 +202,80 @@ export default function FunnelControls({
                     </div>
                   </div>
 
-                  {/* MQL to Opp */}
+                  {/* MQL to SQL - NEW */}
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
-                      MQL-to-Opportunity Rate
+                      MQL-to-SQL Rate
                     </label>
                     <div className="flex items-center gap-2">
                       <input
                         type="range"
-                        value={assumptions.mqlToOpp * 100}
+                        value={assumptions.mqlToSql * 100}
                         onChange={(e) =>
                           handleChange(
-                            "mqlToOpp",
+                            "mqlToSql",
                             parseFloat(e.target.value) / 100
                           )
                         }
                         className="flex-1"
-                        min="0"
-                        max="100"
+                        min="10"
+                        max="60"
                         step="1"
                       />
                       <span className="font-mono text-sm text-foreground w-16 text-right">
-                        {formatPercent(assumptions.mqlToOpp)}
+                        {formatPercent(assumptions.mqlToSql)}
                       </span>
                     </div>
                   </div>
 
-                  {/* Opp to Meeting */}
+                  {/* SQL to Opp - NEW */}
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
-                      Opportunity-to-Meeting Rate
+                      SQL-to-Opportunity Rate
                     </label>
                     <div className="flex items-center gap-2">
                       <input
                         type="range"
-                        value={assumptions.oppToMeeting * 100}
+                        value={assumptions.sqlToOpp * 100}
                         onChange={(e) =>
                           handleChange(
-                            "oppToMeeting",
+                            "sqlToOpp",
                             parseFloat(e.target.value) / 100
                           )
                         }
                         className="flex-1"
-                        min="0"
-                        max="100"
+                        min="20"
+                        max="70"
                         step="1"
                       />
                       <span className="font-mono text-sm text-foreground w-16 text-right">
-                        {formatPercent(assumptions.oppToMeeting)}
+                        {formatPercent(assumptions.sqlToOpp)}
                       </span>
                     </div>
                   </div>
 
-                  {/* Meeting to Close */}
+                  {/* Opp to Close - RENAMED from meetingToClose */}
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
-                      Meeting-to-Close Rate (Win Rate)
+                      Opportunity-to-Close Rate (Win Rate)
                     </label>
                     <div className="flex items-center gap-2">
                       <input
                         type="range"
-                        value={assumptions.meetingToClose * 100}
+                        value={assumptions.oppToClose * 100}
                         onChange={(e) =>
                           handleChange(
-                            "meetingToClose",
+                            "oppToClose",
                             parseFloat(e.target.value) / 100
                           )
                         }
                         className="flex-1"
-                        min="0"
-                        max="100"
+                        min="10"
+                        max="60"
                         step="1"
                       />
                       <span className="font-mono text-sm text-foreground w-16 text-right">
-                        {formatPercent(assumptions.meetingToClose)}
+                        {formatPercent(assumptions.oppToClose)}
                       </span>
                     </div>
                   </div>
