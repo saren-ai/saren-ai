@@ -88,6 +88,7 @@ export const portfolioMegaMenu: MegaMenuContent = {
  * Thinking Mega Menu Content
  */
 export const thinkingMegaMenu: MegaMenuContent = {
+  layout: "three-column",
   sections: [
     {
       links: [
@@ -98,22 +99,14 @@ export const thinkingMegaMenu: MegaMenuContent = {
         },
         {
           href: "https://sarenai.substack.com",
-          label: "Substack",
+          label: "Substack Newsletter",
           description: "Long-form articles and guides",
           isExternal: true,
         },
       ],
     },
   ],
-  promotional: {
-    headline: "How I Build",
-    description:
-      "Behind-the-scenes looks at the systems, prompts, and processes that power fractional CMO work. From Notebook LLM setups to demand architecture.",
-    cta: {
-      label: "Read on Substack",
-      href: "https://sarenai.substack.com",
-    },
-  },
+  customContent: null, // Will be populated dynamically in Header
 };
 
 /**
@@ -127,6 +120,11 @@ export const aboutMegaMenu: MegaMenuContent = {
           href: "/about",
           label: "About Me",
           description: "Career journey and background",
+        },
+        {
+          href: "/about/clients",
+          label: "Client Brands",
+          description: "26+ brands from startups to Fortune 500",
         },
         {
           href: "/about/stack",

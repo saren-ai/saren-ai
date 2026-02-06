@@ -10,6 +10,7 @@ import {
   thinkingMegaMenu,
   aboutMegaMenu,
 } from "@/lib/mega-menu-content";
+import { SubstackLatestPost } from "./SubstackLatestPost";
 
 interface NavItem {
   label: string;
@@ -45,6 +46,7 @@ const navLinks: NavItem[] = [
     megaMenu: aboutMegaMenu,
     mobileChildren: [
       { href: "/about", label: "About Me" },
+      { href: "/about/clients", label: "Client Brands" },
       { href: "/about/stack", label: "My Stack" },
     ],
   },
@@ -104,7 +106,7 @@ export default function Header() {
       className="sticky top-0 z-40 bg-ash/95 dark:bg-background/95 backdrop-blur-sm border-b border-charcoal/10 dark:border-ember/20"
       onMouseLeave={handleMouseLeave}
     >
-      <nav className="container-wide py-4">
+      <nav className="container-narrow py-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link
@@ -321,17 +323,23 @@ export default function Header() {
       </nav>
 
       {/* Mega Menus */}
-      {navLinks.map(
-        (link) =>
-          link.megaMenu && (
-            <MegaMenu
-              key={link.label}
-              isOpen={openMegaMenu === link.label}
-              content={link.megaMenu}
-              onClose={() => setOpenMegaMenu(null)}
-            />
-          )
-      )}
+      {navLinks.map((link) => {
+        if (!link.megaMenu) return null;
+        
+        // Inject Substack feed for Thinking menu
+        const menuContent = link.label === "Thinking" 
+          ? { ...link.megaMenu, customContent: <SubstackLatestPost /> }
+          : link.megaMenu;
+        
+        return (
+          <MegaMenu
+            key={link.label}
+            isOpen={openMegaMenu === link.label}
+            content={menuContent}
+            onClose={() => setOpenMegaMenu(null)}
+          />
+        );
+      })}
     </header>
   );
 }

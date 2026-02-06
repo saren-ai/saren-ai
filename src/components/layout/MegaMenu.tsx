@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { Suspense, ReactNode } from "react";
 
 export interface MegaMenuLink {
   href: string;
@@ -30,6 +31,8 @@ export interface PromotionalContent {
 export interface MegaMenuContent {
   sections: MegaMenuSection[];
   promotional?: PromotionalContent;
+  customContent?: ReactNode; // For custom layouts like Substack feed
+  layout?: 'default' | 'three-column'; // Layout type
 }
 
 interface MegaMenuProps {
@@ -39,6 +42,127 @@ interface MegaMenuProps {
 }
 
 export default function MegaMenu({ isOpen, content, onClose }: MegaMenuProps) {
+  // Three-column layout (e.g., for Thinking menu with Substack feed)
+  if (content.layout === 'three-column' && content.customContent) {
+    return (
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="absolute left-0 right-0 top-full z-50 bg-white dark:bg-card-bg shadow-2xl border-t border-charcoal/10 dark:border-ember/20"
+          >
+            <div className="max-w-7xl mx-auto px-6 py-12">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                {/* Left Column: Links */}
+                <motion.div
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.05 }}
+                  className="lg:col-span-1"
+                >
+                  {content.sections.map((section, sectionIndex) => (
+                    <div key={sectionIndex}>
+                      {section.title && (
+                        <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground-muted mb-4">
+                          {section.title}
+                        </h3>
+                      )}
+                      <ul className="space-y-3">
+                        {section.links.map((link, linkIndex) => (
+                          <motion.li
+                            key={linkIndex}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{
+                              delay: sectionIndex * 0.05 + linkIndex * 0.02,
+                            }}
+                          >
+                            {link.isExternal ? (
+                              <a
+                                href={link.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={onClose}
+                                className="group block"
+                              >
+                                <div className="flex items-start justify-between gap-2">
+                                  <div className="flex-1">
+                                    <span className="text-foreground font-medium group-hover:text-ember transition-colors">
+                                      {link.label}
+                                    </span>
+                                    {link.description && (
+                                      <p className="text-sm text-foreground-muted mt-1 leading-relaxed">
+                                        {link.description}
+                                      </p>
+                                    )}
+                                  </div>
+                                  <svg
+                                    className="w-4 h-4 text-foreground-muted group-hover:text-ember transition-colors flex-shrink-0 mt-0.5"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth={2}
+                                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                    />
+                                  </svg>
+                                </div>
+                              </a>
+                            ) : (
+                              <Link
+                                href={link.href}
+                                onClick={onClose}
+                                className="group block"
+                              >
+                                <span className="text-foreground font-medium group-hover:text-ember transition-colors">
+                                  {link.label}
+                                </span>
+                                {link.description && (
+                                  <p className="text-sm text-foreground-muted mt-1 leading-relaxed">
+                                    {link.description}
+                                  </p>
+                                )}
+                              </Link>
+                            )}
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </motion.div>
+
+                {/* Right 2 Columns: Custom Content (e.g., Substack post) */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 }}
+                  className="lg:col-span-2"
+                >
+                  <Suspense
+                    fallback={
+                      <div className="flex items-center justify-center h-64">
+                        <div className="text-foreground-muted">Loading...</div>
+                      </div>
+                    }
+                  >
+                    {content.customContent}
+                  </Suspense>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    );
+  }
+
+  // Default layout (existing 2/3 + 1/3 promotional layout)
   return (
     <AnimatePresence>
       {isOpen && (
