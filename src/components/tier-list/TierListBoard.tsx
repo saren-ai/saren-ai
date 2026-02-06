@@ -4,7 +4,8 @@ import { useState, useCallback } from "react";
 import {
   DndContext,
   DragOverlay,
-  closestCenter,
+  pointerWithin,
+  rectIntersection,
   PointerSensor,
   TouchSensor,
   KeyboardSensor,
@@ -13,6 +14,7 @@ import {
   type DragStartEvent,
   type DragOverEvent,
   type DragEndEvent,
+  type CollisionDetection,
 } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
 import { motion } from "framer-motion";
@@ -34,6 +36,13 @@ import {
   type TierId,
   type TierResults,
 } from "@/lib/tier-list";
+
+// Custom collision detection: try pointerWithin first (precise), fall back to rectIntersection (catches empty containers)
+const customCollisionDetection: CollisionDetection = (args) => {
+  const pointerCollisions = pointerWithin(args);
+  if (pointerCollisions.length > 0) return pointerCollisions;
+  return rectIntersection(args);
+};
 
 export function TierListBoard() {
   const [tierContents, setTierContents] = useState<TierContents>(
@@ -187,7 +196,7 @@ export function TierListBoard() {
     <>
       <DndContext
         sensors={sensors}
-        collisionDetection={closestCenter}
+        collisionDetection={customCollisionDetection}
         onDragStart={handleDragStart}
         onDragOver={handleDragOver}
         onDragEnd={handleDragEnd}
@@ -215,7 +224,7 @@ export function TierListBoard() {
           </div>
 
           {/* Desktop: Unranked pool on right */}
-          <div className="hidden lg:block lg:w-64 xl:w-72">
+          <div className="hidden lg:block lg:w-72 xl:w-80">
             <UnrankedPool
               toolIds={tierContents.unranked}
               tools={AI_TOOLS}

@@ -28,14 +28,14 @@ export function ToolCard({ tool, isDragOverlay }: ToolCardProps) {
 
   if (isDragOverlay) {
     return (
-      <div className="bg-white dark:bg-card-bg border-2 border-electric rounded-lg px-3 py-2 shadow-xl select-none">
-        <div className="flex items-center gap-2">
-          <GripVertical className="w-3 h-3 text-electric" />
+      <div className="bg-white dark:bg-card-bg border-2 border-electric rounded-lg px-4 py-3 shadow-xl select-none">
+        <div className="flex items-center gap-2.5">
+          <GripVertical className="w-4 h-4 text-electric" />
           <div>
-            <span className="text-sm font-semibold text-charcoal dark:text-foreground">
+            <span className="text-base font-semibold text-charcoal dark:text-foreground">
               {tool.name}
             </span>
-            <span className="block text-[10px] text-foreground-muted font-mono">
+            <span className="block text-xs text-foreground-muted font-mono">
               {tool.category}
             </span>
           </div>
@@ -50,15 +50,15 @@ export function ToolCard({ tool, isDragOverlay }: ToolCardProps) {
       style={style}
       {...attributes}
       {...listeners}
-      className="bg-white dark:bg-card-bg border border-charcoal/15 dark:border-ember/20 rounded-lg px-3 py-2 cursor-grab active:cursor-grabbing select-none hover:border-electric hover:shadow-md transition-all"
+      className="bg-white dark:bg-card-bg border border-charcoal/15 dark:border-ember/20 rounded-lg px-4 py-3 cursor-grab active:cursor-grabbing select-none hover:border-electric hover:shadow-md transition-all"
     >
-      <div className="flex items-center gap-2">
-        <GripVertical className="w-3 h-3 text-foreground-muted/40 shrink-0" />
+      <div className="flex items-center gap-2.5">
+        <GripVertical className="w-4 h-4 text-foreground-muted/40 shrink-0" />
         <div className="min-w-0">
-          <span className="text-sm font-semibold text-charcoal dark:text-foreground whitespace-nowrap">
+          <span className="text-base font-semibold text-charcoal dark:text-foreground whitespace-nowrap">
             {tool.name}
           </span>
-          <span className="block text-[10px] text-foreground-muted font-mono">
+          <span className="block text-xs text-foreground-muted font-mono">
             {tool.category}
           </span>
         </div>
