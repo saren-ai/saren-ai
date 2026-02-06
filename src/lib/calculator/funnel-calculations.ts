@@ -14,13 +14,16 @@ export function calculateFunnel(
   avgDealSize: number,
   rates: ConversionRates
 ): FunnelResult {
+  // Guard against divide-by-zero: clamp zero rates to a small minimum
+  const safeRate = (rate: number) => (rate <= 0 || !Number.isFinite(rate)) ? 0.001 : rate;
+
   // Work backwards from revenue
-  const closedWon = Math.ceil(revenueGoal / avgDealSize);
-  const opportunities = Math.ceil(closedWon / rates.opportunityToClose);
-  const sqos = Math.ceil(opportunities / rates.sqlToOpportunity);
-  const mqls = Math.ceil(sqos / rates.mqlToSQL);
-  const leads = Math.ceil(mqls / rates.leadToMQL);
-  const webVisitors = Math.ceil(leads / rates.visitorToLead);
+  const closedWon = Math.ceil(revenueGoal / (avgDealSize || 1));
+  const opportunities = Math.ceil(closedWon / safeRate(rates.opportunityToClose));
+  const sqos = Math.ceil(opportunities / safeRate(rates.sqlToOpportunity));
+  const mqls = Math.ceil(sqos / safeRate(rates.mqlToSQL));
+  const leads = Math.ceil(mqls / safeRate(rates.leadToMQL));
+  const webVisitors = Math.ceil(leads / safeRate(rates.visitorToLead));
 
   return {
     webVisitors,

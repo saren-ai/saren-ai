@@ -20,18 +20,19 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setError("");
 
-    // TODO: Replace with actual HubSpot integration
-    // HubSpot Portal ID and Form ID will be needed
-    // Example: await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`, ...)
+    try {
+      // TODO: Replace with actual HubSpot integration
+      // HubSpot Portal ID and Form ID will be needed
+      // Example: await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`, ...)
 
-    // Simulating form submission
-    console.log("Form submitted:", formState);
-
-    // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+      // Simulating form submission
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setIsSubmitted(true);
+    } catch (err) {
+      setError("Something went wrong. Please try again or email directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -263,14 +264,8 @@ export default function ContactPage() {
                   Start a live chat and I&apos;ll get back to you as soon as I can.
                 </p>
                 {/* TODO: Replace with actual HubSpot chat integration */}
-                <button
-                  onClick={() => {
-                    // TODO: Open HubSpot chat widget
-                    console.log("Open HubSpot chat");
-                    alert(
-                      "HubSpot chat will be integrated here. For now, please use the contact form or email."
-                    );
-                  }}
+                <a
+                  href="mailto:saren.sakurai@gmail.com?subject=Quick%20Question"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-electric text-white rounded-lg hover:bg-electric/90 transition-colors"
                 >
                   <svg
@@ -286,8 +281,8 @@ export default function ContactPage() {
                       d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
                     />
                   </svg>
-                  Start a live chat
-                </button>
+                  Send a quick email
+                </a>
               </div>
 
               {/* LinkedIn */}

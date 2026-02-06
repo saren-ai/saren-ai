@@ -29,7 +29,8 @@ export function CacComparison({
     (item) =>
       item.industry.toLowerCase() === selectedIndustry.toLowerCase() ||
       item.industry === "AVERAGE"
-  ) || CAC_BY_SCALE.find((item) => item.industry === "AVERAGE")!;
+  ) || CAC_BY_SCALE.find((item) => item.industry === "AVERAGE") ||
+    { industry: "AVERAGE", consumer: 0, smb: 0, middleMarket: 0, enterprise: 0 };
 
   const scales: CompanyScale[] = ["consumer", "smb", "middleMarket", "enterprise"];
 
