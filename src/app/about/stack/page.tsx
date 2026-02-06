@@ -2,62 +2,9 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { TierListBoard } from "@/components/tier-list/TierListBoard";
 
 const stackCategories = [
-  {
-    name: "AI Development",
-    description: "The AI-native tools powering my workflow",
-    tools: [
-      {
-        name: "Cursor",
-        description: "AI-first code editor with Claude integration",
-        category: "IDE",
-        url: "https://cursor.com",
-      },
-      {
-        name: "Claude Opus 4.5",
-        description: "Advanced reasoning for complex development tasks",
-        category: "AI Model",
-        url: "https://anthropic.com",
-      },
-      {
-        name: "Claude Desktop",
-        description: "Native app for everyday AI assistance",
-        category: "AI Assistant",
-        url: "https://anthropic.com",
-      },
-      {
-        name: "Claude Cowork",
-        description: "Collaborative AI for team workflows",
-        category: "AI Collaboration",
-        url: "https://anthropic.com",
-      },
-      {
-        name: "Claude Code",
-        description: "Specialized coding assistant",
-        category: "AI Coding",
-        url: "https://anthropic.com",
-      },
-      {
-        name: "ChatGPT 5.2",
-        description: "Versatile AI for brainstorming and research",
-        category: "AI Assistant",
-        url: "https://openai.com",
-      },
-      {
-        name: "Gemini",
-        description: "Google's multimodal AI for diverse tasks",
-        category: "AI Assistant",
-        url: "https://gemini.google.com",
-      },
-      {
-        name: "Perplexity",
-        description: "AI-powered research and search",
-        category: "AI Research",
-        url: "https://perplexity.ai",
-      },
-    ],
-  },
   {
     name: "Development & Deployment",
     description: "Infrastructure for building and shipping",
@@ -162,6 +109,27 @@ export default function StackPage() {
               </p>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* AI Development Tier List */}
+      <section className="section bg-ash dark:bg-background">
+        <div className="container-narrow">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-10"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal dark:text-foreground mb-2">
+              AI Development
+            </h2>
+            <p className="text-slate dark:text-foreground-muted text-lg">
+              The AI-native tools powering my workflow — rank them yourself
+            </p>
+          </motion.div>
+
+          <TierListBoard />
         </div>
       </section>
 
