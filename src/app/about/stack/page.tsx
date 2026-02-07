@@ -1,71 +1,46 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { TierListBoard } from "@/components/tier-list/TierListBoard";
+import { AI_TOOLS } from "@/lib/tier-list";
 
 const stackCategories = [
   {
+    name: "AI Development",
+    description: "AI-native tools powering my daily workflow",
+    toolIds: [
+      "cursor",
+      "claude-code",
+      "claude",
+      "chatgpt",
+      "gemini",
+      "perplexity",
+      "deepseek",
+      "grok",
+      "notebooklm",
+      "manus",
+    ],
+  },
+  {
     name: "Development & Deployment",
     description: "Infrastructure for building and shipping",
-    tools: [
-      {
-        name: "GitHub",
-        description: "Version control and collaboration",
-        category: "Git",
-        url: "https://github.com",
-      },
-      {
-        name: "Vercel",
-        description: "Deployment and hosting platform",
-        category: "Hosting",
-        url: "https://vercel.com",
-      },
-      {
-        name: "NameCheap",
-        description: "Domain registration and management",
-        category: "Domains",
-        url: "https://namecheap.com",
-      },
-    ],
+    toolIds: ["github", "breeze"],
   },
   {
     name: "Marketing & Sales",
     description: "Tools for growth and revenue",
-    tools: [
-      {
-        name: "HubSpot",
-        description: "CRM, marketing automation, and sales enablement",
-        category: "CRM",
-        url: "https://hubspot.com",
-      },
-      {
-        name: "Apollo",
-        description: "Sales intelligence and engagement platform",
-        category: "Sales",
-        url: "https://apollo.io",
-      },
-    ],
+    toolIds: ["hubspot", "plai"],
   },
   {
     name: "Content & Productivity",
     description: "Creating and managing content",
-    tools: [
-      {
-        name: "Apple Creator Studio",
-        description: "Content creation for Apple ecosystem",
-        category: "Content",
-        url: "https://apple.com",
-      },
-      {
-        name: "Comet Browser",
-        description: "AI-enhanced browsing experience",
-        category: "Browser",
-        url: "https://cometbrowser.com",
-      },
-    ],
+    toolIds: ["wethosai"],
   },
 ];
+
+const toolMap = new Map(AI_TOOLS.map((t) => [t.id, t]));
 
 export default function StackPage() {
   return (
@@ -84,7 +59,10 @@ export default function StackPage() {
                 </li>
                 <li>/</li>
                 <li>
-                  <Link href="/about" className="hover:text-ash transition-colors">
+                  <Link
+                    href="/about"
+                    className="hover:text-ash transition-colors"
+                  >
                     About
                   </Link>
                 </li>
@@ -112,7 +90,7 @@ export default function StackPage() {
         </div>
       </section>
 
-      {/* AI Development Tier List */}
+      {/* Interactive Tier List */}
       <section className="section bg-ash dark:bg-background">
         <div className="container-narrow">
           <motion.div
@@ -122,10 +100,10 @@ export default function StackPage() {
             className="mb-10"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-charcoal dark:text-foreground mb-2">
-              AI Development
+              Rank My Stack
             </h2>
             <p className="text-slate dark:text-foreground-muted text-lg">
-              The AI-native tools powering my workflow — rank them yourself
+              Drag and drop to rank these tools yourself — or check out my picks
             </p>
           </motion.div>
 
@@ -133,11 +111,11 @@ export default function StackPage() {
         </div>
       </section>
 
-      {/* Stack Categories */}
+      {/* Stack Category Sections */}
       {stackCategories.map((category, categoryIndex) => (
         <section
           key={category.name}
-          className={`section ${categoryIndex % 2 === 0 ? "bg-ash" : "bg-charcoal/5"}`}
+          className={`section ${categoryIndex % 2 === 0 ? "bg-charcoal/5 dark:bg-background-secondary" : "bg-ash dark:bg-background"}`}
         >
           <div className="container-narrow">
             <motion.div
@@ -146,54 +124,75 @@ export default function StackPage() {
               viewport={{ once: true }}
               className="mb-10"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-2">
+              <h2 className="text-3xl md:text-4xl font-bold text-charcoal dark:text-foreground mb-2">
                 {category.name}
               </h2>
-              <p className="text-slate text-lg">{category.description}</p>
+              <p className="text-slate dark:text-foreground-muted text-lg">
+                {category.description}
+              </p>
             </motion.div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-              {category.tools.map((tool, toolIndex) => (
-                <motion.a
-                  key={tool.name}
-                  href={tool.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: toolIndex * 0.05 }}
-                  className="group bg-white p-6 rounded-xl border border-charcoal/10 hover:border-electric hover:shadow-lg hover:shadow-electric/10 transition-all"
-                >
-                  <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-lg font-bold text-charcoal group-hover:text-ember transition-colors">
-                      {tool.name}
-                    </h3>
-                    <span className="text-xs font-mono text-slate bg-charcoal/5 px-2 py-1 rounded">
-                      {tool.category}
-                    </span>
-                  </div>
-                  <p className="text-slate text-sm leading-relaxed">
-                    {tool.description}
-                  </p>
-                  <div className="mt-4 flex items-center gap-1 text-electric text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span>Learn more</span>
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
-                  </div>
-                </motion.a>
-              ))}
+              {category.toolIds.map((id, toolIndex) => {
+                const tool = toolMap.get(id);
+                if (!tool) return null;
+                return (
+                  <motion.a
+                    key={tool.id}
+                    href={tool.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: toolIndex * 0.05 }}
+                    className="group bg-white dark:bg-card-bg p-5 rounded-xl border border-charcoal/10 dark:border-ember/20 hover:border-electric hover:shadow-lg hover:shadow-electric/10 transition-all"
+                  >
+                    <div className="flex items-start gap-4">
+                      {/* Logo */}
+                      {tool.logo && (
+                        <Image
+                          src={tool.logo}
+                          alt={tool.name}
+                          width={40}
+                          height={40}
+                          className="rounded-lg shrink-0 mt-0.5"
+                        />
+                      )}
+                      {/* Text */}
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center justify-between mb-1">
+                          <h3 className="text-lg font-bold text-charcoal dark:text-foreground group-hover:text-ember transition-colors">
+                            {tool.name}
+                          </h3>
+                          <span className="text-xs font-mono text-slate dark:text-foreground-muted bg-charcoal/5 dark:bg-ember/10 px-2 py-0.5 rounded">
+                            {tool.category.split(" ")[0]}
+                          </span>
+                        </div>
+                        <p className="text-slate dark:text-foreground-muted text-sm leading-relaxed">
+                          {tool.description}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="mt-3 flex items-center gap-1 text-electric text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span>Learn more</span>
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </div>
+                  </motion.a>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -212,11 +211,11 @@ export default function StackPage() {
                 Why AI-Native?
               </h2>
               <p className="text-ash/80 text-lg leading-relaxed mb-8">
-                I believe the best way to understand AI&apos;s potential is to use
-                it daily. By building with these tools, I discover what works,
-                what doesn&apos;t, and how to help clients adopt AI effectively.
-                This site is proof that AI augments human creativity—it
-                doesn&apos;t replace it.
+                I believe the best way to understand AI&apos;s potential is to
+                use it daily. By building with these tools, I discover what
+                works, what doesn&apos;t, and how to help clients adopt AI
+                effectively. This site is proof that AI augments human
+                creativity—it doesn&apos;t replace it.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/contact" className="btn-primary">

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import FAQ from "@/components/ui/FAQ";
+import ProfileGallery from "@/components/ui/ProfileGallery";
 
 const careerTimeline = [
   {
@@ -82,25 +83,34 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="section bg-gradient-to-br from-charcoal to-offblack text-ash">
         <div className="container-narrow">
-          <div className="max-w-3xl">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-            >
-              About Saren
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-xl md:text-2xl text-ash/80 leading-relaxed"
-            >
-              I&apos;m a marketing leader who builds growth engines at the
-              intersection of strategy, storytelling, and systems. My work spans
-              from early-stage startups to enterprise—always with a focus on
-              measurable outcomes.
-            </motion.p>
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+            {/* Profile Gallery */}
+            <div className="shrink-0">
+              <ProfileGallery />
+            </div>
+
+            {/* Text */}
+            <div className="flex-1 max-w-2xl">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+              >
+                Marketing for the messy middle.
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="text-xl md:text-2xl text-ash/80 leading-relaxed"
+              >
+                I build growth engines at the intersection of cultural
+                storytelling and systems design. From early-stage sprints to
+                enterprise scale, I skip the 101s and focus on the mechanics of
+                what actually moves the needle. No fluff, just smart takes and
+                measurable outcomes.
+              </motion.p>
+            </div>
           </div>
         </div>
       </section>

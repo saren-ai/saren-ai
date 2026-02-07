@@ -6,6 +6,7 @@ export interface AiTool {
   description: string;
   category: string;
   url: string;
+  logo?: string; // Path to transparent PNG in /public/logos/tools/
 }
 
 export type TierId = "S" | "A" | "B" | "C" | "D";
@@ -39,14 +40,25 @@ export interface TierResults {
 // ---- Static Data ----
 
 export const AI_TOOLS: AiTool[] = [
-  { id: "cursor", name: "Cursor", description: "AI-first code editor with Claude integration", category: "IDE", url: "https://cursor.com" },
-  { id: "claude-opus", name: "Claude Opus 4.5", description: "Advanced reasoning for complex development tasks", category: "AI Model", url: "https://anthropic.com" },
-  { id: "claude-desktop", name: "Claude Desktop", description: "Native app for everyday AI assistance", category: "AI Assistant", url: "https://anthropic.com" },
-  { id: "claude-cowork", name: "Claude Cowork", description: "Collaborative AI for team workflows", category: "AI Collaboration", url: "https://anthropic.com" },
-  { id: "claude-code", name: "Claude Code", description: "Specialized coding assistant", category: "AI Coding", url: "https://anthropic.com" },
-  { id: "chatgpt", name: "ChatGPT 5.2", description: "Versatile AI for brainstorming and research", category: "AI Assistant", url: "https://openai.com" },
-  { id: "gemini", name: "Gemini", description: "Google's multimodal AI for diverse tasks", category: "AI Assistant", url: "https://gemini.google.com" },
-  { id: "perplexity", name: "Perplexity", description: "AI-powered research and search", category: "AI Research", url: "https://perplexity.ai" },
+  // AI Development
+  { id: "cursor", name: "Cursor", description: "AI-first code editor with Claude & GPT integration", category: "AI Development", url: "https://cursor.com", logo: "/logos/ai-apps/cursor.png" },
+  { id: "claude-code", name: "Claude Code", description: "Agentic coding assistant for the terminal", category: "AI Development", url: "https://anthropic.com", logo: "/logos/ai-apps/claude-code.jpg" },
+  { id: "claude", name: "Claude", description: "Advanced reasoning for complex tasks and writing", category: "AI Development", url: "https://anthropic.com", logo: "/logos/ai-apps/claude.png" },
+  { id: "chatgpt", name: "ChatGPT", description: "Versatile AI for brainstorming and research", category: "AI Development", url: "https://openai.com", logo: "/logos/ai-apps/chatgpt.png" },
+  { id: "gemini", name: "Gemini", description: "Google's multimodal AI for diverse tasks", category: "AI Development", url: "https://gemini.google.com", logo: "/logos/ai-apps/gemini.png" },
+  { id: "perplexity", name: "Perplexity", description: "AI-powered research and search engine", category: "AI Development", url: "https://perplexity.ai", logo: "/logos/ai-apps/perplexity.png" },
+  { id: "deepseek", name: "DeepSeek", description: "Open-source AI for code and reasoning", category: "AI Development", url: "https://deepseek.com", logo: "/logos/ai-apps/deepseek.png" },
+  { id: "grok", name: "Grok", description: "Real-time AI with X platform integration", category: "AI Development", url: "https://x.ai", logo: "/logos/ai-apps/grok.png" },
+  { id: "notebooklm", name: "NotebookLM", description: "Google's AI-powered research notebook", category: "AI Development", url: "https://notebooklm.google.com", logo: "/logos/ai-apps/notebooklm.png" },
+  { id: "manus", name: "Manus", description: "Autonomous AI agent for complex workflows", category: "AI Development", url: "https://manus.im", logo: "/logos/ai-apps/manus.png" },
+  // Development & Deployment
+  { id: "github", name: "GitHub", description: "Version control and collaboration platform", category: "Development & Deployment", url: "https://github.com", logo: "/logos/ai-apps/github.png" },
+  { id: "breeze", name: "Breeze", description: "AI-powered design and development tool", category: "Development & Deployment", url: "https://breeze.com", logo: "/logos/ai-apps/breeze.png" },
+  // Marketing & Sales
+  { id: "hubspot", name: "HubSpot", description: "CRM, marketing automation, and sales enablement", category: "Marketing & Sales", url: "https://hubspot.com", logo: "/logos/ai-apps/hubspot.png" },
+  { id: "plai", name: "Plai", description: "AI-powered ad management and optimization", category: "Marketing & Sales", url: "https://plai.io", logo: "/logos/ai-apps/plai.png" },
+  // Content & Productivity
+  { id: "wethosai", name: "Wethos AI", description: "AI-powered project scoping and pricing", category: "Content & Productivity", url: "https://wethos.co", logo: "/logos/ai-apps/wethosai.png" },
 ];
 
 export const TIER_CONFIG: TierConfig[] = [
@@ -56,6 +68,17 @@ export const TIER_CONFIG: TierConfig[] = [
   { id: "C", label: "C", color: "#FFFF7F", textColor: "#000000" },
   { id: "D", label: "D", color: "#BFFF7F", textColor: "#000000" },
 ];
+
+// ---- Saren's Picks (predefined ranking) ----
+
+export const SAREN_PICKS: TierContents = {
+  S: ["cursor", "claude-code", "claude"],
+  A: ["perplexity", "chatgpt", "github", "hubspot"],
+  B: ["gemini", "notebooklm", "deepseek", "plai"],
+  C: ["grok", "manus", "breeze", "wethosai"],
+  D: [],
+  unranked: [],
+};
 
 // ---- Helpers ----
 

@@ -1,11 +1,12 @@
 "use client";
 
-import { RotateCcw, Check, BarChart3 } from "lucide-react";
+import { RotateCcw, Check, BarChart3, Star } from "lucide-react";
 
 interface TierListControlsProps {
   onReset: () => void;
   onVote: () => void;
   onSeeResults: () => void;
+  onSarenPicks: () => void;
   hasVoted: boolean;
   isSubmitting: boolean;
   canVote: boolean;
@@ -15,6 +16,7 @@ export function TierListControls({
   onReset,
   onVote,
   onSeeResults,
+  onSarenPicks,
   hasVoted,
   isSubmitting,
   canVote,
@@ -61,6 +63,15 @@ export function TierListControls({
       >
         <BarChart3 className="w-4 h-4" />
         See Results
+      </button>
+
+      {/* Saren's Picks */}
+      <button
+        onClick={onSarenPicks}
+        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-electric/10 text-electric hover:bg-electric/20 transition-colors"
+      >
+        <Star className="w-4 h-4" />
+        Saren&apos;s Picks
       </button>
     </div>
   );

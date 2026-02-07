@@ -34,7 +34,7 @@ export function UnrankedPool({ toolIds, tools }: UnrankedPoolProps) {
       </div>
 
       <SortableContext items={toolIds} strategy={rectSortingStrategy}>
-        <div className="grid grid-cols-2 gap-2">
+        <div className="flex flex-wrap gap-2">
           {toolIds.map((id) => {
             const tool = toolMap.get(id);
             if (!tool) return null;

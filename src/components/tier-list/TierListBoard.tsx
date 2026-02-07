@@ -28,6 +28,7 @@ import {
   AI_TOOLS,
   TIER_CONFIG,
   createInitialContents,
+  SAREN_PICKS,
   getToolById,
   saveVote,
   getVotes,
@@ -250,6 +251,7 @@ export function TierListBoard() {
         onReset={handleReset}
         onVote={handleVote}
         onSeeResults={handleSeeResults}
+        onSarenPicks={() => setTierContents({ ...SAREN_PICKS })}
         hasVoted={hasVoted}
         isSubmitting={isSubmitting}
         canVote={placedCount > 0}

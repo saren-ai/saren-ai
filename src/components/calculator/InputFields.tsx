@@ -37,7 +37,7 @@ export function InputFields({ state, onChange }: InputFieldsProps) {
           <input
             id="revenueGoal"
             type="text"
-            value={formatCurrency(state.revenueGoal).replace("$", "")}
+            value={formatCurrency(state.revenueGoal ?? 0).replace("$", "")}
             onChange={handleRevenueChange}
             className="calculator-input w-full pl-12"
             placeholder="1,000,000"
