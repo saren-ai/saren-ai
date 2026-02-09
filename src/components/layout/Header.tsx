@@ -11,6 +11,7 @@ import {
   aboutMegaMenu,
 } from "@/lib/mega-menu-content";
 import { SubstackLatestPost } from "./SubstackLatestPost";
+import { type SubstackPost } from "@/lib/substack-rss";
 
 interface NavItem {
   label: string;
@@ -56,7 +57,7 @@ const navLinks: NavItem[] = [
   },
 ];
 
-export default function Header() {
+export default function Header({ latestPost }: { latestPost?: SubstackPost | null }) {
   const [openMegaMenu, setOpenMegaMenu] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(null);
@@ -134,17 +135,15 @@ export default function Header() {
                   </Link>
                 ) : (
                   <button
-                    className={`text-charcoal dark:text-foreground hover:text-ember dark:hover:text-ember font-medium transition-colors relative group ${
-                      openMegaMenu === link.label ? "text-ember" : ""
-                    }`}
+                    className={`text-charcoal dark:text-foreground hover:text-ember dark:hover:text-ember font-medium transition-colors relative group ${openMegaMenu === link.label ? "text-ember" : ""
+                      }`}
                     aria-expanded={openMegaMenu === link.label}
                     aria-haspopup="true"
                   >
                     {link.label}
                     <span
-                      className={`absolute -bottom-1 left-0 h-0.5 bg-ember transition-all duration-300 ${
-                        openMegaMenu === link.label ? "w-full" : "w-0 group-hover:w-full"
-                      }`}
+                      className={`absolute -bottom-1 left-0 h-0.5 bg-ember transition-all duration-300 ${openMegaMenu === link.label ? "w-full" : "w-0 group-hover:w-full"
+                        }`}
                     />
                   </button>
                 )}
@@ -220,9 +219,8 @@ export default function Header() {
                         >
                           <span>{link.label}</span>
                           <svg
-                            className={`w-4 h-4 transition-transform ${
-                              expandedMobileItem === link.label ? "rotate-180" : ""
-                            }`}
+                            className={`w-4 h-4 transition-transform ${expandedMobileItem === link.label ? "rotate-180" : ""
+                              }`}
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -325,12 +323,12 @@ export default function Header() {
       {/* Mega Menus */}
       {navLinks.map((link) => {
         if (!link.megaMenu) return null;
-        
+
         // Inject Substack feed for Thinking menu
-        const menuContent = link.label === "Thinking" 
-          ? { ...link.megaMenu, customContent: <SubstackLatestPost /> }
+        const menuContent = link.label === "Thinking"
+          ? { ...link.megaMenu, customContent: <SubstackLatestPost post={latestPost ?? null} /> }
           : link.megaMenu;
-        
+
         return (
           <MegaMenu
             key={link.label}

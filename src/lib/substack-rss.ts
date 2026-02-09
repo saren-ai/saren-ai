@@ -12,8 +12,8 @@ export interface SubstackPost {
 const parser = new Parser({
   customFields: {
     item: [
-      ['media:thumbnail', 'thumbnail'],
-      ['content:encoded', 'content'],
+      ['media:thumbnail', 'mediaThumbnail'],
+      ['content:encoded', 'contentEncoded'],
     ],
   },
 });
@@ -28,13 +28,23 @@ export async function getLatestSubstackPosts(limit: number = 1): Promise<Substac
     const feed = await parser.parseURL('https://sarenai.substack.com/feed');
     const items = feed.items?.slice(0, limit) ?? [];
     return items.map(item => {
-      // Extract thumbnail from content:encoded if available
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const anyItem = item as any;
+
+      // Extract thumbnail: try enclosure first, then content:encoded img tags
       let thumbnail = '';
-      const content = (item as any).content || item.content || '';
-      const imgMatch = content.match(/<img[^>]+src="([^">]+)"/);
-      if (imgMatch) {
-        thumbnail = imgMatch[1];
+      const enclosureUrl = anyItem.enclosure?.url;
+      if (enclosureUrl && anyItem.enclosure?.type?.startsWith('image')) {
+        thumbnail = enclosureUrl;
       }
+      if (!thumbnail) {
+        const encoded = anyItem.contentEncoded || '';
+        const imgMatch = encoded.match(/<img[^>]+src="([^">]+)"/);
+        if (imgMatch) {
+          thumbnail = imgMatch[1];
+        }
+      }
+
       const contentSnippetRaw = item.contentSnippet;
       const contentSnippetValue = contentSnippetRaw
         ? contentSnippetRaw.substring(0, 160) + '...'
@@ -45,7 +55,7 @@ export async function getLatestSubstackPosts(limit: number = 1): Promise<Substac
         pubDate: item.pubDate || '',
         contentSnippet: contentSnippetValue,
         thumbnail,
-        content,
+        content: anyItem.contentEncoded || item.content || '',
       };
     });
   } catch (error) {

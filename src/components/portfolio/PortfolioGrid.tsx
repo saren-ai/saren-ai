@@ -6,7 +6,7 @@ const portfolioItems = [
   {
     title: "The Golden Dashboard",
     description:
-      "Seeing ROI across the full demand funnel. A single analytics view that answers the hardest question in marketing: which channel spend creates real business outcomes?",
+      "Which channel spend creates real business outcomes? A single analytics view that answers the hardest question in marketing—and proves it with full-funnel ROI.",
     metric: "550%",
     metricLabel: "Pipeline Expansion",
     href: "/portfolio/golden-dashboard",
@@ -14,7 +14,7 @@ const portfolioItems = [
   {
     title: "Sovereign Buyer Personas",
     description:
-      "Making complex markets legible. A framework for building personas that actually drive targeting, messaging, and content decisions.",
+      "Making complex markets simple. A framework for building personas that drive real targeting, messaging, and content decisions.",
     metric: "3x",
     metricLabel: "Conversion Lift",
     href: "/portfolio/sovereign-personas",
@@ -30,7 +30,7 @@ const portfolioItems = [
   {
     title: "120-Day Content Journey",
     description:
-      "How we engineered demand at Cylance. A content system designed to move buyers from awareness through purchase consideration.",
+      "How we engineered $4M in quarterly pipeline at Cylance. A 120-day content system that turned awareness into closed deals.",
     metric: "$4M",
     metricLabel: "Quarterly Pipeline",
     href: "/portfolio/120-day-content-journey",
@@ -38,7 +38,7 @@ const portfolioItems = [
   {
     title: "B2B Marketing Framework",
     description:
-      "A 7-layer prompt matrix for building B2B SaaS messaging infrastructure from scratch. The essential system for teams who can't afford to build on quicksand.",
+      "The messaging infrastructure for teams who can't afford to build on quicksand. A 7-layer framework that creates B2B SaaS positioning from scratch.",
     metric: "21",
     metricLabel: "Prompts",
     href: "/portfolio/b2b-marketing-framework",
@@ -46,7 +46,7 @@ const portfolioItems = [
   {
     title: "It's Good to Be Pitched",
     description:
-      "A 30-second TV spot storyboard about the pleasure of having three great options. Interactive narrative showing AI-assisted creative production.",
+      "A 30-second TV spot storyboard exploring the luxury of choice. An interactive demo of AI-assisted creative production.",
     metric: "8",
     metricLabel: "Storyboard Frames",
     href: "/portfolio/its-good-to-be-pitched",
@@ -54,7 +54,7 @@ const portfolioItems = [
   {
     title: "Behavioral Lead Scoring",
     description:
-      "Making buyer motion legible across the journey. An interactive system that connects behavior, engagement, lifecycle, and sales readiness into explainable intelligence.",
+      "Making buyer behavior predictable. An interactive system that connects engagement, lifecycle, and sales readiness into a single scoring model.",
     metric: "75+",
     metricLabel: "SQL Threshold",
     href: "/portfolio/behavioral-lead-scoring",
@@ -76,7 +76,7 @@ export default function PortfolioGrid() {
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal mb-4">
-            The Work
+            The Playbook
           </h2>
           <p className="text-slate text-lg max-w-2xl mx-auto">
             Interactive case studies that demonstrate strategy, systems, and

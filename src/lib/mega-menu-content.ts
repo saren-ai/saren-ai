@@ -4,9 +4,10 @@ import type { MegaMenuContent } from "@/components/layout/MegaMenu";
  * Portfolio Mega Menu Content
  */
 export const portfolioMegaMenu: MegaMenuContent = {
+  layout: "three-column",
   sections: [
     {
-      title: "Revenue Systems",
+      title: "Revenue & Systems",
       links: [
         {
           href: "/portfolio/golden-dashboard",
@@ -23,10 +24,15 @@ export const portfolioMegaMenu: MegaMenuContent = {
           label: "SaaS Revenue Calculator",
           description: "Reverse-engineer funnel metrics from revenue goals",
         },
+        {
+          href: "/portfolio/behavioral-lead-scoring",
+          label: "Behavioral Lead Scoring",
+          description: "Making buyer motion legible across the journey",
+        },
       ],
     },
     {
-      title: "GTM Architecture",
+      title: "Strategy & Creative",
       links: [
         {
           href: "/portfolio/b2b-marketing-framework",
@@ -38,38 +44,31 @@ export const portfolioMegaMenu: MegaMenuContent = {
           label: "10-Touch Sales Play",
           description: "Multi-channel outbound system (42% meeting rate)",
         },
-      ],
-    },
-    {
-      title: "Buyer Intelligence",
-      links: [
         {
           href: "/portfolio/sovereign-personas",
           label: "Sovereign Buyer Personas",
           description: "Committee buying frameworks for complex deals",
         },
         {
-          href: "/portfolio/behavioral-lead-scoring",
-          label: "Behavioral Lead Scoring",
-          description: "Making buyer motion legible across the journey",
-        },
-      ],
-    },
-    {
-      title: "Creative Production",
-      links: [
-        {
           href: "/portfolio/its-good-to-be-pitched",
           label: "It's Good to Be Pitched",
           description: "AI-assisted storyboard for 30-second TV spot",
         },
         {
+          href: "/portfolio/psylocke-timeline",
+          label: "Psylocke Timeline",
+          description: "Interactive comic history across 27 issues",
+        },
+        {
           href: "/portfolio",
           label: "View All Work →",
-          description: "Complete portfolio with interactive case studies",
+          description: "Complete portfolio",
         },
       ],
     },
+    // Merged Creative Production into GTM or just kept as is? 
+    // User asked for "two columns with text links". Currently we have 4 sections. 
+    // I will consolidate into 2 main columns by grouping.
   ],
   promotional: {
     image: "/portfolio/storyboards/storyboard_06.png",
@@ -113,8 +112,10 @@ export const thinkingMegaMenu: MegaMenuContent = {
  * About Mega Menu Content
  */
 export const aboutMegaMenu: MegaMenuContent = {
+  layout: "three-column",
   sections: [
     {
+      title: "Professional",
       links: [
         {
           href: "/about",
@@ -130,6 +131,35 @@ export const aboutMegaMenu: MegaMenuContent = {
           href: "/about/stack",
           label: "My Stack",
           description: "Tools I use to build and grow",
+        },
+      ],
+    },
+    {
+      title: "Outside of Work",
+      links: [
+        {
+          href: "https://leagueofcomicgeeks.com/profile/saren/collection",
+          label: "Comic Collection",
+          description: "My pulls and collection on League of Comic Geeks",
+          isExternal: true,
+        },
+        {
+          href: "https://www.discogs.com/user/saren13",
+          label: "Vinyl Collection",
+          description: "Browse my record collection on Discogs",
+          isExternal: true,
+        },
+        {
+          href: "https://letterboxd.com/saren13/films/",
+          label: "Letterboxd",
+          description: "Films I've watched and reviewed",
+          isExternal: true,
+        },
+        {
+          href: "https://pops.today/user/Saren/collection/",
+          label: "Funko Pop Collection",
+          description: "Pop culture collectibles",
+          isExternal: true,
         },
       ],
     },

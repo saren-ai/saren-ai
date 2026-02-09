@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import TopBanner from "@/components/layout/TopBanner";
 import ThemeProvider from "@/components/layout/ThemeProvider";
+import { getLatestSubstackPosts } from "@/lib/substack-rss";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -66,11 +67,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const posts = await getLatestSubstackPosts(1);
+  const latestPost = posts.length > 0 ? posts[0] : null;
+
   return (
     <html lang="en" className={`${sora.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
       <head>
@@ -86,12 +90,33 @@ export default function RootLayout({
             `,
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Saren Sakurai",
+              url: "https://saren.ai",
+              image: "https://saren.ai/og-image.png",
+              jobTitle: "Fractional CMO & AI Operations Consultant",
+              description:
+                "Building AI-driven growth engines for early-stage and Series A startups. Scalable strategy, systems, and storytelling that turns vision into velocity.",
+              sameAs: [
+                "https://www.linkedin.com/in/saren/",
+                "https://bsky.app/profile/saren.bsky.social",
+                "https://www.instagram.com/saren/",
+                "https://mastodon.social/@saren",
+              ],
+            }),
+          }}
+        />
       </head>
-      <body className="antialiased min-h-screen flex flex-col">
+      <body className="antialiased min-h-screen flex flex-col" suppressHydrationWarning>
         <ThemeProvider>
           <div className="sticky top-0 z-50">
             <TopBanner />
-            <Header />
+            <Header latestPost={latestPost} />
           </div>
           <main className="flex-1">{children}</main>
           <Footer />

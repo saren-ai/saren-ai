@@ -1,0 +1,54 @@
+# Saren.ai
+
+> Saren Sakurai — Fractional CMO and AI operations consultant for early-stage and Series A companies.
+
+## About
+
+Saren Sakurai builds AI-powered growth systems that turn chaotic marketing spend into predictable revenue. He works as a fractional CMO for founders who need pipeline, not process — from demand generation to full-funnel attribution.
+
+## Services
+
+- Fractional CMO engagements for early-stage and Series A startups
+- AI-driven marketing operations and automation
+- Demand generation strategy and execution
+- Full-funnel attribution and analytics
+- B2B SaaS messaging and positioning
+- Content systems and buyer journey design
+- Behavioral lead scoring and sales enablement
+
+## Notable Results
+
+- 344% inbound lift and 70% CAC reduction (Qwiet AI)
+- 550% pipeline growth (Cylance, $1.4B exit)
+- Built the "Collaborative AI" category (WethosAI, Series A)
+- $4M quarterly pipeline via 120-day content system (Cylance)
+
+## Portfolio
+
+Interactive case studies and frameworks:
+
+- [Golden Dashboard](/portfolio/golden-dashboard): Full-funnel attribution analytics
+- [Sovereign Buyer Personas](/portfolio/sovereign-personas): Committee buying persona framework
+- [10-Touch Sales Play](/portfolio/10-touch-sales-play): Multi-channel prospecting system
+- [120-Day Content Journey](/portfolio/120-day-content-journey): Demand engineering content system
+- [B2B Marketing Framework](/portfolio/b2b-marketing-framework): 7-layer SaaS messaging framework
+- [Behavioral Lead Scoring](/portfolio/behavioral-lead-scoring): Engagement and sales readiness scoring
+- [SaaS Revenue Calculator](/portfolio/calculator): Reverse-engineer funnel metrics from revenue targets
+- [It's Good to Be Pitched](/portfolio/its-good-to-be-pitched): AI-assisted creative production demo
+
+## Navigation
+
+- [Home](/)
+- [About](/about)
+- [Client Brands](/about/clients)
+- [AI Stack](/about/stack)
+- [Portfolio](/portfolio)
+- [Thinking](/thinking) — Micro-blog and newsletter
+- [Contact](/contact)
+
+## Contact
+
+- Website: https://saren.ai
+- Contact form: https://saren.ai/contact
+- LinkedIn: https://www.linkedin.com/in/saren/
+- BlueSky: https://bsky.app/profile/saren.bsky.social

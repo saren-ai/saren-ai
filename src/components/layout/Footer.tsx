@@ -55,9 +55,8 @@ export default function Footer() {
               saren<span className="text-ember">.</span>ai
             </Link>
             <p className="text-ash/60 max-w-xs leading-relaxed text-sm">
-              Building AI-driven growth engines for early-stage and Series A
-              startups. Scalable strategy, systems, and storytelling that turns
-              vision into velocity.
+              I help early-stage and Series A companies build marketing
+              infrastructure that scales—using AI, not headcount.
             </p>
           </div>
 

@@ -34,7 +34,10 @@ const slideVariants = {
 };
 
 export default function ProfileGallery() {
-  const [[activeIndex, direction], setPage] = useState([0, 0]);
+  const [[activeIndex, direction], setPage] = useState(() => [
+    Math.floor(Math.random() * profileImages.length),
+    0,
+  ]);
 
   const paginate = useCallback(
     (newDirection: number) => {
@@ -106,7 +109,7 @@ export default function ProfileGallery() {
               fill
               className="object-cover"
               sizes="(max-width: 768px) 220px, (max-width: 1024px) 240px, 260px"
-              priority={activeIndex === 0}
+              priority
               draggable={false}
             />
           </motion.div>

@@ -27,7 +27,7 @@ export default function HomePage() {
               transition={{ duration: 0.5 }}
               className="text-electric font-mono text-sm md:text-base mb-4 tracking-wider uppercase"
             >
-              Fractional CMO for Founders Who Need Pipeline, Not Process
+              Fractional CMO for Founders Who Need Pipeline—Not Process.
             </motion.p>
 
             {/* Headline */}
@@ -37,9 +37,9 @@ export default function HomePage() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-charcoal leading-[1.1] mb-6"
             >
-              I architect{" "}
+              I build{" "}
               <span className="text-gradient">AI-powered growth systems</span> that
-              turn chaotic marketing spend into{" "}
+              turn chaotic spend into{" "}
               <span className="text-gradient">predictable revenue</span>
             </motion.h1>
 
@@ -50,8 +50,8 @@ export default function HomePage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg md:text-xl lg:text-2xl text-slate max-w-3xl leading-relaxed mb-8"
             >
-              From demand generation to full-funnel attribution, I build marketing
-              engines that scale—without ripping out what&apos;s already working.
+              I build marketing engines that scale without ripping out
+              what&apos;s already working—from demand gen to full-funnel attribution.
             </motion.p>
 
             {/* Proof Section */}
@@ -70,13 +70,13 @@ export default function HomePage() {
               <li className="flex items-start gap-3">
                 <span className="flex-shrink-0 w-1.5 h-1.5 bg-ember rounded-full mt-2.5" />
                 <span className="text-base md:text-lg">
-                  <strong className="text-charcoal font-semibold">550% pipeline expansion</strong> (Cylance, $1.4B exit)
+                  <strong className="text-charcoal font-semibold">550% pipeline growth</strong> (Cylance, $1.4B exit)
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="flex-shrink-0 w-1.5 h-1.5 bg-ember rounded-full mt-2.5" />
                 <span className="text-base md:text-lg">
-                  <strong className="text-charcoal font-semibold">Built "Collaborative AI" category from zero</strong> (WethosAI, Series A)
+                  <strong className="text-charcoal font-semibold">Built the &ldquo;Collaborative AI&rdquo; category</strong> (WethosAI, Series A)
                 </span>
               </li>
             </motion.ul>
@@ -166,11 +166,11 @@ export default function HomePage() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Ready to build your growth engine?
+              Let&apos;s build your growth engine.
             </h2>
             <p className="text-ash/70 text-lg md:text-xl max-w-2xl mx-auto mb-10">
-              Let&apos;s talk about how AI-driven operations can transform your
-              marketing from cost center to revenue driver.
+              Let&apos;s talk about how AI-driven operations turn chaotic spend
+              into predictable pipeline.
             </p>
             <Link
               href="/contact"

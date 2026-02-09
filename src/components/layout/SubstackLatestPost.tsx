@@ -1,18 +1,18 @@
-import { getLatestSubstackPosts } from '@/lib/substack-rss';
 import Image from 'next/image';
+import { SubstackPost } from '@/lib/substack-rss';
 
-export async function SubstackLatestPost() {
-  const posts = await getLatestSubstackPosts(1);
-  
-  if (posts.length === 0) {
+interface SubstackLatestPostProps {
+  post: SubstackPost | null;
+}
+
+export function SubstackLatestPost({ post }: SubstackLatestPostProps) {
+  if (!post) {
     return (
       <div className="text-sm text-foreground-muted italic">
         No recent posts available
       </div>
     );
   }
-
-  const post = posts[0];
 
   // Validate required fields
   if (!post.title || !post.link) {
@@ -25,42 +25,15 @@ export async function SubstackLatestPost() {
 
   const postDate = post.pubDate
     ? new Date(post.pubDate).toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric'
-      })
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric'
+    })
     : '';
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      {/* Middle Column: Post Details */}
-      <div className="flex flex-col justify-center">
-        <div className="text-xs font-semibold uppercase tracking-wider text-foreground-muted mb-3">
-          Latest from Substack
-        </div>
-        <a
-          href={post.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group"
-        >
-          <h4 className="text-xl font-bold text-foreground group-hover:text-ember transition-colors mb-3 leading-tight">
-            {post.title}
-          </h4>
-          <p className="text-sm text-foreground-muted leading-relaxed mb-4">
-            {post.contentSnippet}
-          </p>
-          <div className="flex items-center gap-2 text-sm text-foreground-muted">
-            <time dateTime={post.pubDate}>{postDate}</time>
-            <span>•</span>
-            <span className="text-ember font-medium group-hover:underline">
-              Read on Substack →
-            </span>
-          </div>
-        </a>
-      </div>
-
-      {/* Right Column: Post Image */}
+      {/* Left Column: Post Image */}
       <div className="flex items-center justify-center">
         <a
           href={post.link}
@@ -98,6 +71,33 @@ export async function SubstackLatestPost() {
               </div>
             </div>
           )}
+        </a>
+      </div>
+
+      {/* Middle Column: Post Details */}
+      <div className="flex flex-col justify-center">
+        <div className="text-xs font-semibold uppercase tracking-wider text-foreground-muted mb-3">
+          Latest from Substack
+        </div>
+        <a
+          href={post.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group"
+        >
+          <h4 className="text-xl font-bold text-foreground group-hover:text-ember transition-colors mb-3 leading-tight">
+            {post.title}
+          </h4>
+          <p className="text-sm text-foreground-muted leading-relaxed mb-4">
+            {post.contentSnippet}
+          </p>
+          <div className="flex items-center gap-2 text-sm text-foreground-muted">
+            <time dateTime={post.pubDate}>{postDate}</time>
+            <span>•</span>
+            <span className="text-ember font-medium group-hover:underline">
+              Read on Substack →
+            </span>
+          </div>
         </a>
       </div>
     </div>
