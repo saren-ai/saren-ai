@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { Play, Pause, X, ChevronRight, ChevronLeft } from "lucide-react";
+import { WHATS_THE_BIG_IDEA_VIDEOS } from "@/lib/video-storage";
 
 interface Insight {
     id: string;
@@ -12,33 +13,34 @@ interface Insight {
     duration: string;
 }
 
+// Map video storage entries to insight cards
 const INSIGHTS: Insight[] = [
     {
         id: "02",
         title: "LLM Repetitions",
         takeaway: "Spotting patterns to turn manual research into repeatable automation engines.",
-        videoSrc: "/videos/whats-the-big-idea_02.mp4",
+        videoSrc: WHATS_THE_BIG_IDEA_VIDEOS[1].url || "/videos/whats-the-big-idea_02.mp4",
         duration: "4:12"
     },
     {
         id: "01",
         title: "The 4-Hour Brief",
         takeaway: "Compressing five-day strategic cycles into a single afternoon using AI-as-catalyst.",
-        videoSrc: "/videos/whats-the-big-idea_01.mp4",
+        videoSrc: WHATS_THE_BIG_IDEA_VIDEOS[0].url || "/videos/whats-the-big-idea_01.mp4",
         duration: "3:45"
     },
     {
         id: "04",
         title: "Central Truth",
         takeaway: "Using LLM synthesis to find the brand anchor that survives micro-audience fragmentation.",
-        videoSrc: "/videos/whats-the-big-idea_04.mp4",
+        videoSrc: WHATS_THE_BIG_IDEA_VIDEOS[3].url || "/videos/whats-the-big-idea_04.mp4",
         duration: "5:20"
     },
     {
         id: "03",
         title: "Modular Context",
         takeaway: "Localizing professional data into discrete modules to ensure clarity and security.",
-        videoSrc: "/videos/whats-the-big-idea_03.mp4",
+        videoSrc: WHATS_THE_BIG_IDEA_VIDEOS[2].url || "/videos/whats-the-big-idea_03.mp4",
         duration: "2:55"
     },
 ];
