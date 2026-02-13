@@ -76,7 +76,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/portfolio/roi-simulator"
+                  href="/portfolio"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
                   Portfolio
@@ -117,18 +117,18 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/portfolio/content-journey"
+                  href="/portfolio/120-day-content-journey"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
-                  Content Journey Map
+                  120-Day Content Journey
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/portfolio/marketing-framework"
+                  href="/portfolio/b2b-marketing-framework"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
-                  B2B Framework
+                  B2B Marketing Framework
                 </Link>
               </li>
               <li>

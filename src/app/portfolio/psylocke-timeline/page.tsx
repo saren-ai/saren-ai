@@ -123,9 +123,9 @@ export default function PsylockeTimelinePage() {
                 desc: "AI-assisted storyboard for a 30-second TV spot",
               },
               {
-                href: "/portfolio/golden-dashboard",
-                title: "The Golden Dashboard",
-                desc: "Full-funnel attribution analytics framework",
+                href: "/portfolio/roi-simulator",
+                title: "Paid Media ROI Simulator",
+                desc: "Interactive financial modeling for ad spend",
               },
               {
                 href: "/portfolio/calculator",

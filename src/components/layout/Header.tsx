@@ -26,7 +26,7 @@ const navLinks: NavItem[] = [
     megaMenu: portfolioMegaMenu,
     mobileChildren: [
       { href: "/portfolio", label: "View All Work" },
-      { href: "/portfolio/golden-dashboard", label: "Golden Dashboard" },
+      { href: "/portfolio/roi-simulator", label: "Paid Media ROI Calculator" },
       { href: "/portfolio/sovereign-personas", label: "Sovereign Personas" },
       { href: "/portfolio/10-touch-sales-play", label: "10-Touch Sales Play" },
       { href: "/portfolio/120-day-content-journey", label: "120-Day Content Journey" },
