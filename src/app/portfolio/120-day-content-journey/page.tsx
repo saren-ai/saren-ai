@@ -68,7 +68,7 @@ export default function ContentJourneyPage() {
             <p className="text-foreground-muted text-lg max-w-3xl mx-auto mb-6">
               This isn't a content calendar—it's a go-to-market operating system that aligns content, sales, and scoring to how buyers actually move from anxiety to confidence.
             </p>
-            
+
             {/* How to Read This */}
             <div className="bg-card-bg border border-border rounded-lg p-6 max-w-3xl mx-auto text-left mb-8">
               <h3 className="text-lg font-semibold text-foreground mb-4">How to Read This Matrix</h3>
@@ -135,7 +135,7 @@ export default function ContentJourneyPage() {
                   ))}
                 </ul>
               </div>
-              
+
               <div className="flex-shrink-0">
                 <a
                   href="https://saren.notion.site/120-Day-Content-Journey-Template"
@@ -199,6 +199,11 @@ export default function ContentJourneyPage() {
             {/* Journey Phases */}
             <div className="space-y-6">
               {[
+                {
+                  title: "Paid Media ROI Simulator",
+                  desc: "Forecasting outcomes before you spend",
+                  href: "/portfolio/roi-simulator",
+                },
                 {
                   phase: "Days 1-30",
                   name: "Problem Awareness",

@@ -398,7 +398,7 @@ export default function ItsGoodToBePitchedPage() {
               </svg>
             </Link>
             <Link
-              href="/portfolio/golden-dashboard"
+              href="/portfolio/roi-simulator"
               className="inline-flex items-center gap-2 px-6 py-3 bg-card-bg dark:bg-background border-2 border-border hover:border-electric text-foreground rounded-lg font-semibold transition-all"
             >
               More portfolio work
@@ -416,9 +416,9 @@ export default function ItsGoodToBePitchedPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                title: "The Golden Dashboard",
-                desc: "Seeing ROI across the full demand funnel",
-                href: "/portfolio/golden-dashboard",
+                title: "Paid Media ROI Simulator",
+                desc: "Forecasting outcomes before you spend",
+                href: "/portfolio/roi-simulator",
               },
               {
                 title: "Sovereign Personas",

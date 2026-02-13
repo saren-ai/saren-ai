@@ -3,62 +3,67 @@
 /* ===== Fire Horse 2026 Design System ===== */
 
 /* Light Mode (Default) */
+/* Light Mode (Paper-White Base) - WCAG AA+ */
 :root,
 .light {
   /* Primary Colors */
   --ember-red: #E34234;
-  --charcoal-black: #1D3557;
-  --ash-white: #F1FAEE;
-  
+  --charcoal-black: #1D1D1F;
+  /* Updated to High Contrast Black */
+  --ash-white: #F5F5F7;
+  /* Updated to Paper White */
+
   /* Accent Colors */
   --electric-blue: #457B9D;
   --copper: #C17D3A;
-  
+
   /* Neutrals */
   --slate-gray: #6C757D;
-  --off-black: #212529;
-  
+  --off-black: #1D1D1F;
+
   /* Semantic mappings */
-  --background: #F1FAEE;
-  --background-secondary: #ffffff;
-  --foreground: #1D3557;
+  --background: #F5F5F7;
+  --background-secondary: #FFFFFF;
+  --foreground: #1D1D1F;
   --foreground-muted: #6C757D;
-  --border: rgba(29, 53, 87, 0.1);
+  --border: #D2D2D7;
   --border-hover: #457B9D;
-  
+
   /* Component specific */
-  --card-bg: #ffffff;
-  --header-bg: rgba(241, 250, 238, 0.95);
-  --dropdown-bg: #ffffff;
+  --card-bg: #FFFFFF;
+  --header-bg: rgba(245, 245, 247, 0.95);
+  --dropdown-bg: #FFFFFF;
 }
 
-/* Dark Mode - Fire Horse 2026 with WCAG AAA Contrast */
+/* Dark Mode (Obsidian Base) - WCAG AA+ */
 .dark {
-  /* Primary Colors - WCAG AAA verified */
+  /* Primary Colors */
   --ember-red: #E34234;
   --charcoal-black: #FFFFFF;
-  --ash-white: #0A0E14;
-  
-  /* Accent Colors - WCAG AA+ verified */
+  --ash-white: #0F0F0F;
+  /* Obsidian */
+
+  /* Accent Colors */
   --electric-blue: #4A9FD8;
   --copper: #D4A574;
-  
+
   /* Neutrals */
-  --slate-gray: #B0B8C4;
-  --off-black: #0A0E14;
-  
+  --slate-gray: #A1A1AA;
+  --off-black: #0F0F0F;
+  --obsidian: #0F0F0F;
+
   /* Semantic mappings */
-  --background: #0A0E14;
-  --background-secondary: #1A1F2E;
-  --foreground: #E8EDF4;
-  --foreground-muted: #B0B8C4;
-  --border: rgba(232, 237, 244, 0.15);
+  --background: #0F0F0F;
+  --background-secondary: #1A1A1A;
+  --foreground: #F5F5F7;
+  --foreground-muted: #A1A1AA;
+  --border: #333333;
   --border-hover: #4A9FD8;
-  
+
   /* Component specific */
-  --card-bg: #1A1F2E;
-  --header-bg: rgba(10, 14, 20, 0.95);
-  --dropdown-bg: #1A1F2E;
+  --card-bg: #1A1A1A;
+  --header-bg: rgba(15, 15, 15, 0.95);
+  --dropdown-bg: #1A1A1A;
 }
 
 @theme inline {
@@ -70,11 +75,12 @@
   --color-copper: var(--copper);
   --color-slate: var(--slate-gray);
   --color-offblack: var(--off-black);
-  
+  --color-obsidian: var(--obsidian);
+
   /* Semantic Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  
+
   /* Fonts */
   --font-heading: var(--font-sora), system-ui, sans-serif;
   --font-body: var(--font-sora), system-ui, sans-serif;
@@ -101,14 +107,24 @@ body {
 }
 
 /* Typography Scale */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
 
-.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
   color: #FFFFFF;
 }
 
@@ -273,6 +289,7 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -284,10 +301,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Stagger delays for lists */
-.stagger-1 { animation-delay: 0.1s; }
-.stagger-2 { animation-delay: 0.2s; }
-.stagger-3 { animation-delay: 0.3s; }
-.stagger-4 { animation-delay: 0.4s; }
+.stagger-1 {
+  animation-delay: 0.1s;
+}
+
+.stagger-2 {
+  animation-delay: 0.2s;
+}
+
+.stagger-3 {
+  animation-delay: 0.3s;
+}
+
+.stagger-4 {
+  animation-delay: 0.4s;
+}
 
 /* Dark mode specific overrides for common patterns */
 .dark .bg-ash {

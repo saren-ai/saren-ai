@@ -335,9 +335,9 @@ export default function SovereignPersonasPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                title: "The Golden Dashboard",
-                desc: "Seeing ROI across the full demand funnel",
-                href: "/portfolio/golden-dashboard",
+                title: "Paid Media ROI Simulator",
+                desc: "Forecasting outcomes before you spend",
+                href: "/portfolio/roi-simulator",
               },
               {
                 title: "B2B Marketing Framework",

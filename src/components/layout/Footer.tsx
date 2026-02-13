@@ -43,8 +43,8 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-charcoal dark:bg-offblack text-ash border-t border-charcoal/20 dark:border-ash/10">
-      <div className="container-narrow pt-20 pb-16 md:pt-24 md:pb-20">
+    <footer className="bg-charcoal dark:bg-offblack text-ash border-t border-charcoal/20 dark:border-ash/10 pt-[60px] pb-16 md:pb-20">
+      <div className="container-narrow">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
           {/* Brand */}
           <div>
@@ -76,7 +76,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/portfolio/golden-dashboard"
+                  href="/portfolio/roi-simulator"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
                   Portfolio
@@ -109,10 +109,10 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link
-                  href="/portfolio/golden-dashboard"
+                  href="/portfolio/roi-simulator"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
-                  Golden Dashboard
+                  Paid Media ROI Simulator
                 </Link>
               </li>
               <li>

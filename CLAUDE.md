@@ -93,7 +93,7 @@ AVIF + WebP enabled. `fill` mode requires `relative` parent with explicit dimens
 /thinking                      Micro-blog + RSS
 /portfolio                     Portfolio grid
 /portfolio/calculator          SaaS revenue calculator
-/portfolio/golden-dashboard    Full-funnel attribution
+/portfolio/roi-simulator       Full-funnel attribution (ROI Simulator)
 /portfolio/sovereign-personas  Committee buying personas
 /portfolio/10-touch-sales-play          Case study
 /portfolio/120-day-content-journey      Case study

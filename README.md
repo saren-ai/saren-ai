@@ -9,6 +9,7 @@ A modern, interactive portfolio website for Saren Sakurai, Fractional CMO & AI O
 - **Animation:** Framer Motion
 - **Content:** Markdown files for blog posts
 - **Deployment:** Optimized for Vercel
+- **Bento Grids:** Custom interactive grids for framework visualization
 
 ## 🎨 Design System: Fire Horse 2026
 
@@ -36,14 +37,15 @@ saren-ai/
 │   │   ├── thinking/          # Micro-blog
 │   │   ├── contact/           # Contact form
 │   │   └── portfolio/         # Case study pages
-│   │       ├── golden-dashboard/
+│   │       ├── roi-simulator/
 │   │       ├── sovereign-personas/
+│   │       ├── b2b-marketing-framework/ # 7-Layer Framework
 │   │       ├── 10-touch-sales-play/
 │   │       └── 120-day-content-journey/
 │   ├── components/            # React components
 │   │   ├── layout/           # Header, Footer, Nav
 │   │   ├── portfolio/        # Portfolio grid and cards
-│   │   ├── golden-dashboard/ # Interactive dashboard
+│   │   ├── golden-dashboard/ # Interactive dashboard (ROI Simulator)
 │   │   └── ui/               # Shared UI components
 │   ├── content/              # Markdown content
 │   │   └── thinking/         # Blog posts

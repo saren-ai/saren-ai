@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="min-h-[90vh] flex items-center relative overflow-hidden">
+      <section className="min-h-[90vh] flex items-center relative overflow-hidden py-20">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-ash via-ash to-electric/5" />
         <div
@@ -18,16 +18,16 @@ export default function HomePage() {
           }}
         />
 
-        <div className="container-narrow relative z-10">
-          <div className="max-w-4xl">
+        <div className="container-narrow relative z-10 w-full max-w-[1200px] mx-auto px-4 md:px-6">
+          <div className="max-w-4xl mx-auto text-center">
             {/* Eyebrow */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="text-electric font-mono text-sm md:text-base mb-4 tracking-wider uppercase"
+              className="text-electric font-mono text-sm md:text-base mb-6 tracking-wider uppercase"
             >
-              Fractional CMO for Founders Who Need Pipeline—Not Process.
+              Fractional CMO for Founders Who Need Pipeline—Not Process
             </motion.p>
 
             {/* Headline */}
@@ -35,63 +35,69 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-charcoal leading-[1.1] mb-6"
+              className="text-4xl md:text-6xl lg:text-[3.5rem] font-bold text-charcoal leading-[1.1] mb-6"
             >
-              I build{" "}
-              <span className="text-gradient">AI-powered growth systems</span> that
-              turn chaotic spend into{" "}
-              <span className="text-gradient">predictable revenue</span>
+              Demand generation as engineering: <span className="text-gradient">AI-powered playbooks</span>, <span className="text-gradient">predictive outcomes</span>, zero guesswork.
             </motion.h1>
 
             {/* Subhead */}
-            <motion.p
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl lg:text-2xl text-slate max-w-3xl leading-relaxed mb-8"
+              className="text-lg md:text-xl lg:text-2xl text-charcoal font-medium max-w-3xl mx-auto leading-relaxed mb-6"
             >
-              I build marketing engines that scale without ripping out
-              what&apos;s already working—from demand gen to full-funnel attribution.
+              I build growth systems where AI handles optimization and you stay focused on strategy. Behavioral lead scoring. Self-optimizing campaigns. Attribution that predicts, not just reports.
+            </motion.h2>
+
+            {/* Supporting Text */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-base md:text-lg text-slate mb-12"
+            >
+              The leverage of a full marketing team—without the headcount.
             </motion.p>
 
-            {/* Proof Section */}
-            <motion.ul
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              className="space-y-3 mb-10 text-slate max-w-3xl"
-            >
-              <li className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-1.5 h-1.5 bg-ember rounded-full mt-2.5" />
-                <span className="text-base md:text-lg">
-                  <strong className="text-charcoal font-semibold">344% inbound lift, 70% CAC reduction</strong> (Qwiet AI)
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-1.5 h-1.5 bg-ember rounded-full mt-2.5" />
-                <span className="text-base md:text-lg">
-                  <strong className="text-charcoal font-semibold">550% pipeline growth</strong> (Cylance, $1.4B exit)
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-1.5 h-1.5 bg-ember rounded-full mt-2.5" />
-                <span className="text-base md:text-lg">
-                  <strong className="text-charcoal font-semibold">Built the &ldquo;Collaborative AI&rdquo; category</strong> (WethosAI, Series A)
-                </span>
-              </li>
-            </motion.ul>
+            {/* Metrics Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
+              {[
+                { value: "70%", label: "CAC Reduction", sub: "Qwiet AI" },
+                { value: "550%", label: "Pipeline Growth", sub: "Cylance ($1.4B Exit)" },
+                { value: "344%", label: "Inbound Lift", sub: "WethosAI (Series A)" }
+              ].map((metric, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 + (index * 0.05) }}
+                  className="bg-white dark:bg-offblack border border-charcoal/10 dark:border-white/20 rounded-xl p-6 text-center shadow-lg dark:shadow-none"
+                >
+                  <div className="text-3xl md:text-[2.5rem] font-mono text-ember font-bold mb-2 tracking-tighter">
+                    {metric.value}
+                  </div>
+                  <div className="text-sm font-bold text-charcoal dark:text-white uppercase tracking-wider mb-1">
+                    {metric.label}
+                  </div>
+                  <div className="text-xs text-slate dark:text-ash/60">
+                    {metric.sub}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
 
             {/* CTAs */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <Link href="/portfolio" className="btn-primary">
-                See the work
+              <Link href="/portfolio" className="btn-primary" aria-label="See the Architecture">
+                See the Architecture
                 <svg
-                  className="w-5 h-5"
+                  className="w-5 h-5 ml-2"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -104,10 +110,10 @@ export default function HomePage() {
                   />
                 </svg>
               </Link>
-              <Link href="/contact" className="btn-secondary">
-                Book a call
+              <Link href="/contact" className="btn-secondary" aria-label="Show Me Your Numbers">
+                Show Me Your Numbers
                 <svg
-                  className="w-5 h-5"
+                  className="w-5 h-5 ml-2"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"

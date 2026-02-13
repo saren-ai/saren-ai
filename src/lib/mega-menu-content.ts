@@ -10,9 +10,9 @@ export const portfolioMegaMenu: MegaMenuContent = {
       title: "Revenue & Systems",
       links: [
         {
-          href: "/portfolio/golden-dashboard",
-          label: "The Golden Dashboard",
-          description: "Full-funnel attribution analytics framework",
+          label: "Paid Media ROI Simulator",
+          href: "/portfolio/roi-simulator",
+          description: "Interactive financial modeling for ad spend.",
         },
         {
           href: "/portfolio/120-day-content-journey",

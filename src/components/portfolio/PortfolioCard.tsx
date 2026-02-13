@@ -10,6 +10,7 @@ interface PortfolioCardProps {
   metricLabel: string;
   href: string;
   index: number;
+  pillars: string[];
 }
 
 export default function PortfolioCard({
@@ -19,15 +20,40 @@ export default function PortfolioCard({
   metricLabel,
   href,
   index,
+  pillars,
 }: PortfolioCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
+      layout
     >
-      <Link href={href} className="block group">
-        <article className="card p-6 md:p-8 h-full flex flex-col">
+      <Link href={href} className="block group h-full">
+        <article className="card p-6 md:p-8 h-full flex flex-col relative overflow-hidden">
+          {/* Pillar Badges */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            {pillars.map((pillar) => {
+              let badgeStyle = "bg-slate/10 text-slate border-slate/20";
+              if (pillar === "Predictive Infrastructure") {
+                badgeStyle = "bg-electric/10 text-electric border-electric/20";
+              } else if (pillar === "Human Strategy") {
+                badgeStyle = "bg-copper/10 text-copper border-copper/20";
+              } else if (pillar === "Scale Without Headcount") {
+                badgeStyle = "bg-ember/10 text-ember border-ember/20";
+              }
+
+              return (
+                <span
+                  key={pillar}
+                  className={`text-xs font-medium px-2 py-0.5 rounded border ${badgeStyle}`}
+                >
+                  {pillar}
+                </span>
+              );
+            })}
+          </div>
+
           {/* Metric Highlight */}
           <div className="mb-4">
             <span className="metric-value text-2xl md:text-3xl">{metric}</span>

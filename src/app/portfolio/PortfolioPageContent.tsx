@@ -6,12 +6,13 @@ import PortfolioCard from "@/components/portfolio/PortfolioCard";
 
 const portfolioItems = [
   {
-    title: "The Golden Dashboard",
+    title: "Paid Media ROI Simulator",
     description:
-      "Which channel spend creates real business outcomes? A single analytics view that answers the hardest question in marketing—and proves it with full-funnel ROI.",
+      "Stop guessing. Simulate the revenue impact of your ad spend using real unit economics. An interactive financial model for performance marketers.",
     metric: "550%",
     metricLabel: "Pipeline Expansion",
-    href: "/portfolio/golden-dashboard",
+    href: "/portfolio/roi-simulator",
+    pillars: ["Predictive Infrastructure", "Scale Without Headcount"],
   },
   {
     title: "Sovereign Buyer Personas",
@@ -20,6 +21,7 @@ const portfolioItems = [
     metric: "3x",
     metricLabel: "Conversion Lift",
     href: "/portfolio/sovereign-personas",
+    pillars: ["Human Strategy", "Predictive Infrastructure"],
   },
   {
     title: "10-Touch Sales Play",
@@ -28,6 +30,7 @@ const portfolioItems = [
     metric: "42%",
     metricLabel: "Meeting Rate",
     href: "/portfolio/10-touch-sales-play",
+    pillars: ["Human Strategy", "Predictive Infrastructure"],
   },
   {
     title: "120-Day Content Journey",
@@ -36,6 +39,7 @@ const portfolioItems = [
     metric: "$4M",
     metricLabel: "Quarterly Pipeline",
     href: "/portfolio/120-day-content-journey",
+    pillars: ["Human Strategy", "Scale Without Headcount"],
   },
   {
     title: "B2B Marketing Framework",
@@ -44,6 +48,7 @@ const portfolioItems = [
     metric: "21",
     metricLabel: "Prompts",
     href: "/portfolio/b2b-marketing-framework",
+    pillars: ["Human Strategy"],
   },
   {
     title: "It's Good to Be Pitched",
@@ -52,6 +57,7 @@ const portfolioItems = [
     metric: "8",
     metricLabel: "Storyboard Frames",
     href: "/portfolio/its-good-to-be-pitched",
+    pillars: ["Human Strategy"],
   },
 ];
 
