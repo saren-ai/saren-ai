@@ -1,71 +1,16 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import StoryboardViewer from "@/components/storyboard/StoryboardViewer";
+"use client";
+
+import HeroStoryboard from "@/components/storyboard/HeroStoryboard";
 import FAQ from "@/components/ui/FAQ";
 import { processPhases, applications } from "@/lib/storyboard";
-
-export const metadata: Metadata = {
-  title: "It's Good to Be Pitched: A 30-Second TV Spot Storyboard",
-  description:
-    "An interactive storyboard about the pleasure of having three great options. Demonstrating AI-assisted narrative craft and prompt engineering.",
-};
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export default function ItsGoodToBePitchedPage() {
   return (
     <article>
-      {/* Hero */}
-      <section className="section bg-gradient-to-br from-charcoal to-offblack text-ash">
-        <div className="container-narrow">
-          <div className="max-w-3xl">
-            {/* Breadcrumb */}
-            <nav className="mb-6">
-              <ol className="flex items-center gap-2 text-sm text-ash/60">
-                <li>
-                  <Link href="/" className="hover:text-ash transition-colors">
-                    Home
-                  </Link>
-                </li>
-                <li>/</li>
-                <li>
-                  <Link
-                    href="/portfolio"
-                    className="hover:text-ash transition-colors"
-                  >
-                    Portfolio
-                  </Link>
-                </li>
-                <li>/</li>
-                <li className="text-ember">It&apos;s Good to Be Pitched</li>
-              </ol>
-            </nav>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              it&apos;s good to be pitched
-            </h1>
-            <p className="text-xl md:text-2xl text-ash/80 leading-relaxed mb-6">
-              A 30-second TV spot storyboard about the pleasure of having three
-              great options.
-            </p>
-
-            {/* Meta chips */}
-            <div className="flex flex-wrap gap-3">
-              {[
-                "30 seconds",
-                "storyboard",
-                "agency pitch concept",
-                "AI-assisted ideation",
-              ].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-4 py-2 bg-ash/10 text-ash text-sm font-semibold rounded-full border border-ash/20"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero with Interactive Storyboard */}
+      <HeroStoryboard />
 
       {/* Overview */}
       <section className="section bg-ash dark:bg-background">
@@ -83,13 +28,6 @@ export default function ItsGoodToBePitchedPage() {
               concept / portfolio piece
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* Interactive Storyboard Viewer */}
-      <section className="section bg-gradient-to-br from-charcoal/5 to-electric/5">
-        <div className="container-wide">
-          <StoryboardViewer />
         </div>
       </section>
 
@@ -383,19 +321,7 @@ export default function ItsGoodToBePitchedPage() {
               className="inline-flex items-center gap-2 px-6 py-3 bg-ember hover:bg-ember/90 text-white rounded-lg font-semibold transition-colors"
             >
               Let&apos;s talk
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
+              <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               href="/portfolio/roi-simulator"

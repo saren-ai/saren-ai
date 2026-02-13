@@ -6,54 +6,48 @@ import BentoCard from "./BentoCard";
 import PromptModal from "./PromptModal";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Info } from "lucide-react";
 
 export default function HeroBentoDashboard() {
     const [selectedPrompt, setSelectedPrompt] = useState<FrameworkPrompt | null>(null);
 
     return (
-        <section className="relative min-h-screen bg-[#0F0F0F] pt-24 pb-20 px-4 md:px-6">
-            <div className="max-w-[1400px] mx-auto">
+        <section className="relative w-full bg-background text-foreground pb-12 overflow-hidden min-h-[800px] flex items-center justify-center transition-colors duration-500">
+            {/* Background Ambience */}
+            <div className="absolute inset-0 bg-grid-white/[0.02] dark:bg-grid-white/[0.02] -z-10" />
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background via-transparent to-background -z-10" />
+            <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-electric/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
+            <div className="absolute bottom-[-10%] right-[20%] w-[500px] h-[500px] bg-ember/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
+
+            <div className="container px-4 md:px-6 py-12 relative">
 
                 {/* Header Section */}
-                <div className="mb-12">
-                    {/* Breadcrumb */}
-                    <nav className="mb-6">
-                        <ol className="flex items-center gap-2 text-sm text-ash/60">
-                            <li>
-                                <Link href="/" className="hover:text-ash transition-colors">
-                                    Home
-                                </Link>
-                            </li>
-                            <li>/</li>
-                            <li>
-                                <Link
-                                    href="/portfolio"
-                                    className="hover:text-ash transition-colors"
-                                >
-                                    Portfolio
-                                </Link>
-                            </li>
-                            <li>/</li>
-                            <li className="text-ember">B2B Marketing Framework</li>
-                        </ol>
-                    </nav>
-
-                    <div className="max-w-4xl">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
-                            B2B Marketing Framework
-                        </h1>
-                        <p className="text-xl md:text-2xl text-ash/80 leading-relaxed">
+                <div className="col-span-1 lg:col-span-12 mb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 z-20">
+                    <div className="max-w-2xl">
+                        <nav className="mb-4 flex text-xs font-mono tracking-widest text-foreground-muted/60 uppercase">
+                            <ol className="flex items-center gap-2">
+                                <li>Home</li>
+                                <li>/</li>
+                                <li>Portfolio</li>
+                                <li>/</li>
+                                <li className="text-ember">B2B Marketing Framework</li>
+                            </ol>
+                        </nav>
+                        <div className="flex items-center gap-4 mb-3">
+                            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/60">
+                                B2B Marketing Framework
+                            </h1>
+                        </div>
+                        <p className="text-lg text-foreground-muted max-w-xl leading-relaxed">
                             A 7-layer prompt matrix for building B2B SaaS messaging infrastructure from scratch—because random acts of content don't compound.
                         </p>
                     </div>
                 </div>
 
                 {/* Dense Bento Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[minmax(180px,auto)] gap-4 grid-flow-dense">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[minmax(180px,auto)] gap-4 grid-flow-dense relative z-10">
                     {FRAMEWORK_PROMPTS.map((prompt, index) => {
                         // Determine column span based on size prop
-                        // Determine column span based on size prop
-                        // Prioritize density: 'standard' is 1x1, 'wide' is 2x1, 'featured' is 2x2, 'tall' is 1x2
                         let colSpan = "md:col-span-1";
                         let rowSpan = "row-span-1";
 

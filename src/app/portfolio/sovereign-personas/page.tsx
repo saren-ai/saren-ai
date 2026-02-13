@@ -1,56 +1,18 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import PersonaGallery from "@/components/sovereign-personas/PersonaGallery";
+"use client";
+
+import HeroPersonas from "@/components/sovereign-personas/HeroPersonas";
 import FAQ from "@/components/ui/FAQ";
 import { useCases } from "@/lib/sovereign-personas";
-
-export const metadata: Metadata = {
-  title: "Sovereign Buyer Personas: Designing for Complex Infrastructure Deals",
-  description:
-    "Three strategic personas for sovereign infrastructure buying committees—when you're selling national outcomes, not features.",
-};
+import Link from "next/link";
 
 export default function SovereignPersonasPage() {
   return (
     <article>
-      {/* Hero */}
-      <section className="section bg-gradient-to-br from-charcoal to-offblack text-ash">
-        <div className="container-narrow">
-          <div className="max-w-3xl">
-            {/* Breadcrumb */}
-            <nav className="mb-6">
-              <ol className="flex items-center gap-2 text-sm text-ash/60">
-                <li>
-                  <Link href="/" className="hover:text-ash transition-colors">
-                    Home
-                  </Link>
-                </li>
-                <li>/</li>
-                <li>
-                  <Link
-                    href="/portfolio"
-                    className="hover:text-ash transition-colors"
-                  >
-                    Portfolio
-                  </Link>
-                </li>
-                <li>/</li>
-                <li className="text-ember">Sovereign Personas</li>
-              </ol>
-            </nav>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Sovereign Buyer Personas
-            </h1>
-            <p className="text-xl md:text-2xl text-ash/80 leading-relaxed">
-              Making complex markets legible—a framework for personas that drive targeting, messaging, and content decisions in sovereign infrastructure deals.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Hero with Interactive Gallery */}
+      <HeroPersonas />
 
       {/* The Sovereign Buying System */}
-      <section className="section bg-ash dark:bg-background">
+      <section className="section bg-ash dark:bg-background pt-0 md:pt-16">
         <div className="container-narrow">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
@@ -148,24 +110,6 @@ export default function SovereignPersonasPage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Persona Gallery */}
-      <section className="section bg-charcoal/5 dark:bg-background-secondary">
-        <div className="container-narrow">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              The Three Personas
-            </h2>
-            <p className="text-lg text-foreground-muted max-w-2xl mx-auto">
-              Each persona includes mandate, risks, trust signals, messaging
-              altitude, and content strategies. Hover for quick insights, click
-              for full messaging implications.
-            </p>
-          </div>
-
-          <PersonaGallery />
         </div>
       </section>
 

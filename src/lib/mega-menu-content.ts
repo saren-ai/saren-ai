@@ -92,6 +92,16 @@ export const thinkingMegaMenu: MegaMenuContent = {
     {
       links: [
         {
+          href: "/ai-operations",
+          label: "AI Operations",
+          description: "Why AI turns marketing into engineering",
+        },
+        {
+          href: "/podcast/scaling-smarter",
+          label: "Scaling Smarter",
+          description: "The new architecture of strategy",
+        },
+        {
           href: "/thinking",
           label: "Micro-Blog",
           description: "Quick takes and tactical insights",
@@ -137,6 +147,12 @@ export const aboutMegaMenu: MegaMenuContent = {
     {
       title: "Outside of Work",
       links: [
+        {
+          href: "/portfolio/psylocke-timeline",
+          label: "Psylocke Timeline",
+          description: "30 years of body-swaps and identity",
+          isExternal: false,
+        },
         {
           href: "https://leagueofcomicgeeks.com/profile/saren/collection",
           label: "Comic Collection",

@@ -1,80 +1,13 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import Timeline from "@/components/psylocke-timeline/Timeline";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Psylocke Backstory Timeline — 30 Years of Body & Identity",
-  description:
-    "An interactive horizontal timeline tracing Psylocke's body-swap storyline across 27 key comic issues from Uncanny X-Men to Excalibur (1989–2019).",
-  openGraph: {
-    title: "Psylocke Backstory Timeline | Saren.ai",
-    description:
-      "Interactive visual timeline of Psylocke's key comic appearances from 1989 to 2019.",
-  },
-};
+import HeroTimeline from "@/components/psylocke-timeline/HeroTimeline";
+import Link from "next/link";
 
 export default function PsylockeTimelinePage() {
   return (
     <article>
-      {/* Hero */}
-      <section className="section bg-gradient-to-br from-charcoal to-offblack text-ash">
-        <div className="container-narrow">
-          <div className="max-w-3xl">
-            {/* Breadcrumb */}
-            <nav className="mb-6">
-              <ol className="flex items-center gap-2 text-sm text-ash/60">
-                <li>
-                  <Link href="/" className="hover:text-ash transition-colors">
-                    Home
-                  </Link>
-                </li>
-                <li>/</li>
-                <li>
-                  <Link
-                    href="/portfolio"
-                    className="hover:text-ash transition-colors"
-                  >
-                    Portfolio
-                  </Link>
-                </li>
-                <li>/</li>
-                <li className="text-ember">Psylocke Timeline</li>
-              </ol>
-            </nav>
-
-            {/* Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Psylocke Backstory Timeline
-            </h1>
-            <p className="text-xl md:text-2xl text-ash/80 leading-relaxed">
-              30 years of body-swaps, psychic warfare, and identity
-              reclamation — tracing Betsy Braddock and Kwannon across 27 key
-              comic issues from 1989 to 2019.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Interactive Timeline */}
-      <section className="section bg-gradient-to-br from-charcoal/5 to-electric/5">
-        <div className="container-narrow">
-          <div className="text-center mb-10">
-            <span className="inline-block px-3 py-1 bg-ember/10 text-ember text-xs font-semibold uppercase tracking-wider rounded-full mb-4">
-              Interactive Timeline
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">
-              The Complete Arc
-            </h2>
-            <p className="text-slate text-lg max-w-2xl mx-auto">
-              Click any comic cover to explore the issue details. The timeline
-              reads left to right, from the most recent issue back to where the
-              story began.
-            </p>
-          </div>
-
-          <Timeline />
-        </div>
-      </section>
+      {/* Hero with Interactive Timeline */}
+      <HeroTimeline />
 
       {/* CTA */}
       <section className="section gradient-dark text-ash">
@@ -110,9 +43,9 @@ export default function PsylockeTimelinePage() {
       </section>
 
       {/* Explore More Work */}
-      <section className="section bg-ash">
+      <section className="section bg-ash dark:bg-background-secondary">
         <div className="container-narrow">
-          <h3 className="text-2xl font-bold text-charcoal mb-8 text-center">
+          <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
             Explore More Work
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
@@ -136,12 +69,12 @@ export default function PsylockeTimelinePage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block p-6 bg-charcoal/5 rounded-lg hover:bg-electric/10 transition-colors group"
+                className="block p-6 bg-card-bg border border-border rounded-lg hover:bg-electric/10 transition-colors group"
               >
-                <h4 className="font-semibold text-charcoal group-hover:text-ember transition-colors mb-2">
+                <h4 className="font-semibold text-foreground group-hover:text-ember transition-colors mb-2">
                   {item.title}
                 </h4>
-                <p className="text-slate text-sm">{item.desc}</p>
+                <p className="text-foreground-muted text-sm">{item.desc}</p>
               </Link>
             ))}
           </div>
