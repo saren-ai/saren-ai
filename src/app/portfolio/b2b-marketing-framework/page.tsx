@@ -1,18 +1,17 @@
-
 import type { Metadata } from "next";
 import Link from "next/link";
 import FAQ from "@/components/ui/FAQ";
 import { ExternalLink } from "lucide-react";
-import HeroBentoDashboard from "@/components/framework/HeroBentoDashboard";
+import FrameworkExplorer from "@/components/framework/FrameworkExplorer";
 
 export const metadata: Metadata = {
-  title: "B2B Marketing Framework: 7-Layer Prompt System",
+  title: "B2B Marketing Framework: 23-Step Buyer Journey System",
   description:
-    "A step-by-step prompt system that produces the core messaging documents your B2B SaaS needs before scaling campaigns. 21 prompts across 7 layers.",
+    "A step-by-step prompt system that produces the core messaging documents your B2B SaaS needs before scaling campaigns. 23 prompts across the entire buyer journey.",
   openGraph: {
     title: "B2B Marketing Framework | Saren.ai",
     description:
-      "7-layer prompt matrix for building B2B SaaS messaging infrastructure from scratch.",
+      "23-step prompt matrix for building B2B SaaS messaging infrastructure from scratch.",
     images: ["/portfolio/marketing-framework-og.png"],
   },
 };
@@ -20,8 +19,8 @@ export const metadata: Metadata = {
 export default function MarketingFrameworkPage() {
   return (
     <article>
-      {/* Hero Dashboard & Grid */}
-      <HeroBentoDashboard />
+      {/* Hero Explorer */}
+      <FrameworkExplorer />
 
       {/* How to Use */}
       <section className="section bg-ash dark:bg-background-secondary">
@@ -54,7 +53,7 @@ export default function MarketingFrameworkPage() {
                 },
                 {
                   step: "5",
-                  title: "Measure and iterate (L7)",
+                  title: "Measure and iterate",
                   description: "Use the performance framework and review protocol to keep it fresh without starting over every quarter."
                 }
               ].map((item) => (
@@ -88,11 +87,11 @@ export default function MarketingFrameworkPage() {
           },
           {
             question: "How long does it take to complete?",
-            answer: "Plan 60–90 minutes per prompt if you're doing it seriously. That's 21–32 hours total if you do all 21 prompts. But you don't have to do them all at once—most teams do 2-3 per week. The speed comes from structure, not shortcuts."
+            answer: "Plan 60–90 minutes per prompt if you're doing it seriously. That's 30+ hours total if you do all 23 prompts. But you don't have to do them all at once—most teams do 2-3 per week. The speed comes from structure, not shortcuts."
           },
           {
             question: "Can I skip layers and jump straight to messaging?",
-            answer: "You can, but you'll usually get generic outputs. L1–L3 (foundations, identity, positioning) create the raw truth that makes L4 (messaging) specific and differentiated. Skip them and you'll sound like everyone else."
+            answer: "You can, but you'll usually get generic outputs. Foundation and Differentiation create the raw truth that makes Decision assets specific and effective. Skip them and you'll sound like everyone else."
           },
           {
             question: "What do I actually get at the end?",
@@ -104,7 +103,7 @@ export default function MarketingFrameworkPage() {
           },
           {
             question: "How do I keep this from becoming a doc graveyard?",
-            answer: "Treat it like an operating system, not a one-time project. Activate it in your website, pitch deck, sales enablement. Make it the source of truth for how your company communicates. Then use L7 (measurement & iteration) to keep it fresh without starting over every quarter."
+            answer: "Treat it like an operating system, not a one-time project. Activate it in your website, pitch deck, sales enablement. Make it the source of truth for how your company communicates. Then use the Review & Iteration prompts to keep it fresh."
           }
         ]}
       />

@@ -2,9 +2,23 @@ import type { Metadata } from "next";
 import InsightCarousel from "@/components/podcast/InsightCarousel";
 
 export const metadata: Metadata = {
-    title: "Scaling Smarter | The New Architecture of Strategy",
+    title: "Scaling Smarter Podcast | Saren.ai",
     description:
-        "Join Saren Sakurai and Jim DiPiazza as they dismantle the AI hype cycle and replace it with a pragmatic framework for growth. From AEO to modular intelligence.",
+        "Conversations on the mechanics of growth, AI operations, and the future of B2B marketing.",
+    openGraph: {
+        title: "Scaling Smarter Podcast | Saren.ai",
+        description:
+            "Conversations on the mechanics of growth, AI operations, and the future of B2B marketing.",
+        images: ["/images/og/podcast-scaling-smarter.png"],
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Scaling Smarter Podcast | Saren.ai",
+        description:
+            "Conversations on the mechanics of growth, AI operations, and the future of B2B marketing.",
+        images: ["/images/og/podcast-scaling-smarter.png"],
+    },
 };
 
 export default function ScalingSmarterPage() {
