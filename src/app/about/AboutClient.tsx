@@ -81,8 +81,8 @@ export default function AboutClient() {
     return (
         <article>
             {/* Hero */}
-            <section className="section bg-gradient-to-br from-charcoal to-offblack text-ash">
-                <div className="container-narrow">
+            <section className="section bg-gradient-to-br from-charcoal to-offblack text-ash overflow-hidden">
+                <div className="container-narrow relative z-10">
                     <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
                         {/* Profile Gallery */}
                         <div className="shrink-0">
@@ -90,27 +90,250 @@ export default function AboutClient() {
                         </div>
 
                         {/* Text */}
-                        <div className="flex-1 max-w-2xl">
+                        <div className="flex-1">
                             <motion.h1
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+                                className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight"
                             >
-                                Marketing for the messy middle.
+                                I help AI and B2B tech companies fix the invisible leaks in their growth engine — before they waste another quarter chasing the wrong buyers.
                             </motion.h1>
-                            <motion.p
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.1 }}
-                                className="text-xl md:text-2xl text-ash/80 leading-relaxed"
-                            >
-                                I build growth engines at the intersection of cultural
-                                storytelling and systems design. From early-stage sprints to
-                                enterprise scale, I skip the 101s and focus on the mechanics of
-                                what actually moves the needle. No fluff, just smart takes and
-                                measurable outcomes.
-                            </motion.p>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* The Pattern */}
+            <section className="section bg-white text-charcoal">
+                <div className="container-narrow">
+                    <div className="max-w-2xl mx-auto">
+                        <div className="flex items-center gap-4 mb-8">
+                            <div className="h-px bg-charcoal/20 flex-1" />
+                            <span className="text-sm font-mono text-slate uppercase tracking-wider">The Pattern I Keep Seeing</span>
+                            <div className="h-px bg-charcoal/20 flex-1" />
+                        </div>
+
+                        <div className="prose prose-lg text-slate leading-relaxed">
+                            <p className="font-bold text-charcoal text-xl mb-4">
+                                Strong product.<br />
+                                Smart team.<br />
+                                Decent traction.
+                            </p>
+                            <p className="mb-6">
+                                But growth stalls.
+                            </p>
+                            <p className="mb-6">
+                                Not because the product is broken.
+                            </p>
+                            <p className="mb-6">
+                                Because the story is muddy. The positioning is vague. The wrong buyers are clicking. The homepage reads like version 0.7 of the company while the product is already 2.3.
+                            </p>
+                            <p>
+                                I’ve spent 20+ years inside that moment — from Nike and AKQA to AI startups scaling through acquisition — and the pattern is remarkably consistent.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* What's actually going wrong */}
+            <section className="section bg-charcoal/5">
+                <div className="container-narrow">
+                    <div className="max-w-3xl mx-auto">
+                        <div className="flex items-center gap-4 mb-12 justify-center">
+                            <div className="h-px bg-charcoal/20 w-12" />
+                            <span className="text-sm font-mono text-slate uppercase tracking-wider">What’s Actually Going Wrong</span>
+                            <div className="h-px bg-charcoal/20 w-12" />
+                        </div>
+
+                        <div className="grid md:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h3 className="text-2xl font-bold text-charcoal mb-4">
+                                    Most teams think they have a traffic problem.
+                                </h3>
+                                <p className="text-xl text-ember font-medium">
+                                    They usually have a clarity problem.
+                                </p>
+                            </div>
+                            <div className="space-y-4">
+                                <ul className="space-y-3 text-slate">
+                                    <li className="flex gap-3">
+                                        <span className="text-ember">•</span>
+                                        The value proposition isn’t painfully clear.
+                                    </li>
+                                    <li className="flex gap-3">
+                                        <span className="text-ember">•</span>
+                                        The site speaks in generic ambition instead of naming a specific failure.
+                                    </li>
+                                    <li className="flex gap-3">
+                                        <span className="text-ember">•</span>
+                                        Marketing attracts “problem-aware” browsers instead of “this just broke and I need a fix” buyers.
+                                    </li>
+                                    <li className="flex gap-3">
+                                        <span className="text-ember">•</span>
+                                        The brand hasn’t matured at the same speed as the product.
+                                    </li>
+                                    <li className="flex gap-3">
+                                        <span className="text-ember">•</span>
+                                        Growth depends on paid acquisition instead of engineered discoverability.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="mt-12 p-6 bg-white rounded-xl border border-charcoal/5 text-center">
+                            <p className="text-lg text-slate mb-2">When that happens, pipeline slows, sales cycles stretch, and everyone assumes “we need more leads.”</p>
+                            <p className="text-xl font-bold text-charcoal">Usually, you don’t. You need better signal.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* How I Work */}
+            <section className="section bg-charcoal text-ash">
+                <div className="container-narrow">
+                    <div className="text-center mb-16">
+                        <div className="flex items-center gap-4 mb-6 justify-center">
+                            <div className="h-px bg-ash/20 w-12" />
+                            <span className="text-sm font-mono text-ash/60 uppercase tracking-wider">How I Work</span>
+                            <div className="h-px bg-ash/20 w-12" />
+                        </div>
+                        <h2 className="text-3xl md:text-4xl font-bold">I rebuild the growth system around three principles:</h2>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-8">
+                        {/* Principle 1 */}
+                        <div className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-ember/50 transition-colors">
+                            <div className="text-ember font-mono text-xl mb-4">01.</div>
+                            <h3 className="text-xl font-bold mb-4">Failure-based positioning</h3>
+                            <p className="text-ash/80 leading-relaxed mb-6">
+                                We stop marketing to curiosity and start speaking to the moment something went wrong — the in-house build that collapsed, the tool migration that corrupted data, the demand gen engine that flatlined.
+                            </p>
+                            <p className="text-white font-medium border-t border-white/10 pt-4">
+                                Failure-aware buyers move fast. We design for them.
+                            </p>
+                        </div>
+
+                        {/* Principle 2 */}
+                        <div className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-ember/50 transition-colors">
+                            <div className="text-ember font-mono text-xl mb-4">02.</div>
+                            <h3 className="text-xl font-bold mb-4">Radical specificity</h3>
+                            <p className="text-ash/80 leading-relaxed mb-6">
+                                No more “we help teams grow.” We name the buyer, the mistake they’re making, and the cost of continuing.
+                            </p>
+                            <p className="text-white font-medium border-t border-white/10 pt-4">
+                                If a founder reads the homepage and says, “That’s exactly what’s happening to us,” we’re on the right track.
+                            </p>
+                        </div>
+
+                        {/* Principle 3 */}
+                        <div className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-ember/50 transition-colors">
+                            <div className="text-ember font-mono text-xl mb-4">03.</div>
+                            <h3 className="text-xl font-bold mb-4">Engineered visibility</h3>
+                            <p className="text-ash/80 leading-relaxed mb-6">
+                                Instead of relying purely on ads or trendy social noise, we build marketing assets that rank, compound, and attract intent — free tools, frameworks, structured content that shows up exactly when buyers are searching for help.
+                            </p>
+                            <p className="text-white font-medium border-t border-white/10 pt-4">
+                                Growth should compound. Not reset every month.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* What Makes This Different */}
+            <section className="section bg-white text-charcoal">
+                <div className="container-narrow">
+                    <div className="max-w-3xl mx-auto">
+                        <div className="flex items-center gap-4 mb-8">
+                            <div className="h-px bg-charcoal/20 flex-1" />
+                            <span className="text-sm font-mono text-slate uppercase tracking-wider">What Makes This Different</span>
+                            <div className="h-px bg-charcoal/20 flex-1" />
+                        </div>
+
+                        <div className="prose prose-lg text-slate leading-relaxed">
+                            <p className="font-bold text-charcoal text-xl mb-6">
+                                I don’t just write positioning decks.
+                            </p>
+                            <p className="mb-8">
+                                I build systems that connect <span className="text-ember font-medium">messaging → demand generation → sales enablement → retention signals</span>.
+                            </p>
+                            <p className="mb-4">
+                                Because unclear messaging doesn’t just hurt conversion.
+                            </p>
+                            <ul className="list-none pl-0 space-y-2 mb-8">
+                                <li className="flex gap-2 items-center"><span className="w-1.5 h-1.5 rounded-full bg-ember"></span>It erodes credibility.</li>
+                                <li className="flex gap-2 items-center"><span className="w-1.5 h-1.5 rounded-full bg-ember"></span>It makes ROI harder to prove.</li>
+                                <li className="flex gap-2 items-center"><span className="w-1.5 h-1.5 rounded-full bg-ember"></span>It lowers adoption.</li>
+                                <li className="flex gap-2 items-center"><span className="w-1.5 h-1.5 rounded-full bg-ember"></span>It quietly drags valuation.</li>
+                            </ul>
+                            <p className="font-medium text-charcoal border-l-4 border-ember pl-6 py-2 bg-ember/5">
+                                Marketing isn’t separate from operations. It’s the narrative layer of the entire revenue system.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Where This Perspective Comes From */}
+            <section className="section bg-charcoal/5">
+                <div className="container-narrow">
+                    <div className="max-w-3xl mx-auto">
+                        <div className="flex items-center gap-4 mb-8 justify-center">
+                            <div className="h-px bg-charcoal/20 w-12" />
+                            <span className="text-sm font-mono text-slate uppercase tracking-wider">Where This Perspective Comes From</span>
+                            <div className="h-px bg-charcoal/20 w-12" />
+                        </div>
+
+                        <div className="text-center text-lg text-slate leading-relaxed space-y-6">
+                            <p>
+                                I’ve led brand and digital strategy at global agencies, helped scale cybersecurity and AI companies through acquisition, and worked inside early-stage startups where every hire and headline matters.
+                            </p>
+                            <p>
+                                Across all of it, one truth repeats:
+                            </p>
+                            <div className="py-6">
+                                <p className="text-2xl font-bold text-charcoal mb-2">
+                                    When a company can clearly articulate the failure it prevents, growth accelerates.
+                                </p>
+                                <p className="text-xl text-slate/80">
+                                    When it speaks vaguely about aspiration, growth stalls.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* What I Believe */}
+            <section className="py-24 bg-charcoal text-ash text-center">
+                <div className="container-narrow">
+                    <span className="text-sm font-mono text-ember uppercase tracking-wider mb-6 block">What I Believe</span>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
+                        Great marketing doesn’t add noise.<br />
+                        It removes confusion.
+                    </h2>
+                    <p className="text-xl text-ash/80 max-w-2xl mx-auto">
+                        When the right buyer lands on your site, they shouldn’t need interpretation. <span className="text-white font-medium block mt-2">They should feel seen.</span>
+                    </p>
+                </div>
+            </section>
+
+            {/* If This Sounds Familiar */}
+            <section className="section bg-white">
+                <div className="container-narrow text-center">
+                    <div className="max-w-2xl mx-auto">
+                        <div className="flex items-center gap-4 mb-8 justify-center">
+                            <div className="h-px bg-charcoal/20 w-12" />
+                            <span className="text-sm font-mono text-slate uppercase tracking-wider">If this sounds familiar</span>
+                            <div className="h-px bg-charcoal/20 w-12" />
+                        </div>
+                        <div className="space-y-2 text-xl text-slate mb-8 font-medium">
+                            <p>If your product works but your growth doesn’t feel proportional…</p>
+                            <p>If you’re attracting interest but not urgency…</p>
+                            <p>If your homepage feels like it belongs to a previous version of your company…</p>
+                        </div>
+                        <p className="text-2xl font-bold text-ember">Let’s fix the signal.</p>
                     </div>
                 </div>
             </section>
