@@ -7,7 +7,8 @@ export interface FrameworkPrompt {
     level: string; // Foundation, Differentiation, Decision, Activation, Measurement
     levelTitle: string; // Same as level for now, or more descriptive
     hook: string;
-    promptContent: ``, visualLogic: string;
+    promptContent: string;
+    visualLogic: string;
     size: 'standard' | 'wide' | 'tall' | 'featured';
     githubUrl: string;
     faq: { question: string; answer: string }[];
