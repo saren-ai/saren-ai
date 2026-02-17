@@ -129,8 +129,8 @@ export const demandMachineMegaMenu: MegaMenuContent = {
     description:
       "A complete operating system for B2B growth. Follow the flow from diagnostic to outbound execution.",
     cta: {
-      label: "Start the Machine",
-      href: "/demand-machine/interview",
+      label: "See How It Works",
+      href: "/demand-machine",
     },
   },
 };

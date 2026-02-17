@@ -1,5 +1,9 @@
-import { Archive, ArrowRight, Database, FileText, Layout, MessageSquare, Mic, Play, Settings } from "lucide-react";
+import { ArrowRight, Database, FileText, Layout, MessageSquare, Mic, Settings } from "lucide-react";
 import Link from "next/link";
+import BDPVariablesMarquee from "@/components/demand-machine/BDPVariablesMarquee";
+import DiagnosticQuestionsMarquee from "@/components/demand-machine/DiagnosticQuestionsMarquee";
+import MessagingPromptsMarquee from "@/components/demand-machine/MessagingPromptsMarquee";
+import FoundationalDocsMarquee from "@/components/demand-machine/FoundationalDocsMarquee";
 
 export const metadata = {
     title: "The Demand Machine | Saren.ai",
@@ -7,37 +11,6 @@ export const metadata = {
 };
 
 export default function DemandMachinePage() {
-    const steps = [
-        {
-            number: "01",
-            icon: <Mic className="w-8 h-8 text-electric" />,
-            title: "Diagnostic Interview",
-            description: "We start with a deep-dive interview—36 targeted questions that extract your unique insights, market position, and 'founder secret sauce'.",
-            stat: "36 Questions",
-        },
-        {
-            number: "02",
-            icon: <Database className="w-8 h-8 text-electric" />,
-            title: "Variable Extraction",
-            description: "Your answers are processed to define 153 unique variables—from 'Ideal Customer Profile' to 'Enemy Narrative'—creating a structured data model of your strategy.",
-            stat: "153 Variables",
-        },
-        {
-            number: "03",
-            icon: <MessageSquare className="w-8 h-8 text-electric" />,
-            title: "Messaging Prompts",
-            description: "These variables are injected into 21 proprietary B2B messaging prompts, designed to architect your brand's voice and positioning automatically.",
-            stat: "21 Prompts",
-        },
-        {
-            number: "04",
-            icon: <FileText className="w-8 h-8 text-electric" />,
-            title: "Foundational Docs",
-            description: "The machine produces 21 foundational documents—Sales Scripts, Website Copy, Nurture Emails, and Ad Creative—ready for execution.",
-            stat: "21 Documents",
-        },
-    ];
-
     return (
         <div className="min-h-screen pt-24 pb-24">
             {/* Hero Section */}
@@ -93,39 +66,89 @@ export default function DemandMachinePage() {
             </section>
 
             {/* Process Flow */}
-            <section className="px-6 bg-ash/30 dark:bg-black/20 py-24 border-y border-border">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">How It Works</h2>
-                        <p className="text-xl text-foreground-muted">From raw input to executed strategy in four steps.</p>
+            <section className="bg-ash/30 dark:bg-black/20 pb-24 border-b border-border">
+                <div className="max-w-7xl mx-auto px-6 pt-24 pb-12 text-center">
+                    <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">How It Works</h2>
+                    <p className="text-xl text-foreground-muted max-w-2xl mx-auto">
+                        From raw input to executed strategy in four steps.
+                    </p>
+                </div>
+
+                <div className="space-y-32 max-w-7xl mx-auto px-6">
+
+                    {/* Step 1: Diagnostic Interview (Visual Left) */}
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div className="order-2 lg:order-1 lg:col-span-7 relative">
+                            <DiagnosticQuestionsMarquee />
+                            <div className="absolute -top-6 -left-6 w-24 h-24 bg-electric/10 rounded-full blur-2xl -z-10" />
+                        </div>
+                        <div className="order-1 lg:order-2 lg:col-span-5 space-y-6">
+                            <span className="text-6xl md:text-8xl font-bold text-slate/10 dark:text-white/5 block">01</span>
+                            <h3 className="text-3xl font-bold text-foreground">Diagnostic Interview</h3>
+                            <p className="text-lg text-foreground-muted leading-relaxed">
+                                We start with a deep-dive interview—36 targeted questions that extract your unique insights, market position, and 'founder secret sauce'.
+                            </p>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-electric/10 text-electric text-sm font-medium rounded-full">
+                                <span className="w-2 h-2 rounded-full bg-electric" />
+                                36 Questions
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {steps.map((step, index) => (
-                            <div key={index} className="relative group">
-                                {index < steps.length - 1 && (
-                                    <div className="hidden lg:block absolute top-12 left-1/2 w-full h-0.5 bg-gradient-to-r from-electric/50 to-transparent z-0" />
-                                )}
-
-                                <div className="relative z-10 bg-card-bg border border-border p-8 rounded-2xl h-full hover:border-electric/50 transition-colors shadow-sm hover:shadow-md">
-                                    <div className="flex justify-between items-start mb-6">
-                                        <div className="p-3 bg-background rounded-xl border border-border shadow-sm group-hover:scale-110 transition-transform duration-300">
-                                            {step.icon}
-                                        </div>
-                                        <span className="text-4xl font-bold text-slate/10 dark:text-white/5">{step.number}</span>
-                                    </div>
-
-                                    <h3 className="text-xl font-bold text-foreground mb-3">{step.title}</h3>
-                                    <p className="text-foreground-muted mb-6 leading-relaxed text-sm">
-                                        {step.description}
-                                    </p>
-
-                                    <div className="inline-block px-3 py-1 rounded-md bg-electric/5 text-electric text-xs font-bold uppercase tracking-wider">
-                                        {step.stat}
-                                    </div>
-                                </div>
+                    {/* Step 2: Variable Extraction (Visual Right) */}
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div className="lg:col-span-5 space-y-6">
+                            <span className="text-6xl md:text-8xl font-bold text-slate/10 dark:text-white/5 block">02</span>
+                            <h3 className="text-3xl font-bold text-foreground">Variable Extraction</h3>
+                            <p className="text-lg text-foreground-muted leading-relaxed">
+                                Your answers are processed to define 153 unique variables—from 'Ideal Customer Profile' to 'Enemy Narrative'—creating a structured data model of your strategy.
+                            </p>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-ember/10 text-ember text-sm font-medium rounded-full">
+                                <span className="w-2 h-2 rounded-full bg-ember" />
+                                153 Unique Variables
                             </div>
-                        ))}
+                        </div>
+                        <div className="lg:col-span-7">
+                            <BDPVariablesMarquee />
+                        </div>
+                    </div>
+
+                    {/* Step 3: Messaging Prompts (Visual Left) */}
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div className="order-2 lg:order-1 lg:col-span-7 relative">
+                            <MessagingPromptsMarquee />
+                            <div className="absolute -top-6 -left-6 w-24 h-24 bg-ember/10 rounded-full blur-2xl -z-10" />
+                        </div>
+                        <div className="order-1 lg:order-2 lg:col-span-5 space-y-6">
+                            <span className="text-6xl md:text-8xl font-bold text-slate/10 dark:text-white/5 block">03</span>
+                            <h3 className="text-3xl font-bold text-foreground">Messaging Prompts</h3>
+                            <p className="text-lg text-foreground-muted leading-relaxed">
+                                These variables are injected into 21 proprietary B2B messaging prompts, designed to architect your brand's voice and positioning automatically.
+                            </p>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-ember/10 text-ember text-sm font-medium rounded-full">
+                                <span className="w-2 h-2 rounded-full bg-ember" />
+                                21 Proprietary Prompts
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Step 4: Foundational Docs (Visual Right) */}
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div className="lg:col-span-5 space-y-6">
+                            <span className="text-6xl md:text-8xl font-bold text-slate/10 dark:text-white/5 block">04</span>
+                            <h3 className="text-3xl font-bold text-foreground">Foundational Docs</h3>
+                            <p className="text-lg text-foreground-muted leading-relaxed">
+                                The machine produces 21 foundational documents—Sales Scripts, Website Copy, Nurture Emails, and Ad Creative—ready for execution.
+                            </p>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-electric/10 text-electric text-sm font-medium rounded-full">
+                                <span className="w-2 h-2 rounded-full bg-electric" />
+                                21 Strategic Assets
+                            </div>
+                        </div>
+                        <div className="lg:col-span-7 relative">
+                            <FoundationalDocsMarquee />
+                            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-electric/10 rounded-full blur-3xl -z-10" />
+                        </div>
                     </div>
                 </div>
             </section>
