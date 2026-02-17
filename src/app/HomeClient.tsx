@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import CredibilityBar from "@/components/home/CredibilityBar";
+
 import PortfolioCard from "@/components/portfolio/PortfolioCard";
 
 const interactiveTools = [
@@ -201,8 +201,7 @@ export default function HomeClient() {
                 </div>
             </section>
 
-            {/* Credibility Bar */}
-            <CredibilityBar />
+
 
             {/* Interactive Tools ("Try something") */}
             <section className="section bg-ash dark:bg-background pb-0">

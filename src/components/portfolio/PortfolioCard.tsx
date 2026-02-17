@@ -39,9 +39,8 @@ export default function PortfolioCard({
           {/* Badge */}
           <div className="absolute top-6 right-6 z-10">
             <span
-              className={`text-xs font-bold px-3 py-1 rounded-full text-white uppercase tracking-wider ${
-                isInteractive ? "bg-ember" : "bg-electric"
-              }`}
+              className={`text-xs font-bold px-3 py-1 rounded-full text-white uppercase tracking-wider ${isInteractive ? "bg-ember" : "bg-electric"
+                }`}
             >
               {isInteractive ? "Interactive" : "Case Study"}
             </span>
@@ -70,22 +69,26 @@ export default function PortfolioCard({
             })}
           </div>
 
-          {/* Metric Highlight */}
-          <div className="mb-4">
-            <span className="metric-value text-2xl md:text-3xl">{metric}</span>
-            <span className="metric-label block mt-1">{metricLabel}</span>
-          </div>
-
-          {/* Title */}
-          <h3 className="text-xl md:text-2xl font-bold text-charcoal mb-2 group-hover:text-ember transition-colors">
+          {/* Title - Primary Element */}
+          <h3 className="text-xl md:text-2xl font-bold text-charcoal mb-4 group-hover:text-ember transition-colors">
             {title}
           </h3>
 
           {/* Description */}
-          <p className="text-slate flex-1 leading-relaxed">{description}</p>
+          <p className="text-slate mb-6 leading-relaxed">{description}</p>
+
+          {/* Metric Highlight - Secondary */}
+          <div className="mt-auto mb-4 p-4 bg-ash/50 rounded-lg border border-charcoal/5">
+            <div className="flex items-baseline gap-2">
+              <span className="text-xl font-bold text-charcoal">{metric}</span>
+              <span className="text-sm text-slate font-medium uppercase tracking-wide">
+                {metricLabel}
+              </span>
+            </div>
+          </div>
 
           {/* CTA */}
-          <div className="mt-6 flex items-center gap-2 text-electric font-medium group-hover:text-ember transition-colors">
+          <div className="mt-2 flex items-center gap-2 text-electric font-medium group-hover:text-ember transition-colors">
             <span>{isInteractive ? "Launch tool" : "Read case study"}</span>
             <svg
               className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
@@ -104,11 +107,10 @@ export default function PortfolioCard({
 
           {/* Hover Accent */}
           <div
-            className={`absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r ${
-              isInteractive
+            className={`absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r ${isInteractive
                 ? "from-ember to-copper"
                 : "from-electric to-charcoal"
-            } transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-b-lg`}
+              } transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-b-lg`}
           />
         </article>
       </Link>
