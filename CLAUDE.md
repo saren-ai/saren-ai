@@ -132,4 +132,10 @@ AVIF + WebP enabled. `fill` mode requires `relative` parent with explicit dimens
 
 ## Deployment
 
-Vercel · Region: iad1 (US East) · Security headers: `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin` · Font caching: immutable 1yr
+### Vercel (Recommended)
+
+- **Automatic:** Pushes to `main` branch on GitHub automatically trigger a Vercel deployment.
+- **Manual (Avoid):** CLI deployment (`vercel deploy`) is **not recommended** due to file size limits with project assets. Always use the GitHub integration.
+- **Region:** iad1 (US East)
+- **Security headers:** `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`
+- **Font caching:** immutable 1yr
