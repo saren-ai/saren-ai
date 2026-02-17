@@ -194,6 +194,11 @@ export const aboutMegaMenu: MegaMenuContent = {
           label: "My Stack",
           description: "Tools I use to build and grow",
         },
+        {
+          href: "/about/brand",
+          label: "Brand Style Guide",
+          description: "Fire Horse design system",
+        },
       ],
     },
     {
