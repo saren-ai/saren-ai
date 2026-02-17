@@ -100,15 +100,17 @@ AVIF + WebP enabled. `fill` mode requires `relative` parent with explicit dimens
 /portfolio/b2b-marketing-framework      Case study
 /portfolio/behavioral-lead-scoring      Case study
 /portfolio/its-good-to-be-pitched       Case study (storyboard)
+/demand-machine                        Overview (Vertical Blades)
+/demand-machine/interview              Diagnostic Interview
 ```
 
 ### Components (`src/components/`)
 
-`calculator/` (11) · `tier-list/` (6) · `golden-dashboard/` (8) · `behavioral-scoring/` (4) · `content-journey/` (3) · `sovereign-personas/` (3) · `storyboard/` (4) · `marketing-framework/` (1) · `layout/` (7: Header, Footer, TopBanner, ThemeProvider, ThemeToggle, MegaMenu) · `portfolio/` (2) · `ui/` (2: FAQ, ProfileGallery)
+`calculator/` (11) · `tier-list/` (6) · `golden-dashboard/` (8) · `behavioral-scoring/` (4) · `content-journey/` (3) · `sovereign-personas/` (3) · `storyboard/` (4) · `marketing-framework/` (1) · `demand-machine/` (4: Vertical Blades, Marquees) · `layout/` (7: Header, Footer, TopBanner, ThemeProvider, ThemeToggle, MegaMenu) · `portfolio/` (2) · `ui/` (2: FAQ, ProfileGallery)
 
-### Data (`src/lib/`)
+### Data (`src/lib/` & `src/data/`)
 
-`calculator/{types,funnel-calculations,conversion-rates,benchmark-data}.ts` · `tier-list.ts` (AI_TOOLS, TIER_CONFIG, SAREN_PICKS, votes) · `golden-dashboard.ts` (computeModel, presets, metricMetadata) · `behavioral-scoring.ts` · `content-journey.ts` · `sovereign-personas.ts` · `storyboard.ts` · `marketing-framework.ts` · `mega-menu-content.ts` · `substack-rss.ts` · `thinking.ts`
+`calculator/{types,funnel-calculations,conversion-rates,benchmark-data}.ts` · `tier-list.ts` (AI_TOOLS, TIER_CONFIG, SAREN_PICKS, votes) · `golden-dashboard.ts` (computeModel, presets, metricMetadata) · `behavioral-scoring.ts` · `content-journey.ts` · `sovereign-personas.ts` · `storyboard.ts` · `marketing-framework.ts` · `mega-menu-content.ts` · `substack-rss.ts` · `thinking.ts` · `bdp-variables.ts` · `interview-questions.ts`
 
 ### Assets (`public/`)
 
