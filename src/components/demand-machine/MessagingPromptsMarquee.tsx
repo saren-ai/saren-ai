@@ -65,8 +65,8 @@ function MarqueeRow({
     return (
         <div className="relative overflow-hidden py-3">
             {/* Fade Gradients */}
-            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#0A0E14] to-transparent z-10" />
-            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#0A0E14] to-transparent z-10" />
+            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent dark:from-[#0A0E14] dark:to-transparent z-10" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent dark:from-[#0A0E14] dark:to-transparent z-10" />
 
             <div
                 className={direction === "right" ? "scroll-right" : "scroll-left"}
@@ -93,18 +93,18 @@ export default function MessagingPromptsMarquee() {
 
     return (
         <div
-            className="w-full max-w-[900px] mx-auto bg-[#0A0E14] rounded-xl overflow-hidden border border-white/5 shadow-2xl"
+            className="w-full max-w-[900px] mx-auto bg-white dark:bg-[#0A0E14] rounded-xl overflow-hidden border border-charcoal/5 dark:border-white/5 shadow-2xl"
             style={{
                 fontFamily: "'JetBrains Mono', 'SF Mono', monospace",
             }}
         >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-white/[0.02]">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-charcoal/5 dark:border-white/5 bg-charcoal/[0.02] dark:bg-white/[0.02]">
                 <div className="flex items-baseline gap-3">
                     <span className="text-sm font-bold text-ember tracking-tight">
                         PROMPT_LIBRARY
                     </span>
-                    <span className="text-[10px] text-white/20">v1.2 — 23 modules</span>
+                    <span className="text-[10px] text-charcoal/40 dark:text-white/20">v1.2 — 23 modules</span>
                 </div>
                 <div className="flex items-center gap-2">
                     <div className="flex gap-1">
@@ -128,8 +128,8 @@ export default function MessagingPromptsMarquee() {
             </div>
 
             {/* Footer */}
-            <div className="flex justify-between px-6 py-3 border-t border-white/5 bg-white/[0.02]">
-                <span className="text-[10px] text-white/10 uppercase tracking-widest">
+            <div className="flex justify-between px-6 py-3 border-t border-charcoal/5 dark:border-white/5 bg-charcoal/[0.02] dark:bg-white/[0.02]">
+                <span className="text-[10px] text-charcoal/20 dark:text-white/10 uppercase tracking-widest">
                     System.Output.Generated
                 </span>
                 <span className="text-[10px] text-ember/40">

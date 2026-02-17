@@ -54,7 +54,7 @@ function DocChip({ text }: { text: string }) {
             <div className="flex flex-col leading-tight">
                 <span className="text-sm font-bold tracking-tight">{title}</span>
                 {description && (
-                    <span className="text-[10px] font-medium opacity-60 text-white uppercase tracking-wider">
+                    <span className="text-[10px] font-medium opacity-60 text-charcoal/60 dark:text-white/60 uppercase tracking-wider">
                         {description}
                     </span>
                 )}
@@ -75,10 +75,10 @@ function MarqueeRow({
     const dur = Math.max(25, items.length * speed);
 
     return (
-        <div className="relative overflow-hidden py-2 border-t border-white/5 first:border-t-0">
+        <div className="relative overflow-hidden py-2 border-t border-charcoal/5 dark:border-white/5 first:border-t-0">
             {/* Fade Gradients */}
-            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#0A0E14] to-transparent z-10" />
-            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#0A0E14] to-transparent z-10" />
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent dark:from-[#0A0E14] dark:to-transparent z-10" />
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent dark:from-[#0A0E14] dark:to-transparent z-10" />
 
             <div
                 className={direction === "right" ? "scroll-right" : "scroll-left"}
@@ -105,18 +105,18 @@ export default function FoundationalDocsMarquee() {
 
     return (
         <div
-            className="w-full max-w-[900px] mx-auto bg-[#0A0E14] rounded-xl overflow-hidden border border-white/5 shadow-2xl"
+            className="w-full max-w-[900px] mx-auto bg-white dark:bg-[#0A0E14] rounded-xl overflow-hidden border border-charcoal/5 dark:border-white/5 shadow-2xl"
             style={{
                 fontFamily: "'JetBrains Mono', 'SF Mono', monospace",
             }}
         >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-white/[0.02]">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-charcoal/5 dark:border-white/5 bg-charcoal/[0.02] dark:bg-white/[0.02]">
                 <div className="flex items-baseline gap-3">
                     <span className="text-sm font-bold text-electric tracking-tight">
                         ASSET_GENERATION
                     </span>
-                    <span className="text-[10px] text-white/20">v2.0 — 21 files</span>
+                    <span className="text-[10px] text-charcoal/40 dark:text-white/20">v2.0 — 21 files</span>
                 </div>
                 <div className="flex items-center gap-2">
                     <div className="flex gap-1">
@@ -124,7 +124,7 @@ export default function FoundationalDocsMarquee() {
                         <span className="w-1.5 h-1.5 rounded-sm bg-electric/60" />
                         <span className="w-1.5 h-1.5 rounded-sm bg-electric/80" />
                     </div>
-                    <span className="text-[10px] text-white/20 ml-2">Processing...</span>
+                    <span className="text-[10px] text-charcoal/40 dark:text-white/20 ml-2">Processing...</span>
                 </div>
             </div>
 
@@ -141,8 +141,8 @@ export default function FoundationalDocsMarquee() {
             </div>
 
             {/* Footer */}
-            <div className="flex justify-between px-6 py-3 border-t border-white/5 bg-white/[0.02]">
-                <span className="text-[10px] text-white/10 uppercase tracking-widest">
+            <div className="flex justify-between px-6 py-3 border-t border-charcoal/5 dark:border-white/5 bg-charcoal/[0.02] dark:bg-white/[0.02]">
+                <span className="text-[10px] text-charcoal/20 dark:text-white/10 uppercase tracking-widest">
                     System.File.Write
                 </span>
                 <span className="text-[10px] text-electric/40">

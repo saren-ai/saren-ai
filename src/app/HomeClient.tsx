@@ -116,17 +116,18 @@ export default function HomeClient() {
                             transition={{ duration: 0.5, delay: 0.1 }}
                             className="text-4xl md:text-6xl lg:text-[3.5rem] font-bold text-charcoal leading-[1.1] mb-6"
                         >
-                            Demand generation as engineering: <span className="text-gradient">AI-powered playbooks</span>, <span className="text-gradient">predictive outcomes</span>, zero guesswork.
+                            I help early-stage SaaS and AI companies build <span className="text-gradient">predictable growth engines</span> with <span className="text-gradient">AI-powered marketing systems</span>.
                         </motion.h1>
 
                         {/* Subhead */}
+                        {/* Subhead / Buyer Context */}
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            className="text-lg md:text-xl lg:text-2xl text-charcoal font-medium max-w-3xl mx-auto leading-relaxed mb-10"
+                            className="text-lg md:text-xl lg:text-2xl text-charcoal font-medium max-w-4xl mx-auto leading-relaxed mb-10"
                         >
-                            Interactive demand generation playbooks. Built by a fractional CMO who&apos;s scaled three exits.
+                            For <span className="font-bold text-charcoal">Series A SaaS and cybersecurity founders</span> stuck with <span className="font-bold text-charcoal">unpredictable pipeline</span>, I build automated growth systems that turn intuition into revenue.
                         </motion.h2>
 
                         {/* CTAs */}
@@ -136,8 +137,8 @@ export default function HomeClient() {
                             transition={{ duration: 0.5, delay: 0.3 }}
                             className="flex flex-col sm:flex-row gap-4 justify-center"
                         >
-                            <Link href="/portfolio" className="btn-primary" aria-label="See the Architecture">
-                                See the Architecture
+                            <Link href="/portfolio" className="btn-primary" aria-label="Explore my portfolio">
+                                Explore my portfolio
                                 <svg
                                     className="w-5 h-5 ml-2"
                                     fill="none"
@@ -152,8 +153,8 @@ export default function HomeClient() {
                                     />
                                 </svg>
                             </Link>
-                            <Link href="/contact" className="btn-secondary" aria-label="Show Me Your Numbers">
-                                Show Me Your Numbers
+                            <Link href="/contact" className="btn-secondary" aria-label="Let's get in touch">
+                                Let&apos;s get in touch
                                 <svg
                                     className="w-5 h-5 ml-2"
                                     fill="none"

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Sora, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
@@ -121,6 +122,11 @@ export default async function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </ThemeProvider>
+        <Script
+          id="hs-script-loader"
+          strategy="afterInteractive"
+          src="//js-na2.hs-scripts.com/244082990.js"
+        />
       </body>
     </html>
   );

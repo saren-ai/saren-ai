@@ -68,25 +68,13 @@ function MarqueeRow({
             style={{
                 overflow: "hidden",
                 position: "relative",
-                borderTop: rowIndex > 0 ? `1px solid rgba(255,255,255,0.04)` : "none",
                 padding: "6px 0",
             }}
-            className="marquee-wrapper"
+            className={`marquee-wrapper ${rowIndex > 0 ? "border-t border-charcoal/5 dark:border-white/5" : ""}`}
         >
             {/* Left fade + label */}
             <div
-                style={{
-                    position: "absolute",
-                    left: 0,
-                    top: 0,
-                    bottom: 0,
-                    width: "90px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    zIndex: 2,
-                    background: "linear-gradient(90deg, #0A0E14 55%, transparent)",
-                }}
+                className="absolute left-0 top-0 bottom-0 w-[90px] flex items-center justify-center z-[2] bg-gradient-to-r from-white via-white/80 to-transparent dark:from-[#0A0E14] dark:via-[#0A0E14] dark:to-transparent"
             >
                 <span
                     style={{
@@ -104,15 +92,7 @@ function MarqueeRow({
             </div>
             {/* Right fade */}
             <div
-                style={{
-                    position: "absolute",
-                    right: 0,
-                    top: 0,
-                    bottom: 0,
-                    width: "50px",
-                    zIndex: 2,
-                    background: "linear-gradient(270deg, #0A0E14 15%, transparent)",
-                }}
+                className="absolute right-0 top-0 bottom-0 w-[50px] z-[2] bg-gradient-to-l from-white via-white/80 to-transparent dark:from-[#0A0E14] dark:via-[#0A0E14] dark:to-transparent"
             />
 
             <div
@@ -140,27 +120,15 @@ export default function BDPVariablesMarquee() {
 
     return (
         <div
+            className="w-full max-w-[900px] mx-auto bg-white dark:bg-[#0A0E14] rounded-xl overflow-hidden border border-charcoal/5 dark:border-white/5 shadow-2xl"
             style={{
-                width: "100%",
-                maxWidth: "900px",
-                margin: "0 auto",
-                background: "#0A0E14",
-                borderRadius: "12px",
-                overflow: "hidden",
-                border: "1px solid rgba(255,255,255,0.06)",
                 fontFamily: "'JetBrains Mono', 'SF Mono', monospace",
                 boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
             }}
         >
             {/* Header */}
             <div
-                style={{
-                    padding: "16px 20px 10px",
-                    display: "flex",
-                    alignItems: "baseline",
-                    justifyContent: "space-between",
-                    borderBottom: "1px solid rgba(255,255,255,0.06)",
-                }}
+                className="px-5 pt-4 pb-2.5 flex items-baseline justify-between border-b border-charcoal/5 dark:border-white/5"
             >
                 <div style={{ display: "flex", alignItems: "baseline", gap: "10px" }}>
                     <span
@@ -173,12 +141,12 @@ export default function BDPVariablesMarquee() {
                     >
                         BDP_FRAMEWORK
                     </span>
-                    <span style={{ fontSize: "10px", color: "rgba(255,255,255,0.25)" }}>
+                    <span className="text-[10px] text-charcoal/40 dark:text-white/25">
                         v1.0 — 21 prompts
                     </span>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-                    <span style={{ fontSize: "10px", color: "rgba(255,255,255,0.2)" }}>
+                    <span className="text-[10px] text-charcoal/40 dark:text-white/20">
                         {BDP_VARIABLES.length} variables
                     </span>
                     <div style={{ display: "flex", gap: "3px" }}>
@@ -218,14 +186,9 @@ export default function BDPVariablesMarquee() {
 
             {/* Footer */}
             <div
-                style={{
-                    padding: "6px 20px 10px",
-                    borderTop: "1px solid rgba(255,255,255,0.06)",
-                    display: "flex",
-                    justifyContent: "space-between",
-                }}
+                className="px-5 py-2.5 border-t border-charcoal/5 dark:border-white/5 flex justify-between"
             >
-                <span style={{ fontSize: "9px", color: "rgba(255,255,255,0.15)" }}>
+                <span className="text-[9px] text-charcoal/20 dark:text-white/15">
                     7 layers × 21 prompts → complete B2B brand system
                 </span>
                 <span style={{ fontSize: "9px", color: "#E34234", opacity: 0.5 }}>
