@@ -1,16 +1,33 @@
 "use client";
 
 import FAQ from "@/components/ui/FAQ";
-import Link from "next/link";
-import { Mail, Phone, Video, Calendar, ArrowRight } from "lucide-react";
 import CodeBlock from "@/components/ui/CodeBlock";
-import HeroSalesPlay from "@/components/sales-play/HeroSalesPlay";
+import CaseStudyHero from "@/components/case-studies/CaseStudyHero";
+import OutcomeMetrics from "@/components/case-studies/OutcomeMetrics";
+import ConsultingCTA from "@/components/case-studies/ConsultingCTA";
+import RelatedWork from "@/components/case-studies/RelatedWork";
+import { Mail, Phone, Video, Calendar } from "lucide-react";
 
 export default function SalesPlayClient() {
     return (
         <article>
-            {/* New Hero with Interactive Calendar */}
-            <HeroSalesPlay />
+            {/* Hero */}
+            <CaseStudyHero
+                title="10-Touch Sales Play"
+                subtitle="Turning cold outreach into executive conversations. A systematic approach to multi-channel prospecting that consistently books meetings."
+                role="Sales Engineering"
+                date="2023-2024"
+                tags={["Outbound", "SDR Playbook", "Messaging"]}
+            />
+
+            {/* Metrics */}
+            <OutcomeMetrics
+                metrics={[
+                    { value: "42%", label: "Meeting Rate", context: "Cold outbound to VP+" },
+                    { value: "25", label: "Days", context: "Sequence duration" },
+                    { value: "10", label: "Touchpoints", context: "Across 3 channels" },
+                ]}
+            />
 
             {/* The Problem */}
             <section className="section bg-ash dark:bg-background">
@@ -132,65 +149,10 @@ Best,
             />
 
             {/* CTA */}
-            <section className="section gradient-dark text-ash">
-                <div className="container-narrow text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                        Ready to upgrade your outreach?
-                    </h2>
-                    <p className="text-ash/70 text-lg max-w-2xl mx-auto mb-8">
-                        Stop spamming and start selling. building a sequence that respects
-                        your prospect's intelligence.
-                    </p>
-                    <div className="flex flex-wrap gap-4 justify-center">
-                        <Link
-                            href="/contact"
-                            className="inline-flex items-center gap-2 px-6 py-3 bg-electric hover:bg-electric/90 text-white rounded-lg font-semibold transition-colors"
-                        >
-                            Start a Project
-                            <ArrowRight className="w-5 h-5" />
-                        </Link>
-                    </div>
-                </div>
-            </section>
+            <ConsultingCTA />
 
-            {/* More Portfolio */}
-            <section className="section bg-ash dark:bg-background-secondary">
-                <div className="container-narrow">
-                    <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
-                        Explore More Work
-                    </h3>
-                    <div className="grid md:grid-cols-3 gap-6">
-                        {[
-                            {
-                                title: "Paid Media ROI Simulator",
-                                desc: "Forecasting outcomes before you spend",
-                                href: "/portfolio/roi-simulator",
-                            },
-                            {
-                                title: "120-Day Content Journey",
-                                desc: "Engineering demand at scale",
-                                href: "/portfolio/120-day-content-journey",
-                            },
-                            {
-                                title: "Sovereign Personas",
-                                desc: "Making complex markets legible",
-                                href: "/portfolio/sovereign-personas",
-                            },
-                        ].map((item) => (
-                            <Link
-                                key={item.href}
-                                href={item.href}
-                                className="block p-6 bg-card-bg border border-border rounded-lg hover:bg-electric/10 transition-colors group"
-                            >
-                                <h4 className="font-semibold text-foreground group-hover:text-ember transition-colors mb-2">
-                                    {item.title}
-                                </h4>
-                                <p className="text-foreground-muted text-sm">{item.desc}</p>
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            {/* Related Work */}
+            <RelatedWork currentHref="/portfolio/10-touch-sales-play" />
         </article>
     );
 }

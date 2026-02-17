@@ -11,6 +11,7 @@ interface PortfolioCardProps {
   href: string;
   index: number;
   pillars: string[];
+  variant?: "interactive" | "case_study";
 }
 
 export default function PortfolioCard({
@@ -21,18 +22,33 @@ export default function PortfolioCard({
   href,
   index,
   pillars,
+  variant = "case_study",
 }: PortfolioCardProps) {
+  const isInteractive = variant === "interactive";
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       layout
+      className="h-full"
     >
       <Link href={href} className="block group h-full">
         <article className="card p-6 md:p-8 h-full flex flex-col relative overflow-hidden">
+          {/* Badge */}
+          <div className="absolute top-6 right-6 z-10">
+            <span
+              className={`text-xs font-bold px-3 py-1 rounded-full text-white uppercase tracking-wider ${
+                isInteractive ? "bg-ember" : "bg-electric"
+              }`}
+            >
+              {isInteractive ? "Interactive" : "Case Study"}
+            </span>
+          </div>
+
           {/* Pillar Badges */}
-          <div className="flex flex-wrap gap-2 mb-4">
+          <div className="flex flex-wrap gap-2 mb-4 pr-24">
             {pillars.map((pillar) => {
               let badgeStyle = "bg-slate/10 text-slate border-slate/20";
               if (pillar === "Predictive Infrastructure") {
@@ -70,7 +86,7 @@ export default function PortfolioCard({
 
           {/* CTA */}
           <div className="mt-6 flex items-center gap-2 text-electric font-medium group-hover:text-ember transition-colors">
-            <span>View case study</span>
+            <span>{isInteractive ? "Launch tool" : "Read case study"}</span>
             <svg
               className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
               fill="none"
@@ -87,7 +103,13 @@ export default function PortfolioCard({
           </div>
 
           {/* Hover Accent */}
-          <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-ember to-copper transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-b-lg" />
+          <div
+            className={`absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r ${
+              isInteractive
+                ? "from-ember to-copper"
+                : "from-electric to-charcoal"
+            } transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-b-lg`}
+          />
         </article>
       </Link>
     </motion.div>

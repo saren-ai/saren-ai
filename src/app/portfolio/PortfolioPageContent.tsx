@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import PortfolioCard from "@/components/portfolio/PortfolioCard";
 
-const portfolioItems = [
+const interactiveItems = [
   {
     title: "Paid Media ROI Simulator",
     description:
@@ -14,6 +14,36 @@ const portfolioItems = [
     href: "/portfolio/roi-simulator",
     pillars: ["Predictive Infrastructure", "Scale Without Headcount"],
   },
+  {
+    title: "SaaS Revenue Calculator",
+    description:
+      "Reverse-engineer funnel metrics from revenue goals. Calculate exactly how many leads, MQLs, and demos you need to hit your target.",
+    metric: "100%",
+    metricLabel: "Funnel Clarity",
+    href: "/portfolio/calculator",
+    pillars: ["Predictive Infrastructure", "Revenue Engineering"],
+  },
+  {
+    title: "Behavioral Lead Scoring",
+    description:
+      "Making buyer motion legible. A dynamic scoring model that tracks fit and engagement to surface high-intent accounts automatically.",
+    metric: "3x",
+    metricLabel: "Lead Quality",
+    href: "/portfolio/behavioral-lead-scoring",
+    pillars: ["Predictive Infrastructure", "Automated Qualification"],
+  },
+  {
+    title: "AI Stack Tier List",
+    description:
+      "My personal tech stack for building growth engines. Drag and drop to rank the tools yourself or see my top picks for 2026.",
+    metric: "25+",
+    metricLabel: "AI Tools",
+    href: "/about/stack",
+    pillars: ["AI Operations", "Systems Thinking"],
+  },
+];
+
+const caseStudyItems = [
   {
     title: "Sovereign Buyer Personas",
     description:
@@ -103,12 +133,61 @@ export default function PortfolioPageContent() {
         </div>
       </section>
 
-      {/* Portfolio Grid */}
+      {/* Interactive Tools */}
+      <section className="section bg-ash dark:bg-background pb-0">
+        <div className="container-narrow">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-10 flex items-center gap-3"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal dark:text-foreground">
+              Interactive Tools
+            </h2>
+            <span className="px-3 py-1 bg-ember/10 text-ember text-sm font-bold rounded-full uppercase tracking-wide">
+              Try it
+            </span>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {interactiveItems.map((item, index) => (
+              <PortfolioCard
+                key={item.href}
+                {...item}
+                index={index}
+                variant="interactive"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Case Studies */}
       <section className="section bg-ash dark:bg-background">
         <div className="container-narrow">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-10 mt-16 flex items-center gap-3"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal dark:text-foreground">
+              Case Studies
+            </h2>
+            <span className="px-3 py-1 bg-electric/10 text-electric text-sm font-bold rounded-full uppercase tracking-wide">
+              See the work
+            </span>
+          </motion.div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {portfolioItems.map((item, index) => (
-              <PortfolioCard key={item.href} {...item} index={index} />
+            {caseStudyItems.map((item, index) => (
+              <PortfolioCard
+                key={item.href}
+                {...item}
+                index={index}
+                variant="case_study"
+              />
             ))}
           </div>
         </div>

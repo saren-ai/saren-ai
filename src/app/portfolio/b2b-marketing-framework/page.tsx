@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import FAQ from "@/components/ui/FAQ";
-import { ExternalLink } from "lucide-react";
 import FrameworkExplorer from "@/components/framework/FrameworkExplorer";
+import CaseStudyHero from "@/components/case-studies/CaseStudyHero";
+import OutcomeMetrics from "@/components/case-studies/OutcomeMetrics";
+import ConsultingCTA from "@/components/case-studies/ConsultingCTA";
+import RelatedWork from "@/components/case-studies/RelatedWork";
 
 export const metadata: Metadata = {
   title: "B2B Marketing Framework: 23-Step Buyer Journey System",
@@ -19,11 +21,29 @@ export const metadata: Metadata = {
 export default function MarketingFrameworkPage() {
   return (
     <article>
+      {/* Hero */}
+      <CaseStudyHero
+        title="B2B Marketing Framework"
+        subtitle="The messaging infrastructure for teams who can't afford to build on quicksand. A 7-layer framework that creates B2B SaaS positioning from scratch."
+        role="Strategy & Messaging"
+        date="2023"
+        tags={["Messaging", "Positioning", "Framework"]}
+      />
+
+      {/* Metrics */}
+      <OutcomeMetrics
+        metrics={[
+          { value: "23", label: "Prompts", context: "Full buyer journey" },
+          { value: "7", label: "Layers", context: "From raw data to channel" },
+          { value: "1", label: "System", context: "Unified messaging source" },
+        ]}
+      />
+
       {/* Hero Explorer */}
       <FrameworkExplorer />
 
       {/* How to Use */}
-      <section className="section bg-ash dark:bg-background-secondary">
+      <section className="section bg-ash dark:bg-background-secondary pt-0 md:pt-16">
         <div className="container-narrow">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
@@ -109,78 +129,10 @@ export default function MarketingFrameworkPage() {
       />
 
       {/* CTA */}
-      <section className="section gradient-dark text-ash">
-        <div className="container-narrow text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to build your messaging foundation?
-          </h2>
-          <p className="text-ash/70 text-lg max-w-2xl mx-auto mb-8">
-            Stop winging it with random campaigns. Start with structure that compounds.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a
-              href="https://github.com/saren-ai/b2b-marketing-framework"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-electric hover:bg-electric/90 text-white rounded-lg font-semibold transition-colors"
-            >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-              </svg>
-              Get the Framework
-              <ExternalLink className="w-4 h-4" />
-            </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-ash/10 hover:bg-ash/20 text-ash border-2 border-ash/30 rounded-lg font-semibold transition-colors"
-            >
-              Hire me to build it for you
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ConsultingCTA />
 
-      {/* More Portfolio */}
-      <section className="section bg-ash dark:bg-background-secondary">
-        <div className="container-narrow">
-          <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
-            Explore More Work
-          </h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Paid Media ROI Simulator",
-                desc: "Forecasting outcomes before you spend",
-                href: "/portfolio/roi-simulator",
-              },
-              {
-                title: "120-Day Content Journey",
-                desc: "Engineering demand at scale",
-                href: "/portfolio/120-day-content-journey",
-              },
-              {
-                title: "Sovereign Personas",
-                desc: "Making complex markets legible",
-                href: "/portfolio/sovereign-personas",
-              },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="block p-6 bg-card-bg border border-border rounded-lg hover:bg-electric/10 transition-colors group"
-              >
-                <h4 className="font-semibold text-foreground group-hover:text-ember transition-colors mb-2">
-                  {item.title}
-                </h4>
-                <p className="text-foreground-muted text-sm">{item.desc}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Related Work */}
+      <RelatedWork currentHref="/portfolio/b2b-marketing-framework" />
     </article>
   );
 }

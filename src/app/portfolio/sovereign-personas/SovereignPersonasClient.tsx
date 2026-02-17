@@ -1,6 +1,10 @@
 "use client";
 
-import HeroPersonas from "@/components/sovereign-personas/HeroPersonas";
+import CaseStudyHero from "@/components/case-studies/CaseStudyHero";
+import OutcomeMetrics from "@/components/case-studies/OutcomeMetrics";
+import ConsultingCTA from "@/components/case-studies/ConsultingCTA";
+import RelatedWork from "@/components/case-studies/RelatedWork";
+import PersonaGallery from "@/components/sovereign-personas/PersonaGallery";
 import FAQ from "@/components/ui/FAQ";
 import { useCases } from "@/lib/sovereign-personas";
 import Link from "next/link";
@@ -8,8 +12,40 @@ import Link from "next/link";
 export default function SovereignPersonasClient() {
     return (
         <article>
-            {/* Hero with Interactive Gallery */}
-            <HeroPersonas />
+            {/* Hero */}
+            <CaseStudyHero
+                title="Sovereign Buyer Personas"
+                subtitle="Making complex markets simple. A framework for building personas that drive real targeting, messaging, and content decisions."
+                role="Strategy & Frameworks"
+                date="2024"
+                tags={["Personas", "Strategy", "Government"]}
+            />
+
+            {/* Metrics */}
+            <OutcomeMetrics
+                metrics={[
+                    { value: "3", label: "Key Personas", context: "Built for deal consensus" },
+                    { value: "16mo", label: "Deal Cycle", context: "Navigated successfully" },
+                    { value: "100%", label: "Alignment", context: "Across buying committee" },
+                ]}
+            />
+
+            {/* Persona Gallery */}
+            <section className="section bg-ash dark:bg-background pt-8 pb-16">
+                <div className="container-narrow">
+                    <div className="text-center mb-12">
+                        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                            The Three Personas
+                        </h2>
+                        <p className="text-foreground-muted max-w-2xl mx-auto">
+                            Each persona includes mandate, risks, trust signals, messaging
+                            altitude, and content strategies. Hover for quick insights, click
+                            for full messaging implications.
+                        </p>
+                    </div>
+                    <PersonaGallery />
+                </div>
+            </section>
 
             {/* The Sovereign Buying System */}
             <section className="section bg-ash dark:bg-background pt-0 md:pt-16">
@@ -242,72 +278,10 @@ export default function SovereignPersonasClient() {
             />
 
             {/* CTA */}
-            <section className="section gradient-dark text-ash">
-                <div className="container-narrow text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                        Ready to build personas that work?
-                    </h2>
-                    <p className="text-ash/70 text-lg max-w-2xl mx-auto mb-8">
-                        Stop guessing at who your buyers are. Let&apos;s build a persona
-                        framework that drives real marketing and sales results.
-                    </p>
-                    <Link href="/contact" className="btn-primary inline-flex text-lg">
-                        Let&apos;s talk
-                        <svg
-                            className="w-5 h-5"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M17 8l4 4m0 0l-4 4m4-4H3"
-                            />
-                        </svg>
-                    </Link>
-                </div>
-            </section>
+            <ConsultingCTA />
 
-            {/* More Portfolio */}
-            <section className="section bg-ash dark:bg-background-secondary">
-                <div className="container-narrow">
-                    <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
-                        Explore More Work
-                    </h3>
-                    <div className="grid md:grid-cols-3 gap-6">
-                        {[
-                            {
-                                title: "Paid Media ROI Simulator",
-                                desc: "Forecasting outcomes before you spend",
-                                href: "/portfolio/roi-simulator",
-                            },
-                            {
-                                title: "B2B Marketing Framework",
-                                desc: "7-layer prompt system for messaging infrastructure",
-                                href: "/portfolio/b2b-marketing-framework",
-                            },
-                            {
-                                title: "120-Day Content Journey",
-                                desc: "Engineering demand at scale",
-                                href: "/portfolio/120-day-content-journey",
-                            },
-                        ].map((item) => (
-                            <Link
-                                key={item.href}
-                                href={item.href}
-                                className="block p-6 bg-card-bg border border-border rounded-lg hover:bg-electric/10 transition-colors group"
-                            >
-                                <h4 className="font-semibold text-foreground group-hover:text-ember transition-colors mb-2">
-                                    {item.title}
-                                </h4>
-                                <p className="text-foreground-muted text-sm">{item.desc}</p>
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            {/* Related Work */}
+            <RelatedWork currentHref="/portfolio/sovereign-personas" />
         </article>
     );
 }

@@ -9,7 +9,7 @@ export default function FrameworkStepLayout({
     return (
         <div className="min-h-screen bg-background text-foreground">
             {/* Navigation Header */}
-            <div className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/10">
+            <div className="bg-background border-b border-white/10">
                 <SitemapVisualizer
                     prompts={FRAMEWORK_PROMPTS}
                     enableNavigation={true}

@@ -7,6 +7,7 @@ import ThemeToggle from "./ThemeToggle";
 import MegaMenu, { type MegaMenuContent } from "./MegaMenu";
 import {
   portfolioMegaMenu,
+  demandMachineMegaMenu,
   thinkingMegaMenu,
   aboutMegaMenu,
 } from "@/lib/mega-menu-content";
@@ -32,6 +33,16 @@ const navLinks: NavItem[] = [
       { href: "/portfolio/120-day-content-journey", label: "120-Day Content Journey" },
       { href: "/portfolio/b2b-marketing-framework", label: "B2B Marketing Framework" },
       { href: "/portfolio/its-good-to-be-pitched", label: "It's Good to Be Pitched" },
+    ],
+  },
+  {
+    label: "Demand Machine",
+    megaMenu: demandMachineMegaMenu,
+    mobileChildren: [
+      { href: "/demand-machine/interview", label: "36-Question Interview" },
+      { href: "/demand-machine/messaging", label: "21-Step Messaging Framework" },
+      { href: "/demand-machine/content-planner", label: "120-Day Content Planner" },
+      { href: "/demand-machine/outbound", label: "10-Touch Outbound Builder" },
     ],
   },
   {
@@ -112,7 +123,7 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
           {/* Logo */}
           <Link
             href="/"
-            className="text-2xl font-bold text-charcoal dark:text-ash tracking-tight hover:text-ember transition-colors"
+            className="text-2xl font-bold text-foreground tracking-tight hover:text-ember transition-colors"
           >
             saren<span className="text-ember">.</span>ai
           </Link>

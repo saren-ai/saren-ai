@@ -7,68 +7,60 @@ export const portfolioMegaMenu: MegaMenuContent = {
   layout: "three-column",
   sections: [
     {
-      title: "Revenue & Systems",
+      title: "Interactive Tools",
       links: [
         {
           label: "Paid Media ROI Simulator",
           href: "/portfolio/roi-simulator",
-          description: "Interactive financial modeling for ad spend.",
-        },
-        {
-          href: "/portfolio/120-day-content-journey",
-          label: "120-Day Content Journey",
-          description: "$4M quarterly pipeline from systematic content",
+          description: "Interactive financial modeling",
         },
         {
           href: "/portfolio/calculator",
           label: "SaaS Revenue Calculator",
-          description: "Reverse-engineer funnel metrics from revenue goals",
+          description: "Funnel metrics reversed from goals",
         },
         {
           href: "/portfolio/behavioral-lead-scoring",
           label: "Behavioral Lead Scoring",
-          description: "Making buyer motion legible across the journey",
+          description: "Buyer motion intent tracking",
+        },
+        {
+          href: "/about/stack",
+          label: "AI Stack Tier List",
+          description: "Rank my tool choices",
         },
       ],
     },
     {
-      title: "Strategy & Creative",
+      title: "Case Studies",
       links: [
         {
-          href: "/portfolio/b2b-marketing-framework",
-          label: "B2B Marketing Framework",
-          description: "7-layer prompt matrix for messaging infrastructure",
+          href: "/portfolio/120-day-content-journey",
+          label: "120-Day Content Journey",
+          description: "$4M pipeline from content",
         },
         {
           href: "/portfolio/10-touch-sales-play",
           label: "10-Touch Sales Play",
-          description: "Multi-channel outbound system (42% meeting rate)",
+          description: "Multi-channel outbound system",
         },
         {
           href: "/portfolio/sovereign-personas",
           label: "Sovereign Buyer Personas",
-          description: "Committee buying frameworks for complex deals",
+          description: "Committee buying frameworks",
+        },
+        {
+          href: "/portfolio/b2b-marketing-framework",
+          label: "B2B Marketing Framework",
+          description: "Messaging infrastructure",
         },
         {
           href: "/portfolio/its-good-to-be-pitched",
           label: "It's Good to Be Pitched",
-          description: "AI-assisted storyboard for 30-second TV spot",
-        },
-        {
-          href: "/portfolio/psylocke-timeline",
-          label: "Psylocke Timeline",
-          description: "Interactive comic history across 27 issues",
-        },
-        {
-          href: "/portfolio",
-          label: "View All Work →",
-          description: "Complete portfolio",
+          description: "AI-assisted TV storyboard",
         },
       ],
     },
-    // Merged Creative Production into GTM or just kept as is? 
-    // User asked for "two columns with text links". Currently we have 4 sections. 
-    // I will consolidate into 2 main columns by grouping.
   ],
   promotional: {
     image: "/portfolio/storyboards/storyboard_06.png",
@@ -79,6 +71,66 @@ export const portfolioMegaMenu: MegaMenuContent = {
     cta: {
       label: "Explore Portfolio",
       href: "/portfolio",
+    },
+  },
+};
+
+/**
+ * Demand Machine Mega Menu Content
+ */
+export const demandMachineMegaMenu: MegaMenuContent = {
+  layout: "three-column",
+  sections: [
+    {
+      title: "Diagnostic & Strategy",
+      links: [
+        {
+          href: "/demand-machine/interview",
+          label: "36-Question Interview",
+          description: "Foundational business intel and gap analysis",
+          isComingSoon: true,
+        },
+        {
+          href: "/demand-machine/messaging",
+          label: "21-Step Messaging Framework",
+          description: "Positioning, pillars, and voice builder",
+          isComingSoon: true,
+        },
+      ],
+    },
+    {
+      title: "Growth Engines",
+      links: [
+        {
+          href: "/demand-machine/content-planner",
+          label: "120-Day Content Planner",
+          description: "Topic authority and channel allocation",
+          isComingSoon: true,
+        },
+        {
+          href: "/demand-machine/lead-magnets",
+          label: "Social & Ad Program",
+          description: "High-intent lead magnet testing",
+          isComingSoon: true,
+        },
+        {
+          href: "/demand-machine/outbound",
+          label: "10-Touch Outbound Builder",
+          description: "Sales cadence and script designer",
+          isComingSoon: true,
+        },
+      ],
+    },
+  ],
+  promotional: {
+    image: "/portfolio/storyboards/storyboard_06.png", // Placeholder as requested
+    imageAlt: "The Demand Machine logic flow",
+    headline: "The Demand Machine",
+    description:
+      "A complete operating system for B2B growth. Follow the flow from diagnostic to outbound execution.",
+    cta: {
+      label: "Start the Machine",
+      href: "/demand-machine/interview",
     },
   },
 };

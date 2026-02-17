@@ -117,107 +117,102 @@ export default function PromptDetailView({ prompt, nextPrompt, prevPrompt }: Pro
                 </div>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-8 mb-16">
-                {/* Left Column: Context & Inputs */}
-                <div className="space-y-8">
-                    {/* Frameworks Box */}
-                    <div className="bg-card-bg border border-border rounded-xl p-6">
-                        <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
-                            <div className="w-2 h-2 rounded-full bg-electric" />
-                            Frameworks Used
-                        </h3>
-                        <ul className="space-y-2">
-                            {prompt.frameworks?.map((fw, i) => (
-                                <li key={i} className="flex gap-3 text-sm text-foreground-muted">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-electric/50 mt-1.5 flex-shrink-0" />
-                                    {fw}
-                                </li>
-                            )) || <li className="text-sm text-foreground-muted italic">None specified</li>}
-                        </ul>
-                    </div>
-
-                    <div className="bg-card-bg border border-border rounded-xl p-6">
-                        <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
-                            <div className="w-2 h-2 rounded-full bg-electric" />
-                            Role & Objective
-                        </h3>
-                        <div className="space-y-4 text-sm text-foreground-muted">
-                            <div>
-                                <strong className="text-foreground block mb-1">Role</strong>
-                                {role}
-                            </div>
-                            <div>
-                                <strong className="text-foreground block mb-1">Objective</strong>
-                                {objective}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="bg-card-bg border border-border rounded-xl p-6">
-                        <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
-                            <div className="w-2 h-2 rounded-full bg-ember" />
-                            Required Inputs
-                        </h3>
-                        <ul className="space-y-2">
-                            {inputs.map((input, i) => (
-                                <li key={i} className="flex gap-3 text-sm text-foreground-muted">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-ember/50 mt-1.5 flex-shrink-0" />
-                                    {input}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    <div className="bg-card-bg border border-border rounded-xl p-6">
-                        <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
-                            <div className="w-2 h-2 rounded-full bg-copper" />
-                            Expected Outputs
-                        </h3>
-                        <ul className="space-y-2">
-                            {outputs.map((output, i) => (
-                                <li key={i} className="flex gap-3 text-sm text-foreground-muted">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-copper/50 mt-1.5 flex-shrink-0" />
-                                    {output}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+            {/* Info Row (Inputs, Outputs, Frameworks) */}
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
+                {/* Box 1: Required Inputs */}
+                <div className="bg-card-bg border border-border rounded-xl p-6 flex flex-col h-full">
+                    <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-ember" />
+                        Required Inputs
+                    </h3>
+                    <ul className="space-y-2 flex-grow">
+                        {inputs.map((input, i) => (
+                            <li key={i} className="flex gap-3 text-sm text-foreground-muted">
+                                <div className="w-1.5 h-1.5 rounded-full bg-ember/50 mt-1.5 flex-shrink-0" />
+                                {input}
+                            </li>
+                        ))}
+                    </ul>
                 </div>
 
-                {/* Right Column: The Prompt */}
-                <div className="lg:col-span-2">
-                    <div className="bg-[#0A0A0A] rounded-2xl border border-white/10 overflow-hidden shadow-2xl h-full flex flex-col">
-                        <div className="flex items-center justify-between px-4 py-3 bg-white/[0.02] border-b border-white/5">
-                            <div className="flex gap-2">
-                                <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
-                                <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
-                                <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <button
-                                    onClick={handleCopy}
-                                    className="p-1.5 text-white/40 hover:text-white hover:bg-white/10 rounded-md transition-colors flex items-center gap-2"
-                                >
-                                    {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
-                                    <span className="text-xs font-mono">Copy Prompt</span>
-                                </button>
-                                <div className="w-px h-4 bg-white/10" />
-                                <a
-                                    href={prompt.githubUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="p-1.5 text-white/40 hover:text-white hover:bg-white/10 rounded-md transition-colors flex items-center gap-2"
-                                >
-                                    <Github className="w-4 h-4" />
-                                    <span className="text-xs font-mono">Source</span>
-                                </a>
-                            </div>
+                {/* Box 2: Expected Outputs */}
+                <div className="bg-card-bg border border-border rounded-xl p-6 flex flex-col h-full">
+                    <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-copper" />
+                        Expected Outputs
+                    </h3>
+                    <ul className="space-y-2 flex-grow">
+                        {outputs.map((output, i) => (
+                            <li key={i} className="flex gap-3 text-sm text-foreground-muted">
+                                <div className="w-1.5 h-1.5 rounded-full bg-copper/50 mt-1.5 flex-shrink-0" />
+                                {output}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                {/* Box 3: Frameworks Used */}
+                <div className="bg-card-bg border border-border rounded-xl p-6 flex flex-col h-full">
+                    <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-electric" />
+                        Frameworks Used
+                    </h3>
+                    <ul className="space-y-2 flex-grow">
+                        {prompt.frameworks?.map((fw, i) => (
+                            <li key={i} className="flex gap-3 text-sm text-foreground-muted">
+                                <div className="w-1.5 h-1.5 rounded-full bg-electric/50 mt-1.5 flex-shrink-0" />
+                                {fw}
+                            </li>
+                        )) || <li className="text-sm text-foreground-muted italic">None specified</li>}
+                    </ul>
+                </div>
+            </div>
+
+            {/* Role & Objective Section (Full Width) */}
+            <div className="mb-8 bg-card-bg/50 border border-border/50 rounded-xl p-6 flex flex-col md:flex-row gap-8 items-start">
+                <div className="flex-1">
+                    <strong className="text-foreground block mb-1 text-sm uppercase tracking-wide opacity-70">Role</strong>
+                    <p className="text-foreground-muted">{role}</p>
+                </div>
+                <div className="flex-[2]">
+                    <strong className="text-foreground block mb-1 text-sm uppercase tracking-wide opacity-70">Objective</strong>
+                    <p className="text-foreground-muted">{objective}</p>
+                </div>
+            </div>
+
+            {/* Main Prompt Window (Full Width) */}
+            <div className="mb-16">
+                <div className="bg-[#0A0A0A] rounded-2xl border border-white/10 overflow-hidden shadow-2xl h-full flex flex-col">
+                    <div className="flex items-center justify-between px-4 py-3 bg-white/[0.02] border-b border-white/5">
+                        <div className="flex gap-2">
+                            <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
+                            <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                            <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
                         </div>
-                        <div className="p-6 md:p-8 overflow-x-auto">
-                            <pre className="font-mono text-sm leading-relaxed text-slate-300 whitespace-pre-wrap">
-                                {actualPrompt}
-                            </pre>
+                        <div className="flex items-center gap-2">
+                            <button
+                                onClick={handleCopy}
+                                className="p-1.5 text-white/40 hover:text-white hover:bg-white/10 rounded-md transition-colors flex items-center gap-2"
+                            >
+                                {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
+                                <span className="text-xs font-mono">Copy Prompt</span>
+                            </button>
+                            <div className="w-px h-4 bg-white/10" />
+                            <a
+                                href={prompt.githubUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-1.5 text-white/40 hover:text-white hover:bg-white/10 rounded-md transition-colors flex items-center gap-2"
+                            >
+                                <Github className="w-4 h-4" />
+                                <span className="text-xs font-mono">Source</span>
+                            </a>
                         </div>
+                    </div>
+                    <div className="p-6 md:p-8 overflow-y-auto h-[240px] scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+                        <pre className="font-mono text-sm leading-relaxed text-slate-300 whitespace-pre-wrap">
+                            {actualPrompt}
+                        </pre>
                     </div>
                 </div>
             </div>

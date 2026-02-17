@@ -10,6 +10,7 @@ export interface MegaMenuLink {
   label: string;
   description?: string;
   isExternal?: boolean;
+  isComingSoon?: boolean;
 }
 
 export interface MegaMenuSection {
@@ -32,7 +33,7 @@ export interface MegaMenuContent {
   sections: MegaMenuSection[];
   promotional?: PromotionalContent;
   customContent?: ReactNode; // For custom layouts like Substack feed
-  layout?: 'default' | 'three-column'; // Layout type
+  layout?: 'default' | 'three-column' | 'four-column'; // Layout type
 }
 
 interface MegaMenuProps {
@@ -42,9 +43,12 @@ interface MegaMenuProps {
 }
 
 export default function MegaMenu({ isOpen, content, onClose }: MegaMenuProps) {
-  // Unified Three-Column Layout for all mega menus (Portfolio, Thinking, About)
-  // Layout: [Left: Promo/Custom] [Middle: Links 1] [Right: Links 2]
-  if (content.layout === 'three-column') {
+  // Determine grid columns based on layout
+  const gridCols = content.layout === 'four-column' ? 'lg:grid-cols-4' : 'lg:grid-cols-3';
+  const sectionLimit = content.layout === 'four-column' ? 3 : 2;
+
+  // Render logic for different layouts
+  if (content.layout === 'three-column' || content.layout === 'four-column') {
     return (
       <AnimatePresence>
         {isOpen && (
@@ -56,14 +60,18 @@ export default function MegaMenu({ isOpen, content, onClose }: MegaMenuProps) {
             className="absolute left-0 right-0 top-full z-50 bg-white dark:bg-card-bg shadow-2xl border-t border-charcoal/10 dark:border-ember/20"
           >
             <div className="max-w-7xl mx-auto px-6 py-12">
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+              <div className={`grid grid-cols-1 ${gridCols} gap-12`}>
 
                 {/* Column 1: Promo or Custom Content (Left) */}
                 <motion.div
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05 }}
-                  className={`${content.customContent ? 'lg:col-span-2' : 'lg:col-span-1'}`}
+                  className={
+                    content.layout === 'four-column'
+                      ? 'lg:col-span-1'
+                      : `${content.customContent ? 'lg:col-span-2' : 'lg:col-span-1'}`
+                  }
                 >
                   {content.customContent ? (
                     <Suspense
@@ -120,9 +128,8 @@ export default function MegaMenu({ isOpen, content, onClose }: MegaMenuProps) {
                   ) : null}
                 </motion.div>
 
-                {/* Columns 2 & 3: Link Sections */}
-                {/* Map up to 2 sections to the remaining 2 columns */}
-                {content.sections.slice(0, 2).map((section, index) => (
+                {/* Link Sections */}
+                {content.sections.slice(0, sectionLimit).map((section, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: 10 }}
@@ -145,7 +152,23 @@ export default function MegaMenu({ isOpen, content, onClose }: MegaMenuProps) {
                             delay: 0.15 + (index * 0.05) + (linkIndex * 0.02),
                           }}
                         >
-                          {link.isExternal ? (
+                          {link.isComingSoon ? (
+                            <div className="group block opacity-60 cursor-not-allowed">
+                              <div className="flex items-center gap-2 mb-1">
+                                <span className="text-foreground font-medium group-hover:text-ember transition-colors">
+                                  {link.label}
+                                </span>
+                                <span className="text-[10px] font-bold uppercase tracking-wider bg-charcoal/10 dark:bg-white/10 text-foreground-muted px-1.5 py-0.5 rounded">
+                                  Spec
+                                </span>
+                              </div>
+                              {link.description && (
+                                <p className="text-sm text-foreground-muted leading-relaxed">
+                                  {link.description}
+                                </p>
+                              )}
+                            </div>
+                          ) : link.isExternal ? (
                             <a
                               href={link.href}
                               target="_blank"
@@ -200,23 +223,6 @@ export default function MegaMenu({ isOpen, content, onClose }: MegaMenuProps) {
                     </ul>
                   </motion.div>
                 ))}
-
-                {/* Special Case: If Thinking Menu (has customContent), putting links in the 3rd column since customContent spans 2 cols in previous logic? 
-                    Wait, Thinking menu is [Custom: Image+Text] [Links]. 
-                    My previous `SubstackLatestPost` component is 2 columns internally.
-                    If I put `SubstackLatestPost` (which is grid-cols-2) into Col 1 (col-span-1), it will be squished.
-                    
-                    Re-reading Thinking Request: "From left to right, start with the image from Substack, then in the middle use the eyebrow/title/description copy and link, and on the right list the other links"
-                    This implies 3 columns total for the MegaMenu.
-                    Col 1: Substack Image
-                    Col 2: Substack Text
-                    Col 3: Menu Links
-                    
-                    My `SubstackLatestPost` has 2 columns. If I put it in Col 1 & 2, and links in Col 3, that works.
-                    So for Thinking menu: Custom Content should span 2 columns.
-                    
-                    But for Portfolio/About: Promo is Col 1. Links are Col 2 & 3.
-                */}
               </div>
             </div>
           </motion.div>
