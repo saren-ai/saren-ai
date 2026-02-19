@@ -70,11 +70,11 @@ export default function InteractiveTimeline() {
         }
 
         if (index !== activeIndex) {
-            // If clicking a card that isn't focused, snap to it first
+            // Click to snap to center AND immediately flip the card
             setActiveIndex(index);
-            setFlippedIndex(null);
+            setFlippedIndex(index);
         } else {
-            // Flip logic (only for the active centered card)
+            // Un-flip or flip if it is already the active centered card
             setFlippedIndex(flippedIndex === index ? null : index);
         }
     };
