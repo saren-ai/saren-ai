@@ -1,0 +1,211 @@
+"use client";
+
+import React, { useRef, useState, useEffect } from "react";
+import { motion, useMotionValue, useTransform, useAnimation, useDragControls } from "framer-motion";
+import { comicsData, ComicData } from "./comic-data";
+
+const CARD_WIDTH = 220;
+const CARD_GAP = 28;
+const CARD_FULL_WIDTH = CARD_WIDTH + CARD_GAP;
+
+export default function InteractiveTimeline() {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+    const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
+    const [isDragging, setIsDragging] = useState(false);
+
+    // Initial offset to center the first card
+    const [centerOffset, setCenterOffset] = useState(0);
+
+    const x = useMotionValue(0);
+    const dragControls = useDragControls();
+
+    useEffect(() => {
+        const updateOffset = () => {
+            if (containerRef.current) {
+                const center = containerRef.current.offsetWidth / 2;
+                setCenterOffset(center - CARD_WIDTH / 2);
+                x.set(center - CARD_WIDTH / 2);
+            }
+        };
+
+        updateOffset();
+        window.addEventListener("resize", updateOffset);
+        return () => window.removeEventListener("resize", updateOffset);
+    }, [x]);
+
+    const handleDragStart = () => {
+        setIsDragging(true);
+        setHoveredIndex(null); // Force disable hover effects while dragging
+    };
+
+    const handleDragEnd = (event: any, info: any) => {
+        setIsDragging(false);
+
+        // Calculate the nearest card index based on current x position
+        const currentX = x.get();
+        // Distance moved from the starting centered offset
+        const scrolledDistance = centerOffset - currentX;
+
+        // Find the index of the nearest card
+        let closestIndex = Math.round(scrolledDistance / CARD_FULL_WIDTH);
+
+        // Clamp index
+        closestIndex = Math.max(0, Math.min(closestIndex, comicsData.length - 1));
+
+        setActiveIndex(closestIndex);
+
+        // Snap to nearest position
+        const targetX = centerOffset - (closestIndex * CARD_FULL_WIDTH);
+
+        x.set(targetX); // Animate to final position using layout spring below
+    };
+
+    const handleCardClick = (index: number) => {
+        if (isDragging) return;
+
+        if (index !== activeIndex) {
+            // If clicking a card that isn't focused, snap to it first
+            setActiveIndex(index);
+            const targetX = centerOffset - (index * CARD_FULL_WIDTH);
+            x.set(targetX);
+            setFlippedIndex(null);
+        } else {
+            // Flip logic (only for the active centered card, or any card if preferred design)
+            setFlippedIndex(flippedIndex === index ? null : index);
+        }
+    };
+
+    return (
+        <div
+            ref={containerRef}
+            className="w-full h-[75vh] flex items-center overflow-hidden relative"
+            style={{ perspective: "1200px" }}
+        >
+            <motion.div
+                className="flex items-center"
+                style={{ x, gap: `${CARD_GAP}px` }}
+                drag="x"
+                dragControls={dragControls}
+                dragMomentum={true}
+                dragElastic={0.1}
+                onDragStart={handleDragStart}
+                onDragEnd={handleDragEnd}
+                animate={{ x: centerOffset - (activeIndex * CARD_FULL_WIDTH) }}
+                transition={{ type: "spring", stiffness: 240, damping: 26 }}
+            >
+                {comicsData.map((comic, idx) => {
+                    const isHovered = hoveredIndex === idx;
+                    const isFlipped = flippedIndex === idx;
+                    const isActive = activeIndex === idx;
+                    const distance = Math.abs(activeIndex - idx);
+
+                    // Hover scaling logic defined by spec
+                    let scale = 1;
+                    let blur = 0;
+                    let opacity = 1;
+
+                    if (isDragging) {
+                        scale = 0.98;
+                    } else if (hoveredIndex !== null) {
+                        if (isHovered) {
+                            scale = 1.12;
+                        } else if (Math.abs(hoveredIndex - idx) === 1) {
+                            scale = 0.96;
+                            blur = 2;
+                            opacity = 0.85;
+                        } else {
+                            scale = 0.92;
+                            opacity = 0.75;
+                        }
+                    } else {
+                        // Neutral State
+                        if (!isActive) {
+                            // scale = 0.98 - (distance * 0.02); // slight receding scale for inactive
+                        }
+                    }
+
+                    return (
+                        <motion.div
+                            key={comic.id}
+                            className="relative flex-shrink-0 cursor-grab active:cursor-grabbing"
+                            style={{
+                                width: CARD_WIDTH,
+                                height: CARD_WIDTH * 1.5, // 2:3 aspect ratio
+                                zIndex: isFlipped ? 50 : isHovered ? 40 : isActive ? 30 : 20 - distance,
+                            }}
+                            animate={{
+                                scale,
+                                y: isHovered && !isDragging ? -16 : 0,
+                                rotateZ: isHovered && !isDragging ? 0.5 : 0,
+                                filter: `blur(${blur}px)`,
+                                opacity,
+                            }}
+                            transition={{ type: "spring", stiffness: 300, damping: 25, mass: 0.8 }}
+                            onHoverStart={() => !isDragging && setHoveredIndex(idx)}
+                            onHoverEnd={() => setHoveredIndex(null)}
+                            onClick={() => handleCardClick(idx)}
+                        >
+                            {/* 3D Inner Wrapper */}
+                            <motion.div
+                                className="w-full h-full relative"
+                                style={{ transformStyle: "preserve-3d" }}
+                                animate={{ rotateY: isFlipped ? 180 : 0 }}
+                                transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                            >
+                                {/* FRONT FACE */}
+                                <div
+                                    className="absolute w-full h-full rounded-[18px] overflow-hidden bg-zinc-900 border border-zinc-200 dark:border-zinc-800"
+                                    style={{
+                                        backfaceVisibility: "hidden",
+                                        boxShadow: isHovered && !isDragging
+                                            ? "0 30px 60px -12px rgba(0,0,0,0.5), 0 18px 36px -18px rgba(0,0,0,0.4)"
+                                            : "0 10px 30px -10px rgba(0,0,0,0.3)",
+                                        transition: "box-shadow 0.3s ease"
+                                    }}
+                                >
+                                    <img
+                                        src={comic.image}
+                                        alt={comic.title}
+                                        className="w-full h-full object-cover pointer-events-none"
+                                    />
+                                    {/* Subtle Overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+                                </div>
+
+                                {/* BACK FACE */}
+                                <div
+                                    className="absolute w-full h-full rounded-[18px] overflow-hidden bg-white dark:bg-[#1a1a1f] p-6 border border-zinc-200 dark:border-white/5"
+                                    style={{
+                                        backfaceVisibility: "hidden",
+                                        transform: "rotateY(180deg)",
+                                        boxShadow: "0 10px 30px -10px rgba(0,0,0,0.3)",
+                                    }}
+                                >
+                                    <div className="flex flex-col h-full justify-center">
+                                        <span className="text-xs font-mono font-semibold uppercase tracking-widest text-zinc-500 dark:text-zinc-400 mb-2">
+                                            {comic.publisher}
+                                        </span>
+                                        <h3 className="text-2xl font-bold text-zinc-900 dark:text-[#f5f5f7] leading-tight mb-4">
+                                            {comic.title}
+                                        </h3>
+                                        <p className="text-sm text-zinc-600 dark:text-white/70 mb-1">
+                                            {comic.volume}
+                                        </p>
+                                        <p className="text-lg font-bold text-zinc-800 dark:text-white/90 mb-4">
+                                            {comic.issueNumber}
+                                        </p>
+                                        <p className="text-xs font-mono text-zinc-400 dark:text-white/40 mt-auto border-t border-zinc-100 dark:border-white/10 pt-4">
+                                            Released: {comic.releaseDate}
+                                        </p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </motion.div>
+                    );
+                })}
+            </motion.div>
+        </div>
+    );
+}

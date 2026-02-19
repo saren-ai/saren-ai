@@ -2,8 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import Timeline from "./Timeline";
-
+import InteractiveTimeline from "./InteractiveTimeline";
 export default function HeroTimeline() {
     return (
         <section className="relative w-full bg-background text-foreground overflow-hidden min-h-[800px] flex items-center justify-center pt-24 pb-20">
@@ -49,7 +48,8 @@ export default function HeroTimeline() {
                                 story began.
                             </p>
                         </div>
-                        <Timeline />
+                        <InteractiveTimeline />
+
                     </div>
 
                 </div>
