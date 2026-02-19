@@ -142,7 +142,13 @@ export const thinkingMegaMenu: MegaMenuContent = {
   layout: "three-column",
   sections: [
     {
+      title: "Recent Thinking",
       links: [
+        {
+          href: "/portfolio/thought-leadership-development",
+          label: "Thought Leadership Development",
+          description: "Engineering B2B authority in the age of LLMs",
+        },
         {
           href: "/ai-operations",
           label: "AI Operations",
@@ -153,6 +159,11 @@ export const thinkingMegaMenu: MegaMenuContent = {
           label: "Scaling Smarter",
           description: "The new architecture of strategy",
         },
+      ],
+    },
+    {
+      title: "Evergreen & Social",
+      links: [
         {
           href: "/thinking",
           label: "Micro-Blog",
@@ -164,10 +175,26 @@ export const thinkingMegaMenu: MegaMenuContent = {
           description: "Long-form articles and guides",
           isExternal: true,
         },
+        {
+          href: "https://bsky.app/profile/saren.bsky.social",
+          label: "BlueSky",
+          description: "Follow me on BlueSky",
+          isExternal: true,
+        },
       ],
     },
   ],
-  customContent: null, // Will be populated dynamically in Header
+  promotional: {
+    image: "/portfolio/storyboards/storyboard_06.png", // Placeholder
+    imageAlt: "Latest Substack Article",
+    headline: "Latest on Substack",
+    description: "Read my latest thoughts on AI marketing, strategy, and operations directly on Substack.",
+    cta: {
+      label: "Read on Substack",
+      href: "https://sarenai.substack.com",
+    },
+  },
+  customContent: null,
 };
 
 /**
