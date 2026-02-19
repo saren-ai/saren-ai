@@ -5,7 +5,7 @@ import { motion, useMotionValue, useTransform, useAnimation, useDragControls } f
 import { comicsData, ComicData } from "./comic-data";
 
 const CARD_WIDTH = 220;
-const CARD_GAP = 28;
+const CARD_GAP = -40; // Overlapping cards
 const CARD_FULL_WIDTH = CARD_WIDTH + CARD_GAP;
 
 export default function InteractiveTimeline() {
@@ -101,28 +101,40 @@ export default function InteractiveTimeline() {
                     const isActive = activeIndex === idx;
                     const distance = Math.abs(activeIndex - idx);
 
+                    // Scatter math
+                    const baseRotation = (idx % 2 === 0 ? 1 : -1) * (idx % 3 + 1) * 3; // e.g. 3, -6, 9
+                    const baseYOffset = (idx % 3 === 0 ? 0 : idx % 3 === 1 ? 12 : -8);
+
                     // Hover scaling logic defined by spec
                     let scale = 1;
                     let blur = 0;
                     let opacity = 1;
+                    let rotation = baseRotation;
+                    let yOffset = baseYOffset;
+                    let zIndex = 20 - distance;
 
                     if (isDragging) {
                         scale = 0.98;
                     } else if (hoveredIndex !== null) {
                         if (isHovered) {
-                            scale = 1.12;
+                            scale = 1.15;
+                            rotation = 0;
+                            yOffset = -40; // Pop up prominently
+                            zIndex = 60;
                         } else if (Math.abs(hoveredIndex - idx) === 1) {
                             scale = 0.96;
                             blur = 2;
                             opacity = 0.85;
+                            zIndex = 30;
                         } else {
                             scale = 0.92;
                             opacity = 0.75;
+                            zIndex = 10;
                         }
                     } else {
                         // Neutral State
-                        if (!isActive) {
-                            // scale = 0.98 - (distance * 0.02); // slight receding scale for inactive
+                        if (isActive) {
+                            zIndex = 30; // Ensure active element is at least readable if needed
                         }
                     }
 
@@ -133,12 +145,12 @@ export default function InteractiveTimeline() {
                             style={{
                                 width: CARD_WIDTH,
                                 height: CARD_WIDTH * 1.5, // 2:3 aspect ratio
-                                zIndex: isFlipped ? 50 : isHovered ? 40 : isActive ? 30 : 20 - distance,
+                                zIndex: isFlipped ? 100 : zIndex,
                             }}
                             animate={{
                                 scale,
-                                y: isHovered && !isDragging ? -16 : 0,
-                                rotateZ: isHovered && !isDragging ? 0.5 : 0,
+                                y: yOffset,
+                                rotateZ: rotation,
                                 filter: `blur(${blur}px)`,
                                 opacity,
                             }}
