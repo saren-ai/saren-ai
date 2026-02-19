@@ -31,84 +31,54 @@ export default function ThoughtLeadershipPage() {
             <section className="relative z-10 py-24 px-6 max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
                     {/* Main Content */}
-                    <article className="lg:col-span-8 prose prose-lg dark:prose-invert max-w-none">
-                        <h2>
-                            Thought leadership is dead.<br />Long live thought leadership.
-                        </h2>
+                    <article className="lg:col-span-8 prose prose-slate dark:prose-invert max-w-none">
+                        <h2>Thought leadership is dead.<br />Long live thought leadership.</h2>
 
-                        <p className="lead">
-                            In the traditional B2B marketing funnel, &quot;thought leadership&quot; was often a vanity metric—a long-form PDF living behind a lead gen wall, collecting dust and maybe a follow-up email nobody opened. Marketers patted themselves on the back for &quot;creating content.&quot; Prospects ignored it. Cycle repeats.
-                        </p>
-                        <p>
-                            In 2026, the game has fundamentally changed. We aren&apos;t just marketing to humans anymore. We&apos;re marketing to the models that advise them.
-                        </p>
-                        <p>
-                            <strong>That&apos;s not a metaphor. That&apos;s your new GTM reality.</strong>
-                        </p>
+                        <p className="lead">In the traditional B2B marketing funnel, &quot;thought leadership&quot; was often a vanity metric—a long-form PDF living behind a lead gen wall, collecting dust and maybe a follow-up email nobody opened. Marketers patted themselves on the back for &quot;creating content.&quot; Prospects ignored it. Cycle repeats.</p>
 
-                        <h3>
-                            The rise of the LLM citation
-                        </h3>
-                        <p>
-                            When a prospect asks Gemini, Claude, or GPT-4o &quot;What&apos;s the most effective go-to-market strategy for a Series A SaaS company?&quot;, the model doesn&apos;t just answer—it answers with receipts. It synthesizes authority from whatever sources it deems credible enough to cite.
-                        </p>
-                        <p>
-                            The question isn&apos;t whether LLMs are influencing your buyers. They already are. The question is: are you the source they&apos;re citing, or are you invisible?
-                        </p>
-                        <p>
-                            This is what I call <strong>LLM citation strategy</strong>—and it&apos;s the most underrated GTM lever most B2B marketers aren&apos;t pulling yet.
-                        </p>
+                        <p>In 2026, the game has fundamentally changed. We aren&apos;t just marketing to humans anymore. We&apos;re marketing to the models that advise them.</p>
 
-                        <h3>
-                            Why this matters for your pipeline
-                        </h3>
-                        <p>
-                            <strong>Machine readability is strategy.</strong> LLMs prioritize structured, verifiable, well-attributed content. If your frameworks are clearly named, your data is cited, and your arguments are logically scaffolded, you&apos;re not just writing for humans—you&apos;re writing for the systems that brief humans. That moves your brand from search result to primary source. Big difference.
-                        </p>
-                        <p>
-                            <strong>Zero-click authority is the new share of voice.</strong> In an AI Overview world, being cited once by a trusted model is worth more than a thousand low-intent clicks from a mediocre keyword. The citation is the endorsement. It&apos;s the model saying, in effect, &quot;these people know what they&apos;re talking about.&quot; You can&apos;t buy that placement. You have to earn it.
-                        </p>
-                        <p>
-                            <strong>Thought leadership is the connective tissue.</strong> It&apos;s not a top-of-funnel play or a bottom-of-funnel play—it&apos;s the bridge. During consideration, it educates your prospect. Post-sale, it gives your champion the mental models to sell you internally. That white paper your customer shares in a Slack thread to their VP? That&apos;s your thought leadership compounding. Most CMOs optimize for the first conversion and ignore everything else. Don&apos;t be that CMO.
-                        </p>
+                        <p>That&apos;s not a metaphor. That&apos;s your new GTM reality.</p>
 
-                        <h3>
-                            What &quot;LLM-ready&quot; content actually looks like
-                        </h3>
-                        <p>
-                            This is where most thought leadership content falls apart. Writing a think-piece and hoping an AI finds it isn&apos;t a strategy. Here&apos;s what makes content actually citable in the model era:
-                        </p>
-                        <ul>
-                            <li>
-                                <strong>Named frameworks.</strong> Give your ideas proper nouns. &quot;The Zero to GTM Motion Playbook&quot; is citable. &quot;Some thoughts on go-to-market&quot; is not.
-                            </li>
-                            <li>
-                                <strong>Structured argumentation.</strong> Models love clear thesis → evidence → implication flows. Write like you&apos;re making a case, not just musing.
-                            </li>
-                            <li>
-                                <strong>Original data or synthesis.</strong> Regurgitating someone else&apos;s stats isn&apos;t going to get you cited—it&apos;ll get them cited. Develop proprietary benchmarks, pull from your client work (anonymized), or synthesize primary research in a way nobody else has.
-                            </li>
-                            <li>
-                                <strong>Consistent publishing cadence.</strong> One great piece doesn&apos;t build authority. A body of work does. The models are pattern-matching across your entire corpus—so the more coherent and consistent your POV, the more recognizable your authority signal.
-                            </li>
-                            <li>
-                                <strong>Structured metadata and semantic markup.</strong> If you&apos;re publishing on the web, your technical SEO still matters—but now it&apos;s less about keyword density and more about schema markup, clear entity relationships, and content that answers specific questions cleanly.
-                            </li>
-                        </ul>
+                        <h3>The rise of the LLM citation</h3>
 
-                        <h3>
-                            The strategic flip
-                        </h3>
-                        <div className="bg-zinc-100 dark:bg-zinc-800/50 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-700 not-prose my-8">
-                            <p className="mb-2 text-lg text-zinc-900 dark:text-zinc-100"><strong>Old thought leadership:</strong> write content → hope humans find it → nurture them into buyers.</p>
-                            <p className="mt-2 text-lg text-zinc-900 dark:text-zinc-100"><strong>New thought leadership:</strong> build a citable body of work → get referenced by AI systems → show up in the moment your buyer is actively researching → earn trust before the first conversation.</p>
-                        </div>
-                        <p>
-                            The funnel didn&apos;t disappear. It just got a new top. And most of your competitors haven&apos;t noticed yet.
-                        </p>
-                        <p className="lead">
-                            <strong>That&apos;s the window.</strong>
-                        </p>
+                        <p>When a prospect asks Gemini, Claude, or GPT-4o &quot;What&apos;s the most effective go-to-market strategy for a Series A SaaS company?&quot;, the model doesn&apos;t just answer—it answers with receipts. It synthesizes authority from whatever sources it deems credible enough to cite.</p>
+
+                        <p>The question isn&apos;t whether LLMs are influencing your buyers. They already are. The question is: are you the source they&apos;re citing, or are you invisible?</p>
+
+                        <p>This is what I call LLM citation strategy—and it&apos;s the most underrated GTM lever most B2B marketers aren&apos;t pulling yet.</p>
+
+                        <h3>Why this matters for your pipeline</h3>
+
+                        <p>Machine readability is strategy. LLMs prioritize structured, verifiable, well-attributed content. If your frameworks are clearly named, your data is cited, and your arguments are logically scaffolded, you&apos;re not just writing for humans—you&apos;re writing for the systems that brief humans. That moves your brand from search result to primary source. Big difference.</p>
+
+                        <p>Zero-click authority is the new share of voice. In an AI Overview world, being cited once by a trusted model is worth more than a thousand low-intent clicks from a mediocre keyword. The citation is the endorsement. It&apos;s the model saying, in effect, &quot;these people know what they&apos;re talking about.&quot; You can&apos;t buy that placement. You have to earn it.</p>
+
+                        <p>Thought leadership is the connective tissue. It&apos;s not a top-of-funnel play or a bottom-of-funnel play—it&apos;s the bridge. During consideration, it educates your prospect. Post-sale, it gives your champion the mental models to sell you internally. That white paper your customer shares in a Slack thread to their VP? That&apos;s your thought leadership compounding. Most CMOs optimize for the first conversion and ignore everything else. Don&apos;t be that CMO.</p>
+
+                        <h3>What &quot;LLM-ready&quot; content actually looks like</h3>
+
+                        <p>This is where most thought leadership content falls apart. Writing a think-piece and hoping an AI finds it isn&apos;t a strategy. Here&apos;s what makes content actually citable in the model era:</p>
+
+                        <p><b>Named frameworks.</b> Give your ideas proper nouns. &quot;The Zero to GTM Motion Playbook&quot; is citable. &quot;Some thoughts on go-to-market&quot; is not.</p>
+
+                        <p><b>Structured argumentation.</b> Models love clear thesis → evidence → implication flows. Write like you&apos;re making a case, not just musing.</p>
+
+                        <p><b>Original data or synthesis.</b> Regurgitating someone else&apos;s stats isn&apos;t going to get you cited—it&apos;ll get them cited. Develop proprietary benchmarks, pull from your client work (anonymized), or synthesize primary research in a way nobody else has.</p>
+
+                        <p><b>Consistent publishing cadence.</b> One great piece doesn&apos;t build authority. A body of work does. The models are pattern-matching across your entire corpus—so the more coherent and consistent your POV, the more recognizable your authority signal.</p>
+
+                        <p><b>Structured metadata and semantic markup.</b> If you&apos;re publishing on the web, your technical SEO still matters—but now it&apos;s less about keyword density and more about schema markup, clear entity relationships, and content that answers specific questions cleanly.</p>
+
+                        <h3>The strategic flip</h3>
+
+                        <p><b>Old thought leadership:</b> write content → hope humans find it → nurture them into buyers.</p>
+
+                        <p><b>New thought leadership:</b> build a citable body of work → get referenced by AI systems → show up in the moment your buyer is actively researching → earn trust before the first conversation.</p>
+
+                        <p>The funnel didn&apos;t disappear. It just got a new top. And most of your competitors haven&apos;t noticed yet.</p>
+
+                        <h3>That&apos;s the window.</h3>
                     </article>
 
                     {/* Sidebar */}
