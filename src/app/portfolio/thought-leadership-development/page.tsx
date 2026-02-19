@@ -31,22 +31,22 @@ export default function ThoughtLeadershipPage() {
             <section className="relative z-10 py-24 px-6 max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
                     {/* Main Content */}
-                    <div className="lg:col-span-8 prose prose-lg dark:prose-invert max-w-none text-zinc-600 dark:text-zinc-400">
-                        <h2 className="text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-white mt-0 mb-8 tracking-tight">
+                    <article className="lg:col-span-8 prose prose-lg dark:prose-invert max-w-none">
+                        <h2>
                             Thought leadership is dead.<br />Long live thought leadership.
                         </h2>
 
-                        <p className="lead text-xl text-zinc-700 dark:text-zinc-300">
+                        <p className="lead">
                             In the traditional B2B marketing funnel, &quot;thought leadership&quot; was often a vanity metric—a long-form PDF living behind a lead gen wall, collecting dust and maybe a follow-up email nobody opened. Marketers patted themselves on the back for &quot;creating content.&quot; Prospects ignored it. Cycle repeats.
                         </p>
                         <p>
                             In 2026, the game has fundamentally changed. We aren&apos;t just marketing to humans anymore. We&apos;re marketing to the models that advise them.
                         </p>
-                        <p className="font-semibold text-zinc-900 dark:text-zinc-200">
-                            That&apos;s not a metaphor. That&apos;s your new GTM reality.
+                        <p>
+                            <strong>That&apos;s not a metaphor. That&apos;s your new GTM reality.</strong>
                         </p>
 
-                        <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mt-12 mb-4">
+                        <h3>
                             The rise of the LLM citation
                         </h3>
                         <p>
@@ -59,7 +59,7 @@ export default function ThoughtLeadershipPage() {
                             This is what I call <strong>LLM citation strategy</strong>—and it&apos;s the most underrated GTM lever most B2B marketers aren&apos;t pulling yet.
                         </p>
 
-                        <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mt-12 mb-4">
+                        <h3>
                             Why this matters for your pipeline
                         </h3>
                         <p>
@@ -72,13 +72,13 @@ export default function ThoughtLeadershipPage() {
                             <strong>Thought leadership is the connective tissue.</strong> It&apos;s not a top-of-funnel play or a bottom-of-funnel play—it&apos;s the bridge. During consideration, it educates your prospect. Post-sale, it gives your champion the mental models to sell you internally. That white paper your customer shares in a Slack thread to their VP? That&apos;s your thought leadership compounding. Most CMOs optimize for the first conversion and ignore everything else. Don&apos;t be that CMO.
                         </p>
 
-                        <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mt-12 mb-4">
+                        <h3>
                             What &quot;LLM-ready&quot; content actually looks like
                         </h3>
                         <p>
                             This is where most thought leadership content falls apart. Writing a think-piece and hoping an AI finds it isn&apos;t a strategy. Here&apos;s what makes content actually citable in the model era:
                         </p>
-                        <ul className="space-y-4 my-8">
+                        <ul>
                             <li>
                                 <strong>Named frameworks.</strong> Give your ideas proper nouns. &quot;The Zero to GTM Motion Playbook&quot; is citable. &quot;Some thoughts on go-to-market&quot; is not.
                             </li>
@@ -96,20 +96,20 @@ export default function ThoughtLeadershipPage() {
                             </li>
                         </ul>
 
-                        <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mt-12 mb-4">
+                        <h3>
                             The strategic flip
                         </h3>
-                        <div className="bg-zinc-100 dark:bg-zinc-800/50 p-6 rounded-2xl my-6 border border-zinc-200 dark:border-zinc-700">
-                            <p className="my-2"><strong>Old thought leadership:</strong> write content → hope humans find it → nurture them into buyers.</p>
-                            <p className="my-2"><strong>New thought leadership:</strong> build a citable body of work → get referenced by AI systems → show up in the moment your buyer is actively researching → earn trust before the first conversation.</p>
+                        <div className="bg-zinc-100 dark:bg-zinc-800/50 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-700 not-prose my-8">
+                            <p className="mb-2 text-lg text-zinc-900 dark:text-zinc-100"><strong>Old thought leadership:</strong> write content → hope humans find it → nurture them into buyers.</p>
+                            <p className="mt-2 text-lg text-zinc-900 dark:text-zinc-100"><strong>New thought leadership:</strong> build a citable body of work → get referenced by AI systems → show up in the moment your buyer is actively researching → earn trust before the first conversation.</p>
                         </div>
                         <p>
                             The funnel didn&apos;t disappear. It just got a new top. And most of your competitors haven&apos;t noticed yet.
                         </p>
-                        <p className="font-semibold text-xl text-zinc-900 dark:text-zinc-200 mt-8 tracking-tight">
-                            That&apos;s the window.
+                        <p className="lead">
+                            <strong>That&apos;s the window.</strong>
                         </p>
-                    </div>
+                    </article>
 
                     {/* Sidebar */}
                     <aside className="lg:col-span-4">
