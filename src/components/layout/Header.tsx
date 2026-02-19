@@ -11,7 +11,7 @@ import {
   thinkingMegaMenu,
   aboutMegaMenu,
 } from "@/lib/mega-menu-content";
-import { SubstackLatestPost } from "./SubstackLatestPost";
+
 import { type SubstackPost } from "@/lib/substack-rss";
 
 interface NavItem {
@@ -335,10 +335,25 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
       {navLinks.map((link) => {
         if (!link.megaMenu) return null;
 
-        // Inject Substack feed for Thinking menu
-        const menuContent = link.label === "Thinking"
-          ? { ...link.megaMenu, customContent: <SubstackLatestPost post={latestPost ?? null} /> }
-          : link.megaMenu;
+        // Inject Substack feed into the standard promotional box for Thinking menu
+        let menuContent = link.megaMenu;
+
+        if (link.label === "Thinking" && latestPost) {
+          const desc = latestPost.contentSnippet || link.megaMenu.promotional?.description || "";
+          menuContent = {
+            ...link.megaMenu,
+            promotional: {
+              image: latestPost.thumbnail || link.megaMenu.promotional?.image || "",
+              imageAlt: latestPost.title || "Latest Substack Article",
+              headline: latestPost.title || link.megaMenu.promotional?.headline || "Latest on Substack",
+              description: desc.length > 120 ? desc.substring(0, 120) + "..." : desc,
+              cta: {
+                label: "Read on Substack",
+                href: latestPost.link || "https://sarenai.substack.com",
+              },
+            },
+          };
+        }
 
         return (
           <MegaMenu

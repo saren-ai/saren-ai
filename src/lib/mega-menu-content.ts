@@ -154,11 +154,6 @@ export const thinkingMegaMenu: MegaMenuContent = {
           label: "AI Operations",
           description: "Why AI turns marketing into engineering",
         },
-        {
-          href: "/podcast/scaling-smarter",
-          label: "Scaling Smarter",
-          description: "The new architecture of strategy",
-        },
       ],
     },
     {
