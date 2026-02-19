@@ -6,6 +6,8 @@ export interface ComicData {
     volume: string;
     issueNumber: string;
     releaseDate: string;
+    plotSummary?: string;
+    fandomLink?: string;
 }
 
 export const comicsData: ComicData[] = [
