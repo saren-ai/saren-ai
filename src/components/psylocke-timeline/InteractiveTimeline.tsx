@@ -14,6 +14,7 @@ export default function InteractiveTimeline() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
     const [isDragging, setIsDragging] = useState(false);
+    const wasDragged = useRef(false);
 
     // Initial offset to center the first card
     const [centerOffset, setCenterOffset] = useState(0);
@@ -37,42 +38,43 @@ export default function InteractiveTimeline() {
 
     const handleDragStart = () => {
         setIsDragging(true);
+        wasDragged.current = false;
         setHoveredIndex(null); // Force disable hover effects while dragging
+        setFlippedIndex(null); // Close any active flipped cards when dragging starts
     };
 
     const handleDragEnd = (event: any, info: any) => {
         setIsDragging(false);
 
-        // Calculate the nearest card index based on current x position
+        if (Math.abs(info.offset.x) > 5) {
+            wasDragged.current = true;
+        }
+
         const currentX = x.get();
-        // Distance moved from the starting centered offset
-        const scrolledDistance = centerOffset - currentX;
+        // Project where the drag would land using velocity for a natural "swipe" feel
+        const projectedX = currentX + (info.velocity.x * 0.2);
+        const scrolledDistance = centerOffset - projectedX;
 
-        // Find the index of the nearest card
         let closestIndex = Math.round(scrolledDistance / CARD_FULL_WIDTH);
-
-        // Clamp index
         closestIndex = Math.max(0, Math.min(closestIndex, comicsData.length - 1));
 
         setActiveIndex(closestIndex);
-
-        // Snap to nearest position
-        const targetX = centerOffset - (closestIndex * CARD_FULL_WIDTH);
-
-        x.set(targetX); // Animate to final position using layout spring below
+        // Removed x.set(targetX) to allow the declarative layout spring to animate the rest of the delta smoothly
     };
 
     const handleCardClick = (index: number) => {
-        if (isDragging) return;
+        // Prevent click if we just dragged the timeline
+        if (wasDragged.current) {
+            wasDragged.current = false;
+            return;
+        }
 
         if (index !== activeIndex) {
             // If clicking a card that isn't focused, snap to it first
             setActiveIndex(index);
-            const targetX = centerOffset - (index * CARD_FULL_WIDTH);
-            x.set(targetX);
             setFlippedIndex(null);
         } else {
-            // Flip logic (only for the active centered card, or any card if preferred design)
+            // Flip logic (only for the active centered card)
             setFlippedIndex(flippedIndex === index ? null : index);
         }
     };
@@ -88,12 +90,12 @@ export default function InteractiveTimeline() {
                 style={{ x, gap: `${CARD_GAP}px` }}
                 drag="x"
                 dragControls={dragControls}
-                dragMomentum={true}
-                dragElastic={0.1}
+                dragMomentum={false} // Disable momentum to prevent physics conflicts; the layout spring handles snapping
+                dragElastic={0.05}
                 onDragStart={handleDragStart}
                 onDragEnd={handleDragEnd}
-                animate={{ x: centerOffset - (activeIndex * CARD_FULL_WIDTH) }}
-                transition={{ type: "spring", stiffness: 240, damping: 26 }}
+                animate={!isDragging ? { x: centerOffset - (activeIndex * CARD_FULL_WIDTH) } : undefined}
+                transition={{ type: "spring", stiffness: 260, damping: 28 }}
             >
                 {comicsData.map((comic, idx) => {
                     const isHovered = hoveredIndex === idx;
