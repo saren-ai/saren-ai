@@ -14,7 +14,7 @@ export default function HeroTimeline() {
 
             <div className="container-wide px-4 md:px-6 relative z-10 flex flex-col items-center">
                 {/* Header Section */}
-                <div className="w-full max-w-3xl flex flex-col items-center text-center mb-12">
+                <div className="w-full max-w-3xl flex flex-col items-center text-center mb-4">
                     <nav className="mb-6 flex text-xs font-mono tracking-widest text-foreground-muted/60 uppercase">
                         <ol className="flex items-center gap-2">
                             <li>Home</li>
@@ -33,7 +33,7 @@ export default function HeroTimeline() {
                 </div>
 
                 {/* Timeline Area */}
-                <div className="w-full relative z-20">
+                <div className="w-full relative z-20 -mt-12 md:-mt-20 lg:-mt-32">
                     <InteractiveTimeline />
 
                     {/* Instructions Below Timeline */}

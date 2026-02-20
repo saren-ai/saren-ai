@@ -19,6 +19,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 1",
         issueNumber: "#251",
         releaseDate: "November 1989",
+        plotSummary: "Betsy forces the X-Men through the Siege Perilous to save them from the Reavers, resetting her life.",
+        fandomLink: "https://marvel.fandom.com/wiki/Uncanny_X-Men_Vol_1_251",
     },
     {
         id: "uncanny-1-255",
@@ -28,6 +30,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 1",
         issueNumber: "#255",
         releaseDate: "December 1989",
+        plotSummary: "An amnesiac Betsy washes up on a Hand-controlled beach and is found by Matsu'o Tsurayaba.",
+        fandomLink: "https://marvel.fandom.com/wiki/Uncanny_X-Men_Vol_1_255",
     },
     {
         id: "uncanny-1-256",
@@ -37,6 +41,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 1",
         issueNumber: "#256",
         releaseDate: "December 1989",
+        plotSummary: "The Hand and Spiral begin the physical and mental transformation of Betsy into Lady Mandarin.",
+        fandomLink: "https://marvel.fandom.com/wiki/Uncanny_X-Men_Vol_1_256",
     },
     {
         id: "uncanny-1-257",
@@ -46,6 +52,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 1",
         issueNumber: "#257",
         releaseDate: "January 1990",
+        plotSummary: "Brainwashed as an enforcer, Betsy hunts down Wolverine and debuts her psychic knife.",
+        fandomLink: "https://marvel.fandom.com/wiki/Uncanny_X-Men_Vol_1_257",
     },
     {
         id: "uncanny-1-258",
@@ -55,6 +63,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 1",
         issueNumber: "#258",
         releaseDate: "February 1990",
+        plotSummary: "With Wolverine's help, Betsy breaks her brainwashing but remains in her Asian physical form.",
+        fandomLink: "https://marvel.fandom.com/wiki/Uncanny_X-Men_Vol_1_258",
     },
     {
         id: "xmen-2-17",
@@ -64,6 +74,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 2",
         issueNumber: "#17",
         releaseDate: "February 1993",
+        plotSummary: "A mysterious woman (Revanche) appears in Betsy's original body, claiming she is the real Betsy.",
+        fandomLink: "https://marvel.fandom.com/wiki/X-Men_Vol_2_17",
     },
     {
         id: "xmen-2-18",
@@ -73,6 +85,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 2",
         issueNumber: "#18",
         releaseDate: "March 1993",
+        plotSummary: "Revanche arrives at the X-Mansion, causing immediate psychic confusion and doubt.",
+        fandomLink: "https://marvel.fandom.com/wiki/X-Men_Vol_2_18",
     },
     {
         id: "xmen-2-19",
@@ -82,6 +96,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 2",
         issueNumber: "#19",
         releaseDate: "April 1993",
+        plotSummary: "Psylocke and Revanche engage in a duel to prove who is the original through psychic combat.",
+        fandomLink: "https://marvel.fandom.com/wiki/X-Men_Vol_2_19",
     },
     {
         id: "xmen-2-20",
@@ -91,6 +107,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 2",
         issueNumber: "#20",
         releaseDate: "May 1993",
+        plotSummary: "The X-Men travel to Japan to confront Matsu'o and uncover the truth behind their shared memories.",
+        fandomLink: "https://marvel.fandom.com/wiki/X-Men_Vol_2_20",
     },
     {
         id: "xmen-2-21",
@@ -100,6 +118,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 2",
         issueNumber: "#21",
         releaseDate: "June 1993",
+        plotSummary: "The team investigates Hand records as the two women realize their psychic signatures are merged.",
+        fandomLink: "https://marvel.fandom.com/wiki/X-Men_Vol_2_21",
     },
     {
         id: "xmen-2-22",
@@ -109,6 +129,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 2",
         issueNumber: "#22",
         releaseDate: "July 1993",
+        plotSummary: "Revanche reveals she is dying from the Legacy Virus, destabilizing her psychic powers.",
+        fandomLink: "https://marvel.fandom.com/wiki/X-Men_Vol_2_22",
     },
     {
         id: "xmen-2-23",
@@ -118,6 +140,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 2",
         issueNumber: "#23",
         releaseDate: "August 1993",
+        plotSummary: "The conflict intensifies as the X-Men prevent the Hand from reclaiming their assassins.",
+        fandomLink: "https://marvel.fandom.com/wiki/X-Men_Vol_2_23",
     },
     {
         id: "xmen-2-24",
@@ -127,6 +151,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 2",
         issueNumber: "#24",
         releaseDate: "September 1993",
+        plotSummary: "Betsy and Revanche reach a peace while fighting Hand ninjas during their quest for answers.",
+        fandomLink: "https://marvel.fandom.com/wiki/X-Men_Vol_2_24",
     },
     {
         id: "xmen-2-25",
@@ -136,6 +162,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 2",
         issueNumber: "#25",
         releaseDate: "October 1993",
+        plotSummary: "Magneto's Fatal Attractions interrupts the search, forcing both women to fight on Avalon.",
+        fandomLink: "https://marvel.fandom.com/wiki/X-Men_Vol_2_25",
     },
     {
         id: "xmen-2-28",
@@ -145,6 +173,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 2",
         issueNumber: "#28",
         releaseDate: "January 1994",
+        plotSummary: "Betsy deals with the fallout of Sabretooth's presence while Revanche's health fails.",
+        fandomLink: "https://marvel.fandom.com/wiki/X-Men_Vol_2_28",
     },
     {
         id: "xmen-2-31",
@@ -154,6 +184,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 2",
         issueNumber: "#31",
         releaseDate: "April 1994",
+        plotSummary: "Spiral reveals she merged their DNA and souls into both bodies rather than just swapping.",
+        fandomLink: "https://marvel.fandom.com/wiki/X-Men_Vol_2_31",
     },
     {
         id: "xmen-2-32",
@@ -163,6 +195,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 2",
         issueNumber: "#32",
         releaseDate: "May 1994",
+        plotSummary: "Kwannon (as Revanche) dies of the Legacy Virus, returning her psychic fragments to Betsy.",
+        fandomLink: "https://marvel.fandom.com/wiki/X-Men_Vol_2_32",
     },
     {
         id: "madripoor-1-1",
@@ -172,6 +206,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 1",
         issueNumber: "#1",
         releaseDate: "July 2018",
+        plotSummary: "Searching for Logan, Betsy is psychically attacked by Sapphire Styx and her body fails.",
+        fandomLink: "https://marvel.fandom.com/wiki/Hunt_for_Wolverine:_Mystery_in_Madripoor_Vol_1_1",
     },
     {
         id: "madripoor-1-2",
@@ -181,6 +217,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 1",
         issueNumber: "#2",
         releaseDate: "August 2018",
+        plotSummary: "Betsy's soul is absorbed by Sapphire Styx, leaving her Asian physical form an empty shell.",
+        fandomLink: "https://marvel.fandom.com/wiki/Hunt_for_Wolverine:_Mystery_in_Madripoor_Vol_1_2",
     },
     {
         id: "madripoor-1-3",
@@ -190,6 +228,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 1",
         issueNumber: "#3",
         releaseDate: "September 2018",
+        plotSummary: "Inside the psychic void, Betsy encounters Wolverine and decides to rebuild her own body.",
+        fandomLink: "https://marvel.fandom.com/wiki/Hunt_for_Wolverine:_Mystery_in_Madripoor_Vol_1_3",
     },
     {
         id: "madripoor-1-4",
@@ -199,6 +239,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 1",
         issueNumber: "#4",
         releaseDate: "October 2018",
+        plotSummary: "Betsy manifests a new British body, while Kwannon's soul re-inhabits the original Asian body.",
+        fandomLink: "https://marvel.fandom.com/wiki/Hunt_for_Wolverine:_Mystery_in_Madripoor_Vol_1_4",
     },
     {
         id: "uncanny-5-16",
@@ -208,6 +250,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 5",
         issueNumber: "#16",
         releaseDate: "June 2019",
+        plotSummary: "Betsy and Kwannon both exist as separate individuals on the team during a time of crisis.",
+        fandomLink: "https://marvel.fandom.com/wiki/Uncanny_X-Men_Vol_5_16",
     },
     {
         id: "uncanny-5-17",
@@ -217,6 +261,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 5",
         issueNumber: "#17",
         releaseDate: "July 2019",
+        plotSummary: "The two women navigate a tense professional relationship as the X-Men face extinction.",
+        fandomLink: "https://marvel.fandom.com/wiki/Uncanny_X-Men_Vol_5_17",
     },
     {
         id: "uncanny-5-18",
@@ -226,6 +272,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 5",
         issueNumber: "#18",
         releaseDate: "July 2019",
+        plotSummary: "Betsy continues to struggle with her identity and her return to her proper body.",
+        fandomLink: "https://marvel.fandom.com/wiki/Uncanny_X-Men_Vol_5_18",
     },
     {
         id: "uncanny-5-19",
@@ -235,6 +283,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 5",
         issueNumber: "#19",
         releaseDate: "August 2019",
+        plotSummary: "The team faces the Hellfire Club; Kwannon proves her lethality as an independent agent.",
+        fandomLink: "https://marvel.fandom.com/wiki/Uncanny_X-Men_Vol_5_19",
     },
     {
         id: "uncanny-5-20",
@@ -244,6 +294,8 @@ export const comicsData: ComicData[] = [
         volume: "Vol 5",
         issueNumber: "#20",
         releaseDate: "August 2019",
+        plotSummary: "The era ends with Betsy and Kwannon finally parting ways to seek their own futures.",
+        fandomLink: "https://marvel.fandom.com/wiki/Uncanny_X-Men_Vol_5_20",
     },
     {
         id: "excalibur-4-1",
@@ -253,5 +305,7 @@ export const comicsData: ComicData[] = [
         volume: "Vol 4",
         issueNumber: "#1",
         releaseDate: "December 2019",
+        plotSummary: "Betsy officially becomes Captain Britain, while Kwannon takes the name Psylocke.",
+        fandomLink: "https://marvel.fandom.com/wiki/Excalibur_Vol_4_1",
     }
 ];
