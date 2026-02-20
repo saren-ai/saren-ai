@@ -27,40 +27,51 @@ const navLinks: NavItem[] = [
     megaMenu: portfolioMegaMenu,
     mobileChildren: [
       { href: "/portfolio", label: "View All Work" },
-      { href: "/portfolio/roi-simulator", label: "Paid Media ROI Calculator" },
-      { href: "/portfolio/sovereign-personas", label: "Sovereign Personas" },
-      { href: "/portfolio/10-touch-sales-play", label: "10-Touch Sales Play" },
-      { href: "/portfolio/120-day-content-journey", label: "120-Day Content Journey" },
-      { href: "/portfolio/b2b-marketing-framework", label: "B2B Marketing Framework" },
-      { href: "/portfolio/its-good-to-be-pitched", label: "It's Good to Be Pitched" },
+      ...portfolioMegaMenu.sections.flatMap(section =>
+        section.links.map(link => ({
+          href: link.href,
+          label: link.label,
+          description: link.description,
+          isExternal: link.isExternal,
+        }))
+      ),
     ],
   },
   {
     label: "Demand Machine",
     megaMenu: demandMachineMegaMenu,
-    mobileChildren: [
-      { href: "/demand-machine/interview", label: "36-Question Interview" },
-      { href: "/demand-machine/messaging", label: "21-Step Messaging Framework" },
-      { href: "/demand-machine/content-planner", label: "120-Day Content Planner" },
-      { href: "/demand-machine/outbound", label: "10-Touch Outbound Builder" },
-    ],
+    mobileChildren: demandMachineMegaMenu.sections.flatMap(section =>
+      section.links.map(link => ({
+        href: link.href,
+        label: link.label,
+        description: link.description,
+        isExternal: link.isExternal,
+      }))
+    ),
   },
   {
     label: "Thinking",
     megaMenu: thinkingMegaMenu,
-    mobileChildren: [
-      { href: "/thinking", label: "Micro-Blog" },
-      { href: "https://sarenai.substack.com", label: "Substack", isExternal: true },
-    ],
+    mobileChildren: thinkingMegaMenu.sections.flatMap(section =>
+      section.links.map(link => ({
+        href: link.href,
+        label: link.label,
+        description: link.description,
+        isExternal: link.isExternal,
+      }))
+    ),
   },
   {
     label: "About",
     megaMenu: aboutMegaMenu,
-    mobileChildren: [
-      { href: "/about", label: "About Me" },
-      { href: "/about/clients", label: "Client Brands" },
-      { href: "/about/stack", label: "My Stack" },
-    ],
+    mobileChildren: aboutMegaMenu.sections.slice(1).flatMap(section =>
+      section.links.map(link => ({
+        href: link.href,
+        label: link.label,
+        description: link.description,
+        isExternal: link.isExternal,
+      }))
+    ),
   },
   {
     label: "Contact",

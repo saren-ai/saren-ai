@@ -82,12 +82,12 @@ export default function InteractiveTimeline() {
     return (
         <div
             ref={containerRef}
-            className="w-full h-[75vh] flex items-center overflow-hidden relative"
+            className="w-full h-[75vh] flex items-center overflow-hidden relative touch-pan-y"
             style={{ perspective: "1200px" }}
         >
             <motion.div
                 className="flex items-center"
-                style={{ x, gap: `${CARD_GAP}px` }}
+                style={{ x, gap: `${CARD_GAP}px`, transformStyle: "preserve-3d", WebkitTransformStyle: "preserve-3d" }}
                 drag="x"
                 dragControls={dragControls}
                 dragMomentum={false} // Disable momentum to prevent physics conflicts; the layout spring handles snapping
@@ -148,12 +148,13 @@ export default function InteractiveTimeline() {
                                 width: CARD_WIDTH,
                                 height: CARD_WIDTH * 1.5, // 2:3 aspect ratio
                                 zIndex: isFlipped ? 100 : zIndex,
+                                perspective: "1200px"
                             }}
                             animate={{
                                 scale,
                                 y: yOffset,
                                 rotateZ: rotation,
-                                filter: `blur(${blur}px)`,
+                                filter: blur > 0 ? `blur(${blur}px)` : "none",
                                 opacity,
                             }}
                             transition={{ type: "spring", stiffness: 300, damping: 25, mass: 0.8 }}
@@ -164,7 +165,7 @@ export default function InteractiveTimeline() {
                             {/* 3D Inner Wrapper */}
                             <motion.div
                                 className="w-full h-full relative"
-                                style={{ transformStyle: "preserve-3d" }}
+                                style={{ transformStyle: "preserve-3d", WebkitTransformStyle: "preserve-3d" }}
                                 animate={{ rotateY: isFlipped ? 180 : 0 }}
                                 transition={{ type: "spring", stiffness: 200, damping: 20 }}
                             >
@@ -173,6 +174,8 @@ export default function InteractiveTimeline() {
                                     className="absolute w-full h-full rounded-[18px] overflow-hidden bg-zinc-900 border border-zinc-200 dark:border-zinc-800"
                                     style={{
                                         backfaceVisibility: "hidden",
+                                        WebkitBackfaceVisibility: "hidden",
+                                        transform: "translateZ(1px)",
                                         boxShadow: isHovered && !isDragging
                                             ? "0 30px 60px -12px rgba(0,0,0,0.5), 0 18px 36px -18px rgba(0,0,0,0.4)"
                                             : "0 10px 30px -10px rgba(0,0,0,0.3)",
@@ -182,7 +185,8 @@ export default function InteractiveTimeline() {
                                     <img
                                         src={comic.image}
                                         alt={comic.title}
-                                        className="w-full h-full object-cover pointer-events-none"
+                                        className="w-full h-full object-cover pointer-events-none select-none"
+                                        draggable="false"
                                     />
                                     {/* Subtle Overlay */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
@@ -193,7 +197,8 @@ export default function InteractiveTimeline() {
                                     className="absolute w-full h-full rounded-[18px] overflow-hidden bg-white dark:bg-[#1a1a1f] p-5 border border-zinc-200 dark:border-white/5 flex flex-col"
                                     style={{
                                         backfaceVisibility: "hidden",
-                                        transform: "rotateY(180deg)",
+                                        WebkitBackfaceVisibility: "hidden",
+                                        transform: "rotateY(180deg) translateZ(1px)",
                                         boxShadow: "0 10px 30px -10px rgba(0,0,0,0.3)",
                                     }}
                                 >
