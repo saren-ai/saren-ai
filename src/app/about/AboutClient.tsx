@@ -52,6 +52,12 @@ const statsData = [
 
 const personalLinks = [
     {
+        name: "Concert History",
+        description: "My archival log of every show, venue, and festival I've attended",
+        href: "/about/concerts",
+        icon: "🎸",
+    },
+    {
         name: "Comic Collection",
         description: "My pulls and collection on League of Comic Geeks",
         href: "https://leagueofcomicgeeks.com/profile/saren/collection",

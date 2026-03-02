@@ -75,45 +75,60 @@ export default function ProfileGallery() {
       transition={{ delay: 0.2, duration: 0.5 }}
       className="flex flex-col items-center gap-4"
     >
-      {/* Image Container */}
-      <div className="relative w-[220px] h-[390px] md:w-[240px] md:h-[426px] lg:w-[260px] lg:h-[462px] rounded-2xl overflow-hidden bg-white/5 border border-ash/10 shadow-2xl shadow-black/20">
-        <AnimatePresence initial={false} custom={direction} mode="wait">
-          <motion.div
-            key={activeIndex}
-            custom={direction}
-            variants={slideVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{
-              x: { type: "spring", stiffness: 300, damping: 30 },
-              opacity: { duration: 0.2 },
-              scale: { duration: 0.3 },
-            }}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={1}
-            onDragEnd={(_e, { offset, velocity }) => {
-              const swipe = Math.abs(offset.x) * velocity.x;
-              if (swipe < -5000) {
-                paginate(1);
-              } else if (swipe > 5000) {
-                paginate(-1);
-              }
-            }}
-            className="w-full h-full relative cursor-grab active:cursor-grabbing"
-          >
-            <Image
-              src={current.src}
-              alt={`Saren — ${current.label} style`}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 220px, (max-width: 1024px) 240px, 260px"
-              priority
-              draggable={false}
-            />
-          </motion.div>
-        </AnimatePresence>
+      {/* SVG Clip Path Definition */}
+      <svg width="0" height="0" className="absolute w-0 h-0">
+        <defs>
+          <clipPath id="clip-precise-surfboard" clipPathUnits="objectBoundingBox">
+            <path d="M0.46 0.02 C0.48 0 0.52 0 0.54 0.02 C0.65 0.1 0.85 0.25 0.92 0.45 C0.98 0.65 0.85 0.85 0.72 0.95 C0.68 0.98 0.65 1 0.6 1 L0.4 1 C0.35 1 0.32 0.98 0.28 0.95 C0.15 0.85 0.02 0.65 0.08 0.45 C0.15 0.25 0.35 0.1 0.46 0.02 Z" />
+          </clipPath>
+        </defs>
+      </svg>
+
+      {/* Image Container Wrapper */}
+      <div className="relative w-[220px] h-[390px] md:w-[240px] md:h-[426px] lg:w-[260px] lg:h-[462px] drop-shadow-2xl">
+        {/* Clipped Inner Container */}
+        <div
+          className="absolute inset-0 w-full h-full bg-white/5"
+          style={{ clipPath: "url(#clip-precise-surfboard)" }}
+        >
+          <AnimatePresence initial={false} custom={direction} mode="wait">
+            <motion.div
+              key={activeIndex}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 },
+                scale: { duration: 0.3 },
+              }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={1}
+              onDragEnd={(_e, { offset, velocity }) => {
+                const swipe = Math.abs(offset.x) * velocity.x;
+                if (swipe < -5000) {
+                  paginate(1);
+                } else if (swipe > 5000) {
+                  paginate(-1);
+                }
+              }}
+              className="w-full h-full relative cursor-grab active:cursor-grabbing"
+            >
+              <Image
+                src={current.src}
+                alt={`Saren — ${current.label} style`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 220px, (max-width: 1024px) 240px, 260px"
+                priority
+                draggable={false}
+              />
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
         {/* Arrow Buttons */}
         <button
@@ -137,7 +152,7 @@ export default function ProfileGallery() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
-          className="absolute bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-charcoal/70 backdrop-blur-sm rounded-full z-10"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 px-3 py-1 bg-charcoal/70 backdrop-blur-sm rounded-full z-10"
         >
           <span className="text-xs font-semibold text-ash tracking-wide">
             {current.label}
@@ -151,11 +166,10 @@ export default function ProfileGallery() {
           <button
             key={img.label}
             onClick={() => goTo(index)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              index === activeIndex
-                ? "w-8 bg-ember"
-                : "w-2 bg-ash/30 hover:bg-ash/50"
-            }`}
+            className={`h-2 rounded-full transition-all duration-300 ${index === activeIndex
+              ? "w-8 bg-ember"
+              : "w-2 bg-ash/30 hover:bg-ash/50"
+              }`}
             aria-label={`View ${img.label} style`}
             aria-current={index === activeIndex ? "step" : undefined}
           />
