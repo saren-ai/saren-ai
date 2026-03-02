@@ -127,6 +127,21 @@ export default async function RootLayout({
           strategy="afterInteractive"
           src="//js-na2.hs-scripts.com/244082990.js"
         />
+
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-CF48FVX8E6"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-CF48FVX8E6');
+          `}
+        </Script>
       </body>
     </html>
   );
