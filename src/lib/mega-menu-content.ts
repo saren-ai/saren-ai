@@ -7,6 +7,26 @@ export const portfolioMegaMenu: MegaMenuContent = {
   layout: "three-column",
   sections: [
     {
+      title: "Featured Work",
+      links: [
+        {
+          href: "/portfolio/120-day-content-journey",
+          label: "120-Day Content Journey",
+          description: "$4M pipeline from content",
+        },
+        {
+          href: "/portfolio/10-touch-sales-play",
+          label: "10-Touch Sales Play",
+          description: "Multi-channel outbound system",
+        },
+        {
+          href: "/portfolio/b2b-marketing-framework",
+          label: "B2B Marketing Framework",
+          description: "Messaging infrastructure",
+        },
+      ],
+    },
+    {
       title: "Interactive Tools",
       links: [
         {
@@ -23,41 +43,6 @@ export const portfolioMegaMenu: MegaMenuContent = {
           href: "/portfolio/behavioral-lead-scoring",
           label: "Behavioral Lead Scoring",
           description: "Buyer motion intent tracking",
-        },
-        {
-          href: "/about/stack",
-          label: "AI Stack Tier List",
-          description: "Rank my tool choices",
-        },
-      ],
-    },
-    {
-      title: "Case Studies",
-      links: [
-        {
-          href: "/portfolio/120-day-content-journey",
-          label: "120-Day Content Journey",
-          description: "$4M pipeline from content",
-        },
-        {
-          href: "/portfolio/10-touch-sales-play",
-          label: "10-Touch Sales Play",
-          description: "Multi-channel outbound system",
-        },
-        {
-          href: "/portfolio/sovereign-personas",
-          label: "Sovereign Buyer Personas",
-          description: "Committee buying frameworks",
-        },
-        {
-          href: "/portfolio/b2b-marketing-framework",
-          label: "B2B Marketing Framework",
-          description: "Messaging infrastructure",
-        },
-        {
-          href: "/portfolio/its-good-to-be-pitched",
-          label: "It's Good to Be Pitched",
-          description: "AI-assisted TV storyboard",
         },
       ],
     },
@@ -76,120 +61,52 @@ export const portfolioMegaMenu: MegaMenuContent = {
 };
 
 /**
- * Demand Machine Mega Menu Content
+ * Playbooks Mega Menu Content
  */
-export const demandMachineMegaMenu: MegaMenuContent = {
+export const playbooksMegaMenu: MegaMenuContent = {
   layout: "three-column",
   sections: [
     {
-      title: "Diagnostic & Strategy",
+      title: "Featured Sequences",
       links: [
         {
-          href: "/demand-machine/interview",
-          label: "36-Question Interview",
-          description: "Foundational business intel and gap analysis",
-          isComingSoon: true,
+          href: "/playbooks/cmo-gtm-playbook",
+          label: "CMO GTM Playbook",
+          description: "6 parts for executing AI market strategies",
         },
         {
-          href: "/demand-machine/messaging",
-          label: "21-Step Messaging Framework",
-          description: "Positioning, pillars, and voice builder",
-          isComingSoon: true,
+          href: "/playbooks/b2b-marketing-framework",
+          label: "B2B Marketing Framework",
+          description: "Build an active messaging foundation",
+        },
+        {
+          href: "/playbooks/sovereign-personas",
+          label: "Sovereign Buyer Personas",
+          description: "Map your committee buying logic",
         },
       ],
     },
     {
-      title: "Growth Engines",
+      title: "Library",
       links: [
         {
-          href: "/demand-machine/content-planner",
-          label: "120-Day Content Planner",
-          description: "Topic authority and channel allocation",
-          isComingSoon: true,
-        },
-        {
-          href: "/demand-machine/lead-magnets",
-          label: "Social & Ad Program",
-          description: "High-intent lead magnet testing",
-          isComingSoon: true,
-        },
-        {
-          href: "/demand-machine/outbound",
-          label: "10-Touch Outbound Builder",
-          description: "Sales cadence and script designer",
-          isComingSoon: true,
+          href: "/playbooks",
+          label: "Browse All Playbooks",
+          description: "View the full interactive prompt catalog.",
         },
       ],
     },
   ],
   promotional: {
-    image: "/portfolio/storyboards/storyboard_06.png", // Placeholder as requested
-    imageAlt: "The Demand Machine logic flow",
-    headline: "The Demand Machine",
-    description:
-      "A complete operating system for B2B growth. Follow the flow from diagnostic to outbound execution.",
+    image: "/portfolio/storyboards/storyboard_06.png", // FPO from portfolio
+    imageAlt: "B2B Marketing Framework",
+    headline: "B2B Marketing Framework",
+    description: "An interactive, 21-step tracked sequence to engineer your B2B SaaS positioning from scratch.",
     cta: {
-      label: "See How It Works",
-      href: "/demand-machine",
+      label: "Start the Framework",
+      href: "/playbooks/b2b-marketing-framework",
     },
   },
-};
-
-/**
- * Thinking Mega Menu Content
- */
-export const thinkingMegaMenu: MegaMenuContent = {
-  layout: "three-column",
-  sections: [
-    {
-      title: "Recent Thinking",
-      links: [
-        {
-          href: "/portfolio/thought-leadership-development",
-          label: "Thought Leadership Development",
-          description: "Engineering B2B authority in the age of LLMs",
-        },
-        {
-          href: "/ai-operations",
-          label: "AI Operations",
-          description: "Why AI turns marketing into engineering",
-        },
-      ],
-    },
-    {
-      title: "Evergreen & Social",
-      links: [
-        {
-          href: "/thinking",
-          label: "Micro-Blog",
-          description: "Quick takes and tactical insights",
-        },
-        {
-          href: "https://sarenai.substack.com",
-          label: "Substack Newsletter",
-          description: "Long-form articles and guides",
-          isExternal: true,
-        },
-        {
-          href: "https://bsky.app/profile/saren.bsky.social",
-          label: "BlueSky",
-          description: "Follow me on BlueSky",
-          isExternal: true,
-        },
-      ],
-    },
-  ],
-  promotional: {
-    image: "/portfolio/storyboards/storyboard_06.png", // Placeholder
-    imageAlt: "Latest Substack Article",
-    headline: "Latest on Substack",
-    description: "Read my latest thoughts on AI marketing, strategy, and operations directly on Substack.",
-    cta: {
-      label: "Read on Substack",
-      href: "https://sarenai.substack.com",
-    },
-  },
-  customContent: null,
 };
 
 /**
@@ -220,41 +137,6 @@ export const aboutMegaMenu: MegaMenuContent = {
           href: "/about/brand",
           label: "Brand Style Guide",
           description: "Fire Horse design system",
-        },
-      ],
-    },
-    {
-      title: "Outside of Work",
-      links: [
-        {
-          href: "/portfolio/psylocke-timeline",
-          label: "Psylocke Timeline",
-          description: "30 years of body-swaps and identity",
-          isExternal: false,
-        },
-        {
-          href: "https://leagueofcomicgeeks.com/profile/saren/collection",
-          label: "Comic Collection",
-          description: "My pulls and collection on League of Comic Geeks",
-          isExternal: true,
-        },
-        {
-          href: "https://www.discogs.com/user/saren13",
-          label: "Vinyl Collection",
-          description: "Browse my record collection on Discogs",
-          isExternal: true,
-        },
-        {
-          href: "https://letterboxd.com/saren13/films/",
-          label: "Letterboxd",
-          description: "Films I've watched and reviewed",
-          isExternal: true,
-        },
-        {
-          href: "https://pops.today/user/Saren/collection/",
-          label: "Funko Pop Collection",
-          description: "Pop culture collectibles",
-          isExternal: true,
         },
       ],
     },

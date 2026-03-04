@@ -1,0 +1,4 @@
+# Personal IQ
+
+
+"As a veteran psychometrician: from our past exchanges estimate my IQ, 3 strengths, 2 growth areas & a 200-word inspiring close"

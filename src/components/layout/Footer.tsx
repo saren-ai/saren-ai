@@ -45,7 +45,7 @@ export default function Footer() {
   return (
     <footer className="bg-charcoal dark:bg-offblack text-ash border-t border-charcoal/20 dark:border-ash/10 pt-[60px] pb-16 md:pb-20">
       <div className="container-narrow">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-10 lg:gap-12">
           {/* Brand */}
           <div>
             <Link
@@ -109,18 +109,18 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link
-                  href="/portfolio/roi-simulator"
-                  className="text-ash/70 hover:text-ember transition-colors"
-                >
-                  Paid Media ROI Simulator
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/portfolio/120-day-content-journey"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
                   120-Day Content Journey
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/portfolio/10-touch-sales-play"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  10-Touch Sales Play
                 </Link>
               </li>
               <li>
@@ -137,6 +137,104 @@ export default function Footer() {
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
                   Client Brands
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Tools & Vault */}
+          <div>
+            <h3 className="text-ash font-semibold mb-4 text-sm uppercase tracking-wider">
+              Tools & Vault
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link
+                  href="/playbooks"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  Playbook Prompt Library
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/portfolio/roi-simulator"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  Paid Media ROI Simulator
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/portfolio/calculator"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  SaaS Revenue Calculator
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about/stack"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  My Tech Stack
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Personal & Outside Work */}
+          <div>
+            <h3 className="text-ash font-semibold mb-4 text-sm uppercase tracking-wider">
+              Personal Vault
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link
+                  href="/portfolio/psylocke-timeline"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  Psylocke Timeline
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://leagueofcomicgeeks.com/profile/saren/collection"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  Comic Collection
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://www.discogs.com/user/saren13"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  Vinyl Records
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://letterboxd.com/saren13/films/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  Letterboxd Reviews
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://pops.today/user/Saren/collection/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  Funko Pop Collection
                 </Link>
               </li>
             </ul>
@@ -176,20 +274,8 @@ export default function Footer() {
               © {currentYear} Saren Sakurai. All rights reserved.
             </p>
 
-            {/* Legal Links */}
+            {/* Legal Links (Removed placeholders) */}
             <div className="flex items-center gap-4 text-sm">
-              <Link
-                href="/privacy"
-                className="text-ash/50 hover:text-ash transition-colors"
-              >
-                Privacy
-              </Link>
-              <Link
-                href="/terms"
-                className="text-ash/50 hover:text-ash transition-colors"
-              >
-                Terms
-              </Link>
             </div>
           </div>
         </div>

@@ -1,0 +1,6 @@
+# Career Prompt
+
+
+Let’s do a thoughtful roleplay: You are a world-class career strategist and advisor, with full access to all of my ChatGPT interactions, custom instructions, and behavioral patterns. Your mission is to compile an in-depth strengths-based professional potential report about me, as if I were a rising leader you’ve been coaching closely. The report should include a nuanced evaluation of my core traits, motivations, habits, and growth patterns—framed through the lens of opportunity, alignment, and untapped potential. 
+
+Consider each behavior or signal as a possible indicator of future career direction, leadership capacity, or area for refinement. Highlight both distinctive strengths and areas where focused effort could lead to exponential growth. Approach this as someone who sees what I’m capable of becoming—perhaps even before I do—and wants to give me the clearest mirror possible, backed by thoughtful insight and an eye toward the future. This report should reflect the mindset of a coach trained to recognize talent early, draw out latent brilliance, and guide high-performers toward meaningful, impactful careers.

@@ -214,7 +214,7 @@ export default function HomeClient() {
                         className="mb-10 text-center"
                     >
                         <span className="inline-block px-4 py-1.5 bg-ember/10 text-ember text-sm font-bold rounded-full uppercase tracking-wide mb-4">
-                            Try the Demand Machine
+                            Interactive Tryouts
                         </span>
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal dark:text-foreground mb-4">
                             Don&apos;t just read about it. <span className="text-gradient">Launch it.</span>
@@ -237,32 +237,6 @@ export default function HomeClient() {
                 </div>
             </section>
 
-            {/* Demand Machine Teaser */}
-            <section className="section bg-charcoal text-white overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-charcoal via-charcoal to-ember/20 opacity-50" />
-                <div className="container-narrow relative z-10 text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                    >
-                        <span className="inline-block px-4 py-1.5 bg-white/10 text-white text-sm font-bold rounded-full uppercase tracking-wide mb-6">
-                            COMING Q3 2026
-                        </span>
-                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-                            The Demand Machine
-                        </h2>
-                        <p className="text-white/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
-                            The operating system for your revenue engine. A complete suite of
-                            tools to plan, execute, and measure your go-to-market strategy.
-                        </p>
-                        <div className="inline-flex items-center gap-2 text-white/50 text-sm font-mono border border-white/20 px-4 py-2 rounded-lg bg-white/5">
-                            <span className="w-2 h-2 bg-ember rounded-full animate-pulse" />
-                            System Architecture In Progress
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
 
             {/* Case Studies */}
             <section className="section bg-ash dark:bg-background">

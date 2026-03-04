@@ -7,8 +7,7 @@ import ThemeToggle from "./ThemeToggle";
 import MegaMenu, { type MegaMenuContent } from "./MegaMenu";
 import {
   portfolioMegaMenu,
-  demandMachineMegaMenu,
-  thinkingMegaMenu,
+  playbooksMegaMenu,
   aboutMegaMenu,
 } from "@/lib/mega-menu-content";
 
@@ -38,28 +37,19 @@ const navLinks: NavItem[] = [
     ],
   },
   {
-    label: "Demand Machine",
-    megaMenu: demandMachineMegaMenu,
-    mobileChildren: demandMachineMegaMenu.sections.flatMap(section =>
-      section.links.map(link => ({
-        href: link.href,
-        label: link.label,
-        description: link.description,
-        isExternal: link.isExternal,
-      }))
-    ),
-  },
-  {
-    label: "Thinking",
-    megaMenu: thinkingMegaMenu,
-    mobileChildren: thinkingMegaMenu.sections.flatMap(section =>
-      section.links.map(link => ({
-        href: link.href,
-        label: link.label,
-        description: link.description,
-        isExternal: link.isExternal,
-      }))
-    ),
+    label: "Playbooks",
+    href: "/playbooks",
+    megaMenu: playbooksMegaMenu,
+    mobileChildren: [
+      { href: "/playbooks", label: "View All Playbooks" },
+      ...playbooksMegaMenu.sections.flatMap(section =>
+        section.links.map(link => ({
+          href: link.href,
+          label: link.label,
+          description: link.description,
+        }))
+      ),
+    ],
   },
   {
     label: "About",
@@ -346,10 +336,10 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
       {navLinks.map((link) => {
         if (!link.megaMenu) return null;
 
-        // Inject Substack feed into the standard promotional box for Thinking menu
+        // Inject Substack feed into the standard promotional box for the About menu
         let menuContent = link.megaMenu;
 
-        if (link.label === "Thinking" && latestPost) {
+        if (link.label === "About" && latestPost) {
           const desc = latestPost.contentSnippet || link.megaMenu.promotional?.description || "";
           menuContent = {
             ...link.megaMenu,

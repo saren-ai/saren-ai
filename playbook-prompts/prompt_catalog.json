@@ -1,0 +1,2583 @@
+{
+  "meta": {
+    "generated": "2026-03-03",
+    "archive_cutoff": "2025-03-03",
+    "total_prompts_active": 111,
+    "total_prompts_archived": 28,
+    "total_playbooks": 12,
+    "active_playbooks": 11,
+    "archived_playbooks": 1
+  },
+  "playbooks": [
+    {
+      "playbook_id": "brand-identity-foundation",
+      "title": "Brand Identity Foundation",
+      "description": "Build a complete brand brief from scratch — summary, mission/vision/values, audience pain points, and product/service map.",
+      "category": "Marketing",
+      "tags": [
+        "Branding",
+        "Strategy",
+        "Positioning",
+        "Mission"
+      ],
+      "status": "archived",
+      "steps": [
+        {
+          "step": 1,
+          "title": "Brand Summary",
+          "file": "Playbooks/Brand Identity Foundation/1_Brand Summary.md"
+        },
+        {
+          "step": 2,
+          "title": "Mission, Values & Vision",
+          "file": "Playbooks/Brand Identity Foundation/2_Mission Values  Vision.md"
+        },
+        {
+          "step": 3,
+          "title": "Potential Pain Points",
+          "file": "Playbooks/Brand Identity Foundation/3_Potential Pain Points.md"
+        },
+        {
+          "step": 4,
+          "title": "Products & Services Map",
+          "file": "Playbooks/Brand Identity Foundation/4_Products  Services Map.md"
+        }
+      ]
+    },
+    {
+      "playbook_id": "cmo-gtm-playbook",
+      "title": "CMO GTM Playbook",
+      "description": "6-step go-to-market intelligence build for B2B: competitive intel → TAM modeling → ICP architecture → messaging → GTM motion → launch execution. Use inside Claude Projects with memory on.",
+      "category": "Marketing",
+      "tags": [
+        "GTM",
+        "B2B",
+        "Strategy",
+        "ICP",
+        "Competitive Intelligence",
+        "CMO"
+      ],
+      "status": "active",
+      "steps": [
+        {
+          "step": 1,
+          "title": "Deep Market & Competitive Intelligence Engine",
+          "file": "Playbooks/CMO GTM Playbook/1_Deep Market  Competitive Intelligence Engine.md"
+        },
+        {
+          "step": 2,
+          "title": "TAM, SAM, Segment Prioritization Model",
+          "file": "Playbooks/CMO GTM Playbook/2_TAM SAM Segment Prioritization Model.md"
+        },
+        {
+          "step": 3,
+          "title": "ICP + Buying Committee Architecture",
+          "file": "Playbooks/CMO GTM Playbook/3_ICP  Buying Committee Architecture.md"
+        },
+        {
+          "step": 4,
+          "title": "Messaging & Positioning System",
+          "file": "Playbooks/CMO GTM Playbook/4_Messaging  Positioning System.md"
+        },
+        {
+          "step": 5,
+          "title": "Channel & GTM Motion Design",
+          "file": "Playbooks/CMO GTM Playbook/5_Channel  GTM Motion Design.md"
+        },
+        {
+          "step": 6,
+          "title": "Launch Execution & KPI Framework",
+          "file": "Playbooks/CMO GTM Playbook/6_Launch Execution  KPI Framework.md"
+        }
+      ]
+    },
+    {
+      "playbook_id": "cmo-content-marketing-pipeline",
+      "title": "CMO Content Marketing Pipeline",
+      "description": "Research your ICP → map competitors → extract audience content needs → build a 1-month content calendar. A sequential 4-step flow from insight to execution.",
+      "category": "Marketing",
+      "tags": [
+        "Content Marketing",
+        "CMO",
+        "ICP",
+        "Social Media",
+        "Content Calendar"
+      ],
+      "status": "active",
+      "steps": [
+        {
+          "step": 1,
+          "title": "Research the ICP",
+          "file": "Playbooks/CMO Content Marketing Pipeline/1_Research the ICP.md"
+        },
+        {
+          "step": 2,
+          "title": "Competitors & Positioning Statement",
+          "file": "Playbooks/CMO Content Marketing Pipeline/2_Competitors  Positioning Statement.md"
+        },
+        {
+          "step": 3,
+          "title": "Content Creation (Audience Research)",
+          "file": "Playbooks/CMO Content Marketing Pipeline/3_Content Creation Audience Research.md"
+        },
+        {
+          "step": 4,
+          "title": "Content Flighting Calendar",
+          "file": "Playbooks/CMO Content Marketing Pipeline/4_Content Flighting Calendar.md"
+        }
+      ]
+    },
+    {
+      "playbook_id": "personal-bio-brand-builder",
+      "title": "Personal Bio & Brand Builder",
+      "description": "6-prompt sequence to craft every version of your personal brand bio — one-liner, multi-platform, expert positioning, personality-forward, speaker intro, and hook-driven distillation.",
+      "category": "Personal Brand",
+      "tags": [
+        "Personal Brand",
+        "Copywriting",
+        "LinkedIn",
+        "Bio",
+        "Speaker"
+      ],
+      "status": "active",
+      "steps": [
+        {
+          "step": 1,
+          "title": "Write a 1-Sentence Personal Bio",
+          "file": "Playbooks/Personal Bio  Brand Builder/1_Write a 1-Sentence Personal Bio.md"
+        },
+        {
+          "step": 2,
+          "title": "Craft a Multi-Platform Intro",
+          "file": "Playbooks/Personal Bio  Brand Builder/2_Craft a Multi-Platform Intro.md"
+        },
+        {
+          "step": 3,
+          "title": "Position Me as the Go-To Expert",
+          "file": "Playbooks/Personal Bio  Brand Builder/3_Position Me as the Go-To Expert.md"
+        },
+        {
+          "step": 4,
+          "title": "Highlight My Personality + Credibility",
+          "file": "Playbooks/Personal Bio  Brand Builder/4_Highlight My Personality  Credibility.md"
+        },
+        {
+          "step": 5,
+          "title": "Create a Speaker/Podcast Intro",
+          "file": "Playbooks/Personal Bio  Brand Builder/5_Create a SpeakerPodcast Intro.md"
+        },
+        {
+          "step": 6,
+          "title": "Simplify My Bio With a Clear Hook",
+          "file": "Playbooks/Personal Bio  Brand Builder/6_Simplify My Bio With a Clear Hook.md"
+        }
+      ]
+    },
+    {
+      "playbook_id": "self-discovery-mindset-journey",
+      "title": "Self-Discovery & Mindset Journey",
+      "description": "6-step psychological deep-dive: map your thinking patterns → surface core values → identify emotional triggers → understand personality type → dismantle limiting beliefs → upgrade decision-making.",
+      "category": "Personal Brand",
+      "tags": [
+        "Psychology",
+        "Self-Development",
+        "Mindset",
+        "Coaching",
+        "Emotional Intelligence"
+      ],
+      "status": "active",
+      "steps": [
+        {
+          "step": 1,
+          "title": "Understanding My Thinking Patterns",
+          "file": "Playbooks/Self-Discovery  Mindset Journey/1_Understanding My Thinking Patterns.md"
+        },
+        {
+          "step": 2,
+          "title": "Discovering My Core Values",
+          "file": "Playbooks/Self-Discovery  Mindset Journey/2_Discovering My Core Values.md"
+        },
+        {
+          "step": 3,
+          "title": "Recognizing My Emotional Triggers",
+          "file": "Playbooks/Self-Discovery  Mindset Journey/3_Recognizing My Emotional Triggers.md"
+        },
+        {
+          "step": 4,
+          "title": "Understanding My Personality Type",
+          "file": "Playbooks/Self-Discovery  Mindset Journey/4_Understanding My Personality Type.md"
+        },
+        {
+          "step": 5,
+          "title": "Overcoming Limiting Beliefs",
+          "file": "Playbooks/Self-Discovery  Mindset Journey/5_Overcoming Limiting Beliefs.md"
+        },
+        {
+          "step": 6,
+          "title": "Improving My Decision-Making",
+          "file": "Playbooks/Self-Discovery  Mindset Journey/6_Improving My Decision-Making.md"
+        }
+      ]
+    },
+    {
+      "playbook_id": "learning-mastery-sequence",
+      "title": "Learning Mastery Sequence",
+      "description": "7-prompt system to master any topic fast: simplify → learn from mistakes → apply knowledge → compare concepts → gamify → stay updated → summarize complex material.",
+      "category": "Learning",
+      "tags": [
+        "Learning",
+        "Education",
+        "Skill Development",
+        "Productivity"
+      ],
+      "status": "active",
+      "steps": [
+        {
+          "step": 1,
+          "title": "Simplify Complex Information",
+          "file": "Playbooks/Learning Mastery Sequence/1_Simplify Complex Information.md"
+        },
+        {
+          "step": 2,
+          "title": "Learn From Mistakes",
+          "file": "Playbooks/Learning Mastery Sequence/2_Learn From Mistakes.md"
+        },
+        {
+          "step": 3,
+          "title": "Apply Your Knowledge",
+          "file": "Playbooks/Learning Mastery Sequence/3_Apply Your Knowledge.md"
+        },
+        {
+          "step": 4,
+          "title": "Compare and Contrast",
+          "file": "Playbooks/Learning Mastery Sequence/4_Compare and Contrast.md"
+        },
+        {
+          "step": 5,
+          "title": "Gamify Learning",
+          "file": "Playbooks/Learning Mastery Sequence/5_Gamify Learning.md"
+        },
+        {
+          "step": 6,
+          "title": "Stay Updated",
+          "file": "Playbooks/Learning Mastery Sequence/6_Stay Updated.md"
+        },
+        {
+          "step": 7,
+          "title": "Summarize Complex Texts",
+          "file": "Playbooks/Learning Mastery Sequence/7_Summarize Complex Texts.md"
+        }
+      ]
+    },
+    {
+      "playbook_id": "viral-content-hook-trilogy",
+      "title": "Viral Content Hook Trilogy",
+      "description": "3-part psychology-driven content system: design scroll-addicting formats → craft identity-spiking hooks → write dopamine-bait short-form scripts. Think in brain chemistry.",
+      "category": "Copywriting",
+      "tags": [
+        "Viral Content",
+        "Hooks",
+        "Psychology",
+        "Short-Form",
+        "Social Media",
+        "Copywriting"
+      ],
+      "status": "active",
+      "steps": [
+        {
+          "step": 1,
+          "title": "The Dopamine Loop Architect",
+          "file": "Playbooks/Viral Content Hook Trilogy/1_The Dopamine Loop Architect.md"
+        },
+        {
+          "step": 2,
+          "title": "The Micro-Hit Hook Crafter",
+          "file": "Playbooks/Viral Content Hook Trilogy/2_The Micro-Hit Hook Crafter.md"
+        },
+        {
+          "step": 3,
+          "title": "The Taboo Timing Tension Stack",
+          "file": "Playbooks/Viral Content Hook Trilogy/3_The Taboo Timing Tension Stack.md"
+        }
+      ]
+    },
+    {
+      "playbook_id": "digital-dominance-marketing-system",
+      "title": "Digital Dominance Marketing System",
+      "description": "5-part marketing machine: analyze competitors → build ICP targeting → trigger the algorithm → negotiate deals → deploy a direct response system. Missing step 2 — reconstruct with Map Competitors or ICP Deep Research.",
+      "category": "Marketing",
+      "tags": [
+        "Marketing",
+        "Competitor Analysis",
+        "Social Media",
+        "Direct Response",
+        "Sales",
+        "Negotiation"
+      ],
+      "status": "active",
+      "steps": [
+        {
+          "step": 1,
+          "title": "Competitor Analyzer",
+          "file": "Playbooks/Digital Dominance Marketing System/1_Competitor Analyzer.md"
+        },
+        {
+          "step": 2,
+          "title": "ICP & Target Audience Build",
+          "file": "Playbooks/Digital Dominance Marketing System/2_ICP  Target Audience Build.md",
+          "note": "Step 2 was missing — Map Competitors or ICP Deep Research fills this slot"
+        },
+        {
+          "step": 3,
+          "title": "Trigger the Algorithm",
+          "file": "Playbooks/Digital Dominance Marketing System/3_Trigger the Algorithm.md"
+        },
+        {
+          "step": 4,
+          "title": "Negotiation Framework",
+          "file": "Playbooks/Digital Dominance Marketing System/4_Negotiation Framework.md"
+        },
+        {
+          "step": 5,
+          "title": "Direct Response Marketing System",
+          "file": "Playbooks/Digital Dominance Marketing System/5_Direct Response Marketing System.md"
+        }
+      ]
+    },
+    {
+      "playbook_id": "daily-executive-gsd-stack",
+      "title": "Daily Executive GSD Stack",
+      "description": "5-prompt daily productivity system for leaders: prioritize tasks → prep for meetings → make better decisions → set SMART goals → solve workplace problems systematically.",
+      "category": "Sales",
+      "tags": [
+        "Productivity",
+        "Leadership",
+        "Work",
+        "Decision Making",
+        "Goals",
+        "Executive"
+      ],
+      "status": "active",
+      "steps": [
+        {
+          "step": 1,
+          "title": "Strategic Task Prioritization",
+          "file": "Playbooks/Daily Executive GSD Stack/1_Strategic Task Prioritization.md"
+        },
+        {
+          "step": 2,
+          "title": "Meeting Preparation & Agenda",
+          "file": "Playbooks/Daily Executive GSD Stack/2_Meeting Preparation  Agenda.md"
+        },
+        {
+          "step": 3,
+          "title": "Decision-Making Framework",
+          "file": "Playbooks/Daily Executive GSD Stack/3_Decision-Making Framework.md"
+        },
+        {
+          "step": 4,
+          "title": "SMART Goal Development",
+          "file": "Playbooks/Daily Executive GSD Stack/4_SMART Goal Development.md"
+        },
+        {
+          "step": 5,
+          "title": "Workplace Problem-Solving",
+          "file": "Playbooks/Daily Executive GSD Stack/5_Workplace Problem-Solving.md"
+        }
+      ]
+    },
+    {
+      "playbook_id": "research-intelligence-pipeline",
+      "title": "Research Intelligence Pipeline",
+      "description": "5-step market intelligence workflow: ICP deep research → competitor mapping → full competitive market analysis → market trend reports → social pain point mining.",
+      "category": "Marketing",
+      "tags": [
+        "Research",
+        "ICP",
+        "Competitive Intelligence",
+        "Market Analysis",
+        "Trends"
+      ],
+      "status": "active",
+      "steps": [
+        {
+          "step": 1,
+          "title": "ICP Deep Research",
+          "file": "Playbooks/Research Intelligence Pipeline/1_ICP Deep Research.md"
+        },
+        {
+          "step": 2,
+          "title": "Map Competitors",
+          "file": "Playbooks/Research Intelligence Pipeline/2_Map Competitors.md"
+        },
+        {
+          "step": 3,
+          "title": "Competitive Market Analysis",
+          "file": "Playbooks/Research Intelligence Pipeline/3_Competitive Market Analysis.md"
+        },
+        {
+          "step": 4,
+          "title": "Market Trends Insight Reports",
+          "file": "Playbooks/Research Intelligence Pipeline/4_Market Trends Insight Reports.md"
+        },
+        {
+          "step": 5,
+          "title": "Social Pain Point Research",
+          "file": "Playbooks/Research Intelligence Pipeline/5_Social Pain Point Research.md"
+        }
+      ]
+    },
+    {
+      "playbook_id": "sora2-samurai-creative-series",
+      "title": "Sora 2 Samurai Creative Series",
+      "description": "4 escalating video prompts exploring one character concept across visual styles — cinematic realism → neo-noir → retro surf. A template for building visual IP through progressive AI video generation.",
+      "category": "Creative",
+      "tags": [
+        "Video Generation",
+        "Sora 2",
+        "AI Video",
+        "Creative",
+        "Storytelling"
+      ],
+      "status": "active",
+      "steps": [
+        {
+          "step": 0,
+          "title": "Samurai in San Onofre (Base Concept)",
+          "file": "Playbooks/Sora 2 Samurai Creative Series/0_Samurai in San Onofre Base Concept.md"
+        },
+        {
+          "step": 1,
+          "title": "The Samurai's Morning (Naturalistic Cinematic Realism)",
+          "file": "_Sora 2/🎬 Prompt 1 — \"The Samurai's Morning\" (Naturalistic Cinematic Realism….md"
+        },
+        {
+          "step": 2,
+          "title": "The Ninja at Night (Stylized Neo-Noir Fantasy)",
+          "file": "_Sora 2/🎬 Prompt 2 — \"The Ninja at Night\" (Stylized Neo-Noir Fantasy).md"
+        },
+        {
+          "step": 3,
+          "title": "Samurai Soul, Sunset Ride (Retro 1970s Surf Film)",
+          "file": "_Sora 2/🎬 Prompt 3 — \"Samurai Soul, Sunset Ride\" (Retro 1970s Surf Film Aesthetic….md"
+        }
+      ]
+    },
+    {
+      "playbook_id": "mckinsey-strategy-suite",
+      "title": "McKinsey Strategy Suite",
+      "description": "3 heavyweight strategy prompts: market sizing/TAM analysis → full GTM strategy build → McKinsey-style SCQ/MECE problem solving. Deploy sequentially for a complete strategic brief.",
+      "category": "Marketing",
+      "tags": [
+        "Strategy",
+        "Consulting",
+        "McKinsey",
+        "GTM",
+        "Market Sizing",
+        "B2B"
+      ],
+      "status": "active",
+      "steps": [
+        {
+          "step": 1,
+          "title": "Market Sizing & TAM Analysis",
+          "file": "Playbooks/McKinsey Strategy Suite/1_Market Sizing  TAM Analysis.md"
+        },
+        {
+          "step": 2,
+          "title": "6 Claude GTM Strategy Prompts",
+          "file": "Playbooks/McKinsey Strategy Suite/2_6 Claude GTM Strategy Prompts.md"
+        },
+        {
+          "step": 3,
+          "title": "McKinsey Problem-Solving Brief",
+          "file": "Playbooks/McKinsey Strategy Suite/3_McKinsey Problem-Solving Brief.md"
+        }
+      ]
+    }
+  ],
+  "prompts": {
+    "active": [
+      {
+        "id": "market-research-sentiment",
+        "title": "Market Research - Sentiment",
+        "file": "Prompts/Marketing/Market Research - Sentiment.md",
+        "category": [
+          "Marketing",
+          "Research"
+        ],
+        "tags": [
+          "Sentiment Analysis",
+          "Market Research"
+        ],
+        "date": "2025-03-03"
+      },
+      {
+        "id": "competitor-analyzer",
+        "title": "Competitor Analyzer",
+        "file": "Prompts/Marketing/Competitor Analyzer.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Competitor Analysis",
+          "Strategy"
+        ],
+        "date": "2025-07-15",
+        "series_id": "digital-dominance-marketing-system",
+        "series_step": 1
+      },
+      {
+        "id": "trigger-the-algorithm",
+        "title": "Trigger the Algorithm",
+        "file": "Prompts/Marketing/Trigger the Algorithm.md",
+        "category": [
+          "Marketing",
+          "Social Media"
+        ],
+        "tags": [
+          "Algorithm",
+          "Viral Growth",
+          "Social Media"
+        ],
+        "date": "2025-07-15",
+        "series_id": "digital-dominance-marketing-system",
+        "series_step": 3
+      },
+      {
+        "id": "direct-response-marketing-system",
+        "title": "Direct Response Marketing System",
+        "file": "Prompts/Marketing/Direct Response Marketing System.md",
+        "category": [
+          "Marketing",
+          "Sales"
+        ],
+        "tags": [
+          "Direct Response",
+          "Email",
+          "Funnels"
+        ],
+        "date": "2025-07-15",
+        "series_id": "digital-dominance-marketing-system",
+        "series_step": 5
+      },
+      {
+        "id": "awesome-presentation-prompt",
+        "title": "Awesome Presentation Prompt",
+        "file": "Prompts/Marketing/Awesome Presentation Prompt.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Presentation",
+          "Strategy",
+          "Slides"
+        ],
+        "date": "2025-05-28"
+      },
+      {
+        "id": "chatgpt-marketing-team",
+        "title": "ChatGPT Marketing Team",
+        "file": "Prompts/Marketing/ChatGPT Marketing Team.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Multi-Role",
+          "Strategy",
+          "Growth",
+          "SEO"
+        ],
+        "date": "2025-07-30"
+      },
+      {
+        "id": "youtube-team",
+        "title": "YouTube Team",
+        "file": "Prompts/Marketing/YouTube Team.md",
+        "category": [
+          "Marketing",
+          "Copywriting"
+        ],
+        "tags": [
+          "YouTube",
+          "Video",
+          "Script",
+          "SEO"
+        ],
+        "date": "2025-09-10"
+      },
+      {
+        "id": "top-tier-strategy-consultant",
+        "title": "Top-Tier Strategy Consultant",
+        "file": "Prompts/Marketing/Top-Tier Strategy Consultant.md",
+        "category": [
+          "Marketing",
+          "Strategy"
+        ],
+        "tags": [
+          "Competitive Analysis",
+          "Growth",
+          "Pricing"
+        ],
+        "date": "2025-07-15"
+      },
+      {
+        "id": "cmo-analyse-customer-feedback",
+        "title": "Analyse Customer Feedback",
+        "file": "Prompts/Marketing/Analyse Customer Feedback.md",
+        "category": [
+          "Marketing",
+          "Research"
+        ],
+        "tags": [
+          "Customer Feedback",
+          "Insights"
+        ],
+        "date": "2025-05-20"
+      },
+      {
+        "id": "cmo-email-subject-lines",
+        "title": "Email Subject Lines with High Open Rate",
+        "file": "Prompts/Copywriting/Email Subject Lines with High Open Rate.md",
+        "category": [
+          "Copywriting",
+          "Marketing"
+        ],
+        "tags": [
+          "Email",
+          "Subject Lines",
+          "Open Rate"
+        ],
+        "date": "2025-05-20"
+      },
+      {
+        "id": "cmo-marketing-strategy",
+        "title": "Multi-Channel Marketing Strategy",
+        "file": "Prompts/Marketing/Multi-Channel Marketing Strategy.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Multi-Channel",
+          "Strategy",
+          "Social Media",
+          "Email"
+        ],
+        "date": "2025-05-20"
+      },
+      {
+        "id": "cmo-optimized-article-writing",
+        "title": "Optimized Article Writing",
+        "file": "Prompts/Copywriting/Optimized Article Writing.md",
+        "category": [
+          "Copywriting",
+          "Marketing"
+        ],
+        "tags": [
+          "Article",
+          "SEO",
+          "Content"
+        ],
+        "date": "2025-05-20"
+      },
+      {
+        "id": "cmo-research-icp",
+        "title": "Research the ICP",
+        "file": "Prompts/Marketing/Research the ICP.md",
+        "category": [
+          "Marketing",
+          "Research"
+        ],
+        "tags": [
+          "ICP",
+          "Persona",
+          "Research"
+        ],
+        "date": "2025-05-20",
+        "series_id": "cmo-content-marketing-pipeline",
+        "series_step": 1
+      },
+      {
+        "id": "cmo-competitors-positioning",
+        "title": "Competitors & Positioning Statement",
+        "file": "Prompts/Marketing/Competitors  Positioning Statement.md",
+        "category": [
+          "Marketing",
+          "Strategy"
+        ],
+        "tags": [
+          "Competitors",
+          "Positioning",
+          "Strategy"
+        ],
+        "date": "2025-05-20",
+        "series_id": "cmo-content-marketing-pipeline",
+        "series_step": 2
+      },
+      {
+        "id": "cmo-content-creation",
+        "title": "Content Creation (Audience Research)",
+        "file": "Prompts/Marketing/Content Creation Audience Research.md",
+        "category": [
+          "Marketing",
+          "Copywriting"
+        ],
+        "tags": [
+          "Audience Research",
+          "Content Strategy"
+        ],
+        "date": "2025-05-20",
+        "series_id": "cmo-content-marketing-pipeline",
+        "series_step": 3
+      },
+      {
+        "id": "cmo-content-flighting",
+        "title": "Content Flighting Calendar",
+        "file": "Prompts/Marketing/Content Flighting Calendar.md",
+        "category": [
+          "Marketing",
+          "Social Media"
+        ],
+        "tags": [
+          "Content Calendar",
+          "Social Media",
+          "Scheduling"
+        ],
+        "date": "2025-05-20",
+        "series_id": "cmo-content-marketing-pipeline",
+        "series_step": 4
+      },
+      {
+        "id": "cmo-sales-pitch",
+        "title": "Sales Pitch Builder",
+        "file": "Prompts/Sales/Sales Pitch Builder.md",
+        "category": [
+          "Sales",
+          "Copywriting"
+        ],
+        "tags": [
+          "Sales Pitch",
+          "USP",
+          "Persuasion"
+        ],
+        "date": "2025-05-20"
+      },
+      {
+        "id": "cmo-gtm-6-prompts",
+        "title": "6 Claude GTM Strategy Prompts",
+        "file": "Prompts/Marketing/6 Claude GTM Strategy Prompts.md",
+        "category": [
+          "Marketing",
+          "Strategy"
+        ],
+        "tags": [
+          "GTM",
+          "B2B",
+          "Strategy",
+          "ICP",
+          "CMO"
+        ],
+        "date": "2026-02-18",
+        "series_id": "cmo-gtm-playbook",
+        "series_step": 1
+      },
+      {
+        "id": "cmo-market-sizing-tam",
+        "title": "Market Sizing & TAM Analysis",
+        "file": "Prompts/Marketing/Market Sizing  TAM Analysis.md",
+        "category": [
+          "Marketing",
+          "Strategy"
+        ],
+        "tags": [
+          "TAM",
+          "Market Sizing",
+          "B2B"
+        ],
+        "date": "2026-02-22",
+        "series_id": "mckinsey-strategy-suite",
+        "series_step": 1
+      },
+      {
+        "id": "cmo-mckinsey-prompt",
+        "title": "McKinsey Problem-Solving Brief",
+        "file": "Prompts/Strategy/McKinsey Problem-Solving Brief.md",
+        "category": [
+          "Strategy"
+        ],
+        "tags": [
+          "McKinsey",
+          "SCQ",
+          "MECE",
+          "Consulting"
+        ],
+        "date": "2026-02-25",
+        "series_id": "mckinsey-strategy-suite",
+        "series_step": 3
+      },
+      {
+        "id": "write-more-naturally",
+        "title": "Write More Naturally",
+        "file": "Prompts/Copywriting/Write More Naturally.md",
+        "category": [
+          "Copywriting"
+        ],
+        "tags": [
+          "Writing Style",
+          "Natural",
+          "Anti-AI"
+        ],
+        "date": "2025-04-09"
+      },
+      {
+        "id": "write-like-a-human",
+        "title": "Write Like a Human",
+        "file": "Prompts/Copywriting/Write Like a Human.md",
+        "category": [
+          "Copywriting"
+        ],
+        "tags": [
+          "Writing Style",
+          "Anti-AI",
+          "Conversational"
+        ],
+        "date": "2025-05-20"
+      },
+      {
+        "id": "writing-style-prompt",
+        "title": "Writing Style Prompt",
+        "file": "Prompts/Copywriting/Writing Style Prompt.md",
+        "category": [
+          "Copywriting"
+        ],
+        "tags": [
+          "Writing Style",
+          "Anti-AI",
+          "Clarity"
+        ],
+        "date": "2025-06-20"
+      },
+      {
+        "id": "absolute-mode",
+        "title": "Absolute Mode",
+        "file": "Prompts/Copywriting/Absolute Mode.md",
+        "category": [
+          "Copywriting"
+        ],
+        "tags": [
+          "Anti-Fluff",
+          "Direct",
+          "Cognitive"
+        ],
+        "date": "2025-07-04"
+      },
+      {
+        "id": "five-act-tv-structure",
+        "title": "Five-Act TV Structure",
+        "file": "Prompts/Copywriting/Five-Act TV Structure.md",
+        "category": [
+          "Copywriting",
+          "Creative"
+        ],
+        "tags": [
+          "Storytelling",
+          "Script",
+          "Narrative"
+        ],
+        "date": "2025-07-15"
+      },
+      {
+        "id": "quotes-from-content",
+        "title": "Quotes from Content",
+        "file": "Prompts/Copywriting/Quotes from Content.md",
+        "category": [
+          "Copywriting",
+          "Social Media"
+        ],
+        "tags": [
+          "Carousels",
+          "Quotes",
+          "Social Media"
+        ],
+        "date": "2025-10-18"
+      },
+      {
+        "id": "cluster-pillar-content-brief",
+        "title": "Cluster/Pillar Content Brief",
+        "file": "Prompts/Copywriting/ClusterPillar Content Brief.md",
+        "category": [
+          "Copywriting",
+          "Marketing"
+        ],
+        "tags": [
+          "SEO",
+          "Content Brief",
+          "B2B"
+        ],
+        "date": "2025-04-28"
+      },
+      {
+        "id": "professional-content-creation",
+        "title": "Professional Content Creation",
+        "file": "Prompts/Copywriting/Professional Content Creation.md",
+        "category": [
+          "Copywriting"
+        ],
+        "tags": [
+          "Content Creation",
+          "Professional"
+        ],
+        "date": "2025-06-30"
+      },
+      {
+        "id": "course-creation-chatgpt",
+        "title": "Course Creation with ChatGPT",
+        "file": "Prompts/Copywriting/Course Creation with ChatGPT.md",
+        "category": [
+          "Copywriting",
+          "Learning"
+        ],
+        "tags": [
+          "Course",
+          "Education",
+          "Structure"
+        ],
+        "date": "2025-10-09"
+      },
+      {
+        "id": "11-persona-framework",
+        "title": "11-Persona Publication-Grade Content Creation",
+        "file": "Prompts/Copywriting/11-Persona Publication-Grade Content Creation.md",
+        "category": [
+          "Copywriting"
+        ],
+        "tags": [
+          "Content Creation",
+          "Long-Form",
+          "Framework",
+          "Publication"
+        ],
+        "date": "2025-08-08"
+      },
+      {
+        "id": "dopamine-loop-architect",
+        "title": "The Dopamine Loop Architect",
+        "file": "Prompts/Copywriting/The Dopamine Loop Architect.md",
+        "category": [
+          "Copywriting",
+          "Marketing"
+        ],
+        "tags": [
+          "Viral Content",
+          "Psychology",
+          "Hooks",
+          "Dopamine"
+        ],
+        "date": "2025-07-15",
+        "series_id": "viral-content-hook-trilogy",
+        "series_step": 1
+      },
+      {
+        "id": "micro-hit-hook-crafter",
+        "title": "The Micro-Hit Hook Crafter",
+        "file": "Prompts/Copywriting/The Micro-Hit Hook Crafter.md",
+        "category": [
+          "Copywriting",
+          "Marketing"
+        ],
+        "tags": [
+          "Hooks",
+          "Psychology",
+          "Identity"
+        ],
+        "date": "2025-07-15",
+        "series_id": "viral-content-hook-trilogy",
+        "series_step": 2
+      },
+      {
+        "id": "taboo-timing-tension-stack",
+        "title": "The Taboo Timing Tension Stack",
+        "file": "Prompts/Copywriting/The Taboo Timing Tension Stack.md",
+        "category": [
+          "Copywriting",
+          "Marketing"
+        ],
+        "tags": [
+          "Scripts",
+          "Short-Form",
+          "Viral",
+          "Tension"
+        ],
+        "date": "2025-07-15",
+        "series_id": "viral-content-hook-trilogy",
+        "series_step": 3
+      },
+      {
+        "id": "hooks",
+        "title": "Hooks Generator",
+        "file": "Prompts/Copywriting/Hooks Generator.md",
+        "category": [
+          "Copywriting",
+          "Marketing"
+        ],
+        "tags": [
+          "Hooks",
+          "Campaign",
+          "Copy"
+        ],
+        "date": "2025-07-09"
+      },
+      {
+        "id": "personal-bio-1",
+        "title": "Write a 1-Sentence Personal Bio",
+        "file": "Prompts/Personal Brand/Write a 1-Sentence Personal Bio.md",
+        "category": [
+          "Personal Brand",
+          "Copywriting"
+        ],
+        "tags": [
+          "Bio",
+          "Personal Brand",
+          "One-Liner"
+        ],
+        "date": "2025-05-20",
+        "series_id": "personal-bio-brand-builder",
+        "series_step": 1
+      },
+      {
+        "id": "personal-bio-2",
+        "title": "Craft a Multi-Platform Intro",
+        "file": "Prompts/Personal Brand/Craft a Multi-Platform Intro.md",
+        "category": [
+          "Personal Brand",
+          "Copywriting"
+        ],
+        "tags": [
+          "Bio",
+          "LinkedIn",
+          "Instagram"
+        ],
+        "date": "2025-05-20",
+        "series_id": "personal-bio-brand-builder",
+        "series_step": 2
+      },
+      {
+        "id": "personal-bio-3",
+        "title": "Position Me as the Go-To Expert",
+        "file": "Prompts/Personal Brand/Position Me as the Go-To Expert.md",
+        "category": [
+          "Personal Brand"
+        ],
+        "tags": [
+          "Positioning",
+          "Authority",
+          "Expert"
+        ],
+        "date": "2025-05-20",
+        "series_id": "personal-bio-brand-builder",
+        "series_step": 3
+      },
+      {
+        "id": "personal-bio-4",
+        "title": "Highlight My Personality + Credibility",
+        "file": "Prompts/Personal Brand/Highlight My Personality  Credibility.md",
+        "category": [
+          "Personal Brand",
+          "Copywriting"
+        ],
+        "tags": [
+          "Personality",
+          "Voice",
+          "Bio"
+        ],
+        "date": "2025-05-20",
+        "series_id": "personal-bio-brand-builder",
+        "series_step": 4
+      },
+      {
+        "id": "personal-bio-5",
+        "title": "Create a Speaker/Podcast Intro",
+        "file": "Prompts/Personal Brand/Create a SpeakerPodcast Intro.md",
+        "category": [
+          "Personal Brand"
+        ],
+        "tags": [
+          "Speaker",
+          "Podcast",
+          "Intro"
+        ],
+        "date": "2025-05-20",
+        "series_id": "personal-bio-brand-builder",
+        "series_step": 5
+      },
+      {
+        "id": "personal-bio-6",
+        "title": "Simplify My Bio With a Clear Hook",
+        "file": "Prompts/Personal Brand/Simplify My Bio With a Clear Hook.md",
+        "category": [
+          "Personal Brand",
+          "Copywriting"
+        ],
+        "tags": [
+          "Hook",
+          "Bio",
+          "Clarity"
+        ],
+        "date": "2025-05-20",
+        "series_id": "personal-bio-brand-builder",
+        "series_step": 6
+      },
+      {
+        "id": "personal-brand-content-pillars",
+        "title": "Personal Brand Story + Content Pillars",
+        "file": "Prompts/Personal Brand/Personal Brand Story  Content Pillars.md",
+        "category": [
+          "Personal Brand"
+        ],
+        "tags": [
+          "Brand Story",
+          "Content Pillars",
+          "Niche"
+        ],
+        "date": "2025-07-28"
+      },
+      {
+        "id": "sarens-writing-style",
+        "title": "Saren's Writing Style",
+        "file": "Prompt Engineering/Saren's Writing Style.md",
+        "category": [
+          "Personal Brand",
+          "Copywriting"
+        ],
+        "tags": [
+          "Writing Style",
+          "Voice",
+          "Personal Brand"
+        ],
+        "date": "2025-07-14"
+      },
+      {
+        "id": "negotiation-framework",
+        "title": "Negotiation Framework",
+        "file": "Prompts/Sales/Negotiation Framework.md",
+        "category": [
+          "Sales"
+        ],
+        "tags": [
+          "Negotiation",
+          "Sales",
+          "Psychology"
+        ],
+        "date": "2025-07-15",
+        "series_id": "digital-dominance-marketing-system",
+        "series_step": 4
+      },
+      {
+        "id": "cmo-problem-solving",
+        "title": "Problem Solving Framework",
+        "file": "Prompts/Sales/Problem Solving Framework.md",
+        "category": [
+          "Sales",
+          "Strategy"
+        ],
+        "tags": [
+          "Problem Solving",
+          "Framework",
+          "Business"
+        ],
+        "date": "2025-05-20"
+      },
+      {
+        "id": "conversation-spark-generator",
+        "title": "Conversation Spark Generator",
+        "file": "Prompts/Sales/Conversation Spark Generator.md",
+        "category": [
+          "Sales",
+          "Personal Brand"
+        ],
+        "tags": [
+          "Conversation",
+          "Networking",
+          "Sales"
+        ],
+        "date": "2025-05-27"
+      },
+      {
+        "id": "business-plan-prompt",
+        "title": "ChatGPT Writes Your Entire Business Plan",
+        "file": "Prompts/Sales/ChatGPT Writes Your Entire Business Plan.md",
+        "category": [
+          "Sales",
+          "Strategy"
+        ],
+        "tags": [
+          "Business Plan",
+          "Startup",
+          "Strategy"
+        ],
+        "date": "2025-08-12"
+      },
+      {
+        "id": "icp-deep-research",
+        "title": "ICP Deep Research",
+        "file": "Prompts/Research/ICP Deep Research.md",
+        "category": [
+          "Research",
+          "Marketing"
+        ],
+        "tags": [
+          "ICP",
+          "Persona",
+          "Research",
+          "B2B"
+        ],
+        "date": "2025-06-10",
+        "series_id": "research-intelligence-pipeline",
+        "series_step": 1
+      },
+      {
+        "id": "map-competitors",
+        "title": "Map Competitors",
+        "file": "Prompts/Research/Map Competitors.md",
+        "category": [
+          "Research",
+          "Marketing"
+        ],
+        "tags": [
+          "Competitors",
+          "Strategy",
+          "Growth"
+        ],
+        "date": "2025-05-29",
+        "series_id": "research-intelligence-pipeline",
+        "series_step": 2
+      },
+      {
+        "id": "competitive-market-analysis",
+        "title": "Competitive Market Analysis",
+        "file": "Prompts/Research/Competitive Market Analysis.md",
+        "category": [
+          "Research",
+          "Marketing"
+        ],
+        "tags": [
+          "Competitive Analysis",
+          "Market"
+        ],
+        "date": "2025-06-30",
+        "series_id": "research-intelligence-pipeline",
+        "series_step": 3
+      },
+      {
+        "id": "market-trends-insight-reports",
+        "title": "Market Trends Insight Reports",
+        "file": "Prompts/Research/Market Trends Insight Reports.md",
+        "category": [
+          "Research",
+          "Marketing"
+        ],
+        "tags": [
+          "Market Trends",
+          "Industry"
+        ],
+        "date": "2025-07-01",
+        "series_id": "research-intelligence-pipeline",
+        "series_step": 4
+      },
+      {
+        "id": "social-pain-point-research",
+        "title": "Social Pain Point Research",
+        "file": "Prompts/Research/Social Pain Point Research.md",
+        "category": [
+          "Research",
+          "Marketing"
+        ],
+        "tags": [
+          "Pain Points",
+          "Social Research",
+          "Perplexity"
+        ],
+        "date": "2025-11-04",
+        "series_id": "research-intelligence-pipeline",
+        "series_step": 5
+      },
+      {
+        "id": "deep-research-brand-saas",
+        "title": "Deep Research - Brand/SaaS",
+        "file": "Prompts/Research/Deep Research - BrandSaaS.md",
+        "category": [
+          "Research",
+          "Marketing"
+        ],
+        "tags": [
+          "Deep Research",
+          "ICP",
+          "SaaS",
+          "Brand"
+        ],
+        "date": "2025-06-04"
+      },
+      {
+        "id": "comprehensive-topic-research",
+        "title": "Comprehensive Topic Research",
+        "file": "Prompts/Research/Comprehensive Topic Research.md",
+        "category": [
+          "Research"
+        ],
+        "tags": [
+          "Research",
+          "Overview",
+          "Multi-use"
+        ],
+        "date": "2025-06-30"
+      },
+      {
+        "id": "industry-trends-report",
+        "title": "Industry Trends Report Prompt",
+        "file": "Prompts/Research/Industry Trends Report Prompt.md",
+        "category": [
+          "Research",
+          "Marketing"
+        ],
+        "tags": [
+          "Industry",
+          "Trends",
+          "Report"
+        ],
+        "date": "2025-11-12"
+      },
+      {
+        "id": "social-research-assistants",
+        "title": "Social Research Assistants v02",
+        "file": "Prompts/Research/Social Research Assistants v02.md",
+        "category": [
+          "Research",
+          "Social Media"
+        ],
+        "tags": [
+          "Social Media",
+          "Research",
+          "Assistants"
+        ],
+        "date": "2026-01-04"
+      },
+      {
+        "id": "create-full-report",
+        "title": "Create a Full Research Report",
+        "file": "Prompts/Research/Create a Full Research Report.md",
+        "category": [
+          "Research"
+        ],
+        "tags": [
+          "Deep Research",
+          "Perplexity",
+          "Report"
+        ],
+        "date": "2025-03-26"
+      },
+      {
+        "id": "mind-reader",
+        "title": "Mind-Reader Therapist",
+        "file": "Prompts/Personal Brand/Mind-Reader Therapist.md",
+        "category": [
+          "Personal Brand"
+        ],
+        "tags": [
+          "Psychology",
+          "Shadow Work",
+          "Therapy",
+          "Coaching"
+        ],
+        "date": "2025-06-26"
+      },
+      {
+        "id": "burnout-counseling",
+        "title": "Burnout Counseling",
+        "file": "Prompts/Personal Brand/Burnout Counseling.md",
+        "category": [
+          "Personal Brand"
+        ],
+        "tags": [
+          "Burnout",
+          "Wellbeing",
+          "Mental Health"
+        ],
+        "date": "2025-07-06"
+      },
+      {
+        "id": "brutal-truth-excavator",
+        "title": "Brutal Truth Excavator",
+        "file": "Prompts/Personal Brand/Brutal Truth Excavator.md",
+        "category": [
+          "Personal Brand"
+        ],
+        "tags": [
+          "Psychology",
+          "Self-Deception",
+          "Motivation"
+        ],
+        "date": "2025-03-14"
+      },
+      {
+        "id": "psychological-guide",
+        "title": "Psychological Guide",
+        "file": "Prompts/Personal Brand/Psychological Guide.md",
+        "category": [
+          "Personal Brand"
+        ],
+        "tags": [
+          "Therapy",
+          "CBT",
+          "Grounding",
+          "Wellbeing"
+        ],
+        "date": "2025-04-25"
+      },
+      {
+        "id": "wethos-1-thinking-patterns",
+        "title": "Understanding My Thinking Patterns",
+        "file": "Prompts/Personal Brand/Understanding My Thinking Patterns.md",
+        "category": [
+          "Personal Brand"
+        ],
+        "tags": [
+          "Cognitive Psychology",
+          "Biases",
+          "Mindset"
+        ],
+        "date": "2025-05-20",
+        "series_id": "self-discovery-mindset-journey",
+        "series_step": 1
+      },
+      {
+        "id": "wethos-2-core-values",
+        "title": "Discovering My Core Values",
+        "file": "Prompts/Personal Brand/Discovering My Core Values.md",
+        "category": [
+          "Personal Brand"
+        ],
+        "tags": [
+          "Values",
+          "Self-Discovery"
+        ],
+        "date": "2025-05-20",
+        "series_id": "self-discovery-mindset-journey",
+        "series_step": 2
+      },
+      {
+        "id": "wethos-3-emotional-triggers",
+        "title": "Recognizing My Emotional Triggers",
+        "file": "Prompts/Personal Brand/Recognizing My Emotional Triggers.md",
+        "category": [
+          "Personal Brand"
+        ],
+        "tags": [
+          "Emotional Intelligence",
+          "Triggers"
+        ],
+        "date": "2025-05-20",
+        "series_id": "self-discovery-mindset-journey",
+        "series_step": 3
+      },
+      {
+        "id": "wethos-4-personality-type",
+        "title": "Understanding My Personality Type",
+        "file": "Prompts/Personal Brand/Understanding My Personality Type.md",
+        "category": [
+          "Personal Brand"
+        ],
+        "tags": [
+          "Personality",
+          "MBTI",
+          "Big Five"
+        ],
+        "date": "2025-05-20",
+        "series_id": "self-discovery-mindset-journey",
+        "series_step": 4
+      },
+      {
+        "id": "wethos-5-limiting-beliefs",
+        "title": "Overcoming Limiting Beliefs",
+        "file": "Prompts/Personal Brand/Overcoming Limiting Beliefs.md",
+        "category": [
+          "Personal Brand"
+        ],
+        "tags": [
+          "Limiting Beliefs",
+          "Mindset",
+          "Growth"
+        ],
+        "date": "2025-05-20",
+        "series_id": "self-discovery-mindset-journey",
+        "series_step": 5
+      },
+      {
+        "id": "wethos-6-decision-making",
+        "title": "Improving My Decision-Making",
+        "file": "Prompts/Personal Brand/Improving My Decision-Making.md",
+        "category": [
+          "Personal Brand"
+        ],
+        "tags": [
+          "Decision Making",
+          "Frameworks"
+        ],
+        "date": "2025-05-20",
+        "series_id": "self-discovery-mindset-journey",
+        "series_step": 6
+      },
+      {
+        "id": "personal-iq",
+        "title": "Personal IQ Assessment",
+        "file": "Prompts/Personal Brand/Personal IQ Assessment.md",
+        "category": [
+          "Personal Brand"
+        ],
+        "tags": [
+          "IQ",
+          "Strengths",
+          "Psychology"
+        ],
+        "date": "2025-07-25"
+      },
+      {
+        "id": "ai-upgrade-yourself",
+        "title": "AI Upgrade Yourself",
+        "file": "Prompts/Personal Brand/AI Upgrade Yourself.md",
+        "category": [
+          "Personal Brand"
+        ],
+        "tags": [
+          "AI",
+          "Self-Improvement",
+          "Habits"
+        ],
+        "date": "2025-07-25"
+      },
+      {
+        "id": "reshape-your-thinking",
+        "title": "Reshape Your Thinking",
+        "file": "Prompts/Personal Brand/Reshape Your Thinking.md",
+        "category": [
+          "Personal Brand",
+          "Learning"
+        ],
+        "tags": [
+          "Neuroplasticity",
+          "Cognitive Enhancement"
+        ],
+        "date": "2025-05-22"
+      },
+      {
+        "id": "optimize-daily-performance",
+        "title": "Optimize Daily Performance",
+        "file": "Prompts/Personal Brand/Optimize Daily Performance.md",
+        "category": [
+          "Personal Brand"
+        ],
+        "tags": [
+          "Productivity",
+          "Peak Performance",
+          "Schedule"
+        ],
+        "date": "2025-05-22"
+      },
+      {
+        "id": "increase-self-awareness",
+        "title": "Increase Self-Awareness",
+        "file": "Prompts/Personal Brand/Increase Self-Awareness.md",
+        "category": [
+          "Personal Brand"
+        ],
+        "tags": [
+          "Self-Awareness",
+          "Decision Making"
+        ],
+        "date": "2025-05-22"
+      },
+      {
+        "id": "improve-persuasion",
+        "title": "Improve Your Persuasion Skills",
+        "file": "Prompts/Sales/Improve Your Persuasion Skills.md",
+        "category": [
+          "Sales",
+          "Personal Brand"
+        ],
+        "tags": [
+          "Persuasion",
+          "Rhetoric",
+          "Influence"
+        ],
+        "date": "2025-05-22"
+      },
+      {
+        "id": "learn-simplify-complex",
+        "title": "Simplify Complex Information",
+        "file": "Prompts/Learning/Simplify Complex Information.md",
+        "category": [
+          "Learning"
+        ],
+        "tags": [
+          "Simplification",
+          "Learning"
+        ],
+        "date": "2025-05-20",
+        "series_id": "learning-mastery-sequence",
+        "series_step": 1
+      },
+      {
+        "id": "learn-from-mistakes",
+        "title": "Learn From Mistakes",
+        "file": "Prompts/Learning/Learn From Mistakes.md",
+        "category": [
+          "Learning"
+        ],
+        "tags": [
+          "Mistakes",
+          "Practice",
+          "Skill"
+        ],
+        "date": "2025-05-20",
+        "series_id": "learning-mastery-sequence",
+        "series_step": 2
+      },
+      {
+        "id": "learn-apply-knowledge",
+        "title": "Apply Your Knowledge",
+        "file": "Prompts/Learning/Apply Your Knowledge.md",
+        "category": [
+          "Learning"
+        ],
+        "tags": [
+          "Application",
+          "Real-World"
+        ],
+        "date": "2025-05-20",
+        "series_id": "learning-mastery-sequence",
+        "series_step": 3
+      },
+      {
+        "id": "learn-compare-contrast",
+        "title": "Compare and Contrast",
+        "file": "Prompts/Learning/Compare and Contrast.md",
+        "category": [
+          "Learning"
+        ],
+        "tags": [
+          "Comparison",
+          "Concepts"
+        ],
+        "date": "2025-05-20",
+        "series_id": "learning-mastery-sequence",
+        "series_step": 4
+      },
+      {
+        "id": "learn-gamify",
+        "title": "Gamify Learning",
+        "file": "Prompts/Learning/Gamify Learning.md",
+        "category": [
+          "Learning"
+        ],
+        "tags": [
+          "Gamification",
+          "Engagement"
+        ],
+        "date": "2025-05-20",
+        "series_id": "learning-mastery-sequence",
+        "series_step": 5
+      },
+      {
+        "id": "learn-stay-updated",
+        "title": "Stay Updated",
+        "file": "Prompts/Learning/Stay Updated.md",
+        "category": [
+          "Learning"
+        ],
+        "tags": [
+          "Resources",
+          "Trends",
+          "Updates"
+        ],
+        "date": "2025-05-20",
+        "series_id": "learning-mastery-sequence",
+        "series_step": 6
+      },
+      {
+        "id": "learn-summarize-texts",
+        "title": "Summarize Complex Texts",
+        "file": "Prompts/Learning/Summarize Complex Texts.md",
+        "category": [
+          "Learning"
+        ],
+        "tags": [
+          "Summarization",
+          "Reading"
+        ],
+        "date": "2025-05-20",
+        "series_id": "learning-mastery-sequence",
+        "series_step": 7
+      },
+      {
+        "id": "private-tutor",
+        "title": "Private Tutor (Adaptive Learning)",
+        "file": "Prompts/Learning/Private Tutor Adaptive Learning.md",
+        "category": [
+          "Learning"
+        ],
+        "tags": [
+          "Tutor",
+          "Adaptive",
+          "Quiz"
+        ],
+        "date": "2025-07-04"
+      },
+      {
+        "id": "strategic-task-prioritization",
+        "title": "Strategic Task Prioritization",
+        "file": "Prompts/Sales/Strategic Task Prioritization.md",
+        "category": [
+          "Sales"
+        ],
+        "tags": [
+          "Prioritization",
+          "Productivity",
+          "Eisenhower"
+        ],
+        "date": "2025-06-30",
+        "series_id": "daily-executive-gsd-stack",
+        "series_step": 1
+      },
+      {
+        "id": "meeting-prep-agenda",
+        "title": "Meeting Preparation & Agenda",
+        "file": "Prompts/Sales/Meeting Preparation  Agenda.md",
+        "category": [
+          "Sales"
+        ],
+        "tags": [
+          "Meetings",
+          "Agenda",
+          "Leadership"
+        ],
+        "date": "2025-06-30",
+        "series_id": "daily-executive-gsd-stack",
+        "series_step": 2
+      },
+      {
+        "id": "decision-making-framework",
+        "title": "Decision-Making Framework",
+        "file": "Prompts/Sales/Decision-Making Framework.md",
+        "category": [
+          "Sales",
+          "Strategy"
+        ],
+        "tags": [
+          "Decision Making",
+          "Pros/Cons",
+          "Risk"
+        ],
+        "date": "2025-06-30",
+        "series_id": "daily-executive-gsd-stack",
+        "series_step": 3
+      },
+      {
+        "id": "smart-goal-development",
+        "title": "SMART Goal Development",
+        "file": "Prompts/Sales/SMART Goal Development.md",
+        "category": [
+          "Sales"
+        ],
+        "tags": [
+          "SMART Goals",
+          "Career",
+          "Milestones"
+        ],
+        "date": "2025-06-30",
+        "series_id": "daily-executive-gsd-stack",
+        "series_step": 4
+      },
+      {
+        "id": "workplace-problem-solving",
+        "title": "Workplace Problem-Solving",
+        "file": "Prompts/Sales/Workplace Problem-Solving.md",
+        "category": [
+          "Sales"
+        ],
+        "tags": [
+          "Problem Solving",
+          "Work",
+          "Root Cause"
+        ],
+        "date": "2025-06-30",
+        "series_id": "daily-executive-gsd-stack",
+        "series_step": 5
+      },
+      {
+        "id": "gsd-prompts-work",
+        "title": "GSD Prompts for Work",
+        "file": "Prompts/Sales/GSD Prompts for Work.md",
+        "category": [
+          "Sales"
+        ],
+        "tags": [
+          "Productivity",
+          "Email",
+          "Task Management"
+        ],
+        "date": "2025-07-15"
+      },
+      {
+        "id": "career-prompt",
+        "title": "Career Strengths Report",
+        "file": "Prompts/Sales/Career Strengths Report.md",
+        "category": [
+          "Sales",
+          "Personal Brand"
+        ],
+        "tags": [
+          "Career",
+          "Strengths",
+          "Coaching"
+        ],
+        "date": "2025-03-28"
+      },
+      {
+        "id": "brutally-honest-job-fit",
+        "title": "Brutally Honest Job Fit Analyzer",
+        "file": "Prompts/Sales/Brutally Honest Job Fit Analyzer.md",
+        "category": [
+          "Sales"
+        ],
+        "tags": [
+          "Job Fit",
+          "Career",
+          "Resume"
+        ],
+        "date": "2025-04-20"
+      },
+      {
+        "id": "think-different-prompts",
+        "title": "Think Different Prompts",
+        "file": "Prompts/Learning/Think Different Prompts.md",
+        "category": [
+          "Learning",
+          "Personal Brand"
+        ],
+        "tags": [
+          "Mindset",
+          "Think Different",
+          "Learning"
+        ],
+        "date": "2025-06-06"
+      },
+      {
+        "id": "brain-prompts",
+        "title": "Brain Prompts",
+        "file": "Prompts/Learning/Brain Prompts.md",
+        "category": [
+          "Learning"
+        ],
+        "tags": [
+          "Deep Work",
+          "Focus",
+          "Learning"
+        ],
+        "date": "2025-06-06"
+      },
+      {
+        "id": "xml-only-prompting",
+        "title": "XML-Only Prompting",
+        "file": "Prompts/Marketing/XML-Only Prompting.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Prompt Engineering",
+          "XML",
+          "Structured"
+        ],
+        "date": "2025-07-08"
+      },
+      {
+        "id": "json-only-prompting",
+        "title": "JSON-Only Prompting",
+        "file": "Prompts/Marketing/JSON-Only Prompting.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Prompt Engineering",
+          "JSON",
+          "Structured"
+        ],
+        "date": "2025-07-08"
+      },
+      {
+        "id": "human-system-prompt",
+        "title": "Human System Prompt",
+        "file": "Prompts/Marketing/Human System Prompt.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Prompt Engineering",
+          "System Prompt"
+        ],
+        "date": "2025-07-14"
+      },
+      {
+        "id": "humanistic-prompting",
+        "title": "Humanistic Prompting",
+        "file": "Prompts/Copywriting/Humanistic Prompting.md",
+        "category": [
+          "Copywriting"
+        ],
+        "tags": [
+          "Prompt Engineering",
+          "Humanistic",
+          "Natural"
+        ],
+        "date": "2025-07-28"
+      },
+      {
+        "id": "big-single-prompt",
+        "title": "Big Single Prompt",
+        "file": "Prompts/Marketing/Big Single Prompt.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Prompt Engineering",
+          "Mega Prompt"
+        ],
+        "date": "2025-08-04"
+      },
+      {
+        "id": "stop-saying-summarize",
+        "title": "STOP SAYING 'Summarize this' to ChatGPT",
+        "file": "Prompts/Marketing/STOP SAYING Summarize this to ChatGPT.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Prompt Engineering",
+          "Better Prompting"
+        ],
+        "date": "2026-01-20"
+      },
+      {
+        "id": "make-go-to-framework",
+        "title": "Go-To Framework for Deep Expertise",
+        "file": "Prompts/Marketing/Go-To Framework for Deep Expertise.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Prompt Engineering",
+          "Framework",
+          "Expertise"
+        ],
+        "date": "2025-03-20"
+      },
+      {
+        "id": "high-level-llm-focus",
+        "title": "High Level LLM Focus Prompt",
+        "file": "Prompts/Marketing/High Level LLM Focus Prompt.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Prompt Engineering",
+          "Focus",
+          "LLM"
+        ],
+        "date": "2025-06-10"
+      },
+      {
+        "id": "reasoning-pattern",
+        "title": "Reasoning Pattern",
+        "file": "Prompts/Marketing/Reasoning Pattern.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Prompt Engineering",
+          "Reasoning",
+          "Chain of Thought"
+        ],
+        "date": "2025-08-28"
+      },
+      {
+        "id": "append-to-all-prompts",
+        "title": "Append to All Prompts",
+        "file": "Prompts/Marketing/Append to All Prompts.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Prompt Engineering",
+          "Universal Suffix"
+        ],
+        "date": "2025-06-21"
+      },
+      {
+        "id": "more-critical-responses",
+        "title": "More Critical Responses",
+        "file": "Prompts/Marketing/More Critical Responses.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Prompt Engineering",
+          "Critical Thinking"
+        ],
+        "date": "2025-03-19"
+      },
+      {
+        "id": "gen-x-categories-executives",
+        "title": "Gen X: Categories for Executives",
+        "file": "Prompts/Marketing/Gen X Categories for Executives.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Executives",
+          "Leadership",
+          "AI Workflows"
+        ],
+        "date": "2025-10-25"
+      },
+      {
+        "id": "gen-x-prompt-stacks",
+        "title": "Gen X: Prompt Stacks & Rituals",
+        "file": "Prompts/Marketing/Gen X Prompt Stacks  Rituals.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Executives",
+          "Daily Routine",
+          "AI Prompts"
+        ],
+        "date": "2025-10-25"
+      },
+      {
+        "id": "sora2-samurai-base",
+        "title": "Sora 2 - Samurai in San Onofre",
+        "file": "Prompts/Creative/Sora 2 - Samurai in San Onofre.md",
+        "category": [
+          "Creative"
+        ],
+        "tags": [
+          "Video Gen",
+          "Sora 2",
+          "Samurai"
+        ],
+        "date": "2025-10-13",
+        "series_id": "sora2-samurai-creative-series",
+        "series_step": 0
+      },
+      {
+        "id": "sora2-samurai-morning",
+        "title": "Sora 2 - The Samurai's Morning",
+        "file": "_Sora 2/🎬 Prompt 1 — \"The Samurai's Morning\" (Naturalistic Cinematic Realism….md",
+        "category": [
+          "Creative"
+        ],
+        "tags": [
+          "Video Gen",
+          "Sora 2",
+          "Cinematic"
+        ],
+        "date": "2025-10-13",
+        "series_id": "sora2-samurai-creative-series",
+        "series_step": 1
+      },
+      {
+        "id": "sora2-ninja-night",
+        "title": "Sora 2 - The Ninja at Night",
+        "file": "_Sora 2/🎬 Prompt 2 — \"The Ninja at Night\" (Stylized Neo-Noir Fantasy).md",
+        "category": [
+          "Creative"
+        ],
+        "tags": [
+          "Video Gen",
+          "Sora 2",
+          "Neo-Noir"
+        ],
+        "date": "2025-10-13",
+        "series_id": "sora2-samurai-creative-series",
+        "series_step": 2
+      },
+      {
+        "id": "sora2-samurai-soul",
+        "title": "Sora 2 - Samurai Soul, Sunset Ride",
+        "file": "_Sora 2/🎬 Prompt 3 — \"Samurai Soul, Sunset Ride\" (Retro 1970s Surf Film Aesthetic….md",
+        "category": [
+          "Creative"
+        ],
+        "tags": [
+          "Video Gen",
+          "Sora 2",
+          "Retro Surf"
+        ],
+        "date": "2025-10-13",
+        "series_id": "sora2-samurai-creative-series",
+        "series_step": 3
+      },
+      {
+        "id": "google-veo3-builder",
+        "title": "Google Veo 3 Prompt Builder",
+        "file": "Prompts/Creative/Google Veo 3 Prompt Builder.md",
+        "category": [
+          "Creative"
+        ],
+        "tags": [
+          "Video Gen",
+          "Veo 3",
+          "Google"
+        ],
+        "date": "2025-06-20"
+      },
+      {
+        "id": "nano-banana-prompting-guide",
+        "title": "Nano Banana Prompting Guide",
+        "file": "Prompts/Creative/Nano Banana Prompting Guide.md",
+        "category": [
+          "Creative"
+        ],
+        "tags": [
+          "Image Gen",
+          "Nano Banana",
+          "Gemini"
+        ],
+        "date": "2025-09-07"
+      },
+      {
+        "id": "app-idea-to-agent-spec",
+        "title": "App Idea to Agent Spec",
+        "file": "Prompts/Sales/App Idea to Agent Spec.md",
+        "category": [
+          "Sales"
+        ],
+        "tags": [
+          "Product",
+          "Startup",
+          "Spec",
+          "Vibe Coding"
+        ],
+        "date": "2025-06-26"
+      },
+      {
+        "id": "1m-fast",
+        "title": "$1M Fast",
+        "file": "Prompts/Sales/1M Fast.md",
+        "category": [
+          "Sales",
+          "Strategy"
+        ],
+        "tags": [
+          "Monetization",
+          "Business",
+          "Revenue"
+        ],
+        "date": "2025-07-15"
+      }
+    ],
+    "archived": [
+      {
+        "id": "midjourney-prompt-info",
+        "title": "Mid-Journey Prompt Info",
+        "file": "Prompts/Archived/Creative/Mid-Journey Prompt Info.md",
+        "category": [
+          "Creative"
+        ],
+        "tags": [
+          "MidJourney",
+          "Image Gen"
+        ],
+        "date": "2023-02-07"
+      },
+      {
+        "id": "blue-willow-prompts",
+        "title": "Blue Willow Prompts",
+        "file": "Prompts/Archived/Creative/Blue Willow Prompts.md",
+        "category": [
+          "Creative"
+        ],
+        "tags": [
+          "Blue Willow",
+          "Image Gen"
+        ],
+        "date": "2023-02-11"
+      },
+      {
+        "id": "portrait-half",
+        "title": "Portrait Half",
+        "file": "Prompts/Archived/Creative/Portrait Half.md",
+        "category": [
+          "Creative"
+        ],
+        "tags": [
+          "MidJourney",
+          "Portrait"
+        ],
+        "date": "2023-02-15"
+      },
+      {
+        "id": "imagine-hafu",
+        "title": "-imagine Hāfu",
+        "file": "Prompts/Archived/Creative/-imagine Hfu.md",
+        "category": [
+          "Creative"
+        ],
+        "tags": [
+          "MidJourney"
+        ],
+        "date": "2023-02-18"
+      },
+      {
+        "id": "imagine-isometric",
+        "title": "-imagine Isometric",
+        "file": "Prompts/Archived/Creative/-imagine Isometric.md",
+        "category": [
+          "Creative"
+        ],
+        "tags": [
+          "MidJourney",
+          "Isometric"
+        ],
+        "date": "2023-02-18"
+      },
+      {
+        "id": "midjourney-style-prompts",
+        "title": "Mid-Journey Style Prompts",
+        "file": "Prompts/Archived/Creative/Mid-Journey Style Prompts.md",
+        "category": [
+          "Creative"
+        ],
+        "tags": [
+          "MidJourney",
+          "Style"
+        ],
+        "date": "2023-02-18"
+      },
+      {
+        "id": "midjourney-artgerm",
+        "title": "Midjourney (artgerm + skottie young)",
+        "file": "Prompts/Archived/Creative/Midjourney artgerm  skottie young.md",
+        "category": [
+          "Creative"
+        ],
+        "tags": [
+          "MidJourney",
+          "Artgerm"
+        ],
+        "date": "2023-04-07"
+      },
+      {
+        "id": "analyze-competitors-google-ads",
+        "title": "Analyze Competitors' Google Ads",
+        "file": "Analyze all of your competitors Google Ads with ChatGPT-4's Code Interpreter.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Google Ads",
+          "Competitor Analysis",
+          "Code Interpreter"
+        ],
+        "date": "2023-07-19"
+      },
+      {
+        "id": "prompt-google-ads-campaign",
+        "title": "Google Ads Campaign Prompt",
+        "file": "Prompts/Archived/Marketing/Google Ads Campaign Prompt.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Google Ads",
+          "PPC",
+          "Campaign"
+        ],
+        "date": "2023-09-12"
+      },
+      {
+        "id": "b2b-icp-builder",
+        "title": "B2B ICP Builder",
+        "file": "Prompts/Archived/Marketing/B2B ICP Builder.md",
+        "category": [
+          "Marketing",
+          "Research"
+        ],
+        "tags": [
+          "B2B",
+          "ICP",
+          "Research"
+        ],
+        "date": "2024-01-02"
+      },
+      {
+        "id": "startup-marketing-pack",
+        "title": "Startup / Personal Brand Marketing Pack",
+        "file": "Prompts/Archived/Marketing/Startup  Personal Brand Marketing Pack.md",
+        "category": [
+          "Marketing",
+          "Personal Brand"
+        ],
+        "tags": [
+          "Startup",
+          "Personal Brand",
+          "Table Stakes"
+        ],
+        "date": "2024-03-28"
+      },
+      {
+        "id": "brand-summary",
+        "title": "Brand Summary",
+        "file": "Prompts/Archived/Marketing/Brand Summary.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Branding",
+          "Strategy"
+        ],
+        "date": "2024-05-31",
+        "series_id": "brand-identity-foundation",
+        "series_step": 1
+      },
+      {
+        "id": "brand-mission-values-vision",
+        "title": "Mission, Values & Vision",
+        "file": "Prompts/Archived/Marketing/Mission Values  Vision.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Branding",
+          "Mission",
+          "Values"
+        ],
+        "date": "2024-05-31",
+        "series_id": "brand-identity-foundation",
+        "series_step": 2
+      },
+      {
+        "id": "brand-pain-points",
+        "title": "Brand Pain Points",
+        "file": "Prompts/Archived/Marketing/Brand Pain Points.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Branding",
+          "Pain Points"
+        ],
+        "date": "2024-05-31",
+        "series_id": "brand-identity-foundation",
+        "series_step": 3
+      },
+      {
+        "id": "brand-products-services",
+        "title": "Brand Products & Services Map",
+        "file": "Prompts/Archived/Marketing/Brand Products  Services Map.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Branding",
+          "Products"
+        ],
+        "date": "2024-05-31",
+        "series_id": "brand-identity-foundation",
+        "series_step": 4
+      },
+      {
+        "id": "press-release-prompt",
+        "title": "Press Release Prompt",
+        "file": "Prompts/Archived/Copywriting/Press Release Prompt.md",
+        "category": [
+          "Copywriting",
+          "Marketing"
+        ],
+        "tags": [
+          "Press Release",
+          "PR"
+        ],
+        "date": "2024-04-30"
+      },
+      {
+        "id": "message-map-prompt",
+        "title": "Message Map Prompt",
+        "file": "Prompts/Archived/Copywriting/Message Map Prompt.md",
+        "category": [
+          "Copywriting",
+          "Marketing"
+        ],
+        "tags": [
+          "Message Map",
+          "Messaging"
+        ],
+        "date": "2024-05-13"
+      },
+      {
+        "id": "train-tone-of-voice",
+        "title": "Train for Tone of Voice",
+        "file": "Prompts/Archived/Copywriting/Train for Tone of Voice.md",
+        "category": [
+          "Copywriting"
+        ],
+        "tags": [
+          "Tone of Voice",
+          "Style"
+        ],
+        "date": "2024-05-13"
+      },
+      {
+        "id": "sarenbot-style",
+        "title": "SarenBot Style",
+        "file": "Prompts/Archived/Personal Brand/SarenBot Style.md",
+        "category": [
+          "Personal Brand",
+          "Copywriting"
+        ],
+        "tags": [
+          "Tone of Voice",
+          "Personal Brand",
+          "Writing Style"
+        ],
+        "date": "2024-12-07"
+      },
+      {
+        "id": "perplexity-original",
+        "title": "[Original] Research Prompt for Perplexity",
+        "file": "Prompts/Archived/Research/Original Research Prompt for Perplexity.md",
+        "category": [
+          "Research"
+        ],
+        "tags": [
+          "Perplexity",
+          "Research Template"
+        ],
+        "date": "2024-03-25"
+      },
+      {
+        "id": "perplexity-growth-marketing",
+        "title": "Perplexity for Growth Marketing",
+        "file": "Prompts/Archived/Marketing/Perplexity for Growth Marketing.md",
+        "category": [
+          "Marketing",
+          "Research"
+        ],
+        "tags": [
+          "Perplexity",
+          "Growth Marketing",
+          "SEO"
+        ],
+        "date": "2024-03-25"
+      },
+      {
+        "id": "google-ads-bidding-strategy",
+        "title": "Google Ads Bidding Strategy",
+        "file": "Prompts/Archived/Marketing/Google Ads Bidding Strategy.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Google Ads",
+          "Bidding",
+          "PPC"
+        ],
+        "date": "2024-05-13"
+      },
+      {
+        "id": "ad-copy-creation-search",
+        "title": "Ad Copy Creation for Search Ads",
+        "file": "Prompts/Archived/Copywriting/Ad Copy Creation for Search Ads.md",
+        "category": [
+          "Copywriting",
+          "Marketing"
+        ],
+        "tags": [
+          "Ad Copy",
+          "Search Ads",
+          "PPC"
+        ],
+        "date": "2024-05-13"
+      },
+      {
+        "id": "display-ad-design-brief",
+        "title": "Display Ad Design Brief",
+        "file": "Prompts/Archived/Marketing/Display Ad Design Brief.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Display Ads",
+          "Design Brief"
+        ],
+        "date": "2024-05-13"
+      },
+      {
+        "id": "landing-page-ppc",
+        "title": "Landing Page Optimization for PPC",
+        "file": "Prompts/Archived/Marketing/Landing Page Optimization for PPC.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Landing Page",
+          "PPC",
+          "Conversion"
+        ],
+        "date": "2024-05-13"
+      },
+      {
+        "id": "competitive-research-table",
+        "title": "Competitive Research Table",
+        "file": "Prompts/Archived/Research/Competitive Research Table.md",
+        "category": [
+          "Research",
+          "Marketing"
+        ],
+        "tags": [
+          "Competitive Research",
+          "Features"
+        ],
+        "date": "2024-05-13"
+      },
+      {
+        "id": "keyword-research-campaign",
+        "title": "Keyword Research for a Campaign",
+        "file": "Prompts/Archived/Marketing/Keyword Research for a Campaign.md",
+        "category": [
+          "Marketing"
+        ],
+        "tags": [
+          "Keywords",
+          "SEO",
+          "Campaign"
+        ],
+        "date": "2024-05-13"
+      },
+      {
+        "id": "30-prompts-for-marketing",
+        "title": "30 Prompts for Marketing",
+        "file": "Prompts/Archived/Marketing/30 Prompts for Marketing.md",
+        "category": [
+          "Marketing",
+          "Copywriting"
+        ],
+        "tags": [
+          "Marketing",
+          "AIDA",
+          "PAS",
+          "Frameworks"
+        ],
+        "date": "2024-05-13"
+      }
+    ]
+  }
+}
