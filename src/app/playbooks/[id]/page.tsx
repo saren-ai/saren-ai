@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
 import { marked } from 'marked';
 import CopyButton from './CopyButton';
+import { AnimatedNavFramer } from '@/components/ui/navigation-menu';
 
 export async function generateStaticParams() {
     const playbooks = await getActivePlaybooks();
@@ -122,8 +123,20 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
         })
     );
 
+    const allPlaybooks = await getActivePlaybooks();
+    const allUniqueCategories = Array.from(new Set(allPlaybooks.map(pb => pb.category))).sort();
+
+    const navItems = [
+        { name: "All", href: "/playbooks" },
+        ...allUniqueCategories.map(cat => ({
+            name: cat,
+            href: `/playbooks?category=${encodeURIComponent(cat)}`
+        }))
+    ];
+
     return (
-        <div className="min-h-screen bg-[#0a0a0a] text-white pt-24 pb-20 px-6 lg:px-12 selection:bg-blue-500/30">
+        <div className="min-h-screen bg-[#0a0a0a] text-white pt-32 pb-20 px-6 lg:px-12 selection:bg-blue-500/30 relative">
+            <AnimatedNavFramer items={navItems} activeCategory={playbook.category} />
             <div className="max-w-4xl mx-auto space-y-12">
                 {/* Navigation & Header */}
                 <div className="space-y-6">

@@ -15,6 +15,7 @@ export interface NavItem {
 
 interface AnimatedNavFramerProps {
     items: NavItem[];
+    activeCategory?: string;
 }
 
 const EXPAND_SCROLL_THRESHOLD = 80;
@@ -73,10 +74,10 @@ const collapsedIconVariants: Variants = {
     },
 }
 
-export function AnimatedNavFramer({ items }: AnimatedNavFramerProps) {
+export function AnimatedNavFramer({ items, activeCategory }: AnimatedNavFramerProps) {
     const [isExpanded, setExpanded] = React.useState(true);
     const searchParams = useSearchParams();
-    const currentCategory = searchParams.get("category");
+    const currentCategory = activeCategory || searchParams.get("category");
 
     const { scrollY } = useScroll();
     const lastScrollY = React.useRef(0);
@@ -105,7 +106,7 @@ export function AnimatedNavFramer({ items }: AnimatedNavFramerProps) {
 
 
     return (
-        <div className="fixed top-24 left-1/2 -translate-x-1/2 z-40 hidden md:block">
+        <div className="fixed top-32 left-1/2 -translate-x-1/2 z-40 hidden md:block">
             <motion.nav
                 initial={{ y: -80, opacity: 0 }}
                 animate={isExpanded ? "expanded" : "collapsed"}
@@ -132,9 +133,9 @@ export function AnimatedNavFramer({ items }: AnimatedNavFramerProps) {
                     )}
                 >
                     {items.map((item) => {
-                        // Determine if active (simple heuristic based on URL params)
+                        // Determine if active 
                         const isActive = currentCategory
-                            ? item.href.includes(`category=${currentCategory}`)
+                            ? item.name === currentCategory || item.href.includes(`category=${encodeURIComponent(currentCategory)}`)
                             : item.name === "All";
 
                         return (
