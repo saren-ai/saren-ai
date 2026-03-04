@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import FAQ from "@/components/ui/FAQ";
 import FrameworkExplorer from "@/components/framework/FrameworkExplorer";
 import CaseStudyHero from "@/components/case-studies/CaseStudyHero";
-import OutcomeMetrics from "@/components/case-studies/OutcomeMetrics";
 import ConsultingCTA from "@/components/case-studies/ConsultingCTA";
 import RelatedWork from "@/components/case-studies/RelatedWork";
 
@@ -26,12 +25,8 @@ export default function MarketingFrameworkPage() {
         title="B2B Marketing Framework"
         subtitle="The messaging infrastructure for teams who can't afford to build on quicksand. A 7-layer framework that creates B2B SaaS positioning from scratch."
         role="Strategy & Messaging"
-        date="2023"
+        date="2026"
         tags={["Messaging", "Positioning", "Framework"]}
-      />
-
-      {/* Metrics */}
-      <OutcomeMetrics
         metrics={[
           { value: "23", label: "Prompts", context: "Full buyer journey" },
           { value: "7", label: "Layers", context: "From raw data to channel" },

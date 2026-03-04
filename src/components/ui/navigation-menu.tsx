@@ -146,8 +146,8 @@ export function AnimatedNavFramer({ items, activeCategory }: AnimatedNavFramerPr
                                     className={cn(
                                         "text-sm font-medium transition-colors px-3 py-1.5 rounded-full whitespace-nowrap",
                                         isActive
-                                            ? "bg-ash/10 text-ash"
-                                            : "text-ash/60 hover:text-ash hover:bg-ash/5"
+                                            ? "bg-white/15 text-white shadow-sm"
+                                            : "text-neutral-400 hover:text-white hover:bg-white/10"
                                     )}
                                 >
                                     {item.name}

@@ -2,12 +2,19 @@
 
 import { motion } from "framer-motion";
 
+interface Metric {
+    label: string;
+    value: string;
+    context?: string;
+}
+
 interface CaseStudyHeroProps {
     title: string;
     subtitle: string;
     role: string;
     date: string;
     tags?: string[];
+    metrics?: Metric[];
 }
 
 export default function CaseStudyHero({
@@ -16,6 +23,7 @@ export default function CaseStudyHero({
     role,
     date,
     tags,
+    metrics,
 }: CaseStudyHeroProps) {
     return (
         <section className="pt-32 pb-16 md:pt-48 md:pb-24 relative overflow-hidden">
@@ -61,6 +69,27 @@ export default function CaseStudyHero({
                     <p className="text-xl md:text-2xl text-slate max-w-2xl leading-relaxed">
                         {subtitle}
                     </p>
+
+                    {/* Metrics Block */}
+                    {metrics && metrics.length > 0 && (
+                        <div className="mt-12 pt-12 border-t border-charcoal/10 flex flex-wrap gap-8 md:gap-16">
+                            {metrics.map((metric, index) => (
+                                <div key={index}>
+                                    <div className="text-4xl font-mono font-bold text-ember mb-1">
+                                        {metric.value}
+                                    </div>
+                                    <div className="text-sm font-bold uppercase tracking-wider text-charcoal mb-0.5">
+                                        {metric.label}
+                                    </div>
+                                    {metric.context && (
+                                        <div className="text-xs text-slate">
+                                            {metric.context}
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </motion.div>
             </div>
         </section>
