@@ -1,16 +1,24 @@
 import { getActivePlaybooks } from '@/lib/playbooks';
 import Link from 'next/link';
+import { AnimatedNavFramer } from '@/components/ui/navigation-menu';
 
 export const metadata = {
     title: 'Playbooks | Saren.ai',
     description: 'Advanced prompt sequences and playbooks.',
 };
 
-export default async function PlaybooksIndex() {
+export default async function PlaybooksIndex({ searchParams }: { searchParams: Promise<{ category?: string }> }) {
     const playbooks = await getActivePlaybooks();
+    const resolvedSearchParams = await searchParams;
+    const currentCategory = resolvedSearchParams.category;
+
+    // Filter playbooks by selected category, if any
+    const filteredPlaybooks = currentCategory
+        ? playbooks.filter(pb => pb.category === currentCategory)
+        : playbooks;
 
     // Group by category
-    const categories = playbooks.reduce((acc, pb) => {
+    const categories = filteredPlaybooks.reduce((acc, pb) => {
         if (!acc[pb.category]) acc[pb.category] = [];
         acc[pb.category].push(pb);
         return acc;
@@ -18,8 +26,22 @@ export default async function PlaybooksIndex() {
 
     const categoryNames = Object.keys(categories).sort();
 
+    // Define navigation items dynamically based on all available categories
+    // or just hardcoded to the ones the user requested if preferred:
+    const allUniqueCategories = Array.from(new Set(playbooks.map(pb => pb.category))).sort();
+
+    const navItems = [
+        { name: "All", href: "/playbooks" },
+        ...allUniqueCategories.map(cat => ({
+            name: cat,
+            href: `/playbooks?category=${encodeURIComponent(cat)}`
+        }))
+    ];
+
     return (
-        <div className="min-h-screen bg-[#0a0a0a] text-white pt-24 pb-16 px-6 lg:px-12">
+        <div className="min-h-screen bg-[#0a0a0a] text-white pt-32 pb-16 px-6 lg:px-12 relative">
+            <AnimatedNavFramer items={navItems} />
+
             <div className="max-w-6xl mx-auto space-y-12">
                 <header className="space-y-4 text-center">
                     <h1 className="text-4xl lg:text-5xl font-bold tracking-tight bg-gradient-to-br from-white to-neutral-500 bg-clip-text text-transparent">
@@ -31,8 +53,13 @@ export default async function PlaybooksIndex() {
                 </header>
 
                 <div className="space-y-16">
+                    {categoryNames.length === 0 && (
+                        <div className="text-center text-neutral-500 py-12">
+                            No playbooks found for this category.
+                        </div>
+                    )}
                     {categoryNames.map((cat) => (
-                        <section key={cat} className="space-y-6">
+                        <section key={cat} className="space-y-6 scroll-mt-32" id={cat}>
                             <h2 className="text-2xl font-semibold tracking-wide border-b border-neutral-800 pb-2">
                                 {cat}
                             </h2>
