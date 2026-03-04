@@ -36,46 +36,49 @@ export default function CaseStudyHero({
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="max-w-4xl"
+                    className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start"
                 >
-                    {/* Metadata */}
-                    <div className="flex flex-wrap items-center gap-4 text-sm font-mono text-slate mb-6 uppercase tracking-wider">
-                        <span className="text-electric font-bold">{role}</span>
-                        <span className="w-1 h-1 bg-slate/30 rounded-full" />
-                        <span>{date}</span>
-                        {tags && tags.length > 0 && (
-                            <>
-                                <span className="w-1 h-1 bg-slate/30 rounded-full hidden sm:block" />
-                                <div className="flex gap-2">
-                                    {tags.map((tag) => (
-                                        <span
-                                            key={tag}
-                                            className="px-2 py-0.5 bg-slate/10 text-slate rounded text-xs"
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-                            </>
-                        )}
+                    {/* Main Content (Left, ~70%) */}
+                    <div className="lg:col-span-8">
+                        {/* Metadata */}
+                        <div className="flex flex-wrap items-center gap-4 text-sm font-mono text-slate mb-6 uppercase tracking-wider">
+                            <span className="text-electric font-bold">{role}</span>
+                            <span className="w-1 h-1 bg-slate/30 rounded-full" />
+                            <span>{date}</span>
+                            {tags && tags.length > 0 && (
+                                <>
+                                    <span className="w-1 h-1 bg-slate/30 rounded-full hidden sm:block" />
+                                    <div className="flex gap-2">
+                                        {tags.map((tag) => (
+                                            <span
+                                                key={tag}
+                                                className="px-2 py-0.5 bg-slate/10 text-slate rounded text-xs"
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+                        </div>
+
+                        {/* Title */}
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-charcoal mb-6 leading-tight">
+                            {title}
+                        </h1>
+
+                        {/* Subtitle */}
+                        <p className="text-xl md:text-2xl text-slate max-w-2xl leading-relaxed">
+                            {subtitle}
+                        </p>
                     </div>
 
-                    {/* Title */}
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-charcoal mb-6 leading-tight">
-                        {title}
-                    </h1>
-
-                    {/* Subtitle */}
-                    <p className="text-xl md:text-2xl text-slate max-w-2xl leading-relaxed">
-                        {subtitle}
-                    </p>
-
-                    {/* Metrics Block */}
+                    {/* Metrics Block (Right, ~30%) */}
                     {metrics && metrics.length > 0 && (
-                        <div className="mt-12 pt-12 border-t border-charcoal/10 flex flex-wrap gap-8 md:gap-16">
+                        <div className="lg:col-span-4 flex flex-col gap-8 lg:text-center w-full max-w-sm ml-0 lg:ml-auto">
                             {metrics.map((metric, index) => (
-                                <div key={index}>
-                                    <div className="text-4xl font-mono font-bold text-ember mb-1">
+                                <div key={index} className="lg:border-l lg:border-charcoal/10 lg:pl-8">
+                                    <div className="text-4xl lg:text-5xl font-mono font-bold text-ember mb-1">
                                         {metric.value}
                                     </div>
                                     <div className="text-sm font-bold uppercase tracking-wider text-charcoal mb-0.5">
