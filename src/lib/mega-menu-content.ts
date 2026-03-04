@@ -75,12 +75,12 @@ export const playbooksMegaMenu: MegaMenuContent = {
           description: "6 parts for executing AI market strategies",
         },
         {
-          href: "/playbooks/b2b-marketing-framework",
+          href: "/portfolio/b2b-marketing-framework",
           label: "B2B Marketing Framework",
           description: "Build an active messaging foundation",
         },
         {
-          href: "/playbooks/sovereign-personas",
+          href: "/portfolio/sovereign-personas",
           label: "Sovereign Buyer Personas",
           description: "Map your committee buying logic",
         },
