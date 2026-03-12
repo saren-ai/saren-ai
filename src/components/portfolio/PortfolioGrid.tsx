@@ -84,6 +84,15 @@ const portfolioItems = [
     href: "/portfolio/calculator",
     pillars: ["Predictive Infrastructure", "Scale Without Headcount"],
   },
+  {
+    title: "Citable Authority Process",
+    description:
+      "Engineering B2B authority in the age of LLMs. How to build white papers that models love to cite using a modern tool stack.",
+    metric: "6",
+    metricLabel: "Engineered Steps",
+    href: "/portfolio/authority-engineering",
+    pillars: ["Human Strategy", "Scale Without Headcount"],
+  },
 ];
 
 export default function PortfolioGrid() {

@@ -1,11 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface Metric {
     label: string;
     value: string;
     context?: string;
+}
+
+interface Action {
+    label: string;
+    href: string;
+    variant: "primary" | "secondary";
 }
 
 interface CaseStudyHeroProps {
@@ -15,6 +22,7 @@ interface CaseStudyHeroProps {
     date: string;
     tags?: string[];
     metrics?: Metric[];
+    actions?: Action[];
 }
 
 export default function CaseStudyHero({
@@ -24,9 +32,10 @@ export default function CaseStudyHero({
     date,
     tags,
     metrics,
+    actions,
 }: CaseStudyHeroProps) {
     return (
-        <section className="pt-32 pb-16 md:pt-48 md:pb-24 relative overflow-hidden">
+        <section className="pt-16 pb-16 md:pt-24 md:pb-24 relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0 bg-gradient-to-br from-ash via-ash to-white pointer-events-none -z-10" />
             <div className="absolute top-0 right-0 w-1/3 h-full bg-electric/5 -skew-x-12 transform translate-x-1/2 pointer-events-none -z-10" />
@@ -71,6 +80,24 @@ export default function CaseStudyHero({
                         <p className="text-xl md:text-2xl text-slate max-w-2xl leading-relaxed">
                             {subtitle}
                         </p>
+
+                        {/* Actions */}
+                        {actions && actions.length > 0 && (
+                            <div className="mt-8 flex flex-wrap items-center gap-4">
+                                {actions.map((action, index) => (
+                                    <Link
+                                        key={index}
+                                        href={action.href}
+                                        className={`px-6 py-3 rounded-full font-bold text-sm transition-all ${action.variant === "primary"
+                                            ? "bg-ember text-white hover:bg-ember/90 shadow-lg shadow-ember/20"
+                                            : "bg-charcoal/5 dark:bg-white/5 text-charcoal dark:text-white hover:bg-charcoal/10 dark:hover:bg-white/10"
+                                            }`}
+                                    >
+                                        {action.label}
+                                    </Link>
+                                ))}
+                            </div>
+                        )}
                     </div>
 
                     {/* Metrics Block (Right, ~30%) */}

@@ -27,6 +27,10 @@ export default function MarketingFrameworkPage() {
         role="Strategy & Messaging"
         date="2026"
         tags={["Messaging", "Positioning", "Framework"]}
+        actions={[
+          { label: "Start Framework", href: "/portfolio/b2b-marketing-framework/target-market-competitive-landscape", variant: "primary" },
+          { label: "How to Use", href: "#how-to-use", variant: "secondary" }
+        ]}
         metrics={[
           { value: "23", label: "Prompts", context: "Full buyer journey" },
           { value: "7", label: "Layers", context: "From raw data to channel" },
@@ -38,7 +42,7 @@ export default function MarketingFrameworkPage() {
       <FrameworkExplorer />
 
       {/* How to Use */}
-      <section className="section bg-ash dark:bg-background-secondary pt-0 md:pt-16">
+      <section id="how-to-use" className="section bg-ash dark:bg-background-secondary pt-0 md:pt-16 mt-20 md:mt-0">
         <div className="container-narrow">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">

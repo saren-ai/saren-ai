@@ -44,12 +44,17 @@ export const portfolioMegaMenu: MegaMenuContent = {
           label: "Behavioral Lead Scoring",
           description: "Buyer motion intent tracking",
         },
+        {
+          href: "/portfolio/authority-engineering",
+          label: "Citable Authority Build",
+          description: "LLM-optimized white papers",
+        },
       ],
     },
   ],
   promotional: {
-    image: "/portfolio/storyboards/storyboard_06.png",
-    imageAlt: "Featured portfolio work",
+    image: "/mega-menu/120-day-content-journey.png",
+    imageAlt: "120-Day Content Journey",
     headline: "Interactive Case Studies",
     description:
       "Each project includes live demos, data models, and frameworks you can explore. Not just outcomes—actual systems.",
@@ -98,7 +103,7 @@ export const playbooksMegaMenu: MegaMenuContent = {
     },
   ],
   promotional: {
-    image: "/portfolio/storyboards/storyboard_06.png", // FPO from portfolio
+    image: "/mega-menu/b2b-marketing-framework.png",
     imageAlt: "B2B Marketing Framework",
     headline: "B2B Marketing Framework",
     description: "An interactive, 21-step tracked sequence to engineer your B2B SaaS positioning from scratch.",

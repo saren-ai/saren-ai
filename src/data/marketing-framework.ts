@@ -3627,8 +3627,8 @@ Taglines should be stable for 5-10 years minimum. Campaign slogans can rotate qu
         id: "L5.01",
         title: "Channel Strategy",
         slug: "channel-strategy",
-        level: "Measurement",
-        levelTitle: "Measurement",
+        level: "Campaign",
+        levelTitle: "Campaign",
         hook: "Decide where to distribute your content.",
         promptContent: `# Communication strategy
 
@@ -3871,8 +3871,8 @@ Update the strategy when:
         id: "L5.02",
         title: "Sales Enablement Plan",
         slug: "sales-enablement-plan",
-        level: "Measurement",
-        levelTitle: "Measurement",
+        level: "Campaign",
+        levelTitle: "Campaign",
         hook: "Align marketing outputs with sales needs.",
         promptContent: `# Training & enablement materials
 
@@ -4160,8 +4160,8 @@ Scale as you grow:
         id: "L5.03",
         title: "Campaign Brief",
         slug: "campaign-brief",
-        level: "Measurement",
-        levelTitle: "Measurement",
+        level: "Campaign",
+        levelTitle: "Campaign",
         hook: "Plan integrated marketing campaigns.",
         promptContent: `# Communication strategy
 
@@ -4404,8 +4404,8 @@ Update the strategy when:
         id: "L5.04",
         title: "Nurture Sequence Strategy",
         slug: "nurture-sequence-strategy",
-        level: "Measurement",
-        levelTitle: "Measurement",
+        level: "Campaign",
+        levelTitle: "Campaign",
         hook: "Automate follow-ups to convert cold leads.",
         promptContent: `# Communication strategy
 
@@ -4648,8 +4648,8 @@ Update the strategy when:
         id: "L5.05",
         title: "Content Formats & Repurposing",
         slug: "content-formats-repurposing",
-        level: "Measurement",
-        levelTitle: "Measurement",
+        level: "Campaign",
+        levelTitle: "Campaign",
         hook: "Get maximum value from every piece of content.",
         promptContent: `# Communication strategy
 

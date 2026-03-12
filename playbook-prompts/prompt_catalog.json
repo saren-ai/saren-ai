@@ -4,8 +4,8 @@
     "archive_cutoff": "2025-03-03",
     "total_prompts_active": 111,
     "total_prompts_archived": 28,
-    "total_playbooks": 12,
-    "active_playbooks": 11,
+    "total_playbooks": 13,
+    "active_playbooks": 12,
     "archived_playbooks": 1
   },
   "playbooks": [
@@ -492,6 +492,47 @@
           "step": 3,
           "title": "McKinsey Problem-Solving Brief",
           "file": "Playbooks/McKinsey Strategy Suite/3_McKinsey Problem-Solving Brief.md"
+        }
+      ]
+    },
+    {
+      "playbook_id": "linkedin-prospect-dashboard",
+      "title": "LinkedIn Prospect Dashboard",
+      "description": "Turn your LinkedIn connections export into a ranked prospect shortlist, personalized outreach messages, a CRM-ready CSV, and a custom HTML dashboard — all inside Claude.",
+      "category": "Sales",
+      "tags": [
+        "Sales",
+        "LinkedIn",
+        "Prospecting",
+        "CRM",
+        "Outreach"
+      ],
+      "status": "active",
+      "steps": [
+        {
+          "step": 1,
+          "title": "Get Your LinkedIn Connections CSV",
+          "file": "Playbooks/LinkedIn Prospect Dashboard/1_Get Your LinkedIn Connections CSV.md"
+        },
+        {
+          "step": 2,
+          "title": "Kick Off the Session",
+          "file": "Playbooks/LinkedIn Prospect Dashboard/2_Kick Off the Session.md"
+        },
+        {
+          "step": 3,
+          "title": "Define Your ICP and Preferences",
+          "file": "Playbooks/LinkedIn Prospect Dashboard/3_Define Your ICP and Preferences.md"
+        },
+        {
+          "step": 4,
+          "title": "What to Say — Guidance Per Question",
+          "file": "Playbooks/LinkedIn Prospect Dashboard/4_What to Say Guidance Per Question.md"
+        },
+        {
+          "step": 5,
+          "title": "Run the Full Analysis",
+          "file": "Playbooks/LinkedIn Prospect Dashboard/5_Run the Full Analysis.md"
         }
       ]
     }

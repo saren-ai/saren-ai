@@ -43,7 +43,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-charcoal dark:bg-offblack text-ash border-t border-charcoal/20 dark:border-ash/10 pt-[60px] pb-16 md:pb-20">
+    <footer className="bg-gradient-to-br from-charcoal to-offblack text-ash border-t border-charcoal/20 dark:border-ash/10 pt-[60px] pb-16 md:pb-20">
       <div className="container-narrow">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-10 lg:gap-12">
           {/* Brand */}

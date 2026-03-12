@@ -24,8 +24,8 @@ export default function CopyButton({ textToCopy }: CopyButtonProps) {
         <button
             onClick={handleCopy}
             className={`inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md text-sm font-semibold transition-all duration-200 border ${copied
-                    ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
-                    : "bg-neutral-800 text-neutral-300 border-neutral-700 hover:bg-neutral-700 hover:text-white"
+                    ? "bg-emerald-50 text-emerald-600 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20"
+                    : "bg-white text-charcoal border-charcoal/20 hover:bg-ash hover:text-charcoal dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:hover:text-white"
                 }`}
             aria-label="Copy prompt to clipboard"
         >

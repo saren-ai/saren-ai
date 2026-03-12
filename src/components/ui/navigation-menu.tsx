@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion, useScroll, useMotionValueEvent, Variants } from "framer-motion";
-import { Navigation, Menu } from "lucide-react";
+import { Navigation, ArrowUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -100,7 +100,7 @@ export function AnimatedNavFramer({ items, activeCategory }: AnimatedNavFramerPr
     const handleNavClick = (e: React.MouseEvent) => {
         if (!isExpanded) {
             e.preventDefault();
-            setExpanded(true);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
 
@@ -115,7 +115,7 @@ export function AnimatedNavFramer({ items, activeCategory }: AnimatedNavFramerPr
                 whileTap={!isExpanded ? { scale: 0.95 } : {}}
                 onClick={handleNavClick}
                 className={cn(
-                    "flex items-center overflow-hidden rounded-full border border-ash/10 bg-offblack/80 shadow-lg backdrop-blur-md h-12",
+                    "flex items-center overflow-hidden rounded-full border border-neutral-700 dark:border-charcoal/10 bg-[#1A1A1A] dark:bg-white/90 shadow-lg backdrop-blur-md h-12 transition-colors duration-300",
                     !isExpanded && "cursor-pointer justify-center"
                 )}
             >
@@ -146,8 +146,8 @@ export function AnimatedNavFramer({ items, activeCategory }: AnimatedNavFramerPr
                                     className={cn(
                                         "text-sm font-medium transition-colors px-3 py-1.5 rounded-full whitespace-nowrap",
                                         isActive
-                                            ? "bg-white/15 text-white shadow-sm"
-                                            : "text-neutral-400 hover:text-white hover:bg-white/10"
+                                            ? "bg-white/20 dark:bg-black/5 text-white dark:text-charcoal shadow-sm"
+                                            : "text-neutral-300 dark:text-slate hover:text-white dark:hover:text-charcoal hover:bg-white/10 dark:hover:bg-black/5"
                                     )}
                                 >
                                     {item.name}
@@ -161,9 +161,9 @@ export function AnimatedNavFramer({ items, activeCategory }: AnimatedNavFramerPr
                     <motion.div
                         variants={collapsedIconVariants}
                         animate={isExpanded ? "expanded" : "collapsed"}
-                        className="text-ash"
+                        className="text-white dark:text-charcoal"
                     >
-                        <Menu className="h-5 w-5" />
+                        <ArrowUp className="h-5 w-5" />
                     </motion.div>
                 </div>
             </motion.nav>

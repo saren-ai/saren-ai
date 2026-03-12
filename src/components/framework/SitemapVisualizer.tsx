@@ -25,7 +25,7 @@ export default function SitemapVisualizer({ prompts, selectedId, onSelect, enabl
         return acc;
     }, {} as Record<string, FrameworkPrompt[]>);
 
-    const phases = ["Foundation", "Differentiation", "Decision", "Activation", "Measurement"];
+    const phases = ["Foundation", "Differentiation", "Decision", "Activation", "Campaign", "Measurement"];
 
     const getPhaseColors = (phase: string) => {
         if (["Foundation", "Differentiation"].includes(phase)) return {
@@ -41,6 +41,13 @@ export default function SitemapVisualizer({ prompts, selectedId, onSelect, enabl
             border: "border-ember/50",
             glow: "shadow-[0_0_20px_rgba(255,145,0,0.2)]", // Orange glow
             selectedText: "text-ember"
+        };
+        if (phase === "Campaign") return {
+            text: "text-yellow-500",
+            bg: "bg-yellow-500/10",
+            border: "border-yellow-500/50",
+            glow: "shadow-[0_0_20px_rgba(234,179,8,0.2)]", // Yellow glow
+            selectedText: "text-yellow-500"
         };
         return {
             text: "text-copper",
@@ -70,7 +77,7 @@ export default function SitemapVisualizer({ prompts, selectedId, onSelect, enabl
                     const colors = getPhaseColors(phase);
 
                     return (
-                        <div key={phase} className="flex-shrink-0 w-56 relative z-10 flex flex-col items-center">
+                        <div key={phase} className="flex-shrink-0 w-48 relative z-10 flex flex-col items-center">
 
                             {/* Phase Node */}
                             <div className={`
