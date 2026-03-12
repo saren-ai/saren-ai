@@ -25,6 +25,28 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     return {
         title: `${playbook.title} | Playbooks`,
         description: playbook.description,
+        openGraph: {
+            title: `${playbook.title} | Playbooks | Saren.ai`,
+            description: playbook.description,
+            url: `https://saren.ai/playbooks/${playbook.playbook_id}`,
+            siteName: 'Saren.ai',
+            images: [
+                {
+                    url: `/og/playbooks-${playbook.playbook_id}.jpg`,
+                    width: 1200,
+                    height: 630,
+                    alt: playbook.title,
+                },
+            ],
+            locale: 'en_US',
+            type: 'article',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: `${playbook.title} | Playbooks | Saren.ai`,
+            description: playbook.description,
+            images: [`/og/playbooks-${playbook.playbook_id}.jpg`],
+        },
     };
 }
 

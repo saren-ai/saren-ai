@@ -4,7 +4,29 @@ import { AnimatedNavFramer } from '@/components/ui/navigation-menu';
 
 export const metadata = {
     title: 'Playbooks | Saren.ai',
-    description: 'Advanced prompt sequences and playbooks.',
+    description: 'A curated library of advanced prompt sequences, structured frameworks, and multi-step AI playbooks to accelerate execution.',
+    openGraph: {
+        title: 'Playbooks | Saren.ai',
+        description: 'A curated library of advanced prompt sequences, structured frameworks, and multi-step AI playbooks to accelerate execution.',
+        url: 'https://saren.ai/playbooks',
+        siteName: 'Saren.ai',
+        images: [
+            {
+                url: '/og/playbooks.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'saren.ai Prompt Playbooks',
+            },
+        ],
+        locale: 'en_US',
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Playbooks | Saren.ai',
+        description: 'A curated library of advanced prompt sequences, structured frameworks, and multi-step AI playbooks to accelerate execution.',
+        images: ['/og/playbooks.jpg'],
+    },
 };
 
 export default async function PlaybooksIndex({ searchParams }: { searchParams: Promise<{ category?: string }> }) {
