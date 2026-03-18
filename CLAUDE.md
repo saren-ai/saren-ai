@@ -80,7 +80,25 @@ AVIF + WebP enabled. `fill` mode requires `relative` parent with explicit dimens
 
 `pointerWithin` → `rectIntersection` collision. Sensors: Pointer (8px), Touch (200ms delay), Keyboard. Sortable within/across tier rows + unranked pool.
 
-## Project Map
+## Directory Structure
+
+```
+.
+├── .claude/              # Claude Code project settings
+├── docs/                 # Changelogs, setup guides, screenshots
+│   ├── briefs/           # Original page specs and build instructions (archive)
+│   └── changelogs/       # Per-session change logs
+├── playbook-prompts/     # Obsidian vault — prompt catalog (31MB, may extract later)
+├── public/               # Static assets (logos, images, PDFs)
+├── scripts/              # One-off and utility scripts
+└── src/
+    ├── app/              # Next.js App Router pages
+    ├── components/       # React components by domain
+    ├── content/          # MDX content
+    ├── data/             # Static data files
+    ├── lib/              # Business logic, calculations, types
+    └── test/             # Test setup
+```
 
 ### Routes (`src/app/`)
 
@@ -103,18 +121,6 @@ AVIF + WebP enabled. `fill` mode requires `relative` parent with explicit dimens
 /demand-machine                        Overview (Vertical Blades)
 /demand-machine/interview              Diagnostic Interview
 ```
-
-### Components (`src/components/`)
-
-`calculator/` (11) · `tier-list/` (6) · `golden-dashboard/` (8) · `behavioral-scoring/` (4) · `content-journey/` (3) · `sovereign-personas/` (3) · `storyboard/` (4) · `marketing-framework/` (1) · `demand-machine/` (4: Vertical Blades, Marquees) · `layout/` (7: Header, Footer, TopBanner, ThemeProvider, ThemeToggle, MegaMenu) · `portfolio/` (2) · `ui/` (2: FAQ, ProfileGallery)
-
-### Data (`src/lib/` & `src/data/`)
-
-`calculator/{types,funnel-calculations,conversion-rates,benchmark-data}.ts` · `tier-list.ts` (AI_TOOLS, TIER_CONFIG, SAREN_PICKS, votes) · `golden-dashboard.ts` (computeModel, presets, metricMetadata) · `behavioral-scoring.ts` · `content-journey.ts` · `sovereign-personas.ts` · `storyboard.ts` · `marketing-framework.ts` · `mega-menu-content.ts` · `substack-rss.ts` · `thinking.ts` · `bdp-variables.ts` · `interview-questions.ts`
-
-### Assets (`public/`)
-
-`logos/ai-apps/` (15 tool logos 64x64) · `logos/clients/` (26 brand logos) · `portfolio/personas/` (PDFs + thumbnails) · `portfolio/storyboards/` (7 frames) · `profile/` (7 images 1080x1920) · `og-image.png`
 
 ### Key Config Files
 

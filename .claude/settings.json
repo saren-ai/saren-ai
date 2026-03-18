@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev)",
+      "Bash(npm run build)",
+      "Bash(npm run lint)",
+      "Bash(npx tsc --noEmit)",
+      "Bash(npx next build:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm test:*)",
+      "Bash(npx vitest:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git branch:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git stash:*)",
+      "Bash(ls:*)",
+      "Bash(du:*)",
+      "Bash(wc:*)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(cp:*)",
+      "mcp__filesystem__list_directory"
+    ],
+    "deny": []
+  }
+}
