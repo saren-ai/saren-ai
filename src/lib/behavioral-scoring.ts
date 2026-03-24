@@ -104,6 +104,13 @@ export interface FitScoreFactor {
   criteria: { value: string; points: number }[];
 }
 
+export const factorIdToProfileKey: Record<string, string> = {
+  "company-size": "companySize",
+  "industry": "industry",
+  "role": "role",
+  "geography": "geography",
+};
+
 export const fitScoreFactors: FitScoreFactor[] = [
   {
     id: "company-size",
@@ -276,8 +283,10 @@ export function calculateFitScore(profile: BuyerProfile): {
 
   fitScoreFactors.forEach((factor) => {
     let points = 0;
+    const profileKey = factorIdToProfileKey[factor.id];
+    const profileValue = profileKey ? profile[profileKey as keyof BuyerProfile] : undefined;
     const criterion = factor.criteria.find(
-      (c) => c.value === (profile as any)[factor.id.replace(/-/g, "")]
+      (c) => c.value === profileValue
     );
     if (criterion) {
       points = criterion.points;

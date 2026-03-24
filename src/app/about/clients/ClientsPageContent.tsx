@@ -58,7 +58,7 @@ export default function ClientsPageContent() {
               animate={{ opacity: 1, y: 0 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
             >
-              Brands I've Worked With
+              Brands I&apos;ve Worked With
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -157,7 +157,7 @@ export default function ClientsPageContent() {
 
             <div className="prose prose-lg text-slate leading-relaxed">
               <p>
-                My career spans two worlds: the fast-moving, high-stakes environment of B2B technology (where I've led demand generation for cybersecurity unicorns and AI startups), and the brand-driven, mass-market world of consumer packaged goods (where I cut my teeth at major agencies working with household names).
+                My career spans two worlds: the fast-moving, high-stakes environment of B2B technology (where I&apos;ve led demand generation for cybersecurity unicorns and AI startups), and the brand-driven, mass-market world of consumer packaged goods (where I cut my teeth at major agencies working with household names).
               </p>
               <p>
                 This unusual combination gives me a unique perspective: the rigor and analytics mindset of B2B demand gen, paired with the storytelling instincts and brand thinking of consumer marketing. I know how to build funnels <em>and</em> how to make people care.
@@ -174,7 +174,7 @@ export default function ClientsPageContent() {
             Want to add your brand to this list?
           </h2>
           <p className="text-ash/70 text-lg max-w-2xl mx-auto mb-8">
-            Whether you're a startup looking to scale demand gen or an enterprise team that needs strategic firepower, let's talk.
+            Whether you&apos;re a startup looking to scale demand gen or an enterprise team that needs strategic firepower, let&apos;s talk.
           </p>
           <Link href="/contact" className="btn-primary inline-flex text-lg">
             Get in touch

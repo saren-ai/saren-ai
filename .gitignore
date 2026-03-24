@@ -42,6 +42,7 @@ yarn-error.log*
 *.pem
 
 # local databases
+data/
 *.db
 *.db-shm
 *.db-wal
@@ -52,6 +53,10 @@ yarn-error.log*
 .vscode
 !.vscode/settings.json
 !.vscode/extensions.json
+
+# Claude Code (worktrees and local settings are machine-specific)
+.claude/worktrees/
+.claude/settings.local.json
 
 # obsidian (content vaults checked in, but not config)
 **/.obsidian

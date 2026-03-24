@@ -138,7 +138,7 @@ function InputCard({ label, value, min, max, step, sensitivity, format, onChange
 
 
     // --- Slider Logic ---
-    const handleSliderDrag = (event: any, info: any) => {
+    const handleSliderDrag = (_event: MouseEvent | TouchEvent | PointerEvent, info: { point: { x: number } }) => {
         if (!constraintsRef.current) return;
         const containerWidth = constraintsRef.current.offsetWidth;
         const x = info.point.x - constraintsRef.current.getBoundingClientRect().left;

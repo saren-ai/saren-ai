@@ -16,18 +16,18 @@ export default function CalculatorClient() {
                 <div className="container-narrow">
                     <div className="max-w-3xl mx-auto">
                         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                            Why "Working Backwards" Wins
+                            Why &quot;Working Backwards&quot; Wins
                         </h2>
                         <div className="prose prose-lg text-foreground-muted leading-relaxed">
                             <p>
-                                Most revenue plans are just "last year + 20%." That's not a
-                                plan; that's a wish.
+                                Most revenue plans are just &quot;last year + 20%.&quot; That&apos;s not a
+                                plan; that&apos;s a wish.
                             </p>
                             <p>
                                 True revenue engineering requires understanding the physics of
                                 your specific funnel. If your ACV is low, you need massive top-of-funnel
                                 volume. If your win rates are low, you burn cash on leads that
-                                don't convert.
+                                don&apos;t convert.
                             </p>
                             <p>
                                 This calculator helps you stress-test your assumptions. Inputs
@@ -54,7 +54,7 @@ export default function CalculatorClient() {
                                 <p>
                                     Based on B2B SaaS industry averages (Sources: Gartner,
                                     Forrester, and internal proprietary data from 50+ audits).
-                                    Assumes a "high-touch" sales motion (SLG), not PLG.
+                                    Assumes a &quot;high-touch&quot; sales motion (SLG), not PLG.
                                 </p>
                             </div>
                             <div>
@@ -97,7 +97,7 @@ export default function CalculatorClient() {
                         Need to fix your funnel physics?
                     </h2>
                     <p className="text-ash/70 text-lg max-w-2xl mx-auto mb-8">
-                        If usage of this calculator revealed a gap in your plan, let's fix
+                        If usage of this calculator revealed a gap in your plan, let&apos;s fix
                         the inputs. We build demand architectures that improve conversion
                         and lower CAC.
                     </p>

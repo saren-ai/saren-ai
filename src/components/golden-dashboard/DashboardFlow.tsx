@@ -59,7 +59,7 @@ export default function DashboardFlow() {
       {/* Tagline */}
       <div className="text-center mb-4">
         <p className="text-lg font-semibold text-foreground italic">
-          "This isn't a dashboard. It's a decision model."
+          &quot;This isn&apos;t a dashboard. It&apos;s a decision model.&quot;
         </p>
       </div>
 

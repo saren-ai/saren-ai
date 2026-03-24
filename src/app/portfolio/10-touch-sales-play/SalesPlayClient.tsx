@@ -38,13 +38,13 @@ export default function SalesPlayClient() {
                         </h2>
                         <div className="prose prose-lg text-foreground-muted leading-relaxed">
                             <p>
-                                Most SDR teams burn through TAM with generic "just bumping this"
-                                emails. The conversion rates exist, but they're built on volume,
+                                Most SDR teams burn through TAM with generic &quot;just bumping this&quot;
+                                emails. The conversion rates exist, but they&apos;re built on volume,
                                 not strategy.
                             </p>
                             <p>
-                                When you're targeting executives at enterprise accounts, you
-                                can't afford to burn bridges. You need a sequence that earns the
+                                When you&apos;re targeting executives at enterprise accounts, you
+                                can&apos;t afford to burn bridges. You need a sequence that earns the
                                 right to ask for time.
                             </p>
                         </div>
@@ -100,7 +100,7 @@ export default function SalesPlayClient() {
                             Sample Email Structure
                         </h2>
                         <p className="text-foreground-muted mb-8">
-                            The "Day 13" email—a value-led touch that references recent news
+                            The &quot;Day 13&quot; email—a value-led touch that references recent news
                             without being salesy.
                         </p>
                         <CodeBlock

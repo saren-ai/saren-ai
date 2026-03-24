@@ -1,5 +1,16 @@
 import type { Metadata } from "next";
-import BehavioralScoringClient from "./BehavioralScoringClient";
+import dynamic from "next/dynamic";
+
+const BehavioralScoringClient = dynamic(
+  () => import("./BehavioralScoringClient"),
+  {
+    loading: () => (
+      <div className="min-h-[600px] flex items-center justify-center">
+        <div className="animate-pulse text-slate">Loading...</div>
+      </div>
+    ),
+  }
+);
 
 export const metadata: Metadata = {
   title: "Behavioral Lead Scoring | Saren.ai",

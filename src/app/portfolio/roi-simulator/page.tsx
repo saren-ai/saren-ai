@@ -1,7 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import HeroBentoEngine from "@/components/golden-dashboard/hero/HeroBentoEngine";
+import dynamic from "next/dynamic";
 import FAQ from "@/components/ui/FAQ";
+
+const HeroBentoEngine = dynamic(
+  () => import("@/components/golden-dashboard/hero/HeroBentoEngine"),
+  {
+    loading: () => (
+      <div className="min-h-[600px] flex items-center justify-center">
+        <div className="animate-pulse text-slate">Loading...</div>
+      </div>
+    ),
+  }
+);
 
 export const metadata: Metadata = {
   title: "Paid Media ROI Simulator: Forecast Outcomes Before You Spend",
@@ -30,7 +41,7 @@ export default function GoldenDashboardPage() {
             </h2>
             <div className="prose prose-lg text-foreground-muted leading-relaxed">
               <p>
-                Every performance marketer knows the feeling: you have a budget to deploy, but you're flying blind on the downstream impact.
+                Every performance marketer knows the feeling: you have a budget to deploy, but you&apos;re flying blind on the downstream impact.
                 You know your Cost Per Click (CPC), but how does that translate to <strong>Revenue</strong>?
               </p>
               <p>

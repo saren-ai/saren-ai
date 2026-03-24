@@ -39,7 +39,7 @@ export default function HeroBentoDashboard() {
                             </h1>
                         </div>
                         <p className="text-lg text-foreground-muted max-w-xl leading-relaxed">
-                            A 7-layer prompt matrix for building B2B SaaS messaging infrastructure from scratch—because random acts of content don't compound.
+                            A 7-layer prompt matrix for building B2B SaaS messaging infrastructure from scratch—because random acts of content don&apos;t compound.
                         </p>
                     </div>
                 </div>

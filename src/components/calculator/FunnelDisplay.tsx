@@ -33,6 +33,7 @@ interface Stage {
 interface EditState {
   stageIndex: number | null;
   value: string;
+  error?: string;
 }
 
 const CONVERSION_KEYS: (keyof ConversionRates)[] = [
@@ -147,8 +148,10 @@ export function FunnelDisplay({
     const newRate = parseFloat(editState.value) / 100;
     if (!isNaN(newRate) && newRate > 0 && newRate <= 1) {
       onConversionRateEdit(CONVERSION_KEYS[editState.stageIndex], newRate);
+      setEditState({ stageIndex: null, value: "" });
+    } else {
+      setEditState((prev) => ({ ...prev, error: "Enter a value between 0.1% and 100%" }));
     }
-    setEditState({ stageIndex: null, value: "" });
   }, [editState, onConversionRateEdit]);
 
   const handleEditCancel = useCallback(() => {
@@ -198,14 +201,14 @@ export function FunnelDisplay({
                         type="text"
                         value={editState.value}
                         onChange={(e) =>
-                          setEditState((prev) => ({ ...prev, value: e.target.value }))
+                          setEditState((prev) => ({ ...prev, value: e.target.value, error: undefined }))
                         }
                         onKeyDown={(e) => {
                           if (e.key === "Enter") handleEditConfirm();
                           if (e.key === "Escape") handleEditCancel();
                         }}
                         autoFocus
-                        className="w-14 text-center text-xs font-mono bg-white dark:bg-card-bg border border-electric rounded px-1 py-0.5 text-charcoal dark:text-foreground"
+                        className={`w-14 text-center text-xs font-mono bg-white dark:bg-card-bg border rounded px-1 py-0.5 text-charcoal dark:text-foreground ${editState.error ? "border-red-400" : "border-electric"}`}
                       />
                       <div className="flex gap-0.5">
                         <button
@@ -221,9 +224,15 @@ export function FunnelDisplay({
                           <X className="w-3 h-3" />
                         </button>
                       </div>
-                      <span className="text-[9px] text-slate dark:text-foreground-muted whitespace-nowrap">
-                        Avg: {formatPercent(conversionRateBenchmarks[index].avg)}
-                      </span>
+                      {editState.error ? (
+                        <span className="text-[9px] text-red-500 whitespace-nowrap text-center">
+                          {editState.error}
+                        </span>
+                      ) : (
+                        <span className="text-[9px] text-slate dark:text-foreground-muted whitespace-nowrap">
+                          Avg: {formatPercent(conversionRateBenchmarks[index].avg)}
+                        </span>
+                      )}
                     </div>
                   ) : (
                     // Display mode

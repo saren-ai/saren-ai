@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { motion } from "framer-motion";
 import type { CalculationDirection } from "@/lib/calculator/types";
 import { formatCurrencyFull } from "@/lib/calculator/funnel-calculations";
@@ -19,6 +19,12 @@ interface BidirectionalInputsProps {
   onAvgDealSizeChange: (value: number) => void;
 }
 
+interface InputErrors {
+  budget?: string;
+  revenueGoal?: string;
+  avgDealSize?: string;
+}
+
 export function BidirectionalInputs({
   direction,
   budget,
@@ -31,9 +37,41 @@ export function BidirectionalInputs({
   onRevenueGoalChange,
   onAvgDealSizeChange,
 }: BidirectionalInputsProps) {
+  const [errors, setErrors] = useState<InputErrors>({});
+
   const parseInput = useCallback((value: string): number => {
     return parseFloat(value.replace(/[^0-9.]/g, "")) || 0;
   }, []);
+
+  const handleBudgetChange = useCallback((raw: string) => {
+    const value = parseInput(raw);
+    onBudgetChange(value);
+    setErrors((prev) => ({
+      ...prev,
+      budget: value <= 0 ? "Ad spend must be greater than $0" : undefined,
+    }));
+  }, [parseInput, onBudgetChange]);
+
+  const handleRevenueGoalChange = useCallback((raw: string) => {
+    const value = parseInput(raw);
+    onRevenueGoalChange(value);
+    let error: string | undefined;
+    if (value <= 0) error = "Revenue goal must be greater than $0";
+    else if (value > 1_000_000_000) error = "Revenue goal must be under $1B";
+    setErrors((prev) => ({ ...prev, revenueGoal: error }));
+  }, [parseInput, onRevenueGoalChange]);
+
+  const handleAvgDealSizeChange = useCallback((raw: string) => {
+    const value = parseInput(raw);
+    onAvgDealSizeChange(value);
+    let error: string | undefined;
+    if (value <= 0) {
+      error = "Deal size must be greater than $0";
+    } else if (direction === "reverse" && revenueGoal && value > revenueGoal) {
+      error = "Deal size can't exceed the revenue goal";
+    }
+    setErrors((prev) => ({ ...prev, avgDealSize: error }));
+  }, [parseInput, onAvgDealSizeChange, direction, revenueGoal]);
 
   const isForward = direction === "forward";
 
@@ -88,8 +126,8 @@ export function BidirectionalInputs({
                 id="budget-input"
                 type="text"
                 value={budget ? formatCurrencyFull(budget).replace("$", "") : ""}
-                onChange={(e) => onBudgetChange(parseInput(e.target.value))}
-                className="calculator-input w-full pl-7 text-sm"
+                onChange={(e) => handleBudgetChange(e.target.value)}
+                className={`calculator-input w-full pl-7 text-sm ${errors.budget ? "border-red-400 focus:border-red-400 focus:ring-red-400/20" : ""}`}
                 placeholder="100,000"
               />
             ) : (
@@ -98,7 +136,12 @@ export function BidirectionalInputs({
               </div>
             )}
           </div>
-          {!isForward && calculatedBudget > 0 && (
+          {errors.budget && (
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-xs text-red-500 mt-1">
+              {errors.budget}
+            </motion.p>
+          )}
+          {!isForward && !errors.budget && calculatedBudget > 0 && (
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -126,14 +169,20 @@ export function BidirectionalInputs({
               id="deal-size-input"
               type="text"
               value={formatCurrencyFull(avgDealSize).replace("$", "")}
-              onChange={(e) => onAvgDealSizeChange(parseInput(e.target.value))}
-              className="calculator-input w-full pl-7 text-sm"
+              onChange={(e) => handleAvgDealSizeChange(e.target.value)}
+              className={`calculator-input w-full pl-7 text-sm ${errors.avgDealSize ? "border-red-400 focus:border-red-400 focus:ring-red-400/20" : ""}`}
               placeholder="20,000"
             />
           </div>
-          <p className="text-xs text-slate dark:text-foreground-muted mt-1">
-            ACV from your CRM
-          </p>
+          {errors.avgDealSize ? (
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-xs text-red-500 mt-1">
+              {errors.avgDealSize}
+            </motion.p>
+          ) : (
+            <p className="text-xs text-slate dark:text-foreground-muted mt-1">
+              ACV from your CRM
+            </p>
+          )}
         </div>
 
         {/* Revenue Goal Input */}
@@ -155,8 +204,8 @@ export function BidirectionalInputs({
                 id="revenue-input"
                 type="text"
                 value={revenueGoal ? formatCurrencyFull(revenueGoal).replace("$", "") : ""}
-                onChange={(e) => onRevenueGoalChange(parseInput(e.target.value))}
-                className="calculator-input w-full pl-7 text-sm"
+                onChange={(e) => handleRevenueGoalChange(e.target.value)}
+                className={`calculator-input w-full pl-7 text-sm ${errors.revenueGoal ? "border-red-400 focus:border-red-400 focus:ring-red-400/20" : ""}`}
                 placeholder="1,000,000"
               />
             ) : (
@@ -165,7 +214,12 @@ export function BidirectionalInputs({
               </div>
             )}
           </div>
-          {isForward && calculatedRevenue > 0 && (
+          {errors.revenueGoal && (
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-xs text-red-500 mt-1">
+              {errors.revenueGoal}
+            </motion.p>
+          )}
+          {isForward && !errors.revenueGoal && calculatedRevenue > 0 && (
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

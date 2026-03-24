@@ -79,7 +79,7 @@ export function ProspectTable() {
     });
 
     const sortedData = React.useMemo(() => {
-        let sortableItems = [...DUMMY_PROSPECTS];
+        const sortableItems = [...DUMMY_PROSPECTS];
         if (sortConfig.key !== null) {
             sortableItems.sort((a, b) => {
                 const key = sortConfig.key as keyof Prospect;
@@ -184,7 +184,7 @@ export function ProspectTable() {
                                 <td className="px-5 py-4 hidden md:table-cell">
                                     <div className="text-charcoal dark:text-neutral-300 line-clamp-1 mb-1">{prospect.intentSignal}</div>
                                     <div className="text-xs text-slate dark:text-neutral-500 italic line-clamp-1 border-l-2 border-electric/30 dark:border-blue-500/30 pl-2">
-                                        "{prospect.outreachMessage}"
+                                        &quot;{prospect.outreachMessage}&quot;
                                     </div>
                                 </td>
                             </tr>

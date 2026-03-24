@@ -1,7 +1,7 @@
 "use client";
 
 import { FrameworkPrompt } from "@/data/marketing-framework";
-import { ArrowRight, Copy, Check, Github, ExternalLink } from "lucide-react";
+import { ArrowRight, Copy, Check, Github } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";

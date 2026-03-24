@@ -66,7 +66,7 @@ export default function PromptModal({ prompt, onClose, isOpen }: PromptModalProp
                         <div className="w-full md:w-1/3 p-8 bg-gradient-to-b from-white/[0.03] to-transparent border-b md:border-b-0 md:border-r border-white/10 flex flex-col">
                             <div className="mb-6">
                                 <span className={`inline-block px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider ${colors.bg} ${colors.text} ${colors.border} border`}>
-                                    {prompt.level} // {prompt.levelTitle}
+                                    {prompt.level} {"//"} {prompt.levelTitle}
                                 </span>
                             </div>
 

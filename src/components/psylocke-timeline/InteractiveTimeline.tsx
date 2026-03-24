@@ -43,7 +43,7 @@ export default function InteractiveTimeline() {
         setFlippedIndex(null); // Close any active flipped cards when dragging starts
     };
 
-    const handleDragEnd = (event: any, info: any) => {
+    const handleDragEnd = (_event: MouseEvent | TouchEvent | PointerEvent, info: { offset: { x: number }; velocity: { x: number } }) => {
         setIsDragging(false);
 
         if (Math.abs(info.offset.x) > 5) {

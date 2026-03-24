@@ -91,7 +91,15 @@ export default function GuidedLogicOverlay({ onDismiss }: GuidedLogicOverlayProp
     );
 }
 
-function TooltipCard({ step, current, total, onNext, onDismiss }: any) {
+interface TooltipCardProps {
+    step: { id: string; title: string; description: string };
+    current: number;
+    total: number;
+    onNext: () => void;
+    onDismiss: () => void;
+}
+
+function TooltipCard({ step, current, total, onNext, onDismiss }: TooltipCardProps) {
     return (
         <motion.div
             key={step.id}

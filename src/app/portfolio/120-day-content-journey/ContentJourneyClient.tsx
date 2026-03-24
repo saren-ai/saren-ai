@@ -21,10 +21,10 @@ export default function ContentJourneyClient() {
                         </h2>
                         <div className="prose prose-lg text-foreground-muted leading-relaxed">
                             <p>
-                                Most marketing teams create content based on what they think is cool, not what the buyer needs. This leads to "random acts of content"—blog posts, webinars, and whitepapers that don't connect to a larger strategy.
+                                Most marketing teams create content based on what they think is cool, not what the buyer needs. This leads to &quot;random acts of content&quot;—blog posts, webinars, and whitepapers that don&apos;t connect to a larger strategy.
                             </p>
                             <p>
-                                To engineer demand, you need to map content to the buyer's psychological state at each stage of the journey.
+                                To engineer demand, you need to map content to the buyer&apos;s psychological state at each stage of the journey.
                             </p>
                         </div>
                     </div>
@@ -74,7 +74,7 @@ export default function ContentJourneyClient() {
                             Sample Content Asset
                         </h2>
                         <p className="text-foreground-muted mb-8">
-                            A "Problem Awareness" LinkedIn post structure that validates pain without pitching product.
+                            A &quot;Problem Awareness&quot; LinkedIn post structure that validates pain without pitching product.
                         </p>
                         <CodeBlock
                             language="markdown"
@@ -129,7 +129,7 @@ No tool can fix this. It's a mindset shift.`}
                         Ready to build your content engine?
                     </h2>
                     <p className="text-ash/70 text-lg max-w-2xl mx-auto mb-8">
-                        Let's move beyond random acts of content and build a system that generates revenue.
+                        Let&apos;s move beyond random acts of content and build a system that generates revenue.
                     </p>
                     <div className="flex flex-wrap gap-4 justify-center">
                         <Link

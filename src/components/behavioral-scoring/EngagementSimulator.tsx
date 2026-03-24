@@ -138,7 +138,7 @@ export function EngagementSimulator({
           <strong className="text-charcoal dark:text-foreground">
             Remember:
           </strong>{" "}
-          No single action "flips" the system. Scoring is cumulative and reveals
+          No single action &quot;flips&quot; the system. Scoring is cumulative and reveals
           patterns over time. Sales review begins at <strong>75+ points</strong>.
         </p>
       </div>

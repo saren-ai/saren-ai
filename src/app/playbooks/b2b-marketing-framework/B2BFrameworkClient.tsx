@@ -76,7 +76,7 @@ function cleanMarkdown(content: string, stepTitle: string): string {
         return line;
     });
 
-    let finalMarkdown = cleanedLines.join('\n');
+    const finalMarkdown = cleanedLines.join('\n');
     return finalMarkdown;
 }
 

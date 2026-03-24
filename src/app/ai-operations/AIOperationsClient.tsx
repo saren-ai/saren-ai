@@ -79,7 +79,7 @@ export default function AIOperationsClient() {
                             transition={{ delay: 0.1 }}
                             className="text-lg md:text-xl text-slate max-w-3xl mx-auto"
                         >
-                            AI doesn't just make marketing faster. It rewrites what marketing is—transforming it from creative intuition into engineered systems that optimize themselves.
+                            AI doesn&apos;t just make marketing faster. It rewrites what marketing is—transforming it from creative intuition into engineered systems that optimize themselves.
                         </motion.p>
                     </div>
 
@@ -220,7 +220,7 @@ export default function AIOperationsClient() {
                             transition={{ delay: 0.1 }}
                             className="text-lg md:text-xl text-ash/70 max-w-3xl mx-auto"
                         >
-                            AI-powered demand generation operates on three interconnected pillars. Each pillar represents a fundamental capability that wasn't possible before AI.
+                            AI-powered demand generation operates on three interconnected pillars. Each pillar represents a fundamental capability that wasn&apos;t possible before AI.
                         </motion.p>
                     </div>
 
@@ -259,7 +259,7 @@ export default function AIOperationsClient() {
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-electric flex-shrink-0" />
-                                            <span>Attribution models don't just report what happened—they predict which channels will perform</span>
+                                            <span>Attribution models don&apos;t just report what happened—they predict which channels will perform</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-electric flex-shrink-0" />
@@ -311,7 +311,7 @@ export default function AIOperationsClient() {
                                     <ul className="space-y-3 text-ash/70">
                                         <li className="flex items-start gap-3">
                                             <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-copper flex-shrink-0" />
-                                            <span>Category creation and market positioning (AI can't invent this)</span>
+                                            <span>Category creation and market positioning (AI can&apos;t invent this)</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-copper flex-shrink-0" />
@@ -327,7 +327,7 @@ export default function AIOperationsClient() {
                                     <div className="bg-charcoal/50 p-6 rounded-xl border border-copper/20 h-full">
                                         <h4 className="text-lg font-bold mb-4 text-copper">REAL EXAMPLE:</h4>
                                         <p className="text-ash/80 mb-6 leading-relaxed">
-                                            At WethosAI, we created the "Collaborative AI" category from scratch—defining the market narrative, buyer personas, and positioning that AI systems then executed through automated campaigns.
+                                            At WethosAI, we created the &quot;Collaborative AI&quot; category from scratch—defining the market narrative, buyer personas, and positioning that AI systems then executed through automated campaigns.
                                         </p>
                                         <Link href="/portfolio/sovereign-personas" className="text-copper font-bold hover:text-white transition-colors inline-flex items-center">
                                             See Sovereign Personas <ArrowRight className="w-4 h-4 ml-2" />
@@ -415,7 +415,7 @@ export default function AIOperationsClient() {
                             transition={{ delay: 0.1 }}
                             className="text-lg text-slate max-w-2xl mx-auto"
                         >
-                            Three converging forces are making AI-native demand gen the new standard—and companies that don't adapt will be left behind.
+                            Three converging forces are making AI-native demand gen the new standard—and companies that don&apos;t adapt will be left behind.
                         </motion.p>
                     </div>
 
@@ -590,7 +590,7 @@ export default function AIOperationsClient() {
                         transition={{ delay: 0.1 }}
                         className="text-xl text-ash/80 max-w-2xl mx-auto mb-10"
                     >
-                        Let's audit your current funnel and architect a system that proves ROI in 90 days.
+                        Let&apos;s audit your current funnel and architect a system that proves ROI in 90 days.
                     </motion.p>
 
                     <motion.div

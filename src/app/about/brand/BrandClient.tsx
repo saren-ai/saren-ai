@@ -157,7 +157,7 @@ export default function BrandClient() {
                                     <p><span className="text-ember">const</span> <span className="text-electric">mission</span> = <span className="text-copper">&quot;Fix the invisible leaks&quot;</span>;</p>
                                     <p><span className="text-ember">if</span> (growth === <span className="text-copper">&quot;stalled&quot;</span>) {"{"}</p>
                                     <div className="pl-4 text-slate">
-                                        <p>// Check positioning first</p>
+                                        <p>{/* Check positioning first */}</p>
                                         <p>return <span className="text-electric">betterSignal()</span>;</p>
                                     </div>
                                     <p>{"}"}</p>

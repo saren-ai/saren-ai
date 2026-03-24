@@ -1,6 +1,6 @@
 "use client";
 
-import { fitScoreFactors, type BuyerProfile } from "@/lib/behavioral-scoring";
+import { fitScoreFactors, factorIdToProfileKey, type BuyerProfile } from "@/lib/behavioral-scoring";
 import { Building2, Briefcase, MapPin, Factory } from "lucide-react";
 
 interface FitScoreBreakdownProps {
@@ -74,9 +74,10 @@ export function FitScoreBreakdown({
       {/* Fit Factors */}
       <div className="space-y-4">
         {fitScoreFactors.map((factor) => {
-          const currentValue = (profile as any)[
-            factor.id.replace(/-/g, "")
-          ] as string;
+          const profileKey = factorIdToProfileKey[factor.id];
+          const currentValue = profileKey
+            ? (profile[profileKey as keyof BuyerProfile] as string)
+            : "";
           const breakdown = fitBreakdown.find((b) => b.factor === factor.label);
           const currentPoints = breakdown?.points || 0;
 
@@ -119,7 +120,7 @@ export function FitScoreBreakdown({
                           key={criterion.value}
                           onClick={() =>
                             onProfileChange({
-                              [factor.id.replace(/-/g, "")]: criterion.value,
+                              [factorIdToProfileKey[factor.id] || factor.id]: criterion.value,
                             })
                           }
                           className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all ${

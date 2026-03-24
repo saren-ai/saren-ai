@@ -131,14 +131,7 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
     const parsedSteps = await Promise.all(
         playbook.steps.map(async (step) => {
             const cleaned = step.content ? cleanMarkdown(step.content, step.title) : '';
-            console.log(`[DEBUG] Cleaned length for step ${step.step}:`, cleaned.length);
-            if (step.step === 1) {
-                console.log(`[DEBUG] Step 1 snippet:`, cleaned.substring(0, 150));
-            }
             const parsedContent = cleaned ? await marked.parse(cleaned) : '*No content available for this step.*';
-            if (step.step === 1) {
-                console.log(`[DEBUG] Step 1 PARSED HTML:`, parsedContent.substring(0, 150));
-            }
             return {
                 ...step,
                 parsedContent

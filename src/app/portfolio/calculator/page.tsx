@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
-import CalculatorClient from "./CalculatorClient";
+import dynamic from "next/dynamic";
+
+const CalculatorClient = dynamic(() => import("./CalculatorClient"), {
+  loading: () => (
+    <div className="min-h-[600px] flex items-center justify-center">
+      <div className="animate-pulse text-slate">Loading...</div>
+    </div>
+  ),
+});
 
 export const metadata: Metadata = {
   title: "SaaS Revenue Calculator | Saren.ai",

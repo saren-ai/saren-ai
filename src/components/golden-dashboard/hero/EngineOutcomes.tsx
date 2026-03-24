@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { ComputedModel } from "@/lib/golden-dashboard";
 import { TrendingUp, DollarSign } from "lucide-react";
@@ -19,19 +19,18 @@ export default function EngineOutcomes({ model, acv, spend }: EngineOutcomesProp
 
     // Flash Animation Logic
     const glowControls = useAnimation();
-    const [prevRevenue, setPrevRevenue] = useState(revenue);
+    const prevRevenueRef = useRef(revenue);
 
     useEffect(() => {
-        if (revenue > prevRevenue) {
-            // Trigger Flash/Bloom
+        if (revenue > prevRevenueRef.current) {
             glowControls.start({
                 opacity: [0, 0.6, 0],
                 scale: [1, 1.2, 1],
                 transition: { duration: 0.8, ease: "easeOut" }
             });
         }
-        setPrevRevenue(revenue);
-    }, [revenue, prevRevenue, glowControls]);
+        prevRevenueRef.current = revenue;
+    }, [revenue, glowControls]);
 
     return (
         <div className="h-full bg-gradient-to-br from-background-secondary/80 to-ember/5 backdrop-blur-xl border border-ember/20 rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group shadow-2xl shadow-black/10 transition-colors duration-500">

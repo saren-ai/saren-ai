@@ -1,5 +1,16 @@
 import type { Metadata } from "next";
-import PsylockeTimelineClient from "./PsylockeTimelineClient";
+import dynamic from "next/dynamic";
+
+const PsylockeTimelineClient = dynamic(
+  () => import("./PsylockeTimelineClient"),
+  {
+    loading: () => (
+      <div className="min-h-[600px] flex items-center justify-center">
+        <div className="animate-pulse text-slate">Loading...</div>
+      </div>
+    ),
+  }
+);
 
 export const metadata: Metadata = {
   title: "Psylocke Timeline | Saren.ai",

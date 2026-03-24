@@ -103,7 +103,7 @@ export default function BentoCard({ prompt, onClick }: BentoCardProps) {
                 {/* Header */}
                 <div className="flex justify-between items-start mb-3">
                     <div className={`text-[10px] font-mono font-bold tracking-wider uppercase ${colors.text} opacity-80`}>
-                        {prompt.level} // {prompt.levelTitle}
+                        {prompt.level} {/* // */} {prompt.levelTitle}
                     </div>
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}

@@ -125,7 +125,7 @@ export default function AuthorityEngineeringPage() {
                         Stop guessing. Start engineering.
                     </h2>
                     <p className="text-xl text-white/80 max-w-2xl mx-auto mb-10">
-                        Let's build a content engine that LLMs prioritize and buyers trust.
+                        Let&apos;s build a content engine that LLMs prioritize and buyers trust.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <Link

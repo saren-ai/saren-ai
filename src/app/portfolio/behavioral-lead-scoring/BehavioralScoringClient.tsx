@@ -68,7 +68,7 @@ export default function BehavioralScoringClient() {
                         </h2>
                         <div className="prose prose-lg text-foreground-muted leading-relaxed">
                             <p>
-                                This scoring system doesn't exist in isolation. It's the
+                                This scoring system doesn&apos;t exist in isolation. It&apos;s the
                                 interpretation layer that sits downstream from your{" "}
                                 <Link
                                     href="/portfolio/120-day-content-journey"
@@ -195,12 +195,12 @@ export default function BehavioralScoringClient() {
                         Ready to make buyer motion legible?
                     </h2>
                     <p className="text-ash/70 text-lg max-w-2xl mx-auto mb-8">
-                        Let's design a behavioral scoring system that turns messy human
+                        Let&apos;s design a behavioral scoring system that turns messy human
                         behavior into clear, confident decisions—customized for your market,
                         your buyers, and your sales team.
                     </p>
                     <Link href="/contact" className="btn-primary inline-flex text-lg">
-                        Let's talk
+                        Let&apos;s talk
                         <svg
                             className="w-5 h-5"
                             fill="none"

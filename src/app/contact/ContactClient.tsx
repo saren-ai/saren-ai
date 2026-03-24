@@ -1,49 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import FAQ from "@/components/ui/FAQ";
 
 export default function ContactClient() {
-    const [formState, setFormState] = useState({
-        name: "",
-        email: "",
-        company: "",
-        message: "",
-    });
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [isSubmitted, setIsSubmitted] = useState(false);
-    const [error, setError] = useState("");
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-        setError("");
-
-        try {
-            // TODO: Replace with actual HubSpot integration
-            // HubSpot Portal ID and Form ID will be needed
-            // Example: await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`, ...)
-
-            // Simulating form submission
-            await new Promise((resolve) => setTimeout(resolve, 1000));
-            setIsSubmitted(true);
-        } catch (err) {
-            setError("Something went wrong. Please try again or email directly.");
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
-
-    const handleChange = (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) => {
-        setFormState((prev) => ({
-            ...prev,
-            [e.target.name]: e.target.value,
-        }));
-    };
-
     return (
         <article>
             {/* Hero */}
@@ -75,177 +35,43 @@ export default function ContactClient() {
             <section className="section bg-ash">
                 <div className="container-narrow">
                     <div className="grid md:grid-cols-2 gap-12 md:gap-16">
-                        {/* Form */}
+                        {/* Primary CTA */}
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.2 }}
+                            className="flex flex-col justify-center"
                         >
-                            <h2 className="text-2xl font-bold text-charcoal mb-6">
-                                Send a Message
+                            <h2 className="text-2xl font-bold text-charcoal mb-4">
+                                Just send me an email
                             </h2>
-
-                            {isSubmitted ? (
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    className="p-8 bg-green-50 border border-green-200 rounded-xl text-center"
+                            <p className="text-slate mb-8 leading-relaxed">
+                                No forms, no funnels. Tell me what&apos;s going on — what&apos;s
+                                working, what isn&apos;t, and what you&apos;ve tried. I&apos;ll
+                                read it and write back.
+                            </p>
+                            <a
+                                href="mailto:saren.sakurai@gmail.com?subject=Let%27s%20Work%20Together"
+                                className="btn-primary inline-flex items-center gap-3 self-start text-lg px-8 py-4"
+                            >
+                                <svg
+                                    className="w-5 h-5"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
                                 >
-                                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <svg
-                                            className="w-8 h-8 text-green-600"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M5 13l4 4L19 7"
-                                            />
-                                        </svg>
-                                    </div>
-                                    <h3 className="text-xl font-bold text-green-800 mb-2">
-                                        Message Sent!
-                                    </h3>
-                                    <p className="text-green-700">
-                                        Thanks for reaching out. I&apos;ll get back to you within 24-48
-                                        hours.
-                                    </p>
-                                </motion.div>
-                            ) : (
-                                <form onSubmit={handleSubmit} className="space-y-6">
-                                    <div>
-                                        <label
-                                            htmlFor="name"
-                                            className="block text-sm font-medium text-charcoal mb-2"
-                                        >
-                                            Name <span className="text-ember">*</span>
-                                        </label>
-                                        <input
-                                            type="text"
-                                            id="name"
-                                            name="name"
-                                            required
-                                            value={formState.name}
-                                            onChange={handleChange}
-                                            className="w-full px-4 py-3 bg-white border border-charcoal/20 rounded-lg focus:outline-none focus:border-electric focus:ring-2 focus:ring-electric/20 transition-all"
-                                            placeholder="Your name"
-                                        />
-                                    </div>
-
-                                    <div>
-                                        <label
-                                            htmlFor="email"
-                                            className="block text-sm font-medium text-charcoal mb-2"
-                                        >
-                                            Email <span className="text-ember">*</span>
-                                        </label>
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            name="email"
-                                            required
-                                            value={formState.email}
-                                            onChange={handleChange}
-                                            className="w-full px-4 py-3 bg-white border border-charcoal/20 rounded-lg focus:outline-none focus:border-electric focus:ring-2 focus:ring-electric/20 transition-all"
-                                            placeholder="you@company.com"
-                                        />
-                                    </div>
-
-                                    <div>
-                                        <label
-                                            htmlFor="company"
-                                            className="block text-sm font-medium text-charcoal mb-2"
-                                        >
-                                            Company
-                                        </label>
-                                        <input
-                                            type="text"
-                                            id="company"
-                                            name="company"
-                                            value={formState.company}
-                                            onChange={handleChange}
-                                            className="w-full px-4 py-3 bg-white border border-charcoal/20 rounded-lg focus:outline-none focus:border-electric focus:ring-2 focus:ring-electric/20 transition-all"
-                                            placeholder="Your company (optional)"
-                                        />
-                                    </div>
-
-                                    <div>
-                                        <label
-                                            htmlFor="message"
-                                            className="block text-sm font-medium text-charcoal mb-2"
-                                        >
-                                            Message <span className="text-ember">*</span>
-                                        </label>
-                                        <textarea
-                                            id="message"
-                                            name="message"
-                                            required
-                                            rows={5}
-                                            value={formState.message}
-                                            onChange={handleChange}
-                                            className="w-full px-4 py-3 bg-white border border-charcoal/20 rounded-lg focus:outline-none focus:border-electric focus:ring-2 focus:ring-electric/20 transition-all resize-none"
-                                            placeholder="Tell me about your project or challenge..."
-                                        />
-                                    </div>
-
-                                    {error && (
-                                        <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
-                                            {error}
-                                        </div>
-                                    )}
-
-                                    <button
-                                        type="submit"
-                                        disabled={isSubmitting}
-                                        className="btn-primary w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
-                                    >
-                                        {isSubmitting ? (
-                                            <>
-                                                <svg
-                                                    className="animate-spin w-5 h-5"
-                                                    fill="none"
-                                                    viewBox="0 0 24 24"
-                                                >
-                                                    <circle
-                                                        className="opacity-25"
-                                                        cx="12"
-                                                        cy="12"
-                                                        r="10"
-                                                        stroke="currentColor"
-                                                        strokeWidth="4"
-                                                    />
-                                                    <path
-                                                        className="opacity-75"
-                                                        fill="currentColor"
-                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                                                    />
-                                                </svg>
-                                                Sending...
-                                            </>
-                                        ) : (
-                                            <>
-                                                Send message
-                                                <svg
-                                                    className="w-5 h-5"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    viewBox="0 0 24 24"
-                                                >
-                                                    <path
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        strokeWidth={2}
-                                                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                                                    />
-                                                </svg>
-                                            </>
-                                        )}
-                                    </button>
-                                </form>
-                            )}
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                    />
+                                </svg>
+                                Email Saren
+                            </a>
+                            <p className="text-sm text-slate/70 mt-4">
+                                Opens your email client · saren.sakurai@gmail.com
+                            </p>
                         </motion.div>
 
                         {/* Other Contact Methods */}
@@ -255,36 +81,6 @@ export default function ContactClient() {
                             transition={{ delay: 0.3 }}
                             className="space-y-8"
                         >
-                            {/* Live Chat */}
-                            <div className="p-6 bg-white rounded-xl border border-charcoal/10">
-                                <h3 className="text-lg font-bold text-charcoal mb-2">
-                                    Need an answer right now?
-                                </h3>
-                                <p className="text-slate text-sm mb-4">
-                                    Start a live chat and I&apos;ll get back to you as soon as I can.
-                                </p>
-                                {/* TODO: Replace with actual HubSpot chat integration */}
-                                <a
-                                    href="mailto:saren.sakurai@gmail.com?subject=Quick%20Question"
-                                    className="inline-flex items-center gap-2 px-4 py-2 bg-electric text-white rounded-lg hover:bg-electric/90 transition-colors"
-                                >
-                                    <svg
-                                        className="w-5 h-5"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                                        />
-                                    </svg>
-                                    Send a quick email
-                                </a>
-                            </div>
-
                             {/* LinkedIn */}
                             <div className="p-6 bg-white rounded-xl border border-charcoal/10">
                                 <h3 className="text-lg font-bold text-charcoal mb-2">
@@ -316,8 +112,7 @@ export default function ContactClient() {
                                     Email directly
                                 </h3>
                                 <p className="text-slate text-sm mb-4">
-                                    Prefer email? Reach out directly and I&apos;ll respond within
-                                    24-48 hours.
+                                    Prefer to copy the address? Right here.
                                 </p>
                                 <a
                                     href="mailto:saren.sakurai@gmail.com"
@@ -371,7 +166,7 @@ export default function ContactClient() {
                 items={[
                     {
                         question: "What's the best way to work with you?",
-                        answer: "Most clients engage me as a fractional CMO (10-20 hours/week) for strategic leadership and system building. Some bring me in for project-based work like building a demand gen engine, implementing analytics frameworks, or creating a growth strategy. Start with the contact form above and we'll figure out the best fit."
+                        answer: "Most clients engage me as a fractional CMO (10-20 hours/week) for strategic leadership and system building. Some bring me in for project-based work like building a demand gen engine, implementing analytics frameworks, or creating a growth strategy. Send me an email and we'll figure out the best fit."
                     },
                     {
                         question: "Do you take on short-term projects?",
@@ -391,7 +186,7 @@ export default function ContactClient() {
                     },
                     {
                         question: "What if I'm not sure what I need?",
-                        answer: "That's normal. Most companies reach out because they know something isn't working but can't diagnose it. Start with the form above and describe your situation—what's working, what's not, what you've tried. We'll schedule a 30-min call to figure out if I can help and how."
+                        answer: "That's normal. Most companies reach out because they know something isn't working but can't diagnose it. Just email me and describe your situation — what's working, what's not, what you've tried. We'll schedule a 30-min call to figure out if I can help and how."
                     }
                 ]}
             />
