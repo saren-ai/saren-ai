@@ -23,18 +23,22 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://saren.ai"),
   title: {
-    default: "Saren Sakurai | Fractional CMO & AI Operations Consultant",
+    default: "Saren Sakurai | Demand Generation | Cybersecurity | AI-Augmented Marketing",
     template: "%s | Saren.ai",
   },
   description:
-    "Building AI-driven growth engines for early-stage and Series A startups. Scalable strategy, systems, and storytelling that turns vision into velocity.",
+    "VP-level demand generation for AI-native cybersecurity companies. Built the program at Cylance ($1.4B exit). Scaled it at BlackBerry. 550% pipeline growth, 70% CAC reduction.",
   keywords: [
-    "fractional CMO",
-    "AI operations",
-    "growth marketing",
     "demand generation",
-    "B2B marketing",
-    "startup marketing",
+    "cybersecurity marketing",
+    "AI-augmented marketing",
+    "B2B demand gen",
+    "VP demand generation",
+    "Cylance",
+    "pipeline growth",
+    "AI operations",
+    "fractional CMO",
+    "growth marketing",
   ],
   authors: [{ name: "Saren Sakurai" }],
   creator: "Saren Sakurai",
@@ -43,9 +47,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://saren.ai",
     siteName: "Saren.ai",
-    title: "Saren Sakurai | Fractional CMO & AI Operations Consultant",
+    title: "Saren Sakurai | Demand Generation | Cybersecurity | AI-Augmented Marketing",
     description:
-      "Building AI-driven growth engines for early-stage and Series A startups.",
+      "VP-level demand generation for AI-native cybersecurity companies. Built the program at Cylance ($1.4B exit). Scaled it at BlackBerry.",
     images: [
       {
         url: "/og-image.png",
@@ -57,9 +61,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Saren Sakurai | Fractional CMO & AI Operations Consultant",
+    title: "Saren Sakurai | Demand Generation | Cybersecurity | AI-Augmented Marketing",
     description:
-      "Building AI-driven growth engines for early-stage and Series A startups.",
+      "VP-level demand generation for AI-native cybersecurity companies. Built the program at Cylance ($1.4B exit). Scaled it at BlackBerry.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -100,9 +104,9 @@ export default async function RootLayout({
               name: "Saren Sakurai",
               url: "https://saren.ai",
               image: "https://saren.ai/og-image.png",
-              jobTitle: "Fractional CMO & AI Operations Consultant",
+              jobTitle: "VP, Demand Generation — Cybersecurity & AI",
               description:
-                "Building AI-driven growth engines for early-stage and Series A startups. Scalable strategy, systems, and storytelling that turns vision into velocity.",
+                "VP-level demand generation for AI-native cybersecurity companies. Built the program at Cylance ($1.4B exit). Scaled it at BlackBerry. 550% pipeline growth, 70% CAC reduction.",
               sameAs: [
                 "https://www.linkedin.com/in/saren/",
                 "https://bsky.app/profile/saren.bsky.social",

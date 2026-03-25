@@ -107,7 +107,7 @@ export default function HomeClient() {
               transition={{ duration: 0.5 }}
               className="text-electric font-mono text-sm md:text-base mb-6 tracking-wider uppercase"
             >
-              Solution Architect & Idea Partner
+              Demand Generation · Cybersecurity · AI
             </motion.p>
 
             {/* Headline */}
@@ -115,29 +115,31 @@ export default function HomeClient() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-6xl lg:text-[3.5rem] font-bold text-charcoal dark:text-foreground leading-[1.1] mb-6"
+              className="text-4xl md:text-6xl lg:text-[3.5rem] font-bold text-charcoal dark:text-foreground leading-[1.1] mb-4"
             >
-              I partner with startups on{" "}
-              <span className="text-gradient">big ideas</span>, using AI to
-              build <span className="text-gradient">invisible workflows</span> &
-              rapid prototypes.
+              I build{" "}
+              <span className="text-gradient">demand generation engines</span>{" "}
+              for AI-native cybersecurity companies.
             </motion.h1>
 
+            {/* Proof line */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="text-xl md:text-2xl text-slate dark:text-foreground-muted font-mono mb-6"
+            >
+              Built it at Cylance ($1.4B exit). Scaled it at BlackBerry. Deploying it now.
+            </motion.p>
+
             {/* Subhead */}
-            {/* Subhead / Buyer Context */}
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl lg:text-2xl text-charcoal dark:text-foreground-muted font-medium max-w-4xl mx-auto leading-relaxed mb-10"
+              className="text-lg md:text-xl text-charcoal dark:text-foreground-muted font-medium max-w-2xl mx-auto leading-relaxed mb-8"
             >
-              From brainstorming innovative concepts to mapping out complex
-              system designs—so you can{" "}
-              <span className="font-bold text-charcoal dark:text-foreground">
-                unsubscribe from legacy platforms
-              </span>
-              —I thrive on turning wild ideas into elegant, functional
-              realities.
+              Using AI-augmented infrastructure, not headcount, to build pipeline that compounds.
             </motion.h2>
 
             {/* CTAs */}
@@ -189,6 +191,33 @@ export default function HomeClient() {
               </Link>
             </motion.div>
 
+            {/* Metrics Bar */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-4 border-t border-charcoal/10 dark:border-white/10 pt-8"
+            >
+              {[
+                { value: "3 Exits", label: "incl. Cylance $1.4B" },
+                { value: "550%", label: "YoY Pipeline Growth" },
+                { value: "70%", label: "CAC Reduction" },
+                { value: "344%", label: "Lead Growth" },
+                { value: "15+ yrs", label: "Cybersecurity & B2B" },
+                { value: "8:1", label: "Paid Media ROI" },
+                { value: "$4M", label: "Quarterly Pipeline" },
+              ].map((m) => (
+                <div key={m.label} className="text-center">
+                  <div className="text-xl md:text-2xl font-bold font-mono text-charcoal dark:text-foreground">
+                    {m.value}
+                  </div>
+                  <div className="text-[11px] uppercase tracking-widest text-slate dark:text-foreground-muted mt-0.5">
+                    {m.label}
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+
             {/* Scroll Indicator */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -217,6 +246,28 @@ export default function HomeClient() {
               </motion.div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Cylance Alumni Callout */}
+      <section className="py-6 bg-ash dark:bg-background border-b border-charcoal/8 dark:border-white/8">
+        <div className="container-narrow">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row sm:items-center gap-3 px-5 py-4 rounded-xl bg-electric/[0.06] dark:bg-electric/[0.08] border border-electric/20"
+          >
+            <span className="shrink-0 text-[10px] font-semibold tracking-widest uppercase text-electric px-2 py-1 rounded bg-electric/10">
+              Cylance Alumni
+            </span>
+            <p className="text-charcoal dark:text-foreground text-sm md:text-base">
+              I built the demand gen program at Cylance from 2017 through the BlackBerry acquisition.{" "}
+              <Link href="/contact" className="font-semibold text-electric hover:text-ember transition-colors underline underline-offset-2">
+                Happy to connect.
+              </Link>
+            </p>
+          </motion.div>
         </div>
       </section>
 
