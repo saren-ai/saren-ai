@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Sora, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
@@ -145,12 +144,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <main className="flex-1">{children}</main>
           <Footer />
         </ThemeProvider>
-        <Script
-          id="hs-script-loader"
-          strategy="afterInteractive"
-          src="//js-na2.hs-scripts.com/244082990.js"
-        />
-
       </body>
     </html>
   );
