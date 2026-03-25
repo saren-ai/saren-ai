@@ -42,7 +42,7 @@ yarn-error.log*
 *.pem
 
 # local databases
-data/
+/data/
 *.db
 *.db-shm
 *.db-wal
