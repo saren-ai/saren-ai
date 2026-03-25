@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Script from "next/script";
 import { motion } from "framer-motion";
 
 import PortfolioCard from "@/components/portfolio/PortfolioCard";
@@ -107,7 +106,7 @@ export default function HomeClient() {
               transition={{ duration: 0.5 }}
               className="text-electric font-mono text-sm md:text-base mb-6 tracking-wider uppercase"
             >
-              Demand Generation · Cybersecurity · AI
+              Demand Generation · Cybersecurity · AI-Augmented Marketing
             </motion.p>
 
             {/* Headline */}
@@ -119,7 +118,7 @@ export default function HomeClient() {
             >
               I build{" "}
               <span className="text-gradient">demand generation engines</span>{" "}
-              for AI-native cybersecurity companies.
+              for complex B2B and cybersecurity companies.
             </motion.h1>
 
             {/* Proof line */}
@@ -137,10 +136,23 @@ export default function HomeClient() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl text-charcoal dark:text-foreground-muted font-medium max-w-2xl mx-auto leading-relaxed mb-8"
+              className="text-lg md:text-xl text-charcoal dark:text-foreground-muted font-medium max-w-2xl mx-auto leading-relaxed mb-4"
             >
-              Using AI-augmented infrastructure, not headcount, to build pipeline that compounds.
+              15+ years building pipeline in markets where the buyer is sophisticated,
+              the sales cycle is long, and generic demand gen doesn&apos;t work.
             </motion.h2>
+
+            {/* Body / value prop */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              className="text-base md:text-lg text-slate dark:text-foreground-muted max-w-2xl mx-auto leading-relaxed mb-8"
+            >
+              From enterprise security to AI-native SaaS, I architect full-funnel demand gen
+              infrastructure — frameworks, scoring models, attribution, and AI-augmented ops —
+              and build the teams to run it at scale.
+            </motion.p>
 
             {/* CTAs */}
             <motion.div
@@ -199,13 +211,11 @@ export default function HomeClient() {
               className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-4 border-t border-charcoal/10 dark:border-white/10 pt-8"
             >
               {[
-                { value: "3 Exits", label: "incl. Cylance $1.4B" },
-                { value: "550%", label: "YoY Pipeline Growth" },
-                { value: "70%", label: "CAC Reduction" },
-                { value: "344%", label: "Lead Growth" },
-                { value: "15+ yrs", label: "Cybersecurity & B2B" },
-                { value: "8:1", label: "Paid Media ROI" },
-                { value: "$4M", label: "Quarterly Pipeline" },
+                { value: "550%", label: "YoY pipeline growth" },
+                { value: "70%", label: "CAC reduction" },
+                { value: "8:1", label: "Paid media ROI" },
+                { value: "$4M", label: "Quarterly pipeline" },
+                { value: "344%", label: "Inbound lead growth" },
               ].map((m) => (
                 <div key={m.label} className="text-center">
                   <div className="text-xl md:text-2xl font-bold font-mono text-charcoal dark:text-foreground">
@@ -247,169 +257,6 @@ export default function HomeClient() {
             </motion.div>
           </div>
         </div>
-      </section>
-
-      {/* Cylance Alumni Callout */}
-      <section className="py-6 bg-ash dark:bg-background border-b border-charcoal/8 dark:border-white/8">
-        <div className="container-narrow">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col sm:flex-row sm:items-center gap-3 px-5 py-4 rounded-xl bg-electric/[0.06] dark:bg-electric/[0.08] border border-electric/20"
-          >
-            <span className="shrink-0 text-[10px] font-semibold tracking-widest uppercase text-electric px-2 py-1 rounded bg-electric/10">
-              Cylance Alumni
-            </span>
-            <p className="text-charcoal dark:text-foreground text-sm md:text-base">
-              I built the demand gen program at Cylance from 2017 through the BlackBerry acquisition.{" "}
-              <Link href="/contact" className="font-semibold text-electric hover:text-ember transition-colors underline underline-offset-2">
-                Happy to connect.
-              </Link>
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Tweet Timeline Section */}
-      <section className="py-12 bg-white dark:bg-charcoal/20 border-y border-slate/10 dark:border-white/5 overflow-hidden">
-        <div className="flex flex-col items-center w-full">
-          <h3 className="text-sm font-mono text-slate/60 dark:text-slate/40 mb-8 uppercase tracking-widest text-center px-4">
-            A Few Thoughts Along The Way
-          </h3>
-
-          <div className="w-full relative">
-            {/* Scroll snap carousel */}
-            <div
-              className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 hide-scrollbar w-full px-6 md:px-12"
-              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-            >
-              <style
-                dangerouslySetInnerHTML={{
-                  __html: `
-                                .hide-scrollbar::-webkit-scrollbar { display: none; }
-                            `,
-                }}
-              />
-
-              {/* Tweet 1: 2007 */}
-              <div className="snap-center shrink-0 w-[85vw] md:w-[60vw] max-w-[500px]">
-                <blockquote className="twitter-tweet">
-                  <p lang="en" dir="ltr">
-                    Can&#39;t sleep, again, joining twitter at 2:23 AM.
-                  </p>
-                  &mdash; Saren Sakurai (@saren){" "}
-                  <a href="https://twitter.com/saren/status/10398711?ref_src=twsrc%5Etfw">
-                    March 21, 2007
-                  </a>
-                </blockquote>
-              </div>
-
-              {/* Tweet 2: 2008 */}
-              <div className="snap-center shrink-0 w-[85vw] md:w-[60vw] max-w-[500px]">
-                <blockquote className="twitter-tweet">
-                  <p lang="en" dir="ltr">
-                    I think Facebook just hit suburban Baltimore, I&#39;ve
-                    gotten invites from 3 Park Schoolers in the last week - B-mo
-                    represent.
-                  </p>
-                  &mdash; Saren Sakurai (@saren){" "}
-                  <a href="https://twitter.com/saren/status/872322219?ref_src=twsrc%5Etfw">
-                    July 30, 2008
-                  </a>
-                </blockquote>
-              </div>
-
-              {/* Tweet 3: 2015 */}
-              <div className="snap-center shrink-0 w-[85vw] md:w-[60vw] max-w-[500px]">
-                <blockquote className="twitter-tweet">
-                  <p lang="en" dir="ltr">
-                    My 5,000th tweet and it only took me 7 years. I consider
-                    myself understated but committed. Thank you{" "}
-                    <a href="https://twitter.com/twitter?ref_src=twsrc%5Etfw">
-                      @twitter
-                    </a>
-                  </p>
-                  &mdash; Saren Sakurai (@saren){" "}
-                  <a href="https://twitter.com/saren/status/571220904841064448?ref_src=twsrc%5Etfw">
-                    February 27, 2015
-                  </a>
-                </blockquote>
-              </div>
-
-              {/* Tweet 4: 2017 */}
-              <div className="snap-center shrink-0 w-[85vw] md:w-[60vw] max-w-[500px]">
-                <blockquote className="twitter-tweet">
-                  <p lang="en" dir="ltr">
-                    I’ve walked out of an izakaya in bathroom slippers more than
-                    once.{" "}
-                    <a href="https://twitter.com/hashtag/gaijinconfessionfriday?src=hash&amp;ref_src=twsrc%5Etfw">
-                      #gaijinconfessionfriday
-                    </a>
-                  </p>
-                  &mdash; Saren Sakurai (@saren){" "}
-                  <a href="https://twitter.com/saren/status/863053078265683969?ref_src=twsrc%5Etfw">
-                    May 12, 2017
-                  </a>
-                </blockquote>
-              </div>
-
-              {/* Tweet 5: 2018 */}
-              <div className="snap-center shrink-0 w-[85vw] md:w-[60vw] max-w-[500px]">
-                <blockquote className="twitter-tweet">
-                  <p lang="en" dir="ltr">
-                    As part of a Nagoya-Baltimore marriage my wife and I are the
-                    family that says yo. I say yo at the beginning of a sentence
-                    and she says yo at the end.
-                  </p>
-                  &mdash; Saren Sakurai (@saren){" "}
-                  <a href="https://twitter.com/saren/status/1066153106314952704?ref_src=twsrc%5Etfw">
-                    November 24, 2018
-                  </a>
-                </blockquote>
-              </div>
-            </div>
-
-            {/* Hint */}
-            <div className="flex justify-center mt-2 opacity-50 md:hidden">
-              <span className="text-[10px] uppercase tracking-widest font-mono text-slate flex items-center gap-1 px-4">
-                <svg
-                  className="w-3 h-3"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                  />
-                </svg>
-                swipe
-                <svg
-                  className="w-3 h-3"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </div>
-        <Script
-          async
-          src="https://platform.twitter.com/widgets.js"
-          charSet="utf-8"
-          strategy="lazyOnload"
-        />
       </section>
 
       {/* Interactive Tools ("Try something") */}

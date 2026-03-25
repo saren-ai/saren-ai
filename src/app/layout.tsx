@@ -23,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://saren.ai"),
   title: {
-    default: "Saren Sakurai | Demand Generation | Cybersecurity | AI-Augmented Marketing",
+    default: "Saren Sakurai | Demand Generation | Cybersecurity & AI | B2B Marketing",
     template: "%s | Saren.ai",
   },
   description:
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://saren.ai",
     siteName: "Saren.ai",
-    title: "Saren Sakurai | Demand Generation | Cybersecurity | AI-Augmented Marketing",
+    title: "Saren Sakurai | Demand Generation | Cybersecurity & AI | B2B Marketing",
     description:
       "VP-level demand generation for AI-native cybersecurity companies. Built the program at Cylance ($1.4B exit). Scaled it at BlackBerry.",
     images: [
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Saren Sakurai | Demand Generation | Cybersecurity | AI-Augmented Marketing",
+    title: "Saren Sakurai | Demand Generation | Cybersecurity & AI | B2B Marketing",
     description:
       "VP-level demand generation for AI-native cybersecurity companies. Built the program at Cylance ($1.4B exit). Scaled it at BlackBerry.",
     images: ["/og-image.png"],
