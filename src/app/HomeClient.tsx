@@ -121,27 +121,6 @@ export default function HomeClient() {
               for complex B2B and cybersecurity companies.
             </motion.h1>
 
-            {/* Proof line */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="text-xl md:text-2xl text-slate dark:text-foreground-muted font-mono mb-6"
-            >
-              Built it at Cylance ($1.4B exit). Scaled it at BlackBerry. Deploying it now.
-            </motion.p>
-
-            {/* Subhead */}
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl text-charcoal dark:text-foreground-muted font-medium max-w-2xl mx-auto leading-relaxed mb-4"
-            >
-              15+ years building pipeline in markets where the buyer is sophisticated,
-              the sales cycle is long, and generic demand gen doesn&apos;t work.
-            </motion.h2>
-
             {/* Body / value prop */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -163,7 +142,7 @@ export default function HomeClient() {
             >
               <Link
                 href="/portfolio"
-                className="btn-primary"
+                className="btn-primary !rounded-full"
                 aria-label="Explore my portfolio"
               >
                 Explore my portfolio
@@ -183,7 +162,7 @@ export default function HomeClient() {
               </Link>
               <Link
                 href="/contact"
-                className="btn-secondary"
+                className="btn-secondary !rounded-full"
                 aria-label="Let's get in touch"
               >
                 Let&apos;s get in touch
@@ -211,11 +190,11 @@ export default function HomeClient() {
               className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-4 border-t border-charcoal/10 dark:border-white/10 pt-8"
             >
               {[
-                { value: "550%", label: "YoY pipeline growth" },
-                { value: "70%", label: "CAC reduction" },
-                { value: "8:1", label: "Paid media ROI" },
-                { value: "$4M", label: "Quarterly pipeline" },
-                { value: "344%", label: "Inbound lead growth" },
+                { value: "550%", label: "YoY pipeline growth", company: "BlackBerry" },
+                { value: "70%", label: "CAC reduction", company: "Qwiet AI" },
+                { value: "8:1", label: "Paid media ROI", company: "Cylance" },
+                { value: "$4M", label: "Quarterly pipeline", company: "Cylance" },
+                { value: "344%", label: "Inbound lead growth", company: "WethosAI" },
               ].map((m) => (
                 <div key={m.label} className="text-center">
                   <div className="text-xl md:text-2xl font-bold font-mono text-charcoal dark:text-foreground">
@@ -224,37 +203,13 @@ export default function HomeClient() {
                   <div className="text-[11px] uppercase tracking-widest text-slate dark:text-foreground-muted mt-0.5">
                     {m.label}
                   </div>
+                  <div className="text-[10px] font-mono text-slate/50 dark:text-foreground-muted/50 mt-0.5">
+                    {m.company}
+                  </div>
                 </div>
               ))}
             </motion.div>
 
-            {/* Scroll Indicator */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 0.5 }}
-              className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block"
-            >
-              <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{ repeat: Infinity, duration: 2 }}
-                className="text-slate/50"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                  />
-                </svg>
-              </motion.div>
-            </motion.div>
           </div>
         </div>
       </section>
