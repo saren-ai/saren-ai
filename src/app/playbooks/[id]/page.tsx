@@ -246,9 +246,11 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
                                             {step.title}
                                         </h2>
                                     </div>
-                                    <div className="pt-2 shrink-0">
-                                        <CopyButton textToCopy={step.content || ''} />
-                                    </div>
+                                    {!(playbook.playbook_id === 'linkedin-prospect-dashboard' && step.step === 1) && (
+                                        <div className="pt-2 shrink-0">
+                                            <CopyButton textToCopy={step.content || ''} />
+                                        </div>
+                                    )}
                                 </div>
 
 
