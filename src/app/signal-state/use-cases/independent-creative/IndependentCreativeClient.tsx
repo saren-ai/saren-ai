@@ -165,7 +165,7 @@ export default function IndependentCreativeClient() {
             viewport={{ once: true }}
             className="flex flex-wrap gap-4 pt-4"
           >
-            <Link href="/signal-state/use-cases/org-alignment" className="btn-secondary">
+            <Link href="/signal-state/use-cases/org-alignment" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-ash/50 text-ash font-semibold text-sm transition-all hover:bg-ash hover:text-charcoal hover:-translate-y-0.5">
               ← Use Case 02
             </Link>
             <Link href="/signal-state/signal-library" className="btn-primary">

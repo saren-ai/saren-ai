@@ -1300,7 +1300,7 @@ Client post search: "need both strategy and design" OR "strategy + design" for p
             <Link href="/signal-state/framework" className="btn-primary">
               Read the framework →
             </Link>
-            <Link href="/contact" className="btn-secondary">
+            <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-ash/50 text-ash font-semibold text-sm transition-all hover:bg-ash hover:text-charcoal hover:-translate-y-0.5">
               Get in touch →
             </Link>
           </motion.div>

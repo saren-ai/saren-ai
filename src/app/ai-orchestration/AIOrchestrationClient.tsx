@@ -43,7 +43,7 @@ export default function AIOrchestrationClient() {
             <Link href="/signal-state" className="btn-primary">
               See Signal-State in action <ArrowRight className="w-4 h-4 ml-2 inline" />
             </Link>
-            <Link href="/contact" className="btn-secondary">
+            <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-ash/50 text-ash font-semibold text-sm transition-all hover:bg-ash hover:text-charcoal hover:-translate-y-0.5">
               Book a strategy call
             </Link>
           </motion.div>
@@ -158,7 +158,7 @@ export default function AIOrchestrationClient() {
                 <Link href="/signal-state" className="btn-primary">
                   Explore Signal-State →
                 </Link>
-                <Link href="/signal-state/architecture" className="btn-secondary">
+                <Link href="/signal-state/architecture" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-ash/50 text-ash font-semibold text-sm transition-all hover:bg-ash hover:text-charcoal hover:-translate-y-0.5">
                   See the architecture
                 </Link>
               </div>
@@ -356,7 +356,7 @@ export default function AIOrchestrationClient() {
             <Link href="/contact" className="btn-primary">
               Book a call →
             </Link>
-            <Link href="/signal-state" className="btn-secondary">
+            <Link href="/signal-state" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-ash/50 text-ash font-semibold text-sm transition-all hover:bg-ash hover:text-charcoal hover:-translate-y-0.5">
               Explore Signal-State
             </Link>
           </motion.div>

@@ -163,7 +163,7 @@ export default function CybersecurityClient() {
             viewport={{ once: true }}
             className="flex flex-wrap gap-4 pt-4"
           >
-            <Link href="/signal-state/use-cases" className="btn-secondary">
+            <Link href="/signal-state/use-cases" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-ash/50 text-ash font-semibold text-sm transition-all hover:bg-ash hover:text-charcoal hover:-translate-y-0.5">
               ← All use cases
             </Link>
             <Link href="/signal-state/use-cases/org-alignment" className="btn-primary">

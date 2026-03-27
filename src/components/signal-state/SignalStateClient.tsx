@@ -116,7 +116,7 @@ export default function SignalStateClient() {
             </Link>
             <Link
               href="/signal-state/architecture"
-              className="btn-secondary"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-ash/50 text-ash font-semibold text-sm transition-all hover:bg-ash hover:text-charcoal hover:-translate-y-0.5"
             >
               See the architecture →
             </Link>
