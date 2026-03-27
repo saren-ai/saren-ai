@@ -89,17 +89,17 @@ export default function AuthorityEngineeringPage() {
                             To Citations.
                         </span>
                     </h1>
-                    <p className="text-xl md:text-2xl text-slate dark:text-zinc-400 max-w-3xl mx-auto leading-relaxed balanced-text">
+                    <p className="text-xl md:text-2xl text-slate max-w-3xl mx-auto leading-relaxed balanced-text">
                         Engineering B2B authority in the age of LLMs. How to build white papers that models <span className="italic">love</span> to cite.
                     </p>
                 </div>
             </section>
 
             {/* Philosophy Section */}
-            <section className="section py-8 md:py-12 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm border-y border-slate/10 dark:border-white/5">
+            <section className="section py-8 md:py-12 bg-white/40 dark:bg-[var(--background-secondary)]/40 backdrop-blur-sm border-y border-slate/10 dark:border-white/5">
                 <div className="container-narrow">
                     <div className="max-w-4xl mx-auto text-center">
-                        <p className="text-lg md:text-xl text-charcoal dark:text-zinc-300 leading-relaxed font-medium">
+                        <p className="text-lg md:text-xl text-charcoal leading-relaxed font-medium">
                             In 2026, we aren&apos;t just marketing to humans; we are marketing to the models that advise them. LLMs like Gemini and Claude prioritize structured, verifiable data. By using this workflow, you move your brand from a &quot;search result&quot; to a &quot;primary source.&quot;
                         </p>
                     </div>
@@ -111,7 +111,7 @@ export default function AuthorityEngineeringPage() {
                 <div className="container-narrow">
                     <div className="mb-12 text-center md:text-left">
                         <h2 className="text-2xl md:text-3xl font-bold text-charcoal dark:text-white tracking-tight mb-2">The Engineering Process</h2>
-                        <p className="text-slate dark:text-zinc-400">A 6-step system for building citable authority.</p>
+                        <p className="text-slate">A 6-step system for building citable authority.</p>
                     </div>
                     <ProcessNavigator />
                 </div>

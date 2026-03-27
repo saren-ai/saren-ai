@@ -151,12 +151,12 @@ const uvpCards = [
   {
     tag: 'Unfair Advantage 01',
     headline: 'He already knows your buyer',
-    body: "Cylance sold AI-native endpoint security to the same CISO at manufacturing, healthcare, and government organizations that Halcyon targets — with the same incumbent objection (\"we already have CrowdStrike\") and the same 12–18 month deal cycle. Saren built the demand gen playbook for that exact conversation. He doesn't need a learning curve.",
+    body: "Cylance sold AI-native endpoint security to the same CISO at manufacturing, healthcare, and government organizations that Halcyon targets — the CISO who already has CrowdStrike and still can't sleep — with the same incumbent objection and the same 12–18 month deal cycle. Saren built the demand gen playbook for that exact conversation. He doesn't need a learning curve.",
   },
   {
     tag: 'Unfair Advantage 02',
     headline: 'AI-augmented, not headcount-dependent',
-    body: "His 23-prompt AI marketing framework layers on top of Marketo and 6sense — the exact stack Halcyon runs. In a Series B environment where CAC efficiency matters as much as growth, a VP who can produce VP-level output with a lean team is worth more than a traditional hire who needs 15 FTEs to match it.",
+    body: "His 23-prompt AI marketing framework layers on top of Marketo and 6sense — the exact stack Halcyon runs. No waiting on ops to pull a report. No black-box vendor dashboards. Limitless analysis, in the moment. In a Series B environment where CAC efficiency matters as much as growth, a VP who can produce VP-level output with a lean team is worth more than a traditional hire who needs 15 FTEs to match it.",
   },
   {
     tag: 'Unfair Advantage 03',
@@ -205,7 +205,7 @@ const phases = [
       'Org structure proposal with hiring plan and span-of-control recommendations',
       'KPI dashboards and weekly metrics cadence aligned to board reporting requirements',
     ],
-    deliverable: 'Org structure with open requisitions filed. 12-month financial model with CAC, pipeline, and payback projections. Board-ready pipeline reporting live for Kelly Fiedler.',
+    deliverable: 'Org structure with open requisitions filed. 12-month financial model with CAC, pipeline, and payback projections — so the CFO sees marketing\'s contribution in real numbers, not estimates. Board-ready pipeline reporting live for Kelly Fiedler.',
   },
 ]
 
@@ -281,107 +281,159 @@ export default function HalcyonClient() {
             <span className="text-ash/80">Halcyon</span>
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.05 }}
-            className="text-xs font-semibold tracking-widest uppercase text-ash/40 mb-5"
-          >
-            VP, Demand Generation · Reports to Kelly Fiedler, CMO · March 2026
-          </motion.p>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-10 lg:gap-14 items-start">
+            {/* ── Left: main hero content ── */}
+            <div>
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.05 }}
+                className="text-xs font-semibold tracking-widest uppercase text-ash/40 mb-5"
+              >
+                VP, Demand Generation · Reports to Kelly Fiedler, CMO · March 2026
+              </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-ash mb-8 max-w-3xl leading-tight"
-          >
-            We did it once.{' '}
-            <span className="text-gradient">Let&apos;s do it again.</span>
-          </motion.h1>
+              <motion.h1
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: 0.1 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-ash mb-8 max-w-3xl leading-tight"
+              >
+                We did it once.<br />
+                <span className="text-gradient">Let&apos;s do it again.</span>
+              </motion.h1>
 
-          <div className="max-w-2xl space-y-5">
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
+              <div className="space-y-5">
+                <motion.p
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: 0.18 }}
+                  className="text-ash/80 text-lg leading-relaxed"
+                >
+                  At Cylance, Jon Miller wrote the AI engine that changed everything.
+                  I built the demand generation infrastructure that scaled it —
+                  selling AI-native security to enterprise and government buyers
+                  against the same core objection Halcyon faces every day:{' '}
+                  <span className="text-ash/95 italic">&ldquo;we already have an EDR.&rdquo;</span>
+                </motion.p>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: 0.24 }}
+                  className="text-ash/70 text-base leading-relaxed"
+                >
+                  That AI-first approach to endpoint security didn&apos;t just build a company —
+                  it created a category. It created a{' '}
+                  <span className="text-copper font-semibold">$1.4B exit</span>.
+                </motion.p>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: 0.30 }}
+                  className="text-ash/70 text-base leading-relaxed"
+                >
+                  Now Jon is at Halcyon, writing the next chapter with ransomware.
+                  Same visionary technologist. Stronger narrative. Better timing.
+                  Halcyon&apos;s encryption key capture and kernel protection aren&apos;t just features —
+                  they&apos;re the kind of defensible IP that changes how an industry works.
+                </motion.p>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: 0.36 }}
+                  className="text-ash/70 text-base leading-relaxed"
+                >
+                  I know exactly what it takes to move that kind of technology from greenfield
+                  to $1B+ company in a crowded market.
+                </motion.p>
+
+                {/* Pull quote */}
+                <motion.blockquote
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: 0.42 }}
+                  className="border-l-2 border-ember pl-5 py-1"
+                >
+                  <p className="text-ash/90 text-base italic leading-relaxed">
+                    Demand gen in enterprise security isn&apos;t luck. It&apos;s pattern recognition.
+                    It&apos;s understanding your buyer&apos;s fear. It&apos;s positioning that turns
+                    technical advantage into revenue acceleration. It&apos;s the discipline to scale
+                    without burning cash.
+                  </p>
+                </motion.blockquote>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: 0.48 }}
+                  className="text-ash/80 text-base leading-relaxed font-medium"
+                >
+                  On ramp time: I won&apos;t need one. My first 30 days would be diagnosis, not orientation.
+                </motion.p>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: 0.54 }}
+                className="flex flex-wrap gap-4 mt-10"
+              >
+                <a href="#proof" className="btn-primary">
+                  See the work →
+                </a>
+                <a
+                  href="#matrix"
+                  className="inline-flex items-center gap-2 font-semibold px-8 py-3.5 rounded bg-transparent border-2 border-ash/30 text-ash hover:bg-ash hover:text-charcoal transition-all duration-200"
+                >
+                  Capability fit
+                </a>
+              </motion.div>
+            </div>
+
+            {/* ── Right: resume card ── */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.18 }}
-              className="text-ash/80 text-lg leading-relaxed"
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="lg:sticky lg:top-28"
             >
-              At Cylance, Jon Miller wrote the AI engine that changed everything.
-              I built the demand generation infrastructure that scaled it.
-            </motion.p>
+              <Link
+                href="/halcyon/resume"
+                className="group block bg-ash/6 border border-ash/15 rounded-xl p-5 hover:bg-ash/10 hover:border-ash/25 transition-all duration-200"
+              >
+                <p className="text-[10px] font-semibold tracking-widest uppercase text-ember mb-4">
+                  Resume
+                </p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.24 }}
-              className="text-ash/70 text-base leading-relaxed"
-            >
-              That AI-first approach to endpoint security didn&apos;t just build a company —
-              it created a category. It created a{' '}
-              <span className="text-copper font-semibold">$1.4B exit</span>.
-            </motion.p>
+                <p className="font-bold text-ash text-base leading-tight mb-0.5">Saren Sakurai</p>
+                <p className="text-ash/50 text-xs mb-5 leading-relaxed">
+                  VP, Demand Generation<br />
+                  Cybersecurity · AI-Augmented Pipeline
+                </p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.30 }}
-              className="text-ash/70 text-base leading-relaxed"
-            >
-              Now Jon is at Halcyon, writing the next chapter with ransomware.
-              Same visionary technologist. Stronger narrative. Better timing.
-              Halcyon&apos;s encryption key capture and kernel protection aren&apos;t just features —
-              they&apos;re the kind of defensible IP that changes how an industry works.
-            </motion.p>
+                <div className="space-y-3 border-t border-ash/10 pt-4 mb-5">
+                  {[
+                    { stat: '550%', label: 'YoY pipeline growth' },
+                    { stat: '8:1', label: 'Paid media ROI at Cylance' },
+                    { stat: '15+', label: 'Years in B2B demand gen' },
+                  ].map(({ stat, label }) => (
+                    <div key={stat} className="flex items-baseline gap-2">
+                      <span className="font-mono font-bold text-ash text-lg leading-none">{stat}</span>
+                      <span className="text-ash/40 text-xs">{label}</span>
+                    </div>
+                  ))}
+                </div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.36 }}
-              className="text-ash/70 text-base leading-relaxed"
-            >
-              I know exactly what it takes to move that kind of technology from greenfield
-              to $1B+ company in a crowded market.
-            </motion.p>
-
-            {/* Pull quote */}
-            <motion.blockquote
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.42 }}
-              className="border-l-2 border-ember pl-5 py-1"
-            >
-              <p className="text-ash/90 text-base italic leading-relaxed">
-                Demand gen in enterprise security isn&apos;t luck. It&apos;s pattern recognition.
-                It&apos;s understanding your buyer&apos;s fear. It&apos;s positioning that turns
-                technical advantage into revenue acceleration. It&apos;s the discipline to scale
-                without burning cash.
-              </p>
-            </motion.blockquote>
-
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.48 }}
-              className="text-ash/80 text-base leading-relaxed font-medium"
-            >
-              I&apos;ve done this before. I can do it again — faster, and at Halcyon&apos;s scale.
-            </motion.p>
+                <div className="flex items-center gap-1.5 text-xs font-semibold text-electric group-hover:text-ash transition-colors">
+                  <span>View full resume</span>
+                  <span className="group-hover:translate-x-0.5 transition-transform">→</span>
+                </div>
+              </Link>
+            </motion.div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.54 }}
-            className="flex flex-wrap gap-4 mt-10"
-          >
-            <a href="#proof" className="btn-primary">
-              See the work →
-            </a>
-            <a href="#matrix" className="btn-secondary border-ash/30 text-ash hover:bg-ash hover:text-charcoal">
-              Capability fit
-            </a>
-          </motion.div>
         </div>
       </section>
 
@@ -390,7 +442,7 @@ export default function HalcyonClient() {
 
       {/* ── Proof metrics ─────────────────────────────────────────────── */}
       <div id="metrics" className="bg-ash dark:bg-background" ref={metricsRef}>
-        <div className="container-narrow py-16">
+        <div className="container-narrow pt-20 pb-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0 md:divide-x md:divide-charcoal/10 md:dark:divide-white/10">
             <div className="md:pr-12">
               <div className="metric-value">{metricsVisible ? count1 : 0}%</div>
@@ -682,43 +734,6 @@ export default function HalcyonClient() {
               ))}
             </ol>
           </div>
-        </div>
-      </section>
-
-      {/* ── Nicholas Warner callout ───────────────────────────────────── */}
-      <section className="section">
-        <div className="container-narrow">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="border border-charcoal/12 dark:border-white/12 rounded-xl p-8 md:p-10 bg-charcoal/[0.02] dark:bg-white/[0.02]"
-          >
-            <div className="flex flex-col md:flex-row md:items-start gap-6">
-              <div className="shrink-0">
-                <div className="w-12 h-12 rounded-full bg-electric/10 dark:bg-electric/20 flex items-center justify-center">
-                  <span className="text-electric font-bold text-lg">NW</span>
-                </div>
-              </div>
-              <div>
-                <p className="text-xs font-semibold tracking-widest uppercase text-copper dark:text-copper mb-3">
-                  The board already knows this hire
-                </p>
-                <p className="text-charcoal dark:text-foreground font-semibold text-lg mb-3 leading-snug">
-                  Nicholas Warner joined the Halcyon board in October 2025. He held senior
-                  roles at Cylance before growing SentinelOne from &lt;$10M to $500M+ ARR
-                  ahead of the $10B IPO.
-                </p>
-                <p className="text-slate dark:text-slate text-sm leading-relaxed">
-                  The board member whose job is to validate whether Halcyon can execute
-                  the same growth trajectory personally oversaw the demand gen era Saren
-                  built at Cylance. This is not a cold candidate to the board — it is a
-                  known-quantity hire to founders and directors who lived that company&apos;s
-                  growth arc. That context is rare. It should be used.
-                </p>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 

@@ -209,7 +209,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://www.discogs.com/user/saren13"
+                  href="https://www.discogs.com/user/saren13/collection?header=1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-ash/70 hover:text-ember transition-colors"

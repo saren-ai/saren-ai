@@ -1,13 +1,15 @@
 import type { MegaMenuContent } from "@/components/layout/MegaMenu";
 
 /**
- * Portfolio Mega Menu Content
+ * Work Mega Menu Content
+ * Replaces the old split between Portfolio and Playbooks.
+ * Two columns: Pipeline Programs (demand gen proof) + Strategy & Systems (frameworks/tools).
  */
-export const portfolioMegaMenu: MegaMenuContent = {
+export const workMegaMenu: MegaMenuContent = {
   layout: "three-column",
   sections: [
     {
-      title: "Featured Work",
+      title: "Pipeline Programs",
       links: [
         {
           href: "/portfolio/120-day-content-journey",
@@ -20,34 +22,39 @@ export const portfolioMegaMenu: MegaMenuContent = {
           description: "Multi-channel outbound system",
         },
         {
-          href: "/portfolio/b2b-marketing-framework",
-          label: "B2B Marketing Framework",
-          description: "Messaging infrastructure",
+          href: "/portfolio/intent-data",
+          label: "Intent Data Intelligence",
+          description: "Bombora signals → enterprise close",
+        },
+        {
+          href: "/portfolio/dynamic-nurture",
+          label: "Dynamic Email Nurture",
+          description: "Personalized B2B nurture engine",
         },
       ],
     },
     {
-      title: "Interactive Tools",
+      title: "Strategy & Systems",
       links: [
         {
-          label: "Paid Media ROI Simulator",
-          href: "/portfolio/roi-simulator",
-          description: "Interactive financial modeling",
+          href: "/portfolio/b2b-marketing-framework",
+          label: "B2B Marketing Framework",
+          description: "Full messaging infrastructure",
         },
         {
-          href: "/portfolio/calculator",
-          label: "SaaS Revenue Calculator",
-          description: "Funnel metrics reversed from goals",
+          href: "/portfolio/sovereign-personas",
+          label: "Sovereign Buyer Personas",
+          description: "Committee buying logic mapped",
+        },
+        {
+          href: "/portfolio/roi-simulator",
+          label: "Paid Media ROI Simulator",
+          description: "Interactive attribution modeling",
         },
         {
           href: "/portfolio/behavioral-lead-scoring",
           label: "Behavioral Lead Scoring",
           description: "Buyer motion intent tracking",
-        },
-        {
-          href: "/portfolio/authority-engineering",
-          label: "Citable Authority Build",
-          description: "LLM-optimized white papers",
         },
       ],
     },
@@ -55,61 +62,12 @@ export const portfolioMegaMenu: MegaMenuContent = {
   promotional: {
     image: "/mega-menu/120-day-content-journey.png",
     imageAlt: "120-Day Content Journey",
-    headline: "Interactive Case Studies",
+    headline: "Demand Gen at Scale",
     description:
-      "Each project includes live demos, data models, and frameworks you can explore. Not just outcomes—actual systems.",
+      "Pipeline programs, scoring models, and frameworks built for enterprise B2B. Not just outcomes — the actual systems behind them.",
     cta: {
-      label: "Explore Portfolio",
+      label: "View All Work",
       href: "/portfolio",
-    },
-  },
-};
-
-/**
- * Playbooks Mega Menu Content
- */
-export const playbooksMegaMenu: MegaMenuContent = {
-  layout: "three-column",
-  sections: [
-    {
-      title: "Featured Sequences",
-      links: [
-        {
-          href: "/playbooks/cmo-gtm-playbook",
-          label: "CMO GTM Playbook",
-          description: "6 parts for executing AI market strategies",
-        },
-        {
-          href: "/portfolio/b2b-marketing-framework",
-          label: "B2B Marketing Framework",
-          description: "Build an active messaging foundation",
-        },
-        {
-          href: "/portfolio/sovereign-personas",
-          label: "Sovereign Buyer Personas",
-          description: "Map your committee buying logic",
-        },
-      ],
-    },
-    {
-      title: "Library",
-      links: [
-        {
-          href: "/playbooks",
-          label: "Browse All Playbooks",
-          description: "View the full interactive prompt catalog.",
-        },
-      ],
-    },
-  ],
-  promotional: {
-    image: "/mega-menu/b2b-marketing-framework.png",
-    imageAlt: "B2B Marketing Framework",
-    headline: "B2B Marketing Framework",
-    description: "An interactive, 21-step tracked sequence to engineer your B2B SaaS positioning from scratch.",
-    cta: {
-      label: "Start the Framework",
-      href: "/playbooks/b2b-marketing-framework",
     },
   },
 };
@@ -137,11 +95,6 @@ export const aboutMegaMenu: MegaMenuContent = {
           href: "/about/stack",
           label: "My Stack",
           description: "Tools I use to build and grow",
-        },
-        {
-          href: "/about/brand",
-          label: "Brand Style Guide",
-          description: "Fire Horse design system",
         },
       ],
     },

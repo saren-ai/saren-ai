@@ -453,7 +453,7 @@ export default function AIOperationsClient() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="bg-gradient-to-br from-ash/50 to-white border border-ash rounded-2xl p-8 shadow-sm flex flex-col items-start"
+                                className="bg-white border border-charcoal/10 rounded-2xl p-8 shadow-sm flex flex-col items-start"
                             >
                                 <div className="w-10 h-10 rounded-full bg-ember text-white font-bold flex items-center justify-center text-xl mb-6 shadow-md">
                                     {index + 1}
@@ -550,7 +550,7 @@ export default function AIOperationsClient() {
 
                                 {/* Content Box */}
                                 <div className={`md:w-1/2 pl-12 md:pl-0 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'}`}>
-                                    <div className="bg-white text-charcoal p-6 rounded-xl shadow-lg inline-block text-left w-full hover:scale-105 transition-transform duration-300">
+                                    <div className="bg-white dark:bg-[var(--card-bg)] text-charcoal p-6 rounded-xl shadow-lg inline-block text-left w-full hover:scale-105 transition-transform duration-300">
                                         <span className="text-sm font-mono text-electric font-bold uppercase mb-2 block">{phase.week}</span>
                                         <h3 className="text-xl font-bold mb-4">{phase.title}</h3>
                                         <ul className={`space-y-2 text-sm text-slate mb-6 ${index % 2 === 0 ? 'md:ml-auto' : ''}`}>

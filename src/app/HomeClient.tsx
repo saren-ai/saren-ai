@@ -215,7 +215,7 @@ export default function HomeClient() {
       </section>
 
       {/* Interactive Tools ("Try something") */}
-      <section className="section bg-ash dark:bg-background pb-0">
+      <section className="pt-8 md:pt-12 bg-ash dark:bg-background pb-0">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -6,8 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 import MegaMenu, { type MegaMenuContent } from "./MegaMenu";
 import {
-  portfolioMegaMenu,
-  playbooksMegaMenu,
+  workMegaMenu,
   aboutMegaMenu,
 } from "@/lib/mega-menu-content";
 
@@ -22,11 +21,11 @@ interface NavItem {
 
 const navLinks: NavItem[] = [
   {
-    label: "Portfolio",
-    megaMenu: portfolioMegaMenu,
+    label: "Work",
+    megaMenu: workMegaMenu,
     mobileChildren: [
       { href: "/portfolio", label: "View All Work" },
-      ...portfolioMegaMenu.sections.flatMap(section =>
+      ...workMegaMenu.sections.flatMap(section =>
         section.links.map(link => ({
           href: link.href,
           label: link.label,
@@ -37,24 +36,17 @@ const navLinks: NavItem[] = [
     ],
   },
   {
-    label: "Playbooks",
-    href: "/playbooks",
-    megaMenu: playbooksMegaMenu,
-    mobileChildren: [
-      { href: "/playbooks", label: "View All Playbooks" },
-      ...playbooksMegaMenu.sections.flatMap(section =>
-        section.links.map(link => ({
-          href: link.href,
-          label: link.label,
-          description: link.description,
-        }))
-      ),
-    ],
+    label: "AI Operations",
+    href: "/ai-operations",
+  },
+  {
+    label: "Thinking",
+    href: "/thinking",
   },
   {
     label: "About",
     megaMenu: aboutMegaMenu,
-    mobileChildren: aboutMegaMenu.sections.slice(1).flatMap(section =>
+    mobileChildren: aboutMegaMenu.sections.flatMap(section =>
       section.links.map(link => ({
         href: link.href,
         label: link.label,
@@ -119,7 +111,7 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
       className="sticky top-0 z-40 bg-ash/95 dark:bg-background/95 backdrop-blur-sm border-b border-charcoal/10 dark:border-ember/20"
       onMouseLeave={handleMouseLeave}
     >
-      <nav className="container-narrow py-8">
+      <nav className="container-narrow py-10">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link

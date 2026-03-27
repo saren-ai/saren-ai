@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HomeClient from "./HomeClient";
+import HalcyonTab from "@/components/layout/HalcyonTab";
 
 export const metadata: Metadata = {
   title: "Saren Sakurai | Fractional CMO & AI Operations Consultant",
@@ -22,5 +23,10 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  return <HomeClient />;
+  return (
+    <>
+      <HomeClient />
+      <HalcyonTab />
+    </>
+  );
 }

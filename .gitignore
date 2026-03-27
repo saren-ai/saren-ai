@@ -54,9 +54,10 @@ yarn-error.log*
 !.vscode/settings.json
 !.vscode/extensions.json
 
-# Claude Code (worktrees and local settings are machine-specific)
+# Claude Code (worktrees, local settings, and personal overrides are machine-specific)
 .claude/worktrees/
 .claude/settings.local.json
+CLAUDE.local.md
 
 # obsidian (content vaults checked in, but not config)
 **/.obsidian

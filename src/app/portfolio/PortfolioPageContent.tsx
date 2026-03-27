@@ -72,6 +72,24 @@ const caseStudyItems = [
     pillars: ["Human Strategy", "Scale Without Headcount"],
   },
   {
+    title: "Dynamic Email Nurture",
+    description:
+      "A score-gated system that personalizes email content by audience segment and funnel stage simultaneously. 9 content variants, continuous re-scoring, and a clean sales handoff at 75 points.",
+    metric: "9",
+    metricLabel: "Content Variants",
+    href: "/portfolio/dynamic-nurture",
+    pillars: ["Predictive Infrastructure", "Scale Without Headcount"],
+  },
+  {
+    title: "Intent Data as Funnel Intelligence",
+    description:
+      "Pulled Bombora intent data from ~100 Cylance close/won accounts and mapped buyer signal behavior 18 months pre-close. The result: a just-in-time content model that moved conversion metrics.",
+    metric: "18 Mo",
+    metricLabel: "Signal Horizon",
+    href: "/portfolio/intent-data",
+    pillars: ["Predictive Infrastructure", "Human Strategy"],
+  },
+  {
     title: "B2B Marketing Framework",
     description:
       "The messaging infrastructure for teams who can't afford to build on quicksand. A 7-layer framework that creates B2B SaaS positioning from scratch.",

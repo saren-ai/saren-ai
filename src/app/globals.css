@@ -4,29 +4,31 @@
 /* ===== Fire Horse 2026 Design System ===== */
 
 /* Light Mode (Default) */
-/* Light Mode (Paper-White Base) - WCAG AA+ */
+/* Light Mode (Paper-White Base) - WCAG AA */
 :root,
 .light {
   /* Primary Colors */
-  --ember-red: #E34234;
+  --ember-red: #C43322;
+  /* #E34234 was 3.56:1 on bg — darkened to #C43322 for 5.06:1 AA on bg, 5.46:1 for white-on-ember buttons */
   --charcoal-black: #1D1D1F;
-  /* Updated to High Contrast Black */
   --ash-white: #F5F5F7;
-  /* Updated to Paper White */
 
   /* Accent Colors */
-  --electric-blue: #457B9D;
+  --electric-blue: #2F6D8E;
+  /* #457B9D was 3.92:1 on bg — darkened to #2F6D8E for 5.26:1 AA */
   --copper: #C17D3A;
 
   /* Neutrals */
-  --slate-gray: #6C757D;
+  --slate-gray: #5B6470;
+  /* #6C757D was 3.97:1 on bg — darkened to #5B6470 for 5.55:1 AA */
   --off-black: #1D1D1F;
 
   /* Semantic mappings */
   --background: #F5F5F7;
   --background-secondary: #FFFFFF;
   --foreground: #1D1D1F;
-  --foreground-muted: #6C757D;
+  --foreground-muted: #5B6470;
+  /* updated to match --slate-gray */
   --border: #D2D2D7;
   --border-hover: #457B9D;
 
@@ -328,11 +330,13 @@ h6 {
 }
 
 .dark .text-charcoal {
-  color: #E8EDF4 !important;
+  color: #F0F4FA !important;
+  /* 16.6:1 on obsidian — AAA */
 }
 
 .dark .text-slate {
-  color: #B0B8C4 !important;
+  color: #A8B2BF !important;
+  /* ~7.0:1 on obsidian — AAA */
 }
 
 .dark .text-ash {

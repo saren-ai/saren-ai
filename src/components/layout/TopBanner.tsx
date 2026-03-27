@@ -9,22 +9,22 @@ export default function TopBanner() {
   if (!isVisible) return null;
 
   return (
-    <div className="bg-gradient-to-r from-ember/70 via-ember to-ember/70 relative" style={{ minHeight: '60px' }}>
-      <div className="container-narrow h-full min-h-[60px] flex items-center justify-center gap-3 pr-10 px-4">
-        <span className="hidden sm:inline text-2xl">🚧</span>
-        <p className="text-center text-sm sm:text-base">
+    <div className="bg-charcoal border-b border-white/5 relative">
+      <div className="container-narrow min-h-[40px] flex items-center justify-center gap-2 pr-10 px-4 py-2">
+        <span className="hidden sm:inline text-base">🚧</span>
+        <p className="text-center text-xs sm:text-sm">
           <span className="font-bold text-white">Building in Public:</span>{" "}
-          <span className="text-white/95">
+          <span className="text-white/70">
             I&apos;m currently building this site with AI-native tools.{" "}
           </span>
           <Link
             href="/about/stack"
-            className="underline underline-offset-2 hover:text-white/80 font-semibold transition-colors text-white"
+            className="underline underline-offset-2 hover:text-white/60 font-semibold transition-colors text-white/80"
           >
             See the full stack →
           </Link>
         </p>
-        <span className="hidden sm:inline text-2xl">🔨</span>
+        <span className="hidden sm:inline text-base">🔨</span>
       </div>
       
       {/* Dismiss button */}
