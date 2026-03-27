@@ -77,7 +77,7 @@ export default function MetricCard({
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
       className="relative"
       onMouseEnter={() => !isTouched && setShowTooltip(true)}
       onMouseLeave={() => !isTouched && setShowTooltip(false)}

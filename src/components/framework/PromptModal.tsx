@@ -51,7 +51,7 @@ export default function PromptModal({ prompt, onClose, isOpen }: PromptModalProp
                     {/* Modal Content */}
                     <motion.div
                         layoutId={`card-${prompt.id}`}
-                        className="relative w-full max-w-5xl bg-[#0F0F0F] rounded-3xl border border-white/10 shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh]"
+                        className="relative w-full max-w-5xl bg-offblack rounded-3xl border border-white/10 shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh]"
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Close Button */}
@@ -99,7 +99,7 @@ export default function PromptModal({ prompt, onClose, isOpen }: PromptModalProp
                         </div>
 
                         {/* Right Panel: Code */}
-                        <div className="w-full md:w-2/3 bg-[#0A0A0A] flex flex-col min-h-[400px] relative">
+                        <div className="w-full md:w-2/3 bg-offblack flex flex-col min-h-[400px] relative">
                             {/* Fake Browser Toolbar */}
                             <div className="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-white/[0.02]">
                                 <div className="flex gap-2">

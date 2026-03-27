@@ -1,13 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Mail, Clock } from "lucide-react";
 import FAQ from "@/components/ui/FAQ";
 
 export default function ContactClient() {
     return (
         <article>
             {/* Hero */}
-            <section className="section bg-gradient-to-br from-charcoal to-offblack text-ash">
+            <section className="hero-card section gradient-dark text-ash">
                 <div className="container-narrow">
                     <div className="max-w-3xl">
                         <motion.h1
@@ -54,19 +55,7 @@ export default function ContactClient() {
                                 href="mailto:saren.sakurai@gmail.com?subject=Let%27s%20Work%20Together"
                                 className="btn-primary inline-flex items-center gap-3 self-start text-lg px-8 py-4"
                             >
-                                <svg
-                                    className="w-5 h-5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                    />
-                                </svg>
+                                <Mail className="w-5 h-5" />
                                 Email Saren
                             </a>
                             <p className="text-sm text-slate/70 mt-4">
@@ -118,19 +107,7 @@ export default function ContactClient() {
                                     href="mailto:saren.sakurai@gmail.com"
                                     className="inline-flex items-center gap-2 text-electric hover:text-ember transition-colors font-medium"
                                 >
-                                    <svg
-                                        className="w-5 h-5"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                        />
-                                    </svg>
+                                    <Mail className="w-5 h-5" />
                                     saren.sakurai@gmail.com
                                 </a>
                             </div>
@@ -138,19 +115,7 @@ export default function ContactClient() {
                             {/* Response Time */}
                             <div className="p-4 bg-charcoal/5 rounded-lg">
                                 <p className="text-sm text-slate flex items-center gap-2">
-                                    <svg
-                                        className="w-4 h-4 text-electric"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                                        />
-                                    </svg>
+                                    <Clock className="w-4 h-4 text-electric" />
                                     Typical response time: 24-48 hours
                                 </p>
                             </div>

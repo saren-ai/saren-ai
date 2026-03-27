@@ -120,7 +120,7 @@ export function ScoreVisualizer({ scoring }: ScoreVisualizerProps) {
                 <div
                   className={`w-3 h-3 rounded-full ${
                     threshold.toMQL === 0
-                      ? "bg-green-500"
+                      ? "bg-electric"
                       : "bg-ash/20 dark:bg-card-bg"
                   }`}
                 />
@@ -133,7 +133,7 @@ export function ScoreVisualizer({ scoring }: ScoreVisualizerProps) {
                   {threshold.toMQL} points to reach
                 </p>
               ) : (
-                <p className="text-xs text-green-500 ml-5 flex items-center gap-1">
+                <p className="text-xs text-electric ml-5 flex items-center gap-1">
                   <TrendingUp className="w-3 h-3" />
                   Achieved
                 </p>

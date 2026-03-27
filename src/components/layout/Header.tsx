@@ -22,7 +22,7 @@ interface NavItem {
 
 const navLinks: NavItem[] = [
   {
-    label: "Work",
+    label: "Portfolio",
     megaMenu: workMegaMenu,
     mobileChildren: [
       { href: "/portfolio", label: "View All Work" },
@@ -71,9 +71,7 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(null);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const headerRef = useRef<HTMLElement>(null);
 
-  // Handle mega menu hover with delay
   const handleMouseEnter = (label: string, hasMegaMenu: boolean) => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
@@ -90,129 +88,189 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
     }, 150);
   };
 
-  // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
-      if (closeTimeoutRef.current) {
-        clearTimeout(closeTimeoutRef.current);
-      }
+      if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
     };
   }, []);
 
-  // Close mega menu on escape
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setOpenMegaMenu(null);
-      }
+      if (e.key === "Escape") setOpenMegaMenu(null);
     };
     window.addEventListener("keydown", handleEscape);
     return () => window.removeEventListener("keydown", handleEscape);
   }, []);
 
+  // Build mega menu content (injects Substack data for About)
+  const getMegaMenuContent = (link: NavItem): MegaMenuContent | undefined => {
+    if (!link.megaMenu) return undefined;
+    if (link.label === "About" && latestPost) {
+      const desc = latestPost.contentSnippet || link.megaMenu.promotional?.description || "";
+      return {
+        ...link.megaMenu,
+        promotional: {
+          image: latestPost.thumbnail || link.megaMenu.promotional?.image || "",
+          imageAlt: latestPost.title || "Latest Substack Article",
+          headline: latestPost.title || link.megaMenu.promotional?.headline || "Latest on Substack",
+          description: desc.length > 120 ? desc.substring(0, 120) + "..." : desc,
+          cta: {
+            label: "Read on Substack",
+            href: latestPost.link || "https://sarenai.substack.com",
+          },
+        },
+      };
+    }
+    return link.megaMenu;
+  };
+
+  const activeMegaMenuContent = openMegaMenu
+    ? getMegaMenuContent(navLinks.find(l => l.label === openMegaMenu)!)
+    : undefined;
+
   return (
-    <header
-      ref={headerRef}
-      className="sticky top-0 z-40 bg-ash/95 dark:bg-background/95 backdrop-blur-sm border-b border-charcoal/10 dark:border-ember/20"
-      onMouseLeave={handleMouseLeave}
-    >
-      <nav className="container-narrow py-10">
-        <div className="flex items-center justify-between">
+    <header className="py-3">
+      {/*
+        ── Pill wrapper ─────────────────────────────────────────────────────
+        80% width, centered. Acts as positioning context for mega menu.
+        onMouseLeave covers both pill AND menu — no bridge div needed.
+      */}
+      <div
+        className="w-[90%] sm:w-[85%] lg:w-[80%] max-w-[1200px] mx-auto relative"
+        onMouseLeave={handleMouseLeave}
+      >
+        {/* ── The Pill ─────────────────────────────────────────────────── */}
+        {/*
+          Background:
+            Light → white (#FFFFFF) on ash (#F5F5F7) page = clearly distinct
+            Dark  → #1A1A1A on obsidian (#0F0F0F) page = clearly distinct
+          Avoids CSS-variable flip: --charcoal-black inverts to #FFF in dark mode.
+        */}
+        <nav
+          className="flex items-center justify-between px-5 py-2.5 rounded-full
+            bg-white dark:bg-[#1A1A1A] backdrop-blur-md
+            border border-[#D2D2D7] dark:border-[#2A2A2A]
+            shadow-[0_2px_16px_rgba(0,0,0,0.10)]"
+        >
           {/* Logo */}
           <Link
             href="/"
-            className="text-2xl font-bold text-foreground tracking-tight hover:text-ember transition-colors"
+            className="text-xl font-bold text-[#1D1D1F] dark:text-[#F5F5F7] tracking-tight hover:text-ember transition-colors shrink-0"
           >
             saren<span className="text-ember">.</span>ai
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center gap-0.5">
             {navLinks.map((link) => (
               <div
                 key={link.label}
-                className="relative"
                 onMouseEnter={() => handleMouseEnter(link.label, !!link.megaMenu)}
               >
                 {link.href ? (
                   <Link
                     href={link.href}
-                    className="text-charcoal dark:text-foreground hover:text-ember dark:hover:text-ember font-medium transition-colors relative group"
+                    className="flex items-center gap-1 px-3.5 py-1.5 rounded-full text-sm font-medium
+                      text-[#1D1D1F] dark:text-[#F5F5F7] hover:text-ember
+                      hover:bg-[#F5F5F7] dark:hover:bg-white/[0.07] transition-all duration-150"
                   >
                     {link.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-ember transition-all duration-300 group-hover:w-full" />
                   </Link>
                 ) : (
                   <button
-                    className={`text-charcoal dark:text-foreground hover:text-ember dark:hover:text-ember font-medium transition-colors relative group ${openMegaMenu === link.label ? "text-ember" : ""
-                      }`}
+                    className={`flex items-center gap-1 px-3.5 py-1.5 rounded-full text-sm font-medium transition-all duration-150 ${
+                      openMegaMenu === link.label
+                        ? "bg-[#F5F5F7] dark:bg-white/[0.09] text-ember dark:text-ember"
+                        : "text-[#1D1D1F] dark:text-[#F5F5F7] hover:text-ember hover:bg-[#F5F5F7] dark:hover:bg-white/[0.07]"
+                    }`}
                     aria-expanded={openMegaMenu === link.label}
                     aria-haspopup="true"
                   >
                     {link.label}
-                    <span
-                      className={`absolute -bottom-1 left-0 h-0.5 bg-ember transition-all duration-300 ${openMegaMenu === link.label ? "w-full" : "w-0 group-hover:w-full"
-                        }`}
-                    />
+                    <svg
+                      className={`w-3 h-3 transition-transform duration-200 ${
+                        openMegaMenu === link.label ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
                   </button>
                 )}
               </div>
             ))}
+          </div>
 
-            {/* Theme Toggle */}
+          {/* Right side: Theme Toggle */}
+          <div className="hidden md:flex items-center gap-2">
             <ThemeToggle />
           </div>
 
-          {/* Mobile: Theme Toggle + Menu Button */}
-          <div className="flex items-center gap-2 md:hidden">
+          {/* Mobile: Theme Toggle + Hamburger */}
+          <div className="flex items-center gap-1.5 md:hidden">
             <ThemeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 text-charcoal dark:text-foreground hover:text-ember transition-colors"
+              className="p-2 rounded-full text-[#1D1D1F] dark:text-[#F5F5F7] hover:text-ember hover:bg-[#F5F5F7] dark:hover:bg-white/[0.07] transition-all"
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
             </button>
           </div>
-        </div>
+        </nav>
 
-        {/* Mobile Menu */}
+        {/* ── Mega Menu (desktop) ───────────────────────────────────────── */}
+        <AnimatePresence>
+          {openMegaMenu && activeMegaMenuContent && (
+            <motion.div
+              key={openMegaMenu}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 8 }}
+              transition={{ duration: 0.25, ease: [0.23, 1, 0.32, 1] }}
+              className="hidden md:block absolute left-0 right-0 z-50 mt-2 rounded-2xl overflow-hidden
+                bg-white dark:bg-[#1A1A1A] backdrop-blur-xl
+                border border-[#D2D2D7] dark:border-[#2A2A2A]
+                shadow-[0_16px_48px_rgba(0,0,0,0.16)]"
+              style={{ top: "100%" }}
+              onMouseEnter={() => handleMouseEnter(openMegaMenu, true)}
+            >
+              <MegaMenu
+                content={activeMegaMenuContent}
+                onClose={() => setOpenMegaMenu(null)}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* ── Mobile Menu ──────────────────────────────────────────────── */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className="md:hidden overflow-hidden"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
+              className="md:hidden absolute left-0 right-0 z-50 mt-2 rounded-2xl overflow-hidden
+                bg-white dark:bg-[#1A1A1A] backdrop-blur-xl
+                border border-[#D2D2D7] dark:border-[#2A2A2A]
+                shadow-[0_16px_48px_rgba(0,0,0,0.16)]"
+              style={{ top: "100%" }}
             >
-              <div className="py-4 space-y-1 border-t border-charcoal/10 dark:border-ember/20">
+              <div className="p-4 space-y-1">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.label}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -12 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
                   >
@@ -224,22 +282,16 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
                               expandedMobileItem === link.label ? null : link.label
                             )
                           }
-                          className="flex items-center justify-between w-full py-3 px-4 text-charcoal dark:text-foreground hover:text-ember hover:bg-charcoal/5 dark:hover:bg-ember/10 rounded-lg font-medium transition-all"
+                          className="flex items-center justify-between w-full py-2.5 px-4 text-[#1D1D1F] dark:text-[#F5F5F7] hover:text-ember hover:bg-[#F5F5F7] dark:hover:bg-white/[0.07] rounded-xl font-medium text-sm transition-all"
                         >
                           <span>{link.label}</span>
                           <svg
-                            className={`w-4 h-4 transition-transform ${expandedMobileItem === link.label ? "rotate-180" : ""
-                              }`}
+                            className={`w-4 h-4 transition-transform ${expandedMobileItem === link.label ? "rotate-180" : ""}`}
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
                           >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M19 9l-7 7-7-7"
-                            />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                           </svg>
                         </button>
 
@@ -251,58 +303,31 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
                               exit={{ opacity: 0, height: 0 }}
                               className="overflow-hidden"
                             >
-                              <div className="pl-4 py-2 space-y-1">
+                              <div className="pl-3 py-1 space-y-0.5">
                                 {link.mobileChildren.map((child) => {
-                                  const isExternal = child.isExternal || child.href.startsWith('http');
+                                  const isExternal = child.isExternal || child.href.startsWith("http");
                                   const linkContent = (
                                     <>
-                                      <span className="font-medium text-charcoal dark:text-foreground">
+                                      <span className="font-medium text-[#1D1D1F] dark:text-[#F5F5F7] text-sm">
                                         {child.label}
                                         {isExternal && (
-                                          <svg
-                                            className="w-3 h-3 inline-block ml-1"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                          >
-                                            <path
-                                              strokeLinecap="round"
-                                              strokeLinejoin="round"
-                                              strokeWidth={2}
-                                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                                            />
+                                          <svg className="w-3 h-3 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                           </svg>
                                         )}
                                       </span>
                                       {child.description && (
-                                        <span className="block text-xs text-foreground-muted mt-0.5">
-                                          {child.description}
-                                        </span>
+                                        <span className="block text-xs text-slate mt-0.5">{child.description}</span>
                                       )}
                                     </>
                                   );
-
-                                  const className =
-                                    "block py-2 px-4 hover:text-ember hover:bg-charcoal/5 dark:hover:bg-ember/10 rounded-lg transition-all";
-
+                                  const cls = "block py-2 px-4 hover:text-ember hover:bg-[#F5F5F7] dark:hover:bg-white/[0.07] rounded-xl transition-all";
                                   return isExternal ? (
-                                    <a
-                                      key={child.href}
-                                      href={child.href}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      onClick={() => setIsMenuOpen(false)}
-                                      className={className}
-                                    >
+                                    <a key={child.href} href={child.href} target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)} className={cls}>
                                       {linkContent}
                                     </a>
                                   ) : (
-                                    <Link
-                                      key={child.href}
-                                      href={child.href}
-                                      onClick={() => setIsMenuOpen(false)}
-                                      className={className}
-                                    >
+                                    <Link key={child.href} href={child.href} onClick={() => setIsMenuOpen(false)} className={cls}>
                                       {linkContent}
                                     </Link>
                                   );
@@ -316,7 +341,7 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
                       <Link
                         href={link.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className="block py-3 px-4 text-charcoal dark:text-foreground hover:text-ember hover:bg-charcoal/5 dark:hover:bg-ember/10 rounded-lg font-medium transition-all"
+                        className="block py-2.5 px-4 text-[#1D1D1F] dark:text-[#F5F5F7] hover:text-ember hover:bg-[#F5F5F7] dark:hover:bg-white/[0.07] rounded-xl font-medium text-sm transition-all"
                       >
                         {link.label}
                       </Link>
@@ -327,41 +352,7 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
             </motion.div>
           )}
         </AnimatePresence>
-      </nav>
-
-      {/* Mega Menus */}
-      {navLinks.map((link) => {
-        if (!link.megaMenu) return null;
-
-        // Inject Substack feed into the standard promotional box for the About menu
-        let menuContent = link.megaMenu;
-
-        if (link.label === "About" && latestPost) {
-          const desc = latestPost.contentSnippet || link.megaMenu.promotional?.description || "";
-          menuContent = {
-            ...link.megaMenu,
-            promotional: {
-              image: latestPost.thumbnail || link.megaMenu.promotional?.image || "",
-              imageAlt: latestPost.title || "Latest Substack Article",
-              headline: latestPost.title || link.megaMenu.promotional?.headline || "Latest on Substack",
-              description: desc.length > 120 ? desc.substring(0, 120) + "..." : desc,
-              cta: {
-                label: "Read on Substack",
-                href: latestPost.link || "https://sarenai.substack.com",
-              },
-            },
-          };
-        }
-
-        return (
-          <MegaMenu
-            key={link.label}
-            isOpen={openMegaMenu === link.label}
-            content={menuContent}
-            onClose={() => setOpenMegaMenu(null)}
-          />
-        );
-      })}
+      </div>
     </header>
   );
 }

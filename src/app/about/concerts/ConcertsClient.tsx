@@ -142,7 +142,7 @@ export default function ConcertsClient({ concerts }: { concerts: ConcertRecord[]
                                                             {group.map((c, i) => (
                                                                 <span key={c.id || i} className="text-3xl font-bold text-white group-hover:text-ember transition-colors leading-tight inline-block">
                                                                     {c.artist}
-                                                                    {i < group.length - 1 && <span className="text-amber-500 mx-2 text-2xl">•</span>}
+                                                                    {i < group.length - 1 && <span className="text-copper mx-2 text-2xl">•</span>}
                                                                 </span>
                                                             ))}
                                                         </div>

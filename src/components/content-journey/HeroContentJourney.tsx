@@ -7,14 +7,14 @@ import { enterpriseMatrix } from "@/lib/content-journey";
 
 export default function HeroContentJourney() {
     return (
-        <section className="relative w-full bg-background text-foreground overflow-hidden min-h-[800px] flex items-center justify-center pt-24 pb-20">
+        <section className="hero-card relative w-full bg-background text-foreground overflow-hidden min-h-[800px] flex items-center justify-center pt-24 pb-20">
             {/* Background Ambience */}
             <div className="absolute inset-0 bg-grid-white/[0.02] -z-10" />
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background via-transparent to-background -z-10" />
             <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-electric/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
             <div className="absolute bottom-[-10%] right-[20%] w-[500px] h-[500px] bg-ember/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
 
-            <div className="container px-4 md:px-6 relative z-10">
+            <div className="container-narrow relative z-10">
                 <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-start">
 
                     {/* Header Section */}

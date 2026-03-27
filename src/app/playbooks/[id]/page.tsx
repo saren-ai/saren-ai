@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
 import { marked } from 'marked';
 import CopyButton from './CopyButton';
+import DownloadSkillButton from './DownloadSkillButton';
 import { AnimatedNavFramer } from '@/components/ui/navigation-menu';
 import { ProspectTable } from './ProspectTable';
 
@@ -174,7 +175,7 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
     };
 
     return (
-        <div className="min-h-screen bg-ash dark:bg-[#0a0a0a] text-charcoal dark:text-white pt-32 pb-20 px-6 lg:px-12 selection:bg-electric/30 dark:selection:bg-blue-500/30 relative transition-colors duration-300">
+        <div className="min-h-screen bg-ash dark:bg-offblack text-charcoal dark:text-white pt-32 pb-20 px-6 lg:px-12 selection:bg-electric/30 dark:selection:bg-electric/30 relative transition-colors duration-300">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -185,7 +186,7 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
                 <div className="space-y-6">
                     <Link
                         href="/playbooks"
-                        className="inline-flex items-center text-sm font-medium text-slate dark:text-neutral-400 hover:text-charcoal dark:hover:text-white transition-colors"
+                        className="inline-flex items-center text-sm font-medium text-slate dark:text-slate hover:text-charcoal dark:hover:text-white transition-colors"
                     >
                         <ChevronLeft className="w-4 h-4 mr-1" />
                         Back to Playbooks
@@ -193,27 +194,36 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
 
                     <div className="space-y-4">
                         <div className="flex flex-wrap items-center gap-3">
-                            <span className="px-3 py-1 rounded-full text-xs font-medium bg-electric/10 dark:bg-blue-500/10 text-electric dark:text-blue-400 border border-electric/20 dark:border-blue-500/20">
+                            <span className="px-3 py-1 rounded-full text-xs font-medium bg-electric/10 dark:bg-electric/10 text-electric dark:text-electric border border-electric/20 dark:border-electric/20">
                                 {playbook.category}
                             </span>
-                            <span className="text-sm text-slate dark:text-neutral-500 font-medium">
+                            <span className="text-sm text-slate dark:text-slate font-medium">
                                 {playbook.steps.length} Steps
                             </span>
                         </div>
                         <h1 className="text-3xl lg:text-5xl font-bold tracking-tight text-charcoal dark:text-white">
                             {playbook.title}
                         </h1>
-                        <p className="text-lg text-slate dark:text-neutral-400 leading-relaxed max-w-3xl">
+                        <p className="text-lg text-slate dark:text-slate leading-relaxed max-w-3xl">
                             {playbook.description}
                         </p>
 
                         <div className="flex flex-wrap gap-2 pt-2">
                             {playbook.tags.map(tag => (
-                                <span key={tag} className="text-xs text-slate dark:text-neutral-500 bg-charcoal/5 dark:bg-neutral-900 px-2.5 py-1 rounded-md border border-charcoal/10 dark:border-neutral-800">
+                                <span key={tag} className="text-xs text-slate dark:text-slate bg-charcoal/5 dark:bg-charcoal/5 px-2.5 py-1 rounded-md border border-charcoal/10 dark:border-charcoal/10">
                                     #{tag}
                                 </span>
                             ))}
                         </div>
+
+                        {playbook.skill && (
+                            <div className="pt-2">
+                                <DownloadSkillButton skillPath={playbook.skill} />
+                                <p className="text-xs text-slate dark:text-slate mt-2">
+                                    Save to <code className="text-electric dark:text-electric bg-electric/10 dark:bg-electric/10 px-1 py-0.5 rounded text-[11px]">.claude/commands/</code> to use as a slash command in Claude Code.
+                                </p>
+                            </div>
+                        )}
 
                         {playbook.playbook_id === "linkedin-prospect-dashboard" && (
                             <ProspectTable />
@@ -221,14 +231,14 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
                     </div>
                 </div>
 
-                <div className="w-full h-px bg-gradient-to-r from-charcoal/10 via-charcoal/20 to-charcoal/10 dark:from-neutral-800 dark:via-neutral-700 dark:to-neutral-800" />
+                <div className="w-full h-px bg-gradient-to-r from-charcoal/10 via-charcoal/20 to-charcoal/10 dark:from-charcoal/10 dark:via-charcoal/20 dark:to-charcoal/10" />
 
                 {/* Steps Content */}
                 <div className="space-y-12">
                     {parsedSteps.map((step, index) => (
                         <div
                             key={index}
-                            className="relative p-6 lg:p-10 bg-white dark:bg-neutral-900 border border-charcoal/10 dark:border-neutral-800 rounded-2xl shadow-xl overflow-hidden transition-colors"
+                            className="relative p-6 lg:p-10 bg-white dark:bg-charcoal/5 border border-charcoal/10 dark:border-charcoal/10 rounded-2xl shadow-xl overflow-hidden transition-colors"
                             id={`step-${step.step}`}
                         >
                             {/* Step Number Indicator */}
@@ -237,9 +247,9 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
                             </div>
 
                             <div className="relative z-10 space-y-6">
-                                <div className="pb-4 border-b border-charcoal/10 dark:border-neutral-800/50 flex justify-between items-start gap-4">
+                                <div className="pb-4 border-b border-charcoal/10 dark:border-charcoal/5 flex justify-between items-start gap-4">
                                     <div>
-                                        <span className="text-sm font-bold text-electric dark:text-blue-400 uppercase tracking-widest mb-1 block">
+                                        <span className="text-sm font-bold text-electric dark:text-electric uppercase tracking-widest mb-1 block">
                                             Step {step.step}
                                         </span>
                                         <h2 className="text-2xl font-bold text-charcoal dark:text-white">
@@ -255,14 +265,14 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
 
 
                                 <div
-                                    className="prose dark:prose-invert prose-blue max-w-none 
-                                    prose-headings:text-charcoal dark:prose-headings:text-neutral-200 
-                                    prose-p:text-slate dark:prose-p:text-neutral-300 prose-p:leading-relaxed
-                                    prose-a:text-electric dark:prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
-                                    prose-code:text-electric dark:prose-code:text-blue-300 prose-code:bg-electric/10 dark:prose-code:bg-blue-900/20 prose-code:before:content-none prose-code:after:content-none prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
-                                    prose-pre:bg-ash dark:prose-pre:bg-[#111] prose-pre:border prose-pre:border-charcoal/10 dark:prose-pre:border-neutral-800 prose-pre:shadow-inner
-                                    prose-blockquote:border-l-electric dark:prose-blockquote:border-l-blue-500 prose-blockquote:bg-electric/5 dark:prose-blockquote:bg-blue-900/10 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:-ml-4 prose-blockquote:rounded-r-lg
-                                    prose-strong:text-charcoal dark:prose-strong:text-white"
+                                    className="prose dark:prose-invert max-w-none 
+                                    prose-headings:text-charcoal dark:prose-headings:text-ash 
+                                    prose-p:text-slate dark:prose-p:text-ash/70 prose-p:leading-relaxed
+                                    prose-a:text-electric dark:prose-a:text-electric prose-a:no-underline hover:prose-a:underline
+                                    prose-code:text-electric dark:prose-code:text-electric prose-code:bg-electric/10 dark:prose-code:bg-electric/10 prose-code:before:content-none prose-code:after:content-none prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+                                    prose-pre:bg-ash dark:prose-pre:bg-offblack prose-pre:border prose-pre:border-charcoal/10 dark:prose-pre:border-charcoal/10 prose-pre:shadow-inner
+                                    prose-blockquote:border-l-electric dark:prose-blockquote:border-l-electric prose-blockquote:bg-electric/5 dark:prose-blockquote:bg-electric/5 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:-ml-4 prose-blockquote:rounded-r-lg
+                                    prose-strong:text-charcoal dark:prose-strong:text-ash"
                                     dangerouslySetInnerHTML={{
                                         __html: step.parsedContent
                                     }}

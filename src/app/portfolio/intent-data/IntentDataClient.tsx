@@ -53,8 +53,7 @@ const CAT_STYLE: Record<Category, string> = {
   solutions: "bg-electric/15 text-electric border-electric/25",
   threats: "bg-copper/15 text-copper border-copper/25",
   vendors: "bg-ember/10 text-ember/80 border-ember/20",
-  // compliance uses emerald — no system green token in Fire Horse 2026; kept intentionally
-  compliance: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
+  compliance: "bg-electric/10 text-electric border-electric/20",
 };
 
 const KEYWORDS_BY_PERIOD: string[][] = [
@@ -281,11 +280,11 @@ const ABM_ROWS = [
 
 const TABS = ["Intent Timeline", "Buyer Journey", "Campaign Strategy", "ABM Triggers"];
 
-const Q_COLORS = ["text-[#4A9FD8]", "text-[#D4A574]", "text-amber-400", "text-[#E34234]"];
+const Q_COLORS = ["text-electric", "text-[#D4A574]", "text-amber-400", "text-[#E34234]"];
 const Q_BORDERS = [
-  "border-[#4A9FD8]/20 bg-[#4A9FD8]/[0.03]",
+  "border-electric/20 bg-electric/[0.03]",
   "border-[#D4A574]/20 bg-[#D4A574]/[0.03]",
-  "border-amber-400/20 bg-amber-400/[0.03]",
+  "border-copper/20 bg-copper/[0.03]",
   "border-[#E34234]/20 bg-[#E34234]/[0.03]",
 ];
 
@@ -315,7 +314,7 @@ function TimelineSVG() {
   return (
     <svg
       viewBox="0 0 680 64"
-      className="w-full max-w-xl h-auto"
+      className="w-full h-auto"
       aria-hidden="true"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -417,7 +416,7 @@ function IntentTimelineTab() {
               <div
                 className={`px-3 py-2.5 rounded-t border-t border-x transition-all duration-150 ${
                   hoveredPeriod === colIdx
-                    ? "border-[#4A9FD8]/35 bg-[#4A9FD8]/10 text-[#4A9FD8]"
+                    ? "border-[#4A9FD8]/35 bg-[#4A9FD8]/10 text-electric"
                     : "border-white/8 bg-white/[0.025] text-white/30"
                 }`}
               >
@@ -426,7 +425,7 @@ function IntentTimelineTab() {
                 </p>
                 <p
                   className={`font-mono text-[9px] mt-0.5 transition-colors ${
-                    hoveredPeriod === colIdx ? "text-[#4A9FD8]/50" : "text-white/15"
+                    hoveredPeriod === colIdx ? "text-electric/50" : "text-white/15"
                   }`}
                 >
                   Pre-Close
@@ -466,7 +465,7 @@ function IntentTimelineTab() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.12 }}
             >
-              <p className="font-mono text-[#4A9FD8] text-[10px] uppercase tracking-widest mb-2">
+              <p className="font-mono text-electric text-[10px] uppercase tracking-widest mb-2">
                 {PERIOD_LABELS[hoveredPeriod]}
               </p>
               <p className="text-white/60 text-sm leading-relaxed">{PERIOD_CONTEXT[hoveredPeriod]}</p>
@@ -551,7 +550,7 @@ function BuyerJourneyTab() {
                 {row.periods.map((rank, pIdx) => (
                   <td key={pIdx} className="py-3 px-2 text-center">
                     {rank !== null ? (
-                      <span className="font-mono text-xs text-[#4A9FD8] font-semibold">#{rank}</span>
+                      <span className="font-mono text-xs text-electric font-semibold">#{rank}</span>
                     ) : (
                       <span className="text-white/15 text-sm">—</span>
                     )}
@@ -580,7 +579,7 @@ function BuyerJourneyTab() {
               <p className="font-mono text-[10px] text-white/25 uppercase tracking-widest mb-2">{phase.label}</p>
               <p className="font-bold text-white/85 mb-3 leading-snug">{phase.title}</p>
               <p className="text-sm text-white/48 leading-relaxed mb-3">{phase.desc}</p>
-              <p className="text-xs font-mono text-[#4A9FD8]/55 italic">{phase.content}</p>
+              <p className="text-xs font-mono text-electric/55 italic">{phase.content}</p>
             </motion.div>
           ))}
         </div>
@@ -610,7 +609,7 @@ function CampaignStrategyTab() {
         <div className="flex flex-wrap gap-5">
           {["Threat Intelligence", "Prevention Science", "Proof & Validation"].map((pillar, i) => (
             <span key={pillar} className="flex items-center gap-2 text-xs font-mono text-white/35">
-              <span className="text-[#4A9FD8] opacity-60">{i + 1}.</span>
+              <span className="text-electric opacity-60">{i + 1}.</span>
               {pillar}
             </span>
           ))}
@@ -735,9 +734,9 @@ export default function IntentDataClient() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <article className="min-h-screen bg-[#0a0c0f] text-white">
+    <article className="min-h-screen bg-offblack text-white">
       {/* Hero */}
-      <section className="py-20 md:py-28 border-b border-white/5">
+      <section className="hero-card py-20 md:py-28 border-b border-white/5">
         <div className="container-narrow">
           {/* Breadcrumb */}
           <nav className="mb-10">
@@ -754,7 +753,7 @@ export default function IntentDataClient() {
                 </Link>
               </li>
               <li className="text-white/15">/</li>
-              <li className="text-[#4A9FD8]">Intent Data</li>
+              <li className="text-electric">Intent Data</li>
             </ol>
           </nav>
 
@@ -764,7 +763,7 @@ export default function IntentDataClient() {
             transition={{ duration: 0.5 }}
             className="max-w-3xl"
           >
-            <p className="font-mono text-[#4A9FD8] text-[10px] uppercase tracking-[0.25em] mb-5">
+            <p className="font-mono text-electric text-[10px] uppercase tracking-[0.25em] mb-5">
               Cylance · 2018 · Bombora Intent Data · ~100 Close/Won Accounts
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mb-7">
@@ -805,7 +804,7 @@ export default function IntentDataClient() {
                 onClick={() => setActiveTab(i)}
                 className={`flex-shrink-0 px-5 py-4 text-[11px] font-mono uppercase tracking-widest transition-all duration-150 border-b-2 ${
                   activeTab === i
-                    ? "border-[#4A9FD8] text-[#4A9FD8]"
+                    ? "border-[#4A9FD8] text-electric"
                     : "border-transparent text-white/28 hover:text-white/55"
                 }`}
               >
@@ -840,7 +839,7 @@ export default function IntentDataClient() {
       <section className="py-16 border-t border-white/5">
         <div className="container-narrow">
           <div className="max-w-2xl border border-white/8 rounded-lg p-8 bg-white/[0.015]">
-            <p className="font-mono text-[#4A9FD8] text-[10px] uppercase tracking-[0.2em] mb-4">
+            <p className="font-mono text-electric text-[10px] uppercase tracking-[0.2em] mb-4">
               How this was built
             </p>
             <p className="text-white/48 leading-relaxed text-sm">

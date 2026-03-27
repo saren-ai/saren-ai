@@ -22,7 +22,7 @@ const percentileColors: Record<string, string> = {
   poor: "bg-ember",
   "below-average": "bg-yellow-500",
   average: "bg-yellow-400",
-  "above-average": "bg-emerald-400",
+  "above-average": "bg-electric",
   excellent: "bg-electric",
 };
 
@@ -150,7 +150,7 @@ export function IndustryComparison({
                   metric.result.label === "poor" || metric.result.label === "below-average"
                     ? "text-ember"
                     : metric.result.label === "excellent" || metric.result.label === "above-average"
-                      ? "text-emerald-600 dark:text-emerald-400"
+                      ? "text-electric dark:text-electric"
                       : "text-yellow-600 dark:text-yellow-400"
                 }`}
               >

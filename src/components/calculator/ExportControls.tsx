@@ -25,7 +25,7 @@ export function ExportControls({ hasData }: ExportControlsProps) {
         </a>
         <a
           href="/portfolio"
-          className="btn-secondary inline-flex items-center gap-2 text-sm !text-ash !border-ash/30 hover:!bg-ash hover:!text-charcoal"
+          className="btn-secondary-dark inline-flex items-center gap-2 text-sm"
         >
           <FileText className="w-4 h-4" />
           See Case Studies

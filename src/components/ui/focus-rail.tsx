@@ -258,7 +258,7 @@ export function FocusRail({
 
                                 {/* Back Face */}
                                 <div
-                                    className="absolute inset-0 h-full w-full rounded-2xl bg-neutral-900 border border-border p-6 flex flex-col items-center justify-center text-center backface-hidden"
+                                    className="absolute inset-0 h-full w-full rounded-2xl bg-charcoal border border-border p-6 flex flex-col items-center justify-center text-center backface-hidden"
                                     style={{
                                         backfaceVisibility: "hidden",
                                         transform: "rotateY(180deg)"
@@ -274,7 +274,7 @@ export function FocusRail({
                                             {item.title}
                                         </h3>
                                         {item.description && (
-                                            <p className="text-sm text-neutral-400 leading-relaxed">
+                                            <p className="text-sm text-slate leading-relaxed">
                                                 {item.description}
                                             </p>
                                         )}

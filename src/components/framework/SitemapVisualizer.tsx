@@ -59,15 +59,15 @@ export default function SitemapVisualizer({ prompts, selectedId, onSelect, enabl
     };
 
     return (
-        <div className="w-full bg-white dark:bg-[#111] border-b border-gray-300 dark:border-white/10 relative transition-colors duration-300">
+        <div className="w-full bg-white dark:bg-offblack border-b border-slate/20 dark:border-charcoal/10 relative transition-colors duration-300">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-electric via-ember to-copper opacity-50" />
 
             <div
                 ref={scrollContainerRef}
-                className="overflow-x-auto pb-8 pt-8 px-4 scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-white/10 scrollbar-track-transparent flex gap-8 min-w-full justify-center"
+                className="overflow-x-auto pb-8 pt-8 px-4 scrollbar-thin scrollbar-thumb-slate dark:scrollbar-thumb-charcoal/10 scrollbar-track-transparent flex gap-8 min-w-full justify-center"
             >
                 {/* Connecting Line (Horizontal Spine) */}
-                <div className="absolute top-[60px] left-10 right-10 h-0.5 bg-gray-300 dark:bg-white/10 -z-0" />
+                <div className="absolute top-[60px] left-10 right-10 h-0.5 bg-slate/20 dark:bg-charcoal/10 -z-0" />
 
                 {phases.map((phase, index) => {
                     const phasePrompts = grouped[phase] || [];
@@ -84,13 +84,13 @@ export default function SitemapVisualizer({ prompts, selectedId, onSelect, enabl
                                 w-full p-3 rounded-xl border mb-6 relative text-center transition-all duration-300
                                 ${isSelectedPhase
                                     ? `${colors.bg} ${colors.border} ${colors.glow} shadow-md`
-                                    : "bg-white dark:bg-[#111] border-gray-300 dark:border-white/10"}
+                                    : "bg-white dark:bg-offblack border-slate/20 dark:border-charcoal/10"}
                             `}>
-                                <div className={`text-[10px] font-mono uppercase tracking-widest opacity-60 mb-1 ${isSelectedPhase ? "text-gray-900 dark:text-white" : "text-gray-500 dark:text-white/50"}`}>Phase 0{index + 1}</div>
+                                <div className={`text-[10px] font-mono uppercase tracking-widest opacity-60 mb-1 ${isSelectedPhase ? "text-charcoal dark:text-white" : "text-slate dark:text-slate"}`}>Phase 0{index + 1}</div>
                                 <h3 className={`text-lg font-bold ${isSelectedPhase ? colors.text : "text-black dark:text-white"}`}>{phase}</h3>
 
                                 {/* Connector Dot Bottom */}
-                                <div className="absolute -bottom-[25px] left-1/2 -translate-x-1/2 w-0.5 h-6 bg-gray-300 dark:bg-white/10" />
+                                <div className="absolute -bottom-[25px] left-1/2 -translate-x-1/2 w-0.5 h-6 bg-slate/20 dark:bg-charcoal/10" />
                             </div>
 
                             {/* Steps List */}
@@ -106,11 +106,11 @@ export default function SitemapVisualizer({ prompts, selectedId, onSelect, enabl
                                                 font-mono text-[10px] px-1.5 py-0.5 rounded
                                                 ${isSelected
                                                     ? `bg-black/5 dark:bg-black/20 ${colors.text} font-bold`
-                                                    : "bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-white/30"}
+                                                    : "bg-ash dark:bg-charcoal/10 text-slate dark:text-white/30"}
                                             `}>
                                                 {prompt.id}
                                             </span>
-                                            <span className={`text-xs font-medium leading-snug ${isSelected ? colors.text : "text-gray-700 dark:text-white/90"}`}>
+                                            <span className={`text-xs font-medium leading-snug ${isSelected ? colors.text : "text-charcoal dark:text-white/90"}`}>
                                                 {prompt.title}
                                             </span>
                                         </div>
@@ -120,7 +120,7 @@ export default function SitemapVisualizer({ prompts, selectedId, onSelect, enabl
                                         block w-full text-left p-3 rounded-lg border transition-all duration-200 group
                                         ${isSelected
                                             ? `${colors.bg} ${colors.border} ${colors.glow} scale-[1.02] shadow-sm`
-                                            : "bg-white dark:bg-[#1A1A1A] text-gray-700 dark:text-white/70 border-gray-300 dark:border-white/5 hover:border-gray-400 dark:hover:border-white/20 hover:bg-gray-50 dark:hover:bg-white/5"}
+                                            : "bg-white dark:bg-charcoal text-charcoal dark:text-ash/70 border-slate/20 dark:border-charcoal/10 hover:border-slate/40 dark:hover:border-charcoal/20 hover:bg-ash dark:hover:bg-charcoal/5"}
                                     `;
 
                                     return (

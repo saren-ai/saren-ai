@@ -20,7 +20,7 @@ export default function ThinkingClient({ posts }: ThinkingClientProps) {
   return (
     <article>
       {/* Hero */}
-      <section className="section bg-gradient-to-br from-charcoal to-offblack text-ash">
+      <section className="hero-card section gradient-dark text-ash">
         <div className="container-narrow">
           <div className="max-w-3xl">
             <motion.h1

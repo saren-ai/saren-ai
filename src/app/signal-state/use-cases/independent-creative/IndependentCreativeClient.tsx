@@ -2,12 +2,13 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import SignalStateSubnav from '@/components/signal-state/SignalStateSubnav'
 
 export default function IndependentCreativeClient() {
   return (
     <>
       {/* Hero */}
-      <section className="section gradient-dark text-ash">
+      <section className="hero-card section gradient-dark text-ash">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -44,6 +45,8 @@ export default function IndependentCreativeClient() {
         </div>
       </section>
 
+      <SignalStateSubnav />
+
       <section className="section">
         <div className="container-narrow space-y-8">
 
@@ -60,12 +63,12 @@ export default function IndependentCreativeClient() {
               className="rounded-xl border p-6 font-mono text-sm leading-relaxed"
               style={{ background: '#0d0f12', borderColor: 'rgba(255,255,255,0.08)', color: '#e2e4ea' }}
             >
-              <p className="text-[#6b7280] text-xs mb-3">// The Target: Freelance art director · 12 years agency experience · 8 months independent · Strong portfolio · Just lost a pitch to a full-service agency</p>
-              <p className="text-[#6b7280] text-xs mb-3">// LinkedIn post, posted 6 hours ago:</p>
+              <p className="text-slate text-xs mb-3">// The Target: Freelance art director · 12 years agency experience · 8 months independent · Strong portfolio · Just lost a pitch to a full-service agency</p>
+              <p className="text-slate text-xs mb-3">// LinkedIn post, posted 6 hours ago:</p>
               <p className="mb-4">
                 <span className="text-[var(--ss-purple-text)]">"Lost a pitch today that I'm genuinely proud of creatively. The work was strong. But sitting across from a team of six — strategist, account director, researcher, two creatives and a PM — I realized I was bringing a knife to a gunfight. Time to figure out how solo operators compete with full rooms."</span>
               </p>
-              <p className="text-[#6b7280] text-xs">// 31 comments. 18 people saying "same." 4 recommending collaborators. 2 recommending tools. Nobody recommending the right thing yet.</p>
+              <p className="text-slate text-xs">// 31 comments. 18 people saying "same." 4 recommending collaborators. 2 recommending tools. Nobody recommending the right thing yet.</p>
             </div>
           </motion.div>
 
@@ -165,7 +168,7 @@ export default function IndependentCreativeClient() {
             viewport={{ once: true }}
             className="flex flex-wrap gap-4 pt-4"
           >
-            <Link href="/signal-state/use-cases/org-alignment" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-ash/50 text-ash font-semibold text-sm transition-all hover:bg-ash hover:text-charcoal hover:-translate-y-0.5">
+            <Link href="/signal-state/use-cases/org-alignment" className="btn-secondary-dark">
               ← Use Case 02
             </Link>
             <Link href="/signal-state/signal-library" className="btn-primary">

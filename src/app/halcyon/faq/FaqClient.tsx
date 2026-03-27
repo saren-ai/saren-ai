@@ -4,6 +4,8 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
+import Breadcrumb from '@/components/ui/Breadcrumb'
+import HalcyonSubnav from '@/components/halcyon/HalcyonSubnav'
 
 interface FaqItem {
   q: string
@@ -391,7 +393,7 @@ function AccordionItem({ item, index, isOpen, onToggle }: {
     <motion.div
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.04 }}
+      transition={{ delay: index * 0.05 }}
       className="border-b border-charcoal/10 dark:border-white/10"
     >
       <button
@@ -437,16 +439,18 @@ export default function FaqClient() {
   return (
     <>
       {/* Page header */}
-      <section className="section gradient-dark text-ash">
+      <section className="hero-card section gradient-dark text-ash">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
           >
-            <p className="text-xs font-semibold tracking-widest uppercase text-ash/40 mb-4">
-              Hiring Committee FAQ
-            </p>
+            <Breadcrumb
+              back={{ href: '/halcyon', label: 'Halcyon' }}
+              current="FAQ"
+              accentColor="var(--ember-red)"
+            />
             <h1 className="text-4xl md:text-5xl font-bold text-ash mb-5 max-w-2xl leading-tight">
               10 questions.{' '}
               <span className="text-gradient">10 direct answers.</span>
@@ -458,6 +462,8 @@ export default function FaqClient() {
           </motion.div>
         </div>
       </section>
+
+      <HalcyonSubnav />
 
       {/* FAQ accordion */}
       <section className="section">

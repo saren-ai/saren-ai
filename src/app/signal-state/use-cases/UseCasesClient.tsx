@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Breadcrumb from '@/components/ui/Breadcrumb'
+import SignalStateSubnav from '@/components/signal-state/SignalStateSubnav'
 
 const USE_CASES = [
   {
@@ -40,15 +42,13 @@ export default function UseCasesClient() {
   return (
     <>
       {/* Hero */}
-      <section className="section gradient-dark text-ash">
+      <section className="hero-card section gradient-dark text-ash">
         <div className="container-narrow">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-xs font-semibold tracking-widest uppercase text-[var(--ss-teal-text)] mb-4"
-          >
-            Signal-State Marketing — Use Cases
-          </motion.p>
+          <Breadcrumb
+            back={{ href: '/signal-state', label: 'Signal-State' }}
+            current="Use Cases"
+            accentColor="var(--ss-teal-text)"
+          />
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -67,6 +67,8 @@ export default function UseCasesClient() {
           </motion.p>
         </div>
       </section>
+
+      <SignalStateSubnav />
 
       {/* Use Case Cards */}
       <section className="section">

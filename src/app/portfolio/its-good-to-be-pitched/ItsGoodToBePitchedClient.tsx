@@ -318,14 +318,14 @@ export default function ItsGoodToBePitchedClient() {
                     <div className="flex flex-wrap gap-4 justify-center">
                         <Link
                             href="/contact"
-                            className="inline-flex items-center gap-2 px-6 py-3 bg-ember hover:bg-ember/90 text-white rounded-lg font-semibold transition-colors"
+                            className="btn-primary"
                         >
                             Let&apos;s talk
                             <ArrowRight className="w-5 h-5" />
                         </Link>
                         <Link
                             href="/portfolio/roi-simulator"
-                            className="inline-flex items-center gap-2 px-6 py-3 bg-card-bg dark:bg-background border-2 border-border hover:border-electric text-foreground rounded-lg font-semibold transition-all"
+                            className="btn-secondary"
                         >
                             More portfolio work
                         </Link>

@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import Breadcrumb from '@/components/ui/Breadcrumb'
+import SignalStateSubnav from '@/components/signal-state/SignalStateSubnav'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -714,15 +716,13 @@ export default function SignalLibraryClient() {
   return (
     <>
       {/* Hero */}
-      <section className="section gradient-dark text-ash">
+      <section className="hero-card section gradient-dark text-ash">
         <div className="container-narrow">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-xs font-semibold tracking-widest uppercase text-[var(--ss-teal-text)] mb-4"
-          >
-            Signal-State Marketing
-          </motion.p>
+          <Breadcrumb
+            back={{ href: '/signal-state', label: 'Signal-State' }}
+            current="Signal Library"
+            accentColor="var(--ss-teal-text)"
+          />
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -741,6 +741,8 @@ export default function SignalLibraryClient() {
           </motion.p>
         </div>
       </section>
+
+      <SignalStateSubnav />
 
       {/* Catalogues */}
       <section className="section">
@@ -1300,7 +1302,7 @@ Client post search: "need both strategy and design" OR "strategy + design" for p
             <Link href="/signal-state/framework" className="btn-primary">
               Read the framework →
             </Link>
-            <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-ash/50 text-ash font-semibold text-sm transition-all hover:bg-ash hover:text-charcoal hover:-translate-y-0.5">
+            <Link href="/contact" className="btn-secondary-dark">
               Get in touch →
             </Link>
           </motion.div>

@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Breadcrumb from '@/components/ui/Breadcrumb'
+import SignalStateSubnav from '@/components/signal-state/SignalStateSubnav'
 
 const PSYCH_SECTIONS = [
   {
@@ -146,15 +148,13 @@ export default function FrameworkClient() {
   return (
     <>
       {/* Hero */}
-      <section className="section gradient-dark text-ash">
+      <section className="hero-card section gradient-dark text-ash">
         <div className="container-narrow">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-xs font-semibold tracking-widest uppercase text-[var(--ss-teal-text)] mb-4"
-          >
-            Signal-State Marketing — v1.0
-          </motion.p>
+          <Breadcrumb
+            back={{ href: '/signal-state', label: 'Signal-State' }}
+            current="Framework"
+            accentColor="var(--ss-teal-text)"
+          />
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -192,6 +192,8 @@ export default function FrameworkClient() {
         </div>
       </section>
 
+      <SignalStateSubnav />
+
       {/* Preface */}
       <section id="preface" className="section">
         <div className="container-narrow">
@@ -224,7 +226,7 @@ export default function FrameworkClient() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <pre className="bg-[#0d0f12] border border-[rgba(255,255,255,0.08)] rounded-xl p-6 text-xs font-mono text-[#e2e4ea] overflow-x-auto leading-relaxed whitespace-pre">
+            <pre className="bg-offblack border border-white/[0.08] rounded-xl p-6 text-xs font-mono text-[#e2e4ea] overflow-x-auto leading-relaxed whitespace-pre">
 {`FIRMOGRAPHIC MODEL
 ─────────────────────────────────────────────────────────
 Who they are (structurally) = Fit Score
@@ -421,7 +423,7 @@ Advantage: Expressed, not inferred.
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
+                transition={{ delay: index * 0.05 }}
                 className="grid md:grid-cols-4 gap-4 rounded-lg p-4 border"
                 style={{
                   background: row.highlight ? 'var(--ss-purple-bg)' : 'rgba(255,255,255,0.03)',
@@ -485,7 +487,7 @@ Advantage: Expressed, not inferred.
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
+                transition={{ delay: index * 0.05 }}
                 className="flex items-center gap-4"
               >
                 <div className="w-28 shrink-0">
@@ -559,7 +561,7 @@ Advantage: Expressed, not inferred.
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.05 }}
                 className="rounded-xl p-6 border"
                 style={{ background: 'var(--ss-coral-bg)', borderColor: 'var(--ss-coral-border)' }}
               >
@@ -601,7 +603,7 @@ Advantage: Expressed, not inferred.
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
+                transition={{ delay: index * 0.05 }}
                 className="card p-6"
               >
                 <h3 className="font-bold mb-2">{item.label}</h3>
@@ -672,7 +674,7 @@ Advantage: Expressed, not inferred.
             <Link href="/signal-state/architecture" className="btn-primary">
               View the architecture →
             </Link>
-            <Link href="/signal-state/use-cases" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-ash/50 text-ash font-semibold text-sm transition-all hover:bg-ash hover:text-charcoal hover:-translate-y-0.5">
+            <Link href="/signal-state/use-cases" className="btn-secondary-dark">
               See use cases →
             </Link>
           </motion.div>

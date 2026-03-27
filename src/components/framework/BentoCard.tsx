@@ -42,18 +42,18 @@ const getLevelColors = (level: string) => {
             return {
                 border: "border-emerald-500/30 group-hover:border-emerald-400/50",
                 glow: "group-hover:shadow-[0_0_20px_-5px_rgba(52,211,153,0.2)]",
-                text: "text-emerald-400",
-                accent: "bg-emerald-500/10 text-emerald-300",
-                code: "text-emerald-300",
+                text: "text-electric",
+                accent: "bg-electric/10 text-electric",
+                code: "text-electric",
                 gradient: "from-emerald-900/80 to-emerald-900/20"
             };
         case "L5":
             return {
                 border: "border-amber-500/30 group-hover:border-amber-400/50",
                 glow: "group-hover:shadow-[0_0_20px_-5px_rgba(251,191,36,0.2)]",
-                text: "text-amber-400",
-                accent: "bg-amber-500/10 text-amber-300",
-                code: "text-amber-300",
+                text: "text-copper",
+                accent: "bg-copper/10 text-copper",
+                code: "text-copper",
                 gradient: "from-amber-900/80 to-amber-900/20"
             };
         case "L6":
@@ -94,7 +94,7 @@ export default function BentoCard({ prompt, onClick }: BentoCardProps) {
             layoutId={`card-${prompt.id}`}
             onClick={onClick}
             whileHover={{ scale: 1.02, y: -2 }}
-            className={`group relative overflow-hidden rounded-3xl bg-[#0F0F0F] border ${colors.border} ${colors.glow} cursor-pointer transition-all duration-300 flex flex-col h-full`}
+            className={`group relative overflow-hidden rounded-3xl bg-offblack border ${colors.border} ${colors.glow} cursor-pointer transition-all duration-300 flex flex-col h-full`}
         >
             {/* Background Gradient */}
             <div className={`absolute inset-0 bg-gradient-to-br ${colors.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none`} />

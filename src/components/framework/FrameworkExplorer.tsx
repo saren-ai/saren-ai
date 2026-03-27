@@ -18,7 +18,7 @@ export default function FrameworkExplorer() {
             <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-electric/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
             <div className="absolute bottom-[-10%] right-[20%] w-[500px] h-[500px] bg-ember/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
 
-            <div className="container-fluid flex-1 flex flex-col h-full max-w-[1600px] mx-auto">
+            <div className="container-narrow flex-1 flex flex-col h-full">
 
                 {/* Sitemap Navigation (Top) */}
                 <div className="border-t border-b border-white/10 bg-background/50 backdrop-blur-sm">

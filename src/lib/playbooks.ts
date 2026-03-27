@@ -17,6 +17,8 @@ export interface Playbook {
     tags: string[];
     status: 'active' | 'archived';
     steps: PlaybookStep[];
+    /** Path to a downloadable Claude Code skill file in public/skills/ */
+    skill?: string;
 }
 
 export interface Prompt {
@@ -28,6 +30,8 @@ export interface Prompt {
     date: string;
     series_id?: string;
     series_step?: number;
+    /** Path to a downloadable Claude Code skill file in public/skills/ */
+    skill?: string;
 }
 
 export interface Catalog {

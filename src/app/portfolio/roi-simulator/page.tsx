@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { Check } from "lucide-react";
 import FAQ from "@/components/ui/FAQ";
 
 const HeroBentoEngine = dynamic(
@@ -140,9 +141,7 @@ export default function GoldenDashboardPage() {
               ].map((item, index) => (
                 <li key={index} className="flex items-start gap-4">
                   <span className="flex-shrink-0 w-6 h-6 bg-ember/10 rounded-full flex items-center justify-center mt-0.5">
-                    <svg className="w-4 h-4 text-ember" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
+                    <Check className="w-4 h-4 text-ember" />
                   </span>
                   <span className="text-lg text-foreground">{item}</span>
                 </li>

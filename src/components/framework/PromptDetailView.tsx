@@ -81,7 +81,7 @@ export default function PromptDetailView({ prompt, nextPrompt, prevPrompt }: Pro
     };
 
     return (
-        <div className="max-w-5xl mx-auto px-4 py-12 md:py-20">
+        <div className="container-narrow py-12 md:py-20">
             {/* Header */}
             <div className="mb-12 text-center">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric/10 text-electric text-sm font-medium mb-4">
@@ -182,7 +182,7 @@ export default function PromptDetailView({ prompt, nextPrompt, prevPrompt }: Pro
 
             {/* Main Prompt Window (Full Width) */}
             <div className="mb-16">
-                <div className="bg-[#0A0A0A] rounded-2xl border border-white/10 overflow-hidden shadow-2xl h-full flex flex-col">
+                <div className="bg-offblack rounded-2xl border border-white/10 overflow-hidden shadow-2xl h-full flex flex-col">
                     <div className="flex items-center justify-between px-4 py-3 bg-white/[0.02] border-b border-white/5">
                         <div className="flex gap-2">
                             <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
@@ -194,7 +194,7 @@ export default function PromptDetailView({ prompt, nextPrompt, prevPrompt }: Pro
                                 onClick={handleCopy}
                                 className="p-1.5 text-white/40 hover:text-white hover:bg-white/10 rounded-md transition-colors flex items-center gap-2"
                             >
-                                {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
+                                {copied ? <Check className="w-4 h-4 text-electric" /> : <Copy className="w-4 h-4" />}
                                 <span className="text-xs font-mono">Copy Prompt</span>
                             </button>
                             <div className="w-px h-4 bg-white/10" />

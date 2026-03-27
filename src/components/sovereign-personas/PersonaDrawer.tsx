@@ -172,7 +172,7 @@ export default function PersonaDrawer({ persona, onClose }: PersonaDrawerProps) 
               href={persona.pdfHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-ember hover:bg-ember/90 text-white rounded-lg font-semibold text-lg transition-colors shadow-lg hover:shadow-xl"
+              className="btn-primary w-full text-lg"
             >
               <svg
                 className="w-6 h-6"

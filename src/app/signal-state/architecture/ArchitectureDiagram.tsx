@@ -241,7 +241,7 @@ export default function ArchitectureDiagram() {
       <div className="rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[#141720] p-7">
 
         {/* Signal Sources */}
-        <p className="text-[10px] font-semibold tracking-widest uppercase text-[#6b7280] mb-2.5">
+        <p className="text-[10px] font-semibold tracking-widest uppercase text-slate mb-2.5">
           signal sources — scan every 4 hrs
         </p>
         <div className="grid grid-cols-3 md:grid-cols-6 gap-1.5 mb-1.5">
@@ -264,7 +264,7 @@ export default function ArchitectureDiagram() {
         <FlowDown />
 
         {/* Pipeline */}
-        <p className="text-[10px] font-semibold tracking-widest uppercase text-[#6b7280] mb-2.5">
+        <p className="text-[10px] font-semibold tracking-widest uppercase text-slate mb-2.5">
           pipeline — detect · empathize · respond
         </p>
         <div className="flex flex-col md:flex-row gap-2 md:gap-0 items-stretch mb-1.5">
@@ -367,7 +367,7 @@ export default function ArchitectureDiagram() {
         <MergeConnector />
 
         {/* Conversion */}
-        <p className="text-[10px] font-semibold tracking-widest uppercase text-[#6b7280] mb-2.5 text-center">
+        <p className="text-[10px] font-semibold tracking-widest uppercase text-slate mb-2.5 text-center">
           conversion
         </p>
 
@@ -425,14 +425,14 @@ export default function ArchitectureDiagram() {
               transition={{ duration: 0.2 }}
               className="mt-3 overflow-hidden"
             >
-              <div className="rounded-lg border border-[rgba(255,255,255,0.14)] bg-[#1c2030] p-4 text-sm text-[#6b7280] leading-relaxed">
+              <div className="rounded-lg border border-[rgba(255,255,255,0.14)] bg-charcoal p-4 text-sm text-slate leading-relaxed">
                 <div className="flex justify-between items-start mb-2">
-                  <span className="text-xs font-semibold tracking-widest uppercase text-[#3a3f4e]">
+                  <span className="text-xs font-semibold tracking-widest uppercase text-slate/60">
                     {activeId}
                   </span>
                   <button
                     onClick={() => setActiveId(null)}
-                    className="text-[#6b7280] hover:text-[#e2e4ea] transition-colors text-base leading-none ml-4 shrink-0"
+                    className="text-slate hover:text-ash transition-colors text-base leading-none ml-4 shrink-0"
                     aria-label="Close detail"
                   >
                     ✕
@@ -441,7 +441,7 @@ export default function ArchitectureDiagram() {
                 <p>
                   {NODE_DETAILS[activeId].split(/(\*\*[^*]+\*\*)/).map((part, i) =>
                     part.startsWith('**') ? (
-                      <strong key={i} className="text-[#e2e4ea]">
+                      <strong key={i} className="text-ash">
                         {part.slice(2, -2)}
                       </strong>
                     ) : (
@@ -464,7 +464,7 @@ export default function ArchitectureDiagram() {
             { color: '#3B6D11', label: 'sales handoff' },
             { color: '#888780', label: 'agents + tracking' },
           ].map((item) => (
-            <div key={item.label} className="flex items-center gap-1.5 text-[11px] text-[#6b7280]">
+            <div key={item.label} className="flex items-center gap-1.5 text-[11px] text-slate">
               <div
                 className="w-2 h-2 rounded-full shrink-0"
                 style={{ background: item.color }}

@@ -2,20 +2,20 @@
 
 import { motion } from 'framer-motion'
 import ArchitectureDiagram from './ArchitectureDiagram'
+import Breadcrumb from '@/components/ui/Breadcrumb'
+import SignalStateSubnav from '@/components/signal-state/SignalStateSubnav'
 
 export default function ArchitecturePageContent() {
   return (
     <>
       {/* Hero */}
-      <section className="section gradient-dark text-ash">
+      <section className="hero-card section gradient-dark text-ash">
         <div className="container-narrow">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-xs font-semibold tracking-widest uppercase text-[var(--ss-teal-text)] mb-4"
-          >
-            Signal-State Marketing — v1.0
-          </motion.p>
+          <Breadcrumb
+            back={{ href: '/signal-state', label: 'Signal-State' }}
+            current="Architecture"
+            accentColor="var(--ss-teal-text)"
+          />
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -34,6 +34,8 @@ export default function ArchitecturePageContent() {
           </motion.p>
         </div>
       </section>
+
+      <SignalStateSubnav />
 
       {/* Diagram */}
       <section className="section">

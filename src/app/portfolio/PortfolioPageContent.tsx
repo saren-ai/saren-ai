@@ -113,7 +113,7 @@ export default function PortfolioPageContent() {
   return (
     <article>
       {/* Hero */}
-      <section className="section bg-gradient-to-br from-charcoal to-offblack text-ash">
+      <section className="hero-card section gradient-dark text-ash">
         <div className="container-narrow">
           <div className="max-w-3xl">
             {/* Breadcrumb */}
@@ -223,7 +223,7 @@ export default function PortfolioPageContent() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-ember hover:bg-ember/90 text-white rounded-lg font-semibold transition-colors text-lg"
+            className="btn-primary text-lg"
           >
             Let&apos;s talk
             <svg

@@ -38,7 +38,7 @@ export function TierListControls({
         disabled={hasVoted || !canVote || isSubmitting}
         className={`inline-flex items-center gap-2 px-5 py-2 text-sm font-semibold rounded-lg transition-all ${
           hasVoted
-            ? "bg-green-500/20 text-green-700 dark:text-green-400 cursor-default"
+            ? "bg-electric/20 text-electric dark:text-electric cursor-default"
             : canVote
               ? "bg-electric text-white hover:bg-electric/90"
               : "bg-charcoal/10 text-foreground-muted cursor-not-allowed"

@@ -171,7 +171,7 @@ export default function InteractiveTimeline() {
                             >
                                 {/* FRONT FACE */}
                                 <div
-                                    className="absolute w-full h-full rounded-[18px] overflow-hidden bg-zinc-900 border border-zinc-200 dark:border-zinc-800"
+                                    className="absolute w-full h-full rounded-[18px] overflow-hidden bg-offblack border border-slate/20 dark:border-charcoal/10"
                                     style={{
                                         backfaceVisibility: "hidden",
                                         WebkitBackfaceVisibility: "hidden",
@@ -194,7 +194,7 @@ export default function InteractiveTimeline() {
 
                                 {/* BACK FACE: Baseball Card Metadata layout */}
                                 <div
-                                    className="absolute w-full h-full rounded-[18px] overflow-hidden bg-white dark:bg-[#1a1a1f] p-5 border border-zinc-200 dark:border-white/5 flex flex-col"
+                                    className="absolute w-full h-full rounded-[18px] overflow-hidden bg-white dark:bg-charcoal p-5 border border-slate/20 dark:border-charcoal/10 flex flex-col"
                                     style={{
                                         backfaceVisibility: "hidden",
                                         WebkitBackfaceVisibility: "hidden",
@@ -203,34 +203,34 @@ export default function InteractiveTimeline() {
                                     }}
                                 >
                                     {/* EYEBROW */}
-                                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#E34234] mb-3 inline-block">
+                                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-ember mb-3 inline-block">
                                         {comic.publisher}
                                     </span>
 
                                     {/* HEADER BLOCK */}
                                     <div className="mb-4">
-                                        <h3 className="text-xl font-black text-zinc-900 dark:text-[#f5f5f7] leading-tight mb-1 uppercase tracking-tight">
+                                        <h3 className="text-xl font-black text-charcoal dark:text-ash leading-tight mb-1 uppercase tracking-tight">
                                             {comic.title}
                                         </h3>
-                                        <div className="flex items-center gap-2 text-xs font-semibold text-zinc-500 dark:text-zinc-400">
+                                        <div className="flex items-center gap-2 text-xs font-semibold text-slate dark:text-slate">
                                             <span>{comic.volume}</span>
                                             <span>•</span>
-                                            <span className="text-zinc-800 dark:text-zinc-200">{comic.issueNumber}</span>
+                                            <span className="text-charcoal dark:text-ash">{comic.issueNumber}</span>
                                         </div>
                                     </div>
 
                                     {/* PLOT SUMMARY */}
                                     <div className="flex-1 overflow-hidden">
-                                        <p className="text-sm text-zinc-600 dark:text-white/70 leading-relaxed font-medium">
+                                        <p className="text-sm text-slate dark:text-ash/70 leading-relaxed font-medium">
                                             {comic.plotSummary || "Betsy Braddock's timeline is permanently altered in this pivotal issue."}
                                         </p>
                                     </div>
 
                                     {/* FOOTER BLOCK */}
-                                    <div className="mt-auto pt-4 border-t border-zinc-100 dark:border-white/10 flex flex-col gap-3">
-                                        <div className="flex justify-between items-center text-[10px] uppercase tracking-wider font-mono text-zinc-400">
+                                    <div className="mt-auto pt-4 border-t border-slate/10 dark:border-charcoal/10 flex flex-col gap-3">
+                                        <div className="flex justify-between items-center text-[10px] uppercase tracking-wider font-mono text-slate">
                                             <span>Released</span>
-                                            <span className="font-bold text-zinc-700 dark:text-zinc-300">{comic.releaseDate}</span>
+                                            <span className="font-bold text-charcoal dark:text-ash">{comic.releaseDate}</span>
                                         </div>
 
                                         {/* FANDOM WIKI LINK BUTTON */}
@@ -238,11 +238,11 @@ export default function InteractiveTimeline() {
                                             href={comic.fandomLink || "https://marvel.fandom.com/wiki/Elizabeth_Braddock_(Earth-616)"}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="w-full py-2.5 px-3 bg-zinc-100 dark:bg-white/5 hover:bg-zinc-200 dark:hover:bg-white/10 transition-colors rounded-lg flex items-center justify-between group"
+                                            className="w-full py-2.5 px-3 bg-ash dark:bg-charcoal/5 hover:bg-ash/80 dark:hover:bg-charcoal/10 transition-colors rounded-lg flex items-center justify-between group"
                                             onClick={(e) => e.stopPropagation()} // Prevent card flip when clicking the link
                                         >
-                                            <span className="text-xs font-semibold text-zinc-700 dark:text-zinc-300">Marvel Wiki</span>
-                                            <svg className="w-3.5 h-3.5 text-zinc-400 group-hover:text-zinc-700 dark:group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <span className="text-xs font-semibold text-charcoal dark:text-ash">Marvel Wiki</span>
+                                            <svg className="w-3.5 h-3.5 text-slate group-hover:text-charcoal dark:group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                             </svg>
                                         </a>

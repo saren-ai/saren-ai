@@ -71,7 +71,7 @@ export default function SignalStateClient() {
   return (
     <>
       {/* Hero */}
-      <section className="section gradient-dark text-ash">
+      <section className="hero-card section gradient-dark text-ash">
         <div className="container-narrow">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -116,7 +116,7 @@ export default function SignalStateClient() {
             </Link>
             <Link
               href="/signal-state/architecture"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-ash/50 text-ash font-semibold text-sm transition-all hover:bg-ash hover:text-charcoal hover:-translate-y-0.5"
+              className="btn-secondary-dark"
             >
               See the architecture →
             </Link>
@@ -154,7 +154,7 @@ export default function SignalStateClient() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.05 }}
                 className="rounded-xl p-6 border"
                 style={{
                   background: `var(${pillar.bgVar})`,
@@ -205,7 +205,7 @@ export default function SignalStateClient() {
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
+                transition={{ delay: index * 0.05 }}
                 className={`flex gap-4 rounded-lg p-4 border ${
                   row.highlight
                     ? 'border-[var(--ss-teal-border)] bg-[var(--ss-teal-bg)]'
@@ -268,7 +268,7 @@ export default function SignalStateClient() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.07 }}
+                transition={{ delay: index * 0.05 }}
                 className="flex items-center gap-3"
               >
                 <div

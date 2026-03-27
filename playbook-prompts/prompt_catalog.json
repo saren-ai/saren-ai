@@ -464,6 +464,28 @@
       ]
     },
     {
+      "playbook_id": "brand-style-guide-page-builder",
+      "title": "Brand Style Guide Page Builder",
+      "description": "Generate a comprehensive, living brand style guide page for a Next.js site. Audits the actual codebase to extract design tokens, then builds a self-documenting reference with live rendered examples, programmatic WCAG contrast audits, and full component documentation.",
+      "category": "Creative",
+      "tags": [
+        "Design System",
+        "Brand Guide",
+        "Accessibility",
+        "WCAG",
+        "Claude Code"
+      ],
+      "status": "active",
+      "skill": "/skills/brand-style-guide-page-builder.md",
+      "steps": [
+        {
+          "step": 1,
+          "title": "Brand Style Guide Page Builder",
+          "file": "Prompts/Creative/Brand Style Guide Page Builder.md"
+        }
+      ]
+    },
+    {
       "playbook_id": "mckinsey-strategy-suite",
       "title": "McKinsey Strategy Suite",
       "description": "3 heavyweight strategy prompts: market sizing/TAM analysis → full GTM strategy build → McKinsey-style SCQ/MECE problem solving. Deploy sequentially for a complete strategic brief.",
@@ -2193,6 +2215,22 @@
           "Gemini"
         ],
         "date": "2025-09-07"
+      },
+      {
+        "id": "brand-style-guide-page-builder",
+        "title": "Brand Style Guide Page Builder",
+        "file": "Prompts/Creative/Brand Style Guide Page Builder.md",
+        "category": [
+          "Creative"
+        ],
+        "tags": [
+          "Design System",
+          "Brand Guide",
+          "Accessibility",
+          "WCAG",
+          "Claude Code"
+        ],
+        "date": "2026-03-27"
       },
       {
         "id": "app-idea-to-agent-spec",

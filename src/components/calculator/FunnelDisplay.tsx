@@ -98,7 +98,7 @@ export function FunnelDisplay({
       value: isMonthly ? funnel.monthlyOpportunities : funnel.opportunities,
       costPer: funnel.cpOpp,
       costLabel: "CPOpp",
-      color: "bg-emerald-500/10 dark:bg-emerald-500/20",
+      color: "bg-electric/10 dark:bg-electric/20",
       borderColor: "border-emerald-500",
     },
     {
@@ -107,7 +107,7 @@ export function FunnelDisplay({
       value: isMonthly ? funnel.monthlyClosedWon : funnel.closedWon,
       costPer: funnel.cac,
       costLabel: "CAC",
-      color: "bg-green-600/10 dark:bg-green-600/20",
+      color: "bg-electric/10 dark:bg-electric/20",
       borderColor: "border-green-600",
     },
   ];
@@ -130,7 +130,7 @@ export function FunnelDisplay({
 
   const getPerformanceColor = (rate: number, benchmark: { avg: number }) => {
     const ratio = rate / benchmark.avg;
-    if (ratio >= 1.05) return "text-emerald-500 bg-emerald-500/10 dark:bg-emerald-500/20";
+    if (ratio >= 1.05) return "text-electric bg-electric/10 dark:bg-electric/20";
     if (ratio >= 0.95) return "text-yellow-500 bg-yellow-500/10 dark:bg-yellow-500/20";
     return "text-ember bg-ember/10 dark:bg-ember/20";
   };
@@ -208,12 +208,12 @@ export function FunnelDisplay({
                           if (e.key === "Escape") handleEditCancel();
                         }}
                         autoFocus
-                        className={`w-14 text-center text-xs font-mono bg-white dark:bg-card-bg border rounded px-1 py-0.5 text-charcoal dark:text-foreground ${editState.error ? "border-red-400" : "border-electric"}`}
+                        className={`w-14 text-center text-xs font-mono bg-white dark:bg-card-bg border rounded px-1 py-0.5 text-charcoal dark:text-foreground ${editState.error ? "border-ember" : "border-electric"}`}
                       />
                       <div className="flex gap-0.5">
                         <button
                           onClick={handleEditConfirm}
-                          className="p-0.5 text-emerald-500 hover:bg-emerald-500/10 rounded"
+                          className="p-0.5 text-electric hover:bg-electric/10 rounded"
                         >
                           <Check className="w-3 h-3" />
                         </button>
@@ -225,7 +225,7 @@ export function FunnelDisplay({
                         </button>
                       </div>
                       {editState.error ? (
-                        <span className="text-[9px] text-red-500 whitespace-nowrap text-center">
+                        <span className="text-[9px] text-ember whitespace-nowrap text-center">
                           {editState.error}
                         </span>
                       ) : (
@@ -317,7 +317,7 @@ export function FunnelDisplay({
                     <span className="text-[10px] text-slate dark:text-foreground-muted">
                       % (Avg: {formatPercent(conversionRateBenchmarks[index].avg)})
                     </span>
-                    <button onClick={handleEditConfirm} className="text-emerald-500">
+                    <button onClick={handleEditConfirm} className="text-electric">
                       <Check className="w-4 h-4" />
                     </button>
                     <button onClick={handleEditCancel} className="text-ember">

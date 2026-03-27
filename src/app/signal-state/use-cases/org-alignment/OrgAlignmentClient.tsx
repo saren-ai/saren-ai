@@ -2,12 +2,13 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import SignalStateSubnav from '@/components/signal-state/SignalStateSubnav'
 
 export default function OrgAlignmentClient() {
   return (
     <>
       {/* Hero */}
-      <section className="section gradient-dark text-ash">
+      <section className="hero-card section gradient-dark text-ash">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -44,6 +45,8 @@ export default function OrgAlignmentClient() {
         </div>
       </section>
 
+      <SignalStateSubnav />
+
       <section className="section">
         <div className="container-narrow space-y-8">
 
@@ -60,12 +63,12 @@ export default function OrgAlignmentClient() {
               className="rounded-xl border p-6 font-mono text-sm leading-relaxed"
               style={{ background: '#0d0f12', borderColor: 'rgba(255,255,255,0.08)', color: '#e2e4ea' }}
             >
-              <p className="text-[#6b7280] text-xs mb-3">// The Target: 1,200-person SaaS company · Third rebrand in 4 years · Glassdoor 3.8 → 2.9 over 18 months · CEO approval 44% · VP Product just departed after 11 months</p>
-              <p className="text-[#6b7280] text-xs mb-3">// LinkedIn post from departing VP of Product:</p>
+              <p className="text-slate text-xs mb-3">// The Target: 1,200-person SaaS company · Third rebrand in 4 years · Glassdoor 3.8 → 2.9 over 18 months · CEO approval 44% · VP Product just departed after 11 months</p>
+              <p className="text-slate text-xs mb-3">// LinkedIn post from departing VP of Product:</p>
               <p className="mb-4">
                 <span className="text-[var(--ss-coral-text)]">"Leaving [Company] after an incredible year of learning. Sometimes the vision and the execution culture aren't quite aligned yet — and that's okay. Excited for what's next."</span>
               </p>
-              <p className="text-[#6b7280] text-xs">// 43 comments. 12 from current employees using the same careful language. 3 from ex-employees who are less careful.</p>
+              <p className="text-slate text-xs">// 43 comments. 12 from current employees using the same careful language. 3 from ex-employees who are less careful.</p>
             </div>
           </motion.div>
 
@@ -163,7 +166,7 @@ export default function OrgAlignmentClient() {
             viewport={{ once: true }}
             className="flex flex-wrap gap-4 pt-4"
           >
-            <Link href="/signal-state/use-cases/cybersecurity" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-ash/50 text-ash font-semibold text-sm transition-all hover:bg-ash hover:text-charcoal hover:-translate-y-0.5">
+            <Link href="/signal-state/use-cases/cybersecurity" className="btn-secondary-dark">
               ← Use Case 01
             </Link>
             <Link href="/signal-state/use-cases/independent-creative" className="btn-primary">

@@ -87,9 +87,9 @@ export default function HomeClient() {
   return (
     <>
       {/* Hero Section */}
-      <section className="min-h-[85vh] flex items-center relative overflow-hidden py-20 pb-0">
+      <section className="hero-card min-h-[85vh] flex items-center relative overflow-hidden py-20 pb-0">
         {/* Background Pattern */}
-        <div className="absolute inset-0 bg-gradient-to-br from-ash via-ash to-electric/5" />
+        <div className="absolute inset-0 bg-[#FFFFFF] dark:bg-offblack" />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -97,7 +97,7 @@ export default function HomeClient() {
           }}
         />
 
-        <div className="container-narrow relative z-10 w-full max-w-[1200px] mx-auto px-4 md:px-6 mb-20">
+        <div className="container-narrow relative z-10 mb-20">
           <div className="max-w-4xl mx-auto text-center">
             {/* Eyebrow */}
             <motion.p
@@ -142,7 +142,7 @@ export default function HomeClient() {
             >
               <Link
                 href="/portfolio"
-                className="btn-primary !rounded-full"
+                className="btn-primary"
                 aria-label="Explore my portfolio"
               >
                 Explore my portfolio
@@ -162,7 +162,7 @@ export default function HomeClient() {
               </Link>
               <Link
                 href="/contact"
-                className="btn-secondary !rounded-full"
+                className="btn-secondary-dark"
                 aria-label="Let's get in touch"
               >
                 Let&apos;s get in touch

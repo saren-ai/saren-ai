@@ -26,7 +26,18 @@ Light-mode values were darkened in March 2026 for WCAG AA compliance. Dark-mode 
 - **JetBrains Mono** (`--font-jetbrains` / `font-mono`): metrics, data, code
 
 ## Key Utility Classes
-`.section` `.container-narrow` `.btn-primary` `.btn-secondary` `.card` `.metric-value` `.metric-label` `.gradient-dark` `.gradient-accent` `.text-gradient` `.animate-fadeInUp` `.stagger-1…4`
+`.section` `.container-narrow` `.btn-primary` `.btn-secondary` `.btn-secondary-dark` `.card` `.metric-value` `.metric-label` `.gradient-dark` `.gradient-accent` `.text-gradient` `.animate-fadeInUp` `.stagger-1…4`
+
+## CTA Button Standard — ALL buttons are pills (border-radius: 9999px)
+
+- **`.btn-primary`** — Fire Horse 2026 red (`var(--ember-red)`), white text, pill shape. Use for all primary actions.
+- **`.btn-secondary`** — Transparent bg, `var(--foreground)` border + text, pill shape. Use on light/neutral backgrounds (theme-adaptive).
+- **`.btn-secondary-dark`** — Transparent bg, ash/white border (`rgba(245,245,247,0.5)`) + white text, pill shape. Use on dark backgrounds (`gradient-dark`, `bg-charcoal`, etc.). Hover fills with ash and flips text to charcoal.
+
+**Rules:**
+- Never use `!rounded-full` overrides — both primary and secondary are pills by default.
+- Never use inline Tailwind to replicate button styles — always use the class.
+- On `gradient-dark` or any dark section: secondary CTA must use `.btn-secondary-dark`, not `.btn-secondary`.
 
 ## Layout Pattern
 Always wrap page content in: `<section className="section"><div className="container-narrow">…</div></section>`

@@ -119,7 +119,7 @@ export default function AuthorityEngineeringPage() {
 
             {/* CTA Section */}
             <section className="section py-20 bg-charcoal text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-[#E34234] opacity-5 mix-blend-overlay"></div>
+                <div className="absolute inset-0 bg-ember opacity-5 mix-blend-overlay"></div>
                 <div className="container-narrow text-center relative z-10">
                     <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
                         Stop guessing. Start engineering.

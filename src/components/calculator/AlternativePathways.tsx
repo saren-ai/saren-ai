@@ -113,7 +113,7 @@ export function AlternativePathways({
               <span className="text-xs text-slate dark:text-foreground-muted">
                 Est. Blended CAC:{" "}
               </span>
-              <span className="font-mono font-semibold text-emerald-600 dark:text-emerald-400">
+              <span className="font-mono font-semibold text-electric dark:text-electric">
                 {formatCurrency(estimatedTrialCAC)}
               </span>
               <span className="text-xs text-slate dark:text-foreground-muted ml-1">
@@ -156,7 +156,7 @@ export function AlternativePathways({
               <span className="text-xs text-slate dark:text-foreground-muted">
                 Est. Blended CAC:{" "}
               </span>
-              <span className="font-mono font-semibold text-emerald-600 dark:text-emerald-400">
+              <span className="font-mono font-semibold text-electric dark:text-electric">
                 {formatCurrency(estimatedFreemiumCAC)}
               </span>
               <span className="text-xs text-slate dark:text-foreground-muted ml-1">

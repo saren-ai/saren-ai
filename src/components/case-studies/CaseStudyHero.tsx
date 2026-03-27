@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 
 interface Metric {
     label: string;
@@ -35,12 +36,16 @@ export default function CaseStudyHero({
     actions,
 }: CaseStudyHeroProps) {
     return (
-        <section className="pt-16 pb-16 md:pt-24 md:pb-24 relative overflow-hidden">
+        <section className="hero-card pt-16 pb-16 md:pt-24 md:pb-24 relative bg-white dark:bg-[#161616] border border-[#D2D2D7] dark:border-[#2A2A2A]">
             {/* Background Elements */}
-            <div className="absolute inset-0 bg-gradient-to-br from-ash via-ash to-white pointer-events-none -z-10" />
             <div className="absolute top-0 right-0 w-1/3 h-full bg-electric/5 -skew-x-12 transform translate-x-1/2 pointer-events-none -z-10" />
 
             <div className="container-narrow">
+                <Breadcrumb
+                    back={{ href: '/portfolio', label: 'Portfolio' }}
+                    current="Case Study"
+                    className="mb-8"
+                />
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -117,10 +118,10 @@ function FlowNode({
             )}
           </div>
           {subtitle && (
-            <p className="mt-1 text-xs font-mono text-white/35 leading-relaxed">{subtitle}</p>
+            <p className="mt-1 text-xs font-mono text-slate/70 dark:text-white/35 leading-relaxed">{subtitle}</p>
           )}
           {note && (
-            <p className="mt-2 text-xs text-white/45 leading-relaxed italic">{note}</p>
+            <p className="mt-2 text-xs text-slate dark:text-white/45 leading-relaxed italic">{note}</p>
           )}
           {children}
         </div>
@@ -132,11 +133,11 @@ function FlowNode({
 function Connector({ label, dim }: { label?: string; dim?: boolean }) {
   return (
     <div className="flex flex-col items-center py-1 gap-0.5">
-      <div className={`w-px h-5 ${dim ? "bg-white/8" : "bg-white/12"}`} />
+      <div className={`w-px h-5 ${dim ? "bg-charcoal/10 dark:bg-white/8" : "bg-charcoal/15 dark:bg-white/12"}`} />
       {label && (
-        <span className="text-[9px] font-mono text-white/22 px-2 text-center leading-tight">{label}</span>
+        <span className="text-[9px] font-mono text-slate/50 dark:text-white/22 px-2 text-center leading-tight">{label}</span>
       )}
-      <svg width="8" height="6" viewBox="0 0 8 6" className={dim ? "text-white/10" : "text-white/18"}>
+      <svg width="8" height="6" viewBox="0 0 8 6" className={dim ? "text-charcoal/10 dark:text-white/10" : "text-charcoal/20 dark:text-white/18"}>
         <path d="M 0 0 L 4 6 L 8 0 Z" fill="currentColor" />
       </svg>
     </div>
@@ -155,7 +156,7 @@ function MatrixSection() {
   };
 
   return (
-    <section className="py-20 border-t border-white/5">
+    <section className="section bg-ash dark:bg-background">
       <div className="container-narrow">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -163,11 +164,11 @@ function MatrixSection() {
           viewport={{ once: true }}
           className="mb-10"
         >
-          <p className="font-mono text-[#D4624A] text-[10px] uppercase tracking-[0.2em] mb-3">
+          <p className="font-mono text-ember text-[10px] uppercase tracking-[0.2em] mb-3">
             The Core Concept
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">9 Emails. One System.</h2>
-          <p className="text-white/38 text-sm font-mono max-w-lg">
+          <h2 className="text-3xl md:text-4xl font-bold text-charcoal dark:text-white mb-3">9 Emails. One System.</h2>
+          <p className="text-slate text-sm font-mono max-w-lg">
             Hover a row or column label to see the full track. Click any cell to read the content brief.
           </p>
         </motion.div>
@@ -177,6 +178,7 @@ function MatrixSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
+          className="rounded-2xl bg-offblack p-6 md:p-8 text-white"
         >
           {/* Column headers */}
           <div className="grid grid-cols-[120px_1fr_1fr_1fr] gap-2 mb-2">
@@ -254,7 +256,7 @@ function MatrixSection() {
                       onMouseLeave={() => setHoveredRow(null)}
                       className={`text-left p-4 rounded border min-h-[88px] transition-all duration-150 ${STAGE_TINT[ci]} ${
                         isSelected
-                          ? "border-[#D4624A]/45 bg-[#D4624A]/8 ring-1 ring-[#D4624A]/18"
+                          ? "border-ember/45 bg-ember/[0.08] ring-1 ring-[#D4624A]/18"
                           : highlighted
                           ? "border-white/18 bg-white/[0.05]"
                           : "border-white/8 hover:border-white/14"
@@ -320,7 +322,7 @@ function MatrixSection() {
 
 function RoutingSection() {
   return (
-    <section className="py-20 border-t border-white/5">
+    <section className="section bg-ash dark:bg-background">
       <div className="container-narrow">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -328,16 +330,16 @@ function RoutingSection() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <p className="font-mono text-[#D4624A] text-[10px] uppercase tracking-[0.2em] mb-3">
+          <p className="font-mono text-ember text-[10px] uppercase tracking-[0.2em] mb-3">
             The Routing Logic
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">How Contacts Move Through the System</h2>
-          <p className="text-white/38 text-sm font-mono max-w-lg">
+          <h2 className="text-3xl md:text-4xl font-bold text-charcoal dark:text-white mb-3">How Contacts Move Through the System</h2>
+          <p className="text-slate text-sm font-mono max-w-lg">
             Every lead enters, scores, and advances — or exits — based on fit and behavior. No manual sorting required.
           </p>
         </motion.div>
 
-        <div className="max-w-2xl mx-auto space-y-0">
+        <div className="max-w-2xl mx-auto space-y-0 rounded-2xl bg-offblack p-6 md:p-8 text-white">
 
           {/* ── Block 1: Entry Sources ── */}
           <motion.div
@@ -345,7 +347,7 @@ function RoutingSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="font-mono text-[10px] uppercase tracking-widest text-white/20 mb-3">Entry sources</p>
+            <p className="font-mono text-[10px] uppercase tracking-widest text-slate/50 dark:text-white/20 mb-3">Entry sources</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
 
               {/* Net New track */}
@@ -623,38 +625,41 @@ function RoutingSection() {
 
 export default function DynamicNurtureClient() {
   return (
-    <article className="min-h-screen bg-[#0a0c0f] text-white">
+    <article>
 
       {/* ── Hero ── */}
-      <section className="py-20 md:py-28 border-b border-white/5">
+      <section className="hero-card pt-16 pb-16 md:pt-24 md:pb-24 relative bg-white dark:bg-[#161616] border border-charcoal/10 dark:border-charcoal/10">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-ember/5 -skew-x-12 transform translate-x-1/2 pointer-events-none -z-10" />
         <div className="container-narrow">
-          <nav className="mb-10">
-            <ol className="flex items-center gap-2 text-xs text-white/25 font-mono">
-              <li>
-                <Link href="/" className="hover:text-white/55 transition-colors">Home</Link>
-              </li>
-              <li className="text-white/12">/</li>
-              <li>
-                <Link href="/portfolio" className="hover:text-white/55 transition-colors">Portfolio</Link>
-              </li>
-              <li className="text-white/12">/</li>
-              <li className="text-[#D4624A]">Dynamic Nurture</li>
-            </ol>
-          </nav>
+          <Breadcrumb
+            back={{ href: '/portfolio', label: 'Portfolio' }}
+            current="Case Study"
+            className="mb-8"
+          />
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="max-w-2xl"
           >
-            <p className="font-mono text-[#D4624A] text-[10px] uppercase tracking-[0.25em] mb-5">
-              B2B Demand Gen · HubSpot · Apollo · Score-Gated Nurture
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mb-7">
+            <div className="flex flex-wrap items-center gap-4 text-sm font-mono text-slate mb-6 uppercase tracking-wider">
+              <span className="text-ember font-bold">B2B Demand Gen</span>
+              <span className="w-1 h-1 bg-slate/30 rounded-full" />
+              <span>HubSpot · Apollo</span>
+              <span className="w-1 h-1 bg-slate/30 rounded-full hidden sm:block" />
+              <div className="flex gap-2">
+                {["Score-Gated Nurture", "Email Automation"].map((tag) => (
+                  <span key={tag} className="px-2 py-0.5 bg-slate/10 text-slate rounded text-xs">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-charcoal dark:text-white leading-[1.05] tracking-tight mb-7">
               Email That Knows<br />Who You Are
             </h1>
-            <p className="text-lg md:text-xl text-white/50 leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate max-w-2xl leading-relaxed">
               A system that delivers different content to the right person at the right stage — automatically.
             </p>
           </motion.div>
@@ -667,16 +672,15 @@ export default function DynamicNurtureClient() {
             className="mt-10 flex flex-wrap gap-3"
           >
             {[
-              { label: "3 segments", color: "#4A9FD8" },
-              { label: "3 funnel stages", color: "#D4A574" },
-              { label: "9 content variants", color: "#D4624A" },
-              { label: "0–100 composite score", color: "#d97706" },
-              { label: "Continuous re-evaluation", color: "#8b5cf6" },
-            ].map(({ label, color }) => (
+              { label: "3 segments", token: "text-electric" },
+              { label: "3 funnel stages", token: "text-copper" },
+              { label: "9 content variants", token: "text-ember" },
+              { label: "0–100 composite score", token: "text-slate" },
+              { label: "Continuous re-evaluation", token: "text-slate" },
+            ].map(({ label, token }) => (
               <span
                 key={label}
-                className="font-mono text-[11px] px-3 py-1.5 rounded-full"
-                style={{ color, backgroundColor: `${color}15`, border: `1px solid ${color}30` }}
+                className={`font-mono text-[11px] px-3 py-1.5 rounded-full bg-charcoal/5 dark:bg-white/5 border border-charcoal/10 dark:border-white/10 ${token}`}
               >
                 {label}
               </span>
@@ -688,21 +692,21 @@ export default function DynamicNurtureClient() {
       <RoutingSection />
 
       {/* ── Footer note ── */}
-      <section className="py-16 border-t border-white/5">
+      <section className="section bg-ash dark:bg-background">
         <div className="container-narrow">
-          <div className="max-w-2xl border border-white/8 rounded-lg p-8 bg-white/[0.015]">
-            <p className="font-mono text-[#D4624A] text-[10px] uppercase tracking-[0.2em] mb-4">Signal &amp; Context</p>
-            <p className="text-white/48 leading-relaxed text-sm italic mb-4">
+          <div className="max-w-2xl border border-charcoal/10 dark:border-white/10 rounded-lg p-8 bg-white dark:bg-white/[0.03]">
+            <p className="font-mono text-ember text-[10px] uppercase tracking-[0.2em] mb-4">Signal &amp; Context</p>
+            <p className="text-slate leading-relaxed text-sm italic mb-4">
               This system was designed to eliminate the &ldquo;one size fits all&rdquo; problem in B2B nurture.
               The matrix ensures relevance at every touchpoint. The routing logic ensures no lead falls
               through without a signal.
             </p>
-            <div className="flex items-center gap-3 pt-4 border-t border-white/5">
-              <p className="text-[10px] font-mono text-white/22">Built with</p>
+            <div className="flex items-center gap-3 pt-4 border-t border-charcoal/10 dark:border-white/10">
+              <p className="text-[10px] font-mono text-slate/50">Built with</p>
               {["HubSpot", "Apollo"].map((tool) => (
                 <span
                   key={tool}
-                  className="text-[10px] font-mono px-2 py-1 rounded border border-white/10 text-white/35"
+                  className="text-[10px] font-mono px-2 py-1 rounded border border-charcoal/10 dark:border-white/10 text-slate"
                 >
                   {tool}
                 </span>

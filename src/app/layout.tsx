@@ -97,9 +97,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                const theme = localStorage.getItem('theme') ||
-                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-                document.documentElement.classList.add(theme);
+                document.documentElement.classList.add('dark');
               })();
             `,
           }}
@@ -137,8 +135,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         <ThemeProvider>
+          <TopBanner />
           <div className="sticky top-0 z-50">
-            <TopBanner />
             <Header latestPost={latestPost} />
           </div>
           <main className="flex-1">{children}</main>

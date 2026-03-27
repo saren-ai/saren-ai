@@ -10,7 +10,7 @@ export default function BentoGrid() {
     const [selectedPrompt, setSelectedPrompt] = useState<FrameworkPrompt | null>(null);
 
     return (
-        <section className="py-24 px-4 md:px-6 bg-[#0F0F0F]">
+        <section className="py-24 px-4 md:px-6 bg-offblack">
             <div className="max-w-[1400px] mx-auto">
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-16">

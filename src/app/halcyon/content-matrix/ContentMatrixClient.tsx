@@ -12,6 +12,8 @@ import {
 } from '@/lib/halcyon-content-matrix'
 import { X, FileText, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
+import Breadcrumb from '@/components/ui/Breadcrumb'
+import HalcyonSubnav from '@/components/halcyon/HalcyonSubnav'
 
 const COLOR_MAP: Record<PersonaColor, { text: string; bg: string; border: string; badge: string }> = {
   ember: {
@@ -56,16 +58,18 @@ export default function ContentMatrixClient() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="section bg-gradient-to-b from-charcoal/5 to-transparent dark:from-ash/5">
+      <section className="hero-card section bg-background-secondary">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <div className="text-xs font-semibold text-ember uppercase tracking-widest mb-3">
-              Halcyon AI · Demand Generation · Interactive Tool
-            </div>
+            <Breadcrumb
+              back={{ href: '/halcyon', label: 'Halcyon' }}
+              current="Content Matrix"
+              className="mb-4 justify-center"
+            />
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               Full-Funnel Content Matrix
             </h1>
@@ -76,6 +80,8 @@ export default function ContentMatrixClient() {
           </motion.div>
         </div>
       </section>
+
+      <HalcyonSubnav />
 
       <section className="section">
         <div className="container-narrow">

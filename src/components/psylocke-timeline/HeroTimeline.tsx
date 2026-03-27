@@ -12,7 +12,7 @@ export default function HeroTimeline() {
             <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-electric/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
             <div className="absolute bottom-[-10%] right-[20%] w-[500px] h-[500px] bg-ember/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
 
-            <div className="container-wide px-4 md:px-6 relative z-10 flex flex-col items-center">
+            <div className="container-narrow relative z-10 flex flex-col items-center">
                 {/* Header Section */}
                 <div className="w-full max-w-3xl flex flex-col items-center text-center mb-4">
                     <nav className="mb-6 flex text-xs font-mono tracking-widest text-foreground-muted/60 uppercase">

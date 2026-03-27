@@ -62,12 +62,12 @@ export default function ProcessNavigator() {
               className={`w-full group flex items-center justify-between p-4 md:p-5 rounded-2xl transition-all border text-left ${
                 activeStep === index 
                 ? 'bg-charcoal border-charcoal shadow-xl' 
-                : 'bg-white/50 dark:bg-zinc-900/50 border-slate/20 hover:border-slate/40 backdrop-blur-sm'
+                : 'bg-white/50 dark:bg-charcoal/5 border-slate/20 hover:border-slate/40 backdrop-blur-sm'
               }`}
             >
               <div className="flex items-center gap-4">
                 <div className={`flex items-center justify-center w-8 h-8 rounded-lg text-sm font-bold ${
-                  activeStep === index ? 'bg-white/20 text-white' : 'bg-ash dark:bg-zinc-800 text-slate'
+                  activeStep === index ? 'bg-white/20 text-white' : 'bg-ash dark:bg-charcoal/10 text-slate'
                 }`}>
                   {index + 1}
                 </div>
@@ -98,19 +98,19 @@ export default function ProcessNavigator() {
 
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-6 md:mb-8">
-                  <span className="px-3 py-1 bg-ash dark:bg-zinc-800 text-slate dark:text-slate rounded-full text-xs font-bold tracking-widest uppercase border border-slate/10">
+                  <span className="px-3 py-1 bg-ash dark:bg-charcoal/10 text-slate dark:text-slate rounded-full text-xs font-bold tracking-widest uppercase border border-slate/10">
                     {steps[activeStep].tool}
                   </span>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold text-charcoal dark:text-white mb-6 leading-tight tracking-tight">
                   {steps[activeStep].title}
                 </h2>
-                <p className="text-lg md:text-xl text-slate dark:text-zinc-400 leading-relaxed mb-8">
+                <p className="text-lg md:text-xl text-slate dark:text-slate leading-relaxed mb-8">
                   {steps[activeStep].description}
                 </p>
               </div>
 
-              <div className="bg-ash/50 dark:bg-zinc-900/50 p-5 md:p-6 rounded-2xl border border-slate/10 dark:border-zinc-800 backdrop-blur-sm relative z-10">
+              <div className="bg-ash/50 dark:bg-charcoal/5 p-5 md:p-6 rounded-2xl border border-slate/10 dark:border-charcoal/10 backdrop-blur-sm relative z-10">
                 <div className="flex items-start gap-4">
                   <CheckCircle className="w-5 h-5 text-copper mt-0.5 flex-shrink-0" />
                   <div>

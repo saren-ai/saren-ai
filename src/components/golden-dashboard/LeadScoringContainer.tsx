@@ -120,7 +120,7 @@ export default function LeadScoringContainer({
       <div className="mt-4 pt-4 border-t border-electric/10">
         <div className="flex items-center justify-center gap-6 text-xs text-foreground-muted">
           <div className="flex items-center gap-1">
-            <div className="w-2 h-2 rounded-full bg-green-500" />
+            <div className="w-2 h-2 rounded-full bg-electric" />
             <span>75+ = MQL</span>
           </div>
           <div className="flex items-center gap-1">

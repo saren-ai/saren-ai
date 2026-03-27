@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Breadcrumb from '@/components/ui/Breadcrumb'
+import HalcyonSubnav from '@/components/halcyon/HalcyonSubnav'
 
 const experience = [
   {
@@ -143,29 +145,13 @@ export default function ResumeClient() {
   return (
     <>
       {/* ── Resume header ─────────────────────────────────────────────── */}
-      <section className="section gradient-dark text-ash">
+      <section className="hero-card section gradient-dark text-ash">
         <div className="container-narrow">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="flex items-center gap-2 text-sm text-ash/50 mb-10"
-          >
-            <Link href="/" className="hover:text-ash/80 transition-colors">saren.ai</Link>
-            <span>/</span>
-            <Link href="/halcyon" className="hover:text-ash/80 transition-colors">Halcyon</Link>
-            <span>/</span>
-            <span className="text-ash/80">Resume</span>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.05 }}
-            className="text-xs font-semibold tracking-widest uppercase text-ember mb-3"
-          >
-            Curriculum Vitae · VP, Demand Generation
-          </motion.p>
+          <Breadcrumb
+            back={{ href: '/halcyon', label: 'Halcyon' }}
+            current="Resume"
+            accentColor="var(--ember-red)"
+          />
 
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
@@ -198,6 +184,8 @@ export default function ResumeClient() {
           </motion.div>
         </div>
       </section>
+
+      <HalcyonSubnav />
 
       {/* ── Profile ───────────────────────────────────────────────────── */}
       <section className="section border-b border-charcoal/10 dark:border-white/10">
@@ -396,7 +384,7 @@ export default function ResumeClient() {
               </a>
               <Link
                 href="/halcyon"
-                className="inline-flex items-center gap-2 font-semibold px-8 py-3.5 rounded bg-transparent border-2 border-ash/30 text-ash hover:bg-ash hover:text-charcoal transition-all duration-200"
+                className="btn-secondary-dark"
               >
                 ← Back to Halcyon
               </Link>

@@ -84,7 +84,7 @@ export default async function B2BFrameworkPage() {
     }
 
     return (
-        <div className="min-h-screen bg-[#0a0a0a] text-white pt-24 pb-20 px-6 lg:px-12 selection:bg-blue-500/30">
+        <div className="min-h-screen bg-offblack text-white pt-24 pb-20 px-6 lg:px-12 selection:bg-electric/30">
             <B2BFrameworkClient initialSteps={steps} variablesContent={variablesContent} />
         </div>
     );

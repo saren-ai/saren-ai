@@ -2,12 +2,13 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import SignalStateSubnav from '@/components/signal-state/SignalStateSubnav'
 
 export default function CybersecurityClient() {
   return (
     <>
       {/* Hero */}
-      <section className="section gradient-dark text-ash">
+      <section className="hero-card section gradient-dark text-ash">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -44,6 +45,8 @@ export default function CybersecurityClient() {
         </div>
       </section>
 
+      <SignalStateSubnav />
+
       <section className="section">
         <div className="container-narrow space-y-8">
 
@@ -60,14 +63,14 @@ export default function CybersecurityClient() {
               className="rounded-xl border p-6 font-mono text-sm leading-relaxed"
               style={{ background: '#0d0f12', borderColor: 'rgba(255,255,255,0.08)', color: '#e2e4ea' }}
             >
-              <p className="text-[#6b7280] text-xs mb-3">// Glassdoor review — posted this week</p>
+              <p className="text-slate text-xs mb-3">// Glassdoor review — posted this week</p>
               <p className="mb-4">
                 <span className="text-[var(--ss-teal-text)]">"IT is a one-man show. We got hit with a phishing attack last month and it took three days to respond. Nobody seems to care."</span>
               </p>
-              <p className="text-[#6b7280] text-xs mb-3">// Simultaneously — passive signals confirmed:</p>
-              <p className="text-[#e2e4ea]">• Shodan: RDP port 3389 open on primary IP</p>
-              <p className="text-[#e2e4ea]">• LinkedIn: last security hire left 8 months ago</p>
-              <p className="text-[#e2e4ea]">• LinkedIn: same role reposted twice</p>
+              <p className="text-slate text-xs mb-3">// Simultaneously — passive signals confirmed:</p>
+              <p className="text-ash">• Shodan: RDP port 3389 open on primary IP</p>
+              <p className="text-ash">• LinkedIn: last security hire left 8 months ago</p>
+              <p className="text-ash">• LinkedIn: same role reposted twice</p>
             </div>
           </motion.div>
 
@@ -163,7 +166,7 @@ export default function CybersecurityClient() {
             viewport={{ once: true }}
             className="flex flex-wrap gap-4 pt-4"
           >
-            <Link href="/signal-state/use-cases" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-ash/50 text-ash font-semibold text-sm transition-all hover:bg-ash hover:text-charcoal hover:-translate-y-0.5">
+            <Link href="/signal-state/use-cases" className="btn-secondary-dark">
               ← All use cases
             </Link>
             <Link href="/signal-state/use-cases/org-alignment" className="btn-primary">

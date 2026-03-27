@@ -145,7 +145,7 @@ export default function B2BFrameworkClient({ initialSteps, variablesContent }: B
         finalHtml = finalHtml.replace(/\{\{([^}]+)\}\}/g, '<span class="text-ember bg-ember/10 border border-ember/20 px-1 py-0.5 rounded-md font-bold mx-0.5 tracking-tight">{{$1}}</span>');
 
         // Highlight [bracketed] variables
-        finalHtml = finalHtml.replace(/(?<!\!)\[([A-Za-z0-9\s_-]+)\](?!\()/g, '<span class="text-blue-400 bg-blue-500/10 border border-blue-500/20 px-1 py-0.5 rounded-md font-bold mx-0.5 tracking-tight">[$1]</span>');
+        finalHtml = finalHtml.replace(/(?<!\!)\[([A-Za-z0-9\s_-]+)\](?!\()/g, '<span class="text-electric bg-electric/10 border border-electric/20 px-1 py-0.5 rounded-md font-bold mx-0.5 tracking-tight">[$1]</span>');
 
         return finalHtml;
     }, [activeStep, variables, stepVariables]);
@@ -171,7 +171,7 @@ export default function B2BFrameworkClient({ initialSteps, variablesContent }: B
                 <div className="space-y-6">
                     <Link
                         href="/playbooks"
-                        className="inline-flex items-center text-sm font-medium text-neutral-400 hover:text-white transition-colors"
+                        className="inline-flex items-center text-sm font-medium text-slate hover:text-white transition-colors"
                     >
                         <ChevronLeft className="w-4 h-4 mr-1" />
                         Back to Playbooks
@@ -182,34 +182,34 @@ export default function B2BFrameworkClient({ initialSteps, variablesContent }: B
                             <span className="px-3 py-1 rounded-full text-xs font-medium bg-ember/10 text-ember border border-ember/20">
                                 B2B Framework
                             </span>
-                            <span className="text-sm text-neutral-500 font-medium">
+                            <span className="text-sm text-slate font-medium">
                                 {initialSteps.length} Steps
                             </span>
                         </div>
                         <h1 className="text-3xl lg:text-5xl font-bold tracking-tight text-white">
                             B2B Marketing Framework
                         </h1>
-                        <p className="text-lg text-neutral-400 leading-relaxed max-w-3xl">
+                        <p className="text-lg text-slate leading-relaxed max-w-3xl">
                             An interactive, 21-step tracked sequence to engineer your B2B SaaS positioning from scratch.
                             Fill in your variables on the right, and they will persist across all prompts automatically.
                         </p>
                     </div>
                 </div>
 
-                <div className="w-full h-px bg-gradient-to-r from-neutral-800 via-neutral-700 to-neutral-800" />
+                <div className="w-full h-px bg-gradient-to-r from-charcoal/10 via-charcoal/20 to-charcoal/10" />
 
                 {/* Step Navigation Controls */}
-                <div className="flex items-center justify-between bg-neutral-900/50 p-4 rounded-xl border border-neutral-800">
+                <div className="flex items-center justify-between bg-charcoal/5 p-4 rounded-xl border border-charcoal/10">
                     <button
                         onClick={() => setActiveStepIndex(Math.max(0, activeStepIndex - 1))}
                         disabled={activeStepIndex === 0}
-                        className="flex items-center px-4 py-2 text-sm font-medium text-white bg-neutral-800 hover:bg-neutral-700 disabled:opacity-50 disabled:hover:bg-neutral-800 rounded-lg transition-colors"
+                        className="flex items-center px-4 py-2 text-sm font-medium text-white bg-charcoal/5 hover:bg-charcoal/10 disabled:opacity-50 disabled:hover:bg-charcoal/5 rounded-lg transition-colors"
                     >
                         <ChevronLeft className="w-4 h-4 mr-2" />
                         Previous Step
                     </button>
 
-                    <div className="text-sm font-medium text-neutral-400">
+                    <div className="text-sm font-medium text-slate">
                         Step <span className="text-white">{activeStepIndex + 1}</span> of {initialSteps.length}
                     </div>
 
@@ -224,15 +224,15 @@ export default function B2BFrameworkClient({ initialSteps, variablesContent }: B
                 </div>
 
                 {/* Active Step Content */}
-                <div className="relative p-6 lg:p-10 bg-neutral-900 border border-neutral-800 rounded-2xl shadow-xl overflow-hidden min-h-[500px]">
+                <div className="relative p-6 lg:p-10 bg-charcoal/5 border border-charcoal/10 rounded-2xl shadow-xl overflow-hidden min-h-[500px]">
                     <div className="absolute top-0 right-0 p-4 opacity-5">
                         <span className="text-8xl font-black">{activeStep.stepNumber}</span>
                     </div>
 
                     <div className="relative z-10 space-y-6">
-                        <div className="pb-4 border-b border-neutral-800/50 flex flex-col sm:flex-row justify-between items-start gap-4">
+                        <div className="pb-4 border-b border-charcoal/10/50 flex flex-col sm:flex-row justify-between items-start gap-4">
                             <div>
-                                <span className="text-sm font-bold text-blue-400 uppercase tracking-widest mb-1 block">
+                                <span className="text-sm font-bold text-electric uppercase tracking-widest mb-1 block">
                                     {activeStep.level}
                                 </span>
                                 <h2 className="text-2xl font-bold text-white pr-8">
@@ -245,13 +245,13 @@ export default function B2BFrameworkClient({ initialSteps, variablesContent }: B
                         </div>
 
                         <div
-                            className="prose prose-invert prose-blue max-w-none 
-                            prose-headings:text-neutral-200 
-                            prose-p:text-neutral-300 prose-p:leading-relaxed
-                            prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
-                            prose-code:text-blue-300 prose-code:bg-blue-900/20 prose-code:before:content-none prose-code:after:content-none prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
-                            prose-pre:bg-[#111] prose-pre:border prose-pre:border-neutral-800 prose-pre:shadow-inner
-                            prose-blockquote:border-l-blue-500 prose-blockquote:bg-blue-900/10 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:-ml-4 prose-blockquote:rounded-r-lg
+                            className="prose prose-invert max-w-none 
+                            prose-headings:text-ash 
+                            prose-p:text-ash/70 prose-p:leading-relaxed
+                            prose-a:text-electric prose-a:no-underline hover:prose-a:underline
+                            prose-code:text-electric prose-code:bg-electric/10 prose-code:before:content-none prose-code:after:content-none prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+                            prose-pre:bg-offblack prose-pre:border prose-pre:border-charcoal/10 prose-pre:shadow-inner
+                            prose-blockquote:border-l-electric prose-blockquote:bg-electric/5 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:-ml-4 prose-blockquote:rounded-r-lg
                             prose-strong:text-white"
                             dangerouslySetInnerHTML={{
                                 __html: processedContent
@@ -263,12 +263,12 @@ export default function B2BFrameworkClient({ initialSteps, variablesContent }: B
 
             {/* Right Column: Variable Tracker */}
             <div className="lg:col-span-4">
-                <div className="sticky top-28 bg-neutral-900 border border-neutral-800 rounded-2xl p-6 shadow-xl max-h-[calc(100vh-8rem)] flex flex-col">
-                    <div className="pb-4 border-b border-neutral-800 mb-6 shrink-0">
+                <div className="sticky top-28 bg-charcoal/5 border border-charcoal/10 rounded-2xl p-6 shadow-xl max-h-[calc(100vh-8rem)] flex flex-col">
+                    <div className="pb-4 border-b border-charcoal/10 mb-6 shrink-0">
                         <h3 className="text-lg font-bold text-white flex items-center gap-2">
                             Variable Tracker
                         </h3>
-                        <p className="text-sm text-neutral-400 mt-2">
+                        <p className="text-sm text-slate mt-2">
                             Values are automatically saved and injected into prompts that require them.
                         </p>
                     </div>
@@ -282,14 +282,14 @@ export default function B2BFrameworkClient({ initialSteps, variablesContent }: B
                                 </h4>
                                 {stepVariables.map(varName => (
                                     <div key={varName} className="space-y-2">
-                                        <label className="text-sm font-medium text-neutral-300 block">
+                                        <label className="text-sm font-medium text-ash/70 block">
                                             {varName}
                                         </label>
                                         <textarea
                                             value={variables[varName] || ''}
                                             onChange={(e) => handleVariableChange(varName, e.target.value)}
                                             placeholder={`Value for ${varName}`}
-                                            className="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:ring-1 focus:ring-ember focus:border-ember transition-all resize-y min-h-[40px] max-h-[200px]"
+                                            className="w-full bg-charcoal/10 border border-charcoal/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:ring-1 focus:ring-ember focus:border-ember transition-all resize-y min-h-[40px] max-h-[200px]"
                                             rows={variables[varName]?.includes('\n') || (variables[varName]?.length || 0) > 50 ? 3 : 1}
                                         />
                                     </div>
@@ -298,21 +298,21 @@ export default function B2BFrameworkClient({ initialSteps, variablesContent }: B
                         )}
 
                         {allExpectedVariables.filter(v => !stepVariables.includes(v)).length > 0 && (
-                            <div className="space-y-4 pt-4 border-t border-neutral-800/50">
-                                <h4 className="text-xs font-bold text-neutral-500 uppercase tracking-wider">
+                            <div className="space-y-4 pt-4 border-t border-charcoal/10/50">
+                                <h4 className="text-xs font-bold text-slate uppercase tracking-wider">
                                     Other Variables
                                 </h4>
                                 {allExpectedVariables.filter(v => !stepVariables.includes(v)).map(varName => (
                                     <div key={varName} className="space-y-2 opacity-50 hover:opacity-100 transition-opacity">
-                                        <label className="text-sm font-medium text-neutral-400 block flex justify-between">
+                                        <label className="text-sm font-medium text-slate block flex justify-between">
                                             {varName}
-                                            {variables[varName] && <Check className="w-4 h-4 text-green-500" />}
+                                            {variables[varName] && <Check className="w-4 h-4 text-electric" />}
                                         </label>
                                         <textarea
                                             value={variables[varName] || ''}
                                             onChange={(e) => handleVariableChange(varName, e.target.value)}
                                             placeholder={`Value for ${varName}`}
-                                            className="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:ring-1 focus:ring-neutral-600 transition-all resize-y min-h-[40px] max-h-[200px]"
+                                            className="w-full bg-charcoal/10 border border-charcoal/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:ring-1 focus:ring-slate transition-all resize-y min-h-[40px] max-h-[200px]"
                                             rows={variables[varName]?.includes('\n') || (variables[varName]?.length || 0) > 50 ? 3 : 1}
                                         />
                                     </div>

@@ -127,7 +127,7 @@ export function BidirectionalInputs({
                 type="text"
                 value={budget ? formatCurrencyFull(budget).replace("$", "") : ""}
                 onChange={(e) => handleBudgetChange(e.target.value)}
-                className={`calculator-input w-full pl-7 text-sm ${errors.budget ? "border-red-400 focus:border-red-400 focus:ring-red-400/20" : ""}`}
+                className={`calculator-input w-full pl-7 text-sm ${errors.budget ? "border-ember focus:border-ember focus:ring-ember/20" : ""}`}
                 placeholder="100,000"
               />
             ) : (
@@ -137,7 +137,7 @@ export function BidirectionalInputs({
             )}
           </div>
           {errors.budget && (
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-xs text-red-500 mt-1">
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-xs text-ember mt-1">
               {errors.budget}
             </motion.p>
           )}
@@ -170,12 +170,12 @@ export function BidirectionalInputs({
               type="text"
               value={formatCurrencyFull(avgDealSize).replace("$", "")}
               onChange={(e) => handleAvgDealSizeChange(e.target.value)}
-              className={`calculator-input w-full pl-7 text-sm ${errors.avgDealSize ? "border-red-400 focus:border-red-400 focus:ring-red-400/20" : ""}`}
+              className={`calculator-input w-full pl-7 text-sm ${errors.avgDealSize ? "border-ember focus:border-ember focus:ring-ember/20" : ""}`}
               placeholder="20,000"
             />
           </div>
           {errors.avgDealSize ? (
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-xs text-red-500 mt-1">
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-xs text-ember mt-1">
               {errors.avgDealSize}
             </motion.p>
           ) : (
@@ -191,7 +191,7 @@ export function BidirectionalInputs({
             htmlFor="revenue-input"
             className="flex items-center gap-1.5 text-sm font-semibold text-charcoal dark:text-foreground mb-1.5"
           >
-            <Target className="w-4 h-4 text-emerald-500" />
+            <Target className="w-4 h-4 text-electric" />
             Revenue Goal
             {isForward && <Lock className="w-3 h-3 text-slate dark:text-foreground-muted" />}
           </label>
@@ -205,7 +205,7 @@ export function BidirectionalInputs({
                 type="text"
                 value={revenueGoal ? formatCurrencyFull(revenueGoal).replace("$", "") : ""}
                 onChange={(e) => handleRevenueGoalChange(e.target.value)}
-                className={`calculator-input w-full pl-7 text-sm ${errors.revenueGoal ? "border-red-400 focus:border-red-400 focus:ring-red-400/20" : ""}`}
+                className={`calculator-input w-full pl-7 text-sm ${errors.revenueGoal ? "border-ember focus:border-ember focus:ring-ember/20" : ""}`}
                 placeholder="1,000,000"
               />
             ) : (
@@ -215,7 +215,7 @@ export function BidirectionalInputs({
             )}
           </div>
           {errors.revenueGoal && (
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-xs text-red-500 mt-1">
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-xs text-ember mt-1">
               {errors.revenueGoal}
             </motion.p>
           )}
@@ -223,7 +223,7 @@ export function BidirectionalInputs({
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-xs text-emerald-500 mt-1"
+              className="text-xs text-electric mt-1"
             >
               Projected annual revenue
             </motion.p>

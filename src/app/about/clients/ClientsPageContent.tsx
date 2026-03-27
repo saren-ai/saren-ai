@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 
 const clientLogos = [
   // B2B Technology
@@ -41,16 +42,14 @@ export default function ClientsPageContent() {
   return (
     <article>
       {/* Hero */}
-      <section className="section bg-gradient-to-br from-charcoal to-offblack text-ash">
+      <section className="hero-card section gradient-dark text-ash">
         <div className="container-narrow">
-          {/* Back Link */}
-          <Link
-            href="/about"
-            className="inline-flex items-center gap-2 text-ash/60 hover:text-ash transition-colors mb-8 group"
-          >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            Back to About
-          </Link>
+          <Breadcrumb
+            back={{ href: '/about', label: 'About' }}
+            current="Client Brands"
+            accentColor="var(--ember-red)"
+            className="mb-6"
+          />
 
           <div className="max-w-3xl">
             <motion.h1
@@ -74,7 +73,7 @@ export default function ClientsPageContent() {
 
       {/* Logo Grid - Dark Background (logos have black backgrounds) */}
       <section className="section bg-offblack">
-        <div className="container-wide">
+        <div className="container-narrow">
           {/* Animated Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-8">
             {clientLogos.map((logo, index) => (
@@ -85,7 +84,7 @@ export default function ClientsPageContent() {
                 viewport={{ once: true }}
                 transition={{
                   duration: 0.4,
-                  delay: index * 0.03,
+                  delay: index * 0.05,
                   ease: "easeOut"
                 }}
                 whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}

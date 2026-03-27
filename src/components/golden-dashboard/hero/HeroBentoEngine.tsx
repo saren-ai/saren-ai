@@ -96,7 +96,7 @@ export default function HeroBentoEngine() {
     };
 
     return (
-        <section className="relative w-full bg-background text-foreground pb-12 overflow-hidden min-h-[800px] flex items-center justify-center transition-colors duration-500">
+        <section className="hero-card relative w-full bg-background-secondary text-foreground pb-12 overflow-hidden min-h-[800px] flex items-center justify-center transition-colors duration-500">
             {/* Background Ambience */}
             <div className="absolute inset-0 bg-grid-white/[0.02] dark:bg-grid-white/[0.02] -z-10" />
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background via-transparent to-background -z-10" />
@@ -106,7 +106,7 @@ export default function HeroBentoEngine() {
             {/* Guided Logic Overlay */}
             {showGuide && <GuidedLogicOverlay onDismiss={() => setShowGuide(false)} />}
 
-            <div className="container px-4 md:px-6 py-12 relative">
+            <div className="container-narrow py-12 relative">
 
                 {/* The 3-Column Engine Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 relative max-w-[1400px] mx-auto">
@@ -152,7 +152,7 @@ export default function HeroBentoEngine() {
                             onClick={handleShare}
                             className="flex items-center gap-2 px-4 py-2 rounded-lg bg-foreground/5 border border-border hover:bg-foreground/10 hover:border-foreground/20 transition-all text-sm font-medium text-foreground"
                         >
-                            {copied ? <Check className="w-4 h-4 text-green-400" /> : <Share2 className="w-4 h-4" />}
+                            {copied ? <Check className="w-4 h-4 text-electric" /> : <Share2 className="w-4 h-4" />}
                             {copied ? "Link Copied" : "Share Scenario"}
                         </button>
                     </div>

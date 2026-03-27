@@ -24,38 +24,20 @@ export default function ThemeProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [theme, setTheme] = useState<Theme>("light");
+  // Dark mode forced — light mode disabled for now
+  const theme: Theme = "dark";
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    // Check for saved preference or system preference
-    const savedTheme = localStorage.getItem("theme") as Theme | null;
-    const systemPrefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else if (systemPrefersDark) {
-      setTheme("dark");
-    }
+    document.documentElement.classList.remove("light");
+    document.documentElement.classList.add("dark");
   }, []);
 
-  useEffect(() => {
-    if (mounted) {
-      // Update document class and localStorage
-      document.documentElement.classList.remove("light", "dark");
-      document.documentElement.classList.add(theme);
-      localStorage.setItem("theme", theme);
-    }
-  }, [theme, mounted]);
-
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+    // No-op while light mode is disabled
   };
 
-  // Prevent flash of wrong theme
   if (!mounted) {
     return null;
   }

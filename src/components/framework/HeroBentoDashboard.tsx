@@ -65,7 +65,7 @@ export default function HeroBentoDashboard() {
                                 key={prompt.id}
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.4, delay: index * 0.02 }}
+                                transition={{ duration: 0.4, delay: index * 0.05 }}
                                 className={`${colSpan} ${rowSpan}`}
                             >
                                 <BentoCard

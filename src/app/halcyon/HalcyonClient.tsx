@@ -267,7 +267,7 @@ export default function HalcyonClient() {
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────────────────── */}
-      <section className="section gradient-dark text-ash">
+      <section className="hero-card section gradient-dark text-ash">
         <div className="container-narrow">
           {/* Breadcrumb */}
           <motion.div
@@ -441,8 +441,8 @@ export default function HalcyonClient() {
       <HalcyonSubnav />
 
       {/* ── Proof metrics ─────────────────────────────────────────────── */}
-      <div id="metrics" className="bg-ash dark:bg-background mt-8" ref={metricsRef}>
-        <div className="container-narrow pt-20 pb-16">
+      <section id="metrics" className="section bg-ash dark:bg-background" ref={metricsRef}>
+        <div className="container-narrow">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0 md:divide-x md:divide-charcoal/10 md:dark:divide-white/10">
             <div className="md:pr-12">
               <div className="metric-value">{metricsVisible ? count1 : 0}%</div>
@@ -467,7 +467,7 @@ export default function HalcyonClient() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* ── Proof of work ─────────────────────────────────────────────── */}
       <section id="proof" className="section">
@@ -761,7 +761,7 @@ export default function HalcyonClient() {
               </a>
               <Link
                 href="/"
-                className="btn-secondary border-ash/30 text-ash hover:bg-ash hover:text-charcoal"
+                className="btn-secondary-dark"
               >
                 Back to saren.ai
               </Link>

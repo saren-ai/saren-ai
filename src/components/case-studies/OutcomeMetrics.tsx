@@ -23,7 +23,7 @@ export default function OutcomeMetrics({ metrics }: OutcomeMetricsProps) {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
+                            transition={{ delay: index * 0.05 }}
                             className="text-center md:text-left"
                         >
                             <div className="text-4xl md:text-5xl font-mono font-bold text-ember mb-2">

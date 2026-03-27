@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 import { TierListBoard } from "@/components/tier-list/TierListBoard";
 import { AI_TOOLS } from "@/lib/tier-list";
 
@@ -46,30 +47,14 @@ export default function StackPage() {
   return (
     <article>
       {/* Hero */}
-      <section className="section bg-gradient-to-br from-charcoal to-offblack text-ash">
+      <section className="hero-card section gradient-dark text-ash">
         <div className="container-narrow">
           <div className="max-w-3xl">
-            {/* Breadcrumb */}
-            <nav className="mb-6">
-              <ol className="flex items-center gap-2 text-sm text-ash/60">
-                <li>
-                  <Link href="/" className="hover:text-ash transition-colors">
-                    Home
-                  </Link>
-                </li>
-                <li>/</li>
-                <li>
-                  <Link
-                    href="/about"
-                    className="hover:text-ash transition-colors"
-                  >
-                    About
-                  </Link>
-                </li>
-                <li>/</li>
-                <li className="text-ember">Stack</li>
-              </ol>
-            </nav>
+            <Breadcrumb
+              back={{ href: '/about', label: 'About' }}
+              current="AI Stack"
+              accentColor="var(--ember-red)"
+            />
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -236,7 +221,7 @@ export default function StackPage() {
                 </Link>
                 <Link
                   href="/about"
-                  className="btn-secondary border-ash/30 text-ash hover:bg-ash hover:text-charcoal"
+                  className="btn-secondary-dark"
                 >
                   More about me
                 </Link>

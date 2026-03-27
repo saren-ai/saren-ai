@@ -17,13 +17,13 @@ export default function StageConnector({
 }: StageConnectorProps) {
   // Color based on conversion rate health
   const getHealthColor = (rate: number) => {
-    if (rate >= 20) return "bg-green-500";
+    if (rate >= 20) return "bg-electric";
     if (rate >= 10) return "bg-yellow-500";
     return "bg-ember";
   };
 
   const getHealthTextColor = (rate: number) => {
-    if (rate >= 20) return "text-green-600";
+    if (rate >= 20) return "text-electric";
     if (rate >= 10) return "text-yellow-600";
     return "text-ember";
   };

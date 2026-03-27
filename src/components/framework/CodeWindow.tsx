@@ -29,7 +29,7 @@ export default function CodeWindow({ prompt }: CodeWindowProps) {
     };
 
     return (
-        <div className="h-full flex flex-col bg-[#0A0A0A] rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
+        <div className="h-full flex flex-col bg-offblack rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
             {/* Context Header */}
             <div className={`px-6 py-6 border-b border-white/5 bg-gradient-to-r ${colors.gradient} via-transparent to-transparent opacity-80`}>
                 <div className="flex items-center gap-3 mb-2">
@@ -67,7 +67,7 @@ export default function CodeWindow({ prompt }: CodeWindowProps) {
                     className="p-1.5 text-white/40 hover:text-white hover:bg-white/10 rounded-md transition-colors"
                     title="Copy to clipboard"
                 >
-                    {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
+                    {copied ? <Check className="w-4 h-4 text-electric" /> : <Copy className="w-4 h-4" />}
                 </button>
                 <a
                     href={prompt.githubUrl}

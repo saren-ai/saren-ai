@@ -103,7 +103,7 @@ export default function CalculatorClient() {
                     </p>
                     <Link
                         href="/contact"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-electric hover:bg-electric/90 text-white rounded-lg font-semibold transition-colors"
+                        className="btn-primary"
                     >
                         Audit My Funnel
                         <ArrowRight className="w-5 h-5" />

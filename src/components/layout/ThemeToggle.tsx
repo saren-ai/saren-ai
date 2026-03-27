@@ -6,6 +6,9 @@ import { useTheme } from "./ThemeProvider";
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
 
+  // Hidden while light mode is disabled
+  return null;
+
   return (
     <button
       onClick={toggleTheme}

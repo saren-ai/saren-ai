@@ -30,7 +30,7 @@ export function PerformanceDashboard({
   // ROI color coding
   const roiColor =
     roi > 3
-      ? "text-emerald-600 dark:text-emerald-400"
+      ? "text-electric dark:text-electric"
       : roi > 2
         ? "text-yellow-600 dark:text-yellow-400"
         : "text-ember";
@@ -45,7 +45,7 @@ export function PerformanceDashboard({
   const cacRatio = blendedCAC / (benchmarkCAC.avg || 1);
   const cacColor =
     cacRatio < 2
-      ? "text-emerald-600 dark:text-emerald-400"
+      ? "text-electric dark:text-electric"
       : cacRatio < 3
         ? "text-yellow-600 dark:text-yellow-400"
         : "text-ember";
@@ -132,7 +132,7 @@ export function PerformanceDashboard({
       >
         <div className="flex items-center gap-2 mb-3">
           {gapSeverity === "on-target" ? (
-            <CheckCircle className="w-4 h-4 text-emerald-500" />
+            <CheckCircle className="w-4 h-4 text-electric" />
           ) : (
             <AlertTriangle className="w-4 h-4 text-slate dark:text-foreground-muted" />
           )}
@@ -155,7 +155,7 @@ export function PerformanceDashboard({
           </>
         ) : (
           <>
-            <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400 font-mono">
+            <div className="text-3xl font-bold text-electric dark:text-electric font-mono">
               On Track
             </div>
             <p className="text-xs text-slate dark:text-foreground-muted mt-2">

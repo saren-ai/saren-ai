@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import FAQ from "@/components/ui/FAQ";
-import ProfileGallery from "@/components/ui/ProfileGallery";
 
 const careerTimeline = [
     {
@@ -87,13 +86,25 @@ export default function AboutClient() {
     return (
         <article>
             {/* Hero */}
-            <section className="section bg-gradient-to-br from-charcoal to-offblack text-ash overflow-hidden">
+            <section className="hero-card section gradient-dark text-ash overflow-hidden">
                 <div className="container-narrow relative z-10">
                     <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-                        {/* Profile Gallery */}
-                        <div className="shrink-0">
-                            <ProfileGallery />
-                        </div>
+                        {/* Profile Image */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.2, duration: 0.5 }}
+                            className="shrink-0 relative w-[220px] h-[370px] md:w-[240px] md:h-[404px] lg:w-[260px] lg:h-[438px] rounded-2xl overflow-hidden drop-shadow-2xl"
+                        >
+                            <Image
+                                src="/profile/pixel-head_1080x1820.png"
+                                alt="Saren Sakurai — Pixel Art"
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 768px) 220px, (max-width: 1024px) 240px, 260px"
+                                priority
+                            />
+                        </motion.div>
 
                         {/* Text */}
                         <div className="flex-1">
@@ -363,7 +374,7 @@ export default function AboutClient() {
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
+                                    transition={{ delay: index * 0.05 }}
                                     className={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? "md:flex-row-reverse" : ""
                                         }`}
                                 >

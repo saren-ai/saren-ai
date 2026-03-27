@@ -13,7 +13,7 @@ export default function HeroStoryboard() {
             <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-electric/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
             <div className="absolute bottom-[-10%] right-[20%] w-[500px] h-[500px] bg-ember/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
 
-            <div className="container-wide px-4 md:px-6 relative z-10">
+            <div className="container-narrow relative z-10">
                 <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-start">
 
                     {/* Header Section */}
