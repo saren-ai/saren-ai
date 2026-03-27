@@ -8,6 +8,7 @@ import MegaMenu, { type MegaMenuContent } from "./MegaMenu";
 import {
   workMegaMenu,
   aboutMegaMenu,
+  aiOrchestrationMegaMenu,
 } from "@/lib/mega-menu-content";
 
 import { type SubstackPost } from "@/lib/substack-rss";
@@ -36,12 +37,16 @@ const navLinks: NavItem[] = [
     ],
   },
   {
-    label: "AI Operations",
-    href: "/ai-operations",
-  },
-  {
-    label: "Thinking",
-    href: "/thinking",
+    label: "AI Orchestration",
+    megaMenu: aiOrchestrationMegaMenu,
+    mobileChildren: [
+      { href: "/ai-orchestration", label: "AI Orchestration", description: "Machines handle scale. Humans handle meaning." },
+      { href: "/signal-state", label: "Signal-State: Overview", description: "AI-enabled expressed intent targeting" },
+      { href: "/signal-state/framework", label: "Framework" },
+      { href: "/signal-state/architecture", label: "Architecture" },
+      { href: "/signal-state/use-cases", label: "Use Cases" },
+      { href: "/signal-state/signal-library", label: "Signal Library" },
+    ],
   },
   {
     label: "About",

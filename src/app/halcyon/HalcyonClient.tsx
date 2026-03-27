@@ -441,7 +441,7 @@ export default function HalcyonClient() {
       <HalcyonSubnav />
 
       {/* ── Proof metrics ─────────────────────────────────────────────── */}
-      <div id="metrics" className="bg-ash dark:bg-background" ref={metricsRef}>
+      <div id="metrics" className="bg-ash dark:bg-background mt-8" ref={metricsRef}>
         <div className="container-narrow pt-20 pb-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0 md:divide-x md:divide-charcoal/10 md:dark:divide-white/10">
             <div className="md:pr-12">

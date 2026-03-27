@@ -73,6 +73,64 @@ export const workMegaMenu: MegaMenuContent = {
 };
 
 /**
+ * AI Orchestration Mega Menu Content
+ */
+export const aiOrchestrationMegaMenu: MegaMenuContent = {
+  layout: "three-column",
+  sections: [
+    {
+      title: "AI Orchestration",
+      links: [
+        {
+          href: "/ai-orchestration",
+          label: "Overview",
+          description: "Machines handle scale. Humans handle meaning.",
+        },
+      ],
+    },
+    {
+      title: "Signal-State Marketing",
+      links: [
+        {
+          href: "/signal-state",
+          label: "Overview",
+          description: "AI-enabled expressed intent targeting",
+        },
+        {
+          href: "/signal-state/framework",
+          label: "Framework",
+          description: "The Signal-State method",
+        },
+        {
+          href: "/signal-state/architecture",
+          label: "Architecture",
+          description: "System design for agentic outreach",
+        },
+        {
+          href: "/signal-state/use-cases",
+          label: "Use Cases",
+          description: "Cybersecurity, org alignment, creative",
+        },
+        {
+          href: "/signal-state/signal-library",
+          label: "Signal Library",
+          description: "Catalogued targeting patterns",
+        },
+      ],
+    },
+  ],
+  promotional: {
+    headline: "AI That Serves Human Judgment",
+    description:
+      "Orchestration means designing AI systems where the machine handles scale and the human handles meaning. Signal-State is the proof of concept.",
+    cta: {
+      label: "Explore Signal-State",
+      href: "/signal-state",
+    },
+  },
+};
+
+/**
  * About Mega Menu Content
  */
 export const aboutMegaMenu: MegaMenuContent = {

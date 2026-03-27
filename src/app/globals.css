@@ -38,6 +38,28 @@
   --dropdown-bg: #FFFFFF;
 }
 
+/* Signal-State palette */
+:root {
+  --ss-purple-bg: #1e1a3a;
+  --ss-purple-border: #534AB7;
+  --ss-purple-text: #AFA9EC;
+  --ss-teal-bg: #0a1f1a;
+  --ss-teal-border: #0F6E56;
+  --ss-teal-text: #5DCAA5;
+  --ss-coral-bg: #2a1208;
+  --ss-coral-border: #993C1D;
+  --ss-coral-text: #F0997B;
+  --ss-amber-bg: #1f1500;
+  --ss-amber-border: #854F0B;
+  --ss-amber-text: #EF9F27;
+  --ss-green-bg: #0a1a05;
+  --ss-green-border: #3B6D11;
+  --ss-green-text: #97C459;
+  --ss-gray-bg: #161a20;
+  --ss-gray-border: #3a3f4e;
+  --ss-gray-text: #B4B2A9;
+}
+
 /* Dark Mode (Obsidian Base) - WCAG AA+ */
 .dark {
   /* Primary Colors */
@@ -83,6 +105,20 @@
   /* Semantic Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  /* Signal-State Colors */
+  --color-ss-purple: #534AB7;
+  --color-ss-purple-text: #AFA9EC;
+  --color-ss-teal: #0F6E56;
+  --color-ss-teal-text: #5DCAA5;
+  --color-ss-coral: #993C1D;
+  --color-ss-coral-text: #F0997B;
+  --color-ss-amber: #854F0B;
+  --color-ss-amber-text: #EF9F27;
+  --color-ss-green: #3B6D11;
+  --color-ss-green-text: #97C459;
+  --color-ss-gray: #3a3f4e;
+  --color-ss-gray-text: #B4B2A9;
 
   /* Fonts */
   --font-heading: var(--font-sora), system-ui, sans-serif;
@@ -284,6 +320,16 @@ h6 {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
+}
+
+/* Signal-State Animation */
+@keyframes flowDown {
+  0%   { stroke-dashoffset: 24; }
+  100% { stroke-dashoffset: 0; }
+}
+@keyframes ssPulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
 }
 
 /* Animation Classes */
