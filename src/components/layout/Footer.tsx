@@ -82,15 +82,7 @@ export default function Footer() {
                   Portfolio
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/thinking"
-                  className="text-ash/70 hover:text-ember transition-colors"
-                >
-                  Thinking
-                </Link>
-              </li>
-              <li>
+<li>
                 <Link
                   href="/contact"
                   className="text-ash/70 hover:text-ember transition-colors"
@@ -166,15 +158,15 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/portfolio/calculator"
+                  href="/portfolio/gtm-budget-calculator"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
-                  SaaS Revenue Calculator
+                  GTM Budget Calculator
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/about/stack"
+                  href="/about#stack"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
                   My Tech Stack

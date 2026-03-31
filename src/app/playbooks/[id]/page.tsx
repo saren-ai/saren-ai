@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     return {
         title: `${playbook.title} | Playbooks`,
         description: playbook.description,
+        alternates: { canonical: `https://saren.ai/playbooks/${playbook.playbook_id}` },
         openGraph: {
             title: `${playbook.title} | Playbooks | Saren.ai`,
             description: playbook.description,
@@ -154,12 +155,10 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "Article",
+        "@id": `https://saren.ai/playbooks/${playbook.playbook_id}/#article`,
         "headline": playbook.title,
         "description": playbook.description,
-        "author": {
-            "@type": "Person",
-            "name": "Saren Sakurai"
-        },
+        "author": { "@id": "https://saren.ai/#person" },
         "publisher": {
             "@type": "Organization",
             "name": "Saren.ai",
@@ -174,11 +173,42 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
         }
     };
 
+    const webPageLd = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `https://saren.ai/playbooks/${playbook.playbook_id}/#webpage`,
+        "url": `https://saren.ai/playbooks/${playbook.playbook_id}`,
+        "name": playbook.title,
+        "description": playbook.description,
+        "isPartOf": { "@id": "https://saren.ai/#website" },
+        "about": { "@id": "https://saren.ai/#person" },
+        "author": { "@id": "https://saren.ai/#person" },
+        "inLanguage": "en-US"
+    };
+
+    const breadcrumbLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saren.ai" },
+            { "@type": "ListItem", "position": 2, "name": "Playbooks", "item": "https://saren.ai/playbooks" },
+            { "@type": "ListItem", "position": 3, "name": playbook.title, "item": `https://saren.ai/playbooks/${playbook.playbook_id}` }
+        ]
+    };
+
     return (
         <div className="min-h-screen bg-ash dark:bg-offblack text-charcoal dark:text-white pt-32 pb-20 px-6 lg:px-12 selection:bg-electric/30 dark:selection:bg-electric/30 relative transition-colors duration-300">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
             />
             <AnimatedNavFramer items={navItems} activeCategory={playbook.category} />
             <div className="max-w-4xl mx-auto space-y-12">

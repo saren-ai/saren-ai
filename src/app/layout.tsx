@@ -108,12 +108,68 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
+              "@id": "https://saren.ai/#person",
               name: "Saren Sakurai",
               url: "https://saren.ai",
               image: "https://saren.ai/og-image.png",
-              jobTitle: "VP, Demand Generation — Cybersecurity & AI",
+              jobTitle: "Fractional CMO & AI Operations Consultant",
               description:
-                "VP-level demand generation for AI-native cybersecurity companies. Built the program at Cylance ($1.4B exit). Scaled it at BlackBerry. 550% pipeline growth, 70% CAC reduction.",
+                "Fractional CMO and AI Operations Consultant specializing in B2B SaaS go-to-market strategy, demand generation, and AI-powered marketing operations. Formerly Senior Director of Demand Generation and Web at Cylance (acquired by BlackBerry for $1.4B). Principal at Identogram LLC.",
+              worksFor: {
+                "@type": "Organization",
+                "@id": "https://identogram.com/#organization",
+                name: "Identogram LLC",
+                url: "https://identogram.com",
+              },
+              hasOccupation: {
+                "@type": "Occupation",
+                name: "Fractional CMO",
+                occupationLocation: {
+                  "@type": "City",
+                  name: "Orange County, California",
+                },
+                skills: "B2B SaaS go-to-market strategy, demand generation, AI-powered marketing operations, account-based marketing, intent data strategy, funnel architecture, agentic AI GTM systems",
+              },
+              alumniOf: [
+                {
+                  "@type": "Organization",
+                  name: "Cylance",
+                  url: "https://www.cylance.com",
+                  description: "AI-driven endpoint security company acquired by BlackBerry for $1.4 billion in 2019",
+                },
+                {
+                  "@type": "Organization",
+                  name: "BlackBerry",
+                  url: "https://www.blackberry.com",
+                  description: "Enterprise cybersecurity and endpoint security",
+                },
+                {
+                  "@type": "Organization",
+                  name: "AKQA",
+                  url: "https://www.akqa.com",
+                  description: "Global digital innovation and design agency",
+                },
+                {
+                  "@type": "Organization",
+                  name: "JUXT Interactive",
+                  description: "Digital experience and interactive agency",
+                },
+                {
+                  "@type": "Organization",
+                  name: "Perficient",
+                  url: "https://www.perficient.com",
+                  description: "Global digital transformation consulting firm",
+                },
+              ],
+              knowsAbout: [
+                "B2B SaaS go-to-market strategy",
+                "Demand generation",
+                "AI-powered marketing operations",
+                "Account-based marketing (ABM)",
+                "Intent data strategy",
+                "Funnel architecture and lead scoring",
+                "Agentic AI GTM systems",
+              ],
               sameAs: [
                 "https://www.linkedin.com/in/saren/",
                 "https://bsky.app/profile/saren.bsky.social",

@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Contact Saren | Start Your Growth Engine",
   description:
     "Ready to turn chaotic spend into predictable pipeline? Let's talk about fractional leadership or demand gen architecture.",
+  alternates: { canonical: "https://saren.ai/contact" },
   openGraph: {
     title: "Contact Saren | Start Your Growth Engine",
     description:
@@ -22,5 +23,27 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  return <ContactClient />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "@id": "https://saren.ai/contact/#webpage",
+            "url": "https://saren.ai/contact",
+            "name": "Contact Saren | Start Your Growth Engine",
+            "description": "Ready to turn chaotic spend into predictable pipeline? Let's talk about fractional leadership or demand gen architecture.",
+            "isPartOf": { "@id": "https://saren.ai/#website" },
+            "about": { "@id": "https://saren.ai/#person" },
+            "author": { "@id": "https://saren.ai/#person" },
+            "inLanguage": "en-US",
+            "dateModified": "2026-03-27"
+          })
+        }}
+      />
+      <ContactClient />
+    </>
+  );
 }

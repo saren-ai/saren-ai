@@ -18,7 +18,7 @@ export default function TopBanner() {
             I&apos;m currently building this site with AI-native tools.{" "}
           </span>
           <Link
-            href="/about/stack"
+            href="/about#stack"
             className="underline underline-offset-2 hover:text-white/60 font-semibold transition-colors text-white/80"
           >
             See the full stack →

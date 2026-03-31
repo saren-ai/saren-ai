@@ -20,7 +20,7 @@ const interactiveItems = [
       "Reverse-engineer funnel metrics from revenue goals. Calculate exactly how many leads, MQLs, and demos you need to hit your target.",
     metric: "100%",
     metricLabel: "Funnel Clarity",
-    href: "/portfolio/calculator",
+    href: "/portfolio/gtm-budget-calculator",
     pillars: ["Predictive Infrastructure", "Revenue Engineering"],
   },
   {
@@ -38,7 +38,7 @@ const interactiveItems = [
       "My personal tech stack for building growth engines. Drag and drop to rank the tools yourself or see my top picks for 2026.",
     metric: "25+",
     metricLabel: "AI Tools",
-    href: "/about/stack",
+    href: "/about#stack",
     pillars: ["AI Operations", "Systems Thinking"],
   },
 ];

@@ -150,7 +150,7 @@ export const aboutMegaMenu: MegaMenuContent = {
           description: "26+ brands from startups to Fortune 500",
         },
         {
-          href: "/about/stack",
+          href: "/about#stack",
           label: "My Stack",
           description: "Tools I use to build and grow",
         },

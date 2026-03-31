@@ -21,7 +21,7 @@ const interactiveTools = [
       "Reverse-engineer funnel metrics from revenue goals. Calculate exactly how many leads, MQLs, and demos you need to hit your target.",
     metric: "100%",
     metricLabel: "Funnel Clarity",
-    href: "/portfolio/calculator",
+    href: "/portfolio/gtm-budget-calculator",
     pillars: ["Predictive Infrastructure", "Revenue Engineering"],
   },
   {

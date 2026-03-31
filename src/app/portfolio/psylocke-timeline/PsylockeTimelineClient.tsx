@@ -61,8 +61,8 @@ export default function PsylockeTimelineClient() {
                                 desc: "Interactive financial modeling for ad spend",
                             },
                             {
-                                href: "/portfolio/calculator",
-                                title: "SaaS Revenue Calculator",
+                                href: "/portfolio/gtm-budget-calculator",
+                                title: "GTM Budget Calculator",
                                 desc: "Reverse-engineer funnel metrics from revenue goals",
                             },
                         ].map((item) => (

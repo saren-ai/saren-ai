@@ -26,6 +26,42 @@ const nextConfig: NextConfig = {
     SITE_URL: process.env.SITE_URL || "https://saren.ai",
   },
 
+  // Redirects for removed sections
+  async redirects() {
+    return [
+      {
+        source: "/about/stack",
+        destination: "/about#stack",
+        permanent: true,
+      },
+      {
+        source: "/portfolio/calculator",
+        destination: "/portfolio/gtm-budget-calculator",
+        permanent: true,
+      },
+      {
+        source: "/thinking",
+        destination: "/portfolio",
+        permanent: true,
+      },
+      {
+        source: "/thinking/:slug*",
+        destination: "/portfolio",
+        permanent: true,
+      },
+      {
+        source: "/podcast",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/podcast/:slug*",
+        destination: "/",
+        permanent: true,
+      },
+    ];
+  },
+
   // Headers for security and performance
   async headers() {
     return [

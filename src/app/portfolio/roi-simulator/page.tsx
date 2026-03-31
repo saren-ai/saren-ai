@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   title: "Paid Media ROI Simulator: Forecast Outcomes Before You Spend",
   description:
     "An interactive financial model for performance marketers. Simulate the revenue impact of your ad spend using real unit economics.",
+  alternates: { canonical: "https://saren.ai/portfolio/roi-simulator" },
   openGraph: {
     title: "Paid Media ROI Simulator | Saren.ai",
     description:
@@ -29,6 +30,62 @@ export const metadata: Metadata = {
 
 export default function GoldenDashboardPage() {
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": "https://saren.ai/portfolio/roi-simulator/#webpage",
+            "url": "https://saren.ai/portfolio/roi-simulator",
+            "name": "Paid Media ROI Simulator: Forecast Outcomes Before You Spend",
+            "description": "An interactive financial model for performance marketers. Simulate the revenue impact of your ad spend using real unit economics.",
+            "isPartOf": { "@id": "https://saren.ai/#website" },
+            "about": { "@id": "https://saren.ai/#person" },
+            "author": { "@id": "https://saren.ai/#person" },
+            "inLanguage": "en-US",
+            "dateModified": "2026-03-27"
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saren.ai" },
+              { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://saren.ai/portfolio" },
+              { "@type": "ListItem", "position": 3, "name": "Paid Media ROI Simulator", "item": "https://saren.ai/portfolio/roi-simulator" }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": ["CreativeWork", "SoftwareApplication"],
+            "@id": "https://saren.ai/portfolio/roi-simulator/#work",
+            "name": "Paid Media ROI Simulator: Forecast Outcomes Before You Spend",
+            "description": "An interactive financial model for performance marketers. Simulate the revenue impact of your ad spend using real unit economics.",
+            "url": "https://saren.ai/portfolio/roi-simulator",
+            "author": { "@id": "https://saren.ai/#person" },
+            "creator": { "@id": "https://saren.ai/#person" },
+            "isPartOf": { "@id": "https://saren.ai/#website" },
+            "about": ["Paid media ROI analysis", "Demand generation", "B2B SaaS revenue forecasting"],
+            "keywords": "paid media, ROI simulator, demand generation, B2B SaaS, revenue forecasting, ad spend",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "inLanguage": "en-US",
+            "dateCreated": "2026-02-13",
+            "dateModified": "2026-03-27"
+          })
+        }}
+      />
     <article>
       {/* New Hero Engine */}
       <HeroBentoEngine />
@@ -234,5 +291,6 @@ export default function GoldenDashboardPage() {
         </div>
       </section>
     </article>
+    </>
   );
 }

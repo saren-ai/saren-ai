@@ -422,7 +422,7 @@ export default function HalcyonClient() {
                   ].map(({ stat, label }) => (
                     <div key={stat} className="flex items-baseline gap-2">
                       <span className="font-mono font-bold text-ash text-lg leading-none">{stat}</span>
-                      <span className="text-ash/40 text-xs">{label}</span>
+                      <span className="text-ash/70 text-xs">{label}</span>
                     </div>
                   ))}
                 </div>

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "B2B Marketing Framework: 23-Step Buyer Journey System",
   description:
     "A step-by-step prompt system that produces the core messaging documents your B2B SaaS needs before scaling campaigns. 23 prompts across the entire buyer journey.",
+  alternates: { canonical: "https://saren.ai/portfolio/b2b-marketing-framework" },
   openGraph: {
     title: "B2B Marketing Framework | Saren.ai",
     description:
@@ -19,6 +20,107 @@ export const metadata: Metadata = {
 
 export default function MarketingFrameworkPage() {
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": "https://saren.ai/portfolio/b2b-marketing-framework/#webpage",
+            "url": "https://saren.ai/portfolio/b2b-marketing-framework",
+            "name": "B2B Marketing Framework: 23-Step Buyer Journey System",
+            "description": "A step-by-step prompt system that produces the core messaging documents your B2B SaaS needs before scaling campaigns. 23 prompts across the entire buyer journey.",
+            "isPartOf": { "@id": "https://saren.ai/#website" },
+            "about": { "@id": "https://saren.ai/#person" },
+            "author": { "@id": "https://saren.ai/#person" },
+            "inLanguage": "en-US",
+            "dateModified": "2026-03-27"
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saren.ai" },
+              { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://saren.ai/portfolio" },
+              { "@type": "ListItem", "position": 3, "name": "B2B Marketing Framework", "item": "https://saren.ai/portfolio/b2b-marketing-framework" }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "@id": "https://saren.ai/portfolio/b2b-marketing-framework/#work",
+            "name": "B2B Marketing Framework: 23-Step Buyer Journey System",
+            "description": "A step-by-step prompt system that produces the core messaging documents your B2B SaaS needs before scaling campaigns. 23 prompts across the entire buyer journey.",
+            "url": "https://saren.ai/portfolio/b2b-marketing-framework",
+            "author": { "@id": "https://saren.ai/#person" },
+            "creator": { "@id": "https://saren.ai/#person" },
+            "isPartOf": { "@id": "https://saren.ai/#website" },
+            "about": ["B2B SaaS go-to-market strategy", "Messaging frameworks", "Prompt engineering for marketing"],
+            "keywords": "B2B marketing framework, buyer journey, go-to-market strategy, messaging, prompt engineering, SaaS",
+            "educationalUse": "Professional development",
+            "teaches": "B2B SaaS go-to-market strategy",
+            "inLanguage": "en-US",
+            "dateCreated": "2026-02-03",
+            "dateModified": "2026-03-27"
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "@id": "https://saren.ai/portfolio/b2b-marketing-framework/#howto",
+            "name": "How to Use the B2B Marketing Framework",
+            "description": "A 5-step process for building B2B SaaS messaging infrastructure using a structured prompt system.",
+            "author": { "@id": "https://saren.ai/#person" },
+            "step": [
+              {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Gather raw inputs",
+                "text": "Customer call recordings, win/loss notes, competitive research, team interviews. Don't start with a blank page."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Run prompts with real constraints",
+                "text": "Answer the questions honestly. Generic inputs produce generic outputs. The framework is only as good as your constraints."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Synthesize into a messaging system",
+                "text": "Don't let these become a doc graveyard. Build a single source of truth that lives in Notion, Confluence, or a Google Doc."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Activate across channels",
+                "text": "Deploy to website, pitch decks, sales enablement, ad campaigns. The system should show up everywhere your company speaks."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Measure and iterate",
+                "text": "Use the performance framework and review protocol to keep it fresh without starting over every quarter."
+              }
+            ]
+          })
+        }}
+      />
     <article>
       {/* Hero */}
       <CaseStudyHero
@@ -133,5 +235,6 @@ export default function MarketingFrameworkPage() {
       {/* Related Work */}
       <RelatedWork currentHref="/portfolio/b2b-marketing-framework" />
     </article>
+    </>
   );
 }

@@ -8,42 +8,51 @@ export const metadata: Metadata = {
     title: "Authority Engineering Process | Saren.ai",
     description:
         "Engineering B2B authority in the age of LLMs. How to build white papers that models love to cite.",
+    alternates: { canonical: "https://saren.ai/portfolio/authority-engineering" },
 };
 
 export default function AuthorityEngineeringPage() {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "HowTo",
+        "@id": "https://saren.ai/portfolio/authority-engineering/#howto",
         "name": "How to Engineer B2B Authority White Papers for LLMs",
         "description": "A 6-step system for building citable authority and white papers that generative AI models love to cite.",
+        "author": { "@id": "https://saren.ai/#person" },
         "step": [
             {
                 "@type": "HowToStep",
+                "position": 1,
                 "name": "Seed",
                 "text": "Identify specific gaps in current LLM training data regarding your niche."
             },
             {
                 "@type": "HowToStep",
+                "position": 2,
                 "name": "Extraction",
                 "text": "Interview subject matter experts to extract novel, non-consensus insights."
             },
             {
                 "@type": "HowToStep",
+                "position": 3,
                 "name": "Synthesis",
                 "text": "Format the raw expert data into structured, scannable arguments."
             },
             {
                 "@type": "HowToStep",
+                "position": 4,
                 "name": "Visuals",
                 "text": "Create high-contrast diagrams that visually map the synthesized concepts."
             },
             {
                 "@type": "HowToStep",
+                "position": 5,
                 "name": "Voice",
                 "text": "Apply a distinctive, authoritative brand voice to the structured content."
             },
             {
                 "@type": "HowToStep",
+                "position": 6,
                 "name": "Deployment",
                 "text": "Publish using Markdown and Schema.org markup to ensure LLM ingestion."
             }
@@ -55,6 +64,60 @@ export default function AuthorityEngineeringPage() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "WebPage",
+                        "@id": "https://saren.ai/portfolio/authority-engineering/#webpage",
+                        "url": "https://saren.ai/portfolio/authority-engineering",
+                        "name": "Authority Engineering Process | Saren.ai",
+                        "description": "Engineering B2B authority in the age of LLMs. How to build white papers that models love to cite.",
+                        "isPartOf": { "@id": "https://saren.ai/#website" },
+                        "about": { "@id": "https://saren.ai/#person" },
+                        "author": { "@id": "https://saren.ai/#person" },
+                        "inLanguage": "en-US",
+                        "dateModified": "2026-03-27"
+                    })
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saren.ai" },
+                            { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://saren.ai/portfolio" },
+                            { "@type": "ListItem", "position": 3, "name": "Authority Engineering Process", "item": "https://saren.ai/portfolio/authority-engineering" }
+                        ]
+                    })
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "CreativeWork",
+                        "@id": "https://saren.ai/portfolio/authority-engineering/#work",
+                        "name": "Authority Engineering Process",
+                        "description": "Engineering B2B authority in the age of LLMs. How to build white papers that models love to cite.",
+                        "url": "https://saren.ai/portfolio/authority-engineering",
+                        "author": { "@id": "https://saren.ai/#person" },
+                        "creator": { "@id": "https://saren.ai/#person" },
+                        "isPartOf": { "@id": "https://saren.ai/#website" },
+                        "about": ["Authority engineering", "B2B content strategy", "Personal brand"],
+                        "keywords": "authority engineering, B2B thought leadership, white papers, LLM citation, content strategy, personal brand",
+                        "teaches": "B2B thought leadership and authority building",
+                        "inLanguage": "en-US",
+                        "dateCreated": "2026-03-12",
+                        "dateModified": "2026-03-27"
+                    })
+                }}
             />
             {/* Breadcrumbs */}
             <div className="border-b border-slate/10 dark:border-white/5">
