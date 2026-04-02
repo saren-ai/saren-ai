@@ -77,14 +77,6 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 const proofOfWork = [
   {
-    tag: 'ICP Scoring',
-    headline: 'Halcyon Lead Scoring Calculator',
-    body: "A working MQL/SQL scoring model built to Halcyon's ICP: Fit Score (company size, vertical, security stack, ransomware pressure, budget signals) + Engagement Score (6sense tier, website behavior, email, paid intent). Score any account and get an immediate pipeline tier recommendation with outreach guidance.",
-    href: '/halcyon/lead-scoring',
-    cta: 'Score an account →',
-    label: 'Days 31–60 deliverable',
-  },
-  {
     tag: 'Buyer Intelligence',
     headline: 'Intent Activity Matrix',
     body: 'Ransomware intent signals mapped across an 18-month buying timeline — 6 intent topics from general awareness to Halcyon brand research, with per-vertical intensity filters (Healthcare, Manufacturing, Government, Retail). Each cell surfaces example queries, deal value context, outreach strategy, and content recommendation.',
@@ -99,6 +91,14 @@ const proofOfWork = [
     href: '/halcyon/content-matrix',
     cta: 'View content strategy →',
     label: 'Day 1 planning artifact',
+  },
+  {
+    tag: 'ICP Scoring',
+    headline: 'Lead Scoring Calculator',
+    body: "A working MQL/SQL scoring model built to Halcyon's ICP: Fit Score (company size, vertical, security stack, ransomware pressure, budget signals) + Engagement Score (6sense tier, website behavior, email, paid intent). Score any account and get an immediate pipeline tier recommendation with outreach guidance.",
+    href: '/halcyon/lead-scoring',
+    cta: 'Score an account →',
+    label: 'Days 31–60 deliverable',
   },
 ]
 
@@ -213,12 +213,11 @@ const timelineEntries = [
   {
     years: '2023–Present',
     role: 'Fractional CMO & AI Ops',
-    company: 'Independent / WethosAI / Onederous',
+    company: 'WethosAI / Qwiet AI / CloudKitchens',
     bullets: [
-      '+344% inbound leads at WethosAI — full GTM built from zero',
-      '+28% demo-to-opp conversion through mid-funnel content architecture',
-      '41% of pipeline content-assisted',
-      'Co-founder, Onederous (AI brand engine); 23-prompt AI marketing framework',
+      '+344% inbound leads at WethosAI — full GTM built from zero; +28% demo-to-opp conversion',
+      '5× lead increase at Qwiet AI in 6 weeks; 300% LinkedIn growth on restructured spend model',
+      '70% Google Ads spend reduction with +30% conversion improvement at Qwiet AI',
     ],
   },
   {
@@ -241,16 +240,6 @@ const timelineEntries = [
       '70%+ CAC reduction through intent-driven segmentation',
       'Built 5-person global demand center across North America, EMEA, APAC',
       '$1.3M website rebuild: 300+ pages, multi-lingual, global demand gen infrastructure',
-    ],
-  },
-  {
-    years: '2023',
-    role: 'Head of Growth Marketing',
-    company: 'Qwiet AI',
-    bullets: [
-      '5× lead increase in 6 weeks via demand gen rebuild',
-      '300% LinkedIn lead growth in one quarter',
-      '70% Google Ads spend reduction with +30% conversion improvement',
     ],
   },
 ]

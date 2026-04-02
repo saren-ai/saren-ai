@@ -37,6 +37,11 @@ export const workMegaMenu: MegaMenuContent = {
       title: "Strategy & Systems",
       links: [
         {
+          href: "/portfolio/executive-dashboard",
+          label: "Demand Gen Command Center",
+          description: "AI-built exec dashboard, 5 live APIs",
+        },
+        {
           href: "/portfolio/b2b-marketing-framework",
           label: "B2B Marketing Framework",
           description: "Full messaging infrastructure",

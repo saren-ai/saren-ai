@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 import PortfolioCard from "@/components/portfolio/PortfolioCard";
+import MatrixRain from "@/components/home/MatrixRain";
 
 const interactiveTools = [
   {
@@ -96,6 +97,7 @@ export default function HomeClient() {
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231D3557' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}
         />
+        <MatrixRain />
 
         <div className="container-narrow relative z-10 mb-20">
           <div className="max-w-4xl mx-auto text-center">
@@ -106,7 +108,7 @@ export default function HomeClient() {
               transition={{ duration: 0.5 }}
               className="text-electric font-mono text-sm md:text-base mb-6 tracking-wider uppercase"
             >
-              Demand Generation · Cybersecurity · AI-Augmented Marketing
+              Revenue Resilience · Cybersecurity · AI-Augmented Demand Gen
             </motion.p>
 
             {/* Headline */}
@@ -117,8 +119,8 @@ export default function HomeClient() {
               className="text-4xl md:text-6xl lg:text-[3.5rem] font-bold text-charcoal dark:text-foreground leading-[1.1] mb-4"
             >
               I build{" "}
-              <span className="text-gradient">demand generation engines</span>{" "}
-              for complex B2B and cybersecurity companies.
+              <span className="text-gradient">anti-fragile pipeline</span>{" "}
+              for cybersecurity and complex B2B.
             </motion.h1>
 
             {/* Body / value prop */}
@@ -128,9 +130,10 @@ export default function HomeClient() {
               transition={{ duration: 0.5, delay: 0.25 }}
               className="text-base md:text-lg text-slate dark:text-foreground-muted max-w-2xl mx-auto leading-relaxed mb-8"
             >
-              From enterprise security to AI-native SaaS, I architect full-funnel demand gen
-              infrastructure — frameworks, scoring models, attribution, and AI-augmented ops —
-              and build the teams to run it at scale.
+              Most demand gen breaks under pressure — channel shifts, market volatility, buyer fatigue.
+              I architect revenue engines designed to get stronger from it. AI-augmented signal processing,
+              glass-box observability, and the human judgment to know when the system needs a human.
+              From Cylance&apos;s $1.4B exit to scaling pipeline 550%, I build the machine and the team that runs it.
             </motion.p>
 
             {/* CTAs */}

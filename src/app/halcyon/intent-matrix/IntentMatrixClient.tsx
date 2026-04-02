@@ -186,8 +186,8 @@ export default function IntentMatrixClient() {
           </div>
 
           {/* Matrix */}
-          <div className="overflow-x-auto border border-border rounded-xl">
-            <div className="min-w-max">
+          <div className="overflow-x-auto">
+            <div className="min-w-max border border-border rounded-xl">
               {/* Header Row */}
               <div className="flex sticky top-0 z-20 bg-background border-b-2 border-electric/20">
                 <div className="w-52 flex-shrink-0 p-3 border-r border-border">
@@ -198,7 +198,7 @@ export default function IntentMatrixClient() {
                 {TIME_WINDOWS.map((win) => (
                   <div
                     key={win.id}
-                    className="w-32 flex-shrink-0 p-3 border-r border-border text-center"
+                    className="w-32 flex-shrink-0 p-3 border-r border-border last:border-r-0 text-center"
                   >
                     <div className="text-sm font-bold text-foreground">{win.label}</div>
                     <div className="text-[10px] text-foreground-muted">{win.sublabel}</div>
@@ -221,7 +221,7 @@ export default function IntentMatrixClient() {
                   {/* Cells */}
                   {TIME_WINDOWS.map((win) => {
                     const cellData = INTENT_CELLS[topic.id]?.[win.id]
-                    if (!cellData) return <div key={win.id} className="w-32 flex-shrink-0 border-r border-border" />
+                    if (!cellData) return <div key={win.id} className="w-32 flex-shrink-0 border-r border-border last:border-r-0" />
 
                     const level = cellData.level[activeVertical]
                     const cfg = INTENSITY_CONFIG[level]
@@ -233,7 +233,7 @@ export default function IntentMatrixClient() {
                     return (
                       <motion.div
                         key={win.id}
-                        className="w-32 flex-shrink-0 border-r border-border p-1.5"
+                        className="w-32 flex-shrink-0 border-r border-border last:border-r-0 p-1.5"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: topicIdx * 0.04 }}

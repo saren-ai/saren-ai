@@ -5,11 +5,11 @@ import { usePathname } from 'next/navigation'
 
 const NAV_ITEMS = [
   { href: '/halcyon', label: 'Overview' },
-  { href: '/halcyon/resume', label: 'Resume' },
-  { href: '/halcyon/faq', label: 'FAQ' },
-  { href: '/halcyon/lead-scoring', label: 'Lead Scoring' },
   { href: '/halcyon/intent-matrix', label: 'Intent Matrix' },
   { href: '/halcyon/content-matrix', label: 'Content Matrix' },
+  { href: '/halcyon/lead-scoring', label: 'Lead Scoring' },
+  { href: '/halcyon/faq', label: 'FAQ' },
+  { href: '/halcyon/resume', label: 'Resume' },
 ]
 
 export default function HalcyonSubnav() {

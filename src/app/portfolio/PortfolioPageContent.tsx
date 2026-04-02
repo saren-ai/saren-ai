@@ -45,6 +45,15 @@ const interactiveItems = [
 
 const caseStudyItems = [
   {
+    title: "Demand Generation Command Center",
+    description:
+      "AI-built executive dashboard wiring HubSpot, Apollo, LinkedIn Ads, GA4, and Pendo into one live view. Built with Claude Code in under two days — with full API query transparency.",
+    metric: "<2 days",
+    metricLabel: "Build Time",
+    href: "/portfolio/executive-dashboard",
+    pillars: ["AI Operations", "Predictive Infrastructure"],
+  },
+  {
     title: "Sovereign Buyer Personas",
     description:
       "Making complex markets simple. A framework for building personas that drive real targeting, messaging, and content decisions.",

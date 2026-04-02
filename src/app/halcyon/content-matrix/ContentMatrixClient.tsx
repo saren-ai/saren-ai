@@ -120,8 +120,8 @@ export default function ContentMatrixClient() {
           </div>
 
           {/* Matrix */}
-          <div className="overflow-x-auto border border-border rounded-xl">
-            <div className="min-w-max">
+          <div className="overflow-x-auto">
+            <div className="min-w-max border border-border rounded-xl">
               {/* Header */}
               <div className="flex sticky top-0 z-20 bg-background border-b-2 border-electric/20">
                 <div className="w-44 flex-shrink-0 p-3 border-r border-border">
@@ -132,7 +132,7 @@ export default function ContentMatrixClient() {
                 {BUYING_STAGES.map((stage) => (
                   <div
                     key={stage.id}
-                    className="w-56 flex-shrink-0 p-3 border-r border-border"
+                    className="w-56 flex-shrink-0 p-3 border-r border-border last:border-r-0"
                   >
                     <div className="text-xs text-electric font-semibold uppercase tracking-wide mb-0.5">
                       {stage.label}
@@ -171,7 +171,7 @@ export default function ContentMatrixClient() {
                         const isSelected = selectedCell?.persona.id === persona.id && selectedCell?.stageId === stage.id
 
                         return (
-                          <div key={stage.id} className="w-56 flex-shrink-0 p-2 border-r border-border">
+                          <div key={stage.id} className="w-56 flex-shrink-0 p-2 border-r border-border last:border-r-0">
                             {cell ? (
                               <button
                                 onClick={() =>
