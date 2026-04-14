@@ -286,7 +286,7 @@ Advantage: Expressed, not inferred.
             className="text-2xl md:text-3xl font-bold leading-snug text-[var(--ss-teal-text)] mb-8 border-l-4 pl-6"
             style={{ borderColor: 'var(--ss-teal-border)' }}
           >
-            "Public expression of struggle is not just a pain signal. It is a readiness signal."
+            &ldquo;Public expression of struggle is not just a pain signal. It is a readiness signal.&rdquo;
           </motion.blockquote>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -302,7 +302,7 @@ Advantage: Expressed, not inferred.
               That act of naming is a stage transition. They are not just hurting. They are processing. They have externalized the problem. They are, by definition, in a state of elevated openness to solutions.
             </p>
             <p>
-              The person who posts "I wish I had a strategist brain in a box" is not yet searching for software. They're not yet filling out a form. They're in the gap between pain and action — and that gap is almost entirely uncontested territory.
+              The person who posts &ldquo;I wish I had a strategist brain in a box&rdquo; is not yet searching for software. They&apos;re not yet filling out a form. They&apos;re in the gap between pain and action — and that gap is almost entirely uncontested territory.
             </p>
           </motion.div>
         </div>
@@ -634,8 +634,8 @@ Advantage: Expressed, not inferred.
           >
             <p>Every one of the catalogues in this framework is, at its core, a library of moments.</p>
             <p>
-              Moments when someone's frustration exceeded their threshold for keeping it private.
-              Moments when a professional named something they'd been feeling for months.
+              Moments when someone&apos;s frustration exceeded their threshold for keeping it private.
+              Moments when a professional named something they&apos;d been feeling for months.
               Moments when a gap became undeniable enough to say out loud.
             </p>
             <p>

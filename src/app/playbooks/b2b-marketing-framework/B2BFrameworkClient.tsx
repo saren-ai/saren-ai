@@ -97,6 +97,7 @@ export default function B2BFrameworkClient({ initialSteps, variablesContent }: B
         const saved = localStorage.getItem('b2b-framework-variables');
         if (saved) {
             try {
+                // eslint-disable-next-line react-hooks/set-state-in-effect
                 setVariables(JSON.parse(saved));
             } catch (e) {
                 console.error("Failed to parse saved variables", e);

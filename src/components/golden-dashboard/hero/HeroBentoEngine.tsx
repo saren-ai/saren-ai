@@ -38,6 +38,7 @@ export default function HeroBentoEngine() {
             const acv = params.get("acv");
 
             if (budget || cpc || cpl || acv) {
+                // eslint-disable-next-line react-hooks/set-state-in-effect
                 setInputs(prev => ({
                     monthlyBudget: budget ? Number(budget) : prev.monthlyBudget,
                     targetCpc: cpc ? Number(cpc) : prev.targetCpc,

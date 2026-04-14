@@ -40,7 +40,7 @@ export default function OrgAlignmentClient() {
             transition={{ delay: 0.15 }}
             className="text-[var(--ss-coral-text)] text-xl font-medium"
           >
-            Reading the signals leadership can't see from inside.
+            Reading the signals leadership can&apos;t see from inside.
           </motion.p>
         </div>
       </section>
@@ -63,12 +63,12 @@ export default function OrgAlignmentClient() {
               className="rounded-xl border p-6 font-mono text-sm leading-relaxed"
               style={{ background: '#0d0f12', borderColor: 'rgba(255,255,255,0.08)', color: '#e2e4ea' }}
             >
-              <p className="text-slate text-xs mb-3">// The Target: 1,200-person SaaS company · Third rebrand in 4 years · Glassdoor 3.8 → 2.9 over 18 months · CEO approval 44% · VP Product just departed after 11 months</p>
-              <p className="text-slate text-xs mb-3">// LinkedIn post from departing VP of Product:</p>
+              <p className="text-slate text-xs mb-3">{"// The Target: 1,200-person SaaS company · Third rebrand in 4 years · Glassdoor 3.8 → 2.9 over 18 months · CEO approval 44% · VP Product just departed after 11 months"}</p>
+              <p className="text-slate text-xs mb-3">{"// LinkedIn post from departing VP of Product:"}</p>
               <p className="mb-4">
-                <span className="text-[var(--ss-coral-text)]">"Leaving [Company] after an incredible year of learning. Sometimes the vision and the execution culture aren't quite aligned yet — and that's okay. Excited for what's next."</span>
+                <span className="text-[var(--ss-coral-text)]">&ldquo;Leaving [Company] after an incredible year of learning. Sometimes the vision and the execution culture aren&apos;t quite aligned yet — and that&apos;s okay. Excited for what&apos;s next.&rdquo;</span>
               </p>
-              <p className="text-slate text-xs">// 43 comments. 12 from current employees using the same careful language. 3 from ex-employees who are less careful.</p>
+              <p className="text-slate text-xs">{"// 43 comments. 12 from current employees using the same careful language. 3 from ex-employees who are less careful."}</p>
             </div>
           </motion.div>
 
@@ -115,7 +115,7 @@ export default function OrgAlignmentClient() {
                 <p><span className="opacity-60">WHO:</span>     Series C SaaS, 1,200 employees, likely new or interim CPO incoming</p>
                 <p><span className="opacity-60">STATE:</span>   Leadership acknowledging misalignment publicly but diplomatically</p>
                 <p><span className="opacity-60">MOMENT:</span>  Post is 31 hours old. Comment thread still active. Window: HIGH.</p>
-                <p><span className="opacity-60">LANGUAGE:</span> "vision and execution culture aren't aligned" — use this frame exactly</p>
+                <p><span className="opacity-60">LANGUAGE:</span> &ldquo;vision and execution culture aren&apos;t aligned&rdquo; — use this frame exactly</p>
                 <p><span className="opacity-60">AUDIENCE:</span> Likely receptive: incoming CPO, CEO, Chief of Staff, or Head of People</p>
               </div>
             </div>
@@ -135,11 +135,11 @@ export default function OrgAlignmentClient() {
               className="rounded-xl border p-6 text-sm leading-relaxed relative"
               style={{ background: 'var(--ss-coral-bg)', borderColor: 'var(--ss-coral-border)' }}
             >
-              <div className="absolute top-4 left-4 text-4xl text-[var(--ss-coral-border)] font-serif leading-none select-none">"</div>
+              <div className="absolute top-4 left-4 text-4xl text-[var(--ss-coral-border)] font-serif leading-none select-none">&ldquo;</div>
               <p className="pl-8 text-foreground italic leading-relaxed">
-                The post from your outgoing VP caught my attention — specifically the line about vision and execution culture not being aligned yet. That's almost always the real issue when good leaders leave quietly. We work with leadership teams going through exactly that transition — helping them see what's creating the gap before the next hire walks into the same dynamic. If that's the conversation happening internally right now, I might have something useful.
+                The post from your outgoing VP caught my attention — specifically the line about vision and execution culture not being aligned yet. That&apos;s almost always the real issue when good leaders leave quietly. We work with leadership teams going through exactly that transition — helping them see what&apos;s creating the gap before the next hire walks into the same dynamic. If that&apos;s the conversation happening internally right now, I might have something useful.
               </p>
-              <div className="absolute bottom-4 right-4 text-4xl text-[var(--ss-coral-border)] font-serif leading-none select-none rotate-180">"</div>
+              <div className="absolute bottom-4 right-4 text-4xl text-[var(--ss-coral-border)] font-serif leading-none select-none rotate-180">&rdquo;</div>
             </div>
           </motion.div>
 

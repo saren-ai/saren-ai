@@ -29,6 +29,7 @@ export default function ThemeProvider({
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     document.documentElement.classList.remove("light");
     document.documentElement.classList.add("dark");

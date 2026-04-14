@@ -63,11 +63,11 @@ export default function CybersecurityClient() {
               className="rounded-xl border p-6 font-mono text-sm leading-relaxed"
               style={{ background: '#0d0f12', borderColor: 'rgba(255,255,255,0.08)', color: '#e2e4ea' }}
             >
-              <p className="text-slate text-xs mb-3">// Glassdoor review — posted this week</p>
+              <p className="text-slate text-xs mb-3">{"// Glassdoor review — posted this week"}</p>
               <p className="mb-4">
-                <span className="text-[var(--ss-teal-text)]">"IT is a one-man show. We got hit with a phishing attack last month and it took three days to respond. Nobody seems to care."</span>
+                <span className="text-[var(--ss-teal-text)]">&ldquo;IT is a one-man show. We got hit with a phishing attack last month and it took three days to respond. Nobody seems to care.&rdquo;</span>
               </p>
-              <p className="text-slate text-xs mb-3">// Simultaneously — passive signals confirmed:</p>
+              <p className="text-slate text-xs mb-3">{"// Simultaneously — passive signals confirmed:"}</p>
               <p className="text-ash">• Shodan: RDP port 3389 open on primary IP</p>
               <p className="text-ash">• LinkedIn: last security hire left 8 months ago</p>
               <p className="text-ash">• LinkedIn: same role reposted twice</p>
@@ -116,7 +116,7 @@ export default function CybersecurityClient() {
                 <p><span className="opacity-60">WHO:</span>     Mid-size logistics company, 400 employees, no CISO</p>
                 <p><span className="opacity-60">STATE:</span>   Active vulnerability, internally acknowledged, leadership unaware</p>
                 <p><span className="opacity-60">MOMENT:</span>  Review posted 18 hours ago. Recency window: HIGH.</p>
-                <p><span className="opacity-60">LANGUAGE:</span> "nobody seems to care" — leadership disconnection is the expressed pain, not the technical exposure itself</p>
+                <p><span className="opacity-60">LANGUAGE:</span> &ldquo;nobody seems to care&rdquo; — leadership disconnection is the expressed pain, not the technical exposure itself</p>
               </div>
             </div>
           </motion.div>
@@ -135,11 +135,11 @@ export default function CybersecurityClient() {
               className="rounded-xl border p-6 text-sm leading-relaxed relative"
               style={{ background: 'var(--ss-teal-bg)', borderColor: 'var(--ss-teal-border)' }}
             >
-              <div className="absolute top-4 left-4 text-4xl text-[var(--ss-teal-border)] font-serif leading-none select-none">"</div>
+              <div className="absolute top-4 left-4 text-4xl text-[var(--ss-teal-border)] font-serif leading-none select-none">&ldquo;</div>
               <p className="pl-8 text-foreground italic leading-relaxed">
-                Saw a recent review from your team mentioning the phishing response took three days — that gap between incident and response is usually where the real damage happens. We work with companies that don't have a full security team but need one. If the timing is relevant, worth 20 minutes.
+                Saw a recent review from your team mentioning the phishing response took three days — that gap between incident and response is usually where the real damage happens. We work with companies that don&apos;t have a full security team but need one. If the timing is relevant, worth 20 minutes.
               </p>
-              <div className="absolute bottom-4 right-4 text-4xl text-[var(--ss-teal-border)] font-serif leading-none select-none rotate-180">"</div>
+              <div className="absolute bottom-4 right-4 text-4xl text-[var(--ss-teal-border)] font-serif leading-none select-none rotate-180">&rdquo;</div>
             </div>
           </motion.div>
 
@@ -155,7 +155,7 @@ export default function CybersecurityClient() {
               What Makes It Land
             </p>
             <p className="text-sm text-foreground-muted leading-relaxed">
-              It references something real and recent. It names the pattern (response gap) without accusing. It positions the offering as filling a structural gap, not selling software. It doesn't mention ransomware, ports, or scores. It sounds like someone paying attention.
+              It references something real and recent. It names the pattern (response gap) without accusing. It positions the offering as filling a structural gap, not selling software. It doesn&apos;t mention ransomware, ports, or scores. It sounds like someone paying attention.
             </p>
           </motion.div>
 

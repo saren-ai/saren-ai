@@ -186,7 +186,7 @@ export default function SignalStateClient() {
             className="text-2xl md:text-3xl font-bold leading-snug text-[var(--ss-teal-text)] mb-12 border-l-4 pl-6"
             style={{ borderColor: 'var(--ss-teal-border)' }}
           >
-            "Public expression of struggle is not just a pain signal. It is a readiness signal."
+            &ldquo;Public expression of struggle is not just a pain signal. It is a readiness signal.&rdquo;
           </motion.blockquote>
 
           <motion.h2

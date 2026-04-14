@@ -63,12 +63,12 @@ export default function IndependentCreativeClient() {
               className="rounded-xl border p-6 font-mono text-sm leading-relaxed"
               style={{ background: '#0d0f12', borderColor: 'rgba(255,255,255,0.08)', color: '#e2e4ea' }}
             >
-              <p className="text-slate text-xs mb-3">// The Target: Freelance art director · 12 years agency experience · 8 months independent · Strong portfolio · Just lost a pitch to a full-service agency</p>
-              <p className="text-slate text-xs mb-3">// LinkedIn post, posted 6 hours ago:</p>
+              <p className="text-slate text-xs mb-3">{"// The Target: Freelance art director · 12 years agency experience · 8 months independent · Strong portfolio · Just lost a pitch to a full-service agency"}</p>
+              <p className="text-slate text-xs mb-3">{"// LinkedIn post, posted 6 hours ago:"}</p>
               <p className="mb-4">
-                <span className="text-[var(--ss-purple-text)]">"Lost a pitch today that I'm genuinely proud of creatively. The work was strong. But sitting across from a team of six — strategist, account director, researcher, two creatives and a PM — I realized I was bringing a knife to a gunfight. Time to figure out how solo operators compete with full rooms."</span>
+                <span className="text-[var(--ss-purple-text)]">&ldquo;Lost a pitch today that I&apos;m genuinely proud of creatively. The work was strong. But sitting across from a team of six — strategist, account director, researcher, two creatives and a PM — I realized I was bringing a knife to a gunfight. Time to figure out how solo operators compete with full rooms.&rdquo;</span>
               </p>
-              <p className="text-slate text-xs">// 31 comments. 18 people saying "same." 4 recommending collaborators. 2 recommending tools. Nobody recommending the right thing yet.</p>
+              <p className="text-slate text-xs">{"// 31 comments. 18 people saying \"same.\" 4 recommending collaborators. 2 recommending tools. Nobody recommending the right thing yet."}</p>
             </div>
           </motion.div>
 
@@ -116,9 +116,9 @@ export default function IndependentCreativeClient() {
                 <p><span className="opacity-60">WHO:</span>     Freelance CD, 8 months independent, pitching brand clients direct</p>
                 <p><span className="opacity-60">STATE:</span>   Acute pitch loss, capability gap explicitly named, solution-seeking begins</p>
                 <p><span className="opacity-60">MOMENT:</span>  6 hours old. Peak window. Act within 18 hours.</p>
-                <p><span className="opacity-60">LANGUAGE:</span> "knife to a gunfight" / "solo operators compete with full rooms"</p>
+                <p><span className="opacity-60">LANGUAGE:</span> &ldquo;knife to a gunfight&rdquo; / &ldquo;solo operators compete with full rooms&rdquo;</p>
                 <p className="pl-[5.5rem] opacity-80">— use the competitive frame, not the capability gap frame</p>
-                <p><span className="opacity-60">INTENT:</span>  Active — "time to figure out" signals they are now in Preparation stage</p>
+                <p><span className="opacity-60">INTENT:</span>  Active — &ldquo;time to figure out&rdquo; signals they are now in Preparation stage</p>
               </div>
             </div>
           </motion.div>
@@ -137,11 +137,11 @@ export default function IndependentCreativeClient() {
               className="rounded-xl border p-6 text-sm leading-relaxed relative"
               style={{ background: 'var(--ss-purple-bg)', borderColor: 'var(--ss-purple-border)' }}
             >
-              <div className="absolute top-4 left-4 text-4xl text-[var(--ss-purple-border)] font-serif leading-none select-none">"</div>
+              <div className="absolute top-4 left-4 text-4xl text-[var(--ss-purple-border)] font-serif leading-none select-none">&ldquo;</div>
               <p className="pl-8 text-foreground italic leading-relaxed">
-                Saw your post about the pitch — "knife to a gunfight" is exactly right, and it's not a creative problem. The strategy layer, the research, the market framing — that's what a team of six brings that one person can't fake. We built something for exactly this: a platform that gives a solo creative director the strategic layer on demand — market research, positioning frameworks, competitive context — so you walk into the next room as a full team of one. Worth a look if you're in "figure it out" mode right now.
+                Saw your post about the pitch — &ldquo;knife to a gunfight&rdquo; is exactly right, and it&apos;s not a creative problem. The strategy layer, the research, the market framing — that&apos;s what a team of six brings that one person can&apos;t fake. We built something for exactly this: a platform that gives a solo creative director the strategic layer on demand — market research, positioning frameworks, competitive context — so you walk into the next room as a full team of one. Worth a look if you&apos;re in &ldquo;figure it out&rdquo; mode right now.
               </p>
-              <div className="absolute bottom-4 right-4 text-4xl text-[var(--ss-purple-border)] font-serif leading-none select-none rotate-180">"</div>
+              <div className="absolute bottom-4 right-4 text-4xl text-[var(--ss-purple-border)] font-serif leading-none select-none rotate-180">&rdquo;</div>
             </div>
           </motion.div>
 
@@ -157,7 +157,7 @@ export default function IndependentCreativeClient() {
               What Makes It Land
             </p>
             <p className="text-sm text-foreground-muted leading-relaxed">
-              It quotes their exact phrase. It correctly diagnoses the problem as structural, not a skill gap — which respects their seniority. It arrives while they're actively processing the loss. It offers the exact missing piece they named. It doesn't oversell. It lands as a response to something they said, not an ad for something they searched.
+              It quotes their exact phrase. It correctly diagnoses the problem as structural, not a skill gap — which respects their seniority. It arrives while they&apos;re actively processing the loss. It offers the exact missing piece they named. It doesn&apos;t oversell. It lands as a response to something they said, not an ad for something they searched.
             </p>
           </motion.div>
 

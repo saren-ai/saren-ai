@@ -286,42 +286,6 @@ export default function HomeClient() {
             </Link>
           </motion.div>
 
-          {/* Halcyon VP candidacy callout */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-8"
-          >
-            <Link
-              href="/halcyon"
-              className="group flex items-center justify-between gap-4 px-5 py-4 rounded-xl border border-charcoal/10 dark:border-white/10 bg-charcoal/[0.03] dark:bg-white/[0.03] hover:border-electric/40 hover:bg-electric/[0.04] transition-all"
-            >
-              <div className="flex items-center gap-4 min-w-0">
-                <span className="shrink-0 text-[10px] font-semibold tracking-widest uppercase text-slate dark:text-white/40 px-2 py-1 rounded bg-charcoal/6 dark:bg-white/6">
-                  VP Candidacy
-                </span>
-                <span className="font-semibold text-charcoal dark:text-foreground truncate">
-                  Halcyon AI — VP of Demand Generation
-                  <span className="hidden sm:inline font-normal text-slate dark:text-white/40 ml-2 text-sm">
-                    · Executive pitch · March 2026
-                  </span>
-                </span>
-              </div>
-              <span className="shrink-0 text-electric group-hover:text-ember transition-colors text-sm font-medium flex items-center gap-1">
-                View pitch
-                <svg
-                  className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </span>
-            </Link>
-          </motion.div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {caseStudies.map((item, index) => (
               <PortfolioCard
