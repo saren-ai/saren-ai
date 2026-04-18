@@ -108,7 +108,7 @@ export default function HomeClient() {
               transition={{ duration: 0.5 }}
               className="text-lavender font-mono text-sm md:text-base mb-6 tracking-wider uppercase"
             >
-              Revenue Resilience · Cybersecurity · AI-Augmented Demand Gen
+              AI Integration · Marketing Architecture · Demand Acceleration
             </motion.p>
 
             {/* Headline */}
@@ -118,9 +118,9 @@ export default function HomeClient() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-6xl lg:text-[3.5rem] font-bold text-charcoal dark:text-foreground leading-[1.1] mb-4"
             >
-              I build{" "}
-              <span className="text-gradient">anti-fragile pipeline</span>{" "}
-              for cybersecurity and complex B2B.
+              Most startups bolt AI on.
+              <br />
+              <span className="text-gradient">I wire it in.</span>
             </motion.h1>
 
             {/* Body / value prop */}
@@ -130,10 +130,10 @@ export default function HomeClient() {
               transition={{ duration: 0.5, delay: 0.25 }}
               className="text-base md:text-lg text-slate dark:text-foreground-muted max-w-2xl mx-auto leading-relaxed mb-8"
             >
-              Most demand gen breaks under pressure — channel shifts, market volatility, buyer fatigue.
-              I architect revenue engines designed to get stronger from it. AI-augmented signal processing,
-              glass-box observability, and the human judgment to know when the system needs a human.
-              From Cylance&apos;s $1.4B exit to scaling pipeline 550%, I build the machine and the team that runs it.
+              The gap between &ldquo;we use AI tools&rdquo; and &ldquo;AI is driving our pipeline&rdquo; is where most startups stall.
+              I close it using Claude Code, Claude Design, and Claude Cowork inside your team&rsquo;s workspace —
+              embedding AI natively across every marketing function, not just bolted onto one workflow.
+              The result: a holistic AI-native marketing operation. Built for speed. Tuned for revenue.
             </motion.p>
 
             {/* CTAs */}

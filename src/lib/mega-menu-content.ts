@@ -150,9 +150,9 @@ export const aboutMegaMenu: MegaMenuContent = {
           description: "Career journey and background",
         },
         {
-          href: "/about/clients",
-          label: "Client Brands",
-          description: "26+ brands from startups to Fortune 500",
+          href: "/brand",
+          label: "Brand Guide",
+          description: "Fire Horse 2026 design system",
         },
         {
           href: "/about#stack",
@@ -160,9 +160,9 @@ export const aboutMegaMenu: MegaMenuContent = {
           description: "Tools I use to build and grow",
         },
         {
-          href: "/brand",
-          label: "Brand Guide",
-          description: "Fire Horse 2026 design system",
+          href: "/about/clients",
+          label: "Client Brands",
+          description: "26+ brands from startups to Fortune 500",
         },
       ],
     },

@@ -155,9 +155,9 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
           {/* Logo */}
           <Link
             href="/"
-            className="text-xl font-bold text-[#1D1D1F] dark:text-[#F5F5F7] tracking-tight hover:text-ember transition-colors shrink-0"
+            className="text-xl font-bold tracking-tight shrink-0"
           >
-            saren<span className="text-ember">.</span>ai<span className="font-mono">()</span>
+            <span className="text-gradient">saren.ai</span><span className="font-mono text-gradient">()</span>
           </Link>
 
           {/* Desktop Nav */}
