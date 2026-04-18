@@ -140,11 +140,11 @@ const COLOR_TOKENS: ColorToken[] = [
   },
   {
     name: "Electric Blue",
-    cssVar: "--electric-blue",
-    tailwind: "text-electric / bg-electric",
-    lightHex: "#2F6D8E",
-    darkHex: "#4A9FD8",
-    notes: "Accent / links. 5.26:1 AA on light bg. Darkened from #457B9D.",
+    cssVar: "--lavender",
+    tailwind: "text-lavender / bg-lavender",
+    lightHex: "#7C5AA3",
+    darkHex: "#B57EDC",
+    notes: "Accent / links. 5.26:1 AA on light bg. Darkened from #7C5AA3.",
   },
   {
     name: "Copper",
@@ -195,7 +195,7 @@ function buildContrastPairs(): ContrastPair[] {
   const lightFgs: [string, string][] = [
     ["Ember", "#C43322"],
     ["Charcoal", "#1D1D1F"],
-    ["Electric", "#2F6D8E"],
+    ["Electric", "#7C5AA3"],
     ["Copper", "#C17D3A"],
     ["Slate", "#5B6470"],
     ["White (btn)", "#FFFFFF"],
@@ -218,7 +218,7 @@ function buildContrastPairs(): ContrastPair[] {
   const darkFgs: [string, string][] = [
     ["Ember", "#E34234"],
     ["Charcoal (inv)", "#F0F4FA"],
-    ["Electric", "#4A9FD8"],
+    ["Electric", "#B57EDC"],
     ["Copper", "#D4A574"],
     ["Slate", "#A8B2BF"],
     ["White (btn)", "#FFFFFF"],
@@ -434,7 +434,7 @@ function Section({
 
 function CodeLabel({ children }: { children: React.ReactNode }) {
   return (
-    <code className="font-mono text-xs bg-charcoal/5 text-electric px-1.5 py-0.5 rounded">
+    <code className="font-mono text-xs bg-charcoal/5 text-lavender px-1.5 py-0.5 rounded">
       {children}
     </code>
   );
@@ -459,7 +459,7 @@ export default function BrandClient() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              <p className="font-mono text-xs text-electric uppercase tracking-widest mb-4">
+              <p className="font-mono text-xs text-lavender uppercase tracking-widest mb-4">
                 Design System
               </p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ash mb-6">
@@ -614,7 +614,7 @@ export default function BrandClient() {
                   gradient-accent
                 </p>
                 <p className="font-mono text-xs text-slate">
-                  135deg: var(--electric-blue) → #1D3557
+                  135deg: var(--lavender) → #1D3557
                 </p>
               </div>
             </div>
@@ -778,7 +778,7 @@ export default function BrandClient() {
                 <strong>Aspirational target:</strong> AAA (7:1) wherever possible
               </p>
               <p>
-                <strong>Focus indicators:</strong> 2px solid var(--electric-blue)
+                <strong>Focus indicators:</strong> 2px solid var(--lavender)
               </p>
             </div>
           </div>
@@ -989,13 +989,13 @@ export default function BrandClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className={`card p-4 ${issue.severity === "warning" ? "border-amber-500/30" : "border-electric/20"}`}
+              className={`card p-4 ${issue.severity === "warning" ? "border-amber-500/30" : "border-lavender/20"}`}
             >
               <div className="flex items-start gap-3">
                 {issue.severity === "warning" ? (
                   <AlertTriangle className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
                 ) : (
-                  <Info className="w-5 h-5 text-electric shrink-0 mt-0.5" />
+                  <Info className="w-5 h-5 text-lavender shrink-0 mt-0.5" />
                 )}
                 <div>
                   <p className="font-semibold text-charcoal text-sm">
@@ -1065,13 +1065,13 @@ export default function BrandClient() {
                     <td className="p-3 border border-charcoal/10 text-charcoal font-semibold text-sm">
                       Nav pill
                     </td>
-                    <td className="p-3 border border-charcoal/10 text-center text-electric">
+                    <td className="p-3 border border-charcoal/10 text-center text-lavender">
                       90%
                     </td>
-                    <td className="p-3 border border-charcoal/10 text-center text-electric">
+                    <td className="p-3 border border-charcoal/10 text-center text-lavender">
                       85%
                     </td>
-                    <td className="p-3 border border-charcoal/10 text-center text-electric">
+                    <td className="p-3 border border-charcoal/10 text-center text-lavender">
                       80%
                     </td>
                     <td className="p-3 border border-charcoal/10 text-center text-ember">
@@ -1082,13 +1082,13 @@ export default function BrandClient() {
                     <td className="p-3 border border-charcoal/10 text-charcoal font-semibold text-sm">
                       Hero card
                     </td>
-                    <td className="p-3 border border-charcoal/10 text-center text-electric">
+                    <td className="p-3 border border-charcoal/10 text-center text-lavender">
                       90%
                     </td>
-                    <td className="p-3 border border-charcoal/10 text-center text-electric">
+                    <td className="p-3 border border-charcoal/10 text-center text-lavender">
                       85%
                     </td>
-                    <td className="p-3 border border-charcoal/10 text-center text-electric">
+                    <td className="p-3 border border-charcoal/10 text-center text-lavender">
                       80%
                     </td>
                     <td className="p-3 border border-charcoal/10 text-center text-ember">
@@ -1119,14 +1119,14 @@ export default function BrandClient() {
 
             {/* Visual diagram */}
             <div className="card p-6 space-y-4">
-              <p className="font-mono text-xs text-electric uppercase tracking-widest mb-2">
+              <p className="font-mono text-xs text-lavender uppercase tracking-widest mb-2">
                 Layout Stack (top to bottom)
               </p>
 
               {/* Nav representation */}
               <div className="mx-auto" style={{ width: "80%" }}>
-                <div className="bg-electric/10 border border-electric/30 rounded-full px-4 py-2 text-center">
-                  <p className="font-mono text-xs text-electric">
+                <div className="bg-lavender/10 border border-lavender/30 rounded-full px-4 py-2 text-center">
+                  <p className="font-mono text-xs text-lavender">
                     Nav pill — w-[80%] max-w-[1200px] mx-auto
                   </p>
                 </div>
@@ -1162,8 +1162,8 @@ export default function BrandClient() {
               Section & Container
             </h3>
             <div className="card p-6 space-y-3">
-              <div className="bg-electric/10 border border-electric/20 rounded-lg p-4">
-                <p className="font-mono text-xs text-electric mb-2">
+              <div className="bg-lavender/10 border border-lavender/20 rounded-lg p-4">
+                <p className="font-mono text-xs text-lavender mb-2">
                   .section (padding: 6rem 0, 4rem on mobile)
                 </p>
                 <div className="bg-ember/10 border border-ember/20 rounded-lg p-4">
@@ -1199,7 +1199,7 @@ export default function BrandClient() {
             <h3 className="text-xl font-bold text-charcoal mb-4">Hero Card</h3>
             <div className="card p-6 space-y-3">
               <div className="hero-card gradient-dark p-8 text-ash">
-                <p className="font-mono text-xs text-electric uppercase tracking-widest mb-2">
+                <p className="font-mono text-xs text-lavender uppercase tracking-widest mb-2">
                   Eyebrow
                 </p>
                 <p className="text-2xl font-bold mb-2">Page Title</p>
@@ -1250,7 +1250,7 @@ export default function BrandClient() {
                   Default Card
                 </h4>
                 <p className="text-sm text-slate">
-                  Hover to see the lift effect with electric blue border glow.
+                  Hover to see the lift effect with lavender border glow.
                 </p>
               </div>
               <div className="space-y-2 text-sm text-slate">
@@ -1486,7 +1486,7 @@ export default function BrandClient() {
                   <p className="font-semibold text-charcoal flex items-center gap-2">
                     {item.label}
                     {item.mega && (
-                      <span className="font-mono text-[10px] text-electric bg-electric/10 px-1.5 py-0.5 rounded">
+                      <span className="font-mono text-[10px] text-lavender bg-lavender/10 px-1.5 py-0.5 rounded">
                         mega menu
                       </span>
                     )}
@@ -1620,7 +1620,7 @@ export default function BrandClient() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.01 }}
-              className="flex flex-col items-center gap-1.5 p-3 rounded-lg border border-charcoal/10 hover:border-electric/30 transition-colors"
+              className="flex flex-col items-center gap-1.5 p-3 rounded-lg border border-charcoal/10 hover:border-lavender/30 transition-colors"
             >
               <Icon className="w-5 h-5 text-charcoal" />
               <p className="font-mono text-[9px] text-slate text-center leading-tight truncate w-full">
@@ -1724,9 +1724,9 @@ export default function BrandClient() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
-                    className="bg-electric/10 border border-electric/20 rounded-lg p-4 text-center"
+                    className="bg-lavender/10 border border-lavender/20 rounded-lg p-4 text-center"
                   >
-                    <p className="font-mono text-xs text-electric">
+                    <p className="font-mono text-xs text-lavender">
                       delay: {i * 0.1}s
                     </p>
                     <p className="font-bold text-charcoal text-sm">{label}</p>

@@ -98,7 +98,7 @@ export default function MetricCard({
         <h3 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
           <span
             className={`w-2 h-2 rounded-full ${
-              isFirst ? "bg-ember" : isLast ? "bg-copper" : "bg-electric"
+              isFirst ? "bg-ember" : isLast ? "bg-copper" : "bg-lavender"
             }`}
           />
           {name}
@@ -118,7 +118,7 @@ export default function MetricCard({
             <div
               className={`inline-flex items-center gap-1 mt-2 px-2 py-0.5 rounded-full text-xs font-mono ${
                 delta > 0
-                  ? "bg-electric/10 text-electric"
+                  ? "bg-lavender/10 text-lavender"
                   : "bg-ember/10 text-ember"
               }`}
             >
@@ -139,7 +139,7 @@ export default function MetricCard({
         {/* Conversion Rate (if exists) */}
         {rate !== undefined && (
           <div className="flex items-baseline gap-2 text-sm mt-2">
-            <span className="font-mono font-semibold text-electric">
+            <span className="font-mono font-semibold text-lavender">
               {formatPercent(rate)}
             </span>
             <span className="text-foreground-muted text-xs">{rateLabel}</span>
@@ -152,7 +152,7 @@ export default function MetricCard({
             <div className="relative h-1 bg-charcoal/10 dark:bg-ash/10 rounded-full">
               {/* Range bar */}
               <div
-                className="absolute h-full bg-electric/30 rounded-full"
+                className="absolute h-full bg-lavender/30 rounded-full"
                 style={{
                   left: `${benchmark.low * 100}%`,
                   width: `${(benchmark.high - benchmark.low) * 100}%`,
@@ -173,7 +173,7 @@ export default function MetricCard({
         )}
 
         {/* Info Icon */}
-        <div className="absolute top-3 right-3 text-foreground-muted/40 hover:text-electric transition-colors">
+        <div className="absolute top-3 right-3 text-foreground-muted/40 hover:text-lavender transition-colors">
           <svg
             className="w-4 h-4"
             fill="none"

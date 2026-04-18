@@ -131,12 +131,12 @@ export default function InsightNarrative({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="bg-gradient-to-br from-electric/10 to-copper/10 border border-electric/30 rounded-lg p-6"
+      className="bg-gradient-to-br from-lavender/10 to-copper/10 border border-lavender/30 rounded-lg p-6"
     >
       <div className="flex items-start gap-4">
         <div className="flex-shrink-0">
           {deltas.closedWon > 0 ? (
-            <TrendingUp className="w-6 h-6 text-electric" />
+            <TrendingUp className="w-6 h-6 text-lavender" />
           ) : (
             <TrendingDown className="w-6 h-6 text-ember" />
           )}
@@ -149,7 +149,7 @@ export default function InsightNarrative({
 
           {/* Primary Impact */}
           <p className="text-foreground leading-relaxed">
-            <strong className={deltas.closedWon > 0 ? "text-electric" : "text-ember"}>
+            <strong className={deltas.closedWon > 0 ? "text-lavender" : "text-ember"}>
               {deltas.closedWon > 0 ? "↑" : "↓"}{" "}
               {Math.abs(deltas.closedWon).toFixed(1)}% change in closed-won deals
             </strong>

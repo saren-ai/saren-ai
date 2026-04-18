@@ -62,7 +62,7 @@ export function ScoreVisualizer({ scoring }: ScoreVisualizerProps) {
                   ? "bg-ember/20 text-ember border border-ember/40"
                   : isMQL
                   ? "bg-yellow-500/20 text-yellow-500 border border-yellow-500/40"
-                  : "bg-electric/20 text-electric border border-electric/40"
+                  : "bg-lavender/20 text-lavender border border-lavender/40"
               }`}
             >
               <div className="w-2 h-2 rounded-full bg-current animate-pulse" />
@@ -79,7 +79,7 @@ export function ScoreVisualizer({ scoring }: ScoreVisualizerProps) {
               <span className="text-sm font-medium text-ash dark:text-foreground">
                 Fit Score (Identity-Based)
               </span>
-              <span className="text-sm font-mono font-semibold text-electric">
+              <span className="text-sm font-mono font-semibold text-lavender">
                 {fitScore} / 50
               </span>
             </div>
@@ -88,7 +88,7 @@ export function ScoreVisualizer({ scoring }: ScoreVisualizerProps) {
                 initial={{ width: 0 }}
                 animate={{ width: `${(fitScore / 50) * 100}%` }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="h-full bg-electric"
+                className="h-full bg-lavender"
               />
             </div>
           </div>
@@ -120,7 +120,7 @@ export function ScoreVisualizer({ scoring }: ScoreVisualizerProps) {
                 <div
                   className={`w-3 h-3 rounded-full ${
                     threshold.toMQL === 0
-                      ? "bg-electric"
+                      ? "bg-lavender"
                       : "bg-ash/20 dark:bg-card-bg"
                   }`}
                 />
@@ -133,7 +133,7 @@ export function ScoreVisualizer({ scoring }: ScoreVisualizerProps) {
                   {threshold.toMQL} points to reach
                 </p>
               ) : (
-                <p className="text-xs text-electric ml-5 flex items-center gap-1">
+                <p className="text-xs text-lavender ml-5 flex items-center gap-1">
                   <TrendingUp className="w-3 h-3" />
                   Achieved
                 </p>

@@ -50,7 +50,7 @@ export default function CellDrawer({
               {/* Header */}
               <div className="flex items-start justify-between mb-6">
                 <div>
-                  <div className="text-xs text-electric font-semibold uppercase tracking-wider mb-2">
+                  <div className="text-xs text-lavender font-semibold uppercase tracking-wider mb-2">
                     {stageLabel}
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground">
@@ -95,9 +95,9 @@ export default function CellDrawer({
                           key={index}
                           className="flex items-start gap-3 text-foreground"
                         >
-                          <span className="flex-shrink-0 w-5 h-5 bg-electric/10 rounded-full flex items-center justify-center mt-0.5">
+                          <span className="flex-shrink-0 w-5 h-5 bg-lavender/10 rounded-full flex items-center justify-center mt-0.5">
                             <svg
-                              className="w-3 h-3 text-electric"
+                              className="w-3 h-3 text-lavender"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
@@ -161,7 +161,7 @@ export default function CellDrawer({
                       {expandedContent.formats.map((format, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1.5 bg-electric/10 text-electric rounded-full text-sm"
+                          className="px-3 py-1.5 bg-lavender/10 text-lavender rounded-full text-sm"
                         >
                           {format}
                         </span>

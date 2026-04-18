@@ -57,16 +57,16 @@ const CELL_CONTENT = [
 
 // Column tints and accent per stage — use Fire Horse system tokens
 const STAGE_TINT = [
-  "bg-electric/[0.04]",
+  "bg-lavender/[0.04]",
   "bg-copper/[0.04]",
   "bg-ember/[0.04]",
 ];
 const STAGE_BORDER_ACTIVE = [
-  "border-electric/35",
+  "border-lavender/35",
   "border-copper/35",
   "border-ember/35",
 ];
-const STAGE_TEXT_ACTIVE = ["text-electric", "text-copper", "text-ember"];
+const STAGE_TEXT_ACTIVE = ["text-lavender", "text-copper", "text-ember"];
 
 // Flowchart diagram node palette (illustration colors — not text contrast targets)
 const C = {
@@ -488,7 +488,7 @@ function RoutingSection() {
             </p>
             <div className="grid grid-cols-3 gap-2">
               {[
-                { label: "Awareness", range: "0–39", content: "Problem-led content. No product pitch.", color: "#4A9FD8" },
+                { label: "Awareness", range: "0–39", content: "Problem-led content. No product pitch.", color: "#B57EDC" },
                 { label: "Consideration", range: "40–74", content: "Solution-led content. Methodology, proof points.", color: "#D4A574" },
                 { label: "Decision", range: "75–90", content: "MQL achieved. Sales-assisted. Post-MQL nurture.", color: C.rose, isSales: true },
               ].map(({ label, range, content, color, isSales }) => (
@@ -672,7 +672,7 @@ export default function DynamicNurtureClient() {
             className="mt-10 flex flex-wrap gap-3"
           >
             {[
-              { label: "3 segments", token: "text-electric" },
+              { label: "3 segments", token: "text-lavender" },
               { label: "3 funnel stages", token: "text-copper" },
               { label: "9 content variants", token: "text-ember" },
               { label: "0–100 composite score", token: "text-slate" },

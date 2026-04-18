@@ -12,10 +12,10 @@ interface FunnelHandoffProps {
 
 const colorConfig = {
   electric: {
-    bg: "bg-electric/10",
-    border: "border-electric/30",
-    text: "text-electric",
-    arrow: "text-electric/60",
+    bg: "bg-lavender/10",
+    border: "border-lavender/30",
+    text: "text-lavender",
+    arrow: "text-lavender/60",
   },
   copper: {
     bg: "bg-copper/10",

@@ -75,7 +75,7 @@ export default function MetricDrawer({
                   <h3 className="text-sm font-semibold text-ember uppercase tracking-wider mb-3">
                     Formula
                   </h3>
-                  <div className="bg-offblack/5 dark:bg-ash/5 rounded-lg p-4 font-mono text-sm text-electric border border-border">
+                  <div className="bg-offblack/5 dark:bg-ash/5 rounded-lg p-4 font-mono text-sm text-lavender border border-border">
                     {metric.formula}
                   </div>
                 </section>
@@ -101,9 +101,9 @@ export default function MetricDrawer({
                         key={index}
                         className="flex items-start gap-3 text-foreground"
                       >
-                        <span className="flex-shrink-0 w-5 h-5 bg-electric/10 rounded-full flex items-center justify-center mt-0.5">
+                        <span className="flex-shrink-0 w-5 h-5 bg-lavender/10 rounded-full flex items-center justify-center mt-0.5">
                           <svg
-                            className="w-3 h-3 text-electric"
+                            className="w-3 h-3 text-lavender"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -222,7 +222,7 @@ export default function MetricDrawer({
                           <div className="text-xs text-foreground-muted mb-1">
                             Typical
                           </div>
-                          <div className="font-mono text-lg font-bold text-electric">
+                          <div className="font-mono text-lg font-bold text-lavender">
                             {typeof metric.bench.typical === "number" &&
                             metric.bench.typical < 1
                               ? `${(metric.bench.typical * 100).toFixed(1)}%`
@@ -247,7 +247,7 @@ export default function MetricDrawer({
                           href={metric.bench.citationUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-xs text-electric hover:text-copper transition-colors flex items-center gap-1"
+                          className="text-xs text-lavender hover:text-copper transition-colors flex items-center gap-1"
                         >
                           <svg
                             className="w-3 h-3"

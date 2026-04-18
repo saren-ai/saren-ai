@@ -108,8 +108,8 @@ export function ConfigurationPanel({
               onClick={() => onChannelMixChange(option.value)}
               className={`px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all ${
                 channelMix === option.value
-                  ? "bg-electric text-white shadow-sm"
-                  : "bg-white dark:bg-card-bg text-charcoal dark:text-foreground border border-charcoal/15 dark:border-ember/20 hover:border-electric dark:hover:border-electric"
+                  ? "bg-lavender text-white shadow-sm"
+                  : "bg-white dark:bg-card-bg text-charcoal dark:text-foreground border border-charcoal/15 dark:border-ember/20 hover:border-lavender dark:hover:border-lavender"
               }`}
               title={option.desc}
             >

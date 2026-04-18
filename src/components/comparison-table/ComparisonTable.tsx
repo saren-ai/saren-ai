@@ -58,8 +58,8 @@ export default function ComparisonTable({
                     <button
                         onClick={() => setViewMode('ai')}
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${viewMode === 'ai'
-                                ? "bg-electric text-white"
-                                : "bg-transparent text-charcoal border border-charcoal/20 hover:bg-electric/10 hover:text-electric dark:text-white dark:border-white/20"
+                                ? "bg-lavender text-white"
+                                : "bg-transparent text-charcoal border border-charcoal/20 hover:bg-lavender/10 hover:text-lavender dark:text-white dark:border-white/20"
                             }`}
                     >
                         AI-Native
@@ -70,13 +70,13 @@ export default function ComparisonTable({
             {/* Table Container */}
             <div className="border border-slate/20 dark:border-white/10 rounded-xl overflow-hidden shadow-sm dark:bg-card-bg">
                 {/* Table Header - Only visible in Split View on larger screens */}
-                <div className={`hidden md:grid ${viewMode === 'split' ? 'grid-cols-12' : 'grid-cols-1'} bg-gradient-to-r from-electric to-charcoal text-white font-bold text-sm tracking-wide uppercase border-b border-white/10`}>
+                <div className={`hidden md:grid ${viewMode === 'split' ? 'grid-cols-12' : 'grid-cols-1'} bg-gradient-to-r from-lavender to-charcoal text-white font-bold text-sm tracking-wide uppercase border-b border-white/10`}>
                     {viewMode === 'split' && (
                         <>
                             <div className="col-span-3 p-4 bg-black/10">Category</div>
                             <div className="col-span-9 grid grid-cols-2">
                                 <div className="p-4 bg-ember/10 border-r border-white/10">Old World Demand Gen</div>
-                                <div className="p-4 bg-electric/10">AI-Native Demand Gen</div>
+                                <div className="p-4 bg-lavender/10">AI-Native Demand Gen</div>
                             </div>
                         </>
                     )}
@@ -143,16 +143,16 @@ export default function ComparisonTable({
                                             exit={{ opacity: 0 }}
                                             className={`
                         p-6 md:p-6 
-                        ${viewMode === 'split' ? 'bg-electric/5 dark:bg-electric/10' : 'bg-electric/5 dark:bg-electric/10'}
+                        ${viewMode === 'split' ? 'bg-lavender/5 dark:bg-lavender/10' : 'bg-lavender/5 dark:bg-lavender/10'}
                       `}
                                         >
                                             {viewMode !== 'split' && (
-                                                <div className="font-bold text-electric mb-3 uppercase text-xs tracking-wider">AI-Native - {row.category}</div>
+                                                <div className="font-bold text-lavender mb-3 uppercase text-xs tracking-wider">AI-Native - {row.category}</div>
                                             )}
                                             <ul className="space-y-3">
                                                 {row.aiNative.map((point, i) => (
                                                     <li key={i} className="flex items-start gap-2 text-sm text-slate dark:text-slate-gray leading-relaxed">
-                                                        <span className="text-electric mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" />
+                                                        <span className="text-lavender mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" />
                                                         {point}
                                                     </li>
                                                 ))}

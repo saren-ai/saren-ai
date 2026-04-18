@@ -39,7 +39,7 @@ export default function PortfolioCard({
           {/* Badge */}
           <div className="absolute top-6 right-6 z-10">
             <span
-              className={`text-xs font-bold px-3 py-1 rounded-full text-white uppercase tracking-wider ${isInteractive ? "bg-ember" : "bg-electric"
+              className={`text-xs font-bold px-3 py-1 rounded-full text-white uppercase tracking-wider ${isInteractive ? "bg-ember" : "bg-lavender"
                 }`}
             >
               {isInteractive ? "Interactive" : "Case Study"}
@@ -51,7 +51,7 @@ export default function PortfolioCard({
             {pillars.map((pillar) => {
               let badgeStyle = "bg-slate/10 text-slate border-slate/20";
               if (pillar === "Predictive Infrastructure") {
-                badgeStyle = "bg-electric/10 text-electric border-electric/20";
+                badgeStyle = "bg-lavender/10 text-lavender border-lavender/20";
               } else if (pillar === "Human Strategy") {
                 badgeStyle = "bg-copper/10 text-copper border-copper/20";
               } else if (pillar === "Scale Without Headcount") {
@@ -88,7 +88,7 @@ export default function PortfolioCard({
           </div>
 
           {/* CTA */}
-          <div className="mt-2 flex items-center gap-2 text-electric font-medium group-hover:text-ember transition-colors">
+          <div className="mt-2 flex items-center gap-2 text-lavender font-medium group-hover:text-ember transition-colors">
             <span>{isInteractive ? "Launch tool" : "Read case study"}</span>
             <svg
               className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
@@ -109,7 +109,7 @@ export default function PortfolioCard({
           <div
             className={`absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r ${isInteractive
                 ? "from-ember to-copper"
-                : "from-electric to-charcoal"
+                : "from-lavender to-charcoal"
               } transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-b-lg`}
           />
         </article>

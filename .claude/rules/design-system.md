@@ -2,23 +2,25 @@
 
 ## Colors (use token classes, never raw hex)
 
-Light-mode values were darkened in March 2026 for WCAG AA compliance. Dark-mode values are unchanged.
+Light-mode values meet WCAG AA. **Electric Blue is retired — use Lavender.**
 
-| Token         | Light (AA-compliant) | Dark      | Contrast (light/bg) | Classes                         |
-|---------------|----------------------|-----------|---------------------|---------------------------------|
-| Ember Red     | #C43322              | #E34234   | 5.06:1 ✓ AA         | `text-ember` / `bg-ember`       |
-| Charcoal      | #1D1D1F              | #F0F4FA   | 15.6:1 ✓ AAA        | `text-charcoal` / `bg-charcoal` |
-| Ash White     | #F5F5F7              | #0F0F0F   | background          | `text-ash` / `bg-ash`           |
-| Electric Blue | #2F6D8E              | #4A9FD8   | 5.26:1 ✓ AA         | `text-electric` / `bg-electric` |
-| Copper        | #C17D3A              | #D4A574   | 3.8:1 large text AA | `text-copper` / `bg-copper`     |
-| Slate Gray    | #5B6470              | #A8B2BF   | 5.55:1 ✓ AA         | `text-slate`                    |
-| Off-black     | #1D1D1F              | #0F0F0F   | background          | `bg-offblack`                   |
+| Token         | Light (AA-compliant) | Dark      | Contrast (light/bg)  | Classes                           |
+|---------------|----------------------|-----------|----------------------|-----------------------------------|
+| Ember Red     | #C43322              | #E34234   | 5.06:1 ✓ AA          | `text-ember` / `bg-ember`         |
+| Lavender      | #7C5AA3              | #B57EDC   | 4.8:1 ✓ AA large     | `text-lavender` / `bg-lavender`   |
+| Charcoal      | #1D1D1F              | #F0F4FA   | 15.6:1 ✓ AAA         | `text-charcoal` / `bg-charcoal`   |
+| Ash White     | #F5F5F7              | #0F0F0F   | background           | `text-ash` / `bg-ash`             |
+| Copper        | #C17D3A              | #D4A574   | 3.8:1 large text AA  | `text-copper` / `bg-copper`       |
+| Slate Gray    | #5B6470              | #A8B2BF   | 5.55:1 ✓ AA          | `text-slate`                      |
+| Off-black     | #1D1D1F              | #0F0F0F   | background           | `bg-offblack`                     |
 
 **Contrast rules:**
-- `text-ember` / `text-electric` / `text-slate`: safe for all text sizes on bg-ash or bg-white
+- `text-ember` / `text-lavender` / `text-slate`: safe for large/bold text on bg-ash or bg-white
+- `text-lavender` dark mode on `#0F0F0F`: 6.2:1 ✓ AAA
 - `text-copper`: only safe for large/bold text (≥18px regular, ≥14px bold); do not use for small body copy
 - `btn-primary` (white on ember): 5.46:1 ✓ AA
 - Dark mode text on `#0F0F0F` bg: all tokens ≥ 7:1 AAA
+- **NEVER** use `text-electric`, `bg-electric`, `#2F6D8E`, or `#4A9FD8` — Electric Blue is retired
 - Never use zinc-*, gray-*, blue-*, or raw hex in className — use the token classes above
 
 ## Fonts
@@ -26,18 +28,20 @@ Light-mode values were darkened in March 2026 for WCAG AA compliance. Dark-mode 
 - **JetBrains Mono** (`--font-jetbrains` / `font-mono`): metrics, data, code
 
 ## Key Utility Classes
-`.section` `.container-narrow` `.btn-primary` `.btn-secondary` `.btn-secondary-dark` `.card` `.metric-value` `.metric-label` `.gradient-dark` `.gradient-accent` `.text-gradient` `.animate-fadeInUp` `.stagger-1…4`
+`.section` `.container-narrow` `.btn-primary` `.btn-lavender` `.btn-secondary` `.btn-secondary-dark` `.card` `.metric-value` `.metric-label` `.gradient-dark` `.gradient-accent` `.gradient-fire` `.text-gradient` `.animate-fadeInUp` `.stagger-1…4`
 
 ## CTA Button Standard — ALL buttons are pills (border-radius: 9999px)
 
-- **`.btn-primary`** — Fire Horse 2026 red (`var(--ember-red)`), white text, pill shape. Use for all primary actions.
-- **`.btn-secondary`** — Transparent bg, `var(--foreground)` border + text, pill shape. Use on light/neutral backgrounds (theme-adaptive).
-- **`.btn-secondary-dark`** — Transparent bg, ash/white border (`rgba(245,245,247,0.5)`) + white text, pill shape. Use on dark backgrounds (`gradient-dark`, `bg-charcoal`, etc.). Hover fills with ash and flips text to charcoal.
+- **`.btn-primary`** — Ember Red bg, white text, pill. Use for all primary actions.
+- **`.btn-lavender`** — Transparent bg, lavender border + text, pill. Secondary on dark or neutral bg. Hover: bg-lavender/10.
+- **`.btn-secondary`** — Transparent bg, foreground border + text, pill. Theme-adaptive on light/neutral bg.
+- **`.btn-secondary-dark`** — Transparent bg, ash/white border + white text, pill. On `gradient-dark` / `bg-charcoal`. Hover fills ash and flips text to charcoal.
 
 **Rules:**
-- Never use `!rounded-full` overrides — both primary and secondary are pills by default.
-- Never use inline Tailwind to replicate button styles — always use the class.
-- On `gradient-dark` or any dark section: secondary CTA must use `.btn-secondary-dark`, not `.btn-secondary`.
+- Never use `!rounded-full` overrides.
+- Never use inline Tailwind to replicate button styles.
+- On dark sections: use `.btn-secondary-dark` or `.btn-lavender`, never `.btn-secondary`.
+- Card accent bars can be ember (execution content) or lavender (strategy/framework content).
 
 ## Layout Pattern
 Always wrap page content in: `<section className="section"><div className="container-narrow">…</div></section>`

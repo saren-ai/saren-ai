@@ -38,9 +38,9 @@ export function TierListControls({
         disabled={hasVoted || !canVote || isSubmitting}
         className={`inline-flex items-center gap-2 px-5 py-2 text-sm font-semibold rounded-lg transition-all ${
           hasVoted
-            ? "bg-electric/20 text-electric dark:text-electric cursor-default"
+            ? "bg-lavender/20 text-lavender dark:text-lavender cursor-default"
             : canVote
-              ? "bg-electric text-white hover:bg-electric/90"
+              ? "bg-lavender text-white hover:bg-lavender/90"
               : "bg-charcoal/10 text-foreground-muted cursor-not-allowed"
         }`}
       >
@@ -68,7 +68,7 @@ export function TierListControls({
       {/* Saren's Picks */}
       <button
         onClick={onSarenPicks}
-        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-electric/10 text-electric hover:bg-electric/20 transition-colors"
+        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-lavender/10 text-lavender hover:bg-lavender/20 transition-colors"
       >
         <Star className="w-4 h-4" />
         Saren&apos;s Picks

@@ -28,7 +28,7 @@ export function EngagementSimulator({
       case "low":
         return "border-slate/20 hover:border-slate/40";
       case "medium":
-        return "border-electric/20 hover:border-electric/40";
+        return "border-lavender/20 hover:border-lavender/40";
       case "high":
         return "border-ember/20 hover:border-ember/40";
     }
@@ -39,7 +39,7 @@ export function EngagementSimulator({
       case "low":
         return "bg-slate/10 text-slate";
       case "medium":
-        return "bg-electric/10 text-electric";
+        return "bg-lavender/10 text-lavender";
       case "high":
         return "bg-ember/10 text-ember";
     }
@@ -86,8 +86,8 @@ export function EngagementSimulator({
         {/* Medium Intent */}
         <div>
           <div className="flex items-center gap-2 mb-3">
-            <Zap className="w-4 h-4 text-electric" />
-            <h4 className="text-sm font-semibold text-electric uppercase tracking-wide">
+            <Zap className="w-4 h-4 text-lavender" />
+            <h4 className="text-sm font-semibold text-lavender uppercase tracking-wide">
               Medium Intent Signals
             </h4>
           </div>

@@ -66,7 +66,7 @@ export default function PersonaDrawer({ persona, onClose }: PersonaDrawerProps) 
           {/* Messaging Altitude */}
           <div className="mb-8">
             <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
-              <span className="w-2 h-2 bg-electric rounded-full" />
+              <span className="w-2 h-2 bg-lavender rounded-full" />
               Messaging Altitude
             </h3>
             <p className="text-foreground leading-relaxed">
@@ -119,7 +119,7 @@ export default function PersonaDrawer({ persona, onClose }: PersonaDrawerProps) 
           {/* Best Content Types */}
           <div className="mb-8">
             <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
-              <span className="w-2 h-2 bg-electric rounded-full" />
+              <span className="w-2 h-2 bg-lavender rounded-full" />
               Best Content Types
             </h3>
             <ul className="grid gap-2">

@@ -84,7 +84,7 @@ export default function PromptDetailView({ prompt, nextPrompt, prevPrompt }: Pro
         <div className="container-narrow py-12 md:py-20">
             {/* Header */}
             <div className="mb-12 text-center">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric/10 text-electric text-sm font-medium mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lavender/10 text-lavender text-sm font-medium mb-4">
                     <span>{prompt.levelTitle}</span>
                     <span>•</span>
                     <span>Step {prompt.id}</span>
@@ -101,7 +101,7 @@ export default function PromptDetailView({ prompt, nextPrompt, prevPrompt }: Pro
                         {prompt.visualLogic.split('->').map((step, i, arr) => (
                             <div key={i} className="flex items-center">
                                 <span className={`px-4 py-2 rounded-lg ${step.includes('[')
-                                    ? 'bg-electric/10 text-electric border border-electric/20'
+                                    ? 'bg-lavender/10 text-lavender border border-lavender/20'
                                     : step.includes('{')
                                         ? 'bg-ember/10 text-ember border border-ember/20'
                                         : 'bg-copper/10 text-copper border border-copper/20'
@@ -154,13 +154,13 @@ export default function PromptDetailView({ prompt, nextPrompt, prevPrompt }: Pro
                 {/* Box 3: Frameworks Used */}
                 <div className="bg-card-bg border border-border rounded-xl p-6 flex flex-col h-full">
                     <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-electric" />
+                        <div className="w-2 h-2 rounded-full bg-lavender" />
                         Frameworks Used
                     </h3>
                     <ul className="space-y-2 flex-grow">
                         {prompt.frameworks?.map((fw, i) => (
                             <li key={i} className="flex gap-3 text-sm text-foreground-muted">
-                                <div className="w-1.5 h-1.5 rounded-full bg-electric/50 mt-1.5 flex-shrink-0" />
+                                <div className="w-1.5 h-1.5 rounded-full bg-lavender/50 mt-1.5 flex-shrink-0" />
                                 {fw}
                             </li>
                         )) || <li className="text-sm text-foreground-muted italic">None specified</li>}
@@ -194,7 +194,7 @@ export default function PromptDetailView({ prompt, nextPrompt, prevPrompt }: Pro
                                 onClick={handleCopy}
                                 className="p-1.5 text-white/40 hover:text-white hover:bg-white/10 rounded-md transition-colors flex items-center gap-2"
                             >
-                                {copied ? <Check className="w-4 h-4 text-electric" /> : <Copy className="w-4 h-4" />}
+                                {copied ? <Check className="w-4 h-4 text-lavender" /> : <Copy className="w-4 h-4" />}
                                 <span className="text-xs font-mono">Copy Prompt</span>
                             </button>
                             <div className="w-px h-4 bg-white/10" />
@@ -236,10 +236,10 @@ export default function PromptDetailView({ prompt, nextPrompt, prevPrompt }: Pro
                     {prevPrompt ? (
                         <Link
                             href={`/portfolio/b2b-marketing-framework/${prevPrompt.slug}`}
-                            className="group p-6 bg-card-bg border border-border rounded-xl hover:border-electric/50 transition-all"
+                            className="group p-6 bg-card-bg border border-border rounded-xl hover:border-lavender/50 transition-all"
                         >
                             <span className="text-xs font-mono text-foreground-muted mb-2 block">Previous Step</span>
-                            <div className="font-bold text-foreground group-hover:text-electric transition-colors flex items-center gap-2">
+                            <div className="font-bold text-foreground group-hover:text-lavender transition-colors flex items-center gap-2">
                                 <div className="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center text-xs">
                                     ←
                                 </div>
@@ -251,10 +251,10 @@ export default function PromptDetailView({ prompt, nextPrompt, prevPrompt }: Pro
                     {nextPrompt ? (
                         <Link
                             href={`/portfolio/b2b-marketing-framework/${nextPrompt.slug}`}
-                            className="group p-6 bg-card-bg border border-border rounded-xl hover:border-electric/50 transition-all text-right"
+                            className="group p-6 bg-card-bg border border-border rounded-xl hover:border-lavender/50 transition-all text-right"
                         >
                             <span className="text-xs font-mono text-foreground-muted mb-2 block">Next Step</span>
-                            <div className="font-bold text-foreground group-hover:text-electric transition-colors flex items-center justify-end gap-2">
+                            <div className="font-bold text-foreground group-hover:text-lavender transition-colors flex items-center justify-end gap-2">
                                 {nextPrompt.title}
                                 <div className="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center text-xs">
                                     →

@@ -29,11 +29,11 @@ export default function SitemapVisualizer({ prompts, selectedId, onSelect, enabl
 
     const getPhaseColors = (phase: string) => {
         if (["Foundation", "Differentiation"].includes(phase)) return {
-            text: "text-electric",
-            bg: "bg-electric/10",
-            border: "border-electric/50",
+            text: "text-lavender",
+            bg: "bg-lavender/10",
+            border: "border-lavender/50",
             glow: "shadow-[0_0_20px_rgba(45,212,191,0.2)]", // Teal-ish glow
-            selectedText: "text-electric"
+            selectedText: "text-lavender"
         };
         if (["Decision", "Activation"].includes(phase)) return {
             text: "text-ember",
@@ -60,7 +60,7 @@ export default function SitemapVisualizer({ prompts, selectedId, onSelect, enabl
 
     return (
         <div className="w-full bg-white dark:bg-offblack border-b border-slate/20 dark:border-charcoal/10 relative transition-colors duration-300">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-electric via-ember to-copper opacity-50" />
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-lavender via-ember to-copper opacity-50" />
 
             <div
                 ref={scrollContainerRef}

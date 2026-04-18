@@ -38,7 +38,7 @@ export default function CaseStudyHero({
     return (
         <section className="hero-card pt-16 pb-16 md:pt-24 md:pb-24 relative bg-white dark:bg-[#161616] border border-[#D2D2D7] dark:border-[#2A2A2A]">
             {/* Background Elements */}
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-electric/5 -skew-x-12 transform translate-x-1/2 pointer-events-none -z-10" />
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-lavender/5 -skew-x-12 transform translate-x-1/2 pointer-events-none -z-10" />
 
             <div className="container-narrow">
                 <Breadcrumb
@@ -56,7 +56,7 @@ export default function CaseStudyHero({
                     <div className="lg:col-span-8">
                         {/* Metadata */}
                         <div className="flex flex-wrap items-center gap-4 text-sm font-mono text-slate mb-6 uppercase tracking-wider">
-                            <span className="text-electric font-bold">{role}</span>
+                            <span className="text-lavender font-bold">{role}</span>
                             <span className="w-1 h-1 bg-slate/30 rounded-full" />
                             <span>{date}</span>
                             {tags && tags.length > 0 && (

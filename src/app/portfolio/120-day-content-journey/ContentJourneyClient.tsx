@@ -38,7 +38,7 @@ export default function ContentJourneyClient() {
                         <div className="grid md:grid-cols-3 gap-8">
                             {[
                                 {
-                                    icon: <Target className="w-6 h-6 text-electric" />,
+                                    icon: <Target className="w-6 h-6 text-lavender" />,
                                     title: "Problem Awareness",
                                     desc: "Validate their pain. Show them they aren't crazy for struggling."
                                 },
@@ -170,7 +170,7 @@ No tool can fix this. It's a mindset shift.`}
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className="block p-6 bg-card-bg border border-border rounded-lg hover:bg-electric/10 transition-colors group"
+                                className="block p-6 bg-card-bg border border-border rounded-lg hover:bg-lavender/10 transition-colors group"
                             >
                                 <h4 className="font-semibold text-foreground group-hover:text-ember transition-colors mb-2">
                                     {item.title}

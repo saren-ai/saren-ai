@@ -10,7 +10,7 @@ export default function HeroSalesPlay() {
             {/* Background Ambience */}
             <div className="absolute inset-0 bg-grid-white/[0.02] -z-10" />
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background via-transparent to-background -z-10" />
-            <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-electric/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
+            <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-lavender/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
             <div className="absolute bottom-[-10%] right-[20%] w-[500px] h-[500px] bg-ember/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
 
             <div className="container px-4 md:px-6 py-20 relative z-10">
@@ -54,7 +54,7 @@ export default function HeroSalesPlay() {
 
                     {/* Right Column: Interactive Calendar */}
                     <div className="w-full relative">
-                        <div className="absolute -inset-4 bg-gradient-to-r from-ember/10 to-electric/10 rounded-2xl blur-xl opacity-50 -z-10" />
+                        <div className="absolute -inset-4 bg-gradient-to-r from-ember/10 to-lavender/10 rounded-2xl blur-xl opacity-50 -z-10" />
                         <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl p-6 md:p-8">
                             <div className="mb-6 flex items-center justify-between">
                                 <h3 className="text-lg font-bold text-white">The 25-Day Sequence</h3>

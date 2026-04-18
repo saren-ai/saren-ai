@@ -123,7 +123,7 @@ export default function PortfolioGrid() {
               let activeClass = "bg-charcoal text-white border-charcoal";
 
               if (isActive) {
-                if (pillar === "Predictive Infrastructure") activeClass = "bg-electric text-white border-electric";
+                if (pillar === "Predictive Infrastructure") activeClass = "bg-lavender text-white border-lavender";
                 else if (pillar === "Human Strategy") activeClass = "bg-copper text-white border-copper";
                 else if (pillar === "Scale Without Headcount") activeClass = "bg-ember text-white border-ember";
               }

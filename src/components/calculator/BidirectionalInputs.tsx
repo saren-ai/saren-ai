@@ -145,7 +145,7 @@ export function BidirectionalInputs({
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-xs text-electric mt-1"
+              className="text-xs text-lavender mt-1"
             >
               Required to hit your goal
             </motion.p>
@@ -191,7 +191,7 @@ export function BidirectionalInputs({
             htmlFor="revenue-input"
             className="flex items-center gap-1.5 text-sm font-semibold text-charcoal dark:text-foreground mb-1.5"
           >
-            <Target className="w-4 h-4 text-electric" />
+            <Target className="w-4 h-4 text-lavender" />
             Revenue Goal
             {isForward && <Lock className="w-3 h-3 text-slate dark:text-foreground-muted" />}
           </label>
@@ -223,7 +223,7 @@ export function BidirectionalInputs({
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-xs text-electric mt-1"
+              className="text-xs text-lavender mt-1"
             >
               Projected annual revenue
             </motion.p>

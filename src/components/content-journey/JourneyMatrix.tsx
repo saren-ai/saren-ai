@@ -56,7 +56,7 @@ export default function JourneyMatrix({ data }: JourneyMatrixProps) {
               <button
                 key={stage.id}
                 onClick={() => jumpToStage(stage.id)}
-                className="px-3 py-1.5 bg-electric/10 hover:bg-electric/20 text-electric rounded-lg text-sm transition-colors"
+                className="px-3 py-1.5 bg-lavender/10 hover:bg-lavender/20 text-lavender rounded-lg text-sm transition-colors"
               >
                 {stage.label}
               </button>
@@ -93,7 +93,7 @@ export default function JourneyMatrix({ data }: JourneyMatrixProps) {
       <div className="overflow-x-auto border border-border rounded-lg">
         <div className="min-w-max">
           {/* AIDA Header Row */}
-          <div className="flex sticky top-0 z-20 bg-background border-b-2 border-electric/30">
+          <div className="flex sticky top-0 z-20 bg-background border-b-2 border-lavender/30">
             {/* Empty corner */}
             <div className="w-48 flex-shrink-0 p-3 border-r border-border bg-background">
               <div className="text-xs font-semibold text-foreground-muted uppercase tracking-wider">
@@ -108,10 +108,10 @@ export default function JourneyMatrix({ data }: JourneyMatrixProps) {
                 id={`stage-${stage.id}`}
                 className={`
                   w-64 flex-shrink-0 p-3 border-r border-border
-                  ${highlightedStage === stage.id ? "bg-electric/10" : ""}
+                  ${highlightedStage === stage.id ? "bg-lavender/10" : ""}
                 `}
               >
-                <div className="text-xs text-electric font-semibold uppercase tracking-wide mb-1">
+                <div className="text-xs text-lavender font-semibold uppercase tracking-wide mb-1">
                   {stage.aida}
                 </div>
                 <div className="text-sm font-semibold text-foreground">{stage.label}</div>
@@ -144,9 +144,9 @@ export default function JourneyMatrix({ data }: JourneyMatrixProps) {
                     )}
                   </div>
                   {row.tooltip && (
-                    <div className="flex-shrink-0 w-4 h-4 rounded-full bg-electric/10 flex items-center justify-center">
+                    <div className="flex-shrink-0 w-4 h-4 rounded-full bg-lavender/10 flex items-center justify-center">
                       <svg
-                        className="w-3 h-3 text-electric"
+                        className="w-3 h-3 text-lavender"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -169,7 +169,7 @@ export default function JourneyMatrix({ data }: JourneyMatrixProps) {
                   key={`${row.id}-${stage.id}`}
                   className={`
                     w-64 flex-shrink-0 p-2 border-r border-border
-                    ${highlightedStage === stage.id ? "bg-electric/5" : ""}
+                    ${highlightedStage === stage.id ? "bg-lavender/5" : ""}
                   `}
                 >
                   <MatrixCell

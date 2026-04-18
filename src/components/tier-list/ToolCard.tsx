@@ -49,7 +49,7 @@ export function ToolCard({ tool, isDragOverlay }: ToolCardProps) {
 
   if (isDragOverlay) {
     return (
-      <div className="p-1.5 bg-white dark:bg-card-bg border-2 border-electric rounded-xl shadow-xl select-none">
+      <div className="p-1.5 bg-white dark:bg-card-bg border-2 border-lavender rounded-xl shadow-xl select-none">
         <CardContent tool={tool} isOverlay />
       </div>
     );
@@ -61,7 +61,7 @@ export function ToolCard({ tool, isDragOverlay }: ToolCardProps) {
       style={style}
       {...attributes}
       {...listeners}
-      className="p-1.5 bg-white dark:bg-card-bg border border-charcoal/15 dark:border-ember/20 rounded-xl cursor-grab active:cursor-grabbing select-none hover:border-electric hover:shadow-md transition-all"
+      className="p-1.5 bg-white dark:bg-card-bg border border-charcoal/15 dark:border-ember/20 rounded-xl cursor-grab active:cursor-grabbing select-none hover:border-lavender hover:shadow-md transition-all"
     >
       <CardContent tool={tool} />
     </div>

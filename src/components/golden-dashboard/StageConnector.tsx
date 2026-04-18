@@ -17,13 +17,13 @@ export default function StageConnector({
 }: StageConnectorProps) {
   // Color based on conversion rate health
   const getHealthColor = (rate: number) => {
-    if (rate >= 20) return "bg-electric";
+    if (rate >= 20) return "bg-lavender";
     if (rate >= 10) return "bg-yellow-500";
     return "bg-ember";
   };
 
   const getHealthTextColor = (rate: number) => {
-    if (rate >= 20) return "text-electric";
+    if (rate >= 20) return "text-lavender";
     if (rate >= 10) return "text-yellow-600";
     return "text-ember";
   };
@@ -37,13 +37,13 @@ export default function StageConnector({
         className="flex flex-col items-center py-2"
       >
         {/* Vertical Line */}
-        <div className="w-0.5 h-4 bg-electric/30" />
+        <div className="w-0.5 h-4 bg-lavender/30" />
 
         {/* Rate Badge */}
         <div
           className={`
             px-2 py-1 rounded-full text-xs font-mono font-semibold
-            bg-electric/10 ${getHealthTextColor(rate)}
+            bg-lavender/10 ${getHealthTextColor(rate)}
           `}
         >
           {rate.toFixed(1)}%
@@ -51,9 +51,9 @@ export default function StageConnector({
         <div className="text-[10px] text-slate mt-0.5">{label}</div>
 
         {/* Arrow */}
-        <div className="w-0.5 h-4 bg-electric/30" />
+        <div className="w-0.5 h-4 bg-lavender/30" />
         <svg
-          className="w-3 h-3 text-electric/50"
+          className="w-3 h-3 text-lavender/50"
           fill="currentColor"
           viewBox="0 0 24 24"
         >
@@ -74,14 +74,14 @@ export default function StageConnector({
       <div
         className={`
           px-2 py-1 rounded-full text-xs font-mono font-semibold mb-1
-          bg-electric/10 ${getHealthTextColor(rate)}
+          bg-lavender/10 ${getHealthTextColor(rate)}
         `}
       >
         {rate.toFixed(1)}%
       </div>
 
       {/* Connector Line */}
-      <div className="relative w-full h-0.5 bg-electric/30">
+      <div className="relative w-full h-0.5 bg-lavender/30">
         {/* Health Indicator Dot */}
         <div
           className={`absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full ${getHealthColor(
@@ -90,7 +90,7 @@ export default function StageConnector({
         />
         {/* Arrow */}
         <svg
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 w-3 h-3 text-electric/50"
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 w-3 h-3 text-lavender/50"
           fill="currentColor"
           viewBox="0 0 24 24"
         >

@@ -34,7 +34,7 @@ export function TierRow({ tier, toolIds, tools }: TierRowProps) {
         ref={setNodeRef}
         className={`flex-1 flex flex-wrap items-center gap-2 p-2 md:p-3 rounded-r-lg border transition-colors min-h-[68px] ${
           isOver
-            ? "bg-electric/10 border-electric dark:bg-electric/10 dark:border-electric"
+            ? "bg-lavender/10 border-lavender dark:bg-lavender/10 dark:border-lavender"
             : "bg-charcoal/5 border-charcoal/10 dark:bg-background-secondary dark:border-ember/10"
         }`}
       >

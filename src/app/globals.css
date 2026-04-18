@@ -14,8 +14,7 @@
   --ash-white: #F5F5F7;
 
   /* Accent Colors */
-  --electric-blue: #2F6D8E;
-  /* #457B9D was 3.92:1 on bg — darkened to #2F6D8E for 5.26:1 AA */
+  --lavender: #7C5AA3;
   --copper: #C17D3A;
 
   /* Neutrals */
@@ -30,7 +29,7 @@
   --foreground-muted: #5B6470;
   /* updated to match --slate-gray */
   --border: #D2D2D7;
-  --border-hover: #457B9D;
+  --border-hover: #7C5AA3;
 
   /* Component specific */
   --card-bg: #FFFFFF;
@@ -69,7 +68,7 @@
   /* Obsidian */
 
   /* Accent Colors */
-  --electric-blue: #4A9FD8;
+  --lavender: #B57EDC;
   --copper: #D4A574;
 
   /* Neutrals */
@@ -83,7 +82,7 @@
   --foreground: #F5F5F7;
   --foreground-muted: #A1A1AA;
   --border: #333333;
-  --border-hover: #4A9FD8;
+  --border-hover: #B57EDC;
 
   /* Component specific */
   --card-bg: #1A1A1A;
@@ -96,7 +95,7 @@
   --color-ember: var(--ember-red);
   --color-charcoal: var(--charcoal-black);
   --color-ash: var(--ash-white);
-  --color-electric: var(--electric-blue);
+  --color-lavender: var(--lavender);
   --color-copper: var(--copper);
   --color-slate: var(--slate-gray);
   --color-offblack: var(--off-black);
@@ -178,7 +177,7 @@ h6 {
 
 /* Selection Styling */
 ::selection {
-  background: var(--electric-blue);
+  background: var(--lavender);
   color: var(--ash-white);
 }
 
@@ -188,7 +187,7 @@ h6 {
 
 /* Focus States */
 :focus-visible {
-  outline: 2px solid var(--electric-blue);
+  outline: 2px solid var(--lavender);
   outline-offset: 2px;
 }
 
@@ -221,11 +220,23 @@ h6 {
 }
 
 .gradient-accent {
-  background: linear-gradient(135deg, var(--electric-blue) 0%, #1D3557 100%);
+  background: linear-gradient(135deg, #7C5AA3 0%, #1D3557 100%);
+}
+
+.dark .gradient-accent {
+  background: linear-gradient(135deg, #B57EDC 0%, #1A1F2E 100%);
+}
+
+.gradient-fire {
+  background: linear-gradient(135deg, #C43322 0%, #7C5AA3 100%);
+}
+
+.dark .gradient-fire {
+  background: linear-gradient(135deg, #E34234 0%, #B57EDC 100%);
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, var(--ember-red), var(--copper));
+  background: linear-gradient(90deg, var(--ember-red), var(--lavender));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -293,6 +304,24 @@ h6 {
   transform: translateY(-2px);
 }
 
+.btn-lavender {
+  background: transparent;
+  color: var(--lavender);
+  padding: 0.875rem 2rem;
+  border: 2px solid var(--lavender);
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-lavender:hover {
+  background: color-mix(in srgb, var(--lavender), transparent 90%);
+  transform: translateY(-2px);
+}
+
 /* Card Styles */
 .card {
   background: var(--card-bg);
@@ -303,13 +332,13 @@ h6 {
 
 .card:hover {
   border-color: var(--border-hover);
-  box-shadow: 0 8px 32px rgba(69, 123, 157, 0.15);
+  box-shadow: 0 8px 32px rgba(123, 90, 163, 0.15);
   transform: translateY(-4px);
 }
 
 .dark .card:hover {
-  box-shadow: 0 8px 32px rgba(74, 159, 216, 0.3);
-  border-color: #4A9FD8;
+  box-shadow: 0 8px 32px rgba(181, 126, 220, 0.3);
+  border-color: #B57EDC;
 }
 
 /* Metric Display */
@@ -465,8 +494,8 @@ h6 {
 }
 
 /* Dark mode link and accent colors - Fire Horse 2026 */
-.dark .text-electric {
-  color: #4A9FD8 !important;
+.dark .text-lavender {
+  color: #B57EDC !important;
 }
 
 .dark .text-ember {
@@ -530,8 +559,8 @@ h6 {
 }
 
 .calculator-input:focus {
-  border-color: #457B9D;
-  box-shadow: 0 0 0 1px rgba(69, 123, 157, 0.5);
+  border-color: #7C5AA3;
+  box-shadow: 0 0 0 1px rgba(124, 90, 163, 0.5);
 }
 
 .dark .calculator-input {
@@ -545,8 +574,8 @@ h6 {
 }
 
 .dark .calculator-input:focus {
-  border-color: #4A9FD8;
-  box-shadow: 0 0 0 1px rgba(74, 159, 216, 0.5);
+  border-color: #B57EDC;
+  box-shadow: 0 0 0 1px rgba(181, 126, 220, 0.5);
 }
 
 .funnel-stage {

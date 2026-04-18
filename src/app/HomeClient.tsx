@@ -106,7 +106,7 @@ export default function HomeClient() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="text-electric font-mono text-sm md:text-base mb-6 tracking-wider uppercase"
+              className="text-lavender font-mono text-sm md:text-base mb-6 tracking-wider uppercase"
             >
               Revenue Resilience · Cybersecurity · AI-Augmented Demand Gen
             </motion.p>
@@ -267,7 +267,7 @@ export default function HomeClient() {
             <div className="h-px flex-1 bg-charcoal/10 dark:bg-white/10" />
             <Link
               href="/portfolio"
-              className="text-electric font-medium hover:text-ember transition-colors flex items-center gap-1 group"
+              className="text-lavender font-medium hover:text-ember transition-colors flex items-center gap-1 group"
             >
               View All Work
               <svg

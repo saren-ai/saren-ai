@@ -210,7 +210,7 @@ export function FocusRail({
                                 key={absIndex}
                                 className={cn(
                                     "absolute aspect-[2/3] w-[280px] md:w-[320px] rounded-2xl border border-border bg-card shadow-2xl transition-all duration-300",
-                                    isCenter ? "z-20 shadow-electric/20 border-electric/50" : "z-10 bg-card/50"
+                                    isCenter ? "z-20 shadow-electric/20 border-lavender/50" : "z-10 bg-card/50"
                                 )}
                                 initial={false}
                                 animate={{
@@ -283,7 +283,7 @@ export function FocusRail({
                                                 href={item.href}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="inline-flex items-center gap-2 text-xs font-medium text-electric hover:text-white mt-4 transition-colors"
+                                                className="inline-flex items-center gap-2 text-xs font-medium text-lavender hover:text-white mt-4 transition-colors"
                                                 onClick={(e) => e.stopPropagation()}
                                             >
                                                 View on Marvel Fandom

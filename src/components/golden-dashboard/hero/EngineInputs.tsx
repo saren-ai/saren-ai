@@ -17,10 +17,10 @@ export default function EngineInputs({ inputs, onChange }: EngineInputsProps) {
     return (
         <div className="h-full bg-background-secondary/80 backdrop-blur-xl border border-border rounded-3xl p-6 flex flex-col gap-6 relative overflow-hidden group shadow-sm transition-colors duration-500">
             {/* Ambient Glow */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-electric/0 via-electric/50 to-electric/0 opacity-50" />
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-lavender/0 via-lavender/50 to-lavender/0 opacity-50" />
 
             <div className="flex items-center gap-3 mb-2">
-                <div className="p-2 bg-electric/10 rounded-lg text-electric">
+                <div className="p-2 bg-lavender/10 rounded-lg text-lavender">
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                     </svg>

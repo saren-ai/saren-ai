@@ -72,7 +72,7 @@ export default function BehavioralScoringClient() {
                                 interpretation layer that sits downstream from your{" "}
                                 <Link
                                     href="/portfolio/120-day-content-journey"
-                                    className="text-electric hover:underline"
+                                    className="text-lavender hover:underline"
                                 >
                                     demand architecture
                                 </Link>
@@ -83,7 +83,7 @@ export default function BehavioralScoringClient() {
                                 buyer intent. Scoring quantifies that evidence. And humans
                                 decide when the evidence is sufficient to act.
                             </p>
-                            <div className="bg-gradient-to-r from-electric/10 to-copper/10 dark:from-background dark:to-background border-l-4 border-electric rounded-r-lg p-6 my-8">
+                            <div className="bg-gradient-to-r from-lavender/10 to-copper/10 dark:from-background dark:to-background border-l-4 border-lavender rounded-r-lg p-6 my-8">
                                 <h3 className="text-lg font-semibold text-foreground mb-3">
                                     Why This Matters
                                 </h3>

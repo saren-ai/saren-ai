@@ -88,8 +88,8 @@ export default function ThoughtLeadershipPage() {
                                 </div>
                                 <div className="h-px w-full bg-[var(--border)]"></div>
                                 <div className="flex flex-col sm:flex-row sm:items-start gap-4">
-                                    <div className="px-3 py-1 rounded-full bg-electric/10 inline-flex items-center justify-center flex-shrink-0 mt-1 self-start">
-                                        <span className="text-xs font-bold text-electric uppercase tracking-wider">New Reality</span>
+                                    <div className="px-3 py-1 rounded-full bg-lavender/10 inline-flex items-center justify-center flex-shrink-0 mt-1 self-start">
+                                        <span className="text-xs font-bold text-lavender uppercase tracking-wider">New Reality</span>
                                     </div>
                                     <p className="text-charcoal m-0 leading-relaxed pt-1 font-medium flex-1">Build a citable body of work → get referenced by AI systems → show up in the moment your buyer is actively researching → earn trust before the first conversation.</p>
                                 </div>

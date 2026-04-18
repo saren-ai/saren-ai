@@ -98,7 +98,7 @@ export function FunnelDisplay({
       value: isMonthly ? funnel.monthlyOpportunities : funnel.opportunities,
       costPer: funnel.cpOpp,
       costLabel: "CPOpp",
-      color: "bg-electric/10 dark:bg-electric/20",
+      color: "bg-lavender/10 dark:bg-lavender/20",
       borderColor: "border-emerald-500",
     },
     {
@@ -107,7 +107,7 @@ export function FunnelDisplay({
       value: isMonthly ? funnel.monthlyClosedWon : funnel.closedWon,
       costPer: funnel.cac,
       costLabel: "CAC",
-      color: "bg-electric/10 dark:bg-electric/20",
+      color: "bg-lavender/10 dark:bg-lavender/20",
       borderColor: "border-green-600",
     },
   ];
@@ -130,7 +130,7 @@ export function FunnelDisplay({
 
   const getPerformanceColor = (rate: number, benchmark: { avg: number }) => {
     const ratio = rate / benchmark.avg;
-    if (ratio >= 1.05) return "text-electric bg-electric/10 dark:bg-electric/20";
+    if (ratio >= 1.05) return "text-lavender bg-lavender/10 dark:bg-lavender/20";
     if (ratio >= 0.95) return "text-yellow-500 bg-yellow-500/10 dark:bg-yellow-500/20";
     return "text-ember bg-ember/10 dark:bg-ember/20";
   };
@@ -208,12 +208,12 @@ export function FunnelDisplay({
                           if (e.key === "Escape") handleEditCancel();
                         }}
                         autoFocus
-                        className={`w-14 text-center text-xs font-mono bg-white dark:bg-card-bg border rounded px-1 py-0.5 text-charcoal dark:text-foreground ${editState.error ? "border-ember" : "border-electric"}`}
+                        className={`w-14 text-center text-xs font-mono bg-white dark:bg-card-bg border rounded px-1 py-0.5 text-charcoal dark:text-foreground ${editState.error ? "border-ember" : "border-lavender"}`}
                       />
                       <div className="flex gap-0.5">
                         <button
                           onClick={handleEditConfirm}
-                          className="p-0.5 text-electric hover:bg-electric/10 rounded"
+                          className="p-0.5 text-lavender hover:bg-lavender/10 rounded"
                         >
                           <Check className="w-3 h-3" />
                         </button>
@@ -250,7 +250,7 @@ export function FunnelDisplay({
                     >
                       {formatPercent(conversionRateValues[index])}
                       {onConversionRateEdit && (
-                        <Pencil className="w-2.5 h-2.5 absolute -top-1 -right-1 opacity-0 group-hover:opacity-100 transition-opacity text-electric" />
+                        <Pencil className="w-2.5 h-2.5 absolute -top-1 -right-1 opacity-0 group-hover:opacity-100 transition-opacity text-lavender" />
                       )}
                     </button>
                   )}
@@ -298,7 +298,7 @@ export function FunnelDisplay({
 
             {index < stages.length - 1 && (
               <div className="flex items-center gap-2 pl-4">
-                <div className="w-0.5 h-6 bg-electric/30" />
+                <div className="w-0.5 h-6 bg-lavender/30" />
                 {editState.stageIndex === index ? (
                   <div className="flex items-center gap-2">
                     <input
@@ -312,12 +312,12 @@ export function FunnelDisplay({
                         if (e.key === "Escape") handleEditCancel();
                       }}
                       autoFocus
-                      className="w-16 text-center text-xs font-mono bg-white dark:bg-card-bg border border-electric rounded px-2 py-1 text-charcoal dark:text-foreground"
+                      className="w-16 text-center text-xs font-mono bg-white dark:bg-card-bg border border-lavender rounded px-2 py-1 text-charcoal dark:text-foreground"
                     />
                     <span className="text-[10px] text-slate dark:text-foreground-muted">
                       % (Avg: {formatPercent(conversionRateBenchmarks[index].avg)})
                     </span>
-                    <button onClick={handleEditConfirm} className="text-electric">
+                    <button onClick={handleEditConfirm} className="text-lavender">
                       <Check className="w-4 h-4" />
                     </button>
                     <button onClick={handleEditCancel} className="text-ember">

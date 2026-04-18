@@ -143,7 +143,7 @@ export default function ItsGoodToBePitchedClient() {
                                     {phase.description}
                                 </p>
                                 <div className="pt-4 border-t border-border">
-                                    <p className="text-sm font-semibold text-electric mb-2">
+                                    <p className="text-sm font-semibold text-lavender mb-2">
                                         Tool: {phase.tool}
                                     </p>
                                     <p className="text-sm text-foreground-muted">
@@ -237,9 +237,9 @@ export default function ItsGoodToBePitchedClient() {
                                 key={index}
                                 className="bg-card-bg dark:bg-background border border-border rounded-lg p-6"
                             >
-                                <div className="w-12 h-12 bg-electric/10 rounded-lg flex items-center justify-center mb-4">
+                                <div className="w-12 h-12 bg-lavender/10 rounded-lg flex items-center justify-center mb-4">
                                     <svg
-                                        className="w-6 h-6 text-electric"
+                                        className="w-6 h-6 text-lavender"
                                         fill="none"
                                         stroke="currentColor"
                                         viewBox="0 0 24 24"
@@ -360,7 +360,7 @@ export default function ItsGoodToBePitchedClient() {
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className="block p-6 bg-card-bg border border-border rounded-lg hover:bg-electric/10 transition-colors group"
+                                className="block p-6 bg-card-bg border border-border rounded-lg hover:bg-lavender/10 transition-colors group"
                             >
                                 <h4 className="font-semibold text-foreground group-hover:text-ember transition-colors mb-2">
                                     {item.title}

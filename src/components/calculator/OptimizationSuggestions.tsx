@@ -22,10 +22,10 @@ export function OptimizationSuggestions({
 }: OptimizationSuggestionsProps) {
   if (suggestions.length === 0) {
     return (
-      <div className="bg-electric/5 border border-electric/20 rounded-xl p-5">
+      <div className="bg-lavender/5 border border-lavender/20 rounded-xl p-5">
         <div className="flex items-center gap-2">
-          <Lightbulb className="w-5 h-5 text-electric" />
-          <p className="text-sm font-medium text-electric dark:text-electric">
+          <Lightbulb className="w-5 h-5 text-lavender" />
+          <p className="text-sm font-medium text-lavender dark:text-lavender">
             Your funnel is performing at or above industry benchmarks. Nice work.
           </p>
         </div>
@@ -74,7 +74,7 @@ export function OptimizationSuggestions({
                         {formatPercent(suggestion.current)}
                       </span>
                       <ArrowRight className="w-3 h-3" />
-                      <span className="font-mono text-electric dark:text-electric">
+                      <span className="font-mono text-lavender dark:text-lavender">
                         {formatPercent(suggestion.target)}
                       </span>
                     </div>
@@ -90,8 +90,8 @@ export function OptimizationSuggestions({
 
                 {suggestion.savingsEstimate > 0 && (
                   <div className="flex items-center gap-1.5 mt-2">
-                    <TrendingDown className="w-3 h-3 text-electric" />
-                    <span className="text-xs font-medium text-electric dark:text-electric">
+                    <TrendingDown className="w-3 h-3 text-lavender" />
+                    <span className="text-xs font-medium text-lavender dark:text-lavender">
                       Est. impact: {formatCurrency(suggestion.savingsEstimate)}
                     </span>
                   </div>

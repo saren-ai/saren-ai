@@ -96,9 +96,9 @@ export default function SovereignPersonasClient() {
                             </div>
 
                             <div className="p-6 bg-card-bg dark:bg-background-secondary rounded-lg border border-border">
-                                <div className="w-12 h-12 bg-electric/10 rounded-lg flex items-center justify-center mb-4">
+                                <div className="w-12 h-12 bg-lavender/10 rounded-lg flex items-center justify-center mb-4">
                                     <svg
-                                        className="w-6 h-6 text-electric"
+                                        className="w-6 h-6 text-lavender"
                                         fill="none"
                                         stroke="currentColor"
                                         viewBox="0 0 24 24"

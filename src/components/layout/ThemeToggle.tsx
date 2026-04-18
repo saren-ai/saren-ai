@@ -47,7 +47,7 @@ export default function ThemeToggle() {
             opacity: theme === "dark" ? 1 : 0,
           }}
           transition={{ duration: 0.2 }}
-          className="absolute inset-0 w-5 h-5 text-electric"
+          className="absolute inset-0 w-5 h-5 text-lavender"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

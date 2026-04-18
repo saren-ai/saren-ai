@@ -89,7 +89,7 @@ export default async function PlaybooksIndex({ searchParams }: { searchParams: P
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {categories[cat].map((playbook) => (
                                     <Link href={`/playbooks/${playbook.playbook_id}`} key={playbook.playbook_id} className="group h-full">
-                                        <div className="h-full bg-white dark:bg-charcoal/5 border border-charcoal/10 dark:border-charcoal/10 rounded-xl p-6 transition-all duration-300 hover:bg-ash dark:hover:bg-charcoal/10 hover:border-electric/50 dark:hover:border-electric/30 hover:shadow-lg hover:-translate-y-1 flex flex-col relative overflow-hidden">
+                                        <div className="h-full bg-white dark:bg-charcoal/5 border border-charcoal/10 dark:border-charcoal/10 rounded-xl p-6 transition-all duration-300 hover:bg-ash dark:hover:bg-charcoal/10 hover:border-lavender/50 dark:hover:border-lavender/30 hover:shadow-lg hover:-translate-y-1 flex flex-col relative overflow-hidden">
                                             <div className="absolute top-0 right-0 p-4 opacity-5 dark:opacity-5 group-hover:opacity-10 dark:group-hover:opacity-10 transition-opacity">
                                                 <ArrowRight className="w-12 h-12 text-charcoal dark:text-white" />
                                             </div>
@@ -105,7 +105,7 @@ export default async function PlaybooksIndex({ searchParams }: { searchParams: P
                                                         </span>
                                                     )}
                                                 </div>
-                                                <h3 className="text-xl font-medium text-charcoal dark:text-white group-hover:text-electric dark:group-hover:text-electric transition-colors">
+                                                <h3 className="text-xl font-medium text-charcoal dark:text-white group-hover:text-lavender dark:group-hover:text-lavender transition-colors">
                                                     {playbook.title}
                                                 </h3>
                                                 <p className="text-sm text-slate dark:text-slate line-clamp-3 leading-relaxed">

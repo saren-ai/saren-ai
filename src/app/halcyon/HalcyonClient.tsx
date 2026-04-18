@@ -416,7 +416,7 @@ export default function HalcyonClient() {
                   ))}
                 </div>
 
-                <div className="flex items-center gap-1.5 text-xs font-semibold text-electric group-hover:text-ash transition-colors">
+                <div className="flex items-center gap-1.5 text-xs font-semibold text-lavender group-hover:text-ash transition-colors">
                   <span>View full resume</span>
                   <span className="group-hover:translate-x-0.5 transition-transform">→</span>
                 </div>
@@ -505,7 +505,7 @@ export default function HalcyonClient() {
                     <span className="text-xs text-slate dark:text-slate font-mono">
                       {item.label}
                     </span>
-                    <span className="text-sm text-electric group-hover:text-ember transition-colors font-medium">
+                    <span className="text-sm text-lavender group-hover:text-ember transition-colors font-medium">
                       {item.cta}
                     </span>
                   </div>
@@ -646,7 +646,7 @@ export default function HalcyonClient() {
                 >
                   {phase.num}
                 </span>
-                <p className="text-xs font-semibold tracking-widest uppercase text-electric dark:text-electric mb-2">
+                <p className="text-xs font-semibold tracking-widest uppercase text-lavender dark:text-lavender mb-2">
                   {phase.days}
                 </p>
                 <h3 className="text-lg font-bold text-charcoal dark:text-foreground mb-4">

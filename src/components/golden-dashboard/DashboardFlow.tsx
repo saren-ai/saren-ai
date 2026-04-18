@@ -82,7 +82,7 @@ export default function DashboardFlow() {
       <div className="flex items-center justify-between">
         <div className="flex flex-wrap items-center gap-4 text-sm">
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-electric" />
+            <div className="w-3 h-3 rounded-full bg-lavender" />
             <span className="text-foreground-muted">Healthy (&gt;20%)</span>
           </div>
           <div className="flex items-center gap-2">
@@ -137,8 +137,8 @@ export default function DashboardFlow() {
 
           {/* Connector: Spend → Row 2 (branching down) */}
           <div className="flex flex-col items-center py-2">
-            <div className="w-0.5 h-8 bg-electric/50 rounded-full" />
-            <div className="flex items-center gap-1 text-xs text-electric font-medium my-1">
+            <div className="w-0.5 h-8 bg-lavender/50 rounded-full" />
+            <div className="flex items-center gap-1 text-xs text-lavender font-medium my-1">
               <ArrowDown className="w-4 h-4" />
               <span>Budget Deployed</span>
             </div>
@@ -374,13 +374,13 @@ export default function DashboardFlow() {
 
         {/* Connector */}
         <div className="flex justify-center py-2">
-          <div className="w-0.5 h-6 bg-electric/50 rounded-full" />
+          <div className="w-0.5 h-6 bg-lavender/50 rounded-full" />
         </div>
 
         {/* Row 2: Marketing metrics */}
         <div>
-          <h4 className="text-xs font-semibold text-electric uppercase tracking-wider mb-2 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-electric" />
+          <h4 className="text-xs font-semibold text-lavender uppercase tracking-wider mb-2 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-lavender" />
             Marketing Funnel
           </h4>
           <div className="grid grid-cols-3 gap-3">
@@ -409,10 +409,10 @@ export default function DashboardFlow() {
         </div>
 
         {/* Lead Scoring Container - Tablet version */}
-        <div className="p-4 bg-electric/5 border border-electric/20 rounded-lg">
+        <div className="p-4 bg-lavender/5 border border-lavender/20 rounded-lg">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-sm font-medium text-electric flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-electric" />
+            <span className="text-sm font-medium text-lavender flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-lavender" />
               Lead Scoring
             </span>
             <span className="text-xs text-foreground-muted">
@@ -423,7 +423,7 @@ export default function DashboardFlow() {
             <div className="text-xs text-foreground-muted">Fit + Engagement → 75+ pts</div>
             <div className="flex items-center gap-2">
               <span className="text-xs text-foreground-muted">MQLs:</span>
-              <span className="font-mono text-xl font-bold text-electric">
+              <span className="font-mono text-xl font-bold text-lavender">
                 {formatNumber(currentModel.stages.mqls, 0)}
               </span>
             </div>
@@ -475,8 +475,8 @@ export default function DashboardFlow() {
       {/* ========== MOBILE VIEW: Vertical Stack ========== */}
       <div className="md:hidden space-y-2">
         {/* Marketing Funnel Section Header */}
-        <h4 className="text-xs font-semibold text-electric uppercase tracking-wider mb-1 flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-electric" />
+        <h4 className="text-xs font-semibold text-lavender uppercase tracking-wider mb-1 flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-lavender" />
           Marketing Funnel
         </h4>
 
@@ -507,7 +507,7 @@ export default function DashboardFlow() {
             />
             {idx < 3 && (
               <div className="flex justify-center py-1.5">
-                <div className="w-0.5 h-4 bg-electric/40 rounded-full" />
+                <div className="w-0.5 h-4 bg-lavender/40 rounded-full" />
               </div>
             )}
           </div>
@@ -517,10 +517,10 @@ export default function DashboardFlow() {
         {isExpanded && (
           <>
             {/* Lead Scoring → MQLs */}
-            <div className="p-3 bg-electric/5 border border-electric/20 rounded-lg my-2">
+            <div className="p-3 bg-lavender/5 border border-lavender/20 rounded-lg my-2">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs text-electric font-medium flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-electric" />
+                <span className="text-xs text-lavender font-medium flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-lavender" />
                   Lead Scoring
                 </span>
                 <span className="text-[10px] text-foreground-muted">
@@ -595,7 +595,7 @@ export default function DashboardFlow() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             onClick={() => setIsExpanded(true)}
-            className="w-full py-4 bg-electric/10 text-electric rounded-lg font-medium hover:bg-electric/20 transition-colors flex items-center justify-center gap-2"
+            className="w-full py-4 bg-lavender/10 text-lavender rounded-lg font-medium hover:bg-lavender/20 transition-colors flex items-center justify-center gap-2"
           >
             Show Full Funnel
             <ArrowDown className="w-4 h-4" />
@@ -632,7 +632,7 @@ export default function DashboardFlow() {
             <div className="text-xs text-foreground-muted">Total Spend</div>
           </div>
           <div>
-            <div className="font-mono text-2xl font-bold text-electric">
+            <div className="font-mono text-2xl font-bold text-lavender">
               {formatNumber(currentModel.stages.mqls, 0)}
             </div>
             <div className="text-xs text-foreground-muted">MQLs</div>

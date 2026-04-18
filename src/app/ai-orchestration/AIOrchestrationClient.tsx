@@ -13,7 +13,7 @@ export default function AIOrchestrationClient() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-xs font-semibold tracking-widest uppercase text-electric mb-4"
+            className="text-xs font-semibold tracking-widest uppercase text-lavender mb-4"
           >
             AI Orchestration
           </motion.p>
@@ -77,8 +77,8 @@ export default function AIOrchestrationClient() {
                 phase: 'Signal Detection',
                 machine: 'Scans six platforms every 4 hours. Scores every signal on recency, explicitness, and persona fit.',
                 human: 'Reviews flagged signals above a score threshold. Decides which ones are worth acting on.',
-                color: 'text-electric',
-                accent: 'border-electric/20 bg-electric/5',
+                color: 'text-lavender',
+                accent: 'border-lavender/20 bg-lavender/5',
               },
               {
                 phase: 'Message Drafting',
@@ -98,8 +98,8 @@ export default function AIOrchestrationClient() {
                 phase: 'Campaign Optimization',
                 machine: 'Reallocates spend across channels based on conversion velocity.',
                 human: 'Sets guardrails. Interprets anomalies. Decides when a trend is a signal vs. noise.',
-                color: 'text-electric',
-                accent: 'border-electric/20 bg-electric/5',
+                color: 'text-lavender',
+                accent: 'border-lavender/20 bg-lavender/5',
               },
             ].map((item, i) => (
               <motion.div
@@ -220,8 +220,8 @@ export default function AIOrchestrationClient() {
                   { label: 'Signal-State Framework', href: '/signal-state/framework' },
                   { label: 'Signal Library', href: '/signal-state/signal-library' },
                 ],
-                color: 'text-electric',
-                accent: 'border-electric/30',
+                color: 'text-lavender',
+                accent: 'border-lavender/30',
               },
               {
                 area: 'Behavioral Scoring',
@@ -284,7 +284,7 @@ export default function AIOrchestrationClient() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <p className="text-xs font-semibold tracking-widest uppercase text-electric mb-4">The distinction</p>
+            <p className="text-xs font-semibold tracking-widest uppercase text-lavender mb-4">The distinction</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-5">Automation vs. Orchestration</h2>
             <p className="text-foreground-muted text-lg">Most teams reach for automation. That&apos;s the wrong frame.</p>
           </motion.div>
@@ -295,7 +295,7 @@ export default function AIOrchestrationClient() {
                 <tr>
                   <th className="text-left py-3 px-5 text-xs font-semibold tracking-widest uppercase text-slate w-36">Dimension</th>
                   <th className="text-left py-3 px-5 text-xs font-semibold tracking-widest uppercase text-slate">Automation</th>
-                  <th className="text-left py-3 px-5 text-xs font-semibold tracking-widest uppercase text-electric">Orchestration</th>
+                  <th className="text-left py-3 px-5 text-xs font-semibold tracking-widest uppercase text-lavender">Orchestration</th>
                 </tr>
               </thead>
               <tbody>

@@ -18,7 +18,7 @@ export default function BentoGrid() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-block px-4 py-1.5 rounded-full border border-electric/30 bg-electric/5 text-electric text-sm font-mono font-bold mb-6"
+                        className="inline-block px-4 py-1.5 rounded-full border border-lavender/30 bg-lavender/5 text-lavender text-sm font-mono font-bold mb-6"
                     >
                         THE FRAMEWORK DATABASE
                     </motion.div>

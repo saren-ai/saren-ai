@@ -27,7 +27,7 @@ export default function Tooltip({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: position === "top" ? 10 : -10 }}
           transition={{ duration: 0.2 }}
-          className={`absolute z-50 w-72 p-4 bg-offblack border border-electric/30 rounded-lg shadow-xl ${
+          className={`absolute z-50 w-72 p-4 bg-offblack border border-lavender/30 rounded-lg shadow-xl ${
             position === "top"
               ? "bottom-full mb-2 left-1/2 -translate-x-1/2"
               : "top-full mt-2 left-1/2 -translate-x-1/2"
@@ -35,7 +35,7 @@ export default function Tooltip({
         >
           {/* Arrow */}
           <div
-            className={`absolute w-3 h-3 bg-offblack border-electric/30 rotate-45 left-1/2 -translate-x-1/2 ${
+            className={`absolute w-3 h-3 bg-offblack border-lavender/30 rotate-45 left-1/2 -translate-x-1/2 ${
               position === "top"
                 ? "bottom-0 translate-y-1/2 border-r border-b"
                 : "top-0 -translate-y-1/2 border-l border-t"
@@ -47,18 +47,18 @@ export default function Tooltip({
             <p className="text-ash/70 text-xs leading-relaxed">{description}</p>
 
             {formula && (
-              <div className="pt-2 border-t border-electric/20">
+              <div className="pt-2 border-t border-lavender/20">
                 <div className="text-[10px] text-ash/50 uppercase tracking-wide mb-1">
                   Formula
                 </div>
-                <code className="text-electric/90 text-xs font-mono">
+                <code className="text-lavender/90 text-xs font-mono">
                   {formula}
                 </code>
               </div>
             )}
 
             {whyItMatters && (
-              <div className="pt-2 border-t border-electric/20">
+              <div className="pt-2 border-t border-lavender/20">
                 <div className="text-[10px] text-ash/50 uppercase tracking-wide mb-1">
                   Why it matters
                 </div>
@@ -68,7 +68,7 @@ export default function Tooltip({
               </div>
             )}
 
-            <p className="text-[10px] text-ash/40 pt-2 border-t border-electric/20">
+            <p className="text-[10px] text-ash/40 pt-2 border-t border-lavender/20">
               💡 Click for detailed insights
             </p>
           </div>

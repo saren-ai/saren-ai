@@ -20,7 +20,7 @@ export function UnrankedPool({ toolIds, tools }: UnrankedPoolProps) {
       ref={setNodeRef}
       className={`rounded-xl border p-4 transition-colors ${
         isOver
-          ? "bg-electric/10 border-electric dark:bg-electric/10 dark:border-electric"
+          ? "bg-lavender/10 border-lavender dark:bg-lavender/10 dark:border-lavender"
           : "bg-white border-charcoal/10 dark:bg-card-bg dark:border-ember/20"
       }`}
     >

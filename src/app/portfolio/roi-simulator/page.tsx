@@ -137,8 +137,8 @@ export default function GoldenDashboardPage() {
               </div>
 
               <div className="bg-background-secondary p-6 rounded-lg border border-border">
-                <div className="w-12 h-12 bg-electric/10 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 bg-lavender/10 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-lavender" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                 </div>
@@ -209,7 +209,7 @@ export default function GoldenDashboardPage() {
       </section>
 
       {/* CTA */}
-      <section className="section gradient-dark text-electric-foreground">
+      <section className="section gradient-dark text-lavender-foreground">
         <div className="container-narrow text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
             Need a custom simulator for your business?
@@ -279,7 +279,7 @@ export default function GoldenDashboardPage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block p-6 bg-charcoal/5 rounded-lg hover:bg-electric/10 transition-colors group"
+                className="block p-6 bg-charcoal/5 rounded-lg hover:bg-lavender/10 transition-colors group"
               >
                 <h4 className="font-semibold text-charcoal group-hover:text-ember transition-colors mb-2">
                   {item.title}

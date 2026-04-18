@@ -32,18 +32,18 @@ const INTENSITY_CONFIG: Record<IntentLevel, { bg: string; text: string; label: s
     dot: 'bg-charcoal/20 dark:bg-ash/20',
   },
   low: {
-    bg: 'bg-electric/10',
-    text: 'text-electric',
+    bg: 'bg-lavender/10',
+    text: 'text-lavender',
     label: 'Low',
-    border: 'border-electric/20',
-    dot: 'bg-electric/50',
+    border: 'border-lavender/20',
+    dot: 'bg-lavender/50',
   },
   medium: {
-    bg: 'bg-electric/25',
-    text: 'text-electric',
+    bg: 'bg-lavender/25',
+    text: 'text-lavender',
     label: 'Medium',
-    border: 'border-electric/40',
-    dot: 'bg-electric',
+    border: 'border-lavender/40',
+    dot: 'bg-lavender',
   },
   high: {
     bg: 'bg-copper/25',
@@ -189,7 +189,7 @@ export default function IntentMatrixClient() {
           <div className="overflow-x-auto">
             <div className="min-w-max border border-border rounded-xl">
               {/* Header Row */}
-              <div className="flex sticky top-0 z-20 bg-background border-b-2 border-electric/20">
+              <div className="flex sticky top-0 z-20 bg-background border-b-2 border-lavender/20">
                 <div className="w-52 flex-shrink-0 p-3 border-r border-border">
                   <div className="text-xs font-semibold text-foreground-muted uppercase tracking-wider">
                     Intent Signal
@@ -404,9 +404,9 @@ export default function IntentMatrixClient() {
                         {assets.map((asset, i) => (
                           <div
                             key={i}
-                            className="flex items-start gap-3 bg-electric/5 border border-electric/15 rounded-lg px-3 py-2.5"
+                            className="flex items-start gap-3 bg-lavender/5 border border-lavender/15 rounded-lg px-3 py-2.5"
                           >
-                            <span className="text-electric mt-0.5 shrink-0">{asset.icon}</span>
+                            <span className="text-lavender mt-0.5 shrink-0">{asset.icon}</span>
                             <p className="text-sm text-foreground leading-snug">{asset.label}</p>
                           </div>
                         ))}
@@ -444,7 +444,7 @@ export default function IntentMatrixClient() {
                 </p>
                 <Link
                   href="/halcyon/content-matrix"
-                  className="text-xs font-semibold text-electric hover:text-ember transition-colors flex items-center gap-1"
+                  className="text-xs font-semibold text-lavender hover:text-ember transition-colors flex items-center gap-1"
                 >
                   Full content matrix <ArrowRight className="w-3 h-3" />
                 </Link>

@@ -117,9 +117,9 @@ export function ProspectTable() {
             return <ChevronsUpDown className="w-4 h-4 ml-1 opacity-20 group-hover:opacity-50 transition-opacity" />;
         }
         return sortConfig.direction === "asc" ? (
-            <ChevronUp className="w-4 h-4 ml-1 text-electric" />
+            <ChevronUp className="w-4 h-4 ml-1 text-lavender" />
         ) : (
-            <ChevronDown className="w-4 h-4 ml-1 text-electric" />
+            <ChevronDown className="w-4 h-4 ml-1 text-lavender" />
         );
     };
 
@@ -131,7 +131,7 @@ export function ProspectTable() {
                     <p className="text-xs text-slate dark:text-slate">Generated Shortlist Example</p>
                 </div>
                 <div className="flex gap-2">
-                    <span className="px-2 py-1 bg-electric/10 dark:bg-electric/10 text-electric dark:text-electric text-xs rounded border border-electric/20 dark:border-electric/20 font-medium transition-colors">Invest Now: 3</span>
+                    <span className="px-2 py-1 bg-lavender/10 dark:bg-lavender/10 text-lavender dark:text-lavender text-xs rounded border border-lavender/20 dark:border-lavender/20 font-medium transition-colors">Invest Now: 3</span>
                     <span className="px-2 py-1 bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400 text-xs rounded border border-orange-200 dark:border-orange-500/20 font-medium transition-colors">Warm Up: 1</span>
                     <span className="px-2 py-1 bg-ash dark:bg-slate/10 text-slate dark:text-slate text-xs rounded border border-slate/20 dark:border-slate/20 font-medium transition-colors">Watch List: 1</span>
                 </div>
@@ -164,7 +164,7 @@ export function ProspectTable() {
                                 </td>
                                 <td className="px-5 py-4">
                                     <div className={`inline-flex items-center justify-center w-8 h-8 rounded-full font-bold text-xs border transition-colors
-                                        ${prospect.score >= 70 ? 'bg-electric/10 text-electric border-electric/20 dark:bg-electric/10 dark:text-electric dark:border-electric/20' : 
+                                        ${prospect.score >= 70 ? 'bg-lavender/10 text-lavender border-lavender/20 dark:bg-lavender/10 dark:text-lavender dark:border-lavender/20' : 
                                           prospect.score >= 50 ? 'bg-orange-50 text-orange-600 border-orange-200 dark:bg-orange-500/10 dark:text-orange-400 dark:border-orange-500/20' : 
                                           'bg-ash text-slate border-slate/20 dark:bg-charcoal/5 dark:text-slate dark:border-charcoal/10'}`}
                                     >
@@ -174,7 +174,7 @@ export function ProspectTable() {
                                 <td className="px-5 py-4">
                                     <div className="flex items-center gap-1.5">
                                         <div className={`w-2 h-2 rounded-full 
-                                            ${prospect.tier === 'Invest Now' ? 'bg-electric dark:bg-electric' : 
+                                            ${prospect.tier === 'Invest Now' ? 'bg-lavender dark:bg-lavender' : 
                                               prospect.tier === 'Warm Up' ? 'bg-orange-500' : 
                                               'bg-slate dark:bg-slate'}`} 
                                         />
@@ -183,7 +183,7 @@ export function ProspectTable() {
                                 </td>
                                 <td className="px-5 py-4 hidden md:table-cell">
                                     <div className="text-charcoal dark:text-ash/70 line-clamp-1 mb-1">{prospect.intentSignal}</div>
-                                    <div className="text-xs text-slate dark:text-slate italic line-clamp-1 border-l-2 border-electric/30 dark:border-electric/30 pl-2">
+                                    <div className="text-xs text-slate dark:text-slate italic line-clamp-1 border-l-2 border-lavender/30 dark:border-lavender/30 pl-2">
                                         &quot;{prospect.outreachMessage}&quot;
                                     </div>
                                 </td>

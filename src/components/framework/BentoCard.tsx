@@ -31,20 +31,20 @@ const getLevelColors = (level: string) => {
             };
         case "L3":
             return {
-                border: "border-electric/30 group-hover:border-electric/50",
+                border: "border-lavender/30 group-hover:border-lavender/50",
                 glow: "group-hover:shadow-[0_0_20px_-5px_rgba(0,255,255,0.2)]",
-                text: "text-electric",
-                accent: "bg-electric/10 text-electric",
-                code: "text-electric-300",
+                text: "text-lavender",
+                accent: "bg-lavender/10 text-lavender",
+                code: "text-lavender-300",
                 gradient: "from-cyan-900/80 to-cyan-900/20" // Electric approximation
             };
         case "L4":
             return {
                 border: "border-emerald-500/30 group-hover:border-emerald-400/50",
                 glow: "group-hover:shadow-[0_0_20px_-5px_rgba(52,211,153,0.2)]",
-                text: "text-electric",
-                accent: "bg-electric/10 text-electric",
-                code: "text-electric",
+                text: "text-lavender",
+                accent: "bg-lavender/10 text-lavender",
+                code: "text-lavender",
                 gradient: "from-emerald-900/80 to-emerald-900/20"
             };
         case "L5":

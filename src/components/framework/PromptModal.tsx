@@ -13,7 +13,7 @@ interface PromptModalProps {
 
 const getLevelColors = (level: string) => {
     if (level === "L1" || level === "L2") return { bg: "bg-slate/10", text: "text-slate", border: "border-slate/20" };
-    if (level === "L3" || level === "L4") return { bg: "bg-electric/10", text: "text-electric", border: "border-electric/20" };
+    if (level === "L3" || level === "L4") return { bg: "bg-lavender/10", text: "text-lavender", border: "border-lavender/20" };
     return { bg: "bg-ember/10", text: "text-ember", border: "border-ember/20" };
 };
 

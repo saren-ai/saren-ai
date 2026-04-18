@@ -101,7 +101,7 @@ export default function HeroBentoEngine() {
             {/* Background Ambience */}
             <div className="absolute inset-0 bg-grid-white/[0.02] dark:bg-grid-white/[0.02] -z-10" />
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background via-transparent to-background -z-10" />
-            <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-electric/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
+            <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-lavender/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
             <div className="absolute bottom-[-10%] right-[20%] w-[500px] h-[500px] bg-ember/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
 
             {/* Guided Logic Overlay */}
@@ -130,7 +130,7 @@ export default function HeroBentoEngine() {
                                 </h1>
                                 <button
                                     onClick={() => setShowGuide(true)}
-                                    className="p-2 rounded-full bg-foreground/5 hover:bg-foreground/10 text-electric transition-colors"
+                                    className="p-2 rounded-full bg-foreground/5 hover:bg-foreground/10 text-lavender transition-colors"
                                     title="Start Guided Tour"
                                 >
                                     <Info className="w-5 h-5" />
@@ -153,7 +153,7 @@ export default function HeroBentoEngine() {
                             onClick={handleShare}
                             className="flex items-center gap-2 px-4 py-2 rounded-lg bg-foreground/5 border border-border hover:bg-foreground/10 hover:border-foreground/20 transition-all text-sm font-medium text-foreground"
                         >
-                            {copied ? <Check className="w-4 h-4 text-electric" /> : <Share2 className="w-4 h-4" />}
+                            {copied ? <Check className="w-4 h-4 text-lavender" /> : <Share2 className="w-4 h-4" />}
                             {copied ? "Link Copied" : "Share Scenario"}
                         </button>
                     </div>
@@ -164,7 +164,7 @@ export default function HeroBentoEngine() {
                     </div>
 
                     {/* Mobile Vertical Connector Line */}
-                    <div className="absolute left-8 top-32 bottom-32 w-0.5 bg-gradient-to-b from-electric/20 via-ember/20 to-transparent lg:hidden -z-10" />
+                    <div className="absolute left-8 top-32 bottom-32 w-0.5 bg-gradient-to-b from-lavender/20 via-ember/20 to-transparent lg:hidden -z-10" />
 
                     {/* Column 1: Inputs (Span 3) */}
                     <div className="lg:col-span-3 z-10 relative">

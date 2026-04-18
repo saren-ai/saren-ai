@@ -44,7 +44,7 @@ const IssueNode = React.memo(function IssueNode({
         className={`relative w-[100px] h-[150px] md:w-[120px] md:h-[180px] rounded-lg overflow-hidden border-2 cursor-pointer transition-colors focus-visible:ring-2 focus-visible:ring-electric focus-visible:ring-offset-2 ${
           isActive
             ? "border-ember shadow-[0_0_12px_rgba(227,66,52,0.4)]"
-            : "border-border hover:border-electric"
+            : "border-border hover:border-lavender"
         }`}
         aria-label={`View details for ${issue.title}`}
         aria-selected={isActive}

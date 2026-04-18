@@ -59,7 +59,7 @@ export default function SalesPlayClient() {
                         <div className="grid md:grid-cols-3 gap-8">
                             {[
                                 {
-                                    icon: <Mail className="w-6 h-6 text-electric" />,
+                                    icon: <Mail className="w-6 h-6 text-lavender" />,
                                     title: "Value First",
                                     desc: "Every touch must provide value before asking for anything.",
                                 },

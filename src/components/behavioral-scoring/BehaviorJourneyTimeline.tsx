@@ -30,7 +30,7 @@ export function BehaviorJourneyTimeline({
           {/* Progress Line */}
           <div className="absolute top-8 left-0 right-0 h-0.5 bg-charcoal/10 dark:bg-ash/10">
             <motion.div
-              className="h-full bg-gradient-to-r from-electric to-ember"
+              className="h-full bg-gradient-to-r from-lavender to-ember"
               initial={{ width: 0 }}
               animate={{
                 width: `${(currentIndex / (buyerStates.length - 1)) * 100}%`,
@@ -96,7 +96,7 @@ export function BehaviorJourneyTimeline({
 
                     {/* Hover indicator */}
                     <div className="flex justify-center mt-2">
-                      <Info className="w-4 h-4 text-slate/40 group-hover:text-electric transition-colors" />
+                      <Info className="w-4 h-4 text-slate/40 group-hover:text-lavender transition-colors" />
                     </div>
                   </button>
 
@@ -179,7 +179,7 @@ export function BehaviorJourneyTimeline({
               if (!state) return null;
 
               return (
-                <div className="bg-gradient-to-br from-charcoal/5 to-electric/5 dark:from-background-secondary dark:to-background-secondary border border-charcoal/10 dark:border-ember/20 rounded-xl p-6">
+                <div className="bg-gradient-to-br from-charcoal/5 to-lavender/5 dark:from-background-secondary dark:to-background-secondary border border-charcoal/10 dark:border-ember/20 rounded-xl p-6">
                   <h4 className="text-lg font-semibold text-charcoal dark:text-foreground mb-2">
                     {state.label}
                   </h4>

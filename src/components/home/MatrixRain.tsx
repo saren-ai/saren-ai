@@ -15,10 +15,10 @@ const FONT_SIZE = 14; // px — character cell height
 // Brand color palette: [light-mode hex, dark-mode hex]
 // Weighted: Electric Blue dominant, Copper secondary, Ember Red accent
 const PALETTE: [string, string][] = [
-  ["#2F6D8E", "#4A9FD8"], // Electric Blue
-  ["#2F6D8E", "#4A9FD8"],
-  ["#2F6D8E", "#4A9FD8"],
-  ["#2F6D8E", "#4A9FD8"],
+  ["#7C5AA3", "#B57EDC"], // Electric Blue
+  ["#7C5AA3", "#B57EDC"],
+  ["#7C5AA3", "#B57EDC"],
+  ["#7C5AA3", "#B57EDC"],
   ["#C17D3A", "#D4A574"], // Copper
   ["#C17D3A", "#D4A574"],
   ["#C43322", "#E34234"], // Ember Red

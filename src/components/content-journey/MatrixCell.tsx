@@ -41,9 +41,9 @@ export default function MatrixCell({
           w-full h-full min-h-[100px] p-3 text-left text-sm
           border border-border rounded-lg
           transition-all duration-200
-          hover:border-electric hover:shadow-lg hover:shadow-electric/10
+          hover:border-lavender hover:shadow-lg hover:shadow-electric/10
           focus:outline-none focus:ring-2 focus:ring-electric
-          ${isHighlighted ? "bg-electric/5 border-electric/50" : "bg-card-bg"}
+          ${isHighlighted ? "bg-lavender/5 border-lavender/50" : "bg-card-bg"}
         `}
       >
         <div className="text-foreground whitespace-pre-wrap leading-relaxed">
@@ -70,20 +70,20 @@ export default function MatrixCell({
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
             className="absolute z-50 top-full mt-2 left-0 w-80 max-w-[90vw] p-4 
-                       bg-offblack border border-electric/30 rounded-lg shadow-xl pointer-events-none"
+                       bg-offblack border border-lavender/30 rounded-lg shadow-xl pointer-events-none"
           >
             {/* Arrow */}
-            <div className="absolute -top-2 left-4 w-4 h-4 bg-offblack border-l border-t border-electric/30 rotate-45" />
+            <div className="absolute -top-2 left-4 w-4 h-4 bg-offblack border-l border-t border-lavender/30 rotate-45" />
 
             <div className="space-y-2">
-              <div className="text-xs text-electric font-semibold uppercase tracking-wide">
+              <div className="text-xs text-lavender font-semibold uppercase tracking-wide">
                 {stageLabel}
               </div>
               <h4 className="text-ash font-semibold text-sm">{rowLabel}</h4>
               <div className="text-ash/80 text-xs leading-relaxed whitespace-pre-wrap max-h-60 overflow-y-auto">
                 {content}
               </div>
-              <div className="text-[10px] text-ash/40 pt-2 border-t border-electric/20">
+              <div className="text-[10px] text-ash/40 pt-2 border-t border-lavender/20">
                 💡 Click for expanded insights
               </div>
             </div>

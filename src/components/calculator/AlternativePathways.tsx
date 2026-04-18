@@ -70,7 +70,7 @@ export function AlternativePathways({
   return (
     <div className="bg-white dark:bg-card-bg border border-charcoal/10 dark:border-ember/20 rounded-xl p-5 md:p-6">
       <div className="flex items-center gap-2 mb-5">
-        <Rocket className="w-5 h-5 text-electric" />
+        <Rocket className="w-5 h-5 text-lavender" />
         <h3 className="text-base font-semibold text-charcoal dark:text-foreground">
           The Product-Led Alternative
         </h3>
@@ -85,14 +85,14 @@ export function AlternativePathways({
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-electric/5 dark:bg-electric/10 rounded-lg p-4 border border-electric/20"
+          className="bg-lavender/5 dark:bg-lavender/10 rounded-lg p-4 border border-lavender/20"
         >
           <h4 className="text-sm font-semibold text-charcoal dark:text-foreground mb-3">
             Free Trial Path
           </h4>
           <div className="space-y-2 text-sm">
             <div className="flex items-center gap-2 text-slate dark:text-foreground-muted">
-              <ArrowRight className="w-3 h-3 text-electric" />
+              <ArrowRight className="w-3 h-3 text-lavender" />
               <span>
                 Visitor → Trial:{" "}
                 <span className="font-mono font-semibold text-charcoal dark:text-foreground">
@@ -101,7 +101,7 @@ export function AlternativePathways({
               </span>
             </div>
             <div className="flex items-center gap-2 text-slate dark:text-foreground-muted">
-              <ArrowRight className="w-3 h-3 text-electric" />
+              <ArrowRight className="w-3 h-3 text-lavender" />
               <span>
                 Trial → Paid:{" "}
                 <span className="font-mono font-semibold text-charcoal dark:text-foreground">
@@ -113,7 +113,7 @@ export function AlternativePathways({
               <span className="text-xs text-slate dark:text-foreground-muted">
                 Est. Blended CAC:{" "}
               </span>
-              <span className="font-mono font-semibold text-electric dark:text-electric">
+              <span className="font-mono font-semibold text-lavender dark:text-lavender">
                 {formatCurrency(estimatedTrialCAC)}
               </span>
               <span className="text-xs text-slate dark:text-foreground-muted ml-1">
@@ -156,7 +156,7 @@ export function AlternativePathways({
               <span className="text-xs text-slate dark:text-foreground-muted">
                 Est. Blended CAC:{" "}
               </span>
-              <span className="font-mono font-semibold text-electric dark:text-electric">
+              <span className="font-mono font-semibold text-lavender dark:text-lavender">
                 {formatCurrency(estimatedFreemiumCAC)}
               </span>
               <span className="text-xs text-slate dark:text-foreground-muted ml-1">

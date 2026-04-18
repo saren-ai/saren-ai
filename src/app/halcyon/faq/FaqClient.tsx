@@ -368,7 +368,7 @@ const FAQ_ITEMS: FaqItem[] = [
             },
           ].map((item) => (
             <li key={item.num} className="flex gap-4">
-              <span className="shrink-0 font-mono text-xs font-bold text-electric dark:text-electric mt-1 w-4">
+              <span className="shrink-0 font-mono text-xs font-bold text-lavender dark:text-lavender mt-1 w-4">
                 {item.num}.
               </span>
               <div>
@@ -405,7 +405,7 @@ function AccordionItem({ item, index, isOpen, onToggle }: {
           <span className="shrink-0 font-mono text-xs font-bold text-slate dark:text-slate mt-1 w-6">
             Q{index + 1}
           </span>
-          <span className="font-semibold text-charcoal dark:text-foreground text-sm md:text-base leading-snug group-hover:text-electric dark:group-hover:text-electric transition-colors">
+          <span className="font-semibold text-charcoal dark:text-foreground text-sm md:text-base leading-snug group-hover:text-lavender dark:group-hover:text-lavender transition-colors">
             {item.q}
           </span>
         </div>

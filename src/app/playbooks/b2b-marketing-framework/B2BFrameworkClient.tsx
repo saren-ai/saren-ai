@@ -146,7 +146,7 @@ export default function B2BFrameworkClient({ initialSteps, variablesContent }: B
         finalHtml = finalHtml.replace(/\{\{([^}]+)\}\}/g, '<span class="text-ember bg-ember/10 border border-ember/20 px-1 py-0.5 rounded-md font-bold mx-0.5 tracking-tight">{{$1}}</span>');
 
         // Highlight [bracketed] variables
-        finalHtml = finalHtml.replace(/(?<!\!)\[([A-Za-z0-9\s_-]+)\](?!\()/g, '<span class="text-electric bg-electric/10 border border-electric/20 px-1 py-0.5 rounded-md font-bold mx-0.5 tracking-tight">[$1]</span>');
+        finalHtml = finalHtml.replace(/(?<!\!)\[([A-Za-z0-9\s_-]+)\](?!\()/g, '<span class="text-lavender bg-lavender/10 border border-lavender/20 px-1 py-0.5 rounded-md font-bold mx-0.5 tracking-tight">[$1]</span>');
 
         return finalHtml;
     }, [activeStep, variables, stepVariables]);
@@ -233,7 +233,7 @@ export default function B2BFrameworkClient({ initialSteps, variablesContent }: B
                     <div className="relative z-10 space-y-6">
                         <div className="pb-4 border-b border-charcoal/10/50 flex flex-col sm:flex-row justify-between items-start gap-4">
                             <div>
-                                <span className="text-sm font-bold text-electric uppercase tracking-widest mb-1 block">
+                                <span className="text-sm font-bold text-lavender uppercase tracking-widest mb-1 block">
                                     {activeStep.level}
                                 </span>
                                 <h2 className="text-2xl font-bold text-white pr-8">
@@ -249,10 +249,10 @@ export default function B2BFrameworkClient({ initialSteps, variablesContent }: B
                             className="prose prose-invert max-w-none 
                             prose-headings:text-ash 
                             prose-p:text-ash/70 prose-p:leading-relaxed
-                            prose-a:text-electric prose-a:no-underline hover:prose-a:underline
-                            prose-code:text-electric prose-code:bg-electric/10 prose-code:before:content-none prose-code:after:content-none prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+                            prose-a:text-lavender prose-a:no-underline hover:prose-a:underline
+                            prose-code:text-lavender prose-code:bg-lavender/10 prose-code:before:content-none prose-code:after:content-none prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
                             prose-pre:bg-offblack prose-pre:border prose-pre:border-charcoal/10 prose-pre:shadow-inner
-                            prose-blockquote:border-l-electric prose-blockquote:bg-electric/5 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:-ml-4 prose-blockquote:rounded-r-lg
+                            prose-blockquote:border-l-electric prose-blockquote:bg-lavender/5 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:-ml-4 prose-blockquote:rounded-r-lg
                             prose-strong:text-white"
                             dangerouslySetInnerHTML={{
                                 __html: processedContent
@@ -307,7 +307,7 @@ export default function B2BFrameworkClient({ initialSteps, variablesContent }: B
                                     <div key={varName} className="space-y-2 opacity-50 hover:opacity-100 transition-opacity">
                                         <label className="text-sm font-medium text-slate block flex justify-between">
                                             {varName}
-                                            {variables[varName] && <Check className="w-4 h-4 text-electric" />}
+                                            {variables[varName] && <Check className="w-4 h-4 text-lavender" />}
                                         </label>
                                         <textarea
                                             value={variables[varName] || ''}

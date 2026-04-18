@@ -99,11 +99,11 @@ export const frames: StoryboardFrame[] = [
  */
 export const moodColors: Record<string, string> = {
   anticipation: "bg-slate/10 text-slate",
-  energetic: "bg-electric/10 text-electric",
+  energetic: "bg-lavender/10 text-lavender",
   thoughtful: "bg-copper/10 text-copper",
   confident: "bg-charcoal/10 text-charcoal",
   electric: "bg-ember/10 text-ember",
-  clarity: "bg-electric/10 text-electric",
+  clarity: "bg-lavender/10 text-lavender",
   satisfied: "bg-copper/10 text-copper",
   resolution: "bg-charcoal/10 text-charcoal",
 };

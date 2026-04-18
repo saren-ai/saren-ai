@@ -22,8 +22,8 @@ const percentileColors: Record<string, string> = {
   poor: "bg-ember",
   "below-average": "bg-yellow-500",
   average: "bg-yellow-400",
-  "above-average": "bg-electric",
-  excellent: "bg-electric",
+  "above-average": "bg-lavender",
+  excellent: "bg-lavender",
 };
 
 const percentileLabels: Record<string, string> = {
@@ -103,7 +103,7 @@ export function IndustryComparison({
   return (
     <div className="bg-white dark:bg-card-bg border border-charcoal/10 dark:border-ember/20 rounded-xl p-5 md:p-6">
       <div className="flex items-center gap-2 mb-5">
-        <BarChart3 className="w-5 h-5 text-electric" />
+        <BarChart3 className="w-5 h-5 text-lavender" />
         <h3 className="text-base font-semibold text-charcoal dark:text-foreground">
           How You Stack Up
         </h3>
@@ -150,7 +150,7 @@ export function IndustryComparison({
                   metric.result.label === "poor" || metric.result.label === "below-average"
                     ? "text-ember"
                     : metric.result.label === "excellent" || metric.result.label === "above-average"
-                      ? "text-electric dark:text-electric"
+                      ? "text-lavender dark:text-lavender"
                       : "text-yellow-600 dark:text-yellow-400"
                 }`}
               >

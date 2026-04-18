@@ -113,7 +113,7 @@ function TooltipCard({ step, current, total, onNext, onDismiss }: TooltipCardPro
                 <X className="w-4 h-4" />
             </button>
 
-            <div className="text-xs font-mono text-electric mb-2 uppercase tracking-widest">
+            <div className="text-xs font-mono text-lavender mb-2 uppercase tracking-widest">
                 Step {current} of {total}
             </div>
 
@@ -127,7 +127,7 @@ function TooltipCard({ step, current, total, onNext, onDismiss }: TooltipCardPro
 
             <button
                 onClick={onNext}
-                className="flex items-center gap-2 bg-electric hover:bg-electric/80 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all group w-full justify-center"
+                className="flex items-center gap-2 bg-lavender hover:bg-lavender/80 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all group w-full justify-center"
             >
                 {current === total ? "Got it" : "Next"}
                 {current === total ? <Check className="w-4 h-4" /> : <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}

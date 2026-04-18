@@ -30,7 +30,7 @@ export default function TaglineCard() {
         <div className="mt-8 flex justify-center gap-2">
           <div className="w-1 h-1 bg-ember rounded-full" />
           <div className="w-1 h-1 bg-copper rounded-full" />
-          <div className="w-1 h-1 bg-electric rounded-full" />
+          <div className="w-1 h-1 bg-lavender rounded-full" />
         </div>
       </div>
     </div>

@@ -96,9 +96,9 @@ export default function BrandClient() {
                             />
                             <ColorCard
                                 name="Electric"
-                                hex="#457B9D"
-                                variable="--electric-blue"
-                                className="bg-electric h-32 md:h-40"
+                                hex="#7C5AA3"
+                                variable="--lavender"
+                                className="bg-lavender h-32 md:h-40"
                             />
                             <ColorCard
                                 name="Copper"
@@ -154,11 +154,11 @@ export default function BrandClient() {
                             <div className="bg-charcoal text-ash p-8 rounded-2xl flex-1">
                                 <h3 className="text-sm font-mono text-ember uppercase tracking-wider mb-6">Mono (JetBrains)</h3>
                                 <div className="font-mono space-y-2 text-sm overflow-x-auto">
-                                    <p><span className="text-ember">const</span> <span className="text-electric">mission</span> = <span className="text-copper">&quot;Fix the invisible leaks&quot;</span>;</p>
+                                    <p><span className="text-ember">const</span> <span className="text-lavender">mission</span> = <span className="text-copper">&quot;Fix the invisible leaks&quot;</span>;</p>
                                     <p><span className="text-ember">if</span> (growth === <span className="text-copper">&quot;stalled&quot;</span>) {"{"}</p>
                                     <div className="pl-4 text-slate">
                                         <p>{/* Check positioning first */}</p>
-                                        <p>return <span className="text-electric">betterSignal()</span>;</p>
+                                        <p>return <span className="text-lavender">betterSignal()</span>;</p>
                                     </div>
                                     <p>{"}"}</p>
                                 </div>
@@ -217,10 +217,10 @@ export default function BrandClient() {
                                 <input
                                     type="text"
                                     placeholder="Enter your email"
-                                    className="w-full p-4 rounded-xl border border-charcoal/10 focus:border-electric focus:ring-2 focus:ring-electric/20 outline-none transition-all shadow-sm bg-white"
+                                    className="w-full p-4 rounded-xl border border-charcoal/10 focus:border-lavender focus:ring-2 focus:ring-electric/20 outline-none transition-all shadow-sm bg-white"
                                 />
-                                <div className="flex items-center gap-3 bg-white p-4 rounded-xl border border-electric ring-2 ring-electric/20 shadow-sm">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-electric animate-pulse"></div>
+                                <div className="flex items-center gap-3 bg-white p-4 rounded-xl border border-lavender ring-2 ring-electric/20 shadow-sm">
+                                    <div className="w-2.5 h-2.5 rounded-full bg-lavender animate-pulse"></div>
                                     <span className="text-charcoal text-sm font-medium">Active Focus State</span>
                                 </div>
                             </div>
@@ -235,7 +235,7 @@ export default function BrandClient() {
                                     <span className="text-xs font-mono text-slate text-center">Primary</span>
                                 </span>
                                 <span className="inline-flex flex-col gap-2">
-                                    <span className="px-3 py-1.5 bg-electric/10 text-electric rounded-lg text-sm font-bold tracking-wide">IN PROGRESS</span>
+                                    <span className="px-3 py-1.5 bg-lavender/10 text-lavender rounded-lg text-sm font-bold tracking-wide">IN PROGRESS</span>
                                     <span className="text-xs font-mono text-slate text-center">Secondary</span>
                                 </span>
                                 <span className="inline-flex flex-col gap-2">
@@ -252,7 +252,7 @@ export default function BrandClient() {
                                 <label className="flex items-center justify-between cursor-pointer p-4 bg-white rounded-xl border border-charcoal/5 shadow-sm">
                                     <span className="font-medium text-charcoal">Enable analytics</span>
                                     <div className="relative">
-                                        <div className="block bg-electric w-12 h-6 rounded-full"></div>
+                                        <div className="block bg-lavender w-12 h-6 rounded-full"></div>
                                         <div className="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform translate-x-6"></div>
                                     </div>
                                 </label>

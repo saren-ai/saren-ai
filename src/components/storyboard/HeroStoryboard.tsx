@@ -10,7 +10,7 @@ export default function HeroStoryboard() {
             {/* Background Ambience */}
             <div className="absolute inset-0 bg-grid-white/[0.02] -z-10" />
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background via-transparent to-background -z-10" />
-            <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-electric/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
+            <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-lavender/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
             <div className="absolute bottom-[-10%] right-[20%] w-[500px] h-[500px] bg-ember/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
 
             <div className="container-narrow relative z-10">

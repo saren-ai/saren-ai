@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saren.ai — Fire Horse 2026 Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ─── DESIGN TOKENS ────────────────────────────────────────────── */
+    :root {
+      --ember:    #E34234;
+      --charcoal: #F0F4FA;
+      --ash:      #0F0F0F;
+      --electric: #4A9FD8;
+      --copper:   #D4A574;
+      --slate:    #A8B2BF;
+      --offblack: #0F0F0F;
+      --card-bg:  #1A1A1A;
+      --border:   #333333;
+      --border-hover: #4A9FD8;
+      --bg:       #0F0F0F;
+      --bg2:      #1A1A1A;
+      --fg:       #F0F4FA;
+      --fg-muted: #A8B2BF;
+
+      --font-sora: 'Sora', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+      --grad-dark:   linear-gradient(135deg, #1A1F2E 0%, #0A0E14 100%);
+      --grad-accent: linear-gradient(135deg, #4A9FD8 0%, #1D3557 100%);
+      --grad-text:   linear-gradient(90deg, #E34234, #D4A574);
+      --grad-kintsugi: linear-gradient(135deg, #1A0A00 0%, #0F0F0F 60%, #0A1520 100%);
+    }
+
+    /* ─── RESET & BASE ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-sora);
+      font-size: 16px;
+      line-height: 1.6;
+      letter-spacing: 0.01em;
+    }
+
+    /* ─── LAYOUT ────────────────────────────────────────────────────── */
+    .shell { display: flex; min-height: 100vh; }
+
+    nav {
+      width: 220px;
+      flex-shrink: 0;
+      background: var(--bg2);
+      border-right: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 32px 0;
+    }
+
+    nav .logo {
+      font-family: var(--font-sora);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--fg);
+      padding: 0 24px 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+    nav .logo span { color: var(--ember); }
+
+    nav a {
+      display: block;
+      padding: 7px 24px;
+      font-size: 0.78rem;
+      color: var(--fg-muted);
+      text-decoration: none;
+      transition: color 0.15s, padding-left 0.15s;
+      letter-spacing: 0.01em;
+    }
+    nav a:hover { color: var(--fg); padding-left: 28px; }
+    nav a.active { color: var(--ember); }
+
+    nav .nav-section {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate);
+      padding: 16px 24px 6px;
+    }
+
+    main {
+      flex: 1;
+      min-width: 0;
+      padding: 64px 72px;
+      max-width: 1100px;
+    }
+
+    /* ─── PAGE HEADER ───────────────────────────────────────────────── */
+    .page-header {
+      margin-bottom: 80px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .page-header .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ember);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .page-header .eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 20px;
+      background: var(--ember);
+      border-radius: 2px;
+    }
+    .page-header h1 {
+      font-family: var(--font-sora);
+      font-weight: 700;
+      font-size: 3rem;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--fg);
+      margin-bottom: 16px;
+    }
+    .page-header p {
+      color: var(--fg-muted);
+      font-size: 1rem;
+      max-width: 540px;
+      line-height: 1.6;
+    }
+
+    /* ─── SECTION ───────────────────────────────────────────────────── */
+    .ds-section {
+      margin-bottom: 96px;
+    }
+    .ds-section-header {
+      margin-bottom: 40px;
+    }
+    .ds-section-header .level-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .level-atom    { background: rgba(227,66,52,0.12);  color: var(--ember); }
+    .level-molecule{ background: rgba(74,159,216,0.12); color: var(--electric); }
+    .level-organism{ background: rgba(212,165,116,0.12);color: var(--copper); }
+
+    .ds-section-header h2 {
+      font-family: var(--font-sora);
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+      color: var(--fg);
+      margin-bottom: 6px;
+    }
+    .ds-section-header p {
+      color: var(--fg-muted);
+      font-size: 0.875rem;
+    }
+
+    .subsection { margin-bottom: 48px; }
+    .subsection h3 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ─── ATOMS: COLOR SWATCHES ─────────────────────────────────────── */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 16px;
+    }
+    .swatch {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .swatch-block {
+      height: 80px;
+    }
+    .swatch-info {
+      background: var(--bg2);
+      padding: 10px 12px;
+    }
+    .swatch-name {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--fg);
+      margin-bottom: 2px;
+    }
+    .swatch-hex {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--fg-muted);
+    }
+    .swatch-role {
+      font-size: 0.65rem;
+      color: var(--slate);
+      margin-top: 3px;
+    }
+
+    /* ─── ATOMS: GRADIENTS ──────────────────────────────────────────── */
+    .gradient-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .gradient-swatch {
+      height: 100px;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .gradient-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      padding: 8px 12px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--fg);
+      font-family: var(--font-mono);
+    }
+
+    /* ─── ATOMS: TYPOGRAPHY ─────────────────────────────────────────── */
+    .type-row {
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      align-items: baseline;
+      gap: 24px;
+    }
+    .type-meta {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+    .type-meta strong { color: var(--fg-muted); display: block; margin-bottom: 2px; }
+
+    /* ─── ATOMS: SPACING ────────────────────────────────────────────── */
+    .spacing-grid { display: flex; flex-direction: column; gap: 12px; }
+    .spacing-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .spacing-bar {
+      background: rgba(74,159,216,0.25);
+      border: 1px solid rgba(74,159,216,0.4);
+      height: 20px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .spacing-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--fg-muted);
+      width: 180px;
+      flex-shrink: 0;
+    }
+
+    /* ─── ATOMS: BORDER RADIUS ──────────────────────────────────────── */
+    .radius-grid {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+    .radius-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .radius-box {
+      width: 64px;
+      height: 64px;
+      background: var(--card-bg);
+      border: 2px solid var(--electric);
+    }
+    .radius-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--slate);
+      text-align: center;
+    }
+
+    /* ─── ATOMS: ACCENT SHAPES ──────────────────────────────────────── */
+    .shapes-row {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .shape-demo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .shape-demo .shape-label {
+      font-size: 0.65rem;
+      font-family: var(--font-mono);
+      color: var(--slate);
+      text-align: center;
+    }
+    .ember-rule-v {
+      width: 4px;
+      height: 80px;
+      background: var(--ember);
+      border-radius: 2px;
+    }
+    .washi-line {
+      width: 200px;
+      height: 1px;
+      background: var(--fg);
+      opacity: 0.15;
+    }
+    .atomic-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid var(--ember);
+      opacity: 0.25;
+    }
+    .diagonal-slash {
+      width: 3px;
+      height: 80px;
+      background: var(--copper);
+      opacity: 0.35;
+      transform: rotate(45deg);
+      border-radius: 2px;
+    }
+    .ember-rule-h {
+      width: 200px;
+      height: 3px;
+      background: var(--ember);
+      border-radius: 2px;
+    }
+
+    /* ─── ATOMS: ICONS ──────────────────────────────────────────────── */
+    .icon-grid {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .icon-item svg {
+      stroke: var(--fg-muted);
+    }
+    .icon-item .icon-label {
+      font-size: 0.6rem;
+      font-family: var(--font-mono);
+      color: var(--slate);
+    }
+    .icon-ember svg { stroke: var(--ember); }
+    .icon-electric svg { stroke: var(--electric); }
+
+    /* ─── MOLECULES: BUTTONS ────────────────────────────────────────── */
+    .btn-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.875rem 2rem;
+      border-radius: 9999px;
+      font-family: var(--font-sora);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background: var(--ember);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #c93527;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(227,66,52,0.45);
+    }
+    .btn-secondary-dark {
+      background: transparent;
+      color: #F5F5F7;
+      border: 2px solid rgba(245,245,247,0.4);
+    }
+    .btn-secondary-dark:hover {
+      background: #F5F5F7;
+      color: #1D1D1F;
+      transform: translateY(-2px);
+    }
+    .btn-sm {
+      padding: 0.5rem 1.25rem;
+      font-size: 0.8rem;
+    }
+
+    /* ─── MOLECULES: BADGES ─────────────────────────────────────────── */
+    .badge-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-family: var(--font-sora);
+    }
+    .badge-ember    { background: rgba(227,66,52,0.12);  color: var(--ember); }
+    .badge-electric { background: rgba(74,159,216,0.12); color: var(--electric); }
+    .badge-copper   { background: rgba(212,165,116,0.12);color: var(--copper); }
+    .badge-slate    { background: rgba(168,178,191,0.1); color: var(--slate); }
+
+    /* ─── MOLECULES: METRIC ─────────────────────────────────────────── */
+    .metric-display {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .metric-value {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--ember);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .metric-value.copper { color: var(--copper); }
+    .metric-value.electric { color: var(--electric); }
+    .metric-label {
+      font-family: var(--font-sora);
+      font-weight: 600;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--slate);
+    }
+    .metrics-row {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    /* ─── MOLECULES: CARD ───────────────────────────────────────────── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      border-color: var(--border-hover);
+      box-shadow: 0 8px 32px rgba(74,159,216,0.2);
+      transform: translateY(-4px);
+    }
+    .card-body { padding: 28px; }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .card-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ember);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 14px;
+      background: var(--ember);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .card h4 {
+      font-family: var(--font-sora);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+      margin-bottom: 8px;
+    }
+    .card p {
+      font-size: 0.825rem;
+      color: var(--fg-muted);
+      line-height: 1.55;
+    }
+
+    /* ─── MOLECULES: STAT CARD ──────────────────────────────────────── */
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: var(--ember);
+      border-radius: 2px 0 0 2px;
+    }
+    .stat-card.copper-accent::before { background: var(--copper); }
+    .stat-card.electric-accent::before { background: var(--electric); }
+
+    /* ─── MOLECULES: DIVIDER ────────────────────────────────────────── */
+    .washi-divider {
+      height: 1px;
+      background: var(--fg);
+      opacity: 0.12;
+      margin: 0;
+      border: none;
+    }
+
+    /* ─── MOLECULES: TEXT GRADIENT ──────────────────────────────────── */
+    .text-gradient {
+      background: var(--grad-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ─── ORGANISMS: HERO SECTION ───────────────────────────────────── */
+    .hero-demo {
+      background: var(--grad-dark);
+      border-radius: 12px;
+      padding: 80px 64px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .hero-demo::before {
+      content: '';
+      position: absolute;
+      right: -60px;
+      top: -60px;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 2px solid var(--ember);
+      opacity: 0.1;
+    }
+    .hero-demo::after {
+      content: '';
+      position: absolute;
+      right: 60px;
+      top: 60px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 2px solid var(--copper);
+      opacity: 0.08;
+    }
+    .hero-demo .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ember);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-demo .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 20px;
+      background: var(--ember);
+      border-radius: 2px;
+    }
+    .hero-demo h2 {
+      font-family: var(--font-sora);
+      font-weight: 700;
+      font-size: 3.5rem;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: white;
+      margin-bottom: 20px;
+      max-width: 520px;
+    }
+    .hero-demo p {
+      font-size: 1.05rem;
+      color: var(--slate);
+      max-width: 440px;
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ─── ORGANISMS: STATS ROW ──────────────────────────────────────── */
+    .stats-organism {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 40px;
+    }
+    .stats-organism .stat-item {
+      position: relative;
+    }
+    .stats-organism .stat-item + .stat-item::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 10%;
+      height: 80%;
+      width: 1px;
+      background: var(--border);
+    }
+
+    /* ─── ORGANISMS: SOCIAL CARD (1080×1080 scaled) ─────────────────── */
+    .social-cards-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-card {
+      width: 324px;      /* 1080 ÷ 3.33 */
+      height: 324px;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+
+    /* safe zone = 96/1080 = ~8.9% scaled to 324px ≈ 29px */
+    .social-inner {
+      position: absolute;
+      inset: 29px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* data card */
+    .social-data {
+      background: #0F0F0F;
+    }
+    .social-data .s-eyebrow {
+      font-size: 6px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ember);
+      margin-bottom: 4px;
+    }
+    .social-data .s-metric {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 52px;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: var(--ember);
+    }
+    .social-data .s-metric-label {
+      font-family: var(--font-mono);
+      font-size: 7px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-top: 3px;
+    }
+    .social-data .s-sub {
+      font-size: 7px;
+      color: var(--slate);
+      line-height: 1.5;
+    }
+    .social-data .s-handle {
+      font-size: 6px;
+      color: var(--slate);
+      text-align: right;
+      align-self: flex-end;
+    }
+    .social-data .ember-rule-v-sm {
+      position: absolute;
+      left: 29px;
+      top: 29px;
+      bottom: 29px;
+      width: 2px;
+      background: var(--ember);
+      border-radius: 1px;
+    }
+
+    /* statement card */
+    .social-statement {
+      background: var(--grad-kintsugi);
+    }
+    .social-statement .s-rule-v {
+      position: absolute;
+      left: 29px;
+      top: 29px;
+      width: 2px;
+      height: 60px;
+      background: var(--ember);
+      border-radius: 1px;
+    }
+    .social-statement .s-headline {
+      font-family: var(--font-sora);
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: #F0F4FA;
+      padding-left: 14px;
+      margin-top: 14px;
+    }
+    .social-statement .s-sub {
+      font-size: 8px;
+      color: var(--slate);
+      padding-left: 14px;
+      line-height: 1.5;
+      margin-top: 6px;
+    }
+    .social-statement .s-handle {
+      font-size: 6px;
+      color: var(--slate);
+      text-align: right;
+      align-self: flex-end;
+    }
+
+    /* cover card */
+    .social-cover {
+      background: var(--grad-dark);
+    }
+    .social-cover .cover-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 24px;
+    }
+    .social-cover .s-eyebrow-center {
+      font-size: 6px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ember);
+      text-align: center;
+    }
+    .social-cover .s-headline-center {
+      font-family: var(--font-sora);
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: white;
+      text-align: center;
+    }
+    .social-cover .cover-rule {
+      width: 60px;
+      height: 2px;
+      background: var(--ember);
+      border-radius: 1px;
+    }
+    .social-cover .s-handle-center {
+      position: absolute;
+      bottom: 14px;
+      left: 0; right: 0;
+      text-align: center;
+      font-size: 6px;
+      color: var(--slate);
+    }
+    .social-cover .cover-circle {
+      position: absolute;
+      right: -30px;
+      bottom: -30px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 1.5px solid var(--ember);
+      opacity: 0.08;
+    }
+
+    /* ─── ORGANISMS: CAROUSEL STRIP ─────────────────────────────────── */
+    .carousel-strip {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+    }
+    .carousel-strip::-webkit-scrollbar { height: 4px; }
+    .carousel-strip::-webkit-scrollbar-track { background: var(--bg2); }
+    .carousel-strip::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    .carousel-slide {
+      width: 220px;
+      height: 220px;
+      flex-shrink: 0;
+      border-radius: 6px;
+      background: var(--grad-dark);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .carousel-slide .top-border {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--ember);
+    }
+    .carousel-slide .slide-num {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-family: var(--font-mono);
+      font-size: 7px;
+      color: var(--slate);
+    }
+    .carousel-slide .slide-body {
+      position: absolute;
+      inset: 18px 18px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+    }
+    .carousel-slide .slide-label {
+      font-size: 6px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ember);
+    }
+    .carousel-slide .slide-title {
+      font-family: var(--font-sora);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #F0F4FA;
+    }
+    .carousel-slide .slide-copy {
+      font-size: 7px;
+      color: var(--slate);
+      line-height: 1.5;
+    }
+    .carousel-slide .slide-handle {
+      position: absolute;
+      bottom: 10px;
+      right: 12px;
+      font-size: 6px;
+      color: var(--slate);
+    }
+    .carousel-slide.is-cover .slide-body {
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 8px;
+    }
+    .carousel-slide.is-cta .slide-body {
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 10px;
+    }
+    .cta-btn-sm {
+      display: inline-block;
+      background: var(--ember);
+      color: white;
+      font-size: 7px;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      font-family: var(--font-sora);
+    }
+
+    /* ─── MISC UTILS ────────────────────────────────────────────────── */
+    .example-label {
+      font-size: 0.65rem;
+      font-family: var(--font-mono);
+      color: var(--slate);
+      margin-top: 8px;
+      letter-spacing: 0.03em;
+    }
+
+    .row-examples {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .row-examples .ex {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: rgba(255,255,255,0.06);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--electric);
+    }
+
+    .note {
+      background: rgba(74,159,216,0.08);
+      border-left: 3px solid var(--electric);
+      padding: 10px 16px;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.8rem;
+      color: var(--fg-muted);
+      margin-top: 16px;
+    }
+
+    @media (max-width: 900px) {
+      nav { display: none; }
+      main { padding: 40px 24px; }
+      .hero-demo { padding: 48px 32px; }
+      .hero-demo h2 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- SIDEBAR NAV -->
+  <nav>
+    <div class="logo">SAREN<span>.</span>AI<br><span style="font-weight:400;color:var(--slate);font-size:0.7rem;">Fire Horse 2026</span></div>
+
+    <div class="nav-section">Atoms</div>
+    <a href="#colors">Color Palette</a>
+    <a href="#gradients">Gradients</a>
+    <a href="#typography">Typography</a>
+    <a href="#spacing">Spacing</a>
+    <a href="#radius">Border Radius</a>
+    <a href="#shapes">Accent Shapes</a>
+    <a href="#icons">Iconography</a>
+
+    <div class="nav-section">Molecules</div>
+    <a href="#buttons">Buttons</a>
+    <a href="#badges">Badges</a>
+    <a href="#metrics">Metric Display</a>
+    <a href="#cards">Cards</a>
+    <a href="#dividers">Dividers</a>
+
+    <div class="nav-section">Organisms</div>
+    <a href="#hero">Hero Section</a>
+    <a href="#stats">Stats Row</a>
+    <a href="#social">Social Cards</a>
+    <a href="#carousel">Carousel</a>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="eyebrow">Design System</div>
+      <h1>Fire Horse<br><span class="text-gradient">2026</span></h1>
+      <p>Futuristic mid-century modern japonisme. Five colors. Two typefaces. Negative space as content. Organized from atom to organism.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- ATOMS                                                           -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+
+    <div class="ds-section" id="colors">
+      <div class="ds-section-header">
+        <div class="level-badge level-atom">⬡ Atom</div>
+        <h2>Color Palette</h2>
+        <p>Five core tokens. Use in hierarchy order: Charcoal → Ash → Ember → Copper → Electric. Max 3 per composition.</p>
+      </div>
+      <div class="subsection">
+        <h3>Core Tokens — Dark Mode</h3>
+        <div class="color-grid">
+          <div class="swatch">
+            <div class="swatch-block" style="background:#E34234;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Ember Red</div>
+              <div class="swatch-hex">#E34234</div>
+              <div class="swatch-role">Primary action, fire</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#F0F4FA;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Charcoal</div>
+              <div class="swatch-hex">#F0F4FA</div>
+              <div class="swatch-role">Dominant text</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#0F0F0F; border:1px solid #333;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Ash / Obsidian</div>
+              <div class="swatch-hex">#0F0F0F</div>
+              <div class="swatch-role">Background canvas</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#4A9FD8;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Electric Blue</div>
+              <div class="swatch-hex">#4A9FD8</div>
+              <div class="swatch-role">Links, data highlights</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#D4A574;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Copper</div>
+              <div class="swatch-hex">#D4A574</div>
+              <div class="swatch-role">Secondary accent, kintsugi</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#A8B2BF;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Slate Gray</div>
+              <div class="swatch-hex">#A8B2BF</div>
+              <div class="swatch-role">Muted text, labels</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#1A1A1A; border:1px solid #333;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Card BG</div>
+              <div class="swatch-hex">#1A1A1A</div>
+              <div class="swatch-role">Card surface</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Core Tokens — Light Mode</h3>
+        <div class="color-grid">
+          <div class="swatch">
+            <div class="swatch-block" style="background:#C43322;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Ember Red</div>
+              <div class="swatch-hex">#C43322</div>
+              <div class="swatch-role">5.06:1 AA ✓</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#1D1D1F;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Charcoal</div>
+              <div class="swatch-hex">#1D1D1F</div>
+              <div class="swatch-role">15.6:1 AAA ✓</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#F5F5F7; border:1px solid #E0E0E2;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Ash White</div>
+              <div class="swatch-hex">#F5F5F7</div>
+              <div class="swatch-role">Background</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#2F6D8E;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Electric Blue</div>
+              <div class="swatch-hex">#2F6D8E</div>
+              <div class="swatch-role">5.26:1 AA ✓</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#C17D3A;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Copper</div>
+              <div class="swatch-hex">#C17D3A</div>
+              <div class="swatch-role">Large text only</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-block" style="background:#5B6470;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Slate Gray</div>
+              <div class="swatch-hex">#5B6470</div>
+              <div class="swatch-role">5.55:1 AA ✓</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="washi-divider">
+
+    <!-- GRADIENTS -->
+    <div class="ds-section" id="gradients">
+      <div class="ds-section-header">
+        <div class="level-badge level-atom">⬡ Atom</div>
+        <h2>Gradients</h2>
+        <p>Three named gradients plus the Kintsugi variant for social. Never improvise — use these four only.</p>
+      </div>
+      <div class="gradient-grid">
+        <div>
+          <div class="gradient-swatch" style="background:linear-gradient(135deg,#1A1F2E 0%,#0A0E14 100%);">
+            <div class="gradient-label">gradient-dark</div>
+          </div>
+          <p class="example-label">Hero sections, dark panels. Add explicit dark: variants.</p>
+        </div>
+        <div>
+          <div class="gradient-swatch" style="background:linear-gradient(135deg,#4A9FD8 0%,#1D3557 100%);">
+            <div class="gradient-label">gradient-accent</div>
+          </div>
+          <p class="example-label">Feature callouts, stat card backgrounds.</p>
+        </div>
+        <div>
+          <div class="gradient-swatch" style="background:linear-gradient(90deg,#E34234,#D4A574); display:flex; align-items:center; justify-content:center;">
+            <span style="font-family:var(--font-sora);font-weight:700;font-size:1.4rem;letter-spacing:-0.02em;background:linear-gradient(90deg,#E34234,#D4A574);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">text-gradient</span>
+            <div class="gradient-label">text-gradient</div>
+          </div>
+          <p class="example-label">Hero display text only. Short phrases, never paragraphs.</p>
+        </div>
+        <div>
+          <div class="gradient-swatch" style="background:linear-gradient(135deg,#1A0A00 0%,#0F0F0F 60%,#0A1520 100%);">
+            <div class="gradient-label">Kintsugi (social only)</div>
+          </div>
+          <p class="example-label">Instagram post backgrounds. Carries ember–electric tension.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="washi-divider">
+
+    <!-- TYPOGRAPHY -->
+    <div class="ds-section" id="typography">
+      <div class="ds-section-header">
+        <div class="level-badge level-atom">⬡ Atom</div>
+        <h2>Typography</h2>
+        <p>Sora for everything human. JetBrains Mono for everything numerical. Never mixed in the same text node.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Sora — Display & Body</h3>
+        <div>
+          <div class="type-row">
+            <div class="type-meta"><strong>Hero Display</strong>700 · 4–6rem · −0.03em · lh 1.05</div>
+            <div style="font-family:var(--font-sora);font-weight:700;font-size:3.5rem;letter-spacing:-0.03em;line-height:1.05;color:var(--fg);">Fractional CMO</div>
+          </div>
+          <div class="type-row">
+            <div class="type-meta"><strong>Section Heading</strong>700 · 2–3rem · −0.02em · lh 1.1</div>
+            <div style="font-family:var(--font-sora);font-weight:700;font-size:2rem;letter-spacing:-0.02em;line-height:1.1;color:var(--fg);">What I Build</div>
+          </div>
+          <div class="type-row">
+            <div class="type-meta"><strong>Subheading</strong>600 · 1.25rem · −0.01em · lh 1.3</div>
+            <div style="font-family:var(--font-sora);font-weight:600;font-size:1.25rem;letter-spacing:-0.01em;line-height:1.3;color:var(--fg);">Revenue-driven marketing systems</div>
+          </div>
+          <div class="type-row">
+            <div class="type-meta"><strong>Body</strong>400 · 1rem · +0.01em · lh 1.6</div>
+            <div style="font-family:var(--font-sora);font-weight:400;font-size:1rem;letter-spacing:0.01em;line-height:1.6;color:var(--fg-muted);max-width:440px;">I work with B2B SaaS companies to design the demand machine — the systems, assets, and plays that turn awareness into pipeline at scale.</div>
+          </div>
+          <div class="type-row">
+            <div class="type-meta"><strong>Eyebrow Label</strong>600 · 0.75rem · +0.08em · UPPERCASE</div>
+            <div style="font-family:var(--font-sora);font-weight:600;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ember);">Case Study</div>
+          </div>
+          <div class="type-row">
+            <div class="type-meta"><strong>Caption</strong>400 · 0.875rem · 0 · lh 1.5</div>
+            <div style="font-family:var(--font-sora);font-weight:400;font-size:0.875rem;letter-spacing:0;line-height:1.5;color:var(--slate);">Updated April 2026 · 8 min read</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>JetBrains Mono — Data & Metrics</h3>
+        <div>
+          <div class="type-row">
+            <div class="type-meta"><strong>Hero Metric</strong>700 · 3–5rem · −0.02em</div>
+            <div style="font-family:var(--font-mono);font-weight:700;font-size:4rem;letter-spacing:-0.02em;line-height:1;color:var(--ember);">340%</div>
+          </div>
+          <div class="type-row">
+            <div class="type-meta"><strong>Inline Data</strong>700 · 1.5rem · −0.01em</div>
+            <div style="font-family:var(--font-mono);font-weight:700;font-size:1.5rem;letter-spacing:-0.01em;line-height:1;color:var(--copper);">$4.2M</div>
+          </div>
+          <div class="type-row">
+            <div class="type-meta"><strong>Dashboard Label</strong>500 · 0.75rem · +0.06em · UPPERCASE</div>
+            <div style="font-family:var(--font-mono);font-weight:500;font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--slate);">pipeline influenced</div>
+          </div>
+          <div class="type-row">
+            <div class="type-meta"><strong>Code</strong>400 · 0.875rem</div>
+            <div style="font-family:var(--font-mono);font-weight:400;font-size:0.875rem;color:var(--electric);">npm run dev</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="washi-divider">
+
+    <!-- SPACING -->
+    <div class="ds-section" id="spacing">
+      <div class="ds-section-header">
+        <div class="level-badge level-atom">⬡ Atom</div>
+        <h2>Spacing Scale</h2>
+        <p>Base unit 4px. Every value is a multiple. Section vertical padding: 96px desktop, 64px mobile.</p>
+      </div>
+      <div class="spacing-grid">
+        <div class="spacing-row"><div class="spacing-bar" style="width:4px;"></div><div class="spacing-label">xs · 4px · icon gaps</div></div>
+        <div class="spacing-row"><div class="spacing-bar" style="width:8px;"></div><div class="spacing-label">sm · 8px · component internals</div></div>
+        <div class="spacing-row"><div class="spacing-bar" style="width:16px;"></div><div class="spacing-label">md · 16px · card padding, list gaps</div></div>
+        <div class="spacing-row"><div class="spacing-bar" style="width:24px;"></div><div class="spacing-label">lg · 24px · subcomponent spacing</div></div>
+        <div class="spacing-row"><div class="spacing-bar" style="width:32px;"></div><div class="spacing-label">xl · 32px · between cards</div></div>
+        <div class="spacing-row"><div class="spacing-bar" style="width:48px;"></div><div class="spacing-label">2xl · 48px · section breathing room</div></div>
+        <div class="spacing-row"><div class="spacing-bar" style="width:64px;"></div><div class="spacing-label">3xl · 64px · section padding (mobile)</div></div>
+        <div class="spacing-row"><div class="spacing-bar" style="width:96px;"></div><div class="spacing-label">4xl · 96px · section padding (desktop)</div></div>
+        <div class="spacing-row"><div class="spacing-bar" style="width:128px;"></div><div class="spacing-label">5xl · 128px · hero padding</div></div>
+      </div>
+    </div>
+
+    <hr class="washi-divider">
+
+    <!-- BORDER RADIUS -->
+    <div class="ds-section" id="radius">
+      <div class="ds-section-header">
+        <div class="level-badge level-atom">⬡ Atom</div>
+        <h2>Border Radius</h2>
+        <p>Five values. Full stop. Never mix rounded and sharp corners in the same component.</p>
+      </div>
+      <div class="radius-grid">
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius:9999px;width:64px;height:64px;"></div>
+          <div class="radius-label">Pill · 9999px<br>Buttons only</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius:12px;"></div>
+          <div class="radius-label">12px<br>Modal / sheet</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius:8px;"></div>
+          <div class="radius-label">8px · rounded-lg<br>Cards</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius:4px;"></div>
+          <div class="radius-label">4px · rounded<br>Badges / tags</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius:0px;"></div>
+          <div class="radius-label">0px · sharp<br>Data panels</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius:9999px;width:64px;height:64px;"></div>
+          <div class="radius-label">Circle · 50%<br>Avatars, icons</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="washi-divider">
+
+    <!-- ACCENT SHAPES -->
+    <div class="ds-section" id="shapes">
+      <div class="ds-section-header">
+        <div class="level-badge level-atom">⬡ Atom</div>
+        <h2>Accent Shapes</h2>
+        <p>Mid-century geometry meets japonisme reduction. One shape type per composition. Always recessive (opacity ≤ 0.4).</p>
+      </div>
+      <div class="shapes-row">
+        <div class="shape-demo">
+          <div style="width:60px;height:100px;display:flex;align-items:center;justify-content:center;">
+            <div class="ember-rule-v"></div>
+          </div>
+          <div class="shape-label">Vertical Ember Rule<br>4px × 40–240px<br>Section punctuation</div>
+        </div>
+        <div class="shape-demo">
+          <div style="width:220px;height:100px;display:flex;align-items:center;justify-content:center;">
+            <div class="washi-line"></div>
+          </div>
+          <div class="shape-label">Washi Divider<br>1px × full width<br>opacity: 0.15</div>
+        </div>
+        <div class="shape-demo">
+          <div style="width:100px;height:100px;display:flex;align-items:center;justify-content:center;">
+            <div class="atomic-circle"></div>
+          </div>
+          <div class="shape-label">Atomic Circle<br>Outline only<br>opacity: 0.15–0.3</div>
+        </div>
+        <div class="shape-demo">
+          <div style="width:80px;height:100px;display:flex;align-items:center;justify-content:center;">
+            <div class="diagonal-slash"></div>
+          </div>
+          <div class="shape-label">45° Diagonal<br>Copper · rare<br>One per composition</div>
+        </div>
+        <div class="shape-demo">
+          <div style="width:220px;height:100px;display:flex;align-items:center;justify-content:center;">
+            <div class="ember-rule-h"></div>
+          </div>
+          <div class="shape-label">Horizontal Ember Rule<br>480px × 3px<br>Under eyebrow labels</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="washi-divider">
+
+    <!-- ICONS -->
+    <div class="ds-section" id="icons">
+      <div class="ds-section-header">
+        <div class="level-badge level-atom">⬡ Atom</div>
+        <h2>Iconography</h2>
+        <p>Lucide React. Outline only. 1.5px stroke. 20px default. 8px gap to label. Never emoji as icons.</p>
+      </div>
+      <div class="subsection">
+        <h3>Lucide-style examples at 20px / stroke 1.5</h3>
+        <div class="icon-grid">
+          <div class="icon-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+            <div class="icon-label">arrow-right</div>
+          </div>
+          <div class="icon-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <div class="icon-label">check</div>
+          </div>
+          <div class="icon-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            <div class="icon-label">external-link</div>
+          </div>
+          <div class="icon-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+            </svg>
+            <div class="icon-label">clock</div>
+          </div>
+          <div class="icon-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            <div class="icon-label">message</div>
+          </div>
+          <div class="icon-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+            <div class="icon-label">activity</div>
+          </div>
+          <div class="icon-item icon-ember">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            <div class="icon-label" style="color:var(--ember);">ember accent</div>
+          </div>
+          <div class="icon-item icon-electric">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <div class="icon-label" style="color:var(--electric);">24px heading</div>
+          </div>
+        </div>
+        <div class="note">In CTAs: white. In body text: slate. One ember icon as anchor per card. Never use filled variants.</div>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- MOLECULES                                                       -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+
+    <hr class="washi-divider" style="margin:0 0 96px;">
+
+    <div class="ds-section" id="buttons">
+      <div class="ds-section-header">
+        <div class="level-badge level-molecule">◈ Molecule</div>
+        <h2>Buttons</h2>
+        <p>All buttons are pills. No exceptions. Never use <code>!rounded-full</code> overrides. Never replicate with inline Tailwind.</p>
+      </div>
+      <div class="btn-row">
+        <div>
+          <button class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            btn-primary
+          </button>
+          <p class="example-label">Ember Red · white text · primary action</p>
+        </div>
+        <div>
+          <button class="btn btn-secondary-dark">
+            btn-secondary-dark
+          </button>
+          <p class="example-label">On dark bg / gradient-dark</p>
+        </div>
+        <div>
+          <button class="btn btn-primary btn-sm">
+            Small CTA
+          </button>
+          <p class="example-label">Small variant</p>
+        </div>
+      </div>
+      <div class="note">On <code>gradient-dark</code> or any dark section: always use <code>btn-secondary-dark</code>, never <code>btn-secondary</code>. Hover lifts 2px — never scale.</div>
+    </div>
+
+    <hr class="washi-divider">
+
+    <!-- BADGES -->
+    <div class="ds-section" id="badges">
+      <div class="ds-section-header">
+        <div class="level-badge level-molecule">◈ Molecule</div>
+        <h2>Badges & Tags</h2>
+        <p>4px radius. Uppercase. 0.06em tracking. Use tinted backgrounds — never solid brand colors.</p>
+      </div>
+      <div class="badge-row">
+        <div>
+          <span class="badge badge-ember">Strategy</span>
+          <p class="example-label">badge-ember</p>
+        </div>
+        <div>
+          <span class="badge badge-electric">AI / ML</span>
+          <p class="example-label">badge-electric</p>
+        </div>
+        <div>
+          <span class="badge badge-copper">Revenue Ops</span>
+          <p class="example-label">badge-copper</p>
+        </div>
+        <div>
+          <span class="badge badge-slate">Archive</span>
+          <p class="example-label">badge-slate</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="washi-divider">
+
+    <!-- METRICS -->
+    <div class="ds-section" id="metrics">
+      <div class="ds-section-header">
+        <div class="level-badge level-molecule">◈ Molecule</div>
+        <h2>Metric Display</h2>
+        <p>JetBrains Mono value on top. Sora label below. Stacked vertically, always. Label never above the value.</p>
+      </div>
+      <div class="metrics-row">
+        <div class="metric-display">
+          <div class="metric-value" style="font-size:2.5rem;">340%</div>
+          <div class="metric-label">Pipeline Growth</div>
+        </div>
+        <div class="metric-display">
+          <div class="metric-value copper" style="font-size:2.5rem;">$4.2M</div>
+          <div class="metric-label">Revenue Influenced</div>
+        </div>
+        <div class="metric-display">
+          <div class="metric-value electric" style="font-size:2.5rem;">18mo</div>
+          <div class="metric-label">Avg Engagement</div>
+        </div>
+        <div class="metric-display">
+          <div class="metric-value" style="font-size:1.6rem;">92%</div>
+          <div class="metric-label">Retention Rate</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="washi-divider">
+
+    <!-- CARDS -->
+    <div class="ds-section" id="cards">
+      <div class="ds-section-header">
+        <div class="level-badge level-molecule">◈ Molecule</div>
+        <h2>Cards</h2>
+        <p>8px radius. 1px border. Lifts 4px on hover with electric glow. Padding always 24–32px, never 16px.</p>
+      </div>
+      <div class="subsection">
+        <h3>Standard card</h3>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-eyebrow">Case Study</div>
+              <h4>10-Touch Sales Play</h4>
+              <p>A coordinated outbound sequence that generated $1.2M in qualified pipeline over 90 days.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="card-eyebrow">Framework</div>
+              <h4>Behavioral Lead Scoring</h4>
+              <p>Intent-driven scoring model that improved MQL-to-SQL conversion by 58%.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="card-eyebrow">Tool</div>
+              <h4>ROI Simulator</h4>
+              <p>Full-funnel attribution model built for B2B SaaS go-to-market teams.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="subsection">
+        <h3>Stat card (with left ember rule)</h3>
+        <div class="cards-grid">
+          <div class="stat-card">
+            <div class="metric-label" style="padding-left:12px;">Campaigns Launched</div>
+            <div class="metric-value" style="font-size:2rem;padding-left:12px;">47</div>
+          </div>
+          <div class="stat-card copper-accent">
+            <div class="metric-label" style="padding-left:12px;">Avg CAC Reduction</div>
+            <div class="metric-value copper" style="font-size:2rem;padding-left:12px;">−38%</div>
+          </div>
+          <div class="stat-card electric-accent">
+            <div class="metric-label" style="padding-left:12px;">Platforms Integrated</div>
+            <div class="metric-value electric" style="font-size:2rem;padding-left:12px;">12</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="washi-divider">
+
+    <!-- DIVIDERS -->
+    <div class="ds-section" id="dividers">
+      <div class="ds-section-header">
+        <div class="level-badge level-molecule">◈ Molecule</div>
+        <h2>Dividers</h2>
+        <p>The washi-paper line. 1px, 15% opacity. Never full-opacity. Separates content zones without visual weight.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:24px;">
+        <div>
+          <p style="font-size:0.875rem;color:var(--fg-muted);margin-bottom:16px;">Content zone above</p>
+          <hr class="washi-divider">
+          <p style="font-size:0.875rem;color:var(--fg-muted);margin-top:16px;">Content zone below</p>
+        </div>
+        <div class="note">Use <code>.washi-divider</code>. Never a default <code>&lt;hr&gt;</code>. Never a border used as decoration — borders signal interactive edges.</div>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- ORGANISMS                                                       -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+
+    <hr class="washi-divider" style="margin:0 0 96px;">
+
+    <!-- HERO -->
+    <div class="ds-section" id="hero">
+      <div class="ds-section-header">
+        <div class="level-badge level-organism">◉ Organism</div>
+        <h2>Hero Section</h2>
+        <p>gradient-dark background. Atomic circle at top-right. Eyebrow + display headline + body + dual CTA. Haiku offset — not centered.</p>
+      </div>
+      <div class="hero-demo">
+        <div class="hero-eyebrow">Fractional CMO · AI Ops</div>
+        <h2>The demand<br><span class="text-gradient">machine</span><br>is the product.</h2>
+        <p>I design marketing systems for B2B SaaS companies — the strategy, the assets, and the AI infrastructure that scales them.</p>
+        <div class="hero-btns">
+          <button class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            See the work
+          </button>
+          <button class="btn btn-secondary-dark">Get in touch</button>
+        </div>
+      </div>
+    </div>
+
+    <hr class="washi-divider">
+
+    <!-- STATS ROW -->
+    <div class="ds-section" id="stats">
+      <div class="ds-section-header">
+        <div class="level-badge level-organism">◉ Organism</div>
+        <h2>Stats Row</h2>
+        <p>Card surface. Metrics in a responsive grid. 1px border separators between stats. JetBrains Mono values, Sora labels.</p>
+      </div>
+      <div class="stats-organism">
+        <div class="stat-item">
+          <div class="metric-display">
+            <div class="metric-value" style="font-size:2.8rem;">340%</div>
+            <div class="metric-label">Pipeline Growth</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="metric-display">
+            <div class="metric-value copper" style="font-size:2.8rem;">$4.2M</div>
+            <div class="metric-label">Revenue Influenced</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="metric-display">
+            <div class="metric-value electric" style="font-size:2.8rem;">47</div>
+            <div class="metric-label">Campaigns Built</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="metric-display">
+            <div class="metric-value" style="font-size:2.8rem;">92%</div>
+            <div class="metric-label">Client Retention</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="washi-divider">
+
+    <!-- SOCIAL CARDS -->
+    <div class="ds-section" id="social">
+      <div class="ds-section-header">
+        <div class="level-badge level-organism">◉ Organism</div>
+        <h2>Social Cards — 1080 × 1080</h2>
+        <p>Dark mode only. 96px safe zone (shown at 1/3.33 scale). Haiku asymmetric grid. One idea per card. Max 3 lines of body copy.</p>
+      </div>
+      <div class="social-cards-row">
+
+        <!-- DATA CARD -->
+        <div>
+          <div class="social-card social-data">
+            <div class="ember-rule-v-sm"></div>
+            <div class="social-inner" style="padding-left:14px;">
+              <div>
+                <div class="s-eyebrow">Case Study · B2B SaaS</div>
+                <div class="s-metric">340%</div>
+                <div class="s-metric-label">Pipeline growth · 90 days</div>
+              </div>
+              <div>
+                <div class="s-sub">Full-funnel demand gen system built on behavioral triggers and a 10-touch outbound sequence.</div>
+                <div class="s-handle" style="margin-top:8px;">@saren.ai</div>
+              </div>
+            </div>
+          </div>
+          <p class="example-label">Data card — metric dominant</p>
+        </div>
+
+        <!-- STATEMENT CARD -->
+        <div>
+          <div class="social-card social-statement">
+            <div class="s-rule-v"></div>
+            <div class="social-inner">
+              <div>
+                <div class="s-headline">The pipeline<br>is the proof.</div>
+                <div class="s-sub" style="padding-left:14px;margin-top:6px;">Revenue-led marketing.<br>No vanity metrics.</div>
+              </div>
+              <div class="s-handle">@saren.ai</div>
+            </div>
+          </div>
+          <p class="example-label">Statement card — copy dominant</p>
+        </div>
+
+        <!-- COVER CARD -->
+        <div>
+          <div class="social-card social-cover">
+            <div class="cover-circle"></div>
+            <div class="cover-inner">
+              <div class="s-eyebrow-center">Demand Machine</div>
+              <div class="s-headline-center">5 Systems<br>That Scale</div>
+              <div class="cover-rule"></div>
+            </div>
+            <div class="s-handle-center">@saren.ai</div>
+          </div>
+          <p class="example-label">Cover card — carousel slide 1</p>
+        </div>
+
+      </div>
+      <div class="note" style="margin-top:24px;">These are rendered at 1:3.33 scale (324px). At actual 1080×1080: headline = 72–96px Sora 700, metric = 140–180px JetBrains Mono 700, eyebrow = 20px, handle = 20px. Background: Obsidian solid, Kintsugi gradient, or gradient-dark only.</div>
+    </div>
+
+    <hr class="washi-divider">
+
+    <!-- CAROUSEL -->
+    <div class="ds-section" id="carousel">
+      <div class="ds-section-header">
+        <div class="level-badge level-organism">◉ Organism</div>
+        <h2>Carousel Strip</h2>
+        <p>Consistent anatomy: 4px ember top border on all content slides. Slide counter top-right. Cover and CTA slides are exceptions.</p>
+      </div>
+      <div class="carousel-strip">
+
+        <!-- Slide 1: Cover -->
+        <div class="carousel-slide is-cover" style="background:var(--grad-dark);">
+          <div style="position:absolute;right:-20px;top:-20px;width:100px;height:100px;border-radius:50%;border:1.5px solid var(--ember);opacity:0.1;"></div>
+          <div class="slide-body">
+            <div class="slide-label">5-Part Series</div>
+            <div class="slide-title" style="font-size:16px;">The Demand<br>Machine</div>
+            <div style="width:40px;height:2px;background:var(--ember);border-radius:1px;"></div>
+          </div>
+          <div class="slide-handle">@saren.ai</div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-slide">
+          <div class="top-border"></div>
+          <div class="slide-num">01 / 05</div>
+          <div class="slide-body">
+            <div style="position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--ember);border-radius:1px;"></div>
+            <div class="slide-label" style="padding-left:10px;">Foundation</div>
+            <div class="slide-title" style="padding-left:10px;">ICP before<br>everything else.</div>
+            <div class="slide-copy" style="padding-left:10px;">Without a locked ICP, every campaign is noise. Start here.</div>
+          </div>
+          <div class="slide-handle">@saren.ai</div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-slide">
+          <div class="top-border"></div>
+          <div class="slide-num">02 / 05</div>
+          <div class="slide-body">
+            <div style="font-family:var(--font-mono);font-weight:700;font-size:32px;color:var(--copper);letter-spacing:-0.02em;line-height:1;">10×</div>
+            <div class="slide-copy" style="margin-top:4px;">More pipeline from the same ad spend with behavioral scoring.</div>
+          </div>
+          <div class="slide-handle">@saren.ai</div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="carousel-slide">
+          <div class="top-border"></div>
+          <div class="slide-num">03 / 05</div>
+          <div class="slide-body">
+            <div class="slide-label">Playbook</div>
+            <div class="slide-title">10-Touch<br>Outbound</div>
+            <div class="slide-copy">Coordinated sequence across email, LinkedIn, and intent signals.</div>
+          </div>
+          <div class="slide-handle">@saren.ai</div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="carousel-slide">
+          <div class="top-border"></div>
+          <div class="slide-num">04 / 05</div>
+          <div class="slide-body">
+            <div class="slide-label">Measurement</div>
+            <div class="slide-title">Attribution<br>that closes.</div>
+            <div class="slide-copy">Full-funnel ROI visibility from first touch to closed-won.</div>
+          </div>
+          <div class="slide-handle">@saren.ai</div>
+        </div>
+
+        <!-- CTA Slide -->
+        <div class="carousel-slide is-cta" style="background:var(--grad-dark);">
+          <div class="slide-body">
+            <div class="slide-title" style="font-size:13px;text-align:center;">Ready to build<br>your machine?</div>
+            <div class="cta-btn-sm">Work with me →</div>
+          </div>
+          <div class="slide-handle">@saren.ai</div>
+        </div>
+
+      </div>
+      <div class="note" style="margin-top:16px;">Cover: no top border, hero treatment. Slides 2–N: 4px ember top border + slide counter. CTA: no top border, centered, pill button. Same background across all slides. Consistent headline size per deck.</div>
+    </div>
+
+    <div style="height:128px;"></div>
+
+  </main>
+</div>
+
+<script>
+  // Active nav state on scroll
+  const sections = document.querySelectorAll('.ds-section[id], .page-header');
+  const navLinks = document.querySelectorAll('nav a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

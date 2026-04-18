@@ -92,7 +92,7 @@ export default function SequenceView({
         <button
           onClick={() => onIndexChange(Math.max(0, activeIndex - 1))}
           disabled={activeIndex === 0}
-          className="p-3 bg-card-bg dark:bg-background-secondary border-2 border-border hover:border-electric disabled:opacity-30 disabled:cursor-not-allowed rounded-lg transition-all"
+          className="p-3 bg-card-bg dark:bg-background-secondary border-2 border-border hover:border-lavender disabled:opacity-30 disabled:cursor-not-allowed rounded-lg transition-all"
           aria-label="Previous frame"
         >
           <ChevronLeft className="w-5 h-5 text-foreground" />
@@ -109,7 +109,7 @@ export default function SequenceView({
               } h-3 rounded-full transition-all duration-300 ${
                 index === activeIndex
                   ? "bg-ember"
-                  : "bg-border hover:bg-electric/50"
+                  : "bg-border hover:bg-lavender/50"
               }`}
               aria-label={`Go to frame ${frame.id}`}
               aria-current={index === activeIndex ? "step" : undefined}
@@ -128,7 +128,7 @@ export default function SequenceView({
             onIndexChange(Math.min(frames.length - 1, activeIndex + 1))
           }
           disabled={activeIndex === frames.length - 1}
-          className="p-3 bg-card-bg dark:bg-background-secondary border-2 border-border hover:border-electric disabled:opacity-30 disabled:cursor-not-allowed rounded-lg transition-all"
+          className="p-3 bg-card-bg dark:bg-background-secondary border-2 border-border hover:border-lavender disabled:opacity-30 disabled:cursor-not-allowed rounded-lg transition-all"
           aria-label="Next frame"
         >
           <ChevronRight className="w-5 h-5 text-foreground" />
@@ -145,7 +145,7 @@ export default function SequenceView({
               className={`relative flex-shrink-0 w-24 h-16 rounded-lg overflow-hidden border-2 transition-all ${
                 index === activeIndex
                   ? "border-ember scale-105"
-                  : "border-border hover:border-electric opacity-60 hover:opacity-100"
+                  : "border-border hover:border-lavender opacity-60 hover:opacity-100"
               }`}
               aria-label={`Jump to ${frame.title}`}
             >

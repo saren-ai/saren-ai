@@ -428,7 +428,7 @@ export default function AboutClient() {
                                             <h3 className="text-xl font-bold text-charcoal mt-1">
                                                 {item.role}
                                             </h3>
-                                            <p className="text-electric font-medium">{item.company}</p>
+                                            <p className="text-lavender font-medium">{item.company}</p>
                                             <p className="text-slate mt-3 text-sm leading-relaxed">
                                                 {item.description}
                                             </p>
@@ -496,7 +496,7 @@ export default function AboutClient() {
                     <div className="text-center">
                         <Link
                             href="/about/clients"
-                            className="inline-flex items-center gap-2 text-electric hover:text-ember transition-colors font-medium"
+                            className="inline-flex items-center gap-2 text-lavender hover:text-ember transition-colors font-medium"
                         >
                             View all {26} brands
                             <svg
@@ -569,7 +569,7 @@ export default function AboutClient() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.05 }}
-                                    className="flex items-start gap-4 p-4 bg-white rounded-lg border border-charcoal/10 hover:border-electric hover:shadow-md transition-all group"
+                                    className="flex items-start gap-4 p-4 bg-white rounded-lg border border-charcoal/10 hover:border-lavender hover:shadow-md transition-all group"
                                 >
                                     <span className="text-2xl">{link.icon}</span>
                                     <div>
@@ -579,7 +579,7 @@ export default function AboutClient() {
                                         <p className="text-sm text-slate">{link.description}</p>
                                     </div>
                                     <svg
-                                        className="w-4 h-4 text-slate/40 ml-auto mt-1 group-hover:text-electric transition-colors"
+                                        className="w-4 h-4 text-slate/40 ml-auto mt-1 group-hover:text-lavender transition-colors"
                                         fill="none"
                                         stroke="currentColor"
                                         viewBox="0 0 24 24"
@@ -699,7 +699,7 @@ export default function AboutClient() {
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: toolIndex * 0.05 }}
-                                        className="group bg-white dark:bg-card-bg p-5 rounded-xl border border-charcoal/10 dark:border-ember/20 hover:border-electric hover:shadow-lg hover:shadow-electric/10 transition-all"
+                                        className="group bg-white dark:bg-card-bg p-5 rounded-xl border border-charcoal/10 dark:border-ember/20 hover:border-lavender hover:shadow-lg hover:shadow-electric/10 transition-all"
                                     >
                                         <div className="flex items-start gap-4">
                                             {tool.logo && (
@@ -725,7 +725,7 @@ export default function AboutClient() {
                                                 </p>
                                             </div>
                                         </div>
-                                        <div className="mt-3 flex items-center gap-1 text-electric text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <div className="mt-3 flex items-center gap-1 text-lavender text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                                             <span>Learn more</span>
                                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />

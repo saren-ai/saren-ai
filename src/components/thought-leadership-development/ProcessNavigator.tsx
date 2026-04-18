@@ -62,14 +62,14 @@ export default function ProcessNavigator() {
                                 }`}
                         >
                             <div className="flex items-center gap-4">
-                                <div className={`p-2 rounded-lg ${activeStep === index ? 'bg-electric text-white' : 'bg-ash dark:bg-charcoal/10 text-slate'}`}>
+                                <div className={`p-2 rounded-lg ${activeStep === index ? 'bg-lavender text-white' : 'bg-ash dark:bg-charcoal/10 text-slate'}`}>
                                     {index + 1}
                                 </div>
                                 <span className={`font-semibold text-sm tracking-tight text-left ${activeStep === index ? 'text-white' : 'text-slate group-hover:text-charcoal dark:group-hover:text-ash'}`}>
                                     {step.title}
                                 </span>
                             </div>
-                            {activeStep === index && <ChevronRight className="w-4 h-4 text-electric" />}
+                            {activeStep === index && <ChevronRight className="w-4 h-4 text-lavender" />}
                         </motion.button>
                     ))}
                 </div>
@@ -86,7 +86,7 @@ export default function ProcessNavigator() {
                         >
                             <div>
                                 <div className="flex items-center gap-3 mb-8">
-                                    <span className="px-3 py-1 bg-electric/10 dark:bg-electric/10 text-electric dark:text-electric rounded-full text-xs font-bold tracking-widest uppercase">
+                                    <span className="px-3 py-1 bg-lavender/10 dark:bg-lavender/10 text-lavender dark:text-lavender rounded-full text-xs font-bold tracking-widest uppercase">
                                         {steps[activeStep].tool}
                                     </span>
                                 </div>
@@ -100,7 +100,7 @@ export default function ProcessNavigator() {
 
                             <div className="bg-ash dark:bg-charcoal/5 p-6 rounded-2xl border border-slate/10 dark:border-charcoal/10">
                                 <div className="flex items-start gap-4">
-                                    <CheckCircle className="w-6 h-6 text-electric mt-1 flex-shrink-0" />
+                                    <CheckCircle className="w-6 h-6 text-lavender mt-1 flex-shrink-0" />
                                     <div>
                                         <h4 className="font-bold text-charcoal dark:text-white mb-1">Pro Tip</h4>
                                         <p className="text-slate dark:text-slate">{steps[activeStep].tip}</p>

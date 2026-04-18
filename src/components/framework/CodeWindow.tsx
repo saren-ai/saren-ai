@@ -11,7 +11,7 @@ interface CodeWindowProps {
 
 const getLevelColors = (level: string) => {
     // Foundation & Differentiation
-    if (level === "Foundation" || level === "Differentiation") return { bg: "bg-electric/10", text: "text-electric", border: "border-electric/20", gradient: "from-electric to-electric/0" };
+    if (level === "Foundation" || level === "Differentiation") return { bg: "bg-lavender/10", text: "text-lavender", border: "border-lavender/20", gradient: "from-lavender to-lavender/0" };
     // Decision & Activation
     if (level === "Decision" || level === "Activation") return { bg: "bg-ember/10", text: "text-ember", border: "border-ember/20", gradient: "from-ember to-ember/0" };
     // Measurement
@@ -56,10 +56,10 @@ export default function CodeWindow({ prompt }: CodeWindowProps) {
                 </div>
                 <a
                     href={`/portfolio/b2b-marketing-framework/${prompt.slug}`}
-                    className="p-1.5 text-white/40 hover:text-electric hover:bg-electric/10 rounded-md transition-colors flex items-center gap-2 group"
+                    className="p-1.5 text-white/40 hover:text-lavender hover:bg-lavender/10 rounded-md transition-colors flex items-center gap-2 group"
                     title="View Full Page"
                 >
-                    <span className="text-xs font-mono hidden group-hover:block text-electric">Open Page</span>
+                    <span className="text-xs font-mono hidden group-hover:block text-lavender">Open Page</span>
                     <ExternalLink className="w-4 h-4" />
                 </a>
                 <button
@@ -67,7 +67,7 @@ export default function CodeWindow({ prompt }: CodeWindowProps) {
                     className="p-1.5 text-white/40 hover:text-white hover:bg-white/10 rounded-md transition-colors"
                     title="Copy to clipboard"
                 >
-                    {copied ? <Check className="w-4 h-4 text-electric" /> : <Copy className="w-4 h-4" />}
+                    {copied ? <Check className="w-4 h-4 text-lavender" /> : <Copy className="w-4 h-4" />}
                 </button>
                 <a
                     href={prompt.githubUrl}

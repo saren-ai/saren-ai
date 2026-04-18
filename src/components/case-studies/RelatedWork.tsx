@@ -23,7 +23,7 @@ export default function RelatedWork({ currentHref }: RelatedWorkProps) {
                     </h3>
                     <Link
                         href="/portfolio"
-                        className="text-electric font-medium hover:text-ember transition-colors flex items-center gap-1 group"
+                        className="text-lavender font-medium hover:text-ember transition-colors flex items-center gap-1 group"
                     >
                         View Portfolio
                         <svg

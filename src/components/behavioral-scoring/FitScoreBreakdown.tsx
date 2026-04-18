@@ -44,13 +44,13 @@ export function FitScoreBreakdown({
       </div>
 
       {/* Fit Score Summary */}
-      <div className="bg-gradient-to-br from-electric/5 to-copper/5 dark:from-background-secondary dark:to-background-secondary border border-charcoal/10 dark:border-electric/20 rounded-xl p-6">
+      <div className="bg-gradient-to-br from-lavender/5 to-copper/5 dark:from-background-secondary dark:to-background-secondary border border-charcoal/10 dark:border-lavender/20 rounded-xl p-6">
         <div className="flex items-center justify-between">
           <div>
             <p className="text-sm text-slate dark:text-foreground-muted uppercase tracking-wide mb-1">
               Current Fit Score
             </p>
-            <p className="text-4xl font-bold text-electric">{fitScore} / 50</p>
+            <p className="text-4xl font-bold text-lavender">{fitScore} / 50</p>
           </div>
           <div className="text-right">
             <p className="text-sm text-slate dark:text-foreground-muted mb-1">
@@ -59,7 +59,7 @@ export function FitScoreBreakdown({
             <div className="flex items-center gap-2">
               <div className="w-32 h-2 bg-charcoal/10 dark:bg-ash/10 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-electric transition-all duration-500"
+                  className="h-full bg-lavender transition-all duration-500"
                   style={{ width: `${(fitScore / 50) * 100}%` }}
                 />
               </div>
@@ -87,7 +87,7 @@ export function FitScoreBreakdown({
               className="bg-white dark:bg-card-bg border border-charcoal/10 dark:border-ember/20 rounded-lg p-5"
             >
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-electric/10 rounded-lg flex items-center justify-center text-electric">
+                <div className="flex-shrink-0 w-10 h-10 bg-lavender/10 rounded-lg flex items-center justify-center text-lavender">
                   {getFactorIcon(factor.id)}
                 </div>
                 <div className="flex-1 min-w-0">
@@ -101,7 +101,7 @@ export function FitScoreBreakdown({
                       </p>
                     </div>
                     <div className="text-right">
-                      <span className="text-lg font-bold text-electric">
+                      <span className="text-lg font-bold text-lavender">
                         {currentPoints}
                       </span>
                       <span className="text-sm text-slate dark:text-foreground-muted">
@@ -125,7 +125,7 @@ export function FitScoreBreakdown({
                           }
                           className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
                             isSelected
-                              ? "bg-electric text-white"
+                              ? "bg-lavender text-white"
                               : "bg-charcoal/5 dark:bg-background-secondary text-charcoal dark:text-foreground hover:bg-charcoal/10 dark:hover:bg-ash/10"
                           }`}
                         >

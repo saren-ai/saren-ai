@@ -180,8 +180,8 @@ export default function MarketingFrameworkPage() {
               ].map((item) => (
                 <div key={item.step} className="flex gap-6">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-electric/10 rounded-lg flex items-center justify-center">
-                      <span className="text-electric font-bold text-xl">{item.step}</span>
+                    <div className="w-12 h-12 bg-lavender/10 rounded-lg flex items-center justify-center">
+                      <span className="text-lavender font-bold text-xl">{item.step}</span>
                     </div>
                   </div>
                   <div className="flex-1">

@@ -23,10 +23,10 @@ const COLOR_MAP: Record<PersonaColor, { text: string; bg: string; border: string
     badge: 'bg-ember/10 text-ember',
   },
   electric: {
-    text: 'text-electric',
-    bg: 'bg-electric/5',
-    border: 'border-electric/20',
-    badge: 'bg-electric/10 text-electric',
+    text: 'text-lavender',
+    bg: 'bg-lavender/5',
+    border: 'border-lavender/20',
+    badge: 'bg-lavender/10 text-lavender',
   },
   copper: {
     text: 'text-copper',
@@ -123,7 +123,7 @@ export default function ContentMatrixClient() {
           <div className="overflow-x-auto">
             <div className="min-w-max border border-border rounded-xl">
               {/* Header */}
-              <div className="flex sticky top-0 z-20 bg-background border-b-2 border-electric/20">
+              <div className="flex sticky top-0 z-20 bg-background border-b-2 border-lavender/20">
                 <div className="w-44 flex-shrink-0 p-3 border-r border-border">
                   <div className="text-xs font-semibold text-foreground-muted uppercase tracking-wider">
                     Persona
@@ -134,7 +134,7 @@ export default function ContentMatrixClient() {
                     key={stage.id}
                     className="w-56 flex-shrink-0 p-3 border-r border-border last:border-r-0"
                   >
-                    <div className="text-xs text-electric font-semibold uppercase tracking-wide mb-0.5">
+                    <div className="text-xs text-lavender font-semibold uppercase tracking-wide mb-0.5">
                       {stage.label}
                     </div>
                     <div className="text-sm font-semibold text-foreground">{stage.description}</div>
@@ -186,7 +186,7 @@ export default function ContentMatrixClient() {
                                   hover:shadow-md focus:outline-none focus:ring-2 focus:ring-electric
                                   ${isSelected
                                     ? `${colors.bg} ${colors.border} ring-2 ring-${persona.color}`
-                                    : 'border-border hover:border-electric/40 hover:bg-electric/3'
+                                    : 'border-border hover:border-lavender/40 hover:bg-lavender/3'
                                   }
                                 `}
                               >
@@ -301,8 +301,8 @@ export default function ContentMatrixClient() {
                     <ul className="space-y-2">
                       {selectedCell.cell.expanded.why.map((item, i) => (
                         <li key={i} className="flex items-start gap-3 text-sm text-foreground">
-                          <span className="flex-shrink-0 w-5 h-5 bg-electric/10 rounded-full flex items-center justify-center mt-0.5">
-                            <ChevronRight className="w-3 h-3 text-electric" />
+                          <span className="flex-shrink-0 w-5 h-5 bg-lavender/10 rounded-full flex items-center justify-center mt-0.5">
+                            <ChevronRight className="w-3 h-3 text-lavender" />
                           </span>
                           {item}
                         </li>
@@ -334,7 +334,7 @@ export default function ContentMatrixClient() {
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {selectedCell.cell.expanded.formats.map((fmt, i) => (
-                        <span key={i} className="px-3 py-1.5 bg-electric/10 text-electric rounded-full text-sm">
+                        <span key={i} className="px-3 py-1.5 bg-lavender/10 text-lavender rounded-full text-sm">
                           {fmt}
                         </span>
                       ))}

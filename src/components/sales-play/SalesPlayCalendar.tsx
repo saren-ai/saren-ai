@@ -45,7 +45,7 @@ export const SalesPlayCalendar = () => {
                                         className={`inline-block px-1.5 py-0.5 rounded-[4px] text-[8px] md:text-[10px] font-medium self-start truncate max-w-full ${touch.channel === "LinkedIn"
                                                 ? "bg-[#0077B5]/20 text-[#0077B5] border border-[#0077B5]/30"
                                                 : touch.channel === "Email"
-                                                    ? "bg-electric/20 text-electric border border-electric/30"
+                                                    ? "bg-lavender/20 text-lavender border border-lavender/30"
                                                     : "bg-copper/20 text-copper border border-copper/30"
                                             }`}
                                     >
@@ -68,7 +68,7 @@ export const SalesPlayCalendar = () => {
                     <span className="text-xs md:text-sm text-white/70">LinkedIn</span>
                 </div>
                 <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded bg-electric/20 border border-electric"></span>
+                    <span className="w-3 h-3 rounded bg-lavender/20 border border-lavender"></span>
                     <span className="text-xs md:text-sm text-white/70">Email</span>
                 </div>
                 <div className="flex items-center gap-2">

@@ -105,7 +105,7 @@ export default function ContactClient() {
                                 </p>
                                 <a
                                     href="mailto:saren.sakurai@gmail.com"
-                                    className="inline-flex items-center gap-2 text-electric hover:text-ember transition-colors font-medium"
+                                    className="inline-flex items-center gap-2 text-lavender hover:text-ember transition-colors font-medium"
                                 >
                                     <Mail className="w-5 h-5" />
                                     saren.sakurai@gmail.com
@@ -115,7 +115,7 @@ export default function ContactClient() {
                             {/* Response Time */}
                             <div className="p-4 bg-charcoal/5 rounded-lg">
                                 <p className="text-sm text-slate flex items-center gap-2">
-                                    <Clock className="w-4 h-4 text-electric" />
+                                    <Clock className="w-4 h-4 text-lavender" />
                                     Typical response time: 24-48 hours
                                 </p>
                             </div>

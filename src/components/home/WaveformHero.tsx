@@ -117,7 +117,7 @@ export default function WaveformHero() {
         // Stroke width: thin (left) → slightly thicker (right)
         const lw = lerp(0.8, 2.3, smoothstep(pm));
 
-        // Color transition: slate-gray → electric-blue → copper/amber
+        // Color transition: slate-gray → lavender → copper/amber
         let r: number, g: number, b: number, a: number;
 
         if (pm < 0.48) {

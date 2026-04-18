@@ -50,10 +50,10 @@ const KEYWORD_CATEGORIES: Record<string, Category> = {
 };
 
 const CAT_STYLE: Record<Category, string> = {
-  solutions: "bg-electric/15 text-electric border-electric/25",
+  solutions: "bg-lavender/15 text-lavender border-lavender/25",
   threats: "bg-copper/15 text-copper border-copper/25",
   vendors: "bg-ember/10 text-ember/80 border-ember/20",
-  compliance: "bg-electric/10 text-electric border-electric/20",
+  compliance: "bg-lavender/10 text-lavender border-lavender/20",
 };
 
 const KEYWORDS_BY_PERIOD: string[][] = [
@@ -237,7 +237,7 @@ const ABM_ROWS = [
       { name: "Security Solutions", lift: "+55%" },
     ],
     action: "Enroll in awareness nurture. Prioritize for brand content. Flag for BDR awareness outreach.",
-    color: "#4A9FD8",
+    color: "#B57EDC",
   },
   {
     stage: "Building Urgency",
@@ -280,9 +280,9 @@ const ABM_ROWS = [
 
 const TABS = ["Intent Timeline", "Buyer Journey", "Campaign Strategy", "ABM Triggers"];
 
-const Q_COLORS = ["text-electric", "text-[#D4A574]", "text-amber-400", "text-[#E34234]"];
+const Q_COLORS = ["text-lavender", "text-[#D4A574]", "text-amber-400", "text-[#E34234]"];
 const Q_BORDERS = [
-  "border-electric/20 bg-electric/[0.03]",
+  "border-lavender/20 bg-lavender/[0.03]",
   "border-[#D4A574]/20 bg-[#D4A574]/[0.03]",
   "border-copper/20 bg-copper/[0.03]",
   "border-[#E34234]/20 bg-[#E34234]/[0.03]",
@@ -321,8 +321,8 @@ function TimelineSVG() {
     >
       <defs>
         <linearGradient id="signalGrad" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#4A9FD8" stopOpacity="0.05" />
-          <stop offset="100%" stopColor="#4A9FD8" stopOpacity="0.4" />
+          <stop offset="0%" stopColor="#B57EDC" stopOpacity="0.05" />
+          <stop offset="100%" stopColor="#B57EDC" stopOpacity="0.4" />
         </linearGradient>
       </defs>
       {/* Axis */}
@@ -355,7 +355,7 @@ function TimelineSVG() {
         y="58"
         textAnchor="end"
         fontSize="9"
-        fill="#4A9FD8"
+        fill="#B57EDC"
         fontFamily="JetBrains Mono, monospace"
         opacity="0.75"
       >
@@ -369,7 +369,7 @@ function TimelineSVG() {
       {/* Signal line */}
       <path
         d="M 16 43 C 100 42, 200 40, 300 35 C 420 28, 540 18, 660 6"
-        stroke="#4A9FD8"
+        stroke="#B57EDC"
         strokeWidth="1.5"
         opacity="0.55"
       />
@@ -416,7 +416,7 @@ function IntentTimelineTab() {
               <div
                 className={`px-3 py-2.5 rounded-t border-t border-x transition-all duration-150 ${
                   hoveredPeriod === colIdx
-                    ? "border-[#4A9FD8]/35 bg-[#4A9FD8]/10 text-electric"
+                    ? "border-[#B57EDC]/35 bg-[#B57EDC]/10 text-lavender"
                     : "border-white/8 bg-white/[0.025] text-white/30"
                 }`}
               >
@@ -425,7 +425,7 @@ function IntentTimelineTab() {
                 </p>
                 <p
                   className={`font-mono text-[9px] mt-0.5 transition-colors ${
-                    hoveredPeriod === colIdx ? "text-electric/50" : "text-white/15"
+                    hoveredPeriod === colIdx ? "text-lavender/50" : "text-white/15"
                   }`}
                 >
                   Pre-Close
@@ -435,7 +435,7 @@ function IntentTimelineTab() {
               <div
                 className={`px-2 py-3 rounded-b border border-t-0 flex flex-col gap-1.5 transition-all duration-150 ${
                   hoveredPeriod === colIdx
-                    ? "border-[#4A9FD8]/35 bg-[#4A9FD8]/[0.04]"
+                    ? "border-[#B57EDC]/35 bg-[#B57EDC]/[0.04]"
                     : "border-white/8 bg-white/[0.01]"
                 }`}
               >
@@ -452,7 +452,7 @@ function IntentTimelineTab() {
       <div
         className={`p-5 rounded-lg border transition-all duration-200 ${
           hoveredPeriod !== null
-            ? "border-[#4A9FD8]/25 bg-[#4A9FD8]/[0.05]"
+            ? "border-[#B57EDC]/25 bg-[#B57EDC]/[0.05]"
             : "border-white/5 bg-white/[0.015]"
         }`}
       >
@@ -465,7 +465,7 @@ function IntentTimelineTab() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.12 }}
             >
-              <p className="font-mono text-electric text-[10px] uppercase tracking-widest mb-2">
+              <p className="font-mono text-lavender text-[10px] uppercase tracking-widest mb-2">
                 {PERIOD_LABELS[hoveredPeriod]}
               </p>
               <p className="text-white/60 text-sm leading-relaxed">{PERIOD_CONTEXT[hoveredPeriod]}</p>
@@ -550,7 +550,7 @@ function BuyerJourneyTab() {
                 {row.periods.map((rank, pIdx) => (
                   <td key={pIdx} className="py-3 px-2 text-center">
                     {rank !== null ? (
-                      <span className="font-mono text-xs text-electric font-semibold">#{rank}</span>
+                      <span className="font-mono text-xs text-lavender font-semibold">#{rank}</span>
                     ) : (
                       <span className="text-white/15 text-sm">—</span>
                     )}
@@ -579,7 +579,7 @@ function BuyerJourneyTab() {
               <p className="font-mono text-[10px] text-white/25 uppercase tracking-widest mb-2">{phase.label}</p>
               <p className="font-bold text-white/85 mb-3 leading-snug">{phase.title}</p>
               <p className="text-sm text-white/48 leading-relaxed mb-3">{phase.desc}</p>
-              <p className="text-xs font-mono text-electric/55 italic">{phase.content}</p>
+              <p className="text-xs font-mono text-lavender/55 italic">{phase.content}</p>
             </motion.div>
           ))}
         </div>
@@ -609,7 +609,7 @@ function CampaignStrategyTab() {
         <div className="flex flex-wrap gap-5">
           {["Threat Intelligence", "Prevention Science", "Proof & Validation"].map((pillar, i) => (
             <span key={pillar} className="flex items-center gap-2 text-xs font-mono text-white/35">
-              <span className="text-electric opacity-60">{i + 1}.</span>
+              <span className="text-lavender opacity-60">{i + 1}.</span>
               {pillar}
             </span>
           ))}
@@ -753,7 +753,7 @@ export default function IntentDataClient() {
                 </Link>
               </li>
               <li className="text-white/15">/</li>
-              <li className="text-electric">Intent Data</li>
+              <li className="text-lavender">Intent Data</li>
             </ol>
           </nav>
 
@@ -763,7 +763,7 @@ export default function IntentDataClient() {
             transition={{ duration: 0.5 }}
             className="max-w-3xl"
           >
-            <p className="font-mono text-electric text-[10px] uppercase tracking-[0.25em] mb-5">
+            <p className="font-mono text-lavender text-[10px] uppercase tracking-[0.25em] mb-5">
               Cylance · 2018 · Bombora Intent Data · ~100 Close/Won Accounts
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mb-7">
@@ -804,7 +804,7 @@ export default function IntentDataClient() {
                 onClick={() => setActiveTab(i)}
                 className={`flex-shrink-0 px-5 py-4 text-[11px] font-mono uppercase tracking-widest transition-all duration-150 border-b-2 ${
                   activeTab === i
-                    ? "border-[#4A9FD8] text-electric"
+                    ? "border-[#B57EDC] text-lavender"
                     : "border-transparent text-white/28 hover:text-white/55"
                 }`}
               >
@@ -839,7 +839,7 @@ export default function IntentDataClient() {
       <section className="py-16 border-t border-white/5">
         <div className="container-narrow">
           <div className="max-w-2xl border border-white/8 rounded-lg p-8 bg-white/[0.015]">
-            <p className="font-mono text-electric text-[10px] uppercase tracking-[0.2em] mb-4">
+            <p className="font-mono text-lavender text-[10px] uppercase tracking-[0.2em] mb-4">
               How this was built
             </p>
             <p className="text-white/48 leading-relaxed text-sm">

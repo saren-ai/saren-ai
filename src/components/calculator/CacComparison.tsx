@@ -35,9 +35,9 @@ export function CacComparison({
   const scales: CompanyScale[] = ["consumer", "smb", "middleMarket", "enterprise"];
 
   return (
-    <div className="bg-gradient-to-br from-electric/5 to-copper/5 dark:from-background-secondary dark:to-background-secondary border border-charcoal/10 dark:border-electric/20 rounded-xl p-6">
+    <div className="bg-gradient-to-br from-lavender/5 to-copper/5 dark:from-background-secondary dark:to-background-secondary border border-charcoal/10 dark:border-lavender/20 rounded-xl p-6">
       <div className="flex items-start gap-3 mb-6">
-        <TrendingUp className="w-6 h-6 text-electric flex-shrink-0 mt-1" />
+        <TrendingUp className="w-6 h-6 text-lavender flex-shrink-0 mt-1" />
         <div>
           <h3 className="text-xl font-semibold text-charcoal dark:text-foreground mb-2">
             Required Marketing Budget
@@ -62,8 +62,8 @@ export function CacComparison({
               onClick={() => setSelectedScale(scale)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                 isSelected
-                  ? "bg-electric text-white"
-                  : "bg-white dark:bg-card-bg text-charcoal dark:text-foreground border border-charcoal/20 dark:border-ember/20 hover:border-electric dark:hover:border-electric"
+                  ? "bg-lavender text-white"
+                  : "bg-white dark:bg-card-bg text-charcoal dark:text-foreground border border-charcoal/20 dark:border-ember/20 hover:border-lavender dark:hover:border-lavender"
               }`}
             >
               {getScaleLabel(scale)}
@@ -103,7 +103,7 @@ export function CacComparison({
               <div className="text-sm text-slate dark:text-foreground-muted mb-1">
                 Total Budget Required
               </div>
-              <div className="text-2xl font-bold text-electric">
+              <div className="text-2xl font-bold text-lavender">
                 {formatCurrency(budget)}
               </div>
             </div>

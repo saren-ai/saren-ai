@@ -202,7 +202,7 @@ export default function PortfolioPageContent() {
             <h2 className="text-3xl md:text-4xl font-bold text-charcoal dark:text-foreground">
               Case Studies
             </h2>
-            <span className="px-3 py-1 bg-electric/10 text-electric text-sm font-bold rounded-full uppercase tracking-wide">
+            <span className="px-3 py-1 bg-lavender/10 text-lavender text-sm font-bold rounded-full uppercase tracking-wide">
               See the work
             </span>
           </motion.div>

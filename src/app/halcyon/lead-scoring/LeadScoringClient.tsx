@@ -165,9 +165,9 @@ interface ScoringPanelProps {
 }
 
 function ScoringPanel({ section, selections, onRadioChange, onCheckboxChange, score, accentColor }: ScoringPanelProps) {
-  const accentClass = accentColor === 'ember' ? 'text-ember' : 'text-electric'
-  const bgClass = accentColor === 'ember' ? 'bg-ember/10' : 'bg-electric/10'
-  const borderClass = accentColor === 'ember' ? 'border-ember/20' : 'border-electric/20'
+  const accentClass = accentColor === 'ember' ? 'text-ember' : 'text-lavender'
+  const bgClass = accentColor === 'ember' ? 'bg-ember/10' : 'bg-lavender/10'
+  const borderClass = accentColor === 'ember' ? 'border-ember/20' : 'border-lavender/20'
 
   return (
     <motion.div
@@ -210,7 +210,7 @@ function ScoringPanel({ section, selections, onRadioChange, onCheckboxChange, sc
                           ${isSelected
                             ? accentColor === 'ember'
                               ? 'border-ember/50 bg-ember/5'
-                              : 'border-electric/50 bg-electric/5'
+                              : 'border-lavender/50 bg-lavender/5'
                             : 'border-border hover:border-border/80 hover:bg-charcoal/3 dark:hover:bg-ash/3'
                           }
                         `}
@@ -222,7 +222,7 @@ function ScoringPanel({ section, selections, onRadioChange, onCheckboxChange, sc
                               ${isSelected
                                 ? accentColor === 'ember'
                                   ? 'border-ember bg-ember'
-                                  : 'border-electric bg-electric'
+                                  : 'border-lavender bg-lavender'
                                 : 'border-border'
                               }
                             `}
@@ -263,7 +263,7 @@ function ScoringPanel({ section, selections, onRadioChange, onCheckboxChange, sc
                         className={`
                           flex items-center justify-between gap-3 p-3 rounded-lg border cursor-pointer transition-all
                           ${checked
-                            ? 'border-electric/50 bg-electric/5'
+                            ? 'border-lavender/50 bg-lavender/5'
                             : 'border-border hover:border-border/80 hover:bg-charcoal/3 dark:hover:bg-ash/3'
                           }
                         `}
@@ -272,7 +272,7 @@ function ScoringPanel({ section, selections, onRadioChange, onCheckboxChange, sc
                           <div
                             className={`
                               w-4 h-4 rounded border-2 flex-shrink-0 flex items-center justify-center transition-all
-                              ${checked ? 'border-electric bg-electric' : 'border-border'}
+                              ${checked ? 'border-lavender bg-lavender' : 'border-border'}
                             `}
                           >
                             {checked && (
@@ -289,12 +289,12 @@ function ScoringPanel({ section, selections, onRadioChange, onCheckboxChange, sc
                           />
                           <span className="text-sm text-foreground truncate">{opt.label}</span>
                           {opt.tag && (
-                            <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded flex-shrink-0 text-electric bg-electric/10">
+                            <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded flex-shrink-0 text-lavender bg-lavender/10">
                               {opt.tag}
                             </span>
                           )}
                         </div>
-                        <span className="text-xs font-mono font-semibold flex-shrink-0 text-electric">
+                        <span className="text-xs font-mono font-semibold flex-shrink-0 text-lavender">
                           +{opt.value}
                         </span>
                       </label>
@@ -353,8 +353,8 @@ function ScoreSummary({ fitScore, engagementScore, total, band, hasStarted, answ
           <div className="text-xl font-bold font-mono text-ember">{fitScore}</div>
           <div className="text-xs text-foreground-muted">Fit Score</div>
         </div>
-        <div className="text-center bg-electric/5 rounded-lg p-3">
-          <div className="text-xl font-bold font-mono text-electric">{engagementScore}</div>
+        <div className="text-center bg-lavender/5 rounded-lg p-3">
+          <div className="text-xl font-bold font-mono text-lavender">{engagementScore}</div>
           <div className="text-xs text-foreground-muted">Engagement</div>
         </div>
       </div>

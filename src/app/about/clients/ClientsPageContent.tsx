@@ -88,7 +88,7 @@ export default function ClientsPageContent() {
                   ease: "easeOut"
                 }}
                 whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-                className="relative aspect-square flex items-center justify-center p-6 rounded-lg bg-charcoal/50 border border-ash/10 hover:border-electric/40 transition-colors group"
+                className="relative aspect-square flex items-center justify-center p-6 rounded-lg bg-charcoal/50 border border-ash/10 hover:border-lavender/40 transition-colors group"
               >
                 <Image
                   src={`/logos/clients/${logo.filename}`}
@@ -126,7 +126,7 @@ export default function ClientsPageContent() {
             
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               <div className="text-center p-6 bg-white rounded-lg border border-charcoal/10">
-                <div className="text-4xl font-bold text-electric mb-2">
+                <div className="text-4xl font-bold text-lavender mb-2">
                   {clientLogos.filter(l => l.category === 'tech').length}
                 </div>
                 <div className="text-sm text-slate font-medium">B2B Technology</div>

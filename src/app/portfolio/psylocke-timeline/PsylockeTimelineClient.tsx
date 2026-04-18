@@ -69,7 +69,7 @@ export default function PsylockeTimelineClient() {
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className="block p-6 bg-card-bg border border-border rounded-lg hover:bg-electric/10 transition-colors group"
+                                className="block p-6 bg-card-bg border border-border rounded-lg hover:bg-lavender/10 transition-colors group"
                             >
                                 <h4 className="font-semibold text-foreground group-hover:text-ember transition-colors mb-2">
                                     {item.title}

@@ -13,10 +13,10 @@ interface EngineMetricsProps {
 export default function EngineMetrics({ model }: EngineMetricsProps) {
     return (
         <div className="h-full bg-background-secondary/80 backdrop-blur-xl border border-border rounded-3xl p-6 flex flex-col gap-6 relative overflow-hidden shadow-sm transition-colors duration-500">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-electric/0 via-electric/50 to-electric/0 opacity-30" />
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-lavender/0 via-lavender/50 to-lavender/0 opacity-30" />
 
             <div className="flex items-center gap-3 mb-2">
-                <div className="p-2 bg-electric/10 rounded-lg text-electric shadow-lg shadow-electric/10">
+                <div className="p-2 bg-lavender/10 rounded-lg text-lavender shadow-lg shadow-electric/10">
                     <Activity className="w-5 h-5" />
                 </div>
                 <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
@@ -103,7 +103,7 @@ function MetricCard({ label, icon, value, subtext, highlight, delay, trend, form
             className={`
                 relative p-4 rounded-2xl border transition-all group overflow-hidden flex flex-col justify-between
                 ${highlight
-                    ? "bg-electric/10 border-electric/40 min-h-[120px] shadow-lg shadow-electric/5"
+                    ? "bg-lavender/10 border-lavender/40 min-h-[120px] shadow-lg shadow-electric/5"
                     : "bg-card-bg/50 border-border hover:border-border-hover min-h-[100px]"}
             `}
         >
@@ -114,22 +114,22 @@ function MetricCard({ label, icon, value, subtext, highlight, delay, trend, form
                 </div>
                 {highlight && trend && (
                     <div className="w-12 h-6 opacity-80">
-                        <Sparkline data={trend} color="var(--electric-blue)" />
+                        <Sparkline data={trend} color="var(--lavender)" />
                     </div>
                 )}
             </div>
 
             <div>
-                <div className={`font-mono font-bold text-foreground group-hover:text-electric transition-colors ${highlight ? "text-3xl" : "text-2xl"}`}>
+                <div className={`font-mono font-bold text-foreground group-hover:text-lavender transition-colors ${highlight ? "text-3xl" : "text-2xl"}`}>
                     <CountingNumber value={value} format={formatter} />
                 </div>
-                <div className="text-xs text-electric font-semibold mt-1">
+                <div className="text-xs text-lavender font-semibold mt-1">
                     {subtext}
                 </div>
             </div>
 
             {highlight && (
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-electric/20 rounded-full blur-2xl group-hover:bg-electric/30 transition-colors" />
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-lavender/20 rounded-full blur-2xl group-hover:bg-lavender/30 transition-colors" />
             )}
         </motion.div>
     )

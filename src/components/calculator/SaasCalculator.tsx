@@ -186,8 +186,8 @@ export function SaasCalculator() {
             onClick={() => setViewMode("annual")}
             className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all ${
               viewMode === "annual"
-                ? "bg-electric text-white"
-                : "bg-white dark:bg-card-bg text-charcoal dark:text-foreground border border-charcoal/20 dark:border-ember/20 hover:border-electric"
+                ? "bg-lavender text-white"
+                : "bg-white dark:bg-card-bg text-charcoal dark:text-foreground border border-charcoal/20 dark:border-ember/20 hover:border-lavender"
             }`}
           >
             <Calendar className="w-3.5 h-3.5" />
@@ -197,8 +197,8 @@ export function SaasCalculator() {
             onClick={() => setViewMode("monthly")}
             className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all ${
               viewMode === "monthly"
-                ? "bg-electric text-white"
-                : "bg-white dark:bg-card-bg text-charcoal dark:text-foreground border border-charcoal/20 dark:border-ember/20 hover:border-electric"
+                ? "bg-lavender text-white"
+                : "bg-white dark:bg-card-bg text-charcoal dark:text-foreground border border-charcoal/20 dark:border-ember/20 hover:border-lavender"
             }`}
           >
             <TrendingUp className="w-3.5 h-3.5" />
@@ -331,7 +331,7 @@ export function SaasCalculator() {
           </h3>
           <ul className="space-y-2.5 text-sm">
             <li className="flex items-start gap-3 text-slate dark:text-foreground-muted">
-              <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-electric mt-1.5" />
+              <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-lavender mt-1.5" />
               <span>
                 {state.direction === "forward" ? (
                   <>
@@ -352,7 +352,7 @@ export function SaasCalculator() {
               </span>
             </li>
             <li className="flex items-start gap-3 text-slate dark:text-foreground-muted">
-              <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-electric mt-1.5" />
+              <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-lavender mt-1.5" />
               <span>
                 That requires{" "}
                 <strong className="text-charcoal dark:text-foreground">
@@ -364,7 +364,7 @@ export function SaasCalculator() {
               </span>
             </li>
             <li className="flex items-start gap-3 text-slate dark:text-foreground-muted">
-              <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-electric mt-1.5" />
+              <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-lavender mt-1.5" />
               <span>
                 Estimated required budget:{" "}
                 <strong className="text-charcoal dark:text-foreground">
@@ -374,7 +374,7 @@ export function SaasCalculator() {
               </span>
             </li>
             <li className="flex items-start gap-3 text-slate dark:text-foreground-muted">
-              <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-electric mt-1.5" />
+              <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-lavender mt-1.5" />
               <span>
                 Based on{" "}
                 <strong className="text-charcoal dark:text-foreground">
