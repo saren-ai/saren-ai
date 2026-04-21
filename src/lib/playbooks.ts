@@ -16,6 +16,7 @@ export interface Playbook {
     category: string;
     tags: string[];
     status: 'active' | 'archived';
+    date?: string;
     steps: PlaybookStep[];
     /** Path to a downloadable Claude Code skill file in public/skills/ */
     skill?: string;

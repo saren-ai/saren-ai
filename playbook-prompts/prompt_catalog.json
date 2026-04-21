@@ -12,7 +12,7 @@
     {
       "playbook_id": "brand-identity-foundation",
       "title": "Brand Identity Foundation",
-      "description": "Build a complete brand brief from scratch — summary, mission/vision/values, audience pain points, and product/service map.",
+      "description": "Build a complete brand brief from scratch \u2014 summary, mission/vision/values, audience pain points, and product/service map.",
       "category": "Marketing",
       "tags": [
         "Branding",
@@ -47,7 +47,7 @@
     {
       "playbook_id": "cmo-gtm-playbook",
       "title": "CMO GTM Playbook",
-      "description": "6-step go-to-market intelligence build for B2B: competitive intel → TAM modeling → ICP architecture → messaging → GTM motion → launch execution. Use inside Claude Projects with memory on.",
+      "description": "6-step go-to-market intelligence build for B2B: competitive intel \u2192 TAM modeling \u2192 ICP architecture \u2192 messaging \u2192 GTM motion \u2192 launch execution. Use inside Claude Projects with memory on.",
       "category": "Marketing",
       "tags": [
         "GTM",
@@ -89,12 +89,13 @@
           "title": "Launch Execution & KPI Framework",
           "file": "Playbooks/CMO GTM Playbook/6_Launch Execution  KPI Framework.md"
         }
-      ]
+      ],
+      "date": "2026-03-03"
     },
     {
       "playbook_id": "cmo-content-marketing-pipeline",
       "title": "CMO Content Marketing Pipeline",
-      "description": "Research your ICP → map competitors → extract audience content needs → build a 1-month content calendar. A sequential 4-step flow from insight to execution.",
+      "description": "Research your ICP \u2192 map competitors \u2192 extract audience content needs \u2192 build a 1-month content calendar. A sequential 4-step flow from insight to execution.",
       "category": "Marketing",
       "tags": [
         "Content Marketing",
@@ -125,12 +126,13 @@
           "title": "Content Flighting Calendar",
           "file": "Playbooks/CMO Content Marketing Pipeline/4_Content Flighting Calendar.md"
         }
-      ]
+      ],
+      "date": "2026-03-03"
     },
     {
       "playbook_id": "personal-bio-brand-builder",
       "title": "Personal Bio & Brand Builder",
-      "description": "6-prompt sequence to craft every version of your personal brand bio — one-liner, multi-platform, expert positioning, personality-forward, speaker intro, and hook-driven distillation.",
+      "description": "6-prompt sequence to craft every version of your personal brand bio \u2014 one-liner, multi-platform, expert positioning, personality-forward, speaker intro, and hook-driven distillation.",
       "category": "Personal Brand",
       "tags": [
         "Personal Brand",
@@ -171,12 +173,13 @@
           "title": "Simplify My Bio With a Clear Hook",
           "file": "Playbooks/Personal Bio  Brand Builder/6_Simplify My Bio With a Clear Hook.md"
         }
-      ]
+      ],
+      "date": "2026-03-03"
     },
     {
       "playbook_id": "self-discovery-mindset-journey",
       "title": "Self-Discovery & Mindset Journey",
-      "description": "6-step psychological deep-dive: map your thinking patterns → surface core values → identify emotional triggers → understand personality type → dismantle limiting beliefs → upgrade decision-making.",
+      "description": "6-step psychological deep-dive: map your thinking patterns \u2192 surface core values \u2192 identify emotional triggers \u2192 understand personality type \u2192 dismantle limiting beliefs \u2192 upgrade decision-making.",
       "category": "Personal Brand",
       "tags": [
         "Psychology",
@@ -217,12 +220,13 @@
           "title": "Improving My Decision-Making",
           "file": "Playbooks/Self-Discovery  Mindset Journey/6_Improving My Decision-Making.md"
         }
-      ]
+      ],
+      "date": "2026-03-03"
     },
     {
       "playbook_id": "learning-mastery-sequence",
       "title": "Learning Mastery Sequence",
-      "description": "7-prompt system to master any topic fast: simplify → learn from mistakes → apply knowledge → compare concepts → gamify → stay updated → summarize complex material.",
+      "description": "7-prompt system to master any topic fast: simplify \u2192 learn from mistakes \u2192 apply knowledge \u2192 compare concepts \u2192 gamify \u2192 stay updated \u2192 summarize complex material.",
       "category": "Learning",
       "tags": [
         "Learning",
@@ -267,12 +271,13 @@
           "title": "Summarize Complex Texts",
           "file": "Playbooks/Learning Mastery Sequence/7_Summarize Complex Texts.md"
         }
-      ]
+      ],
+      "date": "2026-03-03"
     },
     {
       "playbook_id": "viral-content-hook-trilogy",
       "title": "Viral Content Hook Trilogy",
-      "description": "3-part psychology-driven content system: design scroll-addicting formats → craft identity-spiking hooks → write dopamine-bait short-form scripts. Think in brain chemistry.",
+      "description": "3-part psychology-driven content system: design scroll-addicting formats \u2192 craft identity-spiking hooks \u2192 write dopamine-bait short-form scripts. Think in brain chemistry.",
       "category": "Copywriting",
       "tags": [
         "Viral Content",
@@ -299,12 +304,13 @@
           "title": "The Taboo Timing Tension Stack",
           "file": "Playbooks/Viral Content Hook Trilogy/3_The Taboo Timing Tension Stack.md"
         }
-      ]
+      ],
+      "date": "2026-03-03"
     },
     {
       "playbook_id": "digital-dominance-marketing-system",
       "title": "Digital Dominance Marketing System",
-      "description": "5-part marketing machine: analyze competitors → build ICP targeting → trigger the algorithm → negotiate deals → deploy a direct response system. Missing step 2 — reconstruct with Map Competitors or ICP Deep Research.",
+      "description": "5-part marketing machine: analyze competitors \u2192 build ICP targeting \u2192 trigger the algorithm \u2192 negotiate deals \u2192 deploy a direct response system. Missing step 2 \u2014 reconstruct with Map Competitors or ICP Deep Research.",
       "category": "Marketing",
       "tags": [
         "Marketing",
@@ -325,7 +331,7 @@
           "step": 2,
           "title": "ICP & Target Audience Build",
           "file": "Playbooks/Digital Dominance Marketing System/2_ICP  Target Audience Build.md",
-          "note": "Step 2 was missing — Map Competitors or ICP Deep Research fills this slot"
+          "note": "Step 2 was missing \u2014 Map Competitors or ICP Deep Research fills this slot"
         },
         {
           "step": 3,
@@ -342,12 +348,13 @@
           "title": "Direct Response Marketing System",
           "file": "Playbooks/Digital Dominance Marketing System/5_Direct Response Marketing System.md"
         }
-      ]
+      ],
+      "date": "2026-03-03"
     },
     {
       "playbook_id": "daily-executive-gsd-stack",
       "title": "Daily Executive GSD Stack",
-      "description": "5-prompt daily productivity system for leaders: prioritize tasks → prep for meetings → make better decisions → set SMART goals → solve workplace problems systematically.",
+      "description": "5-prompt daily productivity system for leaders: prioritize tasks \u2192 prep for meetings \u2192 make better decisions \u2192 set SMART goals \u2192 solve workplace problems systematically.",
       "category": "Sales",
       "tags": [
         "Productivity",
@@ -384,12 +391,13 @@
           "title": "Workplace Problem-Solving",
           "file": "Playbooks/Daily Executive GSD Stack/5_Workplace Problem-Solving.md"
         }
-      ]
+      ],
+      "date": "2026-03-03"
     },
     {
       "playbook_id": "research-intelligence-pipeline",
       "title": "Research Intelligence Pipeline",
-      "description": "5-step market intelligence workflow: ICP deep research → competitor mapping → full competitive market analysis → market trend reports → social pain point mining.",
+      "description": "5-step market intelligence workflow: ICP deep research \u2192 competitor mapping \u2192 full competitive market analysis \u2192 market trend reports \u2192 social pain point mining.",
       "category": "Marketing",
       "tags": [
         "Research",
@@ -425,12 +433,13 @@
           "title": "Social Pain Point Research",
           "file": "Playbooks/Research Intelligence Pipeline/5_Social Pain Point Research.md"
         }
-      ]
+      ],
+      "date": "2026-03-03"
     },
     {
       "playbook_id": "sora2-samurai-creative-series",
       "title": "Sora 2 Samurai Creative Series",
-      "description": "4 escalating video prompts exploring one character concept across visual styles — cinematic realism → neo-noir → retro surf. A template for building visual IP through progressive AI video generation.",
+      "description": "4 escalating video prompts exploring one character concept across visual styles \u2014 cinematic realism \u2192 neo-noir \u2192 retro surf. A template for building visual IP through progressive AI video generation.",
       "category": "Creative",
       "tags": [
         "Video Generation",
@@ -449,19 +458,20 @@
         {
           "step": 1,
           "title": "The Samurai's Morning (Naturalistic Cinematic Realism)",
-          "file": "_Sora 2/🎬 Prompt 1 — \"The Samurai's Morning\" (Naturalistic Cinematic Realism….md"
+          "file": "_Sora 2/\ud83c\udfac Prompt 1 \u2014 \"The Samurai's Morning\" (Naturalistic Cinematic Realism\u2026.md"
         },
         {
           "step": 2,
           "title": "The Ninja at Night (Stylized Neo-Noir Fantasy)",
-          "file": "_Sora 2/🎬 Prompt 2 — \"The Ninja at Night\" (Stylized Neo-Noir Fantasy).md"
+          "file": "_Sora 2/\ud83c\udfac Prompt 2 \u2014 \"The Ninja at Night\" (Stylized Neo-Noir Fantasy).md"
         },
         {
           "step": 3,
           "title": "Samurai Soul, Sunset Ride (Retro 1970s Surf Film)",
-          "file": "_Sora 2/🎬 Prompt 3 — \"Samurai Soul, Sunset Ride\" (Retro 1970s Surf Film Aesthetic….md"
+          "file": "_Sora 2/\ud83c\udfac Prompt 3 \u2014 \"Samurai Soul, Sunset Ride\" (Retro 1970s Surf Film Aesthetic\u2026.md"
         }
-      ]
+      ],
+      "date": "2026-03-03"
     },
     {
       "playbook_id": "brand-style-guide-page-builder",
@@ -483,12 +493,13 @@
           "title": "Brand Style Guide Page Builder",
           "file": "Prompts/Creative/Brand Style Guide Page Builder.md"
         }
-      ]
+      ],
+      "date": "2026-03-03"
     },
     {
       "playbook_id": "mckinsey-strategy-suite",
       "title": "McKinsey Strategy Suite",
-      "description": "3 heavyweight strategy prompts: market sizing/TAM analysis → full GTM strategy build → McKinsey-style SCQ/MECE problem solving. Deploy sequentially for a complete strategic brief.",
+      "description": "3 heavyweight strategy prompts: market sizing/TAM analysis \u2192 full GTM strategy build \u2192 McKinsey-style SCQ/MECE problem solving. Deploy sequentially for a complete strategic brief.",
       "category": "Marketing",
       "tags": [
         "Strategy",
@@ -515,12 +526,13 @@
           "title": "McKinsey Problem-Solving Brief",
           "file": "Playbooks/McKinsey Strategy Suite/3_McKinsey Problem-Solving Brief.md"
         }
-      ]
+      ],
+      "date": "2026-03-03"
     },
     {
       "playbook_id": "linkedin-prospect-dashboard",
       "title": "LinkedIn Prospect Dashboard",
-      "description": "Turn your LinkedIn connections export into a ranked prospect shortlist, personalized outreach messages, a CRM-ready CSV, and a custom HTML dashboard — all inside Claude.",
+      "description": "Turn your LinkedIn connections export into a ranked prospect shortlist, personalized outreach messages, a CRM-ready CSV, and a custom HTML dashboard \u2014 all inside Claude.",
       "category": "Sales",
       "tags": [
         "Sales",
@@ -548,7 +560,7 @@
         },
         {
           "step": 4,
-          "title": "What to Say — Guidance Per Question",
+          "title": "What to Say \u2014 Guidance Per Question",
           "file": "Playbooks/LinkedIn Prospect Dashboard/4_What to Say Guidance Per Question.md"
         },
         {
@@ -556,7 +568,8 @@
           "title": "Run the Full Analysis",
           "file": "Playbooks/LinkedIn Prospect Dashboard/5_Run the Full Analysis.md"
         }
-      ]
+      ],
+      "date": "2026-03-03"
     }
   ],
   "prompts": {
@@ -2143,7 +2156,7 @@
       {
         "id": "sora2-samurai-morning",
         "title": "Sora 2 - The Samurai's Morning",
-        "file": "_Sora 2/🎬 Prompt 1 — \"The Samurai's Morning\" (Naturalistic Cinematic Realism….md",
+        "file": "_Sora 2/\ud83c\udfac Prompt 1 \u2014 \"The Samurai's Morning\" (Naturalistic Cinematic Realism\u2026.md",
         "category": [
           "Creative"
         ],
@@ -2159,7 +2172,7 @@
       {
         "id": "sora2-ninja-night",
         "title": "Sora 2 - The Ninja at Night",
-        "file": "_Sora 2/🎬 Prompt 2 — \"The Ninja at Night\" (Stylized Neo-Noir Fantasy).md",
+        "file": "_Sora 2/\ud83c\udfac Prompt 2 \u2014 \"The Ninja at Night\" (Stylized Neo-Noir Fantasy).md",
         "category": [
           "Creative"
         ],
@@ -2175,7 +2188,7 @@
       {
         "id": "sora2-samurai-soul",
         "title": "Sora 2 - Samurai Soul, Sunset Ride",
-        "file": "_Sora 2/🎬 Prompt 3 — \"Samurai Soul, Sunset Ride\" (Retro 1970s Surf Film Aesthetic….md",
+        "file": "_Sora 2/\ud83c\udfac Prompt 3 \u2014 \"Samurai Soul, Sunset Ride\" (Retro 1970s Surf Film Aesthetic\u2026.md",
         "category": [
           "Creative"
         ],
@@ -2305,7 +2318,7 @@
       },
       {
         "id": "imagine-hafu",
-        "title": "-imagine Hāfu",
+        "title": "-imagine H\u0101fu",
         "file": "Prompts/Archived/Creative/-imagine Hfu.md",
         "category": [
           "Creative"

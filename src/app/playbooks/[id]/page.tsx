@@ -169,6 +169,7 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
         "publisher": { "@id": "https://saren.ai/#person" },
         "mainEntityOfPage": { "@id": `https://saren.ai/playbooks/${playbook.playbook_id}/#webpage` },
         "keywords": playbook.tags.join(", "),
+        ...(playbook.date && { "datePublished": playbook.date }),
         "dateModified": "2026-04-01",
         "inLanguage": "en-US",
         "articleSection": playbook.category
