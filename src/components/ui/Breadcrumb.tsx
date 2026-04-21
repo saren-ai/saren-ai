@@ -26,7 +26,8 @@ export default function Breadcrumb({
   className = 'mb-4',
 }: BreadcrumbProps) {
   return (
-    <motion.div
+    <motion.nav
+      aria-label="Breadcrumb"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       className={`flex items-center gap-3 ${className}`}
@@ -48,6 +49,6 @@ export default function Breadcrumb({
           </span>
         </>
       )}
-    </motion.div>
+    </motion.nav>
   )
 }

@@ -61,7 +61,7 @@ export default function Footer() {
           </div>
 
           {/* Navigation */}
-          <div>
+          <nav aria-label="Navigation">
             <h3 className="text-ash font-semibold mb-4 text-sm uppercase tracking-wider">
               Navigation
             </h3>
@@ -91,10 +91,10 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
 
           {/* Featured Work */}
-          <div>
+          <nav aria-label="Featured work">
             <h3 className="text-ash font-semibold mb-4 text-sm uppercase tracking-wider">
               Featured Work
             </h3>
@@ -132,10 +132,10 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
 
           {/* Tools & Vault */}
-          <div>
+          <nav aria-label="Tools and vault">
             <h3 className="text-ash font-semibold mb-4 text-sm uppercase tracking-wider">
               Tools & Vault
             </h3>
@@ -173,7 +173,7 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
 
           {/* Personal & Outside Work */}
           <div>

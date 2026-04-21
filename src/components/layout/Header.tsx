@@ -266,7 +266,7 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
                 shadow-[0_16px_48px_rgba(0,0,0,0.16)]"
               style={{ top: "100%" }}
             >
-              <div className="p-4 space-y-1">
+              <nav aria-label="Mobile navigation" className="p-4 space-y-1">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.label}
@@ -348,7 +348,7 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
                     ) : null}
                   </motion.div>
                 ))}
-              </div>
+              </nav>
             </motion.div>
           )}
         </AnimatePresence>
