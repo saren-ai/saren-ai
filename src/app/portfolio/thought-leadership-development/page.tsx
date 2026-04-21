@@ -72,7 +72,7 @@ export default function ThoughtLeadershipPage() {
           })
         }}
       />
-        <main className="min-h-screen bg-ash relative overflow-hidden">
+        <article className="min-h-screen bg-ash relative overflow-hidden">
             <AnimatedGrid />
 
             {/* Hero Section */}
@@ -190,7 +190,7 @@ export default function ThoughtLeadershipPage() {
                     </aside>
                 </div>
             </section>
-        </main>
+        </article>
         </>
     );
 }

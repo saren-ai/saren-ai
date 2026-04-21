@@ -62,7 +62,7 @@ export default function AuthorityEngineeringPage() {
     };
 
     return (
-        <main className="min-h-screen bg-ash dark:bg-offblack">
+        <article className="min-h-screen bg-ash dark:bg-offblack">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -209,6 +209,6 @@ export default function AuthorityEngineeringPage() {
                     </div>
                 </div>
             </section>
-        </main>
+        </article>
     );
 }

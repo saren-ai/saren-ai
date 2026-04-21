@@ -17,9 +17,9 @@ export default function FrameworkStepLayout({
             </div>
 
             {/* Page Content */}
-            <main>
+            <div>
                 {children}
-            </main>
+            </div>
         </div>
     );
 }
