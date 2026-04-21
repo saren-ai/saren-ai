@@ -113,6 +113,24 @@ export default function HomePage() {
           })
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfilePage",
+            "@id": "https://saren.ai/#profilepage",
+            "url": "https://saren.ai",
+            "name": "Saren Sakurai | Fractional CMO & AI Operations Consultant",
+            "description": "Demand generation as engineering. Building AI-driven growth engines for early-stage and Series A startups.",
+            "mainEntity": { "@id": "https://saren.ai/#person" },
+            "isPartOf": { "@id": "https://saren.ai/#website" },
+            "image": "https://saren.ai/og-image.png",
+            "inLanguage": "en-US",
+            "dateModified": "2026-03-27"
+          })
+        }}
+      />
       <HomeClient />
     </>
   );

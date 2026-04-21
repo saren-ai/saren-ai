@@ -78,6 +78,12 @@ export default function GoldenDashboardPage() {
             "isPartOf": { "@id": "https://saren.ai/#website" },
             "about": ["Paid media ROI analysis", "Demand generation", "B2B SaaS revenue forecasting"],
             "keywords": "paid media, ROI simulator, demand generation, B2B SaaS, revenue forecasting, ad spend",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://saren.ai/portfolio/roi-simulator-og.png",
+              "width": 1200,
+              "height": 630
+            },
             "applicationCategory": "BusinessApplication",
             "operatingSystem": "Web",
             "inLanguage": "en-US",

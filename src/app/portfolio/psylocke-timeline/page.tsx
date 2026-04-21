@@ -82,9 +82,16 @@ export default function PsylockeTimelinePage() {
             "creator": { "@id": "https://saren.ai/#person" },
             "isPartOf": { "@id": "https://saren.ai/#website" },
             "about": ["Comics history", "Psylocke character analysis", "Japanese cultural representation in comics"],
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://saren.ai/images/og/portfolio-psylocke.png",
+              "width": 1200,
+              "height": 630
+            },
             "keywords": "Psylocke, X-Men, comics timeline, Japanese cultural representation, Marvel, interactive timeline, Framer Motion",
             "genre": "Cultural analysis",
             "inLanguage": "en-US",
+            "datePublished": "2026-02-09",
             "dateCreated": "2026-02-09",
             "dateModified": "2026-03-27"
           })

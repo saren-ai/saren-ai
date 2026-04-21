@@ -71,6 +71,12 @@ export default function SovereignPersonasPage() {
             "creator": { "@id": "https://saren.ai/#person" },
             "isPartOf": { "@id": "https://saren.ai/#website" },
             "about": ["B2B persona development", "AI infrastructure market segmentation", "ICP strategy"],
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://saren.ai/images/og/portfolio-sovereign-personas.png",
+              "width": 1200,
+              "height": 630
+            },
             "keywords": "buyer personas, ICP, sovereign infrastructure, B2B segmentation, enterprise sales",
             "inLanguage": "en-US",
             "dateCreated": "2026-02-03",

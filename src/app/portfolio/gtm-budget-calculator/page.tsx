@@ -80,6 +80,12 @@ export default function CalculatorPage() {
             "isPartOf": { "@id": "https://saren.ai/#website" },
             "about": ["GTM budget planning", "Go-to-market strategy", "B2B SaaS metrics"],
             "keywords": "GTM budget calculator, go-to-market planning, budget allocation, B2B SaaS, revenue planning",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://saren.ai/images/og/portfolio-calculator.png",
+              "width": 1200,
+              "height": 630
+            },
             "applicationCategory": "BusinessApplication",
             "operatingSystem": "Web",
             "inLanguage": "en-US",

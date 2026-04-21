@@ -68,6 +68,12 @@ export default function MarketingFrameworkPage() {
             "isPartOf": { "@id": "https://saren.ai/#website" },
             "about": ["B2B SaaS go-to-market strategy", "Messaging frameworks", "Prompt engineering for marketing"],
             "keywords": "B2B marketing framework, buyer journey, go-to-market strategy, messaging, prompt engineering, SaaS",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://saren.ai/portfolio/marketing-framework-og.png",
+              "width": 1200,
+              "height": 630
+            },
             "educationalUse": "Professional development",
             "teaches": "B2B SaaS go-to-market strategy",
             "inLanguage": "en-US",

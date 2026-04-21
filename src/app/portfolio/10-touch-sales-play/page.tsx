@@ -72,6 +72,12 @@ export default function SalesPlayPage() {
             "isPartOf": { "@id": "https://saren.ai/#website" },
             "about": ["B2B sales sequences", "Cold outreach strategy", "Sales and marketing alignment"],
             "keywords": "10-touch sales play, cold outreach, B2B sales, sales sequences, executive engagement",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://saren.ai/images/og/portfolio-10-touch.png",
+              "width": 1200,
+              "height": 630
+            },
             "teaches": "B2B sales and marketing alignment",
             "educationalUse": "Sales enablement",
             "inLanguage": "en-US",

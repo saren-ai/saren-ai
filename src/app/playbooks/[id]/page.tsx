@@ -158,19 +158,20 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
         "@id": `https://saren.ai/playbooks/${playbook.playbook_id}/#article`,
         "headline": playbook.title,
         "description": playbook.description,
-        "author": { "@id": "https://saren.ai/#person" },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Saren.ai",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://saren.ai/og-image.png"
-            }
+        "url": `https://saren.ai/playbooks/${playbook.playbook_id}`,
+        "image": {
+            "@type": "ImageObject",
+            "url": `https://saren.ai/og/playbooks-${playbook.playbook_id}.jpg`,
+            "width": 1200,
+            "height": 630
         },
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": `https://saren.ai/playbooks/${playbook.playbook_id}`
-        }
+        "author": { "@id": "https://saren.ai/#person" },
+        "publisher": { "@id": "https://saren.ai/#person" },
+        "mainEntityOfPage": { "@id": `https://saren.ai/playbooks/${playbook.playbook_id}/#webpage` },
+        "keywords": playbook.tags.join(", "),
+        "dateModified": "2026-04-01",
+        "inLanguage": "en-US",
+        "articleSection": playbook.category
     };
 
     const webPageLd = {

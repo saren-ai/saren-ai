@@ -3,11 +3,75 @@ import { AnimatedGrid } from "@/components/ui/AnimatedGrid";
 
 export const metadata = {
     title: "Thought Leadership Development | Saren.ai",
-    description: "Engineering B2B authority in the age of LLMs.",
+    description: "Engineering B2B authority in the age of LLMs. A framework for becoming the source AI systems cite — through named frameworks, structured argumentation, and original synthesis.",
+    alternates: { canonical: "https://saren.ai/portfolio/thought-leadership-development" },
 };
 
 export default function ThoughtLeadershipPage() {
     return (
+        <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": "https://saren.ai/portfolio/thought-leadership-development/#webpage",
+            "url": "https://saren.ai/portfolio/thought-leadership-development",
+            "name": "Thought Leadership Development | Saren.ai",
+            "description": "Engineering B2B authority in the age of LLMs. A framework for becoming the source AI systems cite — through named frameworks, structured argumentation, and original synthesis.",
+            "isPartOf": { "@id": "https://saren.ai/#website" },
+            "about": { "@id": "https://saren.ai/#person" },
+            "author": { "@id": "https://saren.ai/#person" },
+            "inLanguage": "en-US",
+            "dateCreated": "2026-02-01",
+            "dateModified": "2026-03-27"
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saren.ai" },
+              { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://saren.ai/portfolio" },
+              { "@type": "ListItem", "position": 3, "name": "Thought Leadership Development", "item": "https://saren.ai/portfolio/thought-leadership-development" }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "@id": "https://saren.ai/portfolio/thought-leadership-development/#article",
+            "headline": "Thought Leadership Development: From Clicks to Citations",
+            "description": "Engineering B2B authority in the age of LLMs. How to build a citable body of work that AI systems reference — moving from static PDFs to named frameworks, structured argumentation, and original synthesis that earns zero-click authority.",
+            "url": "https://saren.ai/portfolio/thought-leadership-development",
+            "author": { "@id": "https://saren.ai/#person" },
+            "publisher": { "@id": "https://saren.ai/#person" },
+            "isPartOf": { "@id": "https://saren.ai/#website" },
+            "about": ["Thought leadership", "LLM citation strategy", "B2B content marketing", "Authority engineering"],
+            "keywords": "thought leadership, LLM citation strategy, B2B authority, content marketing, AI-era marketing, schema markup, named frameworks",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://saren.ai/og-image.png",
+              "width": 1200,
+              "height": 630
+            },
+            "teaches": "How to build LLM-citable thought leadership through named frameworks, structured argumentation, and original data synthesis",
+            "inLanguage": "en-US",
+            "datePublished": "2026-02-01",
+            "dateModified": "2026-03-27",
+            "articleSection": "B2B Marketing Strategy"
+          })
+        }}
+      />
         <main className="min-h-screen bg-ash relative overflow-hidden">
             <AnimatedGrid />
 
@@ -127,5 +191,6 @@ export default function ThoughtLeadershipPage() {
                 </div>
             </section>
         </main>
+        </>
     );
 }

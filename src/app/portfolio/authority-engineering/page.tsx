@@ -18,7 +18,9 @@ export default function AuthorityEngineeringPage() {
         "@id": "https://saren.ai/portfolio/authority-engineering/#howto",
         "name": "How to Engineer B2B Authority White Papers for LLMs",
         "description": "A 6-step system for building citable authority and white papers that generative AI models love to cite.",
+        "url": "https://saren.ai/portfolio/authority-engineering",
         "author": { "@id": "https://saren.ai/#person" },
+        "datePublished": "2026-03-12",
         "step": [
             {
                 "@type": "HowToStep",

@@ -61,7 +61,60 @@ export default async function PlaybooksIndex({ searchParams }: { searchParams: P
         }))
     ];
 
+    const jsonLdItems = playbooks.map((pb, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "url": `https://saren.ai/playbooks/${pb.playbook_id}`,
+        "name": pb.title
+    }));
+
     return (
+        <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "@id": "https://saren.ai/playbooks/#webpage",
+            "url": "https://saren.ai/playbooks",
+            "name": "Playbooks | Saren.ai",
+            "description": "A curated library of advanced prompt sequences, structured frameworks, and multi-step AI playbooks to accelerate execution.",
+            "isPartOf": { "@id": "https://saren.ai/#website" },
+            "author": { "@id": "https://saren.ai/#person" },
+            "inLanguage": "en-US",
+            "dateModified": "2026-04-01"
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saren.ai" },
+              { "@type": "ListItem", "position": 2, "name": "Playbooks", "item": "https://saren.ai/playbooks" }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "@id": "https://saren.ai/playbooks/#list",
+            "name": "AI Prompt Playbooks by Saren Sakurai",
+            "description": "A curated library of advanced prompt sequences, structured frameworks, and multi-step AI playbooks for B2B marketing, sales, and GTM execution.",
+            "author": { "@id": "https://saren.ai/#person" },
+            "numberOfItems": playbooks.length,
+            "itemListElement": jsonLdItems
+          })
+        }}
+      />
         <div className="min-h-screen bg-ash dark:bg-offblack text-charcoal dark:text-white pt-32 pb-16 px-6 lg:px-12 relative transition-colors duration-300">
             <AnimatedNavFramer items={navItems} />
 
@@ -134,5 +187,6 @@ export default async function PlaybooksIndex({ searchParams }: { searchParams: P
                 </div>
             </div>
         </div>
+        </>
     );
 }

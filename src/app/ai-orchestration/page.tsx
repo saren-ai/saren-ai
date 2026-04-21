@@ -25,13 +25,22 @@ const jsonLd = {
     "@id": "https://saren.ai/ai-orchestration/#article",
     "headline": "AI Orchestration: Machines Handle Scale. Humans Handle Meaning.",
     "description": "Designing AI systems where humans stay in the loop — Signal-State, behavioral targeting, and agentic pipelines that amplify human judgment rather than replace it.",
+    "url": "https://saren.ai/ai-orchestration",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://saren.ai/images/og/ai-operations.png",
+        "width": 1200,
+        "height": 630
+    },
     "author": { "@id": "https://saren.ai/#person" },
+    "publisher": { "@id": "https://saren.ai/#person" },
+    "mainEntityOfPage": { "@id": "https://saren.ai/ai-orchestration/#webpage" },
     "datePublished": "2026-03-27",
-    "publisher": {
-        "@type": "Organization",
-        "name": "Saren.ai",
-        "url": "https://saren.ai"
-    }
+    "dateModified": "2026-03-27",
+    "inLanguage": "en-US",
+    "about": ["AI orchestration", "Signal-State Marketing", "B2B AI strategy"],
+    "keywords": "AI orchestration, Signal-State Marketing, agentic pipelines, behavioral targeting, human-in-the-loop AI, B2B demand generation",
+    "articleSection": "AI Strategy"
 };
 
 export default function AIOrchestrationPage() {

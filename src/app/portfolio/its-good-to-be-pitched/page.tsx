@@ -71,6 +71,12 @@ export default function ItsGoodToBePitchedPage() {
             "creator": { "@id": "https://saren.ai/#person" },
             "isPartOf": { "@id": "https://saren.ai/#website" },
             "about": ["B2B pitch strategy", "Sales enablement", "Storytelling for sales"],
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://saren.ai/images/og/portfolio-pitched.png",
+              "width": 1200,
+              "height": 630
+            },
             "keywords": "pitch strategy, sales storytelling, agency concept, AI storyboarding, B2B sales enablement",
             "inLanguage": "en-US",
             "dateCreated": "2026-02-03",

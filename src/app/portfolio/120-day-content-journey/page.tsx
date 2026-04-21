@@ -72,6 +72,12 @@ export default function ContentJourneyPage() {
             "isPartOf": { "@id": "https://saren.ai/#website" },
             "about": ["B2B content marketing", "Demand generation", "Buyer journey mapping"],
             "keywords": "content marketing, buyer journey, demand generation, B2B SaaS, content strategy, 120-day plan",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://saren.ai/images/og/portfolio-content-journey.png",
+              "width": 1200,
+              "height": 630
+            },
             "teaches": "B2B SaaS content marketing strategy",
             "timeRequired": "P120D",
             "inLanguage": "en-US",

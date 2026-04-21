@@ -83,6 +83,12 @@ export default function BehavioralLeadScoringPage() {
             "isPartOf": { "@id": "https://saren.ai/#website" },
             "about": ["Behavioral lead scoring", "Demand generation", "HubSpot marketing ops"],
             "keywords": "lead scoring, behavioral scoring, MQL, buyer intent, HubSpot, demand generation, marketing operations",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://saren.ai/images/og/portfolio-lead-scoring.png",
+              "width": 1200,
+              "height": 630
+            },
             "teaches": "Lead scoring and marketing operations",
             "inLanguage": "en-US",
             "dateCreated": "2026-02-04",
