@@ -19,7 +19,7 @@ export default function HalcyonSubnav() {
     href === '/halcyon' ? pathname === '/halcyon' : pathname.startsWith(href)
 
   return (
-    <div className="border-b border-border bg-background/95 backdrop-blur-sm">
+    <nav aria-label="Halcyon sections" className="border-b border-border bg-background/95 backdrop-blur-sm">
       <div className="container-narrow">
         <div className="flex items-center justify-center gap-2 overflow-x-auto py-2.5 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {/* Section label */}
@@ -44,6 +44,6 @@ export default function HalcyonSubnav() {
           ))}
         </div>
       </div>
-    </div>
+    </nav>
   )
 }

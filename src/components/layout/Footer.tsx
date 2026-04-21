@@ -176,7 +176,7 @@ export default function Footer() {
           </nav>
 
           {/* Personal & Outside Work */}
-          <div>
+          <nav aria-label="Personal vault">
             <h3 className="text-ash font-semibold mb-4 text-sm uppercase tracking-wider">
               Personal Vault
             </h3>
@@ -230,7 +230,7 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
 
           {/* Connect */}
           <div>

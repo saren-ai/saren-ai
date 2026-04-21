@@ -59,7 +59,7 @@ export default function SitemapVisualizer({ prompts, selectedId, onSelect, enabl
     };
 
     return (
-        <div className="w-full bg-white dark:bg-offblack border-b border-slate/20 dark:border-charcoal/10 relative transition-colors duration-300">
+        <nav aria-label="Framework navigation" className="w-full bg-white dark:bg-offblack border-b border-slate/20 dark:border-charcoal/10 relative transition-colors duration-300">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-lavender via-ember to-copper opacity-50" />
 
             <div
@@ -153,6 +153,6 @@ export default function SitemapVisualizer({ prompts, selectedId, onSelect, enabl
             {/* Scroll Indicators (Fade) */}
             <div className="absolute top-0 bottom-0 left-0 w-8 bg-gradient-to-r from-white dark:from-background to-transparent pointer-events-none" />
             <div className="absolute top-0 bottom-0 right-0 w-8 bg-gradient-to-l from-white dark:from-background to-transparent pointer-events-none" />
-        </div>
+        </nav>
     );
 }
