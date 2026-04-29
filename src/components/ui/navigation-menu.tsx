@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { Suspense } from "react";
 import { motion, useScroll, useMotionValueEvent, Variants } from "framer-motion";
 import { Navigation, ArrowUp } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -74,7 +75,7 @@ const collapsedIconVariants: Variants = {
     },
 }
 
-export function AnimatedNavFramer({ items, activeCategory }: AnimatedNavFramerProps) {
+function AnimatedNavFramerInner({ items, activeCategory }: AnimatedNavFramerProps) {
     const [isExpanded, setExpanded] = React.useState(true);
     const searchParams = useSearchParams();
     const currentCategory = activeCategory || searchParams.get("category");
@@ -168,5 +169,15 @@ export function AnimatedNavFramer({ items, activeCategory }: AnimatedNavFramerPr
                 </div>
             </motion.nav>
         </div>
+    );
+}
+
+// Suspense wrapper required because useSearchParams() forces a client-side render
+// boundary on Next.js 16 prerender — without this, /playbooks/[id] static export fails.
+export function AnimatedNavFramer(props: AnimatedNavFramerProps) {
+    return (
+        <Suspense fallback={null}>
+            <AnimatedNavFramerInner {...props} />
+        </Suspense>
     );
 }
