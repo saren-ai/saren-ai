@@ -92,14 +92,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-P9VJJFGH');`,
           }}
         />
-        {/* Prevent flash of wrong theme */}
+        {/* Prevent flash of wrong theme — reads localStorage before first paint */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                document.documentElement.classList.add('dark');
-              })();
-            `,
+            __html: `(function(){try{var t=localStorage.getItem('theme');var d=window.matchMedia('(prefers-color-scheme:dark)').matches;if(t==='light'){document.documentElement.classList.remove('dark');}else if(t==='dark'){document.documentElement.classList.add('dark');}else{if(d)document.documentElement.classList.add('dark');}}catch(e){document.documentElement.classList.add('dark');}})();`,
           }}
         />
         <script
@@ -192,7 +188,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         <ThemeProvider>
           <TopBanner />
-          <div className="sticky top-0 z-50">
+          <div className="sticky top-0 z-50 bg-background">
             <Header latestPost={latestPost} />
           </div>
           <main className="flex-1">{children}</main>

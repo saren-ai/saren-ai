@@ -82,7 +82,7 @@ export default function ContactClient() {
                                     href="https://www.linkedin.com/in/saren/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 px-4 py-2 border-2 border-[#0077B5] text-[#0077B5] rounded-lg hover:bg-[#0077B5] hover:text-white transition-colors"
+                                    className="inline-flex items-center gap-2 px-4 py-2 border-2 border-linkedin text-linkedin rounded-lg hover:bg-linkedin hover:text-white transition-colors"
                                 >
                                     <svg
                                         className="w-5 h-5"

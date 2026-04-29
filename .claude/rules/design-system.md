@@ -46,14 +46,64 @@ Light-mode values meet WCAG AA. **Electric Blue is retired — use Lavender.**
 ## Layout Pattern
 Always wrap page content in: `<section className="section"><div className="container-narrow">…</div></section>`
 
-## Dark Mode
-- `ThemeProvider` context → `ThemeToggle` in header → `localStorage("theme")`
-- Fallback: `prefers-color-scheme`
-- Flash prevention via inline script in `layout.tsx`
-- Target WCAG AA (achieved); AAA on charcoal/slate text
-- globals.css contains `.dark .text-*` overrides with `!important` — these control dark mode text color, not the CSS variables. Do not remove them.
+## Theme System (Light + Dark)
+
+Both modes are live and togglable.
+
+**How it works:**
+- `ThemeProvider` reads `localStorage("theme")` on mount, falls back to `prefers-color-scheme`
+- `ThemeToggle` in the header (desktop + mobile) writes the preference back to localStorage
+- Flash-prevention inline script in `layout.tsx` applies the correct class before first paint — no FOUC
+- `html.dark` drives dark mode; no class = light mode
+
+**CSS architecture:**
+- `:root, .light { ... }` in `globals.css` defines light mode variables (default)
+- `.dark { ... }` overrides to dark values — all semantic tokens (`--background`, `--foreground`, `--card-bg`, etc.) flip automatically
+- `color-scheme: light` on `html` root; `html.dark` sets `color-scheme: dark`
+
+### CRITICAL: Tailwind v4 dark-variant binding
+
+`globals.css` contains this directive at the top:
+```css
+@custom-variant dark (&:where(.dark, .dark *));
+```
+
+**Why:** Tailwind v4 defaults the `dark:` variant to the `prefers-color-scheme: dark` media query. Our theme system uses an `html.dark` class. Without this directive, `dark:text-*` / `dark:bg-*` utilities apply based on the OS preference — but the CSS variables flip based on the `.dark` class. When those two disagree (e.g., user is on macOS dark mode but selected "light" in our toggle), Tailwind picks dark-mode utility values while CSS variables resolve to light-mode values, producing invisible text (light-on-light) or other broken contrast. **Do not remove this directive.**
+
+### Semantic tokens registered in `@theme inline`
+
+These produce Tailwind utility classes that auto-flip with the `.dark` class:
+
+| Token | Light | Dark | Utilities |
+|---|---|---|---|
+| `--color-foreground` | `#1D1D1F` | `#F5F5F7` | `text-foreground`, `bg-foreground` |
+| `--color-foreground-muted` | `#5B6470` | `#A1A1AA` | `text-foreground-muted` |
+| `--color-background` | `#F5F5F7` | `#0F0F0F` | `bg-background` |
+| `--color-border` | `#D2D2D7` | `#333` | `border-border` |
+| `--color-card` | `#FFFFFF` | `#1A1A1A` | `bg-card` |
+| `--color-linkedin` | `#0077B5` | (same) | `bg-linkedin`, `text-linkedin`, `border-linkedin` (no flip — third-party brand color) |
+
+### Tailwind v4 gotcha: opacity modifiers + var() tokens
+
+`bg-card/85` works ONLY when `--color-card` is registered in `@theme inline`. If a token is missing from `@theme inline`, the class compiles to nothing (no warning, no error — just silently absent from the generated CSS). The next utility class in the cascade wins, which can produce wildly wrong colors. **Symptom:** the wrong-mode background renders. **Fix:** verify the token exists in `@theme inline`.
+
+When you add a new token to `@theme inline`, **clear the Next.js cache** (`rm -rf .next && npm run dev`) — Turbopack caches the compiled CSS independently and will not pick up new tokens via HMR.
+
+### Authoring rules
+
+- Use semantic token classes (`text-charcoal`, `bg-ash`, `text-slate`, `text-foreground`, `bg-card`, `border-border`) so they flip automatically in dark mode
+- globals.css contains `.dark .text-*` overrides with `!important` — these control dark mode text color. Do not remove them.
 - `bg-white` automatically remaps to `--card-bg` (#1A1A1A) in dark mode via global override — no need to add `dark:bg-*` for white card backgrounds
 - Gradient stops (`from-*`, `to-*`) are NOT remapped by the global override — always add explicit `dark:` variants for gradient backgrounds
+- On dark-only sections (e.g., `gradient-dark`): use `.btn-secondary-dark` or `.btn-lavender`, not `.btn-secondary`
+- **Never hardcode hex in `className`.** Use semantic tokens. Browser-chrome dots (macOS traffic lights) and WCAG-utility colors are the only sanctioned exceptions.
+- For SVG `fill`/`stroke`/`stopColor` attributes, hex is acceptable (Tailwind tokens don't apply to SVG attribute syntax).
+
+### Perception vs. measured contrast
+
+Sora at `font-medium` (500) reads thinner than the measured contrast suggests. For nav and other small UI text on light backgrounds, prefer `font-semibold` (600) — same color, but the heavier strokes restore perceived contrast. Dark backgrounds are more forgiving; `font-medium` works fine there. The pattern `font-semibold dark:font-medium` is used in the global nav.
+
+**Target:** WCAG AA in both modes (achieved); AAA on charcoal/slate text
 
 ## Images
 - AVIF + WebP enabled in next.config.ts

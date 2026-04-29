@@ -60,8 +60,7 @@ export default function OrgAlignmentClient() {
               The Signal Moment
             </p>
             <div
-              className="rounded-xl border p-6 font-mono text-sm leading-relaxed"
-              style={{ background: '#0d0f12', borderColor: 'rgba(255,255,255,0.08)', color: '#e2e4ea' }}
+              className="rounded-xl border border-white/[0.08] p-6 font-mono text-sm leading-relaxed bg-offblack text-ash"
             >
               <p className="text-slate text-xs mb-3">{"// The Target: 1,200-person SaaS company · Third rebrand in 4 years · Glassdoor 3.8 → 2.9 over 18 months · CEO approval 44% · VP Product just departed after 11 months"}</p>
               <p className="text-slate text-xs mb-3">{"// LinkedIn post from departing VP of Product:"}</p>

@@ -60,8 +60,7 @@ export default function CybersecurityClient() {
               The Signal Moment
             </p>
             <div
-              className="rounded-xl border p-6 font-mono text-sm leading-relaxed"
-              style={{ background: '#0d0f12', borderColor: 'rgba(255,255,255,0.08)', color: '#e2e4ea' }}
+              className="rounded-xl border border-white/[0.08] p-6 font-mono text-sm leading-relaxed bg-offblack text-ash"
             >
               <p className="text-slate text-xs mb-3">{"// Glassdoor review — posted this week"}</p>
               <p className="mb-4">

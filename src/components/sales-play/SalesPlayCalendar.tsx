@@ -43,7 +43,7 @@ export const SalesPlayCalendar = () => {
                                 <div className="flex-1 flex flex-col gap-1 overflow-hidden">
                                     <span
                                         className={`inline-block px-1.5 py-0.5 rounded-[4px] text-[8px] md:text-[10px] font-medium self-start truncate max-w-full ${touch.channel === "LinkedIn"
-                                                ? "bg-[#0077B5]/20 text-[#0077B5] border border-[#0077B5]/30"
+                                                ? "bg-linkedin/20 text-linkedin border border-linkedin/30"
                                                 : touch.channel === "Email"
                                                     ? "bg-lavender/20 text-lavender border border-lavender/30"
                                                     : "bg-copper/20 text-copper border border-copper/30"

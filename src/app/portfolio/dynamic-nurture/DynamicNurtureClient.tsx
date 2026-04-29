@@ -256,7 +256,7 @@ function MatrixSection() {
                       onMouseLeave={() => setHoveredRow(null)}
                       className={`text-left p-4 rounded border min-h-[88px] transition-all duration-150 ${STAGE_TINT[ci]} ${
                         isSelected
-                          ? "border-ember/45 bg-ember/[0.08] ring-1 ring-[#D4624A]/18"
+                          ? "border-ember/45 bg-ember/[0.08] ring-1 ring-ember/20"
                           : highlighted
                           ? "border-white/18 bg-white/[0.05]"
                           : "border-white/8 hover:border-white/14"
@@ -628,7 +628,7 @@ export default function DynamicNurtureClient() {
     <article>
 
       {/* ── Hero ── */}
-      <section className="hero-card pt-16 pb-16 md:pt-24 md:pb-24 relative bg-white dark:bg-[#161616] border border-charcoal/10 dark:border-charcoal/10">
+      <section className="hero-card pt-16 pb-16 md:pt-24 md:pb-24 relative bg-white dark:bg-card border border-border">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-ember/5 -skew-x-12 transform translate-x-1/2 pointer-events-none -z-10" />
         <div className="container-narrow">
           <Breadcrumb

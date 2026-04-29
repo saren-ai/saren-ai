@@ -238,7 +238,7 @@ export default function ArchitectureDiagram() {
       </div>
 
       {/* Card wrapper */}
-      <div className="rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[#141720] p-7">
+      <div className="rounded-2xl border border-white/10 bg-offblack p-7">
 
         {/* Signal Sources */}
         <p className="text-[10px] font-semibold tracking-widest uppercase text-slate mb-2.5">

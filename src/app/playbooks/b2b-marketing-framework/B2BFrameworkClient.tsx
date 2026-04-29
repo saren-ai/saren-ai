@@ -333,11 +333,11 @@ export default function B2BFrameworkClient({ initialSteps, variablesContent }: B
                     background: transparent;
                 }
                 .custom-scrollbar::-webkit-scrollbar-thumb {
-                    background-color: #333;
+                    background-color: var(--slate-gray);
                     border-radius: 10px;
                 }
                 .custom-scrollbar:hover::-webkit-scrollbar-thumb {
-                    background-color: #555;
+                    background-color: var(--foreground-muted);
                 }
             `}} />
         </div>

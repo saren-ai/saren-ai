@@ -24,24 +24,23 @@ export default function ThemeProvider({
 }: {
   children: React.ReactNode;
 }) {
-  // Dark mode forced — light mode disabled for now
-  const theme: Theme = "dark";
-  const [mounted, setMounted] = useState(false);
+  // Default dark so SSR and pre-hydration match the flash-prevention script
+  const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
-    document.documentElement.classList.remove("light");
-    document.documentElement.classList.add("dark");
+    const stored = localStorage.getItem("theme") as Theme | null;
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initial: Theme = stored ?? (prefersDark ? "dark" : "light");
+    setTheme(initial);
+    document.documentElement.classList.toggle("dark", initial === "dark");
   }, []);
 
   const toggleTheme = () => {
-    // No-op while light mode is disabled
+    const next: Theme = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    localStorage.setItem("theme", next);
+    document.documentElement.classList.toggle("dark", next === "dark");
   };
-
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

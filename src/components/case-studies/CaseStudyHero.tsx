@@ -36,7 +36,7 @@ export default function CaseStudyHero({
     actions,
 }: CaseStudyHeroProps) {
     return (
-        <section className="hero-card pt-16 pb-16 md:pt-24 md:pb-24 relative bg-white dark:bg-[#161616] border border-[#D2D2D7] dark:border-[#2A2A2A]">
+        <section className="hero-card pt-16 pb-16 md:pt-24 md:pb-24 relative bg-white dark:bg-card border border-border">
             {/* Background Elements */}
             <div className="absolute top-0 right-0 w-1/3 h-full bg-lavender/5 -skew-x-12 transform translate-x-1/2 pointer-events-none -z-10" />
 

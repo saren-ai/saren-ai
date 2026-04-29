@@ -6,13 +6,10 @@ import { useTheme } from "./ThemeProvider";
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
 
-  // Hidden while light mode is disabled
-  return null;
-
   return (
     <button
       onClick={toggleTheme}
-      className="relative p-2 rounded-lg bg-charcoal/5 dark:bg-ash/10 hover:bg-charcoal/10 dark:hover:bg-ash/20 transition-colors"
+      className="relative p-2 rounded-full bg-charcoal/[0.05] dark:bg-white/[0.06] hover:bg-charcoal/[0.10] dark:hover:bg-white/[0.10] transition-colors"
       aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
     >
       <div className="relative w-5 h-5">

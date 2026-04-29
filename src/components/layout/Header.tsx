@@ -141,16 +141,17 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
       >
         {/* ── The Pill ─────────────────────────────────────────────────── */}
         {/*
-          Background:
-            Light → white (#FFFFFF) on ash (#F5F5F7) page = clearly distinct
-            Dark  → #1A1A1A on obsidian (#0F0F0F) page = clearly distinct
-          Avoids CSS-variable flip: --charcoal-black inverts to #FFF in dark mode.
+          Frosted-glass pill:
+            Light → 95% white on ash page; subtle warm shadow
+            Dark  → 95% card on obsidian page; deeper shadow for separation
+          Translucency + backdrop-blur picks up scrolled content for a premium feel.
         */}
         <nav
           className="flex items-center justify-between px-5 py-2.5 rounded-full
-            bg-white dark:bg-[#1A1A1A] backdrop-blur-md
-            border border-[#D2D2D7] dark:border-[#2A2A2A]
-            shadow-[0_2px_16px_rgba(0,0,0,0.10)]"
+            bg-white/95 dark:bg-card/85 backdrop-blur-xl
+            border border-charcoal/[0.08] dark:border-white/[0.08]
+            shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06),0_2px_4px_-2px_rgba(0,0,0,0.04)]
+            dark:shadow-[0_4px_24px_-4px_rgba(0,0,0,0.5),0_2px_4px_-2px_rgba(0,0,0,0.4)]"
         >
           {/* Logo */}
           <Link
@@ -170,18 +171,18 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
                 {link.href ? (
                   <Link
                     href={link.href}
-                    className="flex items-center gap-1 px-3.5 py-1.5 rounded-full text-sm font-medium
-                      text-[#1D1D1F] dark:text-[#F5F5F7] hover:text-ember
-                      hover:bg-[#F5F5F7] dark:hover:bg-white/[0.07] transition-all duration-150"
+                    className="flex items-center gap-1 px-3.5 py-1.5 rounded-full text-sm font-semibold dark:font-medium
+                      text-foreground hover:text-ember
+                      hover:bg-charcoal/[0.05] dark:hover:bg-white/[0.06] transition-all duration-150"
                   >
                     {link.label}
                   </Link>
                 ) : (
                   <button
-                    className={`flex items-center gap-1 px-3.5 py-1.5 rounded-full text-sm font-medium transition-all duration-150 ${
+                    className={`flex items-center gap-1 px-3.5 py-1.5 rounded-full text-sm font-semibold dark:font-medium transition-all duration-150 ${
                       openMegaMenu === link.label
-                        ? "bg-[#F5F5F7] dark:bg-white/[0.09] text-ember dark:text-ember"
-                        : "text-[#1D1D1F] dark:text-[#F5F5F7] hover:text-ember hover:bg-[#F5F5F7] dark:hover:bg-white/[0.07]"
+                        ? "bg-charcoal/[0.08] dark:bg-white/[0.10] text-ember"
+                        : "text-foreground hover:text-ember hover:bg-charcoal/[0.05] dark:hover:bg-white/[0.06]"
                     }`}
                     aria-expanded={openMegaMenu === link.label}
                     aria-haspopup="true"
@@ -213,7 +214,7 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
             <ThemeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-full text-[#1D1D1F] dark:text-[#F5F5F7] hover:text-ember hover:bg-[#F5F5F7] dark:hover:bg-white/[0.07] transition-all"
+              className="p-2 rounded-full text-foreground hover:text-ember hover:bg-charcoal/[0.05] dark:hover:bg-white/[0.06] transition-all"
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
             >
@@ -238,9 +239,10 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
               exit={{ opacity: 0, y: 8 }}
               transition={{ duration: 0.25, ease: [0.23, 1, 0.32, 1] }}
               className="hidden md:block absolute left-0 right-0 z-50 mt-2 rounded-2xl overflow-hidden
-                bg-white dark:bg-[#1A1A1A] backdrop-blur-xl
-                border border-[#D2D2D7] dark:border-[#2A2A2A]
-                shadow-[0_16px_48px_rgba(0,0,0,0.16)]"
+                bg-white/95 dark:bg-card/95 backdrop-blur-2xl
+                border border-charcoal/[0.08] dark:border-white/[0.08]
+                shadow-[0_24px_64px_-12px_rgba(0,0,0,0.18),0_8px_16px_-8px_rgba(0,0,0,0.10)]
+                dark:shadow-[0_24px_64px_-12px_rgba(0,0,0,0.7),0_8px_16px_-8px_rgba(0,0,0,0.5)]"
               style={{ top: "100%" }}
               onMouseEnter={() => handleMouseEnter(openMegaMenu, true)}
             >
@@ -261,9 +263,10 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
               className="md:hidden absolute left-0 right-0 z-50 mt-2 rounded-2xl overflow-hidden
-                bg-white dark:bg-[#1A1A1A] backdrop-blur-xl
-                border border-[#D2D2D7] dark:border-[#2A2A2A]
-                shadow-[0_16px_48px_rgba(0,0,0,0.16)]"
+                bg-white/95 dark:bg-card/95 backdrop-blur-2xl
+                border border-charcoal/[0.08] dark:border-white/[0.08]
+                shadow-[0_24px_64px_-12px_rgba(0,0,0,0.18),0_8px_16px_-8px_rgba(0,0,0,0.10)]
+                dark:shadow-[0_24px_64px_-12px_rgba(0,0,0,0.7),0_8px_16px_-8px_rgba(0,0,0,0.5)]"
               style={{ top: "100%" }}
             >
               <nav aria-label="Mobile navigation" className="p-4 space-y-1">
@@ -282,7 +285,7 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
                               expandedMobileItem === link.label ? null : link.label
                             )
                           }
-                          className="flex items-center justify-between w-full py-2.5 px-4 text-[#1D1D1F] dark:text-[#F5F5F7] hover:text-ember hover:bg-[#F5F5F7] dark:hover:bg-white/[0.07] rounded-xl font-medium text-sm transition-all"
+                          className="flex items-center justify-between w-full py-2.5 px-4 text-foreground hover:text-ember hover:bg-charcoal/[0.05] dark:hover:bg-white/[0.06] rounded-xl font-medium text-sm transition-all"
                         >
                           <span>{link.label}</span>
                           <svg
@@ -308,7 +311,7 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
                                   const isExternal = child.isExternal || child.href.startsWith("http");
                                   const linkContent = (
                                     <>
-                                      <span className="font-medium text-[#1D1D1F] dark:text-[#F5F5F7] text-sm">
+                                      <span className="font-medium text-foreground text-sm">
                                         {child.label}
                                         {isExternal && (
                                           <svg className="w-3 h-3 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -321,7 +324,7 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
                                       )}
                                     </>
                                   );
-                                  const cls = "block py-2 px-4 hover:text-ember hover:bg-[#F5F5F7] dark:hover:bg-white/[0.07] rounded-xl transition-all";
+                                  const cls = "block py-2 px-4 hover:text-ember hover:bg-charcoal/[0.05] dark:hover:bg-white/[0.06] rounded-xl transition-all";
                                   return isExternal ? (
                                     <a key={child.href} href={child.href} target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)} className={cls}>
                                       {linkContent}
@@ -341,7 +344,7 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
                       <Link
                         href={link.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className="block py-2.5 px-4 text-[#1D1D1F] dark:text-[#F5F5F7] hover:text-ember hover:bg-[#F5F5F7] dark:hover:bg-white/[0.07] rounded-xl font-medium text-sm transition-all"
+                        className="block py-2.5 px-4 text-foreground hover:text-ember hover:bg-charcoal/[0.05] dark:hover:bg-white/[0.06] rounded-xl font-medium text-sm transition-all"
                       >
                         {link.label}
                       </Link>

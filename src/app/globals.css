@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* ===== Fire Horse 2026 Design System ===== */
 
@@ -109,6 +110,11 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-foreground-muted: var(--foreground-muted);
+  --color-border: var(--border);
+  --color-card: var(--card-bg);
+
+  /* Third-party brand colors (no dark-mode flip) */
+  --color-linkedin: #0077B5;
 
   /* Signal-State Colors */
   --color-ss-purple: #534AB7;
@@ -133,7 +139,7 @@
 /* Base Styles */
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html.dark {

@@ -90,7 +90,7 @@ export default function HomeClient() {
       {/* Hero Section */}
       <section className="hero-card min-h-[85vh] flex items-center relative overflow-hidden py-20 pb-0">
         {/* Background Pattern */}
-        <div className="absolute inset-0 bg-[#FFFFFF] dark:bg-offblack" />
+        <div className="absolute inset-0 bg-white dark:bg-offblack" />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -165,7 +165,7 @@ export default function HomeClient() {
               </Link>
               <Link
                 href="/contact"
-                className="btn-secondary-dark"
+                className="btn-secondary"
                 aria-label="Let's get in touch"
               >
                 Let&apos;s get in touch

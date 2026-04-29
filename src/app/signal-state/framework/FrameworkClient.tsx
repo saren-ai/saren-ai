@@ -226,7 +226,7 @@ export default function FrameworkClient() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <pre className="bg-offblack border border-white/[0.08] rounded-xl p-6 text-xs font-mono text-[#e2e4ea] overflow-x-auto leading-relaxed whitespace-pre">
+            <pre className="bg-offblack border border-white/[0.08] rounded-xl p-6 text-xs font-mono text-ash overflow-x-auto leading-relaxed whitespace-pre">
 {`FIRMOGRAPHIC MODEL
 ─────────────────────────────────────────────────────────
 Who they are (structurally) = Fit Score

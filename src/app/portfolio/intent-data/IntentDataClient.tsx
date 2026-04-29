@@ -280,12 +280,12 @@ const ABM_ROWS = [
 
 const TABS = ["Intent Timeline", "Buyer Journey", "Campaign Strategy", "ABM Triggers"];
 
-const Q_COLORS = ["text-lavender", "text-[#D4A574]", "text-amber-400", "text-[#E34234]"];
+const Q_COLORS = ["text-lavender", "text-copper", "text-amber-400", "text-ember"];
 const Q_BORDERS = [
   "border-lavender/20 bg-lavender/[0.03]",
-  "border-[#D4A574]/20 bg-[#D4A574]/[0.03]",
   "border-copper/20 bg-copper/[0.03]",
-  "border-[#E34234]/20 bg-[#E34234]/[0.03]",
+  "border-copper/20 bg-copper/[0.03]",
+  "border-ember/20 bg-ember/[0.03]",
 ];
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -416,7 +416,7 @@ function IntentTimelineTab() {
               <div
                 className={`px-3 py-2.5 rounded-t border-t border-x transition-all duration-150 ${
                   hoveredPeriod === colIdx
-                    ? "border-[#B57EDC]/35 bg-[#B57EDC]/10 text-lavender"
+                    ? "border-lavender/35 bg-lavender/10 text-lavender"
                     : "border-white/8 bg-white/[0.025] text-white/30"
                 }`}
               >
@@ -435,7 +435,7 @@ function IntentTimelineTab() {
               <div
                 className={`px-2 py-3 rounded-b border border-t-0 flex flex-col gap-1.5 transition-all duration-150 ${
                   hoveredPeriod === colIdx
-                    ? "border-[#B57EDC]/35 bg-[#B57EDC]/[0.04]"
+                    ? "border-lavender/35 bg-lavender/[0.04]"
                     : "border-white/8 bg-white/[0.01]"
                 }`}
               >
@@ -452,7 +452,7 @@ function IntentTimelineTab() {
       <div
         className={`p-5 rounded-lg border transition-all duration-200 ${
           hoveredPeriod !== null
-            ? "border-[#B57EDC]/25 bg-[#B57EDC]/[0.05]"
+            ? "border-lavender/25 bg-lavender/[0.05]"
             : "border-white/5 bg-white/[0.015]"
         }`}
       >
@@ -804,7 +804,7 @@ export default function IntentDataClient() {
                 onClick={() => setActiveTab(i)}
                 className={`flex-shrink-0 px-5 py-4 text-[11px] font-mono uppercase tracking-widest transition-all duration-150 border-b-2 ${
                   activeTab === i
-                    ? "border-[#B57EDC] text-lavender"
+                    ? "border-lavender text-lavender"
                     : "border-transparent text-white/28 hover:text-white/55"
                 }`}
               >
