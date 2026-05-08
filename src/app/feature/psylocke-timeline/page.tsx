@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "Kwannon Timeline | Saren.ai",
     description:
       "A fan-made interactive timeline of Kwannon and Betsy Braddock — the most narratively tangled bodies in X-Men history. 1989–2019.",
-    images: ["/images/og/portfolio-psylocke.png"],
+    images: ["/portfolio/portfolio-psylocke.png"],
     type: "website",
   },
   twitter: {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "Kwannon Timeline | Saren.ai",
     description:
       "A fan-made interactive timeline of Kwannon and Betsy Braddock — the most narratively tangled bodies in X-Men history. 1989–2019.",
-    images: ["/images/og/portfolio-psylocke.png"],
+    images: ["/portfolio/portfolio-psylocke.png"],
   },
 };
 
@@ -105,7 +105,7 @@ export default function KwannonTimelinePage() {
             ],
             image: {
               "@type": "ImageObject",
-              url: "https://saren.ai/images/og/portfolio-psylocke.png",
+              url: "https://saren.ai/portfolio/portfolio-psylocke.png",
               width: 1200,
               height: 630,
             },

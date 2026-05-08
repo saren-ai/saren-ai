@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Sovereign Personas | Saren.ai",
     description:
       "Buyer personas for sovereign infrastructure deals. Why 'CTO' isn't enough when you're selling national resilience.",
-    images: ["/images/og/portfolio-sovereign-personas.png"],
+    images: ["/portfolio/portfolio-sovereign-personas.png"],
     type: "website",
   },
   twitter: {
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Sovereign Personas | Saren.ai",
     description:
       "Buyer personas for sovereign infrastructure deals. Why 'CTO' isn't enough when you're selling national resilience.",
-    images: ["/images/og/portfolio-sovereign-personas.png"],
+    images: ["/portfolio/portfolio-sovereign-personas.png"],
   },
 };
 
@@ -73,7 +73,7 @@ export default function SovereignPersonasPage() {
             "about": ["B2B persona development", "AI infrastructure market segmentation", "ICP strategy"],
             "image": {
               "@type": "ImageObject",
-              "url": "https://saren.ai/images/og/portfolio-sovereign-personas.png",
+              "url": "https://saren.ai/portfolio/portfolio-sovereign-personas.png",
               "width": 1200,
               "height": 630
             },

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "10-Touch Sales Play | Saren.ai",
     description:
       "Turn cold outreach into executive conversations. A value-first sequence designed for complex B2B sales cycles.",
-    images: ["/images/og/portfolio-10-touch.png"],
+    images: ["/portfolio/portfolio-10-touch.png"],
     type: "website",
   },
   twitter: {
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "10-Touch Sales Play | Saren.ai",
     description:
       "Turn cold outreach into executive conversations. A value-first sequence designed for complex B2B sales cycles.",
-    images: ["/images/og/portfolio-10-touch.png"],
+    images: ["/portfolio/portfolio-10-touch.png"],
   },
 };
 
@@ -74,7 +74,7 @@ export default function SalesPlayPage() {
             "keywords": "10-touch sales play, cold outreach, B2B sales, sales sequences, executive engagement",
             "image": {
               "@type": "ImageObject",
-              "url": "https://saren.ai/images/og/portfolio-10-touch.png",
+              "url": "https://saren.ai/portfolio/portfolio-10-touch.png",
               "width": 1200,
               "height": 630
             },

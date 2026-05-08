@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "120-Day Content Journey | Saren.ai",
     description:
       "Engineering demand at scale. A system that maps content to buyer psychology across the entire decision lifecycle.",
-    images: ["/images/og/portfolio-content-journey.png"],
+    images: ["/portfolio/portfolio-content-journey.png"],
     type: "website",
   },
   twitter: {
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "120-Day Content Journey | Saren.ai",
     description:
       "Engineering demand at scale. A system that maps content to buyer psychology across the entire decision lifecycle.",
-    images: ["/images/og/portfolio-content-journey.png"],
+    images: ["/portfolio/portfolio-content-journey.png"],
   },
 };
 
@@ -74,7 +74,7 @@ export default function ContentJourneyPage() {
             "keywords": "content marketing, buyer journey, demand generation, B2B SaaS, content strategy, 120-day plan",
             "image": {
               "@type": "ImageObject",
-              "url": "https://saren.ai/images/og/portfolio-content-journey.png",
+              "url": "https://saren.ai/portfolio/portfolio-content-journey.png",
               "width": 1200,
               "height": 630
             },

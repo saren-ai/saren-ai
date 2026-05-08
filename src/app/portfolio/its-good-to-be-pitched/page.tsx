@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "It's Good to be Pitched | Saren.ai",
     description:
       "An agency concept that sells the feeling of being the client. Storyboarded with AI, structured by human strategy.",
-    images: ["/images/og/portfolio-pitched.png"],
+    images: ["/portfolio/portfolio-pitched.png"],
     type: "website",
   },
   twitter: {
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "It's Good to be Pitched | Saren.ai",
     description:
       "An agency concept that sells the feeling of being the client. Storyboarded with AI, structured by human strategy.",
-    images: ["/images/og/portfolio-pitched.png"],
+    images: ["/portfolio/portfolio-pitched.png"],
   },
 };
 
@@ -73,7 +73,7 @@ export default function ItsGoodToBePitchedPage() {
             "about": ["B2B pitch strategy", "Sales enablement", "Storytelling for sales"],
             "image": {
               "@type": "ImageObject",
-              "url": "https://saren.ai/images/og/portfolio-pitched.png",
+              "url": "https://saren.ai/portfolio/portfolio-pitched.png",
               "width": 1200,
               "height": 630
             },

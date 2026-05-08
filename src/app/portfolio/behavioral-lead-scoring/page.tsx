@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "Behavioral Lead Scoring | Saren.ai",
     description:
       "Quantify buyer intent without the guesswork. A scoring model that differentiates between 'fit' and 'engagement' for cleaner MQLs.",
-    images: ["/images/og/portfolio-lead-scoring.png"],
+    images: ["/portfolio/portfolio-lead-scoring.png"],
     type: "website",
   },
   twitter: {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "Behavioral Lead Scoring | Saren.ai",
     description:
       "Quantify buyer intent without the guesswork. A scoring model that differentiates between 'fit' and 'engagement' for cleaner MQLs.",
-    images: ["/images/og/portfolio-lead-scoring.png"],
+    images: ["/portfolio/portfolio-lead-scoring.png"],
   },
 };
 
@@ -85,7 +85,7 @@ export default function BehavioralLeadScoringPage() {
             "keywords": "lead scoring, behavioral scoring, MQL, buyer intent, HubSpot, demand generation, marketing operations",
             "image": {
               "@type": "ImageObject",
-              "url": "https://saren.ai/images/og/portfolio-lead-scoring.png",
+              "url": "https://saren.ai/portfolio/portfolio-lead-scoring.png",
               "width": 1200,
               "height": 630
             },
