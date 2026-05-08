@@ -58,7 +58,7 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 /brand                                    Fire Horse 2026 brand guidelines
 /contact                                  Contact form
 /feature                                  Feature articles index
-/feature/kwannon-timeline                 Kwannon timeline editorial + interactive
+/feature/psylocke-timeline                 Kwannon timeline editorial + interactive
 /playbooks                                Playbooks index
 /playbooks/b2b-marketing-framework        B2B marketing framework playbook
 /playbooks/[id]                           Dynamic playbook pages
@@ -102,7 +102,7 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 | `comparison-table/` | Comparison table UI |
 | `content-journey/` | 120-day content journey components |
 | `feature/` | Feature section shared components (FeatureCard) |
-| `feature/kwannon-timeline/` | Kwannon interactive timeline (9 components + data) |
+| `feature/psylocke-timeline/` | Kwannon interactive timeline (9 components + data) |
 | `framework/` | Framework page components |
 | `golden-dashboard/` | Executive dashboard components |
 | `halcyon/` | Halcyon workspace components (archived section) |
@@ -110,7 +110,7 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 | `layout/` | Header, Footer, nav, providers |
 | `marketing-framework/` | B2B marketing framework components |
 | `portfolio/` | Portfolio grid and card components |
-| `psylocke-timeline/` | (moved to `feature/kwannon-timeline/`) |
+| `psylocke-timeline/` | (moved to `feature/psylocke-timeline/`) |
 | `seo/` | JsonLd and other SEO helpers |
 | `signal-state/` | Signal State framework components |
 | `sovereign-personas/` | Sovereign personas tool components |
@@ -127,7 +127,7 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 | `mega-menu-content.ts` | Nav mega menu structure and links |
 | `playbooks.ts` | Playbooks data fetching and types |
 | `portfolio-data.ts` | Portfolio item types |
-| `psylocke-timeline.ts` | Comic issue data for the Kwannon timeline (internal to `feature/kwannon-timeline/` components) |
+| `psylocke-timeline.ts` | Comic issue data for the Kwannon timeline (internal to `feature/psylocke-timeline/` components) |
 | `tier-list.ts` | AI tools list, SAREN_PICKS, stack categories |
 | `utils.ts` | Shared utility functions |
 

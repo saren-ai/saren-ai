@@ -40,7 +40,7 @@
 ## Editorial
 
 - [Feature Articles](https://saren.ai/feature): Magazine-style essays on personal projects and creative work
-- [Kwannon Timeline](https://saren.ai/feature/kwannon-timeline): Interactive editorial feature on Psylocke/Betsy Braddock (1989–2019)
+- [Kwannon Timeline](https://saren.ai/feature/psylocke-timeline): Interactive editorial feature on Psylocke/Betsy Braddock (1989–2019)
 
 ## About
 

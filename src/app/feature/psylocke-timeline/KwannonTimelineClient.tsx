@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 
 const HeroTimeline = dynamic(
-  () => import("@/components/feature/kwannon-timeline/HeroTimeline"),
+  () => import("@/components/feature/psylocke-timeline/HeroTimeline"),
   {
     loading: () => (
       <div className="min-h-[600px] flex items-center justify-center">

@@ -9,7 +9,7 @@ const SITE_URLS = [
   'https://saren.ai/brand',
   'https://saren.ai/contact',
   'https://saren.ai/feature',
-  'https://saren.ai/feature/kwannon-timeline',
+  'https://saren.ai/feature/psylocke-timeline',
   'https://saren.ai/playbooks',
   'https://saren.ai/playbooks/b2b-marketing-framework',
   'https://saren.ai/portfolio',

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "Kwannon Timeline | Saren.ai",
   description:
     "A fan-made interactive timeline of Kwannon and Betsy Braddock — the most narratively tangled bodies in X-Men history. 1989–2019.",
-  alternates: { canonical: "https://saren.ai/feature/kwannon-timeline" },
+  alternates: { canonical: "https://saren.ai/feature/psylocke-timeline" },
   openGraph: {
     title: "Kwannon Timeline | Saren.ai",
     description:
@@ -42,8 +42,8 @@ export default function KwannonTimelinePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "@id": "https://saren.ai/feature/kwannon-timeline/#webpage",
-            url: "https://saren.ai/feature/kwannon-timeline",
+            "@id": "https://saren.ai/feature/psylocke-timeline/#webpage",
+            url: "https://saren.ai/feature/psylocke-timeline",
             name: "Kwannon Timeline | Saren.ai",
             description:
               "A fan-made interactive timeline of Kwannon and Betsy Braddock — the most narratively tangled bodies in X-Men history. 1989–2019.",
@@ -78,7 +78,7 @@ export default function KwannonTimelinePage() {
                 "@type": "ListItem",
                 position: 3,
                 name: "Kwannon timeline",
-                item: "https://saren.ai/feature/kwannon-timeline",
+                item: "https://saren.ai/feature/psylocke-timeline",
               },
             ],
           }),
@@ -90,11 +90,11 @@ export default function KwannonTimelinePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": ["CreativeWork", "Article"],
-            "@id": "https://saren.ai/feature/kwannon-timeline/#work",
+            "@id": "https://saren.ai/feature/psylocke-timeline/#work",
             name: "Kwannon Timeline",
             description:
               "A fan-made interactive timeline of Kwannon and Betsy Braddock — the most narratively tangled bodies in X-Men history. 1989–2019.",
-            url: "https://saren.ai/feature/kwannon-timeline",
+            url: "https://saren.ai/feature/psylocke-timeline",
             author: { "@id": "https://saren.ai/#person" },
             creator: { "@id": "https://saren.ai/#person" },
             isPartOf: { "@id": "https://saren.ai/#website" },

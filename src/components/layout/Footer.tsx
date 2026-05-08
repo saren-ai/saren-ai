@@ -183,7 +183,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link
-                  href="/feature/kwannon-timeline"
+                  href="/feature/psylocke-timeline"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
                   Psylocke timeline

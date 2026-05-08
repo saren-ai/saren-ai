@@ -65,13 +65,8 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/portfolio/b2b-marketing-framework",
-        destination: "/playbooks/b2b-marketing-framework",
-        permanent: true,
-      },
-      {
         source: "/portfolio/psylocke-timeline",
-        destination: "/feature/kwannon-timeline",
+        destination: "/feature/psylocke-timeline",
         permanent: true,
       },
     ];
