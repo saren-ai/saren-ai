@@ -96,7 +96,7 @@ export default function MegaMenu({ content, onClose }: MegaMenuProps) {
   const sectionLimit = isFourCol ? 3 : 2;
 
   return (
-    <div className="px-8 py-8">
+    <div className="px-8 py-8" data-pagefind-ignore>
       <div className={`grid grid-cols-1 ${gridClass} gap-10`}>
 
         {/* ── Promo / Custom column (left) ─────────────────────────────── */}

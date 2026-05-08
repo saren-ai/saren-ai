@@ -29,7 +29,7 @@ export default function KwannonTimelineClient() {
         </div>
       </section>
 
-      <HeroTimeline />
+      <div data-pagefind-ignore><HeroTimeline /></div>
 
       <section className="section">
         <div className="container-narrow">

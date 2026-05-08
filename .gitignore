@@ -12,6 +12,9 @@
 /.next/
 /out/
 
+# pagefind (generated at build time — do not commit)
+/public/_pagefind/
+
 # production
 /build
 

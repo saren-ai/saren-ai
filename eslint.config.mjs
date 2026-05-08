@@ -18,6 +18,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Stale Claude Code worktrees
     ".claude/worktrees/**",
+    // Pagefind-generated search index (not source code)
+    "public/_pagefind/**",
   ]),
 ]);
 

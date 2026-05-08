@@ -5,6 +5,9 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import TopBanner from "@/components/layout/TopBanner";
 import ThemeProvider from "@/components/layout/ThemeProvider";
+import { PagefindProvider } from "@/components/search/PagefindProvider";
+import { SearchProvider } from "@/components/search/SearchContext";
+import SearchModal from "@/components/search/SearchModal";
 import { getLatestSubstackPosts } from "@/lib/substack-rss";
 
 const sora = Sora({
@@ -187,12 +190,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         <ThemeProvider>
-          <TopBanner />
-          <div className="sticky top-0 z-50 bg-background">
-            <Header latestPost={latestPost} />
-          </div>
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <PagefindProvider>
+            <SearchProvider>
+              <SearchModal />
+              <TopBanner />
+              <div className="sticky top-0 z-50 bg-background">
+                <Header latestPost={latestPost} />
+              </div>
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </SearchProvider>
+          </PagefindProvider>
         </ThemeProvider>
       </body>
     </html>

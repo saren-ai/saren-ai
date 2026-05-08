@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
+import SearchTrigger from "@/components/search/SearchTrigger";
 import MegaMenu, { type MegaMenuContent } from "./MegaMenu";
 import {
   workMegaMenu,
@@ -129,7 +130,7 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
     : undefined;
 
   return (
-    <header className="py-3">
+    <header className="py-3" data-pagefind-ignore>
       {/*
         ── Pill wrapper ─────────────────────────────────────────────────────
         80% width, centered. Acts as positioning context for mega menu.
@@ -204,13 +205,15 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
             ))}
           </div>
 
-          {/* Right side: Theme Toggle */}
+          {/* Right side: Search + Theme Toggle */}
           <div className="hidden md:flex items-center gap-2">
+            <SearchTrigger />
             <ThemeToggle />
           </div>
 
-          {/* Mobile: Theme Toggle + Hamburger */}
+          {/* Mobile: Search + Theme Toggle + Hamburger */}
           <div className="flex items-center gap-1.5 md:hidden">
+            <SearchTrigger />
             <ThemeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}

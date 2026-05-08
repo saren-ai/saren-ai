@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import BrandClient from "./BrandClient";
 import JsonLd from "@/components/seo/JsonLd";
+import PagefindBoundary from "@/components/search/PagefindBoundary";
 
 export const metadata: Metadata = {
   title: "Brand Guide — Fire Horse 2026",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function BrandPage() {
   return (
-    <>
+    <PagefindBoundary section="About">
       <JsonLd schema={{
         "@context": "https://schema.org",
         "@type": "WebPage",
@@ -41,6 +42,6 @@ export default function BrandPage() {
         "dateModified": "2026-04-01"
       }} />
       <BrandClient />
-    </>
+    </PagefindBoundary>
   );
 }

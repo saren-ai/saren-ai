@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactClient from "./ContactClient";
+import PagefindBoundary from "@/components/search/PagefindBoundary";
 
 export const metadata: Metadata = {
   title: "Contact Saren | Start Your Growth Engine",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <>
+    <PagefindBoundary section="About">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -57,6 +58,6 @@ export default function ContactPage() {
         }}
       />
       <ContactClient />
-    </>
+    </PagefindBoundary>
   );
 }

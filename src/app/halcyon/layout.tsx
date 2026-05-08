@@ -1,3 +1,3 @@
 export default function HalcyonLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
+  return <div data-pagefind-ignore>{children}</div>
 }

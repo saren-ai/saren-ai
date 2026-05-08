@@ -43,7 +43,7 @@ export default function SovereignPersonasClient() {
                             for full messaging implications.
                         </p>
                     </div>
-                    <PersonaGallery />
+                    <div data-pagefind-ignore><PersonaGallery /></div>
                 </div>
             </section>
 

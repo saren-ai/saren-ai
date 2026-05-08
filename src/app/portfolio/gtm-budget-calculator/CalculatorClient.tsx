@@ -9,7 +9,7 @@ export default function CalculatorClient() {
     return (
         <article>
             {/* Interactive Hero */}
-            <HeroCalculator />
+            <div data-pagefind-ignore><HeroCalculator /></div>
 
             {/* Logic / How it Works */}
             <section className="section bg-ash dark:bg-background">

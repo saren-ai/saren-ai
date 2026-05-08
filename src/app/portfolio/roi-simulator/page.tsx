@@ -94,7 +94,7 @@ export default function GoldenDashboardPage() {
       />
     <article>
       {/* New Hero Engine */}
-      <HeroBentoEngine />
+      <div data-pagefind-ignore><HeroBentoEngine /></div>
 
       {/* The Problem */}
       <section className="section bg-background-secondary text-foreground">

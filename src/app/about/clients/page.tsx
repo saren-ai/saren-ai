@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ClientsPageContent from "./ClientsPageContent";
+import PagefindBoundary from "@/components/search/PagefindBoundary";
 
 export const metadata: Metadata = {
   title: "Client Brands | Saren.ai",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function ClientsPage() {
   return (
-    <>
+    <PagefindBoundary section="About">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -88,6 +89,6 @@ export default function ClientsPage() {
         }}
       />
       <ClientsPageContent />
-    </>
+    </PagefindBoundary>
   );
 }

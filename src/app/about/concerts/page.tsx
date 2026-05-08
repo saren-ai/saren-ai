@@ -2,6 +2,7 @@ import ConcertsClient from "./ConcertsClient";
 import { Metadata } from "next";
 import { getAllConcerts } from "@/lib/db";
 import JsonLd from "@/components/seo/JsonLd";
+import PagefindBoundary from "@/components/search/PagefindBoundary";
 
 export const metadata: Metadata = {
     title: "I Saw All Sub-Cultural Bands | Saren",
@@ -41,7 +42,7 @@ export default function ConcertsPage() {
     }));
 
     return (
-        <>
+        <PagefindBoundary section="About">
             <JsonLd schema={{
                 "@context": "https://schema.org",
                 "@type": "CollectionPage",
@@ -73,6 +74,6 @@ export default function ConcertsPage() {
                 "itemListElement": eventItems,
             }} />
             <ConcertsClient concerts={concerts} />
-        </>
+        </PagefindBoundary>
     );
 }

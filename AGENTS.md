@@ -14,7 +14,7 @@ npm run lint     # ESLint
 
 ## Tech Stack
 
-Next.js 16.1 (App Router) · React 19 · TypeScript (strict) · Tailwind CSS v4 (CSS-based config, no tailwind.config.js) · Framer Motion 12 · @dnd-kit (tier list only) · Lucide React icons · MDX for content · No external carousel/state libs
+Next.js 16.1 (App Router) · React 19 · TypeScript (strict) · Tailwind CSS v4 (CSS-based config, no tailwind.config.js) · Framer Motion 12 · @dnd-kit (tier list only) · Lucide React icons · MDX for content · Pagefind (static search index, generated at build time) · No external carousel/state libs
 
 ## Modular Rules
 
@@ -111,6 +111,7 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 | `marketing-framework/` | B2B marketing framework components |
 | `portfolio/` | Portfolio grid and card components |
 | `psylocke-timeline/` | (moved to `feature/psylocke-timeline/`) |
+| `search/` | Search modal, provider, hotkey, boundary (8 files) |
 | `seo/` | JsonLd and other SEO helpers |
 | `signal-state/` | Signal State framework components |
 | `sovereign-personas/` | Sovereign personas tool components |
@@ -146,6 +147,8 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 **New feature article:** Add entry to `featureArticles` in `src/lib/feature.ts` → create `src/app/feature/<slug>/page.tsx` (server component, metadata + JSON-LD) + `src/app/feature/<slug>/ArticleClient.tsx` (`"use client"` if interactive) → create `src/components/feature/<slug>/` if the article needs dedicated components → no mega menu entry needed (feature lives as editorial, not primary nav).
 
 **Design system changes:** All in `src/app/globals.css` via `@theme inline` blocks (Tailwind v4 CSS-based config)
+
+**Adding searchable content:** New routes are indexed automatically at build time. Add `data-pagefind-ignore` to elements that should not be searched. Wrap section content with `<PagefindBoundary section="...">` to set group label. Halcyon and `/api/*` are excluded globally. Test locally with `npm run build && npm run start` (not `npm run dev` — index doesn't exist there).
 
 ## IA Conventions
 
@@ -201,3 +204,7 @@ The `.gitignore` covers: dependencies, build output, env files, local databases,
 - **Region:** iad1 (US East)
 - **Security headers:** `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`
 - **Font caching:** immutable 1yr
+
+## Search
+
+Site-wide search uses Pagefind, generated at build time. The modal lives in `src/components/search/` and is triggered by Cmd+K or the header search button. The architecture supports a future "Ask" mode (Phase 2 — semantic search + chat via RAG); the mode switcher already exists as a disabled UI state. See `docs/search-phase-2.md`.

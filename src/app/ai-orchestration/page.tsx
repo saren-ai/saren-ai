@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AIOrchestrationClient from "./AIOrchestrationClient";
+import PagefindBoundary from "@/components/search/PagefindBoundary";
 
 export const metadata: Metadata = {
     title: "AI Orchestration | Saren.ai",
@@ -45,7 +46,7 @@ const jsonLd = {
 
 export default function AIOrchestrationPage() {
     return (
-        <>
+        <PagefindBoundary section="Services">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -136,6 +137,6 @@ export default function AIOrchestrationPage() {
                 }}
             />
             <AIOrchestrationClient />
-        </>
+        </PagefindBoundary>
     );
 }
