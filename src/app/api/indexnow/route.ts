@@ -1,5 +1,36 @@
 import { NextResponse } from 'next/server';
-import sitemap from '@/app/sitemap';
+
+const SITE_URLS = [
+  'https://saren.ai',
+  'https://saren.ai/about',
+  'https://saren.ai/about/clients',
+  'https://saren.ai/about/concerts',
+  'https://saren.ai/ai-orchestration',
+  'https://saren.ai/brand',
+  'https://saren.ai/contact',
+  'https://saren.ai/feature',
+  'https://saren.ai/feature/kwannon-timeline',
+  'https://saren.ai/playbooks',
+  'https://saren.ai/playbooks/b2b-marketing-framework',
+  'https://saren.ai/portfolio',
+  'https://saren.ai/portfolio/10-touch-sales-play',
+  'https://saren.ai/portfolio/120-day-content-journey',
+  'https://saren.ai/portfolio/authority-engineering',
+  'https://saren.ai/portfolio/behavioral-lead-scoring',
+  'https://saren.ai/portfolio/dynamic-nurture',
+  'https://saren.ai/portfolio/executive-dashboard',
+  'https://saren.ai/portfolio/gtm-budget-calculator',
+  'https://saren.ai/portfolio/intent-data',
+  'https://saren.ai/portfolio/its-good-to-be-pitched',
+  'https://saren.ai/portfolio/roi-simulator',
+  'https://saren.ai/portfolio/sovereign-personas',
+  'https://saren.ai/portfolio/thought-leadership-development',
+  'https://saren.ai/signal-state',
+  'https://saren.ai/signal-state/architecture',
+  'https://saren.ai/signal-state/framework',
+  'https://saren.ai/signal-state/signal-library',
+  'https://saren.ai/signal-state/use-cases',
+];
 
 /**
  * Automatically submit Saren.ai URLs to the IndexNow API
@@ -14,8 +45,7 @@ export async function GET(request: Request) {
     }
 
     try {
-        const sitemapUrls = sitemap();
-        const urls = sitemapUrls.map((item) => item.url);
+        const urls = SITE_URLS;
 
         const indexNowData = {
             host: 'saren.ai',

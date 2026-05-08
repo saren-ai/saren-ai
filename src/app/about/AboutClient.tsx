@@ -1,8 +1,9 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import FAQ from "@/components/ui/FAQ";
 import { TierListBoard } from "@/components/tier-list/TierListBoard";
 import { AI_TOOLS } from "@/lib/tier-list";
@@ -43,7 +44,29 @@ const stackCategories = [
 
 const toolMap = new Map(AI_TOOLS.map((t) => [t.id, t]));
 
-const careerTimeline = [
+interface CareerMetric {
+    value: string;
+    label: string;
+}
+
+interface CareerDetailSection {
+    title: string;
+    description: string;
+    metrics: CareerMetric[];
+}
+
+interface CareerItem {
+    role: string;
+    company: string;
+    period: string;
+    metric: string;
+    description: string;
+    details?: {
+        sections: CareerDetailSection[];
+    };
+}
+
+const careerTimeline: CareerItem[] = [
     {
         role: "Fractional Head of Marketing",
         company: "WethosAI",
@@ -51,6 +74,43 @@ const careerTimeline = [
         metric: "+344% lead growth",
         description:
             "Leading marketing strategy and demand generation for an AI-powered team collaboration platform.",
+        details: {
+            sections: [
+                {
+                    title: "Demand Generation",
+                    description:
+                        "Built multi-channel engine across inbound, ABM, webinar, and outbound with full attribution tracking from lead source to closed deal.",
+                    metrics: [
+                        { value: "999", label: "MQLs Generated" },
+                        { value: "$3.45M", label: "Pipeline Created" },
+                        { value: "22", label: "Marketing-Sourced Deals Closed" },
+                    ],
+                },
+                {
+                    title: "LinkedIn Growth",
+                    description:
+                        "Grew company presence with a director-level audience concentration across 100 posts.",
+                    metrics: [
+                        { value: "1,556", label: "Followers" },
+                        { value: "29%", label: "Director-Level or Above" },
+                        { value: "9.4%", label: "Engagement Rate" },
+                        { value: "41K", label: "Impressions" },
+                        { value: "2,499", label: "Website Clicks" },
+                    ],
+                },
+                {
+                    title: "Expansion Revenue",
+                    description:
+                        "Partnered with Customer Success on expansion marketing across renewing accounts.",
+                    metrics: [
+                        { value: "149%", label: "Net Revenue Retention" },
+                        { value: "15", label: "Renewing Accounts" },
+                        { value: "75%", label: "of Quarterly Revenue from Expansion" },
+                        { value: "$518K", label: "All-Time Expansion Total" },
+                    ],
+                },
+            ],
+        },
     },
     {
         role: "Head of Growth Marketing",
@@ -121,6 +181,16 @@ const personalLinks = [
 ];
 
 export default function AboutClient() {
+    const [activeDetail, setActiveDetail] = useState<CareerItem | null>(null);
+
+    useEffect(() => {
+        const handleKey = (e: KeyboardEvent) => {
+            if (e.key === "Escape") setActiveDetail(null);
+        };
+        if (activeDetail) document.addEventListener("keydown", handleKey);
+        return () => document.removeEventListener("keydown", handleKey);
+    }, [activeDetail]);
+
     return (
         <article>
             {/* Hero */}
@@ -437,6 +507,17 @@ export default function AboutClient() {
                                                     {item.metric}
                                                 </span>
                                             </div>
+                                            {item.details && (
+                                                <button
+                                                    onClick={() => setActiveDetail(item)}
+                                                    className="mt-3 flex items-center gap-1 text-sm text-lavender hover:text-ember font-medium transition-colors"
+                                                >
+                                                    View full breakdown
+                                                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                    </svg>
+                                                </button>
+                                            )}
                                         </div>
                                     </div>
 
@@ -792,6 +873,82 @@ export default function AboutClient() {
                     </Link>
                 </div>
             </section>
+            {/* Career Detail Modal */}
+            <AnimatePresence>
+                {activeDetail?.details && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-charcoal/70 backdrop-blur-sm"
+                        onClick={() => setActiveDetail(null)}
+                    >
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+                            onClick={(e) => e.stopPropagation()}
+                            role="dialog"
+                            aria-modal="true"
+                            aria-label={`${activeDetail.role} at ${activeDetail.company} — full breakdown`}
+                        >
+                            {/* Modal Header */}
+                            <div className="sticky top-0 bg-white border-b border-charcoal/10 px-6 py-5 flex items-start justify-between rounded-t-2xl">
+                                <div>
+                                    <p className="text-xs font-mono text-slate uppercase tracking-wider mb-1">
+                                        {activeDetail.period}
+                                    </p>
+                                    <h3 className="text-xl font-bold text-charcoal">{activeDetail.role}</h3>
+                                    <p className="text-lavender font-medium">{activeDetail.company}</p>
+                                </div>
+                                <button
+                                    onClick={() => setActiveDetail(null)}
+                                    className="text-slate hover:text-charcoal transition-colors ml-6 mt-1 shrink-0"
+                                    aria-label="Close"
+                                >
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            {/* Modal Body */}
+                            <div className="px-6 py-6 space-y-8">
+                                {activeDetail.details.sections.map((section, sIdx) => (
+                                    <div key={section.title}>
+                                        <div className="flex items-center gap-3 mb-2">
+                                            <span className="text-xs font-mono text-ember font-bold">
+                                                {String(sIdx + 1).padStart(2, "0")}.
+                                            </span>
+                                            <h4 className="text-base font-bold text-charcoal">{section.title}</h4>
+                                        </div>
+                                        <p className="text-sm text-slate leading-relaxed mb-4">
+                                            {section.description}
+                                        </p>
+                                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                            {section.metrics.map((metric) => (
+                                                <div
+                                                    key={metric.label}
+                                                    className="bg-ash rounded-xl px-4 py-3 text-center"
+                                                >
+                                                    <div className="text-lg font-bold font-mono text-ember">
+                                                        {metric.value}
+                                                    </div>
+                                                    <div className="text-xs text-slate mt-0.5 leading-tight">
+                                                        {metric.label}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </article>
     );
 }

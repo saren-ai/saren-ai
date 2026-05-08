@@ -66,8 +66,7 @@ export default function PortfolioPage() {
               { "@type": "ListItem", "position": 11, "url": "https://saren.ai/portfolio/its-good-to-be-pitched",       "name": "It's Good to Be Pitched" },
               { "@type": "ListItem", "position": 12, "url": "https://saren.ai/portfolio/authority-engineering",        "name": "Authority Engineering Process" },
               { "@type": "ListItem", "position": 13, "url": "https://saren.ai/portfolio/thought-leadership-development","name": "Thought Leadership Development" },
-              { "@type": "ListItem", "position": 14, "url": "https://saren.ai/portfolio/psylocke-timeline",            "name": "Psylocke Timeline" },
-              { "@type": "ListItem", "position": 15, "url": "https://saren.ai/signal-state",                           "name": "Signal-State Marketing" }
+              { "@type": "ListItem", "position": 14, "url": "https://saren.ai/signal-state",                           "name": "Signal-State Marketing" }
             ]
           })
         }}

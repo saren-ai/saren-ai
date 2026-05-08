@@ -1,0 +1,17 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /halcyon
+
+# *
+User-agent: *
+Disallow: /api
+
+# Host
+Host: https://saren.ai
+
+# Sitemaps
+Sitemap: https://saren.ai/sitemap.xml
