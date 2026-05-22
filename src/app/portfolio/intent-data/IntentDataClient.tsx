@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import FAQ from "@/components/ui/FAQ";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -852,6 +853,23 @@ export default function IntentDataClient() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQ
+        title="Intent Data FAQ"
+        description="Operational truth on filtering out noise and driving actual sales ROI from intent data feeds."
+        items={[
+          {
+            question: "Why do most B2B startups fail to see ROI from intent data feeds?",
+            answer: "Because they dump raw, unfiltered intent feeds straight into their sales reps' queues without scoring them or generating relevant outreach context. An intent feed is just noise until you overlay company fit, search velocity, and a clear reason for the prospect to care."
+          },
+          {
+            question: "How do you keep sales reps from sounding creepy when using intent data?",
+            answer: "By never saying \"I saw you searched for our software\" and instead referencing the industry pain points that triggered the intent signal. We use intent to dictate timing and topic, not as an excuse to announce we're tracking them online."
+          }
+        ]}
+      />
     </article>
   );
 }
+

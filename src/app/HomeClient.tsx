@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 import PortfolioCard from "@/components/portfolio/PortfolioCard";
 import MatrixRain from "@/components/home/MatrixRain";
+import FAQ from "@/components/ui/FAQ";
 
 const interactiveTools = [
   {
@@ -108,7 +110,7 @@ export default function HomeClient() {
               transition={{ duration: 0.5 }}
               className="text-lavender font-mono text-sm md:text-base mb-6 tracking-wider uppercase"
             >
-              AI Integration · Marketing Architecture · Demand Acceleration
+              AI Operations · Marketing Systems · Lean Scaling
             </motion.p>
 
             {/* Headline */}
@@ -116,39 +118,50 @@ export default function HomeClient() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-6xl lg:text-[3.5rem] font-bold text-charcoal dark:text-foreground leading-[1.1] mb-4"
+              className="text-4xl md:text-6xl lg:text-[4rem] font-bold text-charcoal dark:text-foreground leading-[1.1] mb-8"
             >
-              Most startups bolt AI on.
-              <br />
-              <span className="text-gradient">I wire it in.</span>
+              AI operations for <span className="text-gradient">lean teams</span>
             </motion.h1>
 
             {/* Body / value prop */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              className="text-base md:text-lg text-slate dark:text-foreground-muted max-w-2xl mx-auto leading-relaxed mb-8"
-            >
-              The gap between &ldquo;we use AI tools&rdquo; and &ldquo;AI is driving our pipeline&rdquo; is where most startups stall.
-              I close it using Claude Code, Claude Design, and Claude Cowork inside your team&rsquo;s workspace —
-              embedding AI natively across every marketing function, not just bolted onto one workflow.
-              The result: a holistic AI-native marketing operation. Built for speed. Tuned for revenue.
-            </motion.p>
+            <div className="space-y-6 text-base md:text-lg text-slate dark:text-foreground-muted max-w-3xl mx-auto leading-relaxed mb-10 text-center">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="font-semibold text-charcoal dark:text-foreground text-lg md:text-xl"
+              >
+                AI shouldn&apos;t just be a tool your team uses. It should be the infrastructure your business runs on.
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                Early-stage companies stall in the gap between buying ChatGPT and running an AI-powered marketing operation. We bridge it by building multi-agent systems directly into your existing workflows.
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                The result: less manual grind, fewer chaotic spreadsheets, and clean, automated leverage.
+              </motion.p>
+            </div>
 
             {/* CTAs */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.45 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Link
                 href="/portfolio"
                 className="btn-primary"
-                aria-label="Explore my portfolio"
+                aria-label="Explore the systems"
               >
-                Explore my portfolio
+                Explore the systems
                 <svg
                   className="w-5 h-5 ml-2"
                   fill="none"
@@ -166,9 +179,9 @@ export default function HomeClient() {
               <Link
                 href="/contact"
                 className="btn-secondary"
-                aria-label="Let's get in touch"
+                aria-label="Let's map your workflow"
               >
-                Let&apos;s get in touch
+                Let&apos;s map your workflow
                 <svg
                   className="w-5 h-5 ml-2"
                   fill="none"
@@ -185,32 +198,52 @@ export default function HomeClient() {
               </Link>
             </motion.div>
 
-            {/* Metrics Bar */}
+            {/* Reframe client logos and wins */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-4 border-t border-charcoal/10 dark:border-white/10 pt-8"
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="mt-16 border-t border-charcoal/10 dark:border-white/10 pt-10"
             >
-              {[
-                { value: "550%", label: "YoY pipeline growth", company: "BlackBerry" },
-                { value: "70%", label: "CAC reduction", company: "Qwiet AI" },
-                { value: "8:1", label: "Paid media ROI", company: "Cylance" },
-                { value: "$4M", label: "Quarterly pipeline", company: "Cylance" },
-                { value: "344%", label: "Inbound lead growth", company: "WethosAI" },
-              ].map((m) => (
-                <div key={m.label} className="text-center">
-                  <div className="text-xl md:text-2xl font-bold font-mono text-charcoal dark:text-foreground">
-                    {m.value}
-                  </div>
-                  <div className="text-[11px] uppercase tracking-widest text-slate dark:text-foreground-muted mt-0.5">
-                    {m.label}
-                  </div>
-                  <div className="text-[10px] font-mono text-slate/50 dark:text-foreground-muted/50 mt-0.5">
-                    {m.company}
-                  </div>
-                </div>
-              ))}
+              <h3 className="text-lg md:text-xl font-bold text-charcoal dark:text-foreground mb-2">
+                Enterprise-grade architecture, scaled for early-stage teams.
+              </h3>
+              <p className="text-sm text-slate dark:text-foreground-muted mb-8">
+                Experience engineering systems and reducing operational friction for:
+              </p>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                {[
+                  { name: "BlackBerry", logo: "blackberry.png", metric: "550% Pipeline Growth", href: "/portfolio/120-day-content-journey" },
+                  { name: "Qwiet AI", logo: "qwiet.png", metric: "70% CAC Reduction", href: "/about/clients" },
+                  { name: "Cylance", logo: "cylance.png", metric: "$4M Quarterly Pipeline", href: "/portfolio/120-day-content-journey" },
+                  { name: "WethosAI", logo: "wethos.png", metric: "344% Lead Growth", href: "/about/clients" },
+                ].map((client) => (
+                  <Link
+                    key={client.name}
+                    href={client.href}
+                    className="flex flex-col items-center justify-between p-6 rounded-xl bg-offblack border border-charcoal/10 dark:border-white/10 hover:border-ember/40 dark:hover:border-lavender/40 transition-all duration-300 group cursor-pointer"
+                  >
+                    <div className="h-12 w-full flex items-center justify-center mb-4 relative">
+                      <Image
+                        src={`/logos/clients/${client.logo}`}
+                        alt={`${client.name} logo`}
+                        fill
+                        className="object-contain opacity-75 dark:opacity-60 group-hover:opacity-100 dark:group-hover:opacity-100 transition-opacity duration-300"
+                        sizes="(max-width: 768px) 120px, 150px"
+                      />
+                    </div>
+                    <div className="text-center mt-2 border-t border-white/10 pt-4 w-full">
+                      <div className="text-lg md:text-xl font-bold font-mono text-ember">
+                        {client.metric.split(" ")[0]}
+                      </div>
+                      <div className="text-[10px] md:text-[11px] uppercase tracking-widest text-ash/60 font-semibold mt-1 leading-tight">
+                        {client.metric.split(" ").slice(1).join(" ")}
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </motion.div>
 
           </div>
@@ -296,8 +329,45 @@ export default function HomeClient() {
               />
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-12 text-center"
+          >
+            <p className="text-slate dark:text-foreground-muted text-sm font-mono">
+              💡 Looking for B2B frameworks and AI prompts you can run today?{" "}
+              <Link
+                href="/playbooks"
+                className="text-ember dark:text-lavender font-bold hover:underline transition-all"
+              >
+                Browse the Playbooks &rarr;
+              </Link>
+            </p>
+          </motion.div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQ
+        title="GTM & Operations FAQ"
+        description="Direct answers to hard questions about marketing architecture and fractional execution."
+        items={[
+          {
+            question: "Why hire a Fractional CMO instead of a full-time marketing executive?",
+            answer: "A Fractional CMO gives you senior GTM leadership to build your strategy and operations without the bloated executive salary, equity package, and overhead of a full-timer who just wants to manage agencies. You get active system-building, positioning clarity, and operational pipeline setup for early-stage and Series A startups, rather than a slide-deck generator."
+          },
+          {
+            question: "What does \"demand generation as engineering\" actually mean?",
+            answer: "It means we treat your pipeline like a software system—defined by data inputs, logic gates, and feedback loops—instead of a series of hope-based branding campaigns. We build intent detection, lead scoring, and automated GTM tracking to capture active buyers, rather than throwing budget at Google Ads and hoping for a miracle."
+          },
+          {
+            question: "What size startups benefit most from Saren's consulting?",
+            answer: "Startups that have product-market fit (usually $1M–$10M ARR) but find their growth is stalling because their messaging is muddy and their sales cycles are stretching. If you're spending $50k+/month on ads or sales development and can't trace where your best deals are coming from, we need to talk."
+          }
+        ]}
+      />
 
       {/* CTA Section */}
       <section className="section gradient-dark text-ash">

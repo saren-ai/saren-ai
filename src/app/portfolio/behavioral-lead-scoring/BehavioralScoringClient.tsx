@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import HeroBehavioralScoring from "@/components/behavioral-scoring/HeroBehavioralScoring";
+import FAQ from "@/components/ui/FAQ";
 
 export default function BehavioralScoringClient() {
     return (
@@ -187,6 +188,22 @@ export default function BehavioralScoringClient() {
                     </div>
                 </div>
             </section>
+
+            {/* FAQ Section */}
+            <FAQ
+                title="Behavioral Lead Scoring FAQ"
+                description="Technical insights on designing functional, non-decaying B2B scoring models."
+                items={[
+                    {
+                        question: "Why should we separate \"fit\" scoring from \"engagement\" scoring?",
+                        answer: "Separating them prevents your sales team from wasting time chasing interns who download ebooks (high engagement, zero buying power) while ignoring silent decision-makers who visit your pricing page (low engagement, high fit). Splitting the scores ensures your reps only reach out when fit and timing align."
+                    },
+                    {
+                        question: "How do you prevent lead scoring models from decay over time?",
+                        answer: "By reviewing conversion data monthly and retraining the scoring thresholds based on which leads actually closed, rather than what marketing thought was valuable. A static lead scoring model is a liability; it must adapt to how buyers actually navigate your product."
+                    }
+                ]}
+            />
 
             {/* CTA */}
             <section className="section gradient-dark text-ash">

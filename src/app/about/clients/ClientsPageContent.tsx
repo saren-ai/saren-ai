@@ -8,14 +8,14 @@ import Breadcrumb from "@/components/ui/Breadcrumb";
 
 const clientLogos = [
   // B2B Technology
-  { name: "BlackBerry", filename: "blackberry.png", category: "tech" },
+  { name: "BlackBerry", filename: "blackberry.png", category: "tech", href: "/portfolio/120-day-content-journey" },
   { name: "Cisco", filename: "cisco.png", category: "tech" },
-  { name: "Cylance", filename: "cylance.png", category: "tech" },
+  { name: "Cylance", filename: "cylance.png", category: "tech", href: "/portfolio/120-day-content-journey" },
   { name: "Palo Alto Networks", filename: "palo-alto.png", category: "tech" },
-  { name: "Qwiet AI", filename: "qwiet.png", category: "tech" },
+  { name: "Qwiet AI", filename: "qwiet.png", category: "tech", href: "/portfolio" },
   { name: "Symantec", filename: "symantec.png", category: "tech" },
   { name: "Veritas", filename: "veritas.png", category: "tech" },
-  { name: "WethosAI", filename: "wethos.png", category: "tech" },
+  { name: "WethosAI", filename: "wethos.png", category: "tech", href: "/portfolio" },
   { name: "Peak Nano", filename: "peak-nano.png", category: "tech" },
   
   // Consumer Brands
@@ -76,29 +76,70 @@ export default function ClientsPageContent() {
         <div className="container-narrow">
           {/* Animated Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-8">
-            {clientLogos.map((logo, index) => (
-              <motion.div
-                key={logo.filename}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.4,
-                  delay: index * 0.05,
-                  ease: "easeOut"
-                }}
-                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-                className="relative aspect-square flex items-center justify-center p-6 rounded-lg bg-charcoal/50 border border-ash/10 hover:border-lavender/40 transition-colors group"
-              >
-                <Image
-                  src={`/logos/clients/${logo.filename}`}
-                  alt={`${logo.name} logo`}
-                  width={200}
-                  height={200}
-                  className="w-full h-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity"
-                />
-              </motion.div>
-            ))}
+            {clientLogos.map((logo, index) => {
+              const CardContent = (
+                <>
+                  <Image
+                    src={`/logos/clients/${logo.filename}`}
+                    alt={`${logo.name} logo`}
+                    width={200}
+                    height={200}
+                    className="w-full h-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+                  />
+                  {logo.href && (
+                    <span className="absolute bottom-2 right-2 text-[9px] font-mono text-ash/40 group-hover:text-ember transition-colors">
+                      Case Study &rarr;
+                    </span>
+                  )}
+                </>
+              );
+
+              const wrapperClass = "relative aspect-square flex items-center justify-center p-6 rounded-lg bg-charcoal/50 border border-ash/10 hover:border-lavender/40 transition-colors group cursor-default h-full w-full";
+              const interactiveWrapperClass = "relative aspect-square flex items-center justify-center p-6 rounded-lg bg-charcoal/50 border border-ash/10 hover:border-ember/40 transition-colors group cursor-pointer h-full w-full";
+
+              if (logo.href) {
+                return (
+                  <Link
+                    key={logo.filename}
+                    href={logo.href}
+                    className="block"
+                  >
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 0.4,
+                        delay: index * 0.05,
+                        ease: "easeOut"
+                      }}
+                      whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                      className={interactiveWrapperClass}
+                    >
+                      {CardContent}
+                    </motion.div>
+                  </Link>
+                );
+              }
+
+              return (
+                <motion.div
+                  key={logo.filename}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.4,
+                    delay: index * 0.05,
+                    ease: "easeOut"
+                  }}
+                  whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                  className={wrapperClass}
+                >
+                  {CardContent}
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Count */}

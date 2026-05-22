@@ -33,6 +33,15 @@ const interactiveItems = [
     pillars: ["Predictive Infrastructure", "Automated Qualification"],
   },
   {
+    title: "Expertise Trend Library",
+    description:
+      "Two decades of digital marketing research mapped across 63 core trends and 192 source references. An interactive multi-view SVG visualizer.",
+    metric: "24 Yrs",
+    metricLabel: "Research Depth",
+    href: "/about/expertise",
+    pillars: ["Systems Thinking", "AI Operations"],
+  },
+  {
     title: "AI Stack Tier List",
     description:
       "My personal tech stack for building growth engines. Drag and drop to rank the tools yourself or see my top picks for 2026.",

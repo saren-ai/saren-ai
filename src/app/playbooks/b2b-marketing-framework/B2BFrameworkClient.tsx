@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect } from "react";
 import Link from 'next/link';
+import FAQ from "@/components/ui/FAQ";
 import { ChevronLeft, ChevronRight, Check } from 'lucide-react';
 import { marked } from 'marked';
 import CopyButton from '../[id]/CopyButton';
@@ -164,6 +165,7 @@ export default function B2BFrameworkClient({ initialSteps, variablesContent }: B
     }, [activeStep, variables, stepVariables]);
 
     return (
+        <>
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
             {/* Left Column: Sequence Navigation & Content */}
@@ -341,5 +343,24 @@ export default function B2BFrameworkClient({ initialSteps, variablesContent }: B
                 }
             `}} />
         </div>
+
+        <div className="mt-20">
+            <FAQ
+                title="B2B Marketing Framework FAQ"
+                description="Factual, technical operational detail on deploying and scaling this GTM positioning model."
+                items={[
+                    {
+                        question: "What makes this B2B marketing framework different from others?",
+                        answer: "This framework is built on operational reality and technical setup rather than vague high-level marketing theory and brand manifestos. It links your positioning directly to your CRM triggers, scoring rules, and sales outreach sequences, creating a predictable machine instead of a slide deck."
+                    },
+                    {
+                        question: "How long does it take to deploy this growth framework?",
+                        answer: "A full GTM architecture deployment takes 60 to 90 days, but we build it in modular 2-week sprints so you see lead scoring and tracking improvements immediately. We don't sit in planning sessions for months; we build, test, and refine the loop in production."
+                    }
+                ]}
+            />
+        </div>
+        </>
     );
 }
+

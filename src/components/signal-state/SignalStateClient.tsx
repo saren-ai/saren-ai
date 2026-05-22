@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import SignalStateSubnav from './SignalStateSubnav'
+import FAQ from '@/components/ui/FAQ'
 
 const PILLARS = [
   {
@@ -302,6 +303,26 @@ export default function SignalStateClient() {
           </motion.div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQ
+        title="Signal-State FAQ"
+        description="Factual breakdown of intent-detection pipelines, privacy, and GTM mechanics."
+        items={[
+          {
+            question: "How is Signal-State intent targeting different from database feeds like ZoomInfo or Bombora?",
+            answer: "Traditional intent databases tell you that a corporate IP address read a blog post, while Signal-State finds the exact individual publicly venting about a specific pain point. Instead of cold calling someone because their company bought a database list, you reach a buyer the moment they express a real struggle in a public forum."
+          },
+          {
+            question: "What platforms do your intent-detection agents monitor?",
+            answer: "We scan public, high-context communities like Reddit, LinkedIn, Twitter/X, Glassdoor, and G2 where professionals go to complain about tools that broke. We don't scrape gated databases; we identify active intent where buyers are asking for help in real time."
+          },
+          {
+            question: "Is Signal-State marketing compliant with GDPR and privacy laws?",
+            answer: "Yes, because we only analyze public forum posts and every message sent is a personalized, one-to-one email routed through a human review gate. We do not run bulk spam lists or scrape private data; we match public questions with direct, manual answers."
+          }
+        ]}
+      />
 
       {/* CTA Section */}
       <section className="section gradient-dark text-ash">
