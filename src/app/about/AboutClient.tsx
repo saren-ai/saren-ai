@@ -202,14 +202,14 @@ export default function AboutClient() {
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 0.2, duration: 0.5 }}
-                            className="shrink-0 relative w-[220px] h-[370px] md:w-[240px] md:h-[404px] lg:w-[260px] lg:h-[438px] rounded-2xl overflow-hidden drop-shadow-2xl"
+                            className="shrink-0 relative w-[140px] h-[140px] md:w-[160px] md:h-[160px] rounded-full overflow-hidden drop-shadow-2xl ring-4 ring-white/10"
                         >
                             <Image
-                                src="/profile/pixel-head_1080x1820.png"
-                                alt="Saren Sakurai — Pixel Art"
+                                src="/profile/saren-profile_2026.png"
+                                alt="Saren Sakurai"
                                 fill
-                                className="object-cover"
-                                sizes="(max-width: 768px) 220px, (max-width: 1024px) 240px, 260px"
+                                className="object-cover object-top"
+                                sizes="(max-width: 768px) 140px, 160px"
                                 priority
                             />
                         </motion.div>
@@ -529,6 +529,28 @@ export default function AboutClient() {
                                 </motion.div>
                             ))}
                         </div>
+                    </div>
+
+                    <div className="mt-16 text-center">
+                        <Link
+                            href="/about/expertise"
+                            className="btn-lavender inline-flex items-center gap-2 group font-semibold"
+                        >
+                            Explore Subject Matter Expertise Timeline
+                            <svg
+                                className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M9 5l7 7-7 7"
+                                />
+                            </svg>
+                        </Link>
                     </div>
                 </div>
             </section>

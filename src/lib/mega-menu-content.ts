@@ -150,6 +150,11 @@ export const aboutMegaMenu: MegaMenuContent = {
           description: "Career journey and background",
         },
         {
+          href: "/about/expertise",
+          label: "Expertise Timeline",
+          description: "Two decades of digital marketing trends",
+        },
+        {
           href: "/brand",
           label: "Brand Guide",
           description: "Fire Horse 2026 design system",
@@ -163,6 +168,12 @@ export const aboutMegaMenu: MegaMenuContent = {
           href: "/about/clients",
           label: "Client Brands",
           description: "26+ brands from startups to Fortune 500",
+        },
+        {
+          href: "https://calendly.com/sarenai",
+          label: "Book 30 Minutes",
+          description: "Book 30 minutes and let's talk",
+          isExternal: true,
         },
       ],
     },
