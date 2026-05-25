@@ -110,7 +110,7 @@ export default function HomeClient() {
               transition={{ duration: 0.5 }}
               className="text-lavender font-mono text-sm md:text-base mb-6 tracking-wider uppercase"
             >
-              AI Operations · Marketing Systems · Lean Scaling
+              Fractional AI Operations
             </motion.p>
 
             {/* Headline */}
@@ -138,14 +138,7 @@ export default function HomeClient() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                Early-stage companies stall in the gap between buying ChatGPT and running an AI-powered marketing operation. We bridge it by building multi-agent systems directly into your existing workflows.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                The result: less manual grind, fewer chaotic spreadsheets, and clean, automated leverage.
+                Most early-stage companies are stuck between buying ChatGPT and actually running an AI-powered operation. We build multi-agent systems directly into your existing workflows — so your team stops grinding through manual work and starts running on automated leverage.
               </motion.p>
             </div>
 
@@ -157,11 +150,11 @@ export default function HomeClient() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Link
-                href="/portfolio"
+                href="/contact"
                 className="btn-primary"
-                aria-label="Explore the systems"
+                aria-label="Let's map your workflow"
               >
-                Explore the systems
+                Let&apos;s map your workflow
                 <svg
                   className="w-5 h-5 ml-2"
                   fill="none"
@@ -177,24 +170,11 @@ export default function HomeClient() {
                 </svg>
               </Link>
               <Link
-                href="/contact"
+                href="/portfolio"
                 className="btn-secondary"
-                aria-label="Let's map your workflow"
+                aria-label="See the systems"
               >
-                Let&apos;s map your workflow
-                <svg
-                  className="w-5 h-5 ml-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                  />
-                </svg>
+                See the systems
               </Link>
             </motion.div>
 
