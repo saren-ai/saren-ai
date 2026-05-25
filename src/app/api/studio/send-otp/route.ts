@@ -22,6 +22,7 @@ export async function POST(request: NextRequest) {
     });
 
     if (error) {
+      console.error("[send-otp] Supabase error:", error.message, error.status);
       return NextResponse.json({ error: error.message }, { status: 400 });
     }
 
