@@ -57,8 +57,8 @@ export const workMegaMenu: MegaMenuContent = {
           description: "Interactive attribution modeling",
         },
         {
-          href: "/portfolio/behavioral-lead-scoring",
-          label: "Behavioral Lead Scoring",
+          href: "/portfolio/hybrid-lead-scoring",
+          label: "Hybrid Lead Scoring",
           description: "Buyer motion intent tracking",
         },
       ],

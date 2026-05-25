@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Clock } from "lucide-react";
+import { Mail, Clock, CalendarDays } from "lucide-react";
+import Image from "next/image";
 import FAQ from "@/components/ui/FAQ";
 
 export default function ContactClient() {
@@ -10,24 +11,58 @@ export default function ContactClient() {
             {/* Hero */}
             <section className="hero-card section gradient-dark text-ash">
                 <div className="container-narrow">
-                    <div className="max-w-3xl">
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+                    <div className="flex items-center gap-8 md:gap-12">
+                        {/* Profile photo */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.4 }}
+                            className="shrink-0"
                         >
-                            Let&apos;s Connect
-                        </motion.h1>
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 }}
-                            className="text-xl md:text-2xl text-ash/80 leading-relaxed"
-                        >
-                            Ready to build a growth engine that scales? Whether you need a
-                            fractional CMO, demand gen strategy, or marketing operations help,
-                            I&apos;d love to hear from you.
-                        </motion.p>
+                            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden ring-2 ring-white/20">
+                                <Image
+                                    src="/profile/saren-profile_2026.png"
+                                    alt="Saren Sakurai"
+                                    width={128}
+                                    height={128}
+                                    className="w-full h-full object-cover object-top"
+                                    priority
+                                />
+                            </div>
+                        </motion.div>
+
+                        {/* Headline + subhead + CTA */}
+                        <div className="min-w-0">
+                            <motion.h1
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
+                            >
+                                Let&apos;s Connect
+                            </motion.h1>
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.1 }}
+                                className="text-lg md:text-xl text-ash/80 leading-relaxed mb-6 max-w-xl"
+                            >
+                                Ready to build a growth engine that scales? Whether you need a
+                                fractional CMO, demand gen strategy, or marketing operations help,
+                                I&apos;d love to hear from you.
+                            </motion.p>
+                            <motion.a
+                                href="https://calendly.com/sarenai"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.18 }}
+                                className="btn-primary inline-flex items-center gap-2 self-start"
+                            >
+                                <CalendarDays className="w-4 h-4" />
+                                Schedule time with me
+                            </motion.a>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -92,23 +127,6 @@ export default function ContactClient() {
                                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                                     </svg>
                                     View LinkedIn Profile
-                                </a>
-                            </div>
-
-                            {/* Email */}
-                            <div className="p-6 bg-white rounded-xl border border-charcoal/10">
-                                <h3 className="text-lg font-bold text-charcoal mb-2">
-                                    Email directly
-                                </h3>
-                                <p className="text-slate text-sm mb-4">
-                                    Prefer to copy the address? Right here.
-                                </p>
-                                <a
-                                    href="mailto:saren.sakurai@gmail.com"
-                                    className="inline-flex items-center gap-2 text-lavender hover:text-ember transition-colors font-medium"
-                                >
-                                    <Mail className="w-5 h-5" />
-                                    saren.sakurai@gmail.com
                                 </a>
                             </div>
 

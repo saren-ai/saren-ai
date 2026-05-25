@@ -36,7 +36,7 @@ export const portfolioItems: PortfolioItem[] = [
             "Making buyer motion legible. A dynamic scoring model that tracks fit and engagement to surface high-intent accounts automatically.",
         metric: "3x",
         metricLabel: "Lead Quality",
-        href: "/portfolio/behavioral-lead-scoring",
+        href: "/portfolio/hybrid-lead-scoring",
         pillars: ["Predictive Infrastructure", "Automated Qualification"],
         type: "interactive",
     },

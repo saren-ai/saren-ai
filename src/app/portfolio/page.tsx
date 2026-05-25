@@ -55,7 +55,7 @@ export default function PortfolioPage() {
             "itemListElement": [
               { "@type": "ListItem", "position": 1,  "url": "https://saren.ai/portfolio/roi-simulator",                "name": "Paid Media ROI Simulator" },
               { "@type": "ListItem", "position": 2,  "url": "https://saren.ai/portfolio/gtm-budget-calculator",        "name": "SaaS Revenue Calculator" },
-              { "@type": "ListItem", "position": 3,  "url": "https://saren.ai/portfolio/behavioral-lead-scoring",      "name": "Behavioral Lead Scoring" },
+              { "@type": "ListItem", "position": 3,  "url": "https://saren.ai/portfolio/hybrid-lead-scoring",          "name": "Hybrid Lead Scoring" },
               { "@type": "ListItem", "position": 4,  "url": "https://saren.ai/portfolio/executive-dashboard",          "name": "Demand Generation Command Center" },
               { "@type": "ListItem", "position": 5,  "url": "https://saren.ai/portfolio/sovereign-personas",           "name": "Sovereign Buyer Personas" },
               { "@type": "ListItem", "position": 6,  "url": "https://saren.ai/portfolio/10-touch-sales-play",          "name": "10-Touch Sales Play" },

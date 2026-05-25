@@ -148,7 +148,7 @@ export function SaasCalculator() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white dark:bg-card-bg border border-charcoal/10 dark:border-ember/20 rounded-xl p-5 md:p-7"
+        className="print:hidden bg-white dark:bg-card-bg border border-charcoal/10 dark:border-ember/20 rounded-xl p-5 md:p-7"
       >
         <div className="space-y-6">
           {/* Configuration Panel */}
@@ -180,7 +180,7 @@ export function SaasCalculator() {
       </motion.div>
 
       {/* View Mode Toggle + Reset */}
-      <div className="flex items-center justify-between">
+      <div className="print:hidden flex items-center justify-between">
         <div className="flex items-center gap-2">
           <button
             onClick={() => setViewMode("annual")}
@@ -394,7 +394,7 @@ export function SaasCalculator() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
       >
-        <ExportControls hasData={hasData} />
+        <ExportControls hasData={hasData} funnel={funnel} />
       </motion.div>
     </div>
   );

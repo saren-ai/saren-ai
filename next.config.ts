@@ -30,6 +30,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/portfolio/behavioral-lead-scoring",
+        destination: "/portfolio/hybrid-lead-scoring",
+        permanent: true,
+      },
+      {
         source: "/about/stack",
         destination: "/about#stack",
         permanent: true,

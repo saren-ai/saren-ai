@@ -610,3 +610,62 @@ h6 {
     font-size: 1.875rem;
   }
 }
+/* ===== Print styles ===== */
+@media print {
+  /* Page setup */
+  @page {
+    margin: 1.5cm 2cm;
+    size: A4 portrait;
+  }
+
+  /* Force all CSS tokens to light-mode values regardless of html.dark class.
+     This means dark-mode users always print to a white page. */
+  :root,
+  .dark {
+    color-scheme: light;
+    --background: #F5F5F7;
+    --background-secondary: #FFFFFF;
+    --foreground: #1D1D1F;
+    --foreground-muted: #5B6470;
+    --border: #D2D2D7;
+    --border-hover: #7C5AA3;
+    --card-bg: #FFFFFF;
+    --header-bg: rgba(245, 245, 247, 0.95);
+    --dropdown-bg: #FFFFFF;
+  }
+
+  /* White page, dark ink */
+  html,
+  body {
+    background: white !important;
+    color: #1D1D1F !important;
+    font-size: 11pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide global chrome */
+  header,
+  footer,
+  nav,
+  [data-pagefind-ignore],
+  .no-print {
+    display: none !important;
+  }
+
+  /* Ensure page breaks don't split cards */
+  .card,
+  section {
+    break-inside: avoid;
+  }
+
+  /* Remove shadows and borders that look bad on paper */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a[href]::after {
+    content: none !important;
+  }
+}
