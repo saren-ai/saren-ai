@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, use } from "react";
-import { createClient } from "@supabase/supabase-js";
 
 export default function LoginClient({
   searchParams,
@@ -22,19 +21,17 @@ export default function LoginClient({
     setErrorMsg("");
 
     try {
-      const supabase = createClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-      );
       const redirectTo = `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`;
-      const { error } = await supabase.auth.signInWithOtp({
-        email,
-        options: { emailRedirectTo: redirectTo },
+      const res = await fetch("/api/studio/send-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, redirectTo }),
       });
+      const data = await res.json() as { ok?: boolean; error?: string };
 
-      if (error) {
+      if (!res.ok || data.error) {
         setStatus("error");
-        setErrorMsg(error.message);
+        setErrorMsg(data.error ?? "Something went wrong.");
       } else {
         setStatus("sent");
       }
