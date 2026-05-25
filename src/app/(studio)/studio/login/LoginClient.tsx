@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, use } from "react";
-import { createClient } from "@/lib/supabase/client";
+import { createClient } from "@supabase/supabase-js";
 
 export default function LoginClient({
   searchParams,
@@ -21,19 +21,26 @@ export default function LoginClient({
     setStatus("sending");
     setErrorMsg("");
 
-    const supabase = createClient();
-    const { error } = await supabase.auth.signInWithOtp({
-      email,
-      options: {
-        emailRedirectTo: `${window.location.origin}${next}`,
-      },
-    });
+    try {
+      const supabase = createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+      );
+      const redirectTo = `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`;
+      const { error } = await supabase.auth.signInWithOtp({
+        email,
+        options: { emailRedirectTo: redirectTo },
+      });
 
-    if (error) {
+      if (error) {
+        setStatus("error");
+        setErrorMsg(error.message);
+      } else {
+        setStatus("sent");
+      }
+    } catch (e) {
       setStatus("error");
-      setErrorMsg(error.message);
-    } else {
-      setStatus("sent");
+      setErrorMsg(e instanceof Error ? e.message : String(e));
     }
   }
 
