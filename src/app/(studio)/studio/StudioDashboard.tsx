@@ -3,6 +3,7 @@
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import type { User } from "@supabase/supabase-js";
+import ThemeToggle from "@/components/layout/ThemeToggle";
 
 interface Stats {
   contacts: number;
@@ -53,12 +54,15 @@ export default function StudioDashboard({
           </h1>
           <p className="text-foreground-muted text-sm mt-1">{user.email}</p>
         </div>
-        <button
-          onClick={handleSignOut}
-          className="text-foreground-muted hover:text-foreground text-sm transition-colors"
-        >
-          Sign out
-        </button>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <button
+            onClick={handleSignOut}
+            className="text-foreground-muted hover:text-foreground text-sm transition-colors"
+          >
+            Sign out
+          </button>
+        </div>
       </div>
 
       {/* Stats */}
