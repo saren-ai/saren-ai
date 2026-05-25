@@ -1,6 +1,9 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
+// Common attack paths bots scan for — 404 them immediately
+const BLOCKED_PATH = /\/(\.env|\.git|\.svn|\.htaccess|\.htpasswd|wp-admin|wp-login|wp-content|xmlrpc|phpinfo|phpmyadmin|adminer|administrator|config\.php|setup\.php|install\.php|eval-stdin|shell|webshell|\.aws|\.ssh)(\/|$|\?|\.)/i
+
 function studioRequest(request: NextRequest) {
   const headers = new Headers(request.headers)
   headers.set('x-is-studio', '1')
@@ -10,7 +13,12 @@ function studioRequest(request: NextRequest) {
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  // Only gate studio routes
+  // Block scanner/attack paths globally
+  if (BLOCKED_PATH.test(pathname)) {
+    return new NextResponse(null, { status: 404 })
+  }
+
+  // Only gate studio routes past this point
   if (!pathname.startsWith('/studio')) {
     return NextResponse.next()
   }
@@ -64,5 +72,6 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/studio/:path*'],
+  // Run on all routes except Next.js internals and static assets
+  matcher: ['/((?!_next/static|_next/image|favicon\\.ico).*)'],
 }
