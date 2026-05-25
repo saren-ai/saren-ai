@@ -44,8 +44,8 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(loginUrl)
   }
 
-  // Only allow saren@wethos.ai
-  if (user.email !== 'saren@wethos.ai') {
+  const allowedEmails = ['saren@wethos.ai', 'saren.sakurai@gmail.com', 'saren@saren.ai']
+  if (!user.email || !allowedEmails.includes(user.email)) {
     const loginUrl = request.nextUrl.clone()
     loginUrl.pathname = '/studio/login'
     loginUrl.searchParams.set('error', 'unauthorized')

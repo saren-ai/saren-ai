@@ -12,7 +12,7 @@ export default function LoginClient({
   const next = params.next ?? "/studio";
   const isUnauthorized = params.error === "unauthorized";
 
-  const [email, setEmail] = useState("saren@wethos.ai");
+  const [email, setEmail] = useState("saren.sakurai@gmail.com");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
