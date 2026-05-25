@@ -1,8 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import type { User } from "@supabase/supabase-js";
+import { Users, GitBranch, FileText } from "lucide-react";
 import ThemeToggle from "@/components/layout/ThemeToggle";
 
 interface Stats {
@@ -79,6 +81,27 @@ export default function StudioDashboard({
               {stat.label}
             </div>
           </div>
+        ))}
+      </div>
+
+      {/* Nav */}
+      <div className="grid grid-cols-3 gap-4 mb-10">
+        {[
+          { href: "/studio/contacts", label: "Contacts", icon: Users, desc: "Manage your prospect list" },
+          { href: "/studio/sequences", label: "Sequences", icon: GitBranch, desc: "Track outreach plays" },
+          { href: "/studio/outreach-pages", label: "Outreach Pages", icon: FileText, desc: "Personalized landing pages" },
+        ].map(({ href, label, icon: Icon, desc }) => (
+          <Link
+            key={href}
+            href={href}
+            className="flex items-start gap-4 bg-white/5 border border-white/10 rounded-xl p-5 hover:border-ember/40 hover:bg-white/10 transition-colors group"
+          >
+            <Icon size={20} className="text-ember mt-0.5 flex-shrink-0" />
+            <div>
+              <p className="text-sm font-semibold text-foreground group-hover:text-ember transition-colors">{label}</p>
+              <p className="text-xs text-foreground-muted mt-0.5">{desc}</p>
+            </div>
+          </Link>
         ))}
       </div>
 
