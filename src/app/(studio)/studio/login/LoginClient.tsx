@@ -78,7 +78,7 @@ export default function LoginClient({
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-foreground placeholder:text-foreground-muted focus:outline-none focus:border-ember/50 transition-colors text-sm font-mono"
+                className="w-full px-4 py-2.5 rounded-lg bg-zinc-800 border border-zinc-600 text-white placeholder:text-zinc-400 focus:outline-none focus:border-ember focus:ring-1 focus:ring-ember/40 transition-colors text-sm font-mono"
               />
             </div>
 
