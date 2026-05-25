@@ -120,7 +120,7 @@ export default function HomeClient() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-6xl lg:text-[4rem] font-bold text-charcoal dark:text-foreground leading-[1.1] mb-8"
             >
-              AI operations for <span className="text-gradient">lean teams</span>
+              AI Operations for <span className="text-gradient">Marketing & Sales</span>
             </motion.h1>
 
             {/* Body / value prop */}
