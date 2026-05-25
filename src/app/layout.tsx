@@ -9,6 +9,7 @@ import { PagefindProvider } from "@/components/search/PagefindProvider";
 import { SearchProvider } from "@/components/search/SearchContext";
 import SearchModal from "@/components/search/SearchModal";
 import { getLatestSubstackPosts } from "@/lib/substack-rss";
+import { headers } from "next/headers";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -79,7 +80,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const posts = await getLatestSubstackPosts(1);
+  const headersList = await headers();
+  const isStudio = headersList.get('x-is-studio') === '1';
+
+  const posts = isStudio ? [] : await getLatestSubstackPosts(1);
   const latestPost = posts.length > 0 ? posts[0] : null;
 
   return (
@@ -190,17 +194,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         <ThemeProvider>
-          <PagefindProvider>
-            <SearchProvider>
-              <SearchModal />
-              <TopBanner />
-              <div className="sticky top-0 z-50 bg-background">
-                <Header latestPost={latestPost} />
-              </div>
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </SearchProvider>
-          </PagefindProvider>
+          {isStudio ? (
+            <main className="flex-1">{children}</main>
+          ) : (
+            <PagefindProvider>
+              <SearchProvider>
+                <SearchModal />
+                <TopBanner />
+                <div className="sticky top-0 z-50 bg-background">
+                  <Header latestPost={latestPost} />
+                </div>
+                <main className="flex-1">{children}</main>
+                <Footer />
+              </SearchProvider>
+            </PagefindProvider>
+          )}
         </ThemeProvider>
       </body>
     </html>
