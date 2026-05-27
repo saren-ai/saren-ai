@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import PortfolioCard from "@/components/portfolio/PortfolioCard";
 import MatrixRain from "@/components/home/MatrixRain";
 import FAQ from "@/components/ui/FAQ";
+import { Building2, User, Lightbulb, Bell, ArrowRight } from "lucide-react";
 
 const interactiveTools = [
   {
@@ -150,11 +151,11 @@ export default function HomeClient() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Link
-                href="/contact"
+                href="/engage"
                 className="btn-primary"
-                aria-label="Let's map your workflow"
+                aria-label="Work With Me"
               >
-                Let&apos;s map your workflow
+                Work With Me
                 <svg
                   className="w-5 h-5 ml-2"
                   fill="none"
@@ -170,11 +171,11 @@ export default function HomeClient() {
                 </svg>
               </Link>
               <Link
-                href="/portfolio"
+                href="/downloads"
                 className="btn-secondary"
-                aria-label="See the systems"
+                aria-label="Browse Downloads"
               >
-                See the systems
+                Browse Downloads
               </Link>
             </motion.div>
 
@@ -226,6 +227,196 @@ export default function HomeClient() {
               </div>
             </motion.div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* Audience Router */}
+      <section className="section bg-white dark:bg-card">
+        <div className="container-narrow">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-10 text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal dark:text-foreground mb-4">
+              Who are you building for?
+            </h2>
+            <p className="text-slate dark:text-foreground-muted text-lg max-w-xl mx-auto">
+              Every resource, playbook, and engagement here is mapped to a
+              specific audience challenge. Find yours.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                icon: Building2,
+                label: "Founders & Mid-Market",
+                description:
+                  "GTM systems, demand gen architecture, and AI operations for growth-stage companies with budget but no infrastructure.",
+                href: "/smb",
+                accent: "ember",
+                cta: "Built for your stage",
+              },
+              {
+                icon: User,
+                label: "Solo Founders & Fractional CMOs",
+                description:
+                  "Pipeline automation, personal leverage, and self-managed workflows for operators who are the whole marketing team.",
+                href: "/solopreneurs",
+                accent: "lavender",
+                cta: "Built for your practice",
+              },
+              {
+                icon: Lightbulb,
+                label: "Subject Matter Experts",
+                description:
+                  "Authority engineering, content architecture, and monetization frameworks for practitioners who need to scale their expertise.",
+                href: "/thinkers",
+                accent: "copper",
+                cta: "Built for your expertise",
+              },
+            ].map((audience, index) => {
+              const Icon = audience.icon;
+              const accentText =
+                audience.accent === "ember"
+                  ? "text-ember group-hover:text-ember"
+                  : audience.accent === "lavender"
+                    ? "text-lavender group-hover:text-lavender"
+                    : "text-copper group-hover:text-copper";
+              const accentBg =
+                audience.accent === "ember"
+                  ? "bg-ember/10"
+                  : audience.accent === "lavender"
+                    ? "bg-lavender/10"
+                    : "bg-copper/10";
+              const accentBorder =
+                audience.accent === "ember"
+                  ? "hover:border-ember/40"
+                  : audience.accent === "lavender"
+                    ? "hover:border-lavender/40"
+                    : "hover:border-copper/40";
+              return (
+                <motion.div
+                  key={audience.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Link
+                    href={audience.href}
+                    className={`group flex flex-col p-6 bg-ash dark:bg-background rounded-xl border border-border ${accentBorder} transition-all duration-200 h-full`}
+                  >
+                    <div className={`w-10 h-10 rounded-lg ${accentBg} flex items-center justify-center mb-4`}>
+                      <Icon className={`w-5 h-5 ${accentText}`} />
+                    </div>
+                    <h3 className={`font-bold text-charcoal dark:text-foreground mb-2 ${accentText} transition-colors`}>
+                      {audience.label}
+                    </h3>
+                    <p className="text-slate dark:text-foreground-muted text-sm leading-relaxed flex-1 mb-4">
+                      {audience.description}
+                    </p>
+                    <span className={`text-sm font-semibold inline-flex items-center gap-1 ${accentText}`}>
+                      {audience.cta}
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                    </span>
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Downloads */}
+      <section className="section bg-ash dark:bg-background">
+        <div className="container-narrow">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-10 flex items-center gap-4"
+          >
+            <h2 className="text-2xl md:text-3xl font-bold text-charcoal dark:text-foreground">
+              Featured Downloads
+            </h2>
+            <div className="h-px flex-1 bg-charcoal/10 dark:bg-white/10" />
+            <Link
+              href="/downloads"
+              className="text-ember font-medium hover:underline flex items-center gap-1 group text-sm"
+            >
+              View All
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "The Complete Mid-Market GTM Execution Kit",
+                price: "$499",
+                tag: "SMB",
+                tagColor: "text-ember",
+                tagBg: "bg-ember/10",
+                bar: "bg-ember",
+                href: "/smb",
+              },
+              {
+                title: "The Fractional CMO Pipeline Dashboard",
+                price: "$99",
+                tag: "Solopreneurs",
+                tagColor: "text-lavender",
+                tagBg: "bg-lavender/10",
+                bar: "bg-lavender",
+                href: "/solopreneurs",
+              },
+              {
+                title: "The Content Hook Mastery Bundle",
+                price: "$49",
+                tag: "Thinkers",
+                tagColor: "text-copper",
+                tagBg: "bg-copper/10",
+                bar: "bg-copper",
+                href: "/thinkers",
+              },
+            ].map((product, index) => (
+              <motion.div
+                key={product.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+              >
+                <Link
+                  href={product.href}
+                  className="group flex flex-col p-6 bg-card rounded-xl border border-border hover:border-charcoal/20 dark:hover:border-white/20 transition-all duration-200 relative overflow-hidden h-full"
+                >
+                  <div className={`absolute top-0 left-0 right-0 h-1 ${product.bar}`} />
+                  <div className="flex items-center justify-between mb-4">
+                    <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${product.tagBg} ${product.tagColor}`}>
+                      {product.tag}
+                    </span>
+                    <span className={`text-xl font-bold font-mono ${product.tagColor}`}>
+                      {product.price}
+                    </span>
+                  </div>
+                  <h3 className="font-bold text-charcoal dark:text-foreground mb-4 flex-1 leading-snug">
+                    {product.title}
+                  </h3>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 bg-charcoal/5 dark:bg-white/10 text-slate dark:text-foreground-muted rounded-full mb-3 self-start">
+                    <Bell className="w-3 h-3" />
+                    Coming Soon
+                  </span>
+                  <span className={`text-sm font-semibold inline-flex items-center gap-1 ${product.tagColor}`}>
+                    Learn more
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  </span>
+                </Link>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -317,7 +508,7 @@ export default function HomeClient() {
             className="mt-12 text-center"
           >
             <p className="text-slate dark:text-foreground-muted text-sm font-mono">
-              💡 Looking for B2B frameworks and AI prompts you can run today?{" "}
+              Looking for B2B frameworks and AI prompts you can run today?{" "}
               <Link
                 href="/playbooks"
                 className="text-ember dark:text-lavender font-bold hover:underline transition-all"
@@ -365,8 +556,8 @@ export default function HomeClient() {
               Let&apos;s talk about how AI-driven operations turn chaotic spend
               into predictable pipeline.
             </p>
-            <Link href="/contact" className="btn-primary inline-flex text-lg">
-              Start a conversation
+            <Link href="/engage" className="btn-primary inline-flex text-lg">
+              Work With Me
               <svg
                 className="w-5 h-5"
                 fill="none"

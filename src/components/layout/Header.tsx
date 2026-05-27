@@ -7,9 +7,9 @@ import ThemeToggle from "./ThemeToggle";
 import SearchTrigger from "@/components/search/SearchTrigger";
 import MegaMenu, { type MegaMenuContent } from "./MegaMenu";
 import {
+  whoWeServeMegaMenu,
   workMegaMenu,
   aboutMegaMenu,
-  aiOrchestrationMegaMenu,
 } from "@/lib/mega-menu-content";
 
 import { type SubstackPost } from "@/lib/substack-rss";
@@ -23,7 +23,20 @@ interface NavItem {
 
 const navLinks: NavItem[] = [
   {
-    label: "Portfolio",
+    label: "Who We Serve",
+    megaMenu: whoWeServeMegaMenu,
+    mobileChildren: [
+      { href: "/smb", label: "Founders & Mid-Market", description: "GTM systems for growth-stage companies" },
+      { href: "/solopreneurs", label: "Solo Founders & Fractional CMOs", description: "Pipeline automation for independent operators" },
+      { href: "/thinkers", label: "Subject Matter Experts", description: "Authority engineering for knowledge practitioners" },
+    ],
+  },
+  {
+    label: "Downloads",
+    href: "/downloads",
+  },
+  {
+    label: "Work",
     megaMenu: workMegaMenu,
     mobileChildren: [
       { href: "/portfolio", label: "View All Work" },
@@ -38,18 +51,6 @@ const navLinks: NavItem[] = [
     ],
   },
   {
-    label: "AI Orchestration",
-    megaMenu: aiOrchestrationMegaMenu,
-    mobileChildren: [
-      { href: "/ai-orchestration", label: "AI Orchestration", description: "Machines handle scale. Humans handle meaning." },
-      { href: "/signal-state", label: "Signal-State: Overview", description: "AI-enabled expressed intent targeting" },
-      { href: "/signal-state/framework", label: "Framework" },
-      { href: "/signal-state/architecture", label: "Architecture" },
-      { href: "/signal-state/use-cases", label: "Use Cases" },
-      { href: "/signal-state/signal-library", label: "Signal Library" },
-    ],
-  },
-  {
     label: "About",
     megaMenu: aboutMegaMenu,
     mobileChildren: aboutMegaMenu.sections.flatMap(section =>
@@ -60,10 +61,6 @@ const navLinks: NavItem[] = [
         isExternal: link.isExternal,
       }))
     ),
-  },
-  {
-    label: "Contact",
-    href: "/contact",
   },
 ];
 
@@ -172,10 +169,15 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
                 {link.href ? (
                   <Link
                     href={link.href}
-                    className="flex items-center gap-1 px-3.5 py-1.5 rounded-full text-sm font-semibold dark:font-medium
-                      text-foreground hover:text-ember
-                      hover:bg-charcoal/[0.05] dark:hover:bg-white/[0.06] transition-all duration-150"
+                    className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm font-semibold dark:font-medium transition-all duration-150 ${
+                      link.label === "Downloads"
+                        ? "text-ember hover:bg-ember/[0.08]"
+                        : "text-foreground hover:text-ember hover:bg-charcoal/[0.05] dark:hover:bg-white/[0.06]"
+                    }`}
                   >
+                    {link.label === "Downloads" && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-ember shrink-0" />
+                    )}
                     {link.label}
                   </Link>
                 ) : (
@@ -205,10 +207,16 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
             ))}
           </div>
 
-          {/* Right side: Search + Theme Toggle */}
+          {/* Right side: Search + Theme Toggle + Work With Me CTA */}
           <div className="hidden md:flex items-center gap-2">
             <SearchTrigger />
             <ThemeToggle />
+            <Link
+              href="/engage"
+              className="btn-primary text-sm py-1.5 px-4 inline-flex items-center gap-1.5"
+            >
+              Work With Me
+            </Link>
           </div>
 
           {/* Mobile: Search + Theme Toggle + Hamburger */}
@@ -354,6 +362,15 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
                     ) : null}
                   </motion.div>
                 ))}
+                <div className="pt-2 border-t border-charcoal/[0.08] dark:border-white/[0.08] mt-2">
+                  <Link
+                    href="/engage"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block py-2.5 px-4 bg-ember text-white rounded-xl font-semibold text-sm text-center transition-all hover:bg-ember/90"
+                  >
+                    Work With Me
+                  </Link>
+                </div>
               </nav>
             </motion.div>
           )}

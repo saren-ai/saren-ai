@@ -1,9 +1,47 @@
 import type { MegaMenuContent } from "@/components/layout/MegaMenu";
 
 /**
+ * Who We Serve Mega Menu
+ * Routes visitors to the three audience-specific persona landing pages.
+ */
+export const whoWeServeMegaMenu: MegaMenuContent = {
+  layout: "three-column",
+  sections: [
+    {
+      title: "Choose Your Path",
+      links: [
+        {
+          href: "/smb",
+          label: "Founders & Mid-Market",
+          description: "GTM systems and demand gen architecture for growth-stage companies",
+        },
+        {
+          href: "/solopreneurs",
+          label: "Solo Founders & Fractional CMOs",
+          description: "Pipeline automation and leverage systems for independent operators",
+        },
+        {
+          href: "/thinkers",
+          label: "Subject Matter Experts",
+          description: "Authority engineering and content architecture for knowledge practitioners",
+        },
+      ],
+    },
+  ],
+  promotional: {
+    headline: "Built for your situation",
+    description:
+      "Every resource, playbook, and framework on this site maps to a specific audience challenge. Find yours and go deeper.",
+    cta: {
+      label: "Browse All Downloads",
+      href: "/downloads",
+    },
+  },
+};
+
+/**
  * Work Mega Menu Content
- * Replaces the old split between Portfolio and Playbooks.
- * Two columns: Pipeline Programs (demand gen proof) + Strategy & Systems (frameworks/tools).
+ * Portfolio case studies + AI Orchestration / Signal-State in one place.
  */
 export const workMegaMenu: MegaMenuContent = {
   layout: "three-column",
@@ -42,11 +80,6 @@ export const workMegaMenu: MegaMenuContent = {
           description: "AI-built exec dashboard, 5 live APIs",
         },
         {
-          href: "/portfolio/b2b-marketing-framework",
-          label: "B2B Marketing Framework",
-          description: "Full messaging infrastructure",
-        },
-        {
           href: "/portfolio/sovereign-personas",
           label: "Sovereign Buyer Personas",
           description: "Committee buying logic mapped",
@@ -60,6 +93,31 @@ export const workMegaMenu: MegaMenuContent = {
           href: "/portfolio/hybrid-lead-scoring",
           label: "Hybrid Lead Scoring",
           description: "Buyer motion intent tracking",
+        },
+      ],
+    },
+    {
+      title: "AI Orchestration",
+      links: [
+        {
+          href: "/ai-orchestration",
+          label: "AI Orchestration Overview",
+          description: "Machines handle scale. Humans handle meaning.",
+        },
+        {
+          href: "/signal-state",
+          label: "Signal-State Marketing",
+          description: "AI-enabled expressed intent targeting",
+        },
+        {
+          href: "/signal-state/framework",
+          label: "The Framework",
+          description: "The Signal-State method",
+        },
+        {
+          href: "/signal-state/signal-library",
+          label: "Signal Library",
+          description: "Catalogued targeting patterns",
         },
       ],
     },
@@ -77,63 +135,6 @@ export const workMegaMenu: MegaMenuContent = {
   },
 };
 
-/**
- * AI Orchestration Mega Menu Content
- */
-export const aiOrchestrationMegaMenu: MegaMenuContent = {
-  layout: "three-column",
-  sections: [
-    {
-      title: "AI Orchestration",
-      links: [
-        {
-          href: "/ai-orchestration",
-          label: "Overview",
-          description: "Machines handle scale. Humans handle meaning.",
-        },
-      ],
-    },
-    {
-      title: "Signal-State Marketing",
-      links: [
-        {
-          href: "/signal-state",
-          label: "Overview",
-          description: "AI-enabled expressed intent targeting",
-        },
-        {
-          href: "/signal-state/framework",
-          label: "Framework",
-          description: "The Signal-State method",
-        },
-        {
-          href: "/signal-state/architecture",
-          label: "Architecture",
-          description: "System design for agentic outreach",
-        },
-        {
-          href: "/signal-state/use-cases",
-          label: "Use Cases",
-          description: "Cybersecurity, org alignment, creative",
-        },
-        {
-          href: "/signal-state/signal-library",
-          label: "Signal Library",
-          description: "Catalogued targeting patterns",
-        },
-      ],
-    },
-  ],
-  promotional: {
-    headline: "AI That Serves Human Judgment",
-    description:
-      "Orchestration means designing AI systems where the machine handles scale and the human handles meaning. Signal-State is the proof of concept.",
-    cta: {
-      label: "Explore Signal-State",
-      href: "/signal-state",
-    },
-  },
-};
 
 /**
  * About Mega Menu Content
