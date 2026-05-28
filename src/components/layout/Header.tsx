@@ -36,10 +36,10 @@ const navLinks: NavItem[] = [
     href: "/playbooks",
   },
   {
-    label: "Work",
+    label: "Portfolio",
     megaMenu: workMegaMenu,
     mobileChildren: [
-      { href: "/portfolio", label: "View All Work" },
+      { href: "/portfolio", label: "View All Portfolio" },
       ...workMegaMenu.sections.flatMap(section =>
         section.links.map(link => ({
           href: link.href,
@@ -51,7 +51,7 @@ const navLinks: NavItem[] = [
     ],
   },
   {
-    label: "About",
+    label: "About Me",
     megaMenu: aboutMegaMenu,
     mobileChildren: aboutMegaMenu.sections.flatMap(section =>
       section.links.map(link => ({
@@ -103,7 +103,7 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
   // Build mega menu content (injects Substack data for About)
   const getMegaMenuContent = (link: NavItem): MegaMenuContent | undefined => {
     if (!link.megaMenu) return undefined;
-    if (link.label === "About" && latestPost) {
+    if (link.label === "About Me" && latestPost) {
       const desc = latestPost.contentSnippet || link.megaMenu.promotional?.description || "";
       return {
         ...link.megaMenu,
