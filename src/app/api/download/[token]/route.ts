@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { getProduct } from "@/lib/products";
+import { PAID_TIERS } from "@/lib/playbook-tiers";
 
 export async function GET(
   _req: NextRequest,
@@ -8,14 +9,49 @@ export async function GET(
 ) {
   const { token } = await params;
   const supabase = createAdminClient();
+  const now = new Date().toISOString();
 
-  const { data: purchase, error } = await supabase
+  // --- Entitlements flow (paid playbook tier) ---
+  const { data: entitlement } = await supabase
+    .from("entitlements")
+    .select("playbook_id, expires_at, download_count")
+    .eq("download_token", token)
+    .gt("expires_at", now)
+    .maybeSingle();
+
+  if (entitlement) {
+    const tier = PAID_TIERS[entitlement.playbook_id];
+    if (!tier?.storageKey) {
+      return NextResponse.json(
+        { error: "File not yet available — contact support" },
+        { status: 503 }
+      );
+    }
+
+    await supabase
+      .from("entitlements")
+      .update({ download_count: entitlement.download_count + 1 })
+      .eq("download_token", token);
+
+    const { data: signedUrl, error: storageError } = await supabase.storage
+      .from("downloads")
+      .createSignedUrl(tier.storageKey, 60);
+
+    if (storageError || !signedUrl) {
+      return NextResponse.json({ error: "Could not generate download URL" }, { status: 500 });
+    }
+
+    return NextResponse.redirect(signedUrl.signedUrl);
+  }
+
+  // --- Legacy purchases flow (/downloads page) ---
+  const { data: purchase } = await supabase
     .from("purchases")
     .select("product_id, download_count, download_limit, expires_at")
     .eq("download_token", token)
     .single();
 
-  if (error || !purchase) {
+  if (!purchase) {
     return NextResponse.json({ error: "Invalid download link" }, { status: 404 });
   }
 
@@ -35,7 +71,6 @@ export async function GET(
     );
   }
 
-  // Increment before generating URL so concurrent requests don't bypass the limit
   await supabase
     .from("purchases")
     .update({ download_count: purchase.download_count + 1 })
@@ -43,7 +78,7 @@ export async function GET(
 
   const { data: signedUrl, error: storageError } = await supabase.storage
     .from("downloads")
-    .createSignedUrl(product.filePath, 60); // 60-second window to start the download
+    .createSignedUrl(product.filePath, 60);
 
   if (storageError || !signedUrl) {
     return NextResponse.json({ error: "Could not generate download URL" }, { status: 500 });
