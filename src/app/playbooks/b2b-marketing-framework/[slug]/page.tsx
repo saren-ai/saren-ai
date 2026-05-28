@@ -63,7 +63,7 @@ export default async function FrameworkPromptPage({ params }: PageProps) {
                 "@type": "BreadcrumbList",
                 "itemListElement": [
                     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saren.ai" },
-                    { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://saren.ai/portfolio" },
+                    { "@type": "ListItem", "position": 2, "name": "Playbooks", "item": "https://saren.ai/playbooks" },
                     { "@type": "ListItem", "position": 3, "name": "B2B Marketing Framework", "item": "https://saren.ai/playbooks/b2b-marketing-framework" },
                     { "@type": "ListItem", "position": 4, "name": prompt.title, "item": url }
                 ]
