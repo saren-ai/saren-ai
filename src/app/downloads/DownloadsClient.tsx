@@ -3,57 +3,10 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Bell, ArrowRight, Building2, User, Lightbulb } from "lucide-react";
+import { ArrowRight, Building2, User, Lightbulb, ShoppingCart, Loader2 } from "lucide-react";
+import { PRODUCTS } from "@/lib/products";
 
 type FilterTag = "All" | "SMB" | "Solopreneurs" | "Thinkers";
-
-const products = [
-  {
-    id: "gtm-execution-kit",
-    title: "The Complete Mid-Market GTM Execution Kit",
-    tagline: "Strategy → System → Pipeline. Everything a growth-stage team needs to build their first real marketing engine.",
-    price: 499,
-    tag: "SMB" as FilterTag,
-    persona: "/smb",
-    accentColor: "ember",
-    items: [
-      "GTM strategy templates, ICP worksheets, and positioning frameworks",
-      "Demand gen architecture blueprints with attribution setup",
-      "Sales-marketing alignment operating model and SLA templates",
-      "AI prompt sequences for pipeline acceleration",
-    ],
-  },
-  {
-    id: "fractional-cmo-dashboard",
-    title: "The Fractional CMO Pipeline Dashboard",
-    tagline: "An operating system for solo operators who need pipeline running without being the bottleneck.",
-    price: 99,
-    tag: "Solopreneurs" as FilterTag,
-    persona: "/solopreneurs",
-    accentColor: "lavender",
-    items: [
-      "Weekly pipeline tracking template with automated status logic",
-      "Outreach cadence framework for consistent solo prospecting",
-      "Client onboarding and offboarding operating checklist",
-      "AI prompts for proposal writing and status reporting",
-    ],
-  },
-  {
-    id: "content-hook-bundle",
-    title: "The Content Hook Mastery Bundle",
-    tagline: "Three proven hook frameworks and a 30-day architecture to build compounding authority as a subject matter expert.",
-    price: 49,
-    tag: "Thinkers" as FilterTag,
-    persona: "/thinkers",
-    accentColor: "copper",
-    items: [
-      "Viral Content Hook Trilogy with worked examples",
-      "30-day content architecture template for compounding authority",
-      "Personal brand narrative builder with AI prompt sequences",
-      "LinkedIn engagement playbook for subject matter experts",
-    ],
-  },
-];
 
 const filterTabs: FilterTag[] = ["All", "SMB", "Solopreneurs", "Thinkers"];
 
@@ -90,11 +43,31 @@ const accentClasses: Record<string, { badge: string; price: string; dot: string;
 
 export default function DownloadsClient() {
   const [activeFilter, setActiveFilter] = useState<FilterTag>("All");
+  const [loadingId, setLoadingId] = useState<string | null>(null);
+  const [errorId, setErrorId] = useState<string | null>(null);
 
   const filtered =
     activeFilter === "All"
-      ? products
-      : products.filter((p) => p.tag === activeFilter);
+      ? PRODUCTS
+      : PRODUCTS.filter((p) => p.tag === activeFilter);
+
+  async function handleBuy(productId: string) {
+    setLoadingId(productId);
+    setErrorId(null);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ productId }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.url) throw new Error(data.error ?? "Checkout failed");
+      window.location.href = data.url;
+    } catch {
+      setErrorId(productId);
+      setLoadingId(null);
+    }
+  }
 
   return (
     <article>
@@ -165,6 +138,8 @@ export default function DownloadsClient() {
             >
               {filtered.map((product) => {
                 const accent = accentClasses[product.accentColor];
+                const isLoading = loadingId === product.id;
+                const hasError = errorId === product.id;
                 return (
                   <div
                     key={product.id}
@@ -182,7 +157,7 @@ export default function DownloadsClient() {
                       </Link>
                       <div className="text-right">
                         <div className={`text-2xl font-bold font-mono ${accent.price}`}>
-                          ${product.price}
+                          ${(product.priceCents / 100).toFixed(0)}
                         </div>
                         <div className="text-[10px] text-slate uppercase tracking-wide">
                           one-time
@@ -192,7 +167,7 @@ export default function DownloadsClient() {
 
                     {/* Title + tagline */}
                     <h2 className="text-lg font-bold text-charcoal dark:text-foreground mb-2 leading-snug">
-                      {product.title}
+                      {product.name}
                     </h2>
                     <p className="text-slate dark:text-foreground-muted text-sm leading-relaxed mb-5">
                       {product.tagline}
@@ -212,16 +187,28 @@ export default function DownloadsClient() {
                     </ul>
 
                     {/* CTA */}
-                    <span className="inline-block px-3 py-1.5 bg-charcoal/5 dark:bg-white/10 text-slate dark:text-foreground-muted text-xs font-bold rounded-full uppercase tracking-wide mb-3 text-center">
-                      Coming Soon
-                    </span>
-                    <Link
-                      href="/contact"
-                      className="btn-primary inline-flex items-center gap-2 justify-center text-sm py-3"
+                    {hasError && (
+                      <p className="text-ember text-xs text-center mb-2">
+                        Something went wrong — please try again.
+                      </p>
+                    )}
+                    <button
+                      onClick={() => handleBuy(product.id)}
+                      disabled={isLoading || loadingId !== null}
+                      className="btn-primary inline-flex items-center gap-2 justify-center text-sm py-3 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      <Bell className="w-3.5 h-3.5" />
-                      Notify Me When Available
-                    </Link>
+                      {isLoading ? (
+                        <>
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                          Redirecting…
+                        </>
+                      ) : (
+                        <>
+                          <ShoppingCart className="w-3.5 h-3.5" />
+                          Buy Now
+                        </>
+                      )}
+                    </button>
                   </div>
                 );
               })}

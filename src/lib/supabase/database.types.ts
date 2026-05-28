@@ -14,6 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
+      purchases: {
+        Row: {
+          id: string
+          product_id: string
+          stripe_session_id: string
+          customer_email: string | null
+          download_token: string
+          download_count: number
+          download_limit: number
+          expires_at: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          product_id: string
+          stripe_session_id: string
+          customer_email?: string | null
+          download_token?: string
+          download_count?: number
+          download_limit?: number
+          expires_at?: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          product_id?: string
+          stripe_session_id?: string
+          customer_email?: string | null
+          download_token?: string
+          download_count?: number
+          download_limit?: number
+          expires_at?: string
+          created_at?: string
+        }
+        Relationships: []
+      }
       contact_signals: {
         Row: {
           contact_id: string | null
