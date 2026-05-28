@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Building2, User, Lightbulb, ShoppingCart, Loader2 } from "lucide-react";
-import { PRODUCTS } from "@/lib/products";
+import { PUBLISHED_PRODUCTS } from "@/lib/products";
 
 type FilterTag = "All" | "SMB" | "Solopreneurs" | "Thinkers";
 
@@ -273,7 +273,7 @@ export default function PortfolioPageContent() {
   const [errorId, setErrorId] = useState<string | null>(null);
 
   const filteredPaid =
-    activeFilter === "All" ? PRODUCTS : PRODUCTS.filter((p) => p.tag === activeFilter);
+    activeFilter === "All" ? PUBLISHED_PRODUCTS : PUBLISHED_PRODUCTS.filter((p) => p.tag === activeFilter);
   const filteredFree =
     activeFilter === "All" ? FREE_ITEMS : FREE_ITEMS.filter((p) => p.tag === activeFilter);
 

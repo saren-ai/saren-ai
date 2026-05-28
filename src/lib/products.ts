@@ -8,6 +8,7 @@ export type Product = {
   accentColor: "ember" | "lavender" | "copper";
   items: string[];
   filePath: string | null; // path in Supabase Storage 'downloads' bucket — set when file is uploaded
+  published?: boolean;     // false = hidden from storefront until ready
 };
 
 export const PRODUCTS: Product[] = [
@@ -27,6 +28,7 @@ export const PRODUCTS: Product[] = [
       "AI prompt sequences for pipeline acceleration",
     ],
     filePath: null,
+    published: false,
   },
   {
     id: "fractional-cmo-dashboard",
@@ -44,6 +46,7 @@ export const PRODUCTS: Product[] = [
       "AI prompts for proposal writing and status reporting",
     ],
     filePath: null,
+    published: false,
   },
   {
     id: "genx-executive-ai-playbook",
@@ -78,8 +81,11 @@ export const PRODUCTS: Product[] = [
       "LinkedIn engagement playbook for subject matter experts",
     ],
     filePath: null,
+    published: false,
   },
 ];
+
+export const PUBLISHED_PRODUCTS = PRODUCTS.filter((p) => p.published !== false);
 
 export function getProduct(id: string): Product | undefined {
   return PRODUCTS.find((p) => p.id === id);
