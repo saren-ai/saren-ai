@@ -2,10 +2,25 @@ import type { Metadata } from "next";
 import CaseStudiesPageContent from "./CaseStudiesPageContent";
 
 export const metadata: Metadata = {
-  title: "Case Studies | Saren.ai",
+  title: "B2B Case Studies — Pipeline Programs, Demand Gen & Outbound | Saren.ai",
   description:
-    "Enterprise B2B case studies demonstrating pipeline programs, demand generation architecture, and sales systems. Built from real engagements.",
+    "Real B2B case studies: $4M quarterly pipeline at Cylance, 42% meeting rate on cold outbound, intent data programs, and dynamic nurture systems. Proof over promises.",
   alternates: { canonical: "https://saren.ai/case-studies" },
+  openGraph: {
+    title: "B2B Case Studies — Pipeline Programs, Demand Gen & Outbound | Saren.ai",
+    description:
+      "Real B2B case studies: $4M quarterly pipeline at Cylance, 42% meeting rate on cold outbound, intent data programs, and dynamic nurture systems. Proof over promises.",
+    url: "https://saren.ai/case-studies",
+    siteName: "Saren.ai",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "B2B Case Studies — Pipeline Programs, Demand Gen & Outbound | Saren.ai",
+    description:
+      "$4M quarterly pipeline at Cylance, 42% meeting rate on cold outbound, intent data programs, and dynamic nurture systems.",
+  },
 };
 
 export default function CaseStudiesPage() {

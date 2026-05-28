@@ -2,9 +2,22 @@ import ProcessNavigator from "@/components/thought-leadership-development/Proces
 import { AnimatedGrid } from "@/components/ui/AnimatedGrid";
 
 export const metadata = {
-    title: "Thought Leadership Development | Saren.ai",
-    description: "Engineering B2B authority in the age of LLMs. A framework for becoming the source AI systems cite — through named frameworks, structured argumentation, and original synthesis.",
+    title: "Thought Leadership Development — B2B Authority Engineering | Saren.ai",
+    description: "A framework for becoming the source AI systems and buyers cite — through named frameworks, structured argumentation, original synthesis, and a publishing cadence built for compounding authority.",
     alternates: { canonical: "https://saren.ai/case-studies/thought-leadership-development" },
+    openGraph: {
+        title: "Thought Leadership Development — B2B Authority Engineering | Saren.ai",
+        description: "Become the source AI systems and buyers cite. A framework for building compounding B2B authority through named frameworks, structured argumentation, and original synthesis.",
+        url: "https://saren.ai/case-studies/thought-leadership-development",
+        siteName: "Saren.ai",
+        locale: "en_US",
+        type: "article",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Thought Leadership Development — B2B Authority Engineering | Saren.ai",
+        description: "Become the source AI systems and buyers cite. Named frameworks, structured argumentation, original synthesis.",
+    },
 };
 
 export default function ThoughtLeadershipPage() {

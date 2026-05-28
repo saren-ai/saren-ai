@@ -2,10 +2,25 @@ import type { Metadata } from "next";
 import DynamicNurtureClient from "./DynamicNurtureClient";
 
 export const metadata: Metadata = {
-  title: "Dynamic Email Nurture | Saren Sakurai",
+  title: "Dynamic B2B Email Nurture — Score-Gated Personalization | Saren.ai",
   description:
-    "A system that delivers different content to the right person at the right stage — automatically. The matrix, routing logic, and scoring model behind a fully personalized B2B nurture engine.",
+    "A score-gated nurture system that delivers different content to the right person at the right funnel stage — automatically. 9 content variants across 3 segments and 3 stages. Built on HubSpot.",
   alternates: { canonical: "https://saren.ai/case-studies/dynamic-nurture" },
+  openGraph: {
+    title: "Dynamic B2B Email Nurture — Score-Gated Personalization | Saren.ai",
+    description:
+      "A score-gated nurture system with 9 content variants across 3 segments and 3 funnel stages. Sales handoff triggers at 75 behavioral points. Built on HubSpot.",
+    url: "https://saren.ai/case-studies/dynamic-nurture",
+    siteName: "Saren.ai",
+    locale: "en_US",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dynamic B2B Email Nurture — Score-Gated Personalization | Saren.ai",
+    description:
+      "9 content variants, 3 segments, 3 funnel stages. Score-gated nurture with sales handoff triggers at 75 behavioral points.",
+  },
 };
 
 export default function DynamicNurturePage() {

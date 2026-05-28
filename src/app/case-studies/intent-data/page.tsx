@@ -2,10 +2,25 @@ import type { Metadata } from "next";
 import IntentDataClient from "./IntentDataClient";
 
 export const metadata: Metadata = {
-  title: "Intent Data as Funnel Intelligence | Saren Sakurai",
+  title: "Intent Data as Funnel Intelligence — Bombora B2B Case Study | Saren.ai",
   description:
-    "A methodology showcase: mapping Bombora intent signals across ~100 Cylance close/won enterprise accounts from 18 months pre-close to purchase — and building a just-in-time content engine from the data.",
+    "How Bombora intent signals were mapped across 100 Cylance close/won enterprise accounts 18 months pre-close — and used to build a just-in-time content engine that measurably improved mid-funnel conversion.",
   alternates: { canonical: "https://saren.ai/case-studies/intent-data" },
+  openGraph: {
+    title: "Intent Data as Funnel Intelligence — Bombora B2B Case Study | Saren.ai",
+    description:
+      "Bombora intent signals mapped across 100 Cylance close/won accounts — 18-month signal horizon, just-in-time content triggers, and measurably improved mid-funnel conversion.",
+    url: "https://saren.ai/case-studies/intent-data",
+    siteName: "Saren.ai",
+    locale: "en_US",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Intent Data as Funnel Intelligence — Bombora B2B Case Study | Saren.ai",
+    description:
+      "Bombora signals mapped across 100 close/won accounts at Cylance. 18-month signal horizon. Just-in-time content engine.",
+  },
 };
 
 export default function IntentDataPage() {

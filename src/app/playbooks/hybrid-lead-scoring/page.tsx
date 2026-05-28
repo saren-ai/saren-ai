@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Lead Scoring in 2026: The Hybrid Architecture That Works — saren.ai",
   description:
     "An interactive hybrid scoring model + a practitioner's framework for upgrading HubSpot lead scoring post the August 2025 overhaul. Free print-to-PDF setup blueprint.",
-  alternates: { canonical: "https://saren.ai/portfolio/hybrid-lead-scoring" },
+  alternates: { canonical: "https://saren.ai/playbooks/hybrid-lead-scoring" },
   openGraph: {
     title: "Lead Scoring in 2026: The Hybrid Architecture That Works — saren.ai",
     description:

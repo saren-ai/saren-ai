@@ -5,11 +5,12 @@ import { ArrowRight } from 'lucide-react';
 import { AnimatedNavFramer } from '@/components/ui/navigation-menu';
 
 export const metadata = {
-    title: 'Playbook Library | Saren.ai',
-    description: 'A curated library of advanced prompt sequences, structured frameworks, interactive tools, and multi-step AI playbooks to accelerate execution.',
+    title: 'AI Marketing Playbooks & B2B Growth Tools | Saren.ai',
+    description: 'Prompt sequences, interactive calculators, and multi-step AI playbooks for B2B demand gen, lead scoring, GTM planning, and sales outreach. Built from $4M pipeline programs.',
+    alternates: { canonical: 'https://saren.ai/playbooks' },
     openGraph: {
-        title: 'Playbook Library | Saren.ai',
-        description: 'A curated library of advanced prompt sequences, structured frameworks, interactive tools, and multi-step AI playbooks to accelerate execution.',
+        title: 'AI Marketing Playbooks & B2B Growth Tools | Saren.ai',
+        description: 'Prompt sequences, interactive calculators, and multi-step AI playbooks for B2B demand gen, lead scoring, GTM planning, and sales outreach. Built from $4M pipeline programs.',
         url: 'https://saren.ai/playbooks',
         siteName: 'Saren.ai',
         images: [
@@ -17,7 +18,7 @@ export const metadata = {
                 url: '/og/playbooks.jpg',
                 width: 1200,
                 height: 630,
-                alt: 'saren.ai Playbook Library',
+                alt: 'saren.ai Playbook Library — AI Marketing Playbooks & B2B Growth Tools',
             },
         ],
         locale: 'en_US',
@@ -25,8 +26,8 @@ export const metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Playbook Library | Saren.ai',
-        description: 'A curated library of advanced prompt sequences, structured frameworks, interactive tools, and multi-step AI playbooks to accelerate execution.',
+        title: 'AI Marketing Playbooks & B2B Growth Tools | Saren.ai',
+        description: 'Prompt sequences, interactive calculators, and multi-step AI playbooks for B2B demand gen, lead scoring, GTM planning, and sales outreach.',
         images: ['/og/playbooks.jpg'],
     },
 };

@@ -2,9 +2,25 @@ import { Metadata } from 'next'
 import ArchitecturePageContent from './ArchitecturePageContent'
 
 export const metadata: Metadata = {
-  title: 'Signal-State Architecture — Saren Sakurai',
+  title: 'Signal-State Architecture — Interactive Platform Diagram | Saren Sakurai',
   description:
-    'Interactive architecture diagram for the Signal-State Marketing platform. Click any node to expand details.',
+    'Interactive architecture diagram for the Signal-State Marketing platform. Explore how AI signal detection, intent scoring, and response orchestration connect end-to-end.',
+  alternates: { canonical: 'https://saren.ai/signal-state/architecture' },
+  openGraph: {
+    title: 'Signal-State Architecture — Interactive Platform Diagram | Saren Sakurai',
+    description:
+      'Interactive architecture diagram for the Signal-State Marketing platform. Explore how AI signal detection, intent scoring, and response orchestration connect end-to-end.',
+    url: 'https://saren.ai/signal-state/architecture',
+    siteName: 'Saren.ai',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Signal-State Architecture — Interactive Platform Diagram',
+    description:
+      'Explore how AI signal detection, intent scoring, and response orchestration connect in the Signal-State Marketing platform.',
+  },
 }
 
 export default function ArchitecturePage() {

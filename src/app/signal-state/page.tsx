@@ -2,9 +2,25 @@ import { Metadata } from 'next'
 import SignalStateClient from '@/components/signal-state/SignalStateClient'
 
 export const metadata: Metadata = {
-  title: 'Signal-State Marketing — Saren Sakurai',
+  title: 'Signal-State Marketing — AI-Enabled Intent Targeting | Saren Sakurai',
   description:
-    'AI-enabled expressed intent targeting. We find people the moment they say they have a problem and reach them before anyone else does.',
+    'Signal-State finds buyers the moment they express a problem — before competitors even know the window is open. AI-enabled expressed intent targeting for B2B sales teams.',
+  alternates: { canonical: 'https://saren.ai/signal-state' },
+  openGraph: {
+    title: 'Signal-State Marketing — AI-Enabled Intent Targeting | Saren Sakurai',
+    description:
+      'Signal-State finds buyers the moment they express a problem — before competitors even know the window is open. AI-enabled expressed intent targeting for B2B sales teams.',
+    url: 'https://saren.ai/signal-state',
+    siteName: 'Saren.ai',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Signal-State Marketing — AI-Enabled Intent Targeting',
+    description:
+      'Signal-State finds buyers the moment they express a problem — before competitors even know the window is open.',
+  },
 }
 
 export default function SignalStatePage() {

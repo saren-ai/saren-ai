@@ -2,9 +2,25 @@ import { Metadata } from 'next'
 import FrameworkClient from './FrameworkClient'
 
 export const metadata: Metadata = {
-  title: 'Signal-State Framework — Saren Sakurai',
+  title: 'Signal-State Framework — Intent Signal Typology & Decay Model | Saren Sakurai',
   description:
-    'The full Signal-State Marketing framework. Psychological research, signal typology, decay model, and response architecture.',
+    'The complete Signal-State Marketing framework: psychological research behind expressed intent, signal typology, decay model, and response architecture for B2B targeting.',
+  alternates: { canonical: 'https://saren.ai/signal-state/framework' },
+  openGraph: {
+    title: 'Signal-State Framework — Intent Signal Typology & Decay Model | Saren Sakurai',
+    description:
+      'The complete Signal-State Marketing framework: psychological research behind expressed intent, signal typology, decay model, and response architecture for B2B targeting.',
+    url: 'https://saren.ai/signal-state/framework',
+    siteName: 'Saren.ai',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Signal-State Framework — Intent Signal Typology & Decay Model',
+    description:
+      'Psychological research, signal typology, decay model, and response architecture for AI-enabled B2B targeting.',
+  },
 }
 
 export default function FrameworkPage() {

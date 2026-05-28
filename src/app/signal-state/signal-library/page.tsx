@@ -2,9 +2,25 @@ import { Metadata } from 'next'
 import SignalLibraryClient from './SignalLibraryClient'
 
 export const metadata: Metadata = {
-  title: 'Signal Library — Signal-State Marketing',
+  title: 'Signal Library — B2B Intent Signal Patterns for AI Targeting | Saren Sakurai',
   description:
-    'Catalogued signal patterns for AI agent targeting. Ransomware vulnerability, organizational dysfunction, and creative struggle signals.',
+    'Catalogued expressed-intent signal patterns for AI agent targeting. Covers cybersecurity vulnerability, organizational dysfunction, and creative struggle signals across B2B verticals.',
+  alternates: { canonical: 'https://saren.ai/signal-state/signal-library' },
+  openGraph: {
+    title: 'Signal Library — B2B Intent Signal Patterns for AI Targeting | Saren Sakurai',
+    description:
+      'Catalogued expressed-intent signal patterns for AI agent targeting across cybersecurity, organizational dysfunction, and creative struggle verticals.',
+    url: 'https://saren.ai/signal-state/signal-library',
+    siteName: 'Saren.ai',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Signal Library — B2B Intent Signal Patterns for AI Targeting',
+    description:
+      'Catalogued expressed-intent signal patterns for AI agent targeting across cybersecurity, organizational dysfunction, and creative struggle verticals.',
+  },
 }
 
 export default function SignalLibraryPage() {

@@ -5,8 +5,24 @@ import { notFound } from 'next/navigation';
 
 export async function generateMetadata() {
     return {
-        title: 'B2B Marketing Framework | Playbooks',
-        description: 'An interactive, 21-step tracked sequence to engineer your B2B SaaS positioning from scratch.',
+        title: 'B2B SaaS Marketing Framework: 21-Step AI Positioning System | Saren.ai',
+        description: 'An interactive 21-step prompt sequence for building B2B SaaS positioning from scratch — ICP definition, messaging pillars, value proposition, sales playbook, and launch-ready narrative.',
+        alternates: { canonical: 'https://saren.ai/playbooks/b2b-marketing-framework' },
+        openGraph: {
+            title: 'B2B SaaS Marketing Framework: 21-Step AI Positioning System | Saren.ai',
+            description: 'An interactive 21-step prompt sequence for building B2B SaaS positioning from scratch — ICP definition, messaging pillars, value proposition, sales playbook, and launch-ready narrative.',
+            url: 'https://saren.ai/playbooks/b2b-marketing-framework',
+            siteName: 'Saren.ai',
+            images: [{ url: '/portfolio/marketing-framework-og.png', width: 1200, height: 630 }],
+            locale: 'en_US',
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: 'B2B SaaS Marketing Framework: 21-Step AI Positioning System',
+            description: '21 AI prompt sequences for B2B SaaS positioning — ICP, messaging pillars, value proposition, sales playbook, and launch-ready narrative.',
+            images: ['/portfolio/marketing-framework-og.png'],
+        },
     };
 }
 

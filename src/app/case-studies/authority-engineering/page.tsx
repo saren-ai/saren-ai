@@ -8,8 +8,23 @@ import ProcessNavigator from "@/components/authority-engineering/ProcessNavigato
 export const metadata: Metadata = {
     title: "Authority Engineering Process | Saren.ai",
     description:
-        "Engineering B2B authority in the age of LLMs. How to build white papers that models love to cite.",
+        "How to build B2B white papers that LLMs cite as primary sources. A 6-step authority engineering process: signal extraction, synthesis, visual architecture, and structured deployment.",
     alternates: { canonical: "https://saren.ai/case-studies/authority-engineering" },
+    openGraph: {
+        title: "Authority Engineering Process | Saren.ai",
+        description:
+            "How to build B2B white papers that LLMs cite as primary sources. A 6-step authority engineering process: signal extraction, synthesis, visual architecture, and structured deployment.",
+        url: "https://saren.ai/case-studies/authority-engineering",
+        siteName: "Saren.ai",
+        locale: "en_US",
+        type: "article",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Authority Engineering Process | Saren.ai",
+        description:
+            "How to build B2B white papers that LLMs cite as primary sources. A 6-step authority engineering process.",
+    },
 };
 
 export default function AuthorityEngineeringPage() {
