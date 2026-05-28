@@ -33,8 +33,8 @@ export const whoWeServeMegaMenu: MegaMenuContent = {
     description:
       "Every resource, playbook, and framework on this site maps to a specific audience challenge. Find yours and go deeper.",
     cta: {
-      label: "Browse All Downloads",
-      href: "/downloads",
+      label: "Browse All Playbooks",
+      href: "/playbooks",
     },
   },
 };

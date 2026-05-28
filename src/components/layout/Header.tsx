@@ -32,8 +32,8 @@ const navLinks: NavItem[] = [
     ],
   },
   {
-    label: "Downloads",
-    href: "/downloads",
+    label: "Playbooks",
+    href: "/playbooks",
   },
   {
     label: "Work",
@@ -170,12 +170,12 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
                   <Link
                     href={link.href}
                     className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm font-semibold dark:font-medium transition-all duration-150 ${
-                      link.label === "Downloads"
+                      link.label === "Playbooks"
                         ? "text-ember hover:bg-ember/[0.08]"
                         : "text-foreground hover:text-ember hover:bg-charcoal/[0.05] dark:hover:bg-white/[0.06]"
                     }`}
                   >
-                    {link.label === "Downloads" && (
+                    {link.label === "Playbooks" && (
                       <span className="w-1.5 h-1.5 rounded-full bg-ember shrink-0" />
                     )}
                     {link.label}
