@@ -14,7 +14,7 @@ npm run lint     # ESLint
 
 ## Tech Stack
 
-Next.js 16.1 (App Router) · React 19 · TypeScript (strict) · Tailwind CSS v4 (CSS-based config, no tailwind.config.js) · Framer Motion 12 · @dnd-kit (tier list only) · Lucide React icons · MDX for content · Pagefind (static search index, generated at build time) · No external carousel/state libs
+Next.js 16.1 (App Router) · React 19 · TypeScript (strict) · Tailwind CSS v4 (CSS-based config, no tailwind.config.js) · Framer Motion 12 · @dnd-kit (tier list only) · Lucide React icons · MDX for content · Pagefind (static search index, generated at build time) · Stripe (hosted checkout, webhooks) · Supabase (Postgres + Storage) · No external carousel/state libs
 
 ## Modular Rules
 
@@ -59,9 +59,12 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 /contact                                  Contact form
 /feature                                  Feature articles index
 /feature/psylocke-timeline                 Kwannon timeline editorial + interactive
+/downloads                                Digital products store (legacy flow — 4 products)
+/downloads/success                        Post-purchase download page (purchases table)
 /playbooks                                Playbooks index
 /playbooks/b2b-marketing-framework        B2B marketing framework playbook
-/playbooks/[id]                           Dynamic playbook pages
+/playbooks/[id]                           Dynamic playbook pages (free + paid tiers)
+/playbooks/[id]/success                   Route Handler — verifies Stripe session, sets dlx_ cookie, redirects
 /portfolio                                Portfolio grid (proof-of-work only)
 /portfolio/10-touch-sales-play            Case study
 /portfolio/120-day-content-journey        Case study
@@ -126,11 +129,17 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 |---|---|
 | `feature.ts` | `FeatureArticle` type + `featureArticles` registry |
 | `mega-menu-content.ts` | Nav mega menu structure and links |
-| `playbooks.ts` | Playbooks data fetching and types |
+| `playbooks.ts` | Playbooks data fetching and types (includes `paid?` field on `Playbook`) |
+| `playbook-tiers.ts` | `PAID_TIERS` map of `playbook_id → { priceId, storageKey }` — add entries here to gate a playbook |
+| `products.ts` | Legacy `/downloads` product config (price, items, filePath) |
+| `stripe.ts` | Lazy Stripe singleton (`getStripe()`) |
 | `portfolio-data.ts` | Portfolio item types |
 | `psylocke-timeline.ts` | Comic issue data for the Kwannon timeline (internal to `feature/psylocke-timeline/` components) |
 | `tier-list.ts` | AI tools list, SAREN_PICKS, stack categories |
 | `utils.ts` | Shared utility functions |
+| `supabase/admin.ts` | Service role Supabase client — server-side only, never expose to browser |
+| `supabase/client.ts` | Browser Supabase client |
+| `supabase/server.ts` | Cookie-based server Supabase client (for auth flows) |
 
 ### Key Config Files
 
@@ -148,12 +157,14 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 
 **Design system changes:** All in `src/app/globals.css` via `@theme inline` blocks (Tailwind v4 CSS-based config)
 
+**New paid playbook:** Add entry to `PAID_TIERS` in `src/lib/playbook-tiers.ts` with `priceId` (Stripe Price ID) and `storageKey` (Supabase Storage path in `downloads` bucket) → add catalog entry to `playbook-prompts/prompt_catalog.json` → build landing page copy and buy button on the `/playbooks/[id]` page. The RSC gate reads `cookies().get('dlx_' + id)` and validates against the `entitlements` table.
+
 **Adding searchable content:** New routes are indexed automatically at build time. Add `data-pagefind-ignore` to elements that should not be searched. Wrap section content with `<PagefindBoundary section="...">` to set group label. Halcyon and `/api/*` are excluded globally. Test locally with `npm run build && npm run start` (not `npm run dev` — index doesn't exist there).
 
 ## IA Conventions
 
 - `/portfolio/*` — proof-of-work case studies and interactive tools demonstrating capability for paying clients. Do not add personal or editorial content here.
-- `/playbooks/*` — structured, reusable artifacts (frameworks, templates, prompt sequences).
+- `/playbooks/*` — structured, reusable artifacts (frameworks, templates, prompt sequences). Playbooks with a `paid` tier gate their content server-side via HttpOnly cookie (`dlx_{id}`) validated against the `entitlements` table. Free playbooks are unchanged.
 - `/feature/*` — editorial / personal projects (magazine-style articles). Not indexed in primary nav.
 - `/signal-state/*` — Signal State framework workspace (in development).
 - `/halcyon/*` — archived; do not link from primary nav. Routes still resolve.
