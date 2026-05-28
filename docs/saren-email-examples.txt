@@ -1,0 +1,206 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tracy,
+
+Good morning! I’m back on the hunt for the next cool opportunity, much like when we met the first time back in the Cylance days, and knowing that you are with The Trade Deck, I thought it would be great to compare notes should I be a good fit for any of the roles you’re sourcing with TTD.
+
+The role I’m most curious about currently is the Senior Director, Edge Academy. Once Cylance was acquired and I move over into BlackBerry I took over the Paid Media department (among other groups) and we did onboard The Trade Desk as one of our core tools. In the onboarding process I did get a good amount of training from TTD, and I was always very impressed with the available content. I imagine this role would be similarly focussed, and because I know some of the ins and outs, I think I could help a lot from within this position. 
+
+I’ve attached by resume (any advice would be appreciated) and also, here is a link to a podcast I was on recently which would give the hiring manager a pretty good sense of who I am and what I believe.
+
+Thank you very much for your help, let me know if you have any questions or advice. I’ve really appreciated all you’ve done for me in my career so far, and would love to reconnect here and continue to work together.
+
+Sincerely, 
+
+Saren
+
+
+++++++++++++++
+
+
+Dan,
+
+I’m in. 
+
+Here is a list of the pages you have right now. Which ones do you want to retire? Which new ones do you want to add. See list below.
+
+Ed’s suggestion that you have industry pages is not bad. Which Industries would you like to feature? Education and Cybersecurity? What are some others? I can add those and have ChatGPT do the writing, that’s easy. 
+
+Do you want to put Cybersecurity first and Education second? Also easy. 
+
+Send me a profile picture for you, a brief bio, and the same for anyone else you’d like to put on the About Us page. I think that’s another good idea.
+
+I have an AI tool that can figure out some branded images. I’ll work on that when you give me the answers to the above.
+
+Thanks,
+
+Saren
+
+
+++++++++++++++++++++
+
+
+Piyush,
+
+This is great. This is just what I need. I could not figure out how they could be spending $3M a quarter and this does imply that it’s much less. 
+
+The breakdown by brand vs non-brand is also helpful. In my discussion with them I think the strategy of brand will come up. 
+
+I really appreciate the help. 
+
+Saren
+
+
++++++++++++++++
+
+Simon,
+
+Thanks for getting back to me. I would love to get an estimate from you. Attached is the image I would like to base the art on. Her name is Yuri Kochiyama, and she was a Japanese American activist back in the 60s and 70s in the States. I was hoping to use he image in some stickers I would create using the art.
+
+The level of detail might be similar to your Geisha (https://dribbble.com/shots/6384958-Geisha) but the trick would be for her to be recognizable as a person, in a simplified format. The image itself is iconic in the Japanese American community, but other attempts at reproducing her weren't as clean.
+
+Let me know what you think. 
+
+Thanks again,
+
+Saren
+
+++++++++++++++++
+
+My answers below. I'm free today between 1:30 and 4 your time if you want to talk. I'm in Las Vegas at the Adobe Summit next week, which means I have plenty of free time. Text me at 310.570.7585 and we'll set something up.
+
+Saren
+
+
+On Mar 21, 2019, at 01:31 PM, Amy Laine <amylaine@gmail.com> wrote:
+
+Demand gen IS digital marketing for B2B now right? Is it different from inbound marketing or are they the same thing?
+
+They are basically the same thing. Digital is the backbone of Demand Gen, and inbound is mainly digital. We have a sister team called Campaigns and Content, which develop the messaging, white papers, reports, and blog posts.
+
+Demand Gen is creating interest in your product or brand. Get their attention with message in ads or social posts; draw them into your website, event, or have them download some content (in exchange for their contact information) and then follow up with emails until they are ready to buy. When they MQL, have sales call them to book a meeting.
+
+
+Do you roll up into a CMO/VP Marketing that oversees other elements of marketing, eg events, PR, comms? 
+
+Right now I report to the VP of Corporate Communications AKA Demand Gen, who has Digital, Campaigns and Events. PR is separate. Social should be under CorpCom, but with us it's under PR. The VP rolls up to the CMO.
+ 
+
+How big is your digital team that specifically is involved in demand gen? Do you have more than one writer that creates content? Do you get to lean on experts in house to contribute content and their expertise to provide value to your prospects and clients or are you the expert of everything? 
+
+The perfect digital team is probably much larger then what I have, and would include developers and UX people for the website, dedicated writers and designers, and some SEO experts. At Cylance, when we were a start up, there were four of us:
+
+1. Sr. Manager of the Web who built the site and managed the day-to-day publishing and optimization.
+2. An Online Advertising Manager who handled Content Syndication, Ads, AdWords and Sponsorships.
+3. A Marketing Automation Manager who handled all the email and nurture programs
+
+What I would love to have on the team, but do not, is:
+
+4. An analytics lead.
+5. A writer for digital copy.
+6. A designer for assets. 
+
+We do most of what we do with less, by depending on other teams in the company to cover the five things above. The writer and the designer are rarely part of the core team—they are usually in some other department—so they are a nice-to-have.
+ 
+I work along side a Director of Campaigns and Content. She has writers, mainly for longer form reports, case studies, research reports, etc. We take that content and Syndicate it through some Content Syndication vendors. With the Syndication vendors you pay for leads, and you identify the lead when they download our content. Campaigns also generate the outbound copy for ads and AdWords. 
+
+We have a separate blog team of 2 that source their articles from a variety of networking connections. The blog is about 20% of our overall web traffic, but it doesn't generate a ton of leads by itself, but it brings people into our world, and because they post 3-4 blogs a week we always have stuff to email to our prospects via the nurture campaigns.
+ 
+
+The Marketo stack. You had choices in marketing automation set up -- Marketo is best? Expensive? Does it integrate with Salesforce? Easy to use? It operates every aspect from onsite chat, emails..?
+
+There are cheap tools for mailing lists under 2,000. MailChimp is probably the best up until your list is too expensive to send to—over maybe over 20,000.
+
+Most organizations will start with MailChimp, move to Hubspot, then Marketo (Adobe), and eventually Pardot (SalesForce).
+
+Our Marketo is about $200k a year and includes everything and all sends. All of them do basically the same thing. Cost is around features and the size of the lists.
+
+We have a list of active emails around 400,000 that we slice and dice for about 250 sends a year. Part of the cost is dependent on the size of the list that we store in Marketo. Smaller lists cost less. We have an integration with SalesForce, so the information goes back and forth. All our web forms are Marketo, which then posts to SalesForce.
+
+Hubspot is good, but you outgrow it when the team grows and the list grows. Pardot is pretty good and built right on top of SalesForce, so the reporting is very good. Big companies, or companies you expect to get big, probably should go straight to Pardot. 
+ 
+Digital media buying? What about SEO and SEM -- are there people on your team dedicated to those? The perfect demand gen team would include what roles as a must vs outsourcing to small agency/freelance?
+
+Marketo is just the database and the automation like nurture emails. Media buying is separate. I have someone doing just the media—Content Syndication, Google AdWords, Google Display, and Rollworks/Adroll retargeting ads (for anyone who visits the website).
+
+The leanest team is what I listed above: a web person, an email/nurture person, and a media person. But they are dependent on Content and outbound Campaigns from other groups.
+
+
+MQLs -- how are these passed to the sales team?  How do you capture and then integrate leads from events? How do you score leads and track where they are in the funnel and how often is that communicated to sales? How often do you report to sales/senior execs?
+
+All leads start in Marketo. When the leads/contacts do things like download white papers, visit webpages, or open emails, Marketo will give them points for their Lead Score. When the lead gets to 60 points, then they become an MQL and it goes to Sales to follow up and to try and book a meeting. The Lead Score is divided into thirds, 0-20 is awareness, 21-45ish, is consideration, and 46-60 is probably decision. So we tailor the nurture with content to be delivered by Lead Score.
+
+Event leads are captured via registration to the event, or at the event itself. We have AtEvent software which can scan badges or take in a quick form fill.
+
+The best source of MQLs is:
+
+1. SEO/SEM. The website drawing people in with good content, and Google AdWords driving people to the site.
+2. Events, particularly Webinars. Webinars are cheaper and can be done from anywhere, and people recognize the value of an hour of an experts time.
+3. Campaigns and ads. This is costly and the least effective. You have to do it to get the brand out in the world, but it doesn't convert like the other two.
+ 
+
+If one has experience in some areas (email, content creation, blog) is that a leg up and will be easier to grow this expertise?
+
+Yes, content/blog are the first step in getting leads. Blog brings in people to your site and is great for SEO. Content can be used for Content Syndication and/or media partnerships. Content/Blog are also perfect to deliver via the nurture streams (email). Webinars are great immediate content.
+
+Once you get the leads into the system, email nurture is the way to advance them up the lead score ladder to an MQL. 
+ 
+I have no experience with marketing automation tools however....
+
+That's fine. You can have a contractor or agency set it up, and then you can just feed content into the tools over time.
+ 
+In media often you are doing several of these things but not connecting the dots whether because other teams are experts in these areas within an organization and are not focused on the sales pipeline, media sales teams are reliant on seller client and agency relationships, no real vision where I've been for how inbound and demand gen can work in media....
+
+Here is the basic flow that is tried and true.
+
+1.  Pay for media to get your initial messages outbound, across all channels—Content Syndication, Ads, Social, Google. Augment with webpages, blog, social posts. Drive everything back to landing pages with lead gen forms (the fewer fields the better). Webinars promoted by email are great.
+2. Put those leads into nurture campaigns (automated) by audience or interest. We have one for Enterprise sized companies, and one for Small Business. 
+3. Give the nurture tracks content all the time, and sort the content by which phase of the buyer's journey they are in, based on their lead score.
+4.The automation software will keep sending them email. The leads who open and read the email will have their scores rise, and they will MQL when they are ready.
+
+Keep sending questions. I have time to keep going.
+
+Saren
+
+Ack! A lot... I know. 
+
+Amy
+
+++++++++++++++++
+
+
+Sarah,
+
+All that sounds perfectly fine to me. My father is retired and mostly around the house. I’ll intro you next and it shouldn’t be a problem to stop by after you pick up the truck. He doesn’t have plans that day. I don’t think he’ll be a ton of help lifting but I’m sure he has cold drinks and stories if you ask (maybe ice cream). 
+
+I’ll be around all weekend of the 28th. So, if you text when your in the vicinity I’ll be able to meet you wherever and help however I can. I should be able to fit everything in my Highlander. 
+
+Let me know how I can pitch in on the cost. Let’s start with the difference in cost to go to a 16-foot truck, but work up to include trouble and gas and incidentals at least. Dinner or drinks that night would be the neighborly thing to do. I miss my records and my moms chairs need a home, so I really appreciate the extra effort on your part. 
+
+My mobile is 310-570-7585
+
+Saren
