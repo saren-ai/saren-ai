@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      entitlements: {
+        Row: {
+          id: string
+          session_id: string
+          playbook_id: string
+          cookie_token: string
+          download_token: string
+          expires_at: string
+          download_count: number
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          session_id: string
+          playbook_id: string
+          cookie_token?: string
+          download_token?: string
+          expires_at?: string
+          download_count?: number
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          session_id?: string
+          playbook_id?: string
+          cookie_token?: string
+          download_token?: string
+          expires_at?: string
+          download_count?: number
+          created_at?: string
+        }
+        Relationships: []
+      }
       purchases: {
         Row: {
           id: string

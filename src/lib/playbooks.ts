@@ -20,6 +20,10 @@ export interface Playbook {
     steps: PlaybookStep[];
     /** Path to a downloadable Claude Code skill file in public/skills/ */
     skill?: string;
+    paid?: {
+        priceId: string;    // Stripe Price ID
+        storageKey: string; // path in Supabase Storage 'downloads' bucket
+    };
 }
 
 export interface Prompt {

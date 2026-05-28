@@ -4,8 +4,8 @@
     "archive_cutoff": "2025-03-03",
     "total_prompts_active": 111,
     "total_prompts_archived": 28,
-    "total_playbooks": 13,
-    "active_playbooks": 12,
+    "total_playbooks": 14,
+    "active_playbooks": 13,
     "archived_playbooks": 1
   },
   "playbooks": [
@@ -570,6 +570,22 @@
         }
       ],
       "date": "2026-03-03"
+    },
+    {
+      "playbook_id": "genx-executive-ai-playbook",
+      "title": "The Gen X Executive AI Playbook",
+      "description": "A collection of 20 deep-thinking prompts for Generation X executives who want to stay ahead of the AI curve \u2014 and lead through it.",
+      "category": "Executive",
+      "tags": [
+        "ai",
+        "executive",
+        "genx",
+        "leadership",
+        "prompts"
+      ],
+      "status": "active",
+      "date": "2026-05-28",
+      "steps": []
     }
   ],
   "prompts": {
