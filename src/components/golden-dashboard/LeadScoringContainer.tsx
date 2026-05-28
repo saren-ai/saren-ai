@@ -58,7 +58,7 @@ export default function LeadScoringContainer({
     >
       {/* Section title - linked to future lead scoring page */}
       <Link
-        href="/portfolio/behavioral-lead-scoring"
+        href="/playbooks/hybrid-lead-scoring"
         className="inline-flex items-center gap-1.5 text-sm font-medium text-lavender hover:underline mb-4 group"
       >
         <span className="w-2 h-2 rounded-full bg-lavender" />

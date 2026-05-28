@@ -127,7 +127,7 @@ export default function SitemapVisualizer({ prompts, selectedId, onSelect, enabl
                                         <div key={prompt.id} className="relative">
                                             {enableNavigation ? (
                                                 <Link
-                                                    href={`/portfolio/b2b-marketing-framework/${prompt.slug}`}
+                                                    href={`/playbooks/b2b-marketing-framework/${prompt.slug}`}
                                                     className={className}
                                                 >
                                                     {content}

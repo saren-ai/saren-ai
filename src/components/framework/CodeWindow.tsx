@@ -55,7 +55,7 @@ export default function CodeWindow({ prompt }: CodeWindowProps) {
                     </span>
                 </div>
                 <a
-                    href={`/portfolio/b2b-marketing-framework/${prompt.slug}`}
+                    href={`/playbooks/b2b-marketing-framework/${prompt.slug}`}
                     className="p-1.5 text-white/40 hover:text-lavender hover:bg-lavender/10 rounded-md transition-colors flex items-center gap-2 group"
                     title="View Full Page"
                 >

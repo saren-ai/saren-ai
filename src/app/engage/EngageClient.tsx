@@ -14,9 +14,9 @@ import {
 } from "lucide-react";
 
 const proofPoints = [
-  { metric: "$4M", label: "Quarterly pipeline generated at Cylance", href: "/portfolio/120-day-content-journey" },
-  { metric: "550%", label: "Pipeline growth across BlackBerry programs", href: "/portfolio/120-day-content-journey" },
-  { metric: "42%", label: "Meeting rate on cold outbound sequences", href: "/portfolio/10-touch-sales-play" },
+  { metric: "$4M", label: "Quarterly pipeline generated at Cylance", href: "/case-studies/120-day-content-journey" },
+  { metric: "550%", label: "Pipeline growth across BlackBerry programs", href: "/case-studies/120-day-content-journey" },
+  { metric: "42%", label: "Meeting rate on cold outbound sequences", href: "/case-studies/10-touch-sales-play" },
   { metric: "70%", label: "CAC reduction for Qwiet AI", href: "/about/clients" },
 ];
 
@@ -37,7 +37,7 @@ const engagementTypes = [
       "Scoped deliverables: pipeline framework, attribution system, AI ops build-out, or full GTM strategy for a specific launch.",
     fits: "Teams with clear initiatives",
     cta: "See project work",
-    href: "/portfolio",
+    href: "/case-studies",
   },
   {
     icon: Lightbulb,

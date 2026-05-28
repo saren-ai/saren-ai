@@ -239,7 +239,7 @@ export default function DownloadsClient() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="/portfolio"
+                href="/case-studies"
                 className="btn-secondary inline-flex items-center gap-2"
               >
                 Explore Work

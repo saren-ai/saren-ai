@@ -228,8 +228,8 @@ export default function AIOrchestrationClient() {
                 area: 'Behavioral Scoring',
                 description: 'Lead scoring models built on buyer motion — engagement depth, content type, timing patterns — not job title and company size.',
                 proofs: [
-                  { label: 'Behavioral Lead Scoring', href: '/portfolio/behavioral-lead-scoring' },
-                  { label: 'Intent Data Intelligence', href: '/portfolio/intent-data' },
+                  { label: 'Behavioral Lead Scoring', href: '/playbooks/hybrid-lead-scoring' },
+                  { label: 'Intent Data Intelligence', href: '/case-studies/intent-data' },
                 ],
                 color: 'text-copper',
                 accent: 'border-copper/30',
@@ -239,7 +239,7 @@ export default function AIOrchestrationClient() {
                 description: 'Outreach pipelines that draft resonant messages from signal context — and always route through a human review gate before touching a real person.',
                 proofs: [
                   { label: 'Signal-State Architecture', href: '/signal-state/architecture' },
-                  { label: '10-Touch Sales Play', href: '/portfolio/10-touch-sales-play' },
+                  { label: '10-Touch Sales Play', href: '/case-studies/10-touch-sales-play' },
                 ],
                 color: 'text-ember',
                 accent: 'border-ember/30',

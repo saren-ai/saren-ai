@@ -76,13 +76,13 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/portfolio"
+                  href="/case-studies"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
-                  Portfolio
+                  Case Studies
                 </Link>
               </li>
-<li>
+              <li>
                 <Link
                   href="/contact"
                   className="text-ash/70 hover:text-ember transition-colors"
@@ -93,15 +93,15 @@ export default function Footer() {
             </ul>
           </nav>
 
-          {/* Featured Work */}
-          <nav aria-label="Featured work">
+          {/* Case Studies */}
+          <nav aria-label="Case studies">
             <h3 className="text-ash font-semibold mb-4 text-sm uppercase tracking-wider">
-              Featured Work
+              Case Studies
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link
-                  href="/portfolio/120-day-content-journey"
+                  href="/case-studies/120-day-content-journey"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
                   120-Day Content Journey
@@ -109,7 +109,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/portfolio/10-touch-sales-play"
+                  href="/case-studies/10-touch-sales-play"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
                   10-Touch Sales Play
@@ -117,10 +117,18 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/portfolio/b2b-marketing-framework"
+                  href="/case-studies/dynamic-nurture"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
-                  B2B Marketing Framework
+                  Dynamic Email Nurture
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/case-studies/intent-data"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  Intent Data Intelligence
                 </Link>
               </li>
               <li>
@@ -134,10 +142,10 @@ export default function Footer() {
             </ul>
           </nav>
 
-          {/* Tools & Vault */}
-          <nav aria-label="Tools and vault">
+          {/* Playbooks & Tools */}
+          <nav aria-label="Playbooks and tools">
             <h3 className="text-ash font-semibold mb-4 text-sm uppercase tracking-wider">
-              Tools & Vault
+              Playbooks &amp; Tools
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
@@ -145,12 +153,12 @@ export default function Footer() {
                   href="/playbooks"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
-                  Playbook Prompt Library
+                  Playbook Library
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/portfolio/roi-simulator"
+                  href="/playbooks/roi-simulator"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
                   Paid Media ROI Simulator
@@ -158,7 +166,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/portfolio/gtm-budget-calculator"
+                  href="/playbooks/gtm-budget-calculator"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
                   GTM Budget Calculator
@@ -166,10 +174,18 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/playbooks/b2b-marketing-framework"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  B2B Marketing Framework
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/about#stack"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
-                  My Tech Stack
+                  My Stack
                 </Link>
               </li>
             </ul>

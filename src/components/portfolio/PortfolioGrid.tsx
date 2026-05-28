@@ -18,7 +18,7 @@ const portfolioItems = [
       "Stop guessing. Simulate the revenue impact of your ad spend using real unit economics. An interactive financial model for performance marketers.",
     metric: "550%",
     metricLabel: "Pipeline Expansion",
-    href: "/portfolio/roi-simulator",
+    href: "/playbooks/roi-simulator",
     pillars: ["Predictive Infrastructure", "Scale Without Headcount"],
   },
   {
@@ -27,7 +27,7 @@ const portfolioItems = [
       "Making complex markets simple. A framework for building personas that drive real targeting, messaging, and content decisions.",
     metric: "3x",
     metricLabel: "Conversion Lift",
-    href: "/portfolio/sovereign-personas",
+    href: "/case-studies/sovereign-personas",
     pillars: ["Human Strategy", "Predictive Infrastructure"],
   },
   {
@@ -36,7 +36,7 @@ const portfolioItems = [
       "Turning cold outreach into executive conversations. A systematic approach to multi-channel prospecting that consistently books meetings.",
     metric: "42%",
     metricLabel: "Meeting Rate",
-    href: "/portfolio/10-touch-sales-play",
+    href: "/case-studies/10-touch-sales-play",
     pillars: ["Human Strategy", "Predictive Infrastructure"],
   },
   {
@@ -45,7 +45,7 @@ const portfolioItems = [
       "How we engineered $4M in quarterly pipeline at Cylance. A 120-day content system that turned awareness into closed deals.",
     metric: "$4M",
     metricLabel: "Quarterly Pipeline",
-    href: "/portfolio/120-day-content-journey",
+    href: "/case-studies/120-day-content-journey",
     pillars: ["Human Strategy", "Scale Without Headcount"],
   },
   {
@@ -54,7 +54,7 @@ const portfolioItems = [
       "The messaging infrastructure for teams who can't afford to build on quicksand. A 7-layer framework that creates B2B SaaS positioning from scratch.",
     metric: "21",
     metricLabel: "Prompts",
-    href: "/portfolio/b2b-marketing-framework",
+    href: "/playbooks/b2b-marketing-framework",
     pillars: ["Human Strategy"],
   },
   {
@@ -63,7 +63,7 @@ const portfolioItems = [
       "A 30-second TV spot storyboard exploring the luxury of choice. An interactive demo of AI-assisted creative production.",
     metric: "8",
     metricLabel: "Storyboard Frames",
-    href: "/portfolio/its-good-to-be-pitched",
+    href: "/playbooks/its-good-to-be-pitched",
     pillars: ["Human Strategy"],
   },
   {
@@ -72,7 +72,7 @@ const portfolioItems = [
       "Making buyer behavior predictable. An interactive system that connects engagement, lifecycle, and sales readiness into a single scoring model.",
     metric: "75+",
     metricLabel: "SQL Threshold",
-    href: "/portfolio/behavioral-lead-scoring",
+    href: "/playbooks/hybrid-lead-scoring",
     pillars: ["Predictive Infrastructure", "Scale Without Headcount"],
   },
   {
@@ -81,7 +81,7 @@ const portfolioItems = [
       "Work backwards from revenue to see exactly what it takes. Interactive annual planning tool using industry benchmarks to reverse-engineer your funnel metrics.",
     metric: "18",
     metricLabel: "Industries",
-    href: "/portfolio/gtm-budget-calculator",
+    href: "/playbooks/gtm-budget-calculator",
     pillars: ["Predictive Infrastructure", "Scale Without Headcount"],
   },
   {
@@ -90,7 +90,7 @@ const portfolioItems = [
       "Engineering B2B authority in the age of LLMs. How to build white papers that models love to cite using a modern tool stack.",
     metric: "6",
     metricLabel: "Engineered Steps",
-    href: "/portfolio/authority-engineering",
+    href: "/case-studies/authority-engineering",
     pillars: ["Human Strategy", "Scale Without Headcount"],
   },
 ];

@@ -7,8 +7,8 @@ import ThemeToggle from "./ThemeToggle";
 import SearchTrigger from "@/components/search/SearchTrigger";
 import MegaMenu, { type MegaMenuContent } from "./MegaMenu";
 import {
-  whoWeServeMegaMenu,
-  workMegaMenu,
+  solutionsMegaMenu,
+  caseStudiesMegaMenu,
   aboutMegaMenu,
 } from "@/lib/mega-menu-content";
 
@@ -23,12 +23,14 @@ interface NavItem {
 
 const navLinks: NavItem[] = [
   {
-    label: "Who We Serve",
-    megaMenu: whoWeServeMegaMenu,
+    label: "Solutions",
+    megaMenu: solutionsMegaMenu,
     mobileChildren: [
       { href: "/smb", label: "Founders & Mid-Market", description: "GTM systems for growth-stage companies" },
       { href: "/solopreneurs", label: "Solo Founders & Fractional CMOs", description: "Pipeline automation for independent operators" },
       { href: "/thinkers", label: "Subject Matter Experts", description: "Authority engineering for knowledge practitioners" },
+      { href: "/ai-orchestration", label: "AI Orchestration", description: "Machines handle scale. Humans handle meaning." },
+      { href: "/signal-state", label: "Signal-State Marketing", description: "AI-enabled expressed intent targeting" },
     ],
   },
   {
@@ -36,11 +38,11 @@ const navLinks: NavItem[] = [
     href: "/playbooks",
   },
   {
-    label: "Portfolio",
-    megaMenu: workMegaMenu,
+    label: "Case Studies",
+    megaMenu: caseStudiesMegaMenu,
     mobileChildren: [
-      { href: "/portfolio", label: "View All Portfolio" },
-      ...workMegaMenu.sections.flatMap(section =>
+      { href: "/case-studies", label: "View All Case Studies" },
+      ...caseStudiesMegaMenu.sections.flatMap(section =>
         section.links.map(link => ({
           href: link.href,
           label: link.label,

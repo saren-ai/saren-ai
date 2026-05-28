@@ -63,7 +63,7 @@ export function ExportControls({ hasData, funnel }: ExportControlsProps) {
             </p>
           )}
           <p className="mt-4 text-xs text-gray-400">
-            Generated at saren.ai/portfolio/gtm-budget-calculator
+            Generated at saren.ai/playbooks/gtm-budget-calculator
           </p>
         </div>
       )}
@@ -95,7 +95,7 @@ export function ExportControls({ hasData, funnel }: ExportControlsProps) {
             Book a Strategy Call
           </a>
           <a
-            href="/portfolio"
+            href="/case-studies"
             className="btn-secondary-dark inline-flex items-center gap-2 text-sm"
           >
             <FileText className="w-4 h-4" />

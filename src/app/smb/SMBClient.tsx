@@ -45,14 +45,14 @@ const resources = [
     title: "GTM Budget Calculator",
     description:
       "Reverse-engineer funnel metrics from revenue goals. Know exactly how many leads, MQLs, and demos you need to hit your number.",
-    href: "/portfolio/gtm-budget-calculator",
+    href: "/playbooks/gtm-budget-calculator",
   },
   {
     type: "Case Study",
     title: "Demand Gen Command Center",
     description:
       "An AI-built executive dashboard integrating 5 live data sources for real-time pipeline visibility.",
-    href: "/portfolio/executive-dashboard",
+    href: "/case-studies/executive-dashboard",
   },
   {
     type: "Framework",

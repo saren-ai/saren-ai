@@ -22,7 +22,7 @@ export default function RelatedWork({ currentHref }: RelatedWorkProps) {
                         Related Work
                     </h3>
                     <Link
-                        href="/portfolio"
+                        href="/case-studies"
                         className="text-lavender font-medium hover:text-ember transition-colors flex items-center gap-1 group"
                     >
                         View Portfolio

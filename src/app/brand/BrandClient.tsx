@@ -1460,25 +1460,30 @@ export default function BrandClient() {
             <div className="space-y-4 text-sm">
               {[
                 {
-                  label: "Portfolio",
+                  label: "Solutions",
+                  mega: true,
+                  children: [
+                    "By Audience (SMB, Solopreneurs, Thinkers)",
+                    "By Capability (AI Orchestration, Signal-State, Framework, Signal Library)",
+                  ],
+                },
+                {
+                  label: "Playbooks",
+                  mega: false,
+                  children: ["Playbook Library (prompts + interactive tools)"],
+                },
+                {
+                  label: "Case Studies",
                   mega: true,
                   children: [
                     "Pipeline Programs (120-Day Content Journey, 10-Touch Sales Play, Intent Data, Dynamic Nurture)",
-                    "Strategy & Systems (B2B Framework, Sovereign Personas, ROI Simulator, Lead Scoring)",
+                    "Strategy & Systems (Executive Dashboard, Sovereign Personas, Authority Engineering, TLD)",
                   ],
                 },
                 {
-                  label: "AI Orchestration",
+                  label: "About Me",
                   mega: true,
-                  children: [
-                    "AI Orchestration overview",
-                    "Signal-State (Overview, Framework, Architecture, Use Cases, Signal Library)",
-                  ],
-                },
-                {
-                  label: "About",
-                  mega: true,
-                  children: ["About Me", "Client Brands", "My Stack", "Brand Guide"],
+                  children: ["Bio & Booking (About Me, Book 30 Minutes)", "The Archives (Expertise Timeline, Brand Guide, My Stack)"],
                 },
                 { label: "Contact", mega: false, children: [] },
               ].map((item) => (
@@ -1550,7 +1555,7 @@ export default function BrandClient() {
               </h3>
               <div className="text-sm text-slate space-y-2">
                 <p>
-                  Route: <CodeLabel>/portfolio/[slug]</CodeLabel>
+                  Route: <CodeLabel>/case-studies/[slug]</CodeLabel>
                 </p>
                 <p>
                   Hero: CaseStudyHero with breadcrumb, metadata (role, date),

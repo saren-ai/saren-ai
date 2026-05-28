@@ -283,14 +283,6 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
                             {playbook.description}
                         </p>
 
-                        <div className="flex flex-wrap gap-2 pt-2">
-                            {playbook.tags.map(tag => (
-                                <span key={tag} className="text-xs text-slate dark:text-slate bg-charcoal/5 dark:bg-charcoal/5 px-2.5 py-1 rounded-md border border-charcoal/10 dark:border-charcoal/10">
-                                    #{tag}
-                                </span>
-                            ))}
-                        </div>
-
                         {playbook.skill && (
                             <div className="pt-2">
                                 <DownloadSkillButton skillPath={playbook.skill} />

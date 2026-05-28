@@ -8,14 +8,14 @@ import Breadcrumb from "@/components/ui/Breadcrumb";
 
 const clientLogos = [
   // B2B Technology
-  { name: "BlackBerry", filename: "blackberry.png", category: "tech", href: "/portfolio/120-day-content-journey" },
+  { name: "BlackBerry", filename: "blackberry.png", category: "tech", href: "/case-studies/120-day-content-journey" },
   { name: "Cisco", filename: "cisco.png", category: "tech" },
-  { name: "Cylance", filename: "cylance.png", category: "tech", href: "/portfolio/120-day-content-journey" },
+  { name: "Cylance", filename: "cylance.png", category: "tech", href: "/case-studies/120-day-content-journey" },
   { name: "Palo Alto Networks", filename: "palo-alto.png", category: "tech" },
-  { name: "Qwiet AI", filename: "qwiet.png", category: "tech", href: "/portfolio" },
+  { name: "Qwiet AI", filename: "qwiet.png", category: "tech", href: "/case-studies" },
   { name: "Symantec", filename: "symantec.png", category: "tech" },
   { name: "Veritas", filename: "veritas.png", category: "tech" },
-  { name: "WethosAI", filename: "wethos.png", category: "tech", href: "/portfolio" },
+  { name: "WethosAI", filename: "wethos.png", category: "tech", href: "/case-studies" },
   { name: "Peak Nano", filename: "peak-nano.png", category: "tech" },
   
   // Consumer Brands

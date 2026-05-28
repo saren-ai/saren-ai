@@ -52,14 +52,14 @@ const resources = [
     title: "10-Touch Sales Play",
     description:
       "A systematic multi-channel outbound sequence that books executive meetings with a 42% reply rate.",
-    href: "/portfolio/10-touch-sales-play",
+    href: "/case-studies/10-touch-sales-play",
   },
   {
     type: "Case Study",
     title: "120-Day Content Journey",
     description:
       "How a structured content system generated $4M in quarterly pipeline — the exact architecture you can replicate.",
-    href: "/portfolio/120-day-content-journey",
+    href: "/case-studies/120-day-content-journey",
   },
   {
     type: "Framework",

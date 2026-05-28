@@ -16,7 +16,7 @@ const interactiveTools = [
       "Stop guessing. Simulate the revenue impact of your ad spend using real unit economics. An interactive financial model for performance marketers.",
     metric: "550%",
     metricLabel: "Pipeline Expansion",
-    href: "/portfolio/roi-simulator",
+    href: "/playbooks/roi-simulator",
     pillars: ["Predictive Infrastructure", "Scale Without Headcount"],
   },
   {
@@ -25,7 +25,7 @@ const interactiveTools = [
       "Reverse-engineer funnel metrics from revenue goals. Calculate exactly how many leads, MQLs, and demos you need to hit your target.",
     metric: "100%",
     metricLabel: "Funnel Clarity",
-    href: "/portfolio/gtm-budget-calculator",
+    href: "/playbooks/gtm-budget-calculator",
     pillars: ["Predictive Infrastructure", "Revenue Engineering"],
   },
   {
@@ -34,7 +34,7 @@ const interactiveTools = [
       "Making buyer motion legible. A dynamic scoring model that tracks fit and engagement to surface high-intent accounts automatically.",
     metric: "3x",
     metricLabel: "Lead Quality",
-    href: "/portfolio/behavioral-lead-scoring",
+    href: "/playbooks/hybrid-lead-scoring",
     pillars: ["Predictive Infrastructure", "Automated Qualification"],
   },
 ];
@@ -46,7 +46,7 @@ const caseStudies = [
       "Making complex markets simple. A framework for building personas that drive real targeting, messaging, and content decisions.",
     metric: "3x",
     metricLabel: "Conversion Lift",
-    href: "/portfolio/sovereign-personas",
+    href: "/case-studies/sovereign-personas",
     pillars: ["Human Strategy", "Predictive Infrastructure"],
   },
   {
@@ -55,7 +55,7 @@ const caseStudies = [
       "Turning cold outreach into executive conversations. A systematic approach to multi-channel prospecting that consistently books meetings.",
     metric: "42%",
     metricLabel: "Meeting Rate",
-    href: "/portfolio/10-touch-sales-play",
+    href: "/case-studies/10-touch-sales-play",
     pillars: ["Human Strategy", "Predictive Infrastructure"],
   },
   {
@@ -64,7 +64,7 @@ const caseStudies = [
       "How we engineered $4M in quarterly pipeline at Cylance. A 120-day content system that turned awareness into closed deals.",
     metric: "$4M",
     metricLabel: "Quarterly Pipeline",
-    href: "/portfolio/120-day-content-journey",
+    href: "/case-studies/120-day-content-journey",
     pillars: ["Human Strategy", "Scale Without Headcount"],
   },
   {
@@ -73,7 +73,7 @@ const caseStudies = [
       "The messaging infrastructure for teams who can't afford to build on quicksand. A 7-layer framework that creates B2B SaaS positioning from scratch.",
     metric: "21",
     metricLabel: "Prompts",
-    href: "/portfolio/b2b-marketing-framework",
+    href: "/playbooks/b2b-marketing-framework",
     pillars: ["Human Strategy"],
   },
   {
@@ -82,7 +82,7 @@ const caseStudies = [
       "A 30-second TV spot storyboard exploring the luxury of choice. An interactive demo of AI-assisted creative production.",
     metric: "8",
     metricLabel: "Storyboard Frames",
-    href: "/portfolio/its-good-to-be-pitched",
+    href: "/playbooks/its-good-to-be-pitched",
     pillars: ["Human Strategy"],
   },
 ];
@@ -195,9 +195,9 @@ export default function HomeClient() {
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
                 {[
-                  { name: "BlackBerry", logo: "blackberry.png", metric: "550% Pipeline Growth", href: "/portfolio/120-day-content-journey" },
+                  { name: "BlackBerry", logo: "blackberry.png", metric: "550% Pipeline Growth", href: "/case-studies/120-day-content-journey" },
                   { name: "Qwiet AI", logo: "qwiet.png", metric: "70% CAC Reduction", href: "/about/clients" },
-                  { name: "Cylance", logo: "cylance.png", metric: "$4M Quarterly Pipeline", href: "/portfolio/120-day-content-journey" },
+                  { name: "Cylance", logo: "cylance.png", metric: "$4M Quarterly Pipeline", href: "/case-studies/120-day-content-journey" },
                   { name: "WethosAI", logo: "wethos.png", metric: "344% Lead Growth", href: "/about/clients" },
                 ].map((client) => (
                   <Link
@@ -470,7 +470,7 @@ export default function HomeClient() {
             </h2>
             <div className="h-px flex-1 bg-charcoal/10 dark:bg-white/10" />
             <Link
-              href="/portfolio"
+              href="/case-studies"
               className="text-lavender font-medium hover:text-ember transition-colors flex items-center gap-1 group"
             >
               View All Work

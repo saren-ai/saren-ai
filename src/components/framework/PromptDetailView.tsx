@@ -235,7 +235,7 @@ export default function PromptDetailView({ prompt, nextPrompt, prevPrompt }: Pro
                 <div className="grid grid-cols-2 gap-4">
                     {prevPrompt ? (
                         <Link
-                            href={`/portfolio/b2b-marketing-framework/${prevPrompt.slug}`}
+                            href={`/playbooks/b2b-marketing-framework/${prevPrompt.slug}`}
                             className="group p-6 bg-card-bg border border-border rounded-xl hover:border-lavender/50 transition-all"
                         >
                             <span className="text-xs font-mono text-foreground-muted mb-2 block">Previous Step</span>
@@ -250,7 +250,7 @@ export default function PromptDetailView({ prompt, nextPrompt, prevPrompt }: Pro
 
                     {nextPrompt ? (
                         <Link
-                            href={`/portfolio/b2b-marketing-framework/${nextPrompt.slug}`}
+                            href={`/playbooks/b2b-marketing-framework/${nextPrompt.slug}`}
                             className="group p-6 bg-card-bg border border-border rounded-xl hover:border-lavender/50 transition-all text-right"
                         >
                             <span className="text-xs font-mono text-foreground-muted mb-2 block">Next Step</span>

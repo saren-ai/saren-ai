@@ -61,23 +61,23 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 /feature/psylocke-timeline                 Kwannon timeline editorial + interactive
 /downloads                                Digital products store (legacy flow — 4 products)
 /downloads/success                        Post-purchase download page (purchases table)
-/playbooks                                Playbooks index
-/playbooks/b2b-marketing-framework        B2B marketing framework playbook
+/playbooks                                Playbook Library index (toggle: Playbooks | Interactive Tools)
+/playbooks/b2b-marketing-framework        B2B marketing framework (prompt library + interactive)
+/playbooks/gtm-budget-calculator          SaaS revenue calculator tool
+/playbooks/hybrid-lead-scoring            Hybrid lead scoring tool
+/playbooks/its-good-to-be-pitched         TV spot storyboard / creative production demo
+/playbooks/roi-simulator                  Paid media ROI simulator tool
 /playbooks/[id]                           Dynamic playbook pages (free + paid tiers)
 /playbooks/[id]/success                   Route Handler — verifies Stripe session, sets dlx_ cookie, redirects
-/portfolio                                Portfolio grid (proof-of-work only)
-/portfolio/10-touch-sales-play            Case study
-/portfolio/120-day-content-journey        Case study
-/portfolio/authority-engineering          Case study
-/portfolio/behavioral-lead-scoring        Case study
-/portfolio/dynamic-nurture                Case study
-/portfolio/executive-dashboard            Case study
-/portfolio/gtm-budget-calculator          Tool
-/portfolio/intent-data                    Case study
-/portfolio/its-good-to-be-pitched         Storyboard
-/portfolio/roi-simulator                  Tool
-/portfolio/sovereign-personas             Tool
-/portfolio/thought-leadership-development Case study
+/case-studies                             Case Studies index (static B2B narratives)
+/case-studies/10-touch-sales-play         Case study
+/case-studies/120-day-content-journey     Case study
+/case-studies/authority-engineering       Case study
+/case-studies/dynamic-nurture             Case study
+/case-studies/executive-dashboard         Case study
+/case-studies/intent-data                 Case study
+/case-studies/sovereign-personas          Case study
+/case-studies/thought-leadership-development Case study
 /signal-state                             Signal State framework overview
 /signal-state/architecture
 /signal-state/framework
@@ -151,7 +151,7 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 
 **New tier list tool:** Add to `AI_TOOLS[]` in `src/lib/tier-list.ts` → 64x64 PNG in `public/logos/ai-apps/` → add ID to `SAREN_PICKS` → add to `stackCategories` in `src/app/about/page.tsx` (tier list lives inside `/about`, not a sub-route)
 
-**New portfolio case study:** Use `/project:new-case-study <slug>` command. `/portfolio/*` is for proof-of-work only — paid client deliverables and capability-demonstrating tools.
+**New case study:** Use `/project:new-case-study <slug>` command. `/case-studies/*` is for static B2B proof narratives only. Interactive tools and paid downloads go in `/playbooks/*`.
 
 **New feature article:** Add entry to `featureArticles` in `src/lib/feature.ts` → create `src/app/feature/<slug>/page.tsx` (server component, metadata + JSON-LD) + `src/app/feature/<slug>/ArticleClient.tsx` (`"use client"` if interactive) → create `src/components/feature/<slug>/` if the article needs dedicated components → no mega menu entry needed (feature lives as editorial, not primary nav).
 
@@ -163,12 +163,15 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 
 ## IA Conventions
 
-- `/portfolio/*` — proof-of-work case studies and interactive tools demonstrating capability for paying clients. Do not add personal or editorial content here.
-- `/playbooks/*` — structured, reusable artifacts (frameworks, templates, prompt sequences). Playbooks with a `paid` tier gate their content server-side via HttpOnly cookie (`dlx_{id}`) validated against the `entitlements` table. Free playbooks are unchanged.
+**Classification rule:** Interactive feature on the page OR paid download → `/playbooks/*`. Static narrative proof → `/case-studies/*`. Prompt library items → `/playbooks/*`.
+
+- `/case-studies/*` — static B2B proof narratives (no interactive widgets). Pure case studies only.
+- `/playbooks/*` — Playbook Library: prompt sequences, interactive tools, paid downloads. The index page has a toggle (Playbooks | Interactive Tools). Interactive tools live at `/playbooks/<tool-slug>/`. Paid playbooks gate content via HttpOnly cookie (`dlx_{id}`) validated against the `entitlements` table.
 - `/feature/*` — editorial / personal projects (magazine-style articles). Not indexed in primary nav.
 - `/signal-state/*` — Signal State framework workspace (in development).
 - `/halcyon/*` — archived; do not link from primary nav. Routes still resolve.
 - `/brand` — Fire Horse 2026 brand guideline page. `/about/brand` is deprecated and 301s to `/brand`.
+- `/portfolio/*` — all old routes redirect via `next.config.ts`; do not create new content here.
 
 ## Repo Hygiene
 

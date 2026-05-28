@@ -1,14 +1,14 @@
 import type { MegaMenuContent } from "@/components/layout/MegaMenu";
 
 /**
- * Who We Serve Mega Menu
- * Routes visitors to the three audience-specific persona landing pages.
+ * Solutions Mega Menu
+ * Audience paths (SMB / Solopreneurs / Thinkers) + AI Capability offerings.
  */
-export const whoWeServeMegaMenu: MegaMenuContent = {
+export const solutionsMegaMenu: MegaMenuContent = {
   layout: "three-column",
   sections: [
     {
-      title: "Choose Your Path",
+      title: "By Audience",
       links: [
         {
           href: "/smb",
@@ -27,81 +27,12 @@ export const whoWeServeMegaMenu: MegaMenuContent = {
         },
       ],
     },
-  ],
-  promotional: {
-    headline: "Built for your situation",
-    description:
-      "Every resource, playbook, and framework on this site maps to a specific audience challenge. Find yours and go deeper.",
-    cta: {
-      label: "Browse All Playbooks",
-      href: "/playbooks",
-    },
-  },
-};
-
-/**
- * Work Mega Menu Content
- * Portfolio case studies + AI Orchestration / Signal-State in one place.
- */
-export const workMegaMenu: MegaMenuContent = {
-  layout: "three-column",
-  sections: [
     {
-      title: "Pipeline Programs",
-      links: [
-        {
-          href: "/portfolio/120-day-content-journey",
-          label: "120-Day Content Journey",
-          description: "$4M pipeline from content",
-        },
-        {
-          href: "/portfolio/10-touch-sales-play",
-          label: "10-Touch Sales Play",
-          description: "Multi-channel outbound system",
-        },
-        {
-          href: "/portfolio/intent-data",
-          label: "Intent Data Intelligence",
-          description: "Bombora signals → enterprise close",
-        },
-        {
-          href: "/portfolio/dynamic-nurture",
-          label: "Dynamic Email Nurture",
-          description: "Personalized B2B nurture engine",
-        },
-      ],
-    },
-    {
-      title: "Strategy & Systems",
-      links: [
-        {
-          href: "/portfolio/executive-dashboard",
-          label: "Demand Gen Command Center",
-          description: "AI-built exec dashboard, 5 live APIs",
-        },
-        {
-          href: "/portfolio/sovereign-personas",
-          label: "Sovereign Buyer Personas",
-          description: "Committee buying logic mapped",
-        },
-        {
-          href: "/portfolio/roi-simulator",
-          label: "Paid Media ROI Simulator",
-          description: "Interactive attribution modeling",
-        },
-        {
-          href: "/portfolio/hybrid-lead-scoring",
-          label: "Hybrid Lead Scoring",
-          description: "Buyer motion intent tracking",
-        },
-      ],
-    },
-    {
-      title: "AI Orchestration",
+      title: "By Capability",
       links: [
         {
           href: "/ai-orchestration",
-          label: "AI Orchestration Overview",
+          label: "AI Orchestration",
           description: "Machines handle scale. Humans handle meaning.",
         },
         {
@@ -112,12 +43,81 @@ export const workMegaMenu: MegaMenuContent = {
         {
           href: "/signal-state/framework",
           label: "The Framework",
-          description: "The Signal-State method",
+          description: "The Signal-State method, step by step",
         },
         {
           href: "/signal-state/signal-library",
           label: "Signal Library",
-          description: "Catalogued targeting patterns",
+          description: "Catalogued intent patterns and targeting signals",
+        },
+      ],
+    },
+  ],
+  promotional: {
+    headline: "Built for your situation",
+    description:
+      "Every resource, playbook, and framework on this site maps to a specific audience challenge. Find yours and go deeper.",
+    cta: {
+      label: "Browse Playbook Library",
+      href: "/playbooks",
+    },
+  },
+};
+
+/**
+ * Case Studies Mega Menu
+ * B2B proof narratives — pipeline programs and strategy & systems.
+ */
+export const caseStudiesMegaMenu: MegaMenuContent = {
+  layout: "three-column",
+  sections: [
+    {
+      title: "Pipeline Programs",
+      links: [
+        {
+          href: "/case-studies/120-day-content-journey",
+          label: "120-Day Content Journey",
+          description: "$4M pipeline from content",
+        },
+        {
+          href: "/case-studies/10-touch-sales-play",
+          label: "10-Touch Sales Play",
+          description: "Multi-channel outbound system",
+        },
+        {
+          href: "/case-studies/intent-data",
+          label: "Intent Data Intelligence",
+          description: "Bombora signals → enterprise close",
+        },
+        {
+          href: "/case-studies/dynamic-nurture",
+          label: "Dynamic Email Nurture",
+          description: "Personalized B2B nurture engine",
+        },
+      ],
+    },
+    {
+      title: "Strategy & Systems",
+      links: [
+        {
+          href: "/case-studies/executive-dashboard",
+          label: "Demand Gen Command Center",
+          description: "AI-built exec dashboard, 5 live APIs",
+        },
+        {
+          href: "/case-studies/sovereign-personas",
+          label: "Sovereign Buyer Personas",
+          description: "Committee buying logic mapped",
+        },
+        {
+          href: "/case-studies/authority-engineering",
+          label: "Authority Engineering",
+          description: "LLM-citation content architecture",
+        },
+        {
+          href: "/case-studies/thought-leadership-development",
+          label: "Thought Leadership Dev",
+          description: "Executive visibility pipeline",
         },
       ],
     },
@@ -125,31 +125,42 @@ export const workMegaMenu: MegaMenuContent = {
   promotional: {
     image: "/mega-menu/120-day-content-journey.png",
     imageAlt: "120-Day Content Journey",
-    headline: "Demand Gen at Scale",
+    headline: "Proof Over Promises",
     description:
       "Pipeline programs, scoring models, and frameworks built for enterprise B2B. Not just outcomes — the actual systems behind them.",
     cta: {
-      label: "View All Portfolio",
-      href: "/portfolio",
+      label: "Client Brands",
+      href: "/about/clients",
     },
   },
 };
 
-
 /**
- * About Mega Menu Content
+ * About Mega Menu
+ * Bio & Booking front-and-center; creative archives grouped separately.
  */
 export const aboutMegaMenu: MegaMenuContent = {
   layout: "three-column",
   sections: [
     {
-      title: "Professional",
+      title: "Bio & Booking",
       links: [
         {
           href: "/about",
           label: "About Me",
           description: "Career journey and background",
         },
+        {
+          href: "https://calendly.com/sarenai",
+          label: "Book 30 Minutes",
+          description: "Schedule a call — no pitch, just a real conversation",
+          isExternal: true,
+        },
+      ],
+    },
+    {
+      title: "The Archives",
+      links: [
         {
           href: "/about/expertise",
           label: "Expertise Timeline",
@@ -165,17 +176,6 @@ export const aboutMegaMenu: MegaMenuContent = {
           label: "My Stack",
           description: "Tools I use to build and grow",
         },
-        {
-          href: "/about/clients",
-          label: "Client Brands",
-          description: "26+ brands from startups to Fortune 500",
-        },
-        {
-          href: "https://calendly.com/sarenai",
-          label: "Book 30 Minutes",
-          description: "Book 30 minutes and let's talk",
-          isExternal: true,
-        },
       ],
     },
   ],
@@ -189,3 +189,7 @@ export const aboutMegaMenu: MegaMenuContent = {
     },
   },
 };
+
+// Legacy export aliases — used by any older imports not yet updated
+export const whoWeServeMegaMenu = solutionsMegaMenu;
+export const workMegaMenu = caseStudiesMegaMenu;

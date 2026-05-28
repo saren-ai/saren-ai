@@ -52,14 +52,14 @@ const resources = [
     title: "Authority Engineering",
     description:
       "A systematic approach to engineering credibility — how to build thought leadership infrastructure that works at scale.",
-    href: "/portfolio/authority-engineering",
+    href: "/case-studies/authority-engineering",
   },
   {
     type: "Case Study",
     title: "Thought Leadership Development",
     description:
       "The complete process for developing and distributing expertise-driven content that positions you as a category authority.",
-    href: "/portfolio/thought-leadership-development",
+    href: "/case-studies/thought-leadership-development",
   },
   {
     type: "Deep-Dive",

@@ -84,7 +84,7 @@ Living document. Updated as priorities shift.
 - HubSpot chat integration (TODO in ContactClient)
 - Dark mode color audit against WCAG AAA
 - Component storybook
-- Analytics dashboard for portfolio tool engagement
+- Analytics dashboard for playbook/tool engagement
 - A/B test hero copy / CTA variants
 
 ---

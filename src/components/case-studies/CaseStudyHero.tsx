@@ -42,8 +42,11 @@ export default function CaseStudyHero({
 
             <div className="container-narrow">
                 <Breadcrumb
-                    back={{ href: '/portfolio', label: 'Portfolio' }}
-                    current="Case Study"
+                    trail={[
+                      { href: '/', label: 'Home' },
+                      { href: '/case-studies', label: 'Case Studies' },
+                      { label: role },
+                    ]}
                     className="mb-8"
                 />
                 <motion.div
@@ -56,24 +59,11 @@ export default function CaseStudyHero({
                     <div className="lg:col-span-8">
                         {/* Metadata */}
                         <div className="flex flex-wrap items-center gap-4 text-sm font-mono text-slate mb-6 uppercase tracking-wider">
-                            <span className="text-lavender font-bold">{role}</span>
+                            <span className="px-3 py-1 rounded-full text-xs font-bold bg-lavender/10 text-lavender border border-lavender/20">
+                                {role}
+                            </span>
                             <span className="w-1 h-1 bg-slate/30 rounded-full" />
                             <span>{date}</span>
-                            {tags && tags.length > 0 && (
-                                <>
-                                    <span className="w-1 h-1 bg-slate/30 rounded-full hidden sm:block" />
-                                    <div className="flex gap-2">
-                                        {tags.map((tag) => (
-                                            <span
-                                                key={tag}
-                                                className="px-2 py-0.5 bg-slate/10 text-slate rounded text-xs"
-                                            >
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </>
-                            )}
                         </div>
 
                         {/* Title */}

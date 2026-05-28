@@ -117,7 +117,7 @@ export default function SearchResults({ query, onClose, onSuggest }: SearchResul
           No matches for &ldquo;{query}&rdquo;. Try fewer keywords.
         </p>
         <Link
-          href="/portfolio"
+          href="/case-studies"
           onClick={onClose}
           className="text-sm text-ember hover:underline"
         >

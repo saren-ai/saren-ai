@@ -26,54 +26,31 @@ const nextConfig: NextConfig = {
     SITE_URL: process.env.SITE_URL || "https://saren.ai",
   },
 
-  // Redirects for removed sections
+  // Redirects for removed sections and IA refactor (2026-05-28)
   async redirects() {
     return [
-      {
-        source: "/portfolio/behavioral-lead-scoring",
-        destination: "/portfolio/hybrid-lead-scoring",
-        permanent: true,
-      },
-      {
-        source: "/about/stack",
-        destination: "/about#stack",
-        permanent: true,
-      },
-      {
-        source: "/portfolio/calculator",
-        destination: "/portfolio/gtm-budget-calculator",
-        permanent: true,
-      },
-      {
-        source: "/thinking",
-        destination: "/portfolio",
-        permanent: true,
-      },
-      {
-        source: "/thinking/:slug*",
-        destination: "/portfolio",
-        permanent: true,
-      },
-      {
-        source: "/podcast",
-        destination: "/",
-        permanent: true,
-      },
-      {
-        source: "/podcast/:slug*",
-        destination: "/",
-        permanent: true,
-      },
-      {
-        source: "/about/brand",
-        destination: "/brand",
-        permanent: true,
-      },
-      {
-        source: "/portfolio/psylocke-timeline",
-        destination: "/feature/psylocke-timeline",
-        permanent: true,
-      },
+      // ── IA Refactor: tools moved portfolio → playbooks ──────────────────
+      { source: "/portfolio/roi-simulator",                         destination: "/playbooks/roi-simulator",                         permanent: true },
+      { source: "/portfolio/gtm-budget-calculator",                 destination: "/playbooks/gtm-budget-calculator",                 permanent: true },
+      { source: "/portfolio/hybrid-lead-scoring",                   destination: "/playbooks/hybrid-lead-scoring",                   permanent: true },
+      { source: "/portfolio/b2b-marketing-framework/:slug*",        destination: "/playbooks/b2b-marketing-framework/:slug*",        permanent: true },
+      { source: "/portfolio/b2b-marketing-framework",               destination: "/playbooks/b2b-marketing-framework",               permanent: true },
+      { source: "/portfolio/its-good-to-be-pitched",                destination: "/playbooks/its-good-to-be-pitched",               permanent: true },
+      // ── IA Refactor: /portfolio → /case-studies ─────────────────────────
+      { source: "/portfolio",                                        destination: "/case-studies",                                    permanent: true },
+      { source: "/portfolio/:slug*",                                 destination: "/case-studies/:slug*",                             permanent: true },
+      // ── Legacy /downloads → Playbook Library ────────────────────────────
+      { source: "/downloads",                                        destination: "/playbooks",                                       permanent: true },
+      // ── Pre-refactor aliases ─────────────────────────────────────────────
+      { source: "/portfolio/behavioral-lead-scoring",               destination: "/playbooks/hybrid-lead-scoring",                   permanent: true },
+      { source: "/about/stack",                                      destination: "/about#stack",                                     permanent: true },
+      { source: "/portfolio/calculator",                             destination: "/playbooks/gtm-budget-calculator",                 permanent: true },
+      { source: "/thinking",                                         destination: "/case-studies",                                    permanent: true },
+      { source: "/thinking/:slug*",                                  destination: "/case-studies",                                    permanent: true },
+      { source: "/podcast",                                          destination: "/",                                                permanent: true },
+      { source: "/podcast/:slug*",                                   destination: "/",                                                permanent: true },
+      { source: "/about/brand",                                      destination: "/brand",                                           permanent: true },
+      { source: "/portfolio/psylocke-timeline",                      destination: "/feature/psylocke-timeline",                       permanent: true },
     ];
   },
 
