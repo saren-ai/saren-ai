@@ -4,7 +4,7 @@ import PortfolioPageContent from "./PortfolioPageContent";
 export const metadata: Metadata = {
   title: "Portfolio | Saren.ai",
   description:
-    "Interactive case studies and frameworks demonstrating strategic marketing, demand generation, and AI-assisted creative production.",
+    "Enterprise-grade frameworks, downloads, and interactive case studies for founders, fractional CMOs, and subject matter experts. Built from real pipelines and engagements.",
   alternates: { canonical: "https://saren.ai/portfolio" },
 };
 

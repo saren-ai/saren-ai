@@ -129,7 +129,7 @@ export const workMegaMenu: MegaMenuContent = {
     description:
       "Pipeline programs, scoring models, and frameworks built for enterprise B2B. Not just outcomes — the actual systems behind them.",
     cta: {
-      label: "View All Work",
+      label: "View All Portfolio",
       href: "/portfolio",
     },
   },
