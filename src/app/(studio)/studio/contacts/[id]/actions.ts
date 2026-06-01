@@ -4,6 +4,75 @@ import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import type { ThreadItem } from "@/components/studio/ThreadBubble";
 
+// ---------------------------------------------------------------------------
+// Agent job queue (the trigger layer — see migration 004_agent_jobs.sql).
+// A job is an INTENT. The Studio cockpit inserts it; the engine (Claude/Cowork
+// skills) claims it, runs the matching skill, and writes the result back.
+// ---------------------------------------------------------------------------
+
+// Jobs the cockpit can fire from a single contact. Keep this in sync with the
+// dispatch table in the lead-prospecting `job-runner` skill.
+export type JobKind = "research" | "draft" | "enrich";
+
+const JOB_SPEC: Record<JobKind, { skill: string; kind: string }> = {
+  // free / no Apollo credits
+  research: { skill: "account-research", kind: "research" },
+  draft: { skill: "sales-outreach", kind: "draft" },
+  // COSTS CREDITS — only ever queued behind an explicit confirm in the UI.
+  enrich: { skill: "apollo-people-search", kind: "enrich" },
+};
+
+export async function queueJob(
+  contactId: string,
+  jobKind: JobKind,
+  params: Record<string, unknown> = {}
+) {
+  const spec = JOB_SPEC[jobKind];
+  if (!spec) throw new Error(`Unknown job kind: ${jobKind}`);
+
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) throw new Error("Not authenticated");
+
+  // Pull the contact's client/company so the engine has the routing context
+  // without a second round-trip.
+  const { data: contact } = await supabase
+    .from("contacts")
+    .select("client_id, company_id")
+    .eq("id", contactId)
+    .single();
+
+  // Don't double-queue: if an identical job is already pending, no-op.
+  const { data: existing } = await supabase
+    .from("agent_jobs")
+    .select("id")
+    .eq("contact_id", contactId)
+    .eq("skill", spec.skill)
+    .in("status", ["requested", "claimed", "running"])
+    .limit(1);
+
+  if (existing && existing.length > 0) {
+    return { queued: false, reason: "already_pending" as const };
+  }
+
+  await supabase.from("agent_jobs").insert({
+    contact_id: contactId,
+    client_id: contact?.client_id ?? null,
+    company_id: contact?.company_id ?? null,
+    skill: spec.skill,
+    kind: spec.kind,
+    status: "requested",
+    params: params as never,
+    requested_by: user.id,
+  });
+
+  revalidatePath(`/studio/contacts/${contactId}`);
+  return { queued: true as const };
+}
+
 export async function updateContactField(
   id: string,
   field: string,

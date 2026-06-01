@@ -14,6 +14,66 @@ export type Database = {
   }
   public: {
     Tables: {
+      agent_jobs: {
+        Row: {
+          attempts: number
+          claimed_at: string | null
+          client_id: string | null
+          company_id: string | null
+          contact_id: string | null
+          created_at: string
+          error: string | null
+          finished_at: string | null
+          id: string
+          kind: string
+          params: Json
+          requested_by: string | null
+          result: Json | null
+          skill: string
+          started_at: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          attempts?: number
+          claimed_at?: string | null
+          client_id?: string | null
+          company_id?: string | null
+          contact_id?: string | null
+          created_at?: string
+          error?: string | null
+          finished_at?: string | null
+          id?: string
+          kind?: string
+          params?: Json
+          requested_by?: string | null
+          result?: Json | null
+          skill: string
+          started_at?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          attempts?: number
+          claimed_at?: string | null
+          client_id?: string | null
+          company_id?: string | null
+          contact_id?: string | null
+          created_at?: string
+          error?: string | null
+          finished_at?: string | null
+          id?: string
+          kind?: string
+          params?: Json
+          requested_by?: string | null
+          result?: Json | null
+          skill?: string
+          started_at?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       entitlements: {
         Row: {
           id: string
@@ -158,9 +218,14 @@ export type Database = {
       }
       contacts: {
         Row: {
+          buying_role_hypothesis: string | null
+          client_id: string | null
           company: string | null
+          company_id: string | null
           created_at: string | null
           email: string | null
+          email_status: string | null
+          fit_score: number | null
           full_name: string
           id: string
           linkedin_url: string | null
@@ -168,13 +233,20 @@ export type Database = {
           notes: string | null
           phone: string | null
           segment: string | null
+          seniority: string | null
+          stage: string | null
           title: string | null
           updated_at: string | null
         }
         Insert: {
+          buying_role_hypothesis?: string | null
+          client_id?: string | null
           company?: string | null
+          company_id?: string | null
           created_at?: string | null
           email?: string | null
+          email_status?: string | null
+          fit_score?: number | null
           full_name: string
           id?: string
           linkedin_url?: string | null
@@ -182,13 +254,20 @@ export type Database = {
           notes?: string | null
           phone?: string | null
           segment?: string | null
+          seniority?: string | null
+          stage?: string | null
           title?: string | null
           updated_at?: string | null
         }
         Update: {
+          buying_role_hypothesis?: string | null
+          client_id?: string | null
           company?: string | null
+          company_id?: string | null
           created_at?: string | null
           email?: string | null
+          email_status?: string | null
+          fit_score?: number | null
           full_name?: string
           id?: string
           linkedin_url?: string | null
@@ -196,6 +275,8 @@ export type Database = {
           notes?: string | null
           phone?: string | null
           segment?: string | null
+          seniority?: string | null
+          stage?: string | null
           title?: string | null
           updated_at?: string | null
         }

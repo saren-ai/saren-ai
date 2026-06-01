@@ -17,6 +17,7 @@ import StatusPill from "@/components/studio/StatusPill";
 import RelativeTime from "@/components/studio/RelativeTime";
 import TouchDots from "@/components/studio/TouchDots";
 import ThreadBubble, { type ThreadItem } from "@/components/studio/ThreadBubble";
+import JobTriggers, { type AgentJob } from "@/components/studio/JobTriggers";
 import { updateContactField, logReply } from "./actions";
 import type { Tables } from "@/lib/supabase/database.types";
 
@@ -28,6 +29,7 @@ type Sequence = Tables<"sequences"> & {
 interface Props {
   contact: Contact;
   sequences: Sequence[];
+  jobs: AgentJob[];
 }
 
 const EDITABLE_FIELDS: {
@@ -237,7 +239,7 @@ function TouchDetailPanel({
   );
 }
 
-export default function ContactDetailClient({ contact, sequences }: Props) {
+export default function ContactDetailClient({ contact, sequences, jobs }: Props) {
   const [selectedTouchId, setSelectedTouchId] = useState<string | null>(null);
   const [expandedSeqIds, setExpandedSeqIds] = useState<Set<string>>(
     new Set(sequences.map((s) => s.id))
@@ -270,20 +272,23 @@ export default function ContactDetailClient({ contact, sequences }: Props) {
       </p>
 
       <div className="grid grid-cols-[280px_1fr_320px] gap-6">
-        {/* Left — contact card */}
-        <div className="bg-card border border-border rounded-xl p-5">
-          <h2 className="text-sm font-semibold text-foreground mb-4">Contact</h2>
-          {EDITABLE_FIELDS.map(({ key, label, icon, multiline }) => (
-            <InlineField
-              key={key}
-              contactId={contact.id}
-              fieldKey={key}
-              label={label}
-              value={(contact[key] as string | null) ?? null}
-              icon={icon}
-              multiline={multiline}
-            />
-          ))}
+        {/* Left — contact card + engine triggers */}
+        <div className="flex flex-col gap-6">
+          <div className="bg-card border border-border rounded-xl p-5">
+            <h2 className="text-sm font-semibold text-foreground mb-4">Contact</h2>
+            {EDITABLE_FIELDS.map(({ key, label, icon, multiline }) => (
+              <InlineField
+                key={key}
+                contactId={contact.id}
+                fieldKey={key}
+                label={label}
+                value={(contact[key] as string | null) ?? null}
+                icon={icon}
+                multiline={multiline}
+              />
+            ))}
+          </div>
+          <JobTriggers contactId={contact.id} jobs={jobs} />
         </div>
 
         {/* Center — sequence + touch timeline */}
