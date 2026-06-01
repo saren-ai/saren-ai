@@ -27,33 +27,61 @@ const nextConfig: NextConfig = {
   },
 
   // Redirects for removed sections and IA refactor (2026-05-28)
+  // IMPORTANT: specific patterns must come before catch-alls — Next.js evaluates top-to-bottom.
   async redirects() {
     return [
+      // ── Rebranded routes ─────────────────────────────────────────────────
+      { source: "/ai-operations",                                    destination: "/ai-orchestration",                                permanent: true },
       // ── IA Refactor: tools moved portfolio → playbooks ──────────────────
       { source: "/portfolio/roi-simulator",                         destination: "/playbooks/roi-simulator",                         permanent: true },
       { source: "/portfolio/gtm-budget-calculator",                 destination: "/playbooks/gtm-budget-calculator",                 permanent: true },
       { source: "/portfolio/hybrid-lead-scoring",                   destination: "/playbooks/hybrid-lead-scoring",                   permanent: true },
       { source: "/portfolio/b2b-marketing-framework/:slug*",        destination: "/playbooks/b2b-marketing-framework/:slug*",        permanent: true },
       { source: "/portfolio/b2b-marketing-framework",               destination: "/playbooks/b2b-marketing-framework",               permanent: true },
+      { source: "/portfolio/its-good-to-be-pitched",                destination: "/playbooks/its-good-to-be-pitched",               permanent: true },
+      // ── Portfolio slugs that don't map to a case study ──────────────────
+      { source: "/portfolio/behavioral-lead-scoring",               destination: "/playbooks/hybrid-lead-scoring",                   permanent: true },
+      { source: "/portfolio/calculator",                             destination: "/playbooks/gtm-budget-calculator",                 permanent: true },
+      { source: "/portfolio/golden-dashboard",                      destination: "/playbooks/roi-simulator",                         permanent: true },
+      { source: "/portfolio/psylocke-timeline",                     destination: "/feature/psylocke-timeline",                       permanent: true },
+      // ── IA Refactor: /portfolio → /case-studies (catch-all, must be last) ─
+      { source: "/portfolio",                                        destination: "/case-studies",                                    permanent: true },
+      { source: "/portfolio/:slug*",                                 destination: "/case-studies/:slug*",                             permanent: true },
       // ── Brief double-nesting bug (cc15254 → 026361d, 2026-05-28) ────────
       { source: "/playbooks/b2b-marketing-framework/b2b-marketing-framework/:slug*", destination: "/playbooks/b2b-marketing-framework/:slug*", permanent: true },
       { source: "/playbooks/b2b-marketing-framework/b2b-marketing-framework",        destination: "/playbooks/b2b-marketing-framework",         permanent: true },
-      { source: "/portfolio/its-good-to-be-pitched",                destination: "/playbooks/its-good-to-be-pitched",               permanent: true },
-      // ── IA Refactor: /portfolio → /case-studies ─────────────────────────
-      { source: "/portfolio",                                        destination: "/case-studies",                                    permanent: true },
-      { source: "/portfolio/:slug*",                                 destination: "/case-studies/:slug*",                             permanent: true },
       // ── Legacy /downloads → Playbook Library ────────────────────────────
       { source: "/downloads",                                        destination: "/playbooks",                                       permanent: true },
-      // ── Pre-refactor aliases ─────────────────────────────────────────────
-      { source: "/portfolio/behavioral-lead-scoring",               destination: "/playbooks/hybrid-lead-scoring",                   permanent: true },
+      // ── Other pre-refactor aliases ───────────────────────────────────────
       { source: "/about/stack",                                      destination: "/about#stack",                                     permanent: true },
-      { source: "/portfolio/calculator",                             destination: "/playbooks/gtm-budget-calculator",                 permanent: true },
+      { source: "/about/brand",                                      destination: "/brand",                                           permanent: true },
+      { source: "/about/fractional-cmo-services",                    destination: "/engage",                                          permanent: true },
       { source: "/thinking",                                         destination: "/case-studies",                                    permanent: true },
       { source: "/thinking/:slug*",                                  destination: "/case-studies",                                    permanent: true },
       { source: "/podcast",                                          destination: "/",                                                permanent: true },
       { source: "/podcast/:slug*",                                   destination: "/",                                                permanent: true },
-      { source: "/about/brand",                                      destination: "/brand",                                           permanent: true },
-      { source: "/portfolio/psylocke-timeline",                      destination: "/feature/psylocke-timeline",                       permanent: true },
+      { source: "/home",                                             destination: "/",                                                permanent: true },
+      { source: "/sitemap/sitemap.xml",                              destination: "/sitemap.xml",                                     permanent: true },
+      // ── Old Medium publication (saren.ai was previously a Medium custom domain) ──
+      // These articles accumulated backlinks before the domain moved to Next.js.
+      // Redirecting to the nearest topically-relevant page preserves link equity.
+      { source: "/b2b-content-at-ai-scale-thriving-in-the-era-of-zero-click-serps-f380153f45ca",       destination: "/case-studies",       permanent: true },
+      { source: "/decentralized-social-disenshittification-now-b4d6ac43c307",                           destination: "/feature",             permanent: true },
+      { source: "/the-3-questions-c-level-prospects-are-scanning-for-on-your-website-3efab4c7aa5e",     destination: "/case-studies",        permanent: true },
+      { source: "/be-more-human-cultivating-your-uniquely-human-skills-in-the-age-of-ai-c24fbe945d05",  destination: "/about",               permanent: true },
+      { source: "/ai-industry-reality-check-2024-a124530a003b",                                         destination: "/ai-orchestration",    permanent: true },
+      { source: "/the-short-answer-to-how-do-i-update-my-website-for-aeo-geo-05251ab3e9aa",             destination: "/ai-orchestration",    permanent: true },
+      { source: "/10-real-world-lessons-from-a-decade-of-gartners-hype-cycles-2012-2024-f4b90798d98f",  destination: "/case-studies",        permanent: true },
+      { source: "/create-a-customized-gpt-for-brand-messaging-on-chatgpt-plus-8f638e08ffe4",            destination: "/playbooks",           permanent: true },
+      // ── Old Medium/WordPress taxonomy and date-based paths (catch-alls) ────
+      { source: "/tag/:slug*",                                       destination: "/case-studies",                                    permanent: true },
+      { source: "/tagged/:slug*",                                    destination: "/case-studies",                                    permanent: true },
+      { source: "/category/:slug*",                                  destination: "/case-studies",                                    permanent: true },
+      { source: "/followers",                                        destination: "/about",                                           permanent: true },
+      { source: "/latest",                                           destination: "/playbooks",                                       permanent: true },
+      { source: "/2026/01/01/120-day-content-journey/:path*",        destination: "/case-studies/120-day-content-journey",           permanent: true },
+      { source: "/2026/01/01/b2b-saas-icp-sales-play/:path*",        destination: "/case-studies/10-touch-sales-play",               permanent: true },
+      { source: "/2026/01/05/personas-for-sovereign-markets/:path*", destination: "/case-studies/sovereign-personas",                permanent: true },
     ];
   },
 
