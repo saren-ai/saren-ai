@@ -3,10 +3,10 @@
 import { useMemo, useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Flame, Send, MessageSquareReply } from "lucide-react";
+import { Flame, Send, MessageSquareReply, Archive, FlaskConical, Loader2 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import ThemeToggle from "@/components/layout/ThemeToggle";
-import { logTouchSent, markReplied } from "./actions";
+import { logTouchSent, markReplied, archiveContact, queueResearchFromPipeline } from "./actions";
 
 export interface PipelineRow {
   contact_id: string;
@@ -20,6 +20,7 @@ export interface PipelineRow {
   next_action: "enrich" | "write_sequence" | "review_and_send" | "send_next_touch" | "respond";
   next_due: string | null;
   overdue: boolean | null;
+  priority: number | null;
 }
 
 const STAGES = [
@@ -61,6 +62,7 @@ export default function PipelineClient({
   sentToday,
   streak,
   ceiling,
+  researchedIds,
 }: {
   userEmail: string;
   rows: PipelineRow[];
@@ -68,23 +70,35 @@ export default function PipelineClient({
   sentToday: number;
   streak: number;
   ceiling: number;
+  researchedIds: Set<string>;
 }) {
-  const [client, setClient] = useState<string>("all");
+  const defaultClient = clients.includes("saren") ? "saren" : clients[0] ?? "all";
+  const [client, setClient] = useState<string>(defaultClient);
   const [stage, setStage] = useState<string>("all");
   const [pending, startTransition] = useTransition();
   const [busyId, setBusyId] = useState<string | null>(null);
+  const [busyAction, setBusyAction] = useState<string | null>(null);
+  // Optimistic: IDs removed from view before server revalidates
+  const [archivedIds, setArchivedIds] = useState<Set<string>>(new Set());
+  // Optimistic: IDs we just queued research for
+  const [queuedResearchIds, setQueuedResearchIds] = useState<Set<string>>(new Set());
 
   const byClient = useMemo(
     () => (client === "all" ? rows : rows.filter((r) => r.client === client)),
     [rows, client]
   );
+  // Filter archived contacts out optimistically
+  const visible = useMemo(
+    () => byClient.filter((r) => !archivedIds.has(r.contact_id)),
+    [byClient, archivedIds]
+  );
   const counts = useMemo(
-    () => STAGES.map((s) => ({ ...s, n: byClient.filter((r) => r.stage === s.key).length })),
-    [byClient]
+    () => STAGES.map((s) => ({ ...s, n: visible.filter((r) => r.stage === s.key).length })),
+    [visible]
   );
   const queue = useMemo(
-    () => (stage === "all" ? byClient : byClient.filter((r) => r.stage === stage)),
-    [byClient, stage]
+    () => (stage === "all" ? visible : visible.filter((r) => r.stage === stage)),
+    [visible, stage]
   );
 
   const pct = Math.min(100, Math.round((sentToday / ceiling) * 100));
@@ -95,19 +109,35 @@ export default function PipelineClient({
     router.push("/studio/login");
   }
 
-  function runAction(fn: (id: string) => Promise<void>, id: string) {
+  function runAction(fn: (id: string) => Promise<void>, id: string, action: string) {
     setBusyId(id);
+    setBusyAction(action);
     startTransition(async () => {
       try {
         await fn(id);
       } finally {
         setBusyId(null);
+        setBusyAction(null);
       }
     });
   }
 
+  function handleArchive(id: string) {
+    setArchivedIds((prev) => new Set([...prev, id]));
+    startTransition(async () => {
+      await archiveContact(id);
+    });
+  }
+
+  function handleResearch(id: string) {
+    setQueuedResearchIds((prev) => new Set([...prev, id]));
+    startTransition(async () => {
+      await queueResearchFromPipeline(id);
+    });
+  }
+
   return (
-    <div className="min-h-screen p-8 max-w-5xl mx-auto">
+    <div className="min-h-screen bg-background p-8 max-w-5xl mx-auto">
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
@@ -123,7 +153,7 @@ export default function PipelineClient({
           <select
             value={client}
             onChange={(e) => setClient(e.target.value)}
-            className="bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-foreground"
+            className="bg-card border border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:border-border-hover"
           >
             <option value="all">All clients</option>
             {clients.map((c) => (
@@ -143,7 +173,7 @@ export default function PipelineClient({
 
       {/* Gamification */}
       <div className="flex gap-4 mb-8 flex-wrap">
-        <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex-1 min-w-[240px] max-w-sm">
+        <div className="bg-card border border-border rounded-xl p-4 flex-1 min-w-[240px] max-w-sm">
           <div className="flex items-baseline justify-between mb-2">
             <span className="text-xs uppercase tracking-widest text-foreground-muted font-semibold">
               Today&apos;s sends
@@ -153,11 +183,11 @@ export default function PipelineClient({
               <span className="text-foreground-muted text-sm">/{ceiling}</span>
             </span>
           </div>
-          <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+          <div className="h-1.5 bg-border rounded-full overflow-hidden">
             <div className="h-full bg-ember rounded-full transition-all" style={{ width: `${pct}%` }} />
           </div>
         </div>
-        <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center gap-2.5">
+        <div className="bg-card border border-border rounded-xl p-4 flex items-center gap-2.5">
           <Flame size={18} className="text-copper" />
           <span className="font-mono text-xl font-bold text-copper">{streak}</span>
           <span className="text-xs uppercase tracking-widest text-foreground-muted font-semibold">
@@ -168,7 +198,7 @@ export default function PipelineClient({
 
       {/* Funnel strip */}
       <div className="flex gap-2.5 mb-8 flex-wrap">
-        <FunnelChip label="All" n={byClient.length} active={stage === "all"} onClick={() => setStage("all")} />
+        <FunnelChip label="All" n={visible.length} active={stage === "all"} onClick={() => setStage("all")} />
         {counts.map((c) => (
           <FunnelChip key={c.key} label={c.label} n={c.n} active={stage === c.key} onClick={() => setStage(c.key)} />
         ))}
@@ -186,14 +216,19 @@ export default function PipelineClient({
             const canSend = r.stage === "sequenced" || r.stage === "in_outreach";
             const canReply = r.stage === "in_outreach";
             const busy = busyId === r.contact_id && pending;
+            const isResearched = researchedIds.has(r.contact_id) || queuedResearchIds.has(r.contact_id);
+            const researchQueued = queuedResearchIds.has(r.contact_id);
             return (
               <div
                 key={r.contact_id}
-                className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 hover:border-ember/30 transition-colors"
+                className="flex items-center gap-3 bg-card border border-border rounded-xl px-4 py-3 hover:border-ember/30 transition-colors"
               >
-                <div className="w-9 h-9 rounded-full bg-lavender/80 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">
+                {/* Avatar */}
+                <div className="w-9 h-9 rounded-full bg-lavender/20 text-lavender flex items-center justify-center text-xs font-bold flex-shrink-0">
                   {initials(r.full_name)}
                 </div>
+
+                {/* Identity */}
                 <div className="flex-1 min-w-0">
                   <div className="text-sm font-bold text-foreground truncate">{r.full_name}</div>
                   <div className="text-xs text-foreground-muted truncate">
@@ -201,33 +236,65 @@ export default function PipelineClient({
                     {r.segment ? <span className="text-lavender font-semibold"> · {r.segment}</span> : null}
                   </div>
                 </div>
+
+                {/* Due date */}
                 {r.next_due && (
                   <span className={`text-xs flex-shrink-0 ${r.overdue ? "text-ember font-bold" : "text-foreground-muted"}`}>
                     {dueLabel(r)}
                   </span>
                 )}
+
+                {/* Research status icon */}
+                <button
+                  onClick={() => !isResearched && handleResearch(r.contact_id)}
+                  disabled={busy || isResearched}
+                  title={
+                    researchQueued
+                      ? "Research queued — picks up next hour"
+                      : isResearched
+                      ? "Researched"
+                      : "Queue research (free)"
+                  }
+                  className={`flex-shrink-0 transition-colors ${
+                    isResearched
+                      ? "text-lavender cursor-default"
+                      : "text-foreground-muted hover:text-lavender cursor-pointer"
+                  }`}
+                >
+                  {researchQueued ? (
+                    <Loader2 size={14} className="animate-spin" />
+                  ) : (
+                    <FlaskConical size={14} />
+                  )}
+                </button>
+
+                {/* Review link */}
                 <Link
                   href={`/studio/contacts/${r.contact_id}`}
-                  className="text-xs text-foreground-muted hover:text-foreground border border-white/10 rounded-full px-3 py-1.5 transition-colors flex-shrink-0"
+                  className="text-xs text-foreground-muted hover:text-foreground border border-border rounded-full px-3 py-1.5 transition-colors flex-shrink-0"
                 >
                   Review
                 </Link>
+
+                {/* Primary action */}
                 {canSend ? (
                   <button
-                    onClick={() => runAction(logTouchSent, r.contact_id)}
+                    onClick={() => runAction(logTouchSent, r.contact_id, "send")}
                     disabled={busy}
                     className="inline-flex items-center gap-1.5 text-xs font-semibold bg-ember text-white rounded-full px-3 py-1.5 hover:bg-ember/90 disabled:opacity-50 transition-colors flex-shrink-0"
                   >
-                    <Send size={12} /> {busy ? "…" : "Mark sent"}
+                    <Send size={12} /> {busy && busyAction === "send" ? "…" : "Mark sent"}
                   </button>
                 ) : (
                   <span className="text-xs font-semibold text-lavender border border-lavender/40 rounded-full px-3 py-1.5 flex-shrink-0">
                     {ACTION_LABEL[r.next_action]}
                   </span>
                 )}
+
+                {/* Mark replied */}
                 {canReply && (
                   <button
-                    onClick={() => runAction(markReplied, r.contact_id)}
+                    onClick={() => runAction(markReplied, r.contact_id, "reply")}
                     disabled={busy}
                     title="Mark replied"
                     className="text-foreground-muted hover:text-lavender disabled:opacity-50 transition-colors flex-shrink-0"
@@ -235,6 +302,16 @@ export default function PipelineClient({
                     <MessageSquareReply size={15} />
                   </button>
                 )}
+
+                {/* Archive */}
+                <button
+                  onClick={() => handleArchive(r.contact_id)}
+                  disabled={busy}
+                  title="Archive — remove from pipeline"
+                  className="text-foreground-muted hover:text-ember disabled:opacity-50 transition-colors flex-shrink-0"
+                >
+                  <Archive size={14} />
+                </button>
               </div>
             );
           })}
@@ -264,7 +341,9 @@ function FunnelChip({
     <button
       onClick={onClick}
       className={`flex flex-col gap-0.5 rounded-xl px-4 py-3 min-w-[88px] border transition-colors ${
-        active ? "border-ember bg-white/10" : "border-white/10 bg-white/5 hover:border-white/20"
+        active
+          ? "border-ember bg-ember/10 dark:bg-white/10"
+          : "border-border bg-card hover:border-foreground-muted"
       }`}
     >
       <span className="font-mono text-2xl font-bold text-ember leading-none">{n}</span>

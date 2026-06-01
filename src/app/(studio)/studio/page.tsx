@@ -54,6 +54,18 @@ export default async function StudioPage() {
     cursor.setDate(cursor.getDate() - 1);
   }
 
+  // Which contacts have a completed research job?
+  const contactIds = rows.map((r) => r.contact_id);
+  const { data: researchJobs } = contactIds.length
+    ? await supabase
+        .from("agent_jobs")
+        .select("contact_id")
+        .in("contact_id", contactIds)
+        .eq("kind", "research")
+        .eq("status", "done")
+    : { data: [] };
+  const researchedIds = new Set((researchJobs ?? []).map((j) => j.contact_id as string));
+
   const clients = [...new Set(rows.map((r) => r.client).filter(Boolean))].sort();
 
   return (
@@ -64,6 +76,7 @@ export default async function StudioPage() {
       sentToday={sentToday}
       streak={streak}
       ceiling={CEILING}
+      researchedIds={researchedIds}
     />
   );
 }

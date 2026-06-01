@@ -12,13 +12,19 @@ import {
   StickyNote,
   ChevronDown,
   ChevronRight,
+  FlaskConical,
+  Sparkles,
+  Building2,
+  Tag,
+  Star,
+  Loader2,
 } from "lucide-react";
 import StatusPill from "@/components/studio/StatusPill";
 import RelativeTime from "@/components/studio/RelativeTime";
 import TouchDots from "@/components/studio/TouchDots";
 import ThreadBubble, { type ThreadItem } from "@/components/studio/ThreadBubble";
 import JobTriggers, { type AgentJob } from "@/components/studio/JobTriggers";
-import { updateContactField, logReply } from "./actions";
+import { updateContactField, logReply, queueJob } from "./actions";
 import type { Tables } from "@/lib/supabase/database.types";
 
 type Contact = Tables<"contacts">;
@@ -30,6 +36,8 @@ interface Props {
   contact: Contact;
   sequences: Sequence[];
   jobs: AgentJob[];
+  researchJob: AgentJob | null;
+  sources: { source: string | null; raw: Record<string, unknown> | null; imported_at: string | null }[];
 }
 
 const EDITABLE_FIELDS: {
@@ -123,6 +131,152 @@ function InlineField({
           >
             {value || <span className="text-foreground-muted italic">—</span>}
           </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ResearchPanel({
+  contact,
+  researchJob,
+}: {
+  contact: Contact;
+  researchJob: AgentJob | null;
+}) {
+  const [isPending, startTransition] = useTransition();
+  const [queued, setQueued] = useState(false);
+  const [notice, setNotice] = useState<string | null>(null);
+
+  function requestResearch() {
+    startTransition(async () => {
+      const res = await queueJob(contact.id, "research");
+      setQueued(true);
+      setNotice(res.queued ? "Queued — picks up next hour." : "Already pending.");
+    });
+  }
+
+  if (!researchJob) {
+    return (
+      <div className="bg-card border border-border rounded-xl p-5">
+        <div className="flex items-center gap-2 mb-3">
+          <FlaskConical size={15} className="text-foreground-muted" />
+          <h2 className="text-sm font-semibold text-foreground">Research</h2>
+        </div>
+        <p className="text-sm text-foreground-muted mb-4">
+          No research completed yet for{" "}
+          <span className="font-medium text-foreground">{contact.full_name}</span>
+          {contact.company ? ` at ${contact.company}` : ""}.
+        </p>
+        {queued ? (
+          <div className="flex items-center gap-2 text-sm text-lavender">
+            <Loader2 size={14} className="animate-spin" />
+            <span>{notice}</span>
+          </div>
+        ) : (
+          <button
+            onClick={requestResearch}
+            disabled={isPending}
+            className="w-full flex items-center justify-center gap-2 rounded-lg border border-lavender/50 text-lavender text-sm py-2.5 hover:bg-lavender/10 transition-colors disabled:opacity-50"
+          >
+            <Sparkles size={14} />
+            Deep Dive — Request Research
+          </button>
+        )}
+        {notice && !queued && (
+          <p className="mt-2 text-xs text-foreground-muted">{notice}</p>
+        )}
+      </div>
+    );
+  }
+
+  const summary = researchJob.result?.summary ?? null;
+  const fullResult = researchJob.result as Record<string, unknown> | null;
+
+  return (
+    <div className="bg-card border border-border rounded-xl p-5">
+      <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center gap-2">
+          <FlaskConical size={15} className="text-lavender" />
+          <h2 className="text-sm font-semibold text-foreground">Research</h2>
+        </div>
+        <span className="text-[10px] font-mono text-foreground-muted">
+          <RelativeTime iso={researchJob.finished_at ?? researchJob.created_at} />
+        </span>
+      </div>
+
+      {summary && (
+        <div className="mb-4 text-sm text-foreground leading-relaxed bg-lavender/5 border border-lavender/20 rounded-lg px-4 py-3">
+          {summary}
+        </div>
+      )}
+
+      {/* Render any structured keys from the result beyond "summary" */}
+      {fullResult && Object.keys(fullResult).filter((k) => k !== "summary").length > 0 && (
+        <div className="flex flex-col gap-3">
+          {Object.entries(fullResult)
+            .filter(([k]) => k !== "summary")
+            .map(([key, val]) => (
+              <div key={key}>
+                <p className="text-[10px] uppercase tracking-wider text-foreground-muted mb-1">
+                  {key.replace(/_/g, " ")}
+                </p>
+                <p className="text-sm text-foreground">
+                  {typeof val === "string" ? val : JSON.stringify(val)}
+                </p>
+              </div>
+            ))}
+        </div>
+      )}
+
+      <button
+        onClick={requestResearch}
+        disabled={isPending || queued}
+        className="mt-4 w-full flex items-center justify-center gap-2 rounded-lg border border-border text-foreground-muted text-xs py-2 hover:border-lavender hover:text-lavender transition-colors disabled:opacity-50"
+      >
+        <Sparkles size={12} />
+        {queued ? "Refresh queued…" : "Refresh research"}
+      </button>
+    </div>
+  );
+}
+
+function ContactMeta({ contact }: { contact: Contact }) {
+  const hasAnyMeta = contact.segment || contact.seniority || contact.fit_score || contact.buying_role_hypothesis;
+  if (!hasAnyMeta) return null;
+
+  return (
+    <div className="bg-card border border-border rounded-xl p-5">
+      <h2 className="text-sm font-semibold text-foreground mb-3">Intel</h2>
+      <div className="flex flex-col gap-2">
+        {contact.segment && (
+          <div className="flex items-center gap-2">
+            <Tag size={12} className="text-foreground-muted flex-shrink-0" />
+            <span className="text-xs text-foreground-muted">Segment</span>
+            <span className="ml-auto text-xs font-medium text-lavender">{contact.segment}</span>
+          </div>
+        )}
+        {contact.seniority && (
+          <div className="flex items-center gap-2">
+            <Building2 size={12} className="text-foreground-muted flex-shrink-0" />
+            <span className="text-xs text-foreground-muted">Seniority</span>
+            <span className="ml-auto text-xs font-medium text-foreground">{contact.seniority}</span>
+          </div>
+        )}
+        {contact.fit_score != null && (
+          <div className="flex items-center gap-2">
+            <Star size={12} className="text-foreground-muted flex-shrink-0" />
+            <span className="text-xs text-foreground-muted">Fit score</span>
+            <span className={`ml-auto text-xs font-mono font-bold ${contact.fit_score >= 70 ? "text-ember" : contact.fit_score >= 40 ? "text-copper" : "text-foreground-muted"}`}>
+              {contact.fit_score}
+            </span>
+          </div>
+        )}
+        {contact.buying_role_hypothesis && (
+          <div className="pt-2 border-t border-border/50">
+            <p className="text-[10px] uppercase tracking-wider text-foreground-muted mb-1">Buying role hypothesis</p>
+            <p className="text-xs text-foreground">{contact.buying_role_hypothesis}</p>
+          </div>
         )}
       </div>
     </div>
@@ -239,7 +393,7 @@ function TouchDetailPanel({
   );
 }
 
-export default function ContactDetailClient({ contact, sequences, jobs }: Props) {
+export default function ContactDetailClient({ contact, sequences, jobs, researchJob, sources }: Props) {
   const [selectedTouchId, setSelectedTouchId] = useState<string | null>(null);
   const [expandedSeqIds, setExpandedSeqIds] = useState<Set<string>>(
     new Set(sequences.map((s) => s.id))
@@ -263,19 +417,31 @@ export default function ContactDetailClient({ contact, sequences, jobs }: Props)
     return <Mail size={12} />;
   };
 
+  const apolloRaw = sources.find((s) => s.source === "apollo")?.raw as Record<string, unknown> | null;
+
   return (
-    <div className="min-h-screen p-8 max-w-7xl mx-auto">
+    <div className="min-h-screen bg-background p-8 max-w-7xl mx-auto">
       <p className="text-foreground-muted text-xs font-mono mb-6">
         <Link href="/studio" className="hover:text-foreground transition-colors">studio</Link>
         <span className="mx-1">/</span>
         <span className="text-foreground">{contact.full_name}</span>
       </p>
 
-      <div className="grid grid-cols-[280px_1fr_320px] gap-6">
-        {/* Left — contact card + engine triggers */}
-        <div className="flex flex-col gap-6">
+      <div className="grid grid-cols-[300px_1fr_340px] gap-6">
+        {/* Left column */}
+        <div className="flex flex-col gap-4">
+          {/* Contact card */}
           <div className="bg-card border border-border rounded-xl p-5">
-            <h2 className="text-sm font-semibold text-foreground mb-4">Contact</h2>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-full bg-lavender/20 text-lavender flex items-center justify-center text-sm font-bold flex-shrink-0">
+                {(contact.full_name ?? "").split(" ").map((p) => p[0]).join("").slice(0, 2).toUpperCase()}
+              </div>
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-foreground truncate">{contact.full_name}</p>
+                <p className="text-xs text-foreground-muted truncate">{contact.title ?? "—"}</p>
+              </div>
+            </div>
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-foreground-muted mb-3">Contact fields</h2>
             {EDITABLE_FIELDS.map(({ key, label, icon, multiline }) => (
               <InlineField
                 key={key}
@@ -288,88 +454,152 @@ export default function ContactDetailClient({ contact, sequences, jobs }: Props)
               />
             ))}
           </div>
+
+          {/* Intel badges */}
+          <ContactMeta contact={contact} />
+
+          {/* Apollo raw data (collapsed) */}
+          {apolloRaw && <ApolloRawPanel raw={apolloRaw} />}
+
+          {/* Engine job triggers */}
           <JobTriggers contactId={contact.id} jobs={jobs} />
         </div>
 
-        {/* Center — sequence + touch timeline */}
-        <div className="bg-card border border-border rounded-xl p-5 overflow-y-auto max-h-[85vh]">
-          <h2 className="text-sm font-semibold text-foreground mb-4">Sequences</h2>
+        {/* Center column: research brief + sequence timeline */}
+        <div className="flex flex-col gap-4 overflow-y-auto max-h-[90vh]">
+          {/* Research panel — prominent at the top */}
+          <ResearchPanel contact={contact} researchJob={researchJob} />
 
-          {sequences.length === 0 ? (
-            <p className="text-foreground-muted text-sm">No sequences yet.</p>
-          ) : (
-            <div className="flex flex-col gap-4">
-              {sequences.map((seq) => {
-                const expanded = expandedSeqIds.has(seq.id);
-                const statuses = seq.touches.map((t) => t.status);
-                return (
-                  <div key={seq.id} className="border border-border rounded-lg overflow-hidden">
-                    <button
-                      onClick={() => toggleSeq(seq.id)}
-                      className="w-full flex items-center justify-between px-4 py-3 hover:bg-white/5 transition-colors"
-                    >
-                      <div className="flex items-center gap-3">
-                        {expanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
-                        <span className="text-sm font-medium text-foreground">{seq.play}</span>
-                        <StatusPill status={seq.status ?? "queued"} variant="sequence" />
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <TouchDots statuses={statuses} />
-                        {seq.started_at && (
-                          <span className="text-xs text-foreground-muted">
-                            <RelativeTime iso={seq.started_at} />
-                          </span>
-                        )}
-                      </div>
-                    </button>
+          {/* Sequence + touch timeline */}
+          <div className="bg-card border border-border rounded-xl p-5">
+            <h2 className="text-sm font-semibold text-foreground mb-4">Sequences</h2>
+            {sequences.length === 0 ? (
+              <p className="text-foreground-muted text-sm">No sequences yet.</p>
+            ) : (
+              <div className="flex flex-col gap-4">
+                {sequences.map((seq) => {
+                  const expanded = expandedSeqIds.has(seq.id);
+                  const statuses = seq.touches.map((t) => t.status);
+                  return (
+                    <div key={seq.id} className="border border-border rounded-lg overflow-hidden">
+                      <button
+                        onClick={() => toggleSeq(seq.id)}
+                        className="w-full flex items-center justify-between px-4 py-3 hover:bg-foreground/5 transition-colors"
+                      >
+                        <div className="flex items-center gap-3">
+                          {expanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+                          <span className="text-sm font-medium text-foreground">{seq.play}</span>
+                          <StatusPill status={seq.status ?? "queued"} variant="sequence" />
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <TouchDots statuses={statuses} />
+                          {seq.started_at && (
+                            <span className="text-xs text-foreground-muted">
+                              <RelativeTime iso={seq.started_at} />
+                            </span>
+                          )}
+                        </div>
+                      </button>
 
-                    {expanded && seq.touches.length > 0 && (
-                      <div className="border-t border-border">
-                        {seq.touches.map((touch) => (
-                          <button
-                            key={touch.id}
-                            onClick={() => setSelectedTouchId(touch.id === selectedTouchId ? null : touch.id)}
-                            className={`w-full flex items-center gap-3 px-4 py-2.5 text-left hover:bg-white/5 transition-colors border-b border-border/50 last:border-0 ${
-                              selectedTouchId === touch.id ? "bg-white/10" : ""
-                            }`}
-                          >
-                            <span className="text-foreground-muted">
-                              {channelIcon(touch.channel)}
-                            </span>
-                            <span className="text-xs text-foreground-muted font-mono w-5">
-                              {touch.touch_num}
-                            </span>
-                            <span className="flex-1 text-sm text-foreground truncate">
-                              {touch.subject ?? touch.channel ?? "—"}
-                            </span>
-                            <StatusPill status={touch.status ?? "pending"} variant="touch" />
-                            {touch.sent_at && (
-                              <span className="text-xs text-foreground-muted">
-                                <RelativeTime iso={touch.sent_at} />
+                      {expanded && seq.touches.length > 0 && (
+                        <div className="border-t border-border">
+                          {seq.touches.map((touch) => (
+                            <button
+                              key={touch.id}
+                              onClick={() => setSelectedTouchId(touch.id === selectedTouchId ? null : touch.id)}
+                              className={`w-full flex items-center gap-3 px-4 py-2.5 text-left hover:bg-foreground/5 transition-colors border-b border-border/50 last:border-0 ${
+                                selectedTouchId === touch.id ? "bg-foreground/10" : ""
+                              }`}
+                            >
+                              <span className="text-foreground-muted">
+                                {channelIcon(touch.channel)}
                               </span>
-                            )}
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          )}
+                              <span className="text-xs text-foreground-muted font-mono w-5">
+                                {touch.touch_num}
+                              </span>
+                              <span className="flex-1 text-sm text-foreground truncate">
+                                {touch.subject ?? touch.channel ?? "—"}
+                              </span>
+                              <StatusPill status={touch.status ?? "pending"} variant="touch" />
+                              {touch.sent_at && (
+                                <span className="text-xs text-foreground-muted">
+                                  <RelativeTime iso={touch.sent_at} />
+                                </span>
+                              )}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
         </div>
 
-        {/* Right — touch detail */}
-        <div className="bg-card border border-border rounded-xl p-5 max-h-[85vh] overflow-y-auto">
+        {/* Right column: touch detail panel */}
+        <div className="bg-card border border-border rounded-xl p-5 max-h-[90vh] overflow-y-auto">
           {selectedTouch ? (
             <TouchDetailPanel touch={selectedTouch} contactId={contact.id} />
           ) : (
-            <p className="text-foreground-muted text-sm italic">
-              Select a touch to see details.
-            </p>
+            <div className="flex flex-col items-center justify-center h-full text-center py-12">
+              <Mail size={24} className="text-foreground-muted mb-3 opacity-40" />
+              <p className="text-foreground-muted text-sm">
+                Select a touch to see details and the email thread.
+              </p>
+            </div>
           )}
         </div>
       </div>
+    </div>
+  );
+}
+
+function ApolloRawPanel({ raw }: { raw: Record<string, unknown> }) {
+  const [open, setOpen] = useState(false);
+
+  const interesting: [string, string][] = [
+    ["headline", raw.headline as string],
+    ["city", raw.city as string],
+    ["state", raw.state as string],
+    ["country", raw.country as string],
+    ["departments", Array.isArray(raw.departments) ? (raw.departments as string[]).join(", ") : null],
+    ["subdepartments", Array.isArray(raw.subdepartments) ? (raw.subdepartments as string[]).join(", ") : null],
+    ["seniority", raw.seniority as string],
+    ["functions", Array.isArray(raw.functions) ? (raw.functions as string[]).join(", ") : null],
+    ["keywords", Array.isArray(raw.keywords) ? (raw.keywords as string[]).slice(0, 8).join(", ") : null],
+    ["organization_website_url", ((raw.organization as Record<string, unknown>)?.website_url as string) ?? null],
+    ["organization_industry", (raw.organization as Record<string, unknown>)?.industry as string],
+    ["organization_headcount", (raw.organization as Record<string, unknown>)?.estimated_num_employees as string],
+    ["organization_linkedin", (raw.organization as Record<string, unknown>)?.linkedin_url as string],
+  ].filter((pair): pair is [string, string] => Boolean(pair[1]));
+
+  if (interesting.length === 0) return null;
+
+  return (
+    <div className="bg-card border border-border rounded-xl overflow-hidden">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="w-full flex items-center justify-between px-5 py-3 hover:bg-foreground/5 transition-colors"
+      >
+        <span className="text-xs font-semibold uppercase tracking-wider text-foreground-muted">Apollo data</span>
+        {open ? <ChevronDown size={14} className="text-foreground-muted" /> : <ChevronRight size={14} className="text-foreground-muted" />}
+      </button>
+      {open && (
+        <div className="px-5 pb-4 border-t border-border">
+          <div className="flex flex-col gap-2 pt-3">
+            {interesting.map(([key, val]) => (
+              <div key={key} className="flex items-start gap-2">
+                <span className="text-[10px] uppercase tracking-wider text-foreground-muted w-28 flex-shrink-0 pt-0.5">
+                  {key.replace(/_/g, " ")}
+                </span>
+                <span className="text-xs text-foreground flex-1 break-words">{val}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
