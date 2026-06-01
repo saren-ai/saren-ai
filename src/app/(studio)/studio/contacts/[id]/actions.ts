@@ -16,7 +16,7 @@ export async function updateContactField(
     .update({ [field]: value || null, updated_at: new Date().toISOString() } as any)
     .eq("id", id);
   revalidatePath(`/studio/contacts/${id}`);
-  revalidatePath("/studio/contacts");
+  revalidatePath("/studio");
 }
 
 export async function logReply(

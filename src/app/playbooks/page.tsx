@@ -2,7 +2,6 @@ import { getActivePlaybooks } from '@/lib/playbooks';
 import { INTERACTIVE_TOOLS } from '@/lib/interactive-tools';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { AnimatedNavFramer } from '@/components/ui/navigation-menu';
 
 export const metadata = {
     title: 'AI Marketing Playbooks & B2B Growth Tools | Saren.ai',
@@ -63,26 +62,10 @@ export default async function PlaybooksIndex({
     const currentCategory = resolvedSearchParams.category;
     const isToolsTab = resolvedSearchParams.type === 'tools';
 
-    // Category nav for current tab
-    const navItems = isToolsTab
-        ? [
-              { name: "All", href: "/playbooks?type=tools" },
-              ...Array.from(new Set(INTERACTIVE_TOOLS.map((t) => t.category)))
-                  .sort()
-                  .map((cat) => ({
-                      name: cat,
-                      href: `/playbooks?type=tools&category=${encodeURIComponent(cat)}`,
-                  })),
-          ]
-        : [
-              { name: "All", href: "/playbooks" },
-              ...Array.from(new Set(playbooks.map((pb) => pb.category)))
-                  .sort()
-                  .map((cat) => ({
-                      name: cat,
-                      href: `/playbooks?category=${encodeURIComponent(cat)}`,
-                  })),
-          ];
+    // All categories for inline filter strip
+    const allCategories = isToolsTab
+        ? Array.from(new Set(INTERACTIVE_TOOLS.map((t) => t.category))).sort()
+        : Array.from(new Set(playbooks.map((pb) => pb.category))).sort();
 
     // Filtered content
     const filteredPlaybooks = isToolsTab
@@ -169,7 +152,7 @@ export default async function PlaybooksIndex({
                 }}
             />
 
-            <div className="min-h-screen bg-ash dark:bg-offblack text-charcoal dark:text-white pt-32 pb-16 px-6 lg:px-12 relative transition-colors duration-300">
+            <div className="min-h-screen bg-ash dark:bg-offblack text-charcoal dark:text-white pt-16 pb-16 px-6 lg:px-12 relative transition-colors duration-300">
                 {/* Type toggle */}
                 <div className="max-w-6xl mx-auto mb-4 flex gap-2">
                     <Link
@@ -194,8 +177,6 @@ export default async function PlaybooksIndex({
                     </Link>
                 </div>
 
-                <AnimatedNavFramer items={navItems} />
-
                 <div className="max-w-6xl mx-auto space-y-12">
                     <header className="space-y-4 text-center">
                         <h1 className="text-4xl lg:text-5xl font-bold tracking-tight bg-gradient-to-br from-charcoal to-slate dark:from-white dark:to-slate bg-clip-text text-transparent">
@@ -207,6 +188,33 @@ export default async function PlaybooksIndex({
                                 : 'A curated library of advanced prompt sequences, structured frameworks, and multi-step AI playbooks to accelerate execution.'}
                         </p>
                     </header>
+
+                    {/* Inline category filter strip */}
+                    <div className="flex flex-wrap justify-center gap-2">
+                        <Link
+                            href={isToolsTab ? "/playbooks?type=tools" : "/playbooks"}
+                            className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all border ${
+                                !currentCategory
+                                    ? 'bg-charcoal dark:bg-white text-white dark:text-charcoal border-charcoal dark:border-white'
+                                    : 'bg-card border-border text-foreground-muted hover:border-charcoal/40 hover:text-foreground'
+                            }`}
+                        >
+                            All
+                        </Link>
+                        {allCategories.map((cat) => (
+                            <Link
+                                key={cat}
+                                href={isToolsTab ? `/playbooks?type=tools&category=${encodeURIComponent(cat)}` : `/playbooks?category=${encodeURIComponent(cat)}`}
+                                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all border ${
+                                    currentCategory === cat
+                                        ? 'bg-charcoal dark:bg-white text-white dark:text-charcoal border-charcoal dark:border-white'
+                                        : 'bg-card border-border text-foreground-muted hover:border-charcoal/40 hover:text-foreground'
+                                }`}
+                            >
+                                {cat}
+                            </Link>
+                        ))}
+                    </div>
 
                     {isToolsTab ? (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -226,11 +234,12 @@ export default async function PlaybooksIndex({
                                             className={`absolute top-0 left-0 right-0 h-1 ${accent.bar} rounded-t-2xl`}
                                         />
                                         <div className="flex items-start justify-between gap-3 mb-4">
-                                            <span
-                                                className={`text-xs font-bold px-2.5 py-1 rounded-full ${accent.badge}`}
+                                            <Link
+                                                href={`/playbooks?type=tools&category=${encodeURIComponent(tool.category)}`}
+                                                className={`text-xs font-bold px-2.5 py-1 rounded-full transition-opacity hover:opacity-80 ${accent.badge}`}
                                             >
                                                 {tool.category}
-                                            </span>
+                                            </Link>
                                             <span className="text-[10px] text-slate uppercase tracking-wide pt-1">
                                                 Interactive
                                             </span>

@@ -16,6 +16,17 @@ npm run lint     # ESLint
 
 Next.js 16.1 (App Router) · React 19 · TypeScript (strict) · Tailwind CSS v4 (CSS-based config, no tailwind.config.js) · Framer Motion 12 · @dnd-kit (tier list only) · Lucide React icons · MDX for content · Pagefind (static search index, generated at build time) · Stripe (hosted checkout, webhooks) · Supabase (Postgres + Storage) · No external carousel/state libs
 
+## Studio (Hustle & Flow) — prospecting cockpit
+
+`/studio` is the admin-only lead-prospecting app, backed by the Hustle & Flow Supabase project (`ltsuosasgblbqhsjckfg`). It is **not** part of the public marketing site — noindex, gated in `src/proxy.ts`, isolated in the `(studio)` route group.
+
+- **Data model:** `clients → companies → contacts → sequences → touches`, with a `v_pipeline` view that derives each contact's stage, next action, due date, and priority. Records are written by the sourcing skills (in the separate `lead-prospecting` workspace, run via Claude); outreach **state** is the `touches` event log. Supabase is the system of record.
+- **Routes:** `/studio` is the pipeline landing (funnel + Do-Next queue + gamification); `/studio/contacts/[id]` is the per-contact cockpit (inline edit, touch timeline, reply logging); `/studio/login` is magic-link auth. There is no contacts-list, sequences, or outreach-pages page — those v1 surfaces were removed.
+- **Auth/RLS:** Supabase Auth (magic link) + `@supabase/ssr`. Access is admin-only via the `public.is_admin()` function, which whitelists specific UIDs (migration `003`). Edit that function to grant/revoke. `outreach_pages` (public `/for/[slug]`) keeps its own public policies and is untouched.
+- **Migrations:** `supabase/migrations/001–003` are the schema of record (pipeline model, verified/valid email fix, auth lockdown).
+- **Docs:** `docs/studio-runbook.md` (workflow), `docs/hustle-flow-schema-reference.md` (tables + write patterns).
+- **Note:** `src/lib/supabase/database.types.ts` predates `001–003` — regenerate it to type `v_pipeline`/`companies`/`clients` (a single justified cast reads the view meanwhile).
+
 ## Modular Rules
 
 Detailed rules live in `.claude/rules/` and are loaded automatically:
@@ -38,6 +49,7 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 ├── playbook-prompts/     # Obsidian vault — prompt catalog
 ├── public/               # Static assets (logos, images, PDFs)
 ├── scripts/              # One-off and utility scripts
+├── supabase/             # DB migrations (001–003) — schema of record for the Studio
 └── src/
     ├── app/              # Next.js App Router pages
     ├── components/       # React components by domain

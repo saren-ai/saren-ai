@@ -266,8 +266,6 @@ export default function ContactDetailClient({ contact, sequences }: Props) {
       <p className="text-foreground-muted text-xs font-mono mb-6">
         <Link href="/studio" className="hover:text-foreground transition-colors">studio</Link>
         <span className="mx-1">/</span>
-        <Link href="/studio/contacts" className="hover:text-foreground transition-colors">contacts</Link>
-        <span className="mx-1">/</span>
         <span className="text-foreground">{contact.full_name}</span>
       </p>
 

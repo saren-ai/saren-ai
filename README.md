@@ -1,166 +1,101 @@
-# Saren.ai - Portfolio Website
+# saren.ai
 
-A modern, interactive portfolio website for Saren Sakurai, Fractional CMO & AI Operations Consultant.
+Portfolio and consulting site for [Saren Sakurai](https://saren.ai) — fractional CMO, AI ops practitioner, and vibe coder.
 
-## 🚀 Tech Stack
+Built entirely with Claude Code. Not as a gimmick — as a working proof of concept that the right human + AI pairing produces better software faster than either does alone.
 
-- **Framework:** Next.js 14+ (App Router)
-- **Styling:** Tailwind CSS with Fire Horse 2026 design system
-- **Animation:** Framer Motion
-- **Content:** Markdown files for blog posts
-- **Deployment:** Optimized for Vercel
-- **Bento Grids:** Custom interactive grids for framework visualization
+**Live:** https://saren.ai
 
-## 🎨 Design System: Fire Horse 2026
+---
 
-### Colors
-- **Ember Red:** `#E63946` - CTAs, key metrics, bold accents
-- **Charcoal Black:** `#1D3557` - Backgrounds, primary text
-- **Ash White:** `#F1FAEE` - Page backgrounds, card fills
-- **Electric Blue:** `#457B9D` - Interactive elements, hover states
-- **Copper:** `#A8763E` - Borders, subtle highlights
-- **Slate Gray:** `#6C757D` - Secondary text, labels
+## Stack
 
-### Typography
-- **Headings:** Sora (bold weights)
-- **Body:** Sora
-- **Monospace:** JetBrains Mono (for metrics/data)
+| Layer | Choice |
+|---|---|
+| Framework | Next.js 16.1 — App Router, RSC-first |
+| Language | TypeScript (strict) |
+| Styling | Tailwind CSS v4 — CSS-based config, no `tailwind.config.js` |
+| Animation | Framer Motion 12 |
+| Content | MDX + Pagefind (static search, built at compile time) |
+| Commerce | Stripe hosted checkout + HttpOnly cookie entitlement pattern |
+| Database | Supabase (Postgres + Storage) |
+| Deployment | Vercel — GitHub integration, automatic on push to `main` |
 
-## 📁 Project Structure
+No global state libraries. No external carousel libs. Server components by default; `"use client"` only when you actually need it.
 
-\`\`\`
-saren-ai/
-├── src/
-│   ├── app/                    # Next.js App Router pages
-│   │   ├── page.tsx           # Homepage
-│   │   ├── about/             # About page
-│   │   ├── thinking/          # Micro-blog
-│   │   ├── contact/           # Contact form
-│   │   └── portfolio/         # Case study pages
-│   │       ├── roi-simulator/
-│   │       ├── sovereign-personas/
-│   │       ├── b2b-marketing-framework/ # 7-Layer Framework
-│   │       ├── 10-touch-sales-play/
-│   │       └── 120-day-content-journey/
-│   ├── components/            # React components
-│   │   ├── layout/           # Header, Footer, Nav
-│   │   ├── portfolio/        # Portfolio grid and cards
-│   │   ├── golden-dashboard/ # Interactive dashboard (ROI Simulator)
-│   │   └── ui/               # Shared UI components
-│   ├── content/              # Markdown content
-│   │   └── thinking/         # Blog posts
-│   └── lib/                  # Utility functions
-└── public/                   # Static assets
-\`\`\`
+---
 
-## 🏃‍♂️ Getting Started
+## Design System — Fire Horse 2026
 
-### Prerequisites
-- Node.js 18+ 
-- npm or yarn
+Six tokens. Never raw hex in `className`.
 
-### Installation
+| Token | Value | Role |
+|---|---|---|
+| Ember Red | `#C43322` | Primary action, execution fire |
+| Lavender | `#7C5AA3` | Links, strategy, insight |
+| Copper | `#C17D3A` | Warmth — large/bold only |
+| Charcoal | `#1D1D1F` | Dominant text |
+| Slate | `#5B6470` | Body, metadata |
+| Ash | `#F5F5F7` | Page background |
 
-\`\`\`bash
-# Clone the repository
-cd saren-ai
+Two typefaces: **Sora** for headings and body, **JetBrains Mono** for numbers and code. No exceptions.
 
-# Install dependencies
+Both light and dark mode are live and fully togglable. The `dark:` variant is bound to the `.dark` class (not `prefers-color-scheme`) via a custom Tailwind v4 variant — this prevents the `.dark` CSS variable state and Tailwind utility classes from disagreeing.
+
+Full spec in `src/app/globals.css` and `docs/DESIGN.md`.
+
+---
+
+## IA
+
+Content classification is enforced at the route level:
+
+- `/case-studies/*` — static B2B proof narratives. No interactive widgets.
+- `/playbooks/*` — prompt sequences, interactive tools, paid downloads. The index page toggles between Playbooks and Interactive Tools via `?type=tools`.
+- `/feature/*` — editorial and personal projects. Not in primary nav.
+- `/signal-state/*` — Signal-State framework workspace (in development).
+
+The rule: **interactive feature on the page OR paid download → `/playbooks/`. Static narrative → `/case-studies/`.**
+
+---
+
+## Local Development
+
+```bash
 npm install
+npm run dev      # Turbopack dev server → localhost:3000
+npm run build    # Production build (also generates Pagefind index)
+npm run lint     # ESLint
+```
 
-# Start development server
-npm run dev
-\`\`\`
+The search index (`pagefind/`) is only generated at build time. `npm run dev` won't have it — run `npm run build && npm start` to test search locally.
 
-Open [http://localhost:3000](http://localhost:3000) to view the site.
-
-### Building for Production
-
-\`\`\`bash
-npm run build
-npm run start
-\`\`\`
-
-## 🔧 Configuration
-
-### Environment Variables
-
-Create a \`.env.local\` file for local development:
-
-\`\`\`env
-# Site URL (used for SEO and sitemap)
-SITE_URL=https://saren.ai
-
-# HubSpot Integration (TODO: Add when available)
-# HUBSPOT_PORTAL_ID=your-portal-id
-# HUBSPOT_FORM_ID=your-form-id
-\`\`\`
-
-### HubSpot Integration
-
-The contact form is currently set up with placeholder functionality. To integrate with HubSpot:
-
-1. Get your HubSpot Portal ID and Form ID
-2. Update \`src/app/contact/page.tsx\` with actual API calls
-3. Add live chat widget code to the layout
-
-## 📝 Adding Blog Posts
-
-Add new posts to \`src/content/thinking/\` as Markdown files:
-
-\`\`\`markdown
----
-title: "Your Post Title"
-date: "2026-02-03"
-excerpt: "A brief description of the post."
 ---
 
-Your post content here...
-\`\`\`
+## How This Site Is Built
 
-Posts are automatically sorted by date (newest first).
+This site is developed with [Claude Code](https://claude.ai/code) — Anthropic's CLI for AI-assisted engineering. Every significant feature was designed and implemented in pair with Claude: architecture decisions, component extraction, SEO instrumentation, the commerce layer.
 
-## 🚀 Deployment
+The workflow is:
+1. Define the problem in plain English, with constraints.
+2. Let Claude draft the implementation.
+3. Push back on anything that adds abstraction before it's earned.
+4. Ship.
 
-### Vercel (Recommended)
+This isn't "AI wrote my code." It's a working method where the human holds the taste and the machine holds the syntax. The site you're looking at is the artifact.
 
-1. Push to GitHub
-2. Import project in Vercel
-3. Configure environment variables
-4. Deploy
+---
 
-### Manual Deployment
+## Philosophy
 
-\`\`\`bash
-npm run build
-# Deploy the .next folder to your hosting provider
-\`\`\`
+**IA before UI.** Getting the information architecture right before touching components saves more time than any component optimization. Routes are contracts.
 
-## 📊 Analytics
+**Server-first, client-when-earned.** RSC by default. `"use client"` only when you need hooks, event handlers, or browser APIs — not as a reflexive escape hatch.
 
-The site is configured for Vercel Analytics. Additional analytics can be added:
+**Design systems as constraints, not preferences.** Six colors and two typefaces isn't limiting — it's load-bearing. Every design decision that doesn't need to be made is time spent on something that matters.
 
-1. **Google Analytics 4:** Add tracking code to layout
-2. **Plausible:** Add script tag for privacy-focused analytics
-3. **Custom events:** Use the analytics utilities in \`src/lib/\`
+**No abstraction before the second use case.** Three similar lines of code is better than a premature helper. Extract when you feel the pain, not when you predict it.
 
-## 🔒 Security Headers
-
-The following security headers are configured:
-- X-Frame-Options: DENY
-- X-Content-Type-Options: nosniff
-- Referrer-Policy: strict-origin-when-cross-origin
-
-## 📋 TODO
-
-- [ ] Add actual HubSpot integration (Portal ID, Form ID)
-- [ ] Add HubSpot live chat widget
-- [ ] Update LinkedIn profile URL
-- [ ] Add personal interest links (Comic Geeks, Discogs, Letterboxd)
-- [ ] Add portfolio images/screenshots
-- [ ] Configure Google Analytics or Plausible
-- [ ] Add OG images for social sharing
-
-## 📄 License
+---
 
 © 2026 Saren Sakurai. All rights reserved.
