@@ -2,9 +2,25 @@ import { Metadata } from 'next'
 import IndependentCreativeClient from './IndependentCreativeClient'
 
 export const metadata: Metadata = {
-  title: 'Independent Creative Use Case — Signal-State Marketing',
+  title: 'Independent Creative Use Case — Signal-State Marketing | Saren Sakurai',
   description:
-    'The moment a solo operator names the capability gap. A Signal-State use case for AI tools for independent creatives.',
+    'The moment a solo operator names the capability gap. A Signal-State use case for AI tools targeting independent creatives and solo operators.',
+  alternates: { canonical: 'https://saren.ai/signal-state/use-cases/independent-creative' },
+  openGraph: {
+    title: 'Independent Creative Use Case — Signal-State Marketing | Saren Sakurai',
+    description:
+      'The moment a solo operator names the capability gap. A Signal-State use case for AI tools targeting independent creatives and solo operators.',
+    url: 'https://saren.ai/signal-state/use-cases/independent-creative',
+    siteName: 'Saren.ai',
+    locale: 'en_US',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Independent Creative Use Case — Signal-State Marketing | Saren Sakurai',
+    description:
+      'The moment a solo operator names the capability gap. A Signal-State use case for AI tools for independent creatives.',
+  },
 }
 
 export default function IndependentCreativePage() {

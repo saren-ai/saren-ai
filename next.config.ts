@@ -35,6 +35,9 @@ const nextConfig: NextConfig = {
       { source: "/portfolio/hybrid-lead-scoring",                   destination: "/playbooks/hybrid-lead-scoring",                   permanent: true },
       { source: "/portfolio/b2b-marketing-framework/:slug*",        destination: "/playbooks/b2b-marketing-framework/:slug*",        permanent: true },
       { source: "/portfolio/b2b-marketing-framework",               destination: "/playbooks/b2b-marketing-framework",               permanent: true },
+      // ── Brief double-nesting bug (cc15254 → 026361d, 2026-05-28) ────────
+      { source: "/playbooks/b2b-marketing-framework/b2b-marketing-framework/:slug*", destination: "/playbooks/b2b-marketing-framework/:slug*", permanent: true },
+      { source: "/playbooks/b2b-marketing-framework/b2b-marketing-framework",        destination: "/playbooks/b2b-marketing-framework",         permanent: true },
       { source: "/portfolio/its-good-to-be-pitched",                destination: "/playbooks/its-good-to-be-pitched",               permanent: true },
       // ── IA Refactor: /portfolio → /case-studies ─────────────────────────
       { source: "/portfolio",                                        destination: "/case-studies",                                    permanent: true },

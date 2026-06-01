@@ -2,9 +2,25 @@ import { Metadata } from 'next'
 import CybersecurityClient from './CybersecurityClient'
 
 export const metadata: Metadata = {
-  title: 'Cybersecurity Use Case — Signal-State Marketing',
+  title: 'Cybersecurity Use Case — Signal-State Marketing | Saren Sakurai',
   description:
-    'Finding organizational vulnerability before the attack. A Signal-State use case for B2B cybersecurity.',
+    'Finding organizational vulnerability before the attack. A Signal-State use case for B2B cybersecurity — identifying ransomware exposure signals before the breach.',
+  alternates: { canonical: 'https://saren.ai/signal-state/use-cases/cybersecurity' },
+  openGraph: {
+    title: 'Cybersecurity Use Case — Signal-State Marketing | Saren Sakurai',
+    description:
+      'Finding organizational vulnerability before the attack. A Signal-State use case for B2B cybersecurity — identifying ransomware exposure signals before the breach.',
+    url: 'https://saren.ai/signal-state/use-cases/cybersecurity',
+    siteName: 'Saren.ai',
+    locale: 'en_US',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cybersecurity Use Case — Signal-State Marketing | Saren Sakurai',
+    description:
+      'Finding organizational vulnerability before the attack. A Signal-State use case for B2B cybersecurity.',
+  },
 }
 
 export default function CybersecurityPage() {
