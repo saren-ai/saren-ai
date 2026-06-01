@@ -24,7 +24,7 @@ import RelativeTime from "@/components/studio/RelativeTime";
 import TouchDots from "@/components/studio/TouchDots";
 import ThreadBubble, { type ThreadItem } from "@/components/studio/ThreadBubble";
 import JobTriggers, { type AgentJob } from "@/components/studio/JobTriggers";
-import { updateContactField, logReply, queueJob } from "./actions";
+import { updateContactField, logReply, queueJob, pushToDrafts } from "./actions";
 import type { Tables } from "@/lib/supabase/database.types";
 
 type Contact = Tables<"contacts">;
@@ -286,13 +286,32 @@ function ContactMeta({ contact }: { contact: Contact }) {
 function TouchDetailPanel({
   touch,
   contactId,
+  contactEmail,
 }: {
   touch: Tables<"touches">;
   contactId: string;
+  contactEmail: string | null;
 }) {
+  const [body, setBody] = useState(touch.body_md ?? "");
   const [showReplyForm, setShowReplyForm] = useState(false);
   const [isPending, startTransition] = useTransition();
+  const [draftNotice, setDraftNotice] = useState<string | null>(null);
   const thread = (touch.thread ?? []) as unknown as ThreadItem[];
+
+  // Track if the body has been edited vs the saved version
+  const isDirty = body !== (touch.body_md ?? "");
+  const isSent = !!touch.sent_at;
+
+  function handlePushToDrafts() {
+    startTransition(async () => {
+      const res = await pushToDrafts(contactId, touch.id, body, touch.subject, contactEmail);
+      setDraftNotice(
+        res.queued
+          ? "Queued — will appear in Gmail on the next job run."
+          : "A draft job is already pending for this contact."
+      );
+    });
+  }
 
   function handleReplySubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -304,91 +323,134 @@ function TouchDetailPanel({
   }
 
   return (
-    <div className="flex flex-col h-full">
-      <div className="mb-4">
-        <p className="text-xs text-foreground-muted mb-1">
-          Touch {touch.touch_num} · {touch.channel ?? "—"}
-          {touch.sent_at && (
-            <>
-              {" · "}
-              <RelativeTime iso={touch.sent_at} />
-            </>
+    <div className="flex flex-col h-full gap-4">
+      {/* Header */}
+      <div>
+        <div className="flex items-center justify-between mb-1">
+          <p className="text-xs text-foreground-muted">
+            Touch {touch.touch_num} · {touch.channel ?? "email"}
+            {isSent && touch.sent_at && (
+              <> · sent <RelativeTime iso={touch.sent_at} /></>
+            )}
+          </p>
+          {touch.sentiment && (
+            <span className="px-2 py-0.5 rounded-full text-xs bg-foreground/10 text-foreground-muted capitalize">
+              {touch.sentiment}
+            </span>
           )}
-        </p>
+        </div>
         {touch.subject && (
-          <h3 className="text-base font-semibold text-foreground">{touch.subject}</h3>
+          <h3 className="text-base font-semibold text-foreground leading-snug">{touch.subject}</h3>
         )}
-        {touch.sentiment && (
-          <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs bg-foreground/10 text-foreground-muted capitalize">
-            {touch.sentiment}
-          </span>
+        {contactEmail && (
+          <p className="text-xs text-foreground-muted mt-0.5">To: {contactEmail}</p>
         )}
       </div>
 
-      {touch.body_md && (
-        <div className="mb-4 text-sm text-foreground-muted prose prose-sm max-w-none prose-p:my-1 [&_*]:text-foreground-muted border border-border rounded-lg px-4 py-3">
-          <pre className="whitespace-pre-wrap font-sans text-sm">{touch.body_md}</pre>
+      {/* Editable email body — the main workspace */}
+      <div className="flex-1 flex flex-col min-h-0">
+        <div className="flex items-center justify-between mb-1.5">
+          <p className="text-[10px] uppercase tracking-wider text-foreground-muted font-semibold">
+            {isSent ? "Sent body" : "Draft body"}
+          </p>
+          {isDirty && (
+            <span className="text-[10px] text-copper font-medium">edited</span>
+          )}
+        </div>
+        <textarea
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+          readOnly={isSent}
+          rows={12}
+          className={`w-full flex-1 bg-background border rounded-lg px-4 py-3 text-sm text-foreground font-sans leading-relaxed resize-none focus:outline-none transition-colors ${
+            isSent
+              ? "border-border opacity-70 cursor-default"
+              : "border-border focus:border-lavender"
+          }`}
+          placeholder="No body yet — the draft will appear here once the engine writes it."
+        />
+      </div>
+
+      {/* Open/clicked tracking (sent touches) */}
+      {(touch.opened_at || touch.clicked_at) && (
+        <div className="flex items-center gap-4 text-xs text-foreground-muted">
+          {touch.opened_at && <span>Opened <RelativeTime iso={touch.opened_at} /></span>}
+          {touch.clicked_at && <span>Clicked <RelativeTime iso={touch.clicked_at} /></span>}
         </div>
       )}
 
-      <div className="flex items-center gap-4 text-xs text-foreground-muted mb-4">
-        {touch.opened_at && (
-          <span>Opened <RelativeTime iso={touch.opened_at} /></span>
-        )}
-        {touch.clicked_at && (
-          <span>Clicked <RelativeTime iso={touch.clicked_at} /></span>
-        )}
-      </div>
-
-      <div className="flex-1 overflow-y-auto mb-4">
-        {thread.length > 0 ? (
-          thread.map((item, i) => (
-            <ThreadBubble key={i} {...item} />
-          ))
-        ) : (
-          <p className="text-xs text-foreground-muted italic">No thread yet.</p>
-        )}
-      </div>
-
-      {showReplyForm ? (
-        <form onSubmit={handleReplySubmit} className="flex flex-col gap-2">
-          <textarea
-            name="body"
-            rows={3}
-            required
-            placeholder="Log reply…"
-            className="bg-background border border-border rounded-lg px-3 py-2 text-sm text-foreground resize-none focus:outline-none focus:border-lavender"
-          />
-          <div className="flex items-center gap-2">
-            <select
-              name="sentiment"
-              defaultValue="neutral"
-              className="bg-background border border-border rounded-lg px-2 py-1.5 text-xs text-foreground focus:outline-none focus:border-lavender"
-            >
-              <option value="positive">Positive</option>
-              <option value="neutral">Neutral</option>
-              <option value="negative">Negative</option>
-            </select>
-            <button type="submit" disabled={isPending} className="btn-primary text-xs py-1.5 px-4">
-              {isPending ? "Saving…" : "Save"}
-            </button>
-            <button
-              type="button"
-              onClick={() => setShowReplyForm(false)}
-              className="text-xs text-foreground-muted hover:text-foreground transition-colors"
-            >
-              Cancel
-            </button>
+      {/* Thread (inbound replies) */}
+      {thread.length > 0 && (
+        <div className="border-t border-border pt-3">
+          <p className="text-[10px] uppercase tracking-wider text-foreground-muted mb-2">Thread</p>
+          <div className="flex flex-col gap-1">
+            {thread.map((item, i) => (
+              <ThreadBubble key={i} {...item} />
+            ))}
           </div>
-        </form>
-      ) : (
-        <button
-          onClick={() => setShowReplyForm(true)}
-          className="btn-lavender text-xs py-1.5 w-full"
-        >
-          Log reply
-        </button>
+        </div>
       )}
+
+      {/* Actions */}
+      <div className="flex flex-col gap-2 pt-2 border-t border-border">
+        {/* Primary: Post to Gmail Drafts (only when not yet sent) */}
+        {!isSent && (
+          <>
+            <button
+              onClick={handlePushToDrafts}
+              disabled={isPending || !body.trim()}
+              className="w-full flex items-center justify-center gap-2 rounded-lg bg-ember text-white text-sm font-semibold py-2.5 hover:bg-ember/90 disabled:opacity-50 transition-colors"
+            >
+              <Mail size={14} />
+              {isPending ? "Queuing…" : "Post this version to Drafts"}
+            </button>
+            {draftNotice && (
+              <p className="text-[11px] text-foreground-muted text-center">{draftNotice}</p>
+            )}
+          </>
+        )}
+
+        {/* Secondary: Log a reply (always available) */}
+        {showReplyForm ? (
+          <form onSubmit={handleReplySubmit} className="flex flex-col gap-2">
+            <textarea
+              name="body"
+              rows={3}
+              required
+              placeholder="Log their reply…"
+              className="bg-background border border-border rounded-lg px-3 py-2 text-sm text-foreground resize-none focus:outline-none focus:border-lavender"
+            />
+            <div className="flex items-center gap-2">
+              <select
+                name="sentiment"
+                defaultValue="neutral"
+                className="bg-background border border-border rounded-lg px-2 py-1.5 text-xs text-foreground focus:outline-none focus:border-lavender"
+              >
+                <option value="positive">Positive</option>
+                <option value="neutral">Neutral</option>
+                <option value="negative">Negative</option>
+              </select>
+              <button type="submit" disabled={isPending} className="btn-primary text-xs py-1.5 px-4">
+                {isPending ? "Saving…" : "Save reply"}
+              </button>
+              <button
+                type="button"
+                onClick={() => setShowReplyForm(false)}
+                className="text-xs text-foreground-muted hover:text-foreground transition-colors"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        ) : (
+          <button
+            onClick={() => setShowReplyForm(true)}
+            className="w-full text-xs text-foreground-muted border border-border rounded-lg py-2 hover:border-foreground-muted hover:text-foreground transition-colors"
+          >
+            Log a reply from them
+          </button>
+        )}
+      </div>
     </div>
   );
 }
@@ -427,7 +489,7 @@ export default function ContactDetailClient({ contact, sequences, jobs, research
         <span className="text-foreground">{contact.full_name}</span>
       </p>
 
-      <div className="grid grid-cols-[300px_1fr_340px] gap-6">
+      <div className="grid grid-cols-[300px_300px_1fr] gap-6">
         {/* Left column */}
         <div className="flex flex-col gap-4">
           {/* Contact card */}
@@ -541,7 +603,7 @@ export default function ContactDetailClient({ contact, sequences, jobs, research
         {/* Right column: touch detail panel */}
         <div className="bg-card border border-border rounded-xl p-5 max-h-[90vh] overflow-y-auto">
           {selectedTouch ? (
-            <TouchDetailPanel touch={selectedTouch} contactId={contact.id} />
+            <TouchDetailPanel touch={selectedTouch} contactId={contact.id} contactEmail={contact.email} />
           ) : (
             <div className="flex flex-col items-center justify-center h-full text-center py-12">
               <Mail size={24} className="text-foreground-muted mb-3 opacity-40" />

@@ -73,6 +73,60 @@ export async function queueJob(
   return { queued: true as const };
 }
 
+// Save edits to a touch body and queue a Gmail draft job for the engine to push.
+// The engine (job-runner) picks it up, calls Gmail MCP create_draft, and marks done.
+export async function pushToDrafts(
+  contactId: string,
+  touchId: string,
+  body: string,
+  subject: string | null,
+  to: string | null
+) {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) throw new Error("Not authenticated");
+
+  // Persist the edited body back to the touch so the UI reflects the final version.
+  await supabase
+    .from("touches")
+    .update({ body_md: body })
+    .eq("id", touchId);
+
+  const { data: contact } = await supabase
+    .from("contacts")
+    .select("client_id, company_id")
+    .eq("id", contactId)
+    .single();
+
+  // De-dupe: don't queue a second gmail-draft for this touch if one is already pending.
+  const { data: existing } = await supabase
+    .from("agent_jobs")
+    .select("id")
+    .eq("contact_id", contactId)
+    .eq("skill", "gmail-draft")
+    .in("status", ["requested", "claimed", "running"])
+    .limit(1);
+
+  if (existing && existing.length > 0) {
+    revalidatePath(`/studio/contacts/${contactId}`);
+    return { queued: false as const, reason: "already_pending" as const };
+  }
+
+  await supabase.from("agent_jobs").insert({
+    contact_id: contactId,
+    client_id: contact?.client_id ?? null,
+    company_id: contact?.company_id ?? null,
+    skill: "gmail-draft",
+    kind: "action",
+    status: "requested",
+    params: { touch_id: touchId, to, subject, body } as never,
+    requested_by: user.id,
+  });
+
+  revalidatePath(`/studio/contacts/${contactId}`);
+  return { queued: true as const };
+}
+
 export async function updateContactField(
   id: string,
   field: string,
