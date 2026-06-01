@@ -60,9 +60,13 @@ Living document. Updated as priorities shift.
 - [ ] Consider converting `/about/stack` from full client component to server + dynamic client split
 
 ### SEO & content
-- [ ] Add RSS autodiscovery link for `/thinking` feed
-- [ ] Add structured data (Article schema) to `/thinking` posts
-- [ ] Review and update all page-level metadata descriptions
+- [x] Fix stale canonicals across all pages (2026-05-28)
+- [x] Add canonical + OG + Twitter card to signal-state use-case sub-pages (2026-05-31)
+- [x] Fix redirect ordering bug in `next.config.ts` (specific before catch-alls) (2026-05-31)
+- [x] Redirect old Medium publication URLs (saren.ai was a Medium custom domain pre-2026) (2026-05-31)
+- [ ] Decide: should `/smb`, `/solopreneurs`, `/thinkers`, `/engage`, `/about/concerts` be in `sitemap.ts`? All have canonical tags but are unlisted — either add to sitemap or add `noindex`.
+- [ ] Investigate "Crawled — currently not indexed" pages (14 pages) via Search Console export — likely thin content on some `/playbooks/[id]` pages.
+- [ ] OG images: most pages reference `/og/playbooks-{id}.jpg` etc. that don't exist in `public/` — generate or update to a real fallback image.
 
 ### Data integrity
 - [ ] Evaluate SQLite persistence on Vercel serverless (ephemeral risk)

@@ -161,6 +161,31 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 
 **Adding searchable content:** New routes are indexed automatically at build time. Add `data-pagefind-ignore` to elements that should not be searched. Wrap section content with `<PagefindBoundary section="...">` to set group label. Halcyon and `/api/*` are excluded globally. Test locally with `npm run build && npm run start` (not `npm run dev` — index doesn't exist there).
 
+## SEO & Redirects
+
+### Canonical tag requirement
+
+Every `page.tsx` that should be indexed **must** declare `alternates: { canonical: 'https://saren.ai/path' }` in its `metadata` export. Pages missing this will appear in Search Console as "Duplicate without user-selected canonical." Check any new routes before pushing.
+
+Pages intentionally not indexed use `robots: { index: false, follow: false }` instead (e.g. `/downloads/success`, `/for/[slug]`, `/studio/*`).
+
+### Redirect rules in `next.config.ts`
+
+**Specific patterns must come before catch-alls.** Next.js evaluates redirects top-to-bottom and stops at the first match. If a catch-all like `/portfolio/:slug*` appears before a specific rule like `/portfolio/behavioral-lead-scoring`, the catch-all fires first and the specific rule is dead code.
+
+Correct order:
+1. Specific slugs (e.g. `/portfolio/behavioral-lead-scoring → /playbooks/hybrid-lead-scoring`)
+2. Prefix-specific catch-alls (e.g. `/portfolio/b2b-marketing-framework/:slug*`)
+3. General catch-alls (e.g. `/portfolio/:slug*`)
+
+### Domain history: saren.ai was a Medium custom domain
+
+Before the current Next.js site, `saren.ai` was the custom domain for a Medium publication. Google indexed Medium articles, tag pages (`/tag/*`, `/tagged/*`), and user paths (`/followers`, `/latest`) under this domain. Redirects for all known Medium URLs are in `next.config.ts`. Do not delete them — they carry residual link equity and removing them would re-open 404s that Search Console has now resolved.
+
+### robots.txt
+
+`public/robots.txt` disallows `/halcyon` and `/api`. The halcyon section is archived and must stay disallowed. Studio routes (`/studio/*`) are not in robots.txt but carry `noindex` in their metadata — that's intentional (noindex is sufficient; robots.txt would block Googlebot from seeing the noindex tag itself).
+
 ## IA Conventions
 
 **Classification rule:** Interactive feature on the page OR paid download → `/playbooks/*`. Static narrative proof → `/case-studies/*`. Prompt library items → `/playbooks/*`.
