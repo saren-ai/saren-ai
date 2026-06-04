@@ -757,7 +757,8 @@ export default function IntentDataClient() {
             className="max-w-3xl"
           >
             <p className="font-mono text-lavender text-[10px] uppercase tracking-[0.25em] mb-5">
-              Cylance · 2018 · Bombora Intent Data · ~100 Close/Won Accounts
+              <Link href="/about/work/cylance" className="hover:text-ember transition-colors">Cylance</Link>
+              {" · "}2018 · Bombora Intent Data · ~100 Close/Won Accounts
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mb-7">
               Intent Data as
@@ -765,7 +766,11 @@ export default function IntentDataClient() {
               Funnel Intelligence
             </h1>
             <p className="text-lg md:text-xl text-white/52 leading-relaxed">
-              At Cylance, I pulled Bombora intent data across ~100 close/won enterprise accounts and mapped
+              At{" "}
+              <Link href="/about/work/cylance" className="text-white/70 underline underline-offset-2 hover:text-white transition-colors">
+                Cylance
+              </Link>
+              , I pulled Bombora intent data across ~100 close/won enterprise accounts and mapped
               exactly what those buyers were researching — 18 months out to the day they signed. The result: a
               predictable signal model that let me serve the right content at the right time, and move
               conversion metrics.
@@ -836,7 +841,11 @@ export default function IntentDataClient() {
               How this was built
             </p>
             <p className="text-white/48 leading-relaxed text-sm">
-              Pulled Bombora intent data from ~100 Cylance close/won enterprise accounts (Jan–Jun 2018).
+              Pulled Bombora intent data from ~100{" "}
+              <Link href="/about/work/cylance" className="text-white/48 underline underline-offset-2 hover:text-white/70 transition-colors">
+                Cylance
+              </Link>{" "}
+              close/won enterprise accounts (Jan–Jun 2018).
               Analyzed intent surge activity across 6 three-month windows from 18 months pre-close through
               close/won. Compared surge frequency and topic ranking against a non-buyer comparison group to
               calculate lift. The output: a signal model that let the demand gen team know what content to

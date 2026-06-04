@@ -61,6 +61,7 @@ interface CareerItem {
     period: string;
     metric: string;
     description: string;
+    href?: string;
     details?: {
         sections: CareerDetailSection[];
     };
@@ -127,6 +128,7 @@ const careerTimeline: CareerItem[] = [
         metric: "$4M quarterly pipeline",
         description:
             "Led digital marketing through acquisition, maintaining growth momentum while integrating teams.",
+        href: "/about/work/cylance",
     },
     {
         role: "Director, Demand Generation",
@@ -134,7 +136,24 @@ const careerTimeline: CareerItem[] = [
         period: "2017 - 2020",
         metric: "550% pipeline expansion",
         description:
-            "Built demand gen engine from scratch, scaling from startup to $400M+ revenue.",
+            "Built demand gen engine from scratch, scaling from startup to $400M+ revenue — through to the BlackBerry acquisition.",
+        href: "/about/work/cylance",
+    },
+    {
+        role: "Director, Digital Marketing",
+        company: "Trigger",
+        period: "2014 - 2017",
+        metric: "Coming soon",
+        description:
+            "Full story coming soon.",
+    },
+    {
+        role: "Senior Digital Strategist",
+        company: "AKQA",
+        period: "2010 - 2014",
+        metric: "Coming soon",
+        description:
+            "Full story coming soon.",
     },
 ];
 
@@ -507,7 +526,18 @@ export default function AboutClient() {
                                                     {item.metric}
                                                 </span>
                                             </div>
-                                            {item.details && (
+                                            {item.href && (
+                                                <Link
+                                                    href={item.href}
+                                                    className="mt-3 flex items-center gap-1 text-sm text-lavender hover:text-ember font-medium transition-colors"
+                                                >
+                                                    Full story
+                                                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                    </svg>
+                                                </Link>
+                                            )}
+                                            {!item.href && item.details && (
                                                 <button
                                                     onClick={() => setActiveDetail(item)}
                                                     className="mt-3 flex items-center gap-1 text-sm text-lavender hover:text-ember font-medium transition-colors"
