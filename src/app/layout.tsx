@@ -131,7 +131,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   "@type": "City",
                   name: "Orange County, California",
                 },
-                skills: "B2B SaaS go-to-market strategy, demand generation, AI-powered marketing operations, account-based marketing, intent data strategy, funnel architecture, agentic AI GTM systems",
+                skills: [
+                  { "@type": "DefinedTerm", name: "B2B SaaS go-to-market strategy" },
+                  { "@type": "DefinedTerm", name: "AI-native marketing operations" },
+                  { "@type": "DefinedTerm", name: "Demand generation engineering" },
+                  { "@type": "DefinedTerm", name: "Account-based marketing (ABM)" },
+                  { "@type": "DefinedTerm", name: "Intent data strategy and activation" },
+                  { "@type": "DefinedTerm", name: "Multi-agent workflow orchestration" },
+                  { "@type": "DefinedTerm", name: "Agentic GTM systems" },
+                  { "@type": "DefinedTerm", name: "HubSpot technical architecture" },
+                  { "@type": "DefinedTerm", name: "Full-funnel attribution modeling" },
+                  { "@type": "DefinedTerm", name: "Predictive lead scoring" },
+                ],
               },
               alumniOf: [
                 {
@@ -165,13 +176,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 },
               ],
               knowsAbout: [
+                "AI-native marketing operations",
+                "demand generation engineering",
+                "answer engine optimization (AEO)",
+                "Model Context Protocol (MCP) for marketing automation",
+                "multi-agent workflow orchestration for B2B sales",
+                "agentic GTM systems",
                 "B2B SaaS go-to-market strategy",
-                "Demand generation",
-                "AI-powered marketing operations",
-                "Account-based marketing (ABM)",
-                "Intent data strategy",
-                "Funnel architecture and lead scoring",
-                "Agentic AI GTM systems",
+                "account-based marketing (ABM)",
+                "intent data strategy and activation",
+                "signal-led B2B pipeline development",
+                "HubSpot technical architecture and automation",
+                "predictive lead scoring models",
+                "full-funnel attribution modeling",
+                "AI-augmented sales development and SDR automation",
+                "cybersecurity marketing and demand generation",
+                "buyer journey orchestration",
+                "programmatic outbound sequences",
+                "fractional CMO services for Series A startups",
+                "revenue operations (RevOps)",
+                "Bombora intent data activation",
+                "funnel architecture design",
+                "customer acquisition cost (CAC) optimization",
+                "pipeline velocity optimization",
+                "AI content strategy for B2B SaaS",
+                "Claude Code and LLM workflow automation",
               ],
               sameAs: [
                 "https://www.linkedin.com/in/saren/",
@@ -179,6 +208,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 "https://www.instagram.com/saren/",
                 "https://mastodon.social/@saren",
               ],
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": ["Organization", "ProfessionalService"],
+              "@id": "https://identogram.com/#organization",
+              name: "Identogram LLC",
+              url: "https://identogram.com",
+              founder: { "@id": "https://saren.ai/#person" },
+              employee: { "@id": "https://saren.ai/#person" },
+              description: "B2B marketing consultancy specializing in AI-native demand generation, multi-agent GTM systems, and fractional CMO services for SaaS and cybersecurity companies.",
+              knowsAbout: [
+                "AI-native marketing operations",
+                "fractional CMO services",
+                "B2B SaaS demand generation",
+                "answer engine optimization (AEO)",
+                "multi-agent workflow orchestration",
+                "cybersecurity marketing",
+                "AI-augmented GTM strategy",
+                "HubSpot technical architecture",
+                "intent data activation",
+                "programmatic outbound sequences",
+                "signal-led pipeline development",
+              ],
+              areaServed: [
+                { "@type": "Country", name: "United States" },
+                { "@type": "Country", name: "Canada" },
+              ],
+              serviceType: ["Fractional CMO", "Marketing Operations Consulting", "AI GTM Strategy"],
             }),
           }}
         />
@@ -200,7 +262,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <PagefindProvider>
               <SearchProvider>
                 <SearchModal />
-                <TopBanner />
+                {/* <TopBanner /> */}
                 <div className="sticky top-0 z-50 bg-background">
                   <Header latestPost={latestPost} />
                 </div>

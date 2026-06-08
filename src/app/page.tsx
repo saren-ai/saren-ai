@@ -37,7 +37,12 @@ export default function HomePage() {
             "name": "saren.ai",
             "description": "Fractional CMO and AI Operations Consultant — B2B SaaS go-to-market strategy, demand generation, and AI-powered marketing systems.",
             "publisher": { "@id": "https://saren.ai/#person" },
-            "inLanguage": "en-US"
+            "inLanguage": "en-US",
+            "potentialAction": {
+              "@type": "ContactAction",
+              "target": "https://saren.ai/contact",
+              "name": "Inquire about fractional CMO or AI marketing operations services"
+            }
           })
         }}
       />
@@ -64,22 +69,26 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Service",
+            "@type": "ProfessionalService",
             "@id": "https://saren.ai/#fractional-cmo-service",
-            "name": "Fractional CMO & Demand Generation Consulting",
-            "description": "Full-funnel demand generation infrastructure for complex B2B and cybersecurity companies — frameworks, scoring models, attribution, and AI-augmented marketing operations.",
+            "name": "Fractional CMO & AI-Native Demand Generation",
+            "description": "Full-funnel demand generation infrastructure for B2B SaaS and cybersecurity companies. AI-powered lead scoring, intent signal activation, multi-agent marketing workflows, and pipeline attribution systems that produce predictable revenue.",
             "provider": { "@id": "https://saren.ai/#person" },
-            "serviceType": "Fractional CMO",
-            "areaServed": { "@type": "Country", "name": "United States" },
+            "serviceType": ["Fractional CMO", "Demand Generation", "AI Marketing Operations"],
+            "areaServed": [
+              { "@type": "Country", "name": "United States" },
+              { "@type": "Country", "name": "Canada" }
+            ],
             "audience": {
               "@type": "BusinessAudience",
-              "audienceType": "B2B SaaS companies",
+              "audienceType": "B2B SaaS and cybersecurity companies (Series A–C, 10–500 employees)",
               "numberOfEmployees": {
                 "@type": "QuantitativeValue",
                 "minValue": 10,
                 "maxValue": 500
               }
             },
+            "url": "https://saren.ai/contact",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "name": "Fractional CMO & AI GTM Services",
@@ -89,23 +98,31 @@ export default function HomePage() {
                   "itemOffered": {
                     "@type": "Service",
                     "name": "Fractional CMO",
-                    "description": "Strategic marketing leadership (10–20 hours/week) for system building, demand generation, and team development."
+                    "description": "Strategic marketing leadership (10–20 hours/week) for system building, demand generation, and team development in early-stage B2B SaaS and cybersecurity."
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Demand Generation Architecture",
-                    "description": "Building AI-driven growth engines for early-stage and Series A startups — from pipeline frameworks to full-funnel attribution systems."
+                    "name": "AI-Native Demand Generation Architecture",
+                    "description": "Building agentic GTM systems: multi-step intent signal pipelines, AI-augmented SDR workflows, full-funnel attribution, and predictive lead scoring models."
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "AI-Augmented Marketing Operations",
-                    "description": "Scoring models, attribution frameworks, and signal-based outreach pipelines that turn chaotic spend into predictable pipeline."
+                    "name": "Answer Engine Optimization (AEO)",
+                    "description": "Structuring B2B website content and JSON-LD schemas to appear in AI-generated answers from Perplexity, ChatGPT, Claude, and other LLM-powered search engines."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Marketing Operations Audit",
+                    "description": "Diagnosing pipeline leaks, CAC inefficiencies, and automation gaps — with a documented playbook for remediation."
                   }
                 }
               ]

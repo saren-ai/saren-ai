@@ -193,6 +193,7 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
         "@id": `https://saren.ai/playbooks/${playbook.playbook_id}/#article`,
         "headline": playbook.title,
         "description": playbook.description,
+        "abstract": playbook.description,
         "url": `https://saren.ai/playbooks/${playbook.playbook_id}`,
         "image": {
             "@type": "ImageObject",
@@ -204,11 +205,36 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
         "publisher": { "@id": "https://saren.ai/#person" },
         "mainEntityOfPage": { "@id": `https://saren.ai/playbooks/${playbook.playbook_id}/#webpage` },
         "keywords": playbook.tags.join(", "),
+        "about": playbook.tags.map(tag => ({ "@type": "DefinedTerm", "name": tag })),
+        "teaches": playbook.tags.map(tag => ({ "@type": "DefinedTerm", "name": tag })),
+        "isAccessibleForFree": !playbook.paid,
+        ...(playbook.paid && {
+            "offers": {
+                "@type": "Offer",
+                "availability": "https://schema.org/InStock",
+                "seller": { "@id": "https://saren.ai/#person" }
+            }
+        }),
         ...(playbook.date && { "datePublished": playbook.date }),
         "dateModified": "2026-04-01",
         "inLanguage": "en-US",
         "articleSection": playbook.category
     };
+
+    const howToLd = playbook.steps.length > 0 ? {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "@id": `https://saren.ai/playbooks/${playbook.playbook_id}/#howto`,
+        "name": playbook.title,
+        "description": playbook.description,
+        "tool": { "@type": "HowToTool", "name": "Claude AI" },
+        "step": playbook.steps.map((step, i) => ({
+            "@type": "HowToStep",
+            "position": i + 1,
+            "name": step.title,
+            "text": step.content ? step.content.replace(/[#*`]/g, '').slice(0, 300) : step.title,
+        }))
+    } : null;
 
     const webPageLd = {
         "@context": "https://schema.org",
@@ -247,6 +273,12 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
             />
+            {howToLd && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }}
+                />
+            )}
             <AnimatedNavFramer items={navItems} activeCategory={playbook.category} />
             <div className="max-w-4xl mx-auto space-y-12">
 

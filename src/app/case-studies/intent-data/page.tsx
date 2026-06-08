@@ -53,7 +53,7 @@ export default function IntentDataPage() {
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saren.ai" },
-              { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://saren.ai/portfolio" },
+              { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://saren.ai/case-studies" },
               { "@type": "ListItem", "position": 3, "name": "Intent Data as Funnel Intelligence", "item": "https://saren.ai/case-studies/intent-data" }
             ]
           })
