@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { Mail, Clock, CalendarDays } from "lucide-react";
 import Image from "next/image";
 import FAQ from "@/components/ui/FAQ";
+import { TestimonialGrid } from "@/components/ui/Testimonial";
+import { TESTIMONIALS } from "@/data/testimonials";
 
 export default function ContactClient() {
     return (
@@ -36,9 +38,9 @@ export default function ContactClient() {
                             <motion.h1
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
+                                className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
                             >
-                                Let&apos;s Connect
+                                Hire a fractional marketing lead — contact Saren Sakurai
                             </motion.h1>
                             <motion.p
                                 initial={{ opacity: 0, y: 20 }}
@@ -47,7 +49,7 @@ export default function ContactClient() {
                                 className="text-lg md:text-xl text-ash/80 leading-relaxed mb-6 max-w-xl"
                             >
                                 Ready to build a growth engine that scales? Whether you need a
-                                fractional CMO, demand gen strategy, or marketing operations help,
+                                fractional marketing lead, demand gen strategy, or marketing operations help,
                                 I&apos;d love to hear from you.
                             </motion.p>
                             <motion.a
@@ -87,14 +89,14 @@ export default function ContactClient() {
                                 read it and write back.
                             </p>
                             <a
-                                href="mailto:saren.sakurai@gmail.com?subject=Let%27s%20Work%20Together"
+                                href="mailto:hello@saren.ai?subject=Let%27s%20Work%20Together"
                                 className="btn-primary inline-flex items-center gap-3 self-start text-lg px-8 py-4"
                             >
                                 <Mail className="w-5 h-5" />
                                 Email Saren
                             </a>
                             <p className="text-sm text-slate/70 mt-4">
-                                Opens your email client · saren.sakurai@gmail.com
+                                Opens your email client · hello@saren.ai
                             </p>
                         </motion.div>
 
@@ -143,13 +145,17 @@ export default function ContactClient() {
             </section>
 
             {/* FAQ */}
+            {/* Testimonials — renders nothing until real quotes exist in src/data/testimonials.ts */}
+            <TestimonialGrid items={TESTIMONIALS} />
+
             <FAQ
                 title="Before You Reach Out"
                 description="Quick answers to common questions"
                 items={[
                     {
                         question: "What's the best way to work with you?",
-                        answer: "Most clients engage me as a fractional CMO (10-20 hours/week) for strategic leadership and system building. Some bring me in for project-based work like building a demand gen engine, implementing analytics frameworks, or creating a growth strategy. Send me an email and we'll figure out the best fit."
+                        answer: "Most clients engage me as a fractional marketing lead (10-20 hours/week) for strategic leadership and system building. Some bring me in for project-based work like building a demand gen engine, implementing analytics frameworks, or creating a growth strategy. Send me an email and we'll figure out the best fit.",
+                        link: { href: "/fractional-marketing-lead/cost", label: "Engagement tiers and rates →" }
                     },
                     {
                         question: "Do you take on short-term projects?",
@@ -165,7 +171,7 @@ export default function ContactClient() {
                     },
                     {
                         question: "Do you work with agencies or only direct with companies?",
-                        answer: "Both. Many agencies bring me in for strategic guidance when their client needs demand gen architecture, analytics frameworks, or fractional CMO leadership. I also work directly with companies that have agencies handling execution but need strategic direction."
+                        answer: "Both. Many agencies bring me in for strategic guidance when their client needs demand gen architecture, analytics frameworks, or fractional marketing lead services. I also work directly with companies that have agencies handling execution but need strategic direction."
                     },
                     {
                         question: "What if I'm not sure what I need?",

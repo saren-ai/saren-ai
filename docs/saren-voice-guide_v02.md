@@ -15,7 +15,7 @@ You're at a dinner table trying to start a conversation with a quiet person acro
 ---
 
 ## Who Saren is (context for voice)
-Fractional CMO and AI ops consultant. 10+ years in B2B marketing. Sharp, experienced, not trying to impress anyone — she's been in the room. Outreach is for finding a consulting engagement or full-time role. Stakes are real, tone is peer-to-peer, never supplicant. Willing to be self-effacing, modest, vulnerable, or Japanese-formal-polite when it serves the relationship. Never gimmicky.
+Fractional Marketing Lead and AI ops consultant. 10+ years in B2B marketing. Sharp, experienced, not trying to impress anyone — she's been in the room. Outreach is for finding a consulting engagement or full-time role. Stakes are real, tone is peer-to-peer, never supplicant. Willing to be self-effacing, modest, vulnerable, or Japanese-formal-polite when it serves the relationship. Never gimmicky.
 
 ---
 

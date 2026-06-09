@@ -118,7 +118,7 @@ const competencies = [
   {
     name: 'Paid digital acquisition',
     evidence:
-      'Led $2.5M Cylance paid media team generating $4M quarterly pipeline; 300% LinkedIn lead increase at Qwiet AI in a single quarter on a restructured spend model',
+      'Led $1M Cylance paid media budget generating $4M quarterly pipeline; 300% inbound MQL growth at Qwiet AI in a single quarter on a restructured spend model',
     fit: 100,
   },
   {
@@ -216,7 +216,7 @@ const timelineEntries = [
     company: 'WethosAI / Qwiet AI / CloudKitchens',
     bullets: [
       '+344% inbound leads at WethosAI — full GTM built from zero; +28% demo-to-opp conversion',
-      '5× lead increase at Qwiet AI in 6 weeks; 300% LinkedIn growth on restructured spend model',
+      '5× lead increase at Qwiet AI in 6 weeks; 300% inbound MQL growth on restructured spend model',
       '70% Google Ads spend reduction with +30% conversion improvement at Qwiet AI',
     ],
   },
@@ -225,8 +225,8 @@ const timelineEntries = [
     role: 'Senior Director, Digital Marketing & Web',
     company: 'BlackBerry (post-Cylance acquisition)',
     bullets: [
-      'Managed $2.3M global paid media across 5 regions, 7 languages',
-      '550% YoY growth in intent-driven traffic and pipeline',
+      'Managed $2.3M global paid media across 5 regions, 7 languages — 8:1 ROI',
+      '550% paid search recovery — rebuilt the inherited post-acquisition SEM program end to end',
       '8× YoY ABM traction against enterprise security accounts',
       'Quarterly board presentations — pipeline attribution, CAC, LTV',
     ],
@@ -236,7 +236,7 @@ const timelineEntries = [
     role: 'Director, Demand Generation & Web',
     company: 'Cylance (acq. BlackBerry, $1.4B)',
     bullets: [
-      '$4M quarterly pipeline on $2.5M annual paid media — 8:1 ROI',
+      '$4M quarterly pipeline on $1M annual paid media',
       '70%+ CAC reduction through intent-driven segmentation',
       'Built 5-person global demand center across North America, EMEA, APAC',
       '$1.3M website rebuild: 300+ pages, multi-lingual, global demand gen infrastructure',
@@ -405,9 +405,9 @@ export default function HalcyonClient() {
 
                 <div className="space-y-3 border-t border-ash/10 pt-4 mb-5">
                   {[
-                    { stat: '550%', label: 'YoY pipeline growth' },
-                    { stat: '8:1', label: 'Paid media ROI at Cylance' },
-                    { stat: '15+', label: 'Years in B2B demand gen' },
+                    { stat: '$4M', label: 'Quarterly pipeline at Cylance' },
+                    { stat: '8:1', label: 'Paid media ROI at BlackBerry' },
+                    { stat: '20+', label: 'Years in B2B demand gen' },
                   ].map(({ stat, label }) => (
                     <div key={stat} className="flex items-baseline gap-2">
                       <span className="font-mono font-bold text-ash text-lg leading-none">{stat}</span>
@@ -435,9 +435,9 @@ export default function HalcyonClient() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0 md:divide-x md:divide-charcoal/10 md:dark:divide-white/10">
             <div className="md:pr-12">
               <div className="metric-value">{metricsVisible ? count1 : 0}%</div>
-              <div className="metric-label mt-2 mb-1">Pipeline growth</div>
+              <div className="metric-label mt-2 mb-1">Paid search recovery</div>
               <p className="text-sm text-slate dark:text-slate">
-                BlackBerry — intent-driven SEM + ABM targeting the same CISO buyer profile Halcyon sells to today
+                BlackBerry — rebuilt the underperforming post-acquisition SEM program end to end, targeting the same CISO buyer profile Halcyon sells to today
               </p>
             </div>
             <div className="md:px-12">
@@ -451,7 +451,7 @@ export default function HalcyonClient() {
               <div className="metric-value">8:1</div>
               <div className="metric-label mt-2 mb-1">ROI on paid media</div>
               <p className="text-sm text-slate dark:text-slate">
-                Cylance — $4M quarterly pipeline on $2.5M annual budget, selling AI-native security to the same enterprise buyer
+                BlackBerry — $2.3M annual paid media budget, selling AI-native security to the same enterprise buyer
               </p>
             </div>
           </div>
@@ -742,10 +742,10 @@ export default function HalcyonClient() {
               Kelly Fiedler · Jon Miller · Scott Stout — this is the hire.
             </p>
             <p className="text-ash/50 text-base mb-10">
-              saren.sakurai@gmail.com · Irvine, CA · Remote-ready
+              hello@saren.ai · Irvine, CA · Remote-ready
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a href="mailto:saren.sakurai@gmail.com" className="btn-primary">
+              <a href="mailto:hello@saren.ai" className="btn-primary">
                 Email Saren
               </a>
               <Link

@@ -5,12 +5,12 @@ import PagefindBoundary from "@/components/search/PagefindBoundary";
 export const metadata: Metadata = {
   title: "About Saren Sakurai | Marketing for the Messy Middle",
   description:
-    "I build growth engines at the intersection of cultural storytelling and systems design. Fractional CMO for Series A startups.",
+    "I build growth engines at the intersection of cultural storytelling and systems design. Fractional Marketing Lead for Series A startups.",
   alternates: { canonical: "https://saren.ai/about" },
   openGraph: {
     title: "About Saren Sakurai | Marketing for the Messy Middle",
     description:
-      "I build growth engines at the intersection of cultural storytelling and systems design. Fractional CMO for Series A startups.",
+      "I build growth engines at the intersection of cultural storytelling and systems design. Fractional Marketing Lead for Series A startups.",
     images: ["/images/og/about.png"],
     type: "website",
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About Saren Sakurai | Marketing for the Messy Middle",
     description:
-      "I build growth engines at the intersection of cultural storytelling and systems design. Fractional CMO for Series A startups.",
+      "I build growth engines at the intersection of cultural storytelling and systems design. Fractional Marketing Lead for Series A startups.",
     images: ["/images/og/about.png"],
   },
 };
@@ -35,7 +35,7 @@ export default function AboutPage() {
             "@id": "https://saren.ai/about/#webpage",
             "url": "https://saren.ai/about",
             "name": "About Saren Sakurai | Marketing for the Messy Middle",
-            "description": "I build growth engines at the intersection of cultural storytelling and systems design. Fractional CMO for Series A startups.",
+            "description": "I build growth engines at the intersection of cultural storytelling and systems design. Fractional Marketing Lead for Series A startups.",
             "isPartOf": { "@id": "https://saren.ai/#website" },
             "about": { "@id": "https://saren.ai/#person" },
             "author": { "@id": "https://saren.ai/#person" },

@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 const metrics = [
     { label: "Exits", value: "3" },
     { label: "Cylance Exit", value: "$1.4B" },
-    { label: "Pipeline Growth", value: "550%" },
+    { label: "Paid Search Recovery (BlackBerry rebuild)", value: "550%" },
     { label: "CAC Reduction", value: "70%" },
-    { label: "Lead Growth (WethosAI)", value: "344%" },
+    { label: "Lead Growth (Wethos AI)", value: "344%" },
 ];
 
 export default function CredibilityBar() {

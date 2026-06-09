@@ -24,17 +24,21 @@ export default function AIOrchestrationClient() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-6xl font-bold leading-[1.1] mb-6 max-w-3xl"
           >
-            Machines handle scale.{' '}
-            <span className="text-gradient">Humans handle meaning.</span>
+            AI orchestration consulting{' '}
+            <span className="text-gradient">for B2B marketing & sales</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-foreground-muted max-w-2xl leading-relaxed mb-10"
+            transition={{ delay: 0.15 }}
+            className="text-xl md:text-2xl font-semibold text-ash mb-6 max-w-2xl"
           >
-            Orchestration is the practice of designing AI systems where the machine handles every task it&apos;s better at — and hands off to a human at every moment where judgment, empathy, or meaning matters. Not AI that replaces you. AI that makes your decisions count more.
+            Machines handle scale. Humans handle meaning.
           </motion.p>
+          {/* Definition block — plain <p>, no animation: this page owns the "what is AI orchestration" answer */}
+          <p className="text-lg md:text-xl text-foreground-muted max-w-2xl leading-relaxed mb-10">
+            <strong className="text-ash">AI orchestration</strong> is the practice of designing multi-agent systems where the machine handles every task it&apos;s better at — and hands off to a human wherever judgment, empathy, or meaning matters. I design and build these systems for B2B go-to-market teams. Not AI that replaces you. AI that makes your decisions count more.
+          </p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

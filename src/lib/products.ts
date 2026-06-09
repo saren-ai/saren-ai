@@ -32,7 +32,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "fractional-cmo-dashboard",
-    name: "The Fractional CMO Pipeline Dashboard",
+    name: "The Fractional Marketing Lead Pipeline Dashboard",
     tagline:
       "An operating system for solo operators who need pipeline running without being the bottleneck.",
     priceCents: 9900,

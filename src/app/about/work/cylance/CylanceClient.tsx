@@ -5,7 +5,7 @@ import Link from "next/link";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 
 const outcomes = [
-  { value: "550%", label: "Pipeline expansion over 18 months" },
+  { value: "$4M", label: "Quarterly pipeline generated" },
   { value: "6", label: "Consecutive quarters of double-digit growth" },
   { value: "3 days", label: "Page dev time, down from three weeks" },
   { value: "1 month", label: "To rebuild the entire demand gen operating model" },
@@ -60,8 +60,8 @@ export default function CylanceClient() {
               transition={{ delay: 0.25 }}
               className="inline-flex items-baseline gap-3"
             >
-              <span className="text-5xl font-bold text-ember">550%</span>
-              <span className="text-ash/70 text-lg">pipeline expansion over 18 months</span>
+              <span className="text-5xl font-bold text-ember">$4M</span>
+              <span className="text-ash/70 text-lg">in quarterly pipeline</span>
             </motion.div>
           </div>
         </div>
@@ -210,7 +210,7 @@ export default function CylanceClient() {
               <p className="text-sm font-mono text-slate uppercase tracking-wider mb-6">The result</p>
               <div className="prose prose-lg text-slate leading-relaxed space-y-5">
                 <p>
-                  Six straight quarters of double-digit pipeline growth — 550% over 18 months — sustained
+                  Six straight quarters of double-digit pipeline growth — reaching $4M in quarterly pipeline — sustained
                   right up to the BlackBerry acquisition. After the acquisition I moved into the
                   Sr. Director, Digital Marketing role, leading digital marketing through integration and
                   maintaining the growth momentum as the combined organization came together.

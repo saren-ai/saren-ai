@@ -3,12 +3,12 @@ import HomeClient from "./HomeClient";
 
 
 export const metadata: Metadata = {
-  title: "Saren Sakurai | Fractional CMO & AI Operations Consultant",
+  title: "Saren Sakurai | Fractional Marketing Lead & AI Operations Consultant",
   description:
     "Demand generation as engineering. Building AI-driven growth engines for early-stage and Series A startups.",
   alternates: { canonical: "https://saren.ai" },
   openGraph: {
-    title: "Saren Sakurai | Fractional CMO & AI Operations Consultant",
+    title: "Saren Sakurai | Fractional Marketing Lead & AI Operations Consultant",
     description:
       "Demand generation as engineering. Building AI-driven growth engines for early-stage and Series A startups.",
     images: ["/images/og/home.png"],
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Saren Sakurai | Fractional CMO & AI Operations Consultant",
+    title: "Saren Sakurai | Fractional Marketing Lead & AI Operations Consultant",
     description:
       "Demand generation as engineering. Building AI-driven growth engines for early-stage and Series A startups.",
     images: ["/images/og/home.png"],
@@ -35,13 +35,13 @@ export default function HomePage() {
             "@id": "https://saren.ai/#website",
             "url": "https://saren.ai",
             "name": "saren.ai",
-            "description": "Fractional CMO and AI Operations Consultant — B2B SaaS go-to-market strategy, demand generation, and AI-powered marketing systems.",
+            "description": "Fractional Marketing Lead and AI Operations Consultant — B2B SaaS go-to-market strategy, demand generation, and AI-powered marketing systems.",
             "publisher": { "@id": "https://saren.ai/#person" },
             "inLanguage": "en-US",
             "potentialAction": {
               "@type": "ContactAction",
               "target": "https://saren.ai/contact",
-              "name": "Inquire about fractional CMO or AI marketing operations services"
+              "name": "Inquire about fractional marketing lead or AI marketing operations services"
             }
           })
         }}
@@ -54,7 +54,7 @@ export default function HomePage() {
             "@type": "WebPage",
             "@id": "https://saren.ai/#webpage",
             "url": "https://saren.ai",
-            "name": "Saren Sakurai | Fractional CMO & AI Operations Consultant",
+            "name": "Saren Sakurai | Fractional Marketing Lead & AI Operations Consultant",
             "description": "Demand generation as engineering. Building AI-driven growth engines for early-stage and Series A startups.",
             "isPartOf": { "@id": "https://saren.ai/#website" },
             "about": { "@id": "https://saren.ai/#person" },
@@ -70,11 +70,11 @@ export default function HomePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
-            "@id": "https://saren.ai/#fractional-cmo-service",
-            "name": "Fractional CMO & AI-Native Demand Generation",
+            "@id": "https://saren.ai/#fractional-marketing-lead-service",
+            "name": "Fractional Marketing Lead & AI-Native Demand Generation",
             "description": "Full-funnel demand generation infrastructure for B2B SaaS and cybersecurity companies. AI-powered lead scoring, intent signal activation, multi-agent marketing workflows, and pipeline attribution systems that produce predictable revenue.",
             "provider": { "@id": "https://saren.ai/#person" },
-            "serviceType": ["Fractional CMO", "Demand Generation", "AI Marketing Operations"],
+            "serviceType": ["Fractional Marketing Lead", "Demand Generation", "AI Marketing Operations"],
             "areaServed": [
               { "@type": "Country", "name": "United States" },
               { "@type": "Country", "name": "Canada" }
@@ -91,13 +91,13 @@ export default function HomePage() {
             "url": "https://saren.ai/contact",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
-              "name": "Fractional CMO & AI GTM Services",
+              "name": "Fractional Marketing Lead & AI GTM Services",
               "itemListElement": [
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Fractional CMO",
+                    "name": "Fractional Marketing Lead",
                     "description": "Strategic marketing leadership (10–20 hours/week) for system building, demand generation, and team development in early-stage B2B SaaS and cybersecurity."
                   }
                 },
@@ -138,11 +138,11 @@ export default function HomePage() {
             "@type": "ProfilePage",
             "@id": "https://saren.ai/#profilepage",
             "url": "https://saren.ai",
-            "name": "Saren Sakurai | Fractional CMO & AI Operations Consultant",
+            "name": "Saren Sakurai | Fractional Marketing Lead & AI Operations Consultant",
             "description": "Demand generation as engineering. Building AI-driven growth engines for early-stage and Series A startups.",
             "mainEntity": { "@id": "https://saren.ai/#person" },
             "isPartOf": { "@id": "https://saren.ai/#website" },
-            "image": "https://saren.ai/og-image.png",
+            "image": "https://saren.ai/images/og/home.png",
             "inLanguage": "en-US",
             "dateModified": "2026-03-27"
           })

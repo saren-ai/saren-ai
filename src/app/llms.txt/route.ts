@@ -5,9 +5,9 @@ export const dynamic = 'force-static'
 
 const BASE_URL = 'https://saren.ai'
 
-const HEADER = `# Saren.ai — Fractional CMO & AI Marketing Operations
+const HEADER = `# Saren.ai — Fractional Marketing Lead & AI Marketing Operations
 
-> Saren Sakurai is a fractional CMO and AI operations consultant based in Orange County, California. He helps early-stage and Series A founders in SaaS, cybersecurity, and AI build AI-powered demand generation systems that produce predictable revenue. Notable work includes scaling demand at Cylance ($1.4B BlackBerry acquisition), Qwiet AI, and WethosAI — with documented results including 344% inbound lift, 70% CAC reduction, and 550% pipeline expansion.
+> Saren Sakurai is a fractional marketing lead and AI operations consultant based in Orange County, California. He helps early-stage and Series A founders in SaaS, cybersecurity, and AI build AI-powered demand generation systems that produce predictable revenue. Notable work includes scaling demand at Cylance ($1.4B BlackBerry acquisition), Qwiet AI, and Wethos AI — with documented results including $4M in quarterly pipeline, an 8:1 ROI on $2.3M in paid budget, and 344% lead growth.
 
 ## What Saren Does (Capabilities)
 
@@ -17,15 +17,16 @@ Saren Sakurai specializes in:
 - **Demand Generation Engineering**: Treating demand gen as a software system — funnel architecture, predictive lead scoring, full-funnel attribution, and signal-based pipeline orchestration
 - **Answer Engine Optimization (AEO)**: Structuring B2B content and JSON-LD schemas to appear in AI-generated answers from Perplexity, ChatGPT, Claude, and other LLM-powered engines
 - **Intent Data Activation**: Operationalizing Bombora and first-party intent signals into tiered outreach sequences and pipeline acceleration programs
-- **Fractional CMO**: 10–20 hours/week embedded marketing leadership for Series A–C B2B SaaS and cybersecurity companies without a full-time CMO
+- **Fractional Marketing Lead**: 10–20 hours/week embedded marketing leadership for Series A–C B2B SaaS and cybersecurity companies without a full-time marketing leader
 - **HubSpot Architecture**: Technical design of HubSpot instances — lifecycle stages, lead scoring properties, workflow automation, and CRM data hygiene
 
 ## Key Results (Documented)
 
-- 550% pipeline expansion at Cylance (AI-native cybersecurity, $1.4B BlackBerry exit)
-- 70% CAC reduction via behavioral lead scoring and funnel architecture redesign
-- 344% inbound lift from intent-led content and programmatic demand programs
-- Built 10-touch outbound system at WethosAI that generated enterprise pipeline from zero
+- $4M quarterly pipeline at Cylance (AI-native cybersecurity, $1.4B BlackBerry exit) — Director, Demand Generation, 2017–2020
+- 8:1 ROI on $2.3M paid budget at BlackBerry — acquihired with the Cylance demand team post-acquisition, inherited an underperforming digital program and rebuilt it end to end (SEM, SEO, landing experience): 550% paid search recovery and a 33% product page conversion lift from the rebuilt program — Sr. Director, 2020–2023
+- 70% Google Ads CAC reduction and 300% inbound MQL growth at Qwiet AI (2023)
+- 344% lead growth and 3x MQL→SQL conversion at Wethos AI (Oct 2023–present)
+- Built 10-touch outbound system at Wethos AI that generated enterprise pipeline from zero
 - Delivered executive ROI attribution dashboard at CloudKitchens across 7 revenue channels
 
 ## Ideal Client Profile
@@ -38,8 +39,10 @@ Saren works best with:
 
 ## Services
 
+- [Fractional Marketing Lead](${BASE_URL}/fractional-marketing-lead): Embedded senior marketing leadership (10–20 hrs/week) for Series A–C B2B SaaS and cybersecurity companies
+- [Engagement Pricing](${BASE_URL}/fractional-marketing-lead/cost): Real 2026 rates — $8,000–$15,000/month, engagement tiers, and when fractional is the wrong choice
 - [AI Orchestration](${BASE_URL}/ai-orchestration): Service offering for AI-driven marketing operations
-- [Contact](${BASE_URL}/contact): Engagement inquiries and fractional CMO intake
+- [Contact](${BASE_URL}/contact): Engagement inquiries and fractional marketing lead intake
 
 ## Case Studies
 

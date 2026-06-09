@@ -19,8 +19,8 @@ const FAQ_ITEMS: FaqItem[] = [
       <div className="space-y-3 text-sm leading-relaxed text-slate dark:text-slate">
         <p>Yes — and the evidence comes from his operational history, not his title.</p>
         <p>
-          At Cylance, Saren owned a <strong className="text-charcoal dark:text-foreground">$2.5M annual paid media budget</strong> with
-          an 8:1 ROI expectation. He didn&apos;t advise on that budget — he controlled it,
+          At Cylance, Saren owned a <strong className="text-charcoal dark:text-foreground">$1M annual paid media budget</strong> with
+          hard ROI accountability. He didn&apos;t advise on that budget — he controlled it,
           allocated it across channels and regions, reported on its performance, and was
           accountable when it didn&apos;t deliver. The $4M quarterly pipeline he generated
           wasn&apos;t a consulting deliverable. It was a number he was on the hook for.
@@ -165,11 +165,11 @@ const FAQ_ITEMS: FaqItem[] = [
             </thead>
             <tbody className="divide-y divide-charcoal/8 dark:divide-white/8">
               {[
-                ['550% YoY pipeline growth', 'BlackBerry — intent-driven SEM + ABM'],
+                ['550% paid search recovery', 'BlackBerry — post-acquisition program rebuild: SEM, SEO, landing experience'],
                 ['70%+ CAC reduction', 'Qwiet AI — rebuilt demand gen in 6 weeks'],
-                ['8:1 ROI on paid media', 'Cylance — $4M quarterly pipeline on $2.5M annual budget'],
+                ['8:1 ROI on paid media', 'BlackBerry — $2.3M annual paid media budget'],
                 ['344% inbound lead growth', 'WethosAI — full GTM build from scratch'],
-                ['300% LinkedIn lead increase', 'Qwiet AI — single quarter, restructured social strategy'],
+                ['300% inbound MQL growth', 'Qwiet AI — single quarter, restructured social strategy'],
                 ['$4M quarterly pipeline', 'Cylance — fully automated digital channels'],
                 ['+28% demo-to-opportunity', 'WethosAI — narrative and mid-funnel content alignment'],
                 ['8× ABM traction YoY', 'BlackBerry — account-based marketing program'],
@@ -493,7 +493,7 @@ export default function FaqClient() {
             Saren would bring to Halcyon on day one.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="mailto:saren.sakurai@gmail.com" className="btn-primary">
+            <a href="mailto:hello@saren.ai" className="btn-primary">
               Email Saren
             </a>
             <Link href="/halcyon/lead-scoring" className="btn-secondary">

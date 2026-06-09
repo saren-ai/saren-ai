@@ -26,11 +26,11 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://saren.ai"),
   title: {
-    default: "Saren Sakurai | Demand Generation | Cybersecurity & AI | B2B Marketing",
+    default: "Saren Sakurai | Fractional Marketing Lead & AI Operations | B2B SaaS",
     template: "%s | Saren.ai",
   },
   description:
-    "VP-level demand generation for AI-native cybersecurity companies. Built the program at Cylance ($1.4B exit). Scaled it at BlackBerry. 550% pipeline growth, 70% CAC reduction.",
+    "Fractional marketing lead and AI operations consultant for B2B SaaS and cybersecurity companies. Built demand at Cylance ($1.4B exit), scaled it at BlackBerry. $4M quarterly pipeline, 70% CAC reduction.",
   keywords: [
     "demand generation",
     "cybersecurity marketing",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     "Cylance",
     "pipeline growth",
     "AI operations",
-    "fractional CMO",
+    "fractional marketing lead",
     "growth marketing",
   ],
   authors: [{ name: "Saren Sakurai" }],
@@ -50,24 +50,24 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://saren.ai",
     siteName: "Saren.ai",
-    title: "Saren Sakurai | Demand Generation | Cybersecurity & AI | B2B Marketing",
+    title: "Saren Sakurai | Fractional Marketing Lead & AI Operations | B2B SaaS",
     description:
-      "VP-level demand generation for AI-native cybersecurity companies. Built the program at Cylance ($1.4B exit). Scaled it at BlackBerry.",
+      "Fractional marketing lead and AI operations consultant for B2B SaaS and cybersecurity companies. Built demand at Cylance ($1.4B exit), scaled it at BlackBerry.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/images/og/home.png",
         width: 1200,
         height: 630,
-        alt: "Saren.ai - Fractional CMO & AI Operations",
+        alt: "Saren.ai - Fractional Marketing Lead & AI Operations",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Saren Sakurai | Demand Generation | Cybersecurity & AI | B2B Marketing",
+    title: "Saren Sakurai | Fractional Marketing Lead & AI Operations | B2B SaaS",
     description:
-      "VP-level demand generation for AI-native cybersecurity companies. Built the program at Cylance ($1.4B exit). Scaled it at BlackBerry.",
-    images: ["/og-image.png"],
+      "Fractional marketing lead and AI operations consultant for B2B SaaS and cybersecurity companies. Built demand at Cylance ($1.4B exit), scaled it at BlackBerry.",
+    images: ["/images/og/home.png"],
   },
   robots: {
     index: true,
@@ -114,10 +114,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               "@id": "https://saren.ai/#person",
               name: "Saren Sakurai",
               url: "https://saren.ai",
-              image: "https://saren.ai/og-image.png",
-              jobTitle: "Fractional CMO & AI Operations Consultant",
+              image: "https://saren.ai/profile/saren-profile_2026.png",
+              jobTitle: "Fractional Marketing Lead & AI Operations Consultant",
               description:
-                "Fractional CMO and AI Operations Consultant specializing in B2B SaaS go-to-market strategy, demand generation, and AI-powered marketing operations. Formerly Senior Director of Demand Generation and Web at Cylance (acquired by BlackBerry for $1.4B). Principal at Identogram LLC.",
+                "Fractional Marketing Lead and AI Operations Consultant specializing in B2B SaaS go-to-market strategy, demand generation, and AI-powered marketing operations. Formerly Senior Director of Demand Generation and Web at Cylance (acquired by BlackBerry for $1.4B). Principal at Identogram LLC.",
               worksFor: {
                 "@type": "Organization",
                 "@id": "https://identogram.com/#organization",
@@ -126,7 +126,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               },
               hasOccupation: {
                 "@type": "Occupation",
-                name: "Fractional CMO",
+                name: "Fractional Marketing Lead",
                 occupationLocation: {
                   "@type": "City",
                   name: "Orange County, California",
@@ -193,7 +193,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 "cybersecurity marketing and demand generation",
                 "buyer journey orchestration",
                 "programmatic outbound sequences",
-                "fractional CMO services for Series A startups",
+                "fractional marketing lead services for Series A startups",
                 "revenue operations (RevOps)",
                 "Bombora intent data activation",
                 "funnel architecture design",
@@ -222,10 +222,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               url: "https://identogram.com",
               founder: { "@id": "https://saren.ai/#person" },
               employee: { "@id": "https://saren.ai/#person" },
-              description: "B2B marketing consultancy specializing in AI-native demand generation, multi-agent GTM systems, and fractional CMO services for SaaS and cybersecurity companies.",
+              description: "B2B marketing consultancy specializing in AI-native demand generation, multi-agent GTM systems, and fractional marketing lead services for SaaS and cybersecurity companies.",
               knowsAbout: [
                 "AI-native marketing operations",
-                "fractional CMO services",
+                "fractional marketing lead services",
                 "B2B SaaS demand generation",
                 "answer engine optimization (AEO)",
                 "multi-agent workflow orchestration",
@@ -240,7 +240,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 { "@type": "Country", name: "United States" },
                 { "@type": "Country", name: "Canada" },
               ],
-              serviceType: ["Fractional CMO", "Marketing Operations Consulting", "AI GTM Strategy"],
+              serviceType: ["Fractional Marketing Lead", "Marketing Operations Consulting", "AI GTM Strategy"],
             }),
           }}
         />

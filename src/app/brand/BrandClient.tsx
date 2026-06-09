@@ -326,7 +326,7 @@ const TYPO_LEVELS: TypoLevel[] = [
     weight: "400 / 700",
     lineHeight: "1.6",
     letterSpacing: "0.01em",
-    sample: "550% pipeline · 70% CAC reduction · $1.4B exit",
+    sample: "$4M pipeline · 70% CAC reduction · $1.4B exit",
   },
 ];
 
@@ -1273,8 +1273,8 @@ export default function BrandClient() {
             <div className="card p-6">
               <div className="grid grid-cols-3 gap-6 text-center">
                 <div>
-                  <p className="metric-value">550%</p>
-                  <p className="metric-label">Pipeline Growth</p>
+                  <p className="metric-value">8:1</p>
+                  <p className="metric-label">ROI on Paid Media</p>
                 </div>
                 <div>
                   <p className="metric-value">70%</p>

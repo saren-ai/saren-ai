@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     title: "Demand Generation Command Center | Saren.ai",
     description:
       "An AI-built executive dashboard wiring HubSpot, Apollo, LinkedIn Ads, GA4, and Pendo into one live view — built with Claude Code in under two days.",
+    images: ["/portfolio/executive-dashboard/demand-dash_bigview.jpg"],
     type: "website",
   },
   twitter: {
@@ -109,6 +110,27 @@ export default function ExecutiveDashboardPage() {
             dateCreated: "2026-04-01",
             dateModified: "2026-04-01",
           }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "@id": "https://saren.ai/case-studies/executive-dashboard/#article",
+            "headline": "Demand gen command center: an AI-built executive dashboard across 5 live APIs",
+            "description": "An AI-built executive dashboard wiring HubSpot, Apollo, LinkedIn Ads, GA4, and Pendo into one live view — built with Claude Code in under two days.",
+            "url": "https://saren.ai/case-studies/executive-dashboard",
+            "mainEntityOfPage": { "@id": "https://saren.ai/case-studies/executive-dashboard/#webpage" },
+            "author": { "@id": "https://saren.ai/#person" },
+            "publisher": { "@id": "https://identogram.com/#organization" },
+            "image": "https://saren.ai/portfolio/executive-dashboard/demand-dash_bigview.jpg",
+            "about": ["marketing attribution", "executive reporting", "AI-assisted development"],
+            "inLanguage": "en-US",
+            "datePublished": "2026-04-14",
+            "dateModified": "2026-05-28"
+          })
         }}
       />
       <ExecutiveDashboardClient />

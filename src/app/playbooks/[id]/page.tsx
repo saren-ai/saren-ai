@@ -73,14 +73,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
             description: playbook.description,
             url: `https://saren.ai/playbooks/${playbook.playbook_id}`,
             siteName: 'Saren.ai',
-            images: [
-                {
-                    url: `/og/playbooks-${playbook.playbook_id}.jpg`,
-                    width: 1200,
-                    height: 630,
-                    alt: playbook.title,
-                },
-            ],
+            // images intentionally omitted — opengraph-image.tsx generates them
             locale: 'en_US',
             type: 'article',
         },
@@ -88,7 +81,6 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
             card: 'summary_large_image',
             title: `${playbook.title} | Playbooks | Saren.ai`,
             description: playbook.description,
-            images: [`/og/playbooks-${playbook.playbook_id}.jpg`],
         },
     };
 }
@@ -197,12 +189,12 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
         "url": `https://saren.ai/playbooks/${playbook.playbook_id}`,
         "image": {
             "@type": "ImageObject",
-            "url": `https://saren.ai/og/playbooks-${playbook.playbook_id}.jpg`,
+            "url": "https://saren.ai/images/og/home.png",
             "width": 1200,
             "height": 630
         },
         "author": { "@id": "https://saren.ai/#person" },
-        "publisher": { "@id": "https://saren.ai/#person" },
+        "publisher": { "@id": "https://identogram.com/#organization" },
         "mainEntityOfPage": { "@id": `https://saren.ai/playbooks/${playbook.playbook_id}/#webpage` },
         "keywords": playbook.tags.join(", "),
         "about": playbook.tags.map(tag => ({ "@type": "DefinedTerm", "name": tag })),

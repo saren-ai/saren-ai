@@ -15,7 +15,7 @@ import {
 
 const proofPoints = [
   { metric: "$4M", label: "Quarterly pipeline generated at Cylance", href: "/case-studies/120-day-content-journey" },
-  { metric: "550%", label: "Pipeline growth across BlackBerry programs", href: "/case-studies/120-day-content-journey" },
+  { metric: "8:1", label: "ROI on $2.3M paid media at BlackBerry", href: "/about" },
   { metric: "42%", label: "Meeting rate on cold outbound sequences", href: "/case-studies/10-touch-sales-play" },
   { metric: "70%", label: "CAC reduction for Qwiet AI", href: "/about/clients" },
 ];
@@ -23,7 +23,7 @@ const proofPoints = [
 const engagementTypes = [
   {
     icon: Building2,
-    title: "Fractional CMO",
+    title: "Fractional Marketing Lead",
     description:
       "Strategic marketing leadership 10–20 hours/week. System building, demand gen architecture, team development, and GTM execution.",
     fits: "Series A–C, $1M–$15M ARR",
@@ -268,7 +268,7 @@ export default function EngageClient() {
                 you&apos;ve already tried. I read every message and write back.
               </p>
               <a
-                href="mailto:saren.sakurai@gmail.com?subject=Working%20Together"
+                href="mailto:hello@saren.ai?subject=Working%20Together"
                 className="btn-lavender inline-flex items-center gap-2"
               >
                 <Mail className="w-4 h-4" />

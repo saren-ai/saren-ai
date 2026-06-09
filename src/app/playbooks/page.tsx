@@ -14,7 +14,7 @@ export const metadata = {
         siteName: 'Saren.ai',
         images: [
             {
-                url: '/og/playbooks.jpg',
+                url: '/images/og/home.png',
                 width: 1200,
                 height: 630,
                 alt: 'saren.ai Playbook Library — AI Marketing Playbooks & B2B Growth Tools',
@@ -27,7 +27,7 @@ export const metadata = {
         card: 'summary_large_image',
         title: 'AI Marketing Playbooks & B2B Growth Tools | Saren.ai',
         description: 'Prompt sequences, interactive calculators, and multi-step AI playbooks for B2B demand gen, lead scoring, GTM planning, and sales outreach.',
-        images: ['/og/playbooks.jpg'],
+        images: ['/images/og/home.png'],
     },
 };
 

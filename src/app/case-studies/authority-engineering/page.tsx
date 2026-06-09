@@ -137,6 +137,27 @@ export default function AuthorityEngineeringPage() {
                     })
                 }}
             />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Article",
+                        "@id": "https://saren.ai/case-studies/authority-engineering/#article",
+                        "headline": "Authority engineering: building white papers LLMs cite as primary sources",
+                        "description": "How to build B2B white papers that LLMs cite as primary sources. A 6-step authority engineering process: signal extraction, synthesis, visual architecture, and structured deployment.",
+                        "url": "https://saren.ai/case-studies/authority-engineering",
+                        "mainEntityOfPage": { "@id": "https://saren.ai/case-studies/authority-engineering/#webpage" },
+                        "author": { "@id": "https://saren.ai/#person" },
+                        "publisher": { "@id": "https://identogram.com/#organization" },
+                        "image": "https://saren.ai/images/og/home.png",
+                        "about": ["thought leadership", "LLM citation strategy", "B2B content strategy"],
+                        "inLanguage": "en-US",
+                        "datePublished": "2026-03-12",
+                        "dateModified": "2026-05-28"
+                    })
+                }}
+            />
             {/* Breadcrumbs */}
             <div className="border-b border-slate/10 dark:border-white/5">
                 <div className="container-narrow py-3">

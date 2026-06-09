@@ -51,7 +51,7 @@ const CASE_STUDIES: CaseStudyItem[] = [
   {
     id: "120-day-content-journey",
     name: "120-Day Content Journey",
-    tagline: "How we engineered $4M in quarterly pipeline at Cylance.",
+    tagline: "How I engineered $4M in quarterly pipeline at Cylance.",
     tag: "SMB",
     accentColor: "ember",
     items: [
@@ -192,7 +192,7 @@ export default function CaseStudiesPageContent() {
             <p className="text-lg text-ash/80 leading-relaxed">
               Enterprise B2B programs built from real engagements — the pipeline
               systems, demand gen architectures, and outbound plays behind $4M
-              pipelines, 42% meeting rates, and 550% growth.
+              pipelines, 42% meeting rates, and an 8:1 ROI on paid media.
             </p>
           </motion.div>
         </div>

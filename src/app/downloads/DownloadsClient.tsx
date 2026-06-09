@@ -91,7 +91,7 @@ export default function DownloadsClient() {
             <p className="text-lg text-ash/80 leading-relaxed">
               Every product here was built from real enterprise work — the
               same systems that generated $4M pipelines, 42% meeting rates,
-              and 550% growth. Now available for any operator to run.
+              and an 8:1 ROI on paid media. Now available for any operator to run.
             </p>
           </motion.div>
         </div>

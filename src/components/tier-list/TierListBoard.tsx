@@ -204,16 +204,8 @@ export function TierListBoard() {
         onDragCancel={handleDragCancel}
       >
         <div className="flex flex-col lg:flex-row gap-6">
-          {/* Mobile: Unranked pool on top */}
-          <div className="lg:hidden">
-            <UnrankedPool
-              toolIds={tierContents.unranked}
-              tools={AI_TOOLS}
-            />
-          </div>
-
           {/* Tier Grid */}
-          <div className="flex-1 space-y-2">
+          <div className="flex-1 space-y-2 order-last lg:order-first">
             {TIER_CONFIG.map((tier) => (
               <TierRow
                 key={tier.id}
@@ -224,8 +216,8 @@ export function TierListBoard() {
             ))}
           </div>
 
-          {/* Desktop: Unranked pool on right */}
-          <div className="hidden lg:block lg:w-72 xl:w-80">
+          {/* Unranked pool — single instance (duplicate droppable ids break dnd-kit); top on mobile, right on desktop */}
+          <div className="order-first lg:order-last lg:w-72 xl:w-80">
             <UnrankedPool
               toolIds={tierContents.unranked}
               tools={AI_TOOLS}

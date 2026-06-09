@@ -33,12 +33,7 @@ const stackCategories = [
   {
     name: "Marketing & Sales",
     description: "Tools for growth and revenue",
-    toolIds: ["hubspot", "plai"],
-  },
-  {
-    name: "Content & Productivity",
-    description: "Creating and managing content",
-    toolIds: ["wethosai"],
+    toolIds: ["hubspot", "plai", "wethosai"],
   },
 ];
 
@@ -117,24 +112,24 @@ const careerTimeline: CareerItem[] = [
         role: "Head of Growth Marketing",
         company: "Qwiet AI",
         period: "2023",
-        metric: "8:1 ROI on paid",
+        metric: "70% Google Ads CAC reduction",
         description:
-            "Built and scaled growth marketing function for application security startup.",
+            "Built and scaled growth marketing function for application security startup — 300% inbound MQL growth.",
     },
     {
         role: "Sr. Director, Digital Marketing",
         company: "BlackBerry/Cylance",
         period: "2020 - 2023",
-        metric: "$4M quarterly pipeline",
+        metric: "8:1 ROI on $2.3M paid budget",
         description:
-            "Led digital marketing through acquisition, maintaining growth momentum while integrating teams.",
+            "Acquihired with the Cylance demand team post-acquisition. Inherited an underperforming digital program and rebuilt it end to end — SEM, SEO, landing experience, and conversion infrastructure. 550% paid search recovery and a 33% product page conversion lift from the rebuilt program.",
         href: "/about/work/cylance",
     },
     {
         role: "Director, Demand Generation",
         company: "Cylance",
         period: "2017 - 2020",
-        metric: "550% pipeline expansion",
+        metric: "$4M quarterly pipeline",
         description:
             "Built demand gen engine from scratch, scaling from startup to $400M+ revenue — through to the BlackBerry acquisition.",
         href: "/about/work/cylance",
@@ -155,15 +150,23 @@ const careerTimeline: CareerItem[] = [
         description:
             "Full story coming soon.",
     },
+    {
+        role: "Web Producer",
+        company: "Nike",
+        period: "2001 - 2007",
+        metric: "4 APAC markets",
+        description:
+            "Localized AKQA-built Nike.com experiences for Japan, Korea, China, and Taiwan — early-career digital production across four Asia-Pacific markets.",
+    },
 ];
 
 const statsData = [
-    { value: "550%", label: "Pipeline Expansion" },
+    { value: "3x", label: "MQL→SQL Conversion" },
     { value: "70%", label: "CAC Reduction" },
     { value: "344%", label: "Lead Growth" },
     { value: "8:1", label: "ROI on Paid Media" },
     { value: "$4M", label: "Quarterly Pipeline" },
-    { value: "15+", label: "Years Experience" },
+    { value: "20+", label: "Years Experience" },
 ];
 
 const personalLinks = [
@@ -333,16 +336,16 @@ export default function AboutClient() {
                 </div>
             </section>
 
-            {/* How I Work */}
+            {/* The Diagnostic Phase */}
             <section className="section bg-charcoal text-ash">
                 <div className="container-narrow">
                     <div className="text-center mb-16">
                         <div className="flex items-center gap-4 mb-6 justify-center">
                             <div className="h-px bg-ash/20 w-12" />
-                            <span className="text-sm font-mono text-ash/60 uppercase tracking-wider">How I Work</span>
+                            <span className="text-sm font-mono text-ash/60 uppercase tracking-wider">The Diagnostic Phase</span>
                             <div className="h-px bg-ash/20 w-12" />
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold">I rebuild the growth system around three principles:</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold">Every systems engagement starts with three diagnostic principles:</h2>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
@@ -351,10 +354,10 @@ export default function AboutClient() {
                             <div className="text-ember font-mono text-xl mb-4">01.</div>
                             <h3 className="text-xl font-bold mb-4">Failure-based positioning</h3>
                             <p className="text-ash/80 leading-relaxed mb-6">
-                                We stop marketing to curiosity and start speaking to the moment something went wrong — the in-house build that collapsed, the tool migration that corrupted data, the demand gen engine that flatlined.
+                                I stop marketing to curiosity and start speaking to the moment something went wrong — the in-house build that collapsed, the tool migration that corrupted data, the demand gen engine that flatlined.
                             </p>
                             <p className="text-white font-medium border-t border-white/10 pt-4">
-                                Failure-aware buyers move fast. We design for them.
+                                Failure-aware buyers move fast. I design for them.
                             </p>
                         </div>
 
@@ -363,10 +366,10 @@ export default function AboutClient() {
                             <div className="text-ember font-mono text-xl mb-4">02.</div>
                             <h3 className="text-xl font-bold mb-4">Radical specificity</h3>
                             <p className="text-ash/80 leading-relaxed mb-6">
-                                No more “we help teams grow.” We name the buyer, the mistake they’re making, and the cost of continuing.
+                                No more “we help teams grow.” I name the buyer, the mistake they’re making, and the cost of continuing.
                             </p>
                             <p className="text-white font-medium border-t border-white/10 pt-4">
-                                If a founder reads the homepage and says, “That’s exactly what’s happening to us,” we’re on the right track.
+                                If a founder reads the homepage and says, “That’s exactly what’s happening to us,” the positioning is working.
                             </p>
                         </div>
 
@@ -375,7 +378,7 @@ export default function AboutClient() {
                             <div className="text-ember font-mono text-xl mb-4">03.</div>
                             <h3 className="text-xl font-bold mb-4">Engineered visibility</h3>
                             <p className="text-ash/80 leading-relaxed mb-6">
-                                Instead of relying purely on ads or trendy social noise, we build marketing assets that rank, compound, and attract intent — free tools, frameworks, structured content that shows up exactly when buyers are searching for help.
+                                Instead of relying purely on ads or trendy social noise, I build marketing assets that rank, compound, and attract intent — free tools, frameworks, structured content that shows up exactly when buyers are searching for help.
                             </p>
                             <p className="text-white font-medium border-t border-white/10 pt-4">
                                 Growth should compound. Not reset every month.
@@ -735,7 +738,7 @@ export default function AboutClient() {
             <FAQ
                 items={[
                     {
-                        question: "What does 'fractional CMO' actually mean?",
+                        question: "What does 'fractional marketing lead' actually mean?",
                         answer: "I work with companies that need senior marketing leadership but don't need (or can't afford) a full-time CMO. Typical engagements are 10-20 hours per week for 6-12 months. I build the strategy, set up systems, hire and coach the team, then hand off execution to your in-house team or agency partners. It's like having a CMO on retainer."
                     },
                     {
@@ -756,7 +759,8 @@ export default function AboutClient() {
                     },
                     {
                         question: "What's your typical engagement timeline and cost?",
-                        answer: "Most engagements start with a 3-month sprint to diagnose, strategize, and start building. Then we typically extend for 6-12 months to execute and hand off. Cost varies based on scope and company stage, but typical range is $8K-$15K/month for fractional work. Reach out and we can discuss your specific situation."
+                        answer: "Most engagements start with a 3-month sprint to diagnose, strategize, and start building, then extend for 6-12 months to execute and hand off. Real rates and engagement structures are published on the pricing page.",
+                        link: { href: "/fractional-marketing-lead/cost", label: "See fractional marketing lead pricing →" }
                     }
                 ]}
             />
@@ -903,7 +907,7 @@ export default function AboutClient() {
                         Ready to talk about your growth engine?
                     </h2>
                     <p className="text-slate text-lg max-w-2xl mx-auto mb-8">
-                        Whether you&apos;re looking for a fractional CMO, need help building
+                        Whether you&apos;re looking for a fractional marketing lead, need help building
                         your demand gen function, or want to optimize your marketing ops,
                         let&apos;s connect.
                     </p>

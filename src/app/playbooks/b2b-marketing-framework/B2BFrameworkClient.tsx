@@ -355,7 +355,7 @@ export default function B2BFrameworkClient({ initialSteps, variablesContent }: B
                     },
                     {
                         question: "How long does it take to deploy this growth framework?",
-                        answer: "A full GTM architecture deployment takes 60 to 90 days, but we build it in modular 2-week sprints so you see lead scoring and tracking improvements immediately. We don't sit in planning sessions for months; we build, test, and refine the loop in production."
+                        answer: "A full GTM architecture deployment takes 60 to 90 days, but I build it in modular 2-week sprints so you see lead scoring and tracking improvements immediately. I don't sit in planning sessions for months; I build, test, and refine the loop in production."
                     }
                 ]}
             />

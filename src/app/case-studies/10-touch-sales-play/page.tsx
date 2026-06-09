@@ -86,6 +86,27 @@ export default function SalesPlayPage() {
           })
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "@id": "https://saren.ai/case-studies/10-touch-sales-play/#article",
+            "headline": "10-touch sales play: 42% meeting rate on cold outbound",
+            "description": "Turn cold outreach into executive conversations. A value-first sequence designed for complex B2B sales cycles.",
+            "url": "https://saren.ai/case-studies/10-touch-sales-play",
+            "mainEntityOfPage": { "@id": "https://saren.ai/case-studies/10-touch-sales-play/#webpage" },
+            "author": { "@id": "https://saren.ai/#person" },
+            "publisher": { "@id": "https://identogram.com/#organization" },
+            "image": "https://saren.ai/portfolio/portfolio-10-touch.png",
+            "about": ["cold outbound", "B2B sales sequences", "executive engagement"],
+            "inLanguage": "en-US",
+            "datePublished": "2026-02-03",
+            "dateModified": "2026-05-28"
+          })
+        }}
+      />
       <SalesPlayClient />
     </>
   );

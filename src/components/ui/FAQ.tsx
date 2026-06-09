@@ -1,24 +1,32 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 export interface FAQItem {
   question: string;
   answer: string;
+  /** Optional link rendered after the answer text */
+  link?: { href: string; label: string };
 }
 
 interface FAQProps {
   items: FAQItem[];
   title?: string;
   description?: string;
+  /**
+   * FAQPage JSON-LD is off by default: Google restricted FAQ rich results to
+   * gov/health sites (Aug 2023), and the visible Q&A structure is the actual
+   * AEO signal. Set true only with a documented reason.
+   */
+  schema?: boolean;
 }
 
-export default function FAQ({ items, title = "Frequently Asked Questions", description }: FAQProps) {
+export default function FAQ({ items, title = "Frequently Asked Questions", description, schema = false }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  // Generate JSON-LD schema for Google
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -34,11 +42,12 @@ export default function FAQ({ items, title = "Frequently Asked Questions", descr
 
   return (
     <>
-      {/* JSON-LD Schema for Google */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      {schema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
+      )}
 
       {/* FAQ Section */}
       <section className="section bg-ash dark:bg-background-secondary">
@@ -88,6 +97,17 @@ export default function FAQ({ items, title = "Frequently Asked Questions", descr
                       >
                         <div className="px-6 pb-4 text-foreground-muted leading-relaxed">
                           {item.answer}
+                          {item.link && (
+                            <>
+                              {" "}
+                              <Link
+                                href={item.link.href}
+                                className="text-lavender underline underline-offset-4 hover:text-ember transition-colors"
+                              >
+                                {item.link.label}
+                              </Link>
+                            </>
+                          )}
                         </div>
                       </motion.div>
                     )}

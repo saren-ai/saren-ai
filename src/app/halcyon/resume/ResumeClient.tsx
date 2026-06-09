@@ -26,7 +26,7 @@ const experience = [
         bullets: [
           'Led core marketing and sales team; aligned cross-functional efforts across demand gen, content, and outbound to accelerate pipeline velocity.',
           '70%+ CAC reduction by rebuilding the demand gen program in under 6 weeks — leads went from 2–3/week to 20–30/week.',
-          '300% LinkedIn inbound increase in a single quarter via restructured social ad strategy and predictive audience targeting.',
+          '300% inbound MQL growth in a single quarter via restructured social ad strategy and predictive audience targeting.',
           '50% full-funnel conversion improvement through intent-based content syndication and landing page re-engineering.',
         ],
       },
@@ -47,7 +47,7 @@ const experience = [
     intro:
       "Managed global digital marketing for the world's largest AI cybersecurity software firm across 5 regions, 7 languages.",
     bullets: [
-      '550% YoY pipeline growth via intent-driven SEM optimization and ABM program expansion targeting enterprise and government accounts.',
+      '550% paid search recovery — rebuilt the inherited, underperforming post-acquisition SEM program end to end, with ABM expansion targeting enterprise and government accounts.',
       '8× YoY ABM traction through account-based programs with multi-stakeholder persona mapping and deal orchestration frameworks.',
       'Owned $2.3M paid media budget across LinkedIn, Google Ads, display, retargeting, and content syndication channels.',
       'Led demand center operations: campaign planning, lead scoring, attribution, and weekly pipeline reporting to executive team.',
@@ -60,7 +60,7 @@ const experience = [
     intro:
       'Built demand gen infrastructure from the ground up at an AI-native endpoint security startup selling to enterprise and government buyers — the same buyer profile and competitive objection map as Halcyon ("We already have CrowdStrike").',
     bullets: [
-      '$4M quarterly pipeline on a $2.5M annual paid media budget — 8:1 ROI — built on the original Sirius Decisions demand waterfall framework, deployed end-to-end across all funnel stages.',
+      '$4M quarterly pipeline on a $1M annual paid media budget — built on the original Sirius Decisions demand waterfall framework, deployed end-to-end across all funnel stages.',
       '70%+ CAC reduction via intent-driven targeting, behavioral segmentation, and full-funnel conversion optimization.',
       'Built and led a 7-person global demand center across 5 regions — spanning paid media, marketing automation, marketing operations, sales enablement, web development, and project management.',
       'Enabled partner and reseller channel programs across digital: built co-branded landing pages, automated partner email delivery in Marketo, and created field marketing infrastructure for event signup, lead ingestion, and post-event nurture.',
@@ -132,11 +132,11 @@ const competencies = [
 ]
 
 const impactRows = [
-  { metric: '550% YoY pipeline growth', context: 'Intent-driven SEM + ABM optimization at scale', company: 'BlackBerry / Cylance' },
-  { metric: '8:1 paid media ROI', context: '$4M quarterly pipeline on $2.5M annual budget', company: 'Cylance' },
+  { metric: '550% paid search recovery', context: 'Post-acquisition digital program rebuild — SEM, SEO, landing experience', company: 'BlackBerry' },
+  { metric: '8:1 paid media ROI', context: '$2.3M annual paid media budget', company: 'BlackBerry' },
   { metric: '70%+ CAC reduction', context: 'Rebuilt demand gen program in <6 weeks (2–3 leads/wk → 20–30/wk)', company: 'Qwiet AI' },
   { metric: '344% inbound leads', context: 'Full GTM build from zero — 12 months to exit velocity', company: 'WethosAI' },
-  { metric: '300% LinkedIn leads', context: 'Single quarter via new social ad strategy + predictive audiences', company: 'Qwiet AI' },
+  { metric: '300% inbound MQLs', context: 'Single quarter via new social ad strategy + predictive audiences', company: 'Qwiet AI' },
   { metric: '8× ABM traction YoY', context: 'Enterprise/gov account-based programs with deal orchestration', company: 'BlackBerry' },
   { metric: '31% page conversion ↑', context: 'Post-rebuild cylance.com — 300+ pages, 40 resources, $1.3M project', company: 'Cylance' },
 ]
@@ -178,7 +178,7 @@ export default function ResumeClient() {
             className="flex flex-wrap gap-x-6 gap-y-1 text-sm text-ash/50 font-mono"
           >
             <span>310.570.7585</span>
-            <span>saren.sakurai@gmail.com</span>
+            <span>hello@saren.ai</span>
             <span>saren.ai</span>
             <span>Irvine, CA (Remote)</span>
           </motion.div>
@@ -197,14 +197,14 @@ export default function ResumeClient() {
           >
             <p className="text-xs font-semibold tracking-widest uppercase text-slate dark:text-slate mb-4">Profile</p>
             <p className="text-charcoal dark:text-foreground leading-relaxed max-w-3xl">
-              Demand generation leader with 15+ years in B2B marketing and a track record built specifically in AI-native
+              Demand generation leader with 20+ years in B2B marketing and a track record built specifically in AI-native
               cybersecurity. Architected the demand gen infrastructure at Cylance through its{' '}
               <span className="text-ember font-semibold">$1.4B acquisition by BlackBerry</span> — selling a technically
               sophisticated, AI-first endpoint security product to the same enterprise and government buyers Halcyon
               targets. Combines deep funnel architecture (Sirius Decisions / Forrester framework, ABM, intent-driven SEM)
               with an AI-augmented operating model that scales pipeline without scaling headcount. Consistent results
               across budget sizes and company stages:{' '}
-              <span className="font-semibold text-charcoal dark:text-foreground">550% YoY pipeline growth</span>,{' '}
+              <span className="font-semibold text-charcoal dark:text-foreground">344% lead growth</span>,{' '}
               <span className="font-semibold text-charcoal dark:text-foreground">70%+ CAC reduction</span>,{' '}
               <span className="font-semibold text-charcoal dark:text-foreground">8:1 paid media ROI</span>.
             </p>
@@ -377,9 +377,9 @@ export default function ResumeClient() {
             <h2 className="text-2xl md:text-3xl font-bold text-ash mb-3">
               Ready to build Halcyon&apos;s demand engine.
             </h2>
-            <p className="text-ash/50 text-sm mb-8 font-mono">saren.sakurai@gmail.com · 310.570.7585</p>
+            <p className="text-ash/50 text-sm mb-8 font-mono">hello@saren.ai · 310.570.7585</p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a href="mailto:saren.sakurai@gmail.com" className="btn-primary">
+              <a href="mailto:hello@saren.ai" className="btn-primary">
                 Email Saren
               </a>
               <Link

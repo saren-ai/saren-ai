@@ -179,7 +179,7 @@ export const COMPARISON_TABLES: Record<string, ComparisonTableData> = {
                     '1 analyst per 5 campaign managers'
                 ],
                 aiNative: [
-                    '1 fractional CMO + AI systems = 10-person output',
+                    '1 fractional marketing lead + AI systems = 10-person output',
                     'AI handles SDR functions (scoring, routing, nurture)',
                     'Self-service dashboards eliminate analyst bottleneck'
                 ]
@@ -193,7 +193,7 @@ export const COMPARISON_TABLES: Record<string, ComparisonTableData> = {
                 ],
                 aiNative: [
                     'AI costs scale sub-linearly',
-                    'Fractional CMO + AI tools: $15-20K/month all-in',
+                    'Fractional marketing lead + AI tools: $15-20K/month all-in',
                     'Scale infrastructure first, hire later'
                 ]
             },

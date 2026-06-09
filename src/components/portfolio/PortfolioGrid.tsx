@@ -16,10 +16,10 @@ const portfolioItems = [
     title: "Paid Media ROI Simulator",
     description:
       "Stop guessing. Simulate the revenue impact of your ad spend using real unit economics. An interactive financial model for performance marketers.",
-    metric: "550%",
-    metricLabel: "Pipeline Expansion",
+    metric: "Live",
+    metricLabel: "Interactive Model",
     href: "/playbooks/roi-simulator",
-    pillars: ["Predictive Infrastructure", "Scale Without Headcount"],
+    pillars: ["Predictive Infrastructure"],
   },
   {
     title: "Sovereign Buyer Personas",
@@ -28,7 +28,7 @@ const portfolioItems = [
     metric: "3x",
     metricLabel: "Conversion Lift",
     href: "/case-studies/sovereign-personas",
-    pillars: ["Human Strategy", "Predictive Infrastructure"],
+    pillars: ["Human Strategy"],
   },
   {
     title: "10-Touch Sales Play",
@@ -37,16 +37,16 @@ const portfolioItems = [
     metric: "42%",
     metricLabel: "Meeting Rate",
     href: "/case-studies/10-touch-sales-play",
-    pillars: ["Human Strategy", "Predictive Infrastructure"],
+    pillars: ["Human Strategy"],
   },
   {
     title: "120-Day Content Journey",
     description:
-      "How we engineered $4M in quarterly pipeline at Cylance. A 120-day content system that turned awareness into closed deals.",
+      "How I engineered $4M in quarterly pipeline at Cylance. A 120-day content system that turned awareness into closed deals.",
     metric: "$4M",
     metricLabel: "Quarterly Pipeline",
     href: "/case-studies/120-day-content-journey",
-    pillars: ["Human Strategy", "Scale Without Headcount"],
+    pillars: ["Human Strategy"],
   },
   {
     title: "B2B Marketing Framework",
@@ -73,7 +73,7 @@ const portfolioItems = [
     metric: "75+",
     metricLabel: "SQL Threshold",
     href: "/playbooks/hybrid-lead-scoring",
-    pillars: ["Predictive Infrastructure", "Scale Without Headcount"],
+    pillars: ["Predictive Infrastructure"],
   },
   {
     title: "SaaS Revenue Calculator",
@@ -82,7 +82,7 @@ const portfolioItems = [
     metric: "18",
     metricLabel: "Industries",
     href: "/playbooks/gtm-budget-calculator",
-    pillars: ["Predictive Infrastructure", "Scale Without Headcount"],
+    pillars: ["Predictive Infrastructure"],
   },
   {
     title: "Citable Authority Process",
@@ -91,7 +91,7 @@ const portfolioItems = [
     metric: "6",
     metricLabel: "Engineered Steps",
     href: "/case-studies/authority-engineering",
-    pillars: ["Human Strategy", "Scale Without Headcount"],
+    pillars: ["Human Strategy"],
   },
 ];
 

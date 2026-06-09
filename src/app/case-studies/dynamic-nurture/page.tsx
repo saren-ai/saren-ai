@@ -81,6 +81,27 @@ export default function DynamicNurturePage() {
           })
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "@id": "https://saren.ai/case-studies/dynamic-nurture/#article",
+            "headline": "Dynamic email nurture: score-gated personalization on HubSpot",
+            "description": "A score-gated nurture system that delivers different content to the right person at the right funnel stage — automatically. 9 content variants across 3 segments and 3 stages. Built on HubSpot.",
+            "url": "https://saren.ai/case-studies/dynamic-nurture",
+            "mainEntityOfPage": { "@id": "https://saren.ai/case-studies/dynamic-nurture/#webpage" },
+            "author": { "@id": "https://saren.ai/#person" },
+            "publisher": { "@id": "https://identogram.com/#organization" },
+            "image": "https://saren.ai/images/og/home.png",
+            "about": ["email nurture", "marketing automation", "lead scoring"],
+            "inLanguage": "en-US",
+            "datePublished": "2026-03-27",
+            "dateModified": "2026-05-28"
+          })
+        }}
+      />
       <DynamicNurtureClient />
     </>
   );

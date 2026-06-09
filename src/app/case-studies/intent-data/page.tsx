@@ -132,6 +132,27 @@ export default function IntentDataPage() {
           })
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "@id": "https://saren.ai/case-studies/intent-data/#article",
+            "headline": "Intent data as funnel intelligence: Bombora signals across 100 enterprise accounts",
+            "description": "How Bombora intent signals were mapped across 100 Cylance close/won enterprise accounts 18 months pre-close — and used to build a just-in-time content engine that measurably improved mid-funnel conversion.",
+            "url": "https://saren.ai/case-studies/intent-data",
+            "mainEntityOfPage": { "@id": "https://saren.ai/case-studies/intent-data/#webpage" },
+            "author": { "@id": "https://saren.ai/#person" },
+            "publisher": { "@id": "https://identogram.com/#organization" },
+            "image": "https://saren.ai/images/og/home.png",
+            "about": ["intent data", "B2B demand generation", "funnel analytics"],
+            "inLanguage": "en-US",
+            "datePublished": "2026-03-27",
+            "dateModified": "2026-06-08"
+          })
+        }}
+      />
       <IntentDataClient />
     </>
   );

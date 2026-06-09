@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'Saren Sakurai × Halcyon AI',
     description: 'Why Saren is the VP of Demand Generation Halcyon needs.',
     type: 'profile',
-    images: [{ url: '/og/halcyon.png', width: 1200, height: 630 }],
+    images: [{ url: '/images/og/home.png', width: 1200, height: 630 }],
   },
 }
 

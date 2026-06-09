@@ -11,7 +11,7 @@ interface SearchResultsProps {
   onSuggest: (term: string) => void;
 }
 
-const SUGGESTIONS = ["demand generation", "Cylance", "fractional CMO"];
+const SUGGESTIONS = ["demand generation", "Cylance", "fractional marketing lead"];
 
 export default function SearchResults({ query, onClose, onSuggest }: SearchResultsProps) {
   const pagefind = usePagefind();

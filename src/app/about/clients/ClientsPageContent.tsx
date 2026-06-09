@@ -187,7 +187,7 @@ export default function ClientsPageContent() {
               </div>
 
               <div className="text-center p-6 bg-white rounded-lg border border-charcoal/10">
-                <div className="text-4xl font-bold text-ember mb-2">15+</div>
+                <div className="text-4xl font-bold text-ember mb-2">20+</div>
                 <div className="text-sm text-slate font-medium">Years Experience</div>
                 <p className="text-xs text-slate/60 mt-2">
                   From startups to Fortune 500

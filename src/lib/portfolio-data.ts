@@ -14,10 +14,10 @@ export const portfolioItems: PortfolioItem[] = [
         title: "Paid Media ROI Simulator",
         description:
             "Stop guessing. Simulate the revenue impact of your ad spend using real unit economics. An interactive financial model for performance marketers.",
-        metric: "550%",
-        metricLabel: "Pipeline Expansion",
+        metric: "Live",
+        metricLabel: "Interactive Model",
         href: "/playbooks/roi-simulator",
-        pillars: ["Predictive Infrastructure", "Scale Without Headcount"],
+        pillars: ["Predictive Infrastructure"],
         type: "interactive",
     },
     {
@@ -27,7 +27,7 @@ export const portfolioItems: PortfolioItem[] = [
         metric: "100%",
         metricLabel: "Funnel Clarity",
         href: "/playbooks/gtm-budget-calculator",
-        pillars: ["Predictive Infrastructure", "Revenue Engineering"],
+        pillars: ["Predictive Infrastructure"],
         type: "interactive",
     },
     {
@@ -37,7 +37,7 @@ export const portfolioItems: PortfolioItem[] = [
         metric: "3x",
         metricLabel: "Lead Quality",
         href: "/playbooks/hybrid-lead-scoring",
-        pillars: ["Predictive Infrastructure", "Automated Qualification"],
+        pillars: ["Predictive Infrastructure"],
         type: "interactive",
     },
     {
@@ -59,7 +59,7 @@ export const portfolioItems: PortfolioItem[] = [
         metric: "3x",
         metricLabel: "Conversion Lift",
         href: "/case-studies/sovereign-personas",
-        pillars: ["Human Strategy", "Predictive Infrastructure"],
+        pillars: ["Human Strategy"],
         type: "case_study",
     },
     {
@@ -69,17 +69,17 @@ export const portfolioItems: PortfolioItem[] = [
         metric: "42%",
         metricLabel: "Meeting Rate",
         href: "/case-studies/10-touch-sales-play",
-        pillars: ["Human Strategy", "Predictive Infrastructure"],
+        pillars: ["Human Strategy"],
         type: "case_study",
     },
     {
         title: "120-Day Content Journey",
         description:
-            "How we engineered $4M in quarterly pipeline at Cylance. A 120-day content system that turned awareness into closed deals.",
+            "How I engineered $4M in quarterly pipeline at Cylance. A 120-day content system that turned awareness into closed deals.",
         metric: "$4M",
         metricLabel: "Quarterly Pipeline",
         href: "/case-studies/120-day-content-journey",
-        pillars: ["Human Strategy", "Scale Without Headcount"],
+        pillars: ["Human Strategy"],
         type: "case_study",
     },
     {

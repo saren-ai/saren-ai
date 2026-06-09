@@ -131,7 +131,7 @@ export default function SolopreneursClient() {
             </h2>
             <p className="text-slate dark:text-foreground-muted text-lg max-w-xl mx-auto">
               These three patterns show up in almost every solo operator
-              engagement before we build the leverage layer.
+              engagement before I build the leverage layer.
             </p>
           </motion.div>
 
@@ -234,7 +234,7 @@ export default function SolopreneursClient() {
                     Coming Soon
                   </span>
                   <h3 className="text-xl md:text-2xl font-bold text-charcoal dark:text-foreground">
-                    The Fractional CMO Pipeline Dashboard
+                    The Fractional Marketing Lead Pipeline Dashboard
                   </h3>
                 </div>
                 <div className="text-right shrink-0">
@@ -292,13 +292,21 @@ export default function SolopreneursClient() {
               talk about building a pipeline system that runs on your
               workflows, not someone else&apos;s.
             </p>
-            <Link
-              href="/contact"
-              className="btn-primary inline-flex items-center gap-2"
-            >
-              Book a Strategy Call
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link
+                href="/contact"
+                className="btn-primary inline-flex items-center gap-2"
+              >
+                Book a Strategy Call
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/fractional-marketing-lead/cost"
+                className="btn-secondary-dark inline-flex items-center gap-2"
+              >
+                See engagement pricing
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>

@@ -180,12 +180,12 @@ export const aboutMegaMenu: MegaMenuContent = {
     },
   ],
   promotional: {
-    headline: "Fractional CMO for Series A Founders",
+    headline: "Fractional Marketing Lead for Series A Founders",
     description:
       "I help technical founders build their first real marketing engine—from demand gen to attribution to category creation. Without ripping out what's working.",
     cta: {
-      label: "Book a Call",
-      href: "/contact",
+      label: "See the Engagement",
+      href: "/fractional-marketing-lead",
     },
   },
 };

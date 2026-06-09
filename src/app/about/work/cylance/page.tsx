@@ -5,12 +5,12 @@ import PagefindBoundary from "@/components/search/PagefindBoundary";
 export const metadata: Metadata = {
   title: "Cylance | Saren.ai",
   description:
-    "How I built Cylance's demand generation engine from scratch — a $1M+ site rebuild, intent-driven content funnel, SiriusDecisions framework rollout, and 550% pipeline expansion over 18 months.",
+    "How I built Cylance's demand generation engine from scratch — a $1M+ site rebuild, intent-driven content funnel, SiriusDecisions framework rollout, and $4M in quarterly pipeline.",
   alternates: { canonical: "https://saren.ai/about/work/cylance" },
   openGraph: {
     title: "Cylance | Saren.ai",
     description:
-      "550% pipeline expansion over 18 months: the AEM rebuild, the intent funnel, and the SiriusDecisions overhaul that scaled Cylance from startup to $400M+.",
+      "$4M in quarterly pipeline: the AEM rebuild, the intent funnel, and the SiriusDecisions overhaul that scaled Cylance from startup to $400M+.",
   },
 };
 
@@ -27,7 +27,7 @@ export default function CylancePage() {
             url: "https://saren.ai/about/work/cylance",
             headline: "Cylance — Director of Demand Generation",
             description:
-              "How Saren Sakurai built the demand generation engine at Cylance, scaling pipeline 550% over 18 months through an AEM site rebuild, intent-driven content funnel, and SiriusDecisions framework rollout.",
+              "How Saren Sakurai built the demand generation engine at Cylance — $4M in quarterly pipeline through an AEM site rebuild, intent-driven content funnel, and SiriusDecisions framework rollout.",
             author: { "@id": "https://saren.ai/#person" },
             isPartOf: { "@id": "https://saren.ai/#website" },
             inLanguage: "en-US",

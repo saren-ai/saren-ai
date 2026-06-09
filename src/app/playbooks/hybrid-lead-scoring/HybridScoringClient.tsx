@@ -693,7 +693,7 @@ export default function HybridScoringClient() {
         </ul>
 
         <div className="border-t border-gray-300 mt-8 pt-4 text-xs text-gray-500 font-mono">
-          Saren Peetz · Fractional CMO + AI Ops · saren.ai/contact · Identogram LLC
+          Saren Peetz · Fractional Marketing Lead + AI Ops · saren.ai/contact · Identogram LLC
         </div>
       </div>
 
@@ -1085,7 +1085,7 @@ export default function HybridScoringClient() {
                 I do this for a living.
               </h2>
               <p className="text-foreground-muted leading-relaxed mb-8">
-                I'm Saren — Fractional CMO and AI Ops consultant. I've rebuilt scoring systems for
+                I'm Saren — Fractional Marketing Lead and AI Ops consultant. I've rebuilt scoring systems for
                 sovereign AI infrastructure companies, behavioral intelligence platforms, and B2B
                 SaaS teams running on HubSpot Pro and Enterprise. I'll audit what you have, design
                 the hybrid model your buyers actually need, and ship it inside your HubSpot instance
@@ -1126,7 +1126,7 @@ export default function HybridScoringClient() {
               </div>
 
               <p className="text-xs text-foreground-muted border-t border-border pt-6">
-                Saren Peetz operates Identogram LLC (EIN: 88-1671889). Fractional CMO engagements
+                Saren Peetz operates Identogram LLC (EIN: 88-1671889). Fractional marketing lead engagements
                 for B2B SaaS and AI infrastructure companies. Based in Orange County, working with
                 teams in PT, ET, and JST.
               </p>

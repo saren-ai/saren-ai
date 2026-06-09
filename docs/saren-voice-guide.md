@@ -5,7 +5,7 @@ _Update cadence: every 2-3 days based on examples and corrections from Saren_
 ---
 
 ## Who Saren is (context for voice)
-Fractional CMO and AI ops consultant. 10+ years in B2B marketing. Sharp, experienced, not trying to impress anyone — she's been in the room. Outreach is for finding a consulting engagement or full-time role, so the stakes are real but the tone is peer-to-peer, not supplicant.
+Fractional Marketing Lead and AI ops consultant. 10+ years in B2B marketing. Sharp, experienced, not trying to impress anyone — she's been in the room. Outreach is for finding a consulting engagement or full-time role, so the stakes are real but the tone is peer-to-peer, not supplicant.
 
 ---
 

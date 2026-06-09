@@ -293,13 +293,21 @@ export default function ThinkersClient() {
               specific architecture for your ideas, your voice, and your target
               audience.
             </p>
-            <Link
-              href="/contact"
-              className="btn-primary inline-flex items-center gap-2"
-            >
-              Book a Consultation
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link
+                href="/contact"
+                className="btn-primary inline-flex items-center gap-2"
+              >
+                Book a Consultation
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/fractional-marketing-lead/cost"
+                className="btn-secondary-dark inline-flex items-center gap-2"
+              >
+                See engagement pricing
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>

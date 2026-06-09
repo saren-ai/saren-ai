@@ -67,13 +67,13 @@ export default function ThoughtLeadershipPage() {
             "description": "Engineering B2B authority in the age of LLMs. How to build a citable body of work that AI systems reference — moving from static PDFs to named frameworks, structured argumentation, and original synthesis that earns zero-click authority.",
             "url": "https://saren.ai/case-studies/thought-leadership-development",
             "author": { "@id": "https://saren.ai/#person" },
-            "publisher": { "@id": "https://saren.ai/#person" },
+            "publisher": { "@id": "https://identogram.com/#organization" },
             "isPartOf": { "@id": "https://saren.ai/#website" },
             "about": ["Thought leadership", "LLM citation strategy", "B2B content marketing", "Authority engineering"],
             "keywords": "thought leadership, LLM citation strategy, B2B authority, content marketing, AI-era marketing, schema markup, named frameworks",
             "image": {
               "@type": "ImageObject",
-              "url": "https://saren.ai/og-image.png",
+              "url": "https://saren.ai/images/og/home.png",
               "width": 1200,
               "height": 630
             },

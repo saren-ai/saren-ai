@@ -120,6 +120,27 @@ export default function ContentJourneyPage() {
           })
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "@id": "https://saren.ai/case-studies/120-day-content-journey/#article",
+            "headline": "120-day content journey: $4M quarterly pipeline at Cylance",
+            "description": "Engineering demand at scale. A system that maps content to buyer psychology across the entire decision lifecycle.",
+            "url": "https://saren.ai/case-studies/120-day-content-journey",
+            "mainEntityOfPage": { "@id": "https://saren.ai/case-studies/120-day-content-journey/#webpage" },
+            "author": { "@id": "https://saren.ai/#person" },
+            "publisher": { "@id": "https://identogram.com/#organization" },
+            "image": "https://saren.ai/portfolio/portfolio-content-journey.png",
+            "about": ["content marketing", "B2B demand generation", "pipeline development"],
+            "inLanguage": "en-US",
+            "datePublished": "2026-02-03",
+            "dateModified": "2026-05-28"
+          })
+        }}
+      />
       <ContentJourneyClient />
     </>
   );

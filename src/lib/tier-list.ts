@@ -57,8 +57,7 @@ export const AI_TOOLS: AiTool[] = [
   // Marketing & Sales
   { id: "hubspot", name: "HubSpot", description: "CRM, marketing automation, and sales enablement", category: "Marketing & Sales", url: "https://hubspot.com", logo: "/logos/ai-apps/hubspot.png" },
   { id: "plai", name: "Plai", description: "AI-powered ad management and optimization", category: "Marketing & Sales", url: "https://plai.io", logo: "/logos/ai-apps/plai.png" },
-  // Content & Productivity
-  { id: "wethosai", name: "Wethos AI", description: "AI-powered project scoping and pricing", category: "Content & Productivity", url: "https://wethos.co", logo: "/logos/ai-apps/wethosai.png" },
+  { id: "wethosai", name: "Wethos AI", description: "AI-powered team and organizational intelligence platform", category: "Marketing & Sales", url: "https://wethos.ai", logo: "/logos/ai-apps/wethosai.png" },
 ];
 
 export const TIER_CONFIG: TierConfig[] = [

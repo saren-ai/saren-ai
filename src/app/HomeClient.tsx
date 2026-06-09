@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 import PortfolioCard from "@/components/portfolio/PortfolioCard";
 import MatrixRain from "@/components/home/MatrixRain";
 import FAQ from "@/components/ui/FAQ";
+import { TestimonialGrid } from "@/components/ui/Testimonial";
+import { TESTIMONIALS } from "@/data/testimonials";
 import { Building2, User, Lightbulb, Bell, ArrowRight } from "lucide-react";
 
 const interactiveTools = [
@@ -14,10 +16,10 @@ const interactiveTools = [
     title: "Paid Media ROI Simulator",
     description:
       "Stop guessing. Simulate the revenue impact of your ad spend using real unit economics. An interactive financial model for performance marketers.",
-    metric: "550%",
-    metricLabel: "Pipeline Expansion",
+    metric: "Live",
+    metricLabel: "Interactive Model",
     href: "/playbooks/roi-simulator",
-    pillars: ["Predictive Infrastructure", "Scale Without Headcount"],
+    pillars: ["Predictive Infrastructure"],
   },
   {
     title: "SaaS Revenue Calculator",
@@ -26,7 +28,7 @@ const interactiveTools = [
     metric: "100%",
     metricLabel: "Funnel Clarity",
     href: "/playbooks/gtm-budget-calculator",
-    pillars: ["Predictive Infrastructure", "Revenue Engineering"],
+    pillars: ["Revenue Engineering"],
   },
   {
     title: "Behavioral Lead Scoring",
@@ -35,7 +37,7 @@ const interactiveTools = [
     metric: "3x",
     metricLabel: "Lead Quality",
     href: "/playbooks/hybrid-lead-scoring",
-    pillars: ["Predictive Infrastructure", "Automated Qualification"],
+    pillars: ["Automated Qualification"],
   },
 ];
 
@@ -47,7 +49,7 @@ const caseStudies = [
     metric: "3x",
     metricLabel: "Conversion Lift",
     href: "/case-studies/sovereign-personas",
-    pillars: ["Human Strategy", "Predictive Infrastructure"],
+    pillars: ["Human Strategy"],
   },
   {
     title: "10-Touch Sales Play",
@@ -56,16 +58,16 @@ const caseStudies = [
     metric: "42%",
     metricLabel: "Meeting Rate",
     href: "/case-studies/10-touch-sales-play",
-    pillars: ["Human Strategy", "Predictive Infrastructure"],
+    pillars: ["Predictive Infrastructure"],
   },
   {
     title: "120-Day Content Journey",
     description:
-      "How we engineered $4M in quarterly pipeline at Cylance. A 120-day content system that turned awareness into closed deals.",
+      "How I engineered $4M in quarterly pipeline at Cylance. A 120-day content system that turned awareness into closed deals.",
     metric: "$4M",
     metricLabel: "Quarterly Pipeline",
     href: "/case-studies/120-day-content-journey",
-    pillars: ["Human Strategy", "Scale Without Headcount"],
+    pillars: ["Scale Without Headcount"],
   },
   {
     title: "B2B Marketing Framework",
@@ -74,15 +76,6 @@ const caseStudies = [
     metric: "21",
     metricLabel: "Prompts",
     href: "/playbooks/b2b-marketing-framework",
-    pillars: ["Human Strategy"],
-  },
-  {
-    title: "It's Good to Be Pitched",
-    description:
-      "A 30-second TV spot storyboard exploring the luxury of choice. An interactive demo of AI-assisted creative production.",
-    metric: "8",
-    metricLabel: "Storyboard Frames",
-    href: "/playbooks/its-good-to-be-pitched",
     pillars: ["Human Strategy"],
   },
 ];
@@ -111,7 +104,7 @@ export default function HomeClient() {
               transition={{ duration: 0.5 }}
               className="text-lavender font-mono text-sm md:text-base mb-6 tracking-wider uppercase"
             >
-              Fractional AI Operations
+              AI-Native Systems · Fractional Engagement
             </motion.p>
 
             {/* Headline */}
@@ -121,25 +114,32 @@ export default function HomeClient() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-6xl lg:text-[4rem] font-bold text-charcoal dark:text-foreground leading-[1.1] mb-8"
             >
-              AI Operations for<br /><span className="text-gradient">Marketing & Sales</span>
+              Demand generation,<br /><span className="text-gradient">engineered.</span>
             </motion.h1>
 
             {/* Body / value prop */}
             <div className="space-y-6 text-base md:text-lg text-slate dark:text-foreground-muted max-w-3xl mx-auto leading-relaxed mb-10 text-center">
+              {/* Entity sentence — plain <p>, no animation: answer engines extract visible prose */}
+              <p className="text-charcoal dark:text-foreground">
+                I&apos;m Saren Sakurai. I engineer demand generation systems for
+                Series A–C B2B SaaS and cybersecurity companies — built AI-native,
+                delivered as a fractional marketing lead. 20+ years from Cylance
+                ($1.4B exit) to AKQA.
+              </p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="font-semibold text-charcoal dark:text-foreground text-lg md:text-xl"
               >
-                AI shouldn&apos;t just be a tool your team uses. It should be the infrastructure your business runs on.
+                Pipeline isn&apos;t a campaign problem. It&apos;s a systems problem.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                Most early-stage companies are stuck between buying ChatGPT and actually running an AI-powered operation. We build multi-agent systems directly into your existing workflows — so your team stops grinding through manual work and starts running on automated leverage.
+                Most early-stage companies are stuck between buying ChatGPT and actually running an AI-powered operation — the modern symptom of demand built on tactics instead of systems. I engineer the system itself: data inputs, scoring logic, feedback loops, wired into the workflows your team already runs.
               </motion.p>
             </div>
 
@@ -195,10 +195,10 @@ export default function HomeClient() {
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
                 {[
-                  { name: "BlackBerry", logo: "blackberry.png", metric: "550% Pipeline Growth", href: "/case-studies/120-day-content-journey" },
+                  { name: "BlackBerry", logo: "blackberry.png", metric: "8:1 ROI on Paid Media", href: "/about" },
                   { name: "Qwiet AI", logo: "qwiet.png", metric: "70% CAC Reduction", href: "/about/clients" },
                   { name: "Cylance", logo: "cylance.png", metric: "$4M Quarterly Pipeline", href: "/case-studies/120-day-content-journey" },
-                  { name: "WethosAI", logo: "wethos.png", metric: "344% Lead Growth", href: "/about/clients" },
+                  { name: "Wethos AI", logo: "wethos.png", metric: "344% Lead Growth", href: "/about/clients" },
                 ].map((client) => (
                   <Link
                     key={client.name}
@@ -331,98 +331,11 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* Featured Downloads */}
-      <section className="section bg-ash dark:bg-background">
-        <div className="container-narrow">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-10 flex items-center gap-4"
-          >
-            <h2 className="text-2xl md:text-3xl font-bold text-charcoal dark:text-foreground">
-              Featured Downloads
-            </h2>
-            <div className="h-px flex-1 bg-charcoal/10 dark:bg-white/10" />
-            <Link
-              href="/downloads"
-              className="text-ember font-medium hover:underline flex items-center gap-1 group text-sm"
-            >
-              View All
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-          </motion.div>
+      {/* Testimonials — renders nothing until real quotes exist in src/data/testimonials.ts */}
+      <TestimonialGrid items={TESTIMONIALS} />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                title: "The Complete Mid-Market GTM Execution Kit",
-                price: "$499",
-                tag: "SMB",
-                tagColor: "text-ember",
-                tagBg: "bg-ember/10",
-                bar: "bg-ember",
-                href: "/smb",
-              },
-              {
-                title: "The Fractional CMO Pipeline Dashboard",
-                price: "$99",
-                tag: "Solopreneurs",
-                tagColor: "text-lavender",
-                tagBg: "bg-lavender/10",
-                bar: "bg-lavender",
-                href: "/solopreneurs",
-              },
-              {
-                title: "The Content Hook Mastery Bundle",
-                price: "$49",
-                tag: "Thinkers",
-                tagColor: "text-copper",
-                tagBg: "bg-copper/10",
-                bar: "bg-copper",
-                href: "/thinkers",
-              },
-            ].map((product, index) => (
-              <motion.div
-                key={product.title}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-              >
-                <Link
-                  href={product.href}
-                  className="group flex flex-col p-6 bg-card rounded-xl border border-border hover:border-charcoal/20 dark:hover:border-white/20 transition-all duration-200 relative overflow-hidden h-full"
-                >
-                  <div className={`absolute top-0 left-0 right-0 h-1 ${product.bar}`} />
-                  <div className="flex items-center justify-between mb-4">
-                    <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${product.tagBg} ${product.tagColor}`}>
-                      {product.tag}
-                    </span>
-                    <span className={`text-xl font-bold font-mono ${product.tagColor}`}>
-                      {product.price}
-                    </span>
-                  </div>
-                  <h3 className="font-bold text-charcoal dark:text-foreground mb-4 flex-1 leading-snug">
-                    {product.title}
-                  </h3>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 bg-charcoal/5 dark:bg-white/10 text-slate dark:text-foreground-muted rounded-full mb-3 self-start">
-                    <Bell className="w-3 h-3" />
-                    Coming Soon
-                  </span>
-                  <span className={`text-sm font-semibold inline-flex items-center gap-1 ${product.tagColor}`}>
-                    Learn more
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                  </span>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Interactive Tools ("Try something") */}
-      <section className="pt-8 md:pt-12 bg-ash dark:bg-background pb-0">
+      {/* Interactive Tools ("Try something") — live tools lead; they're stronger proof than unshipped products */}
+      <section className="section bg-ash dark:bg-background pb-0">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -451,6 +364,90 @@ export default function HomeClient() {
                 index={index}
                 variant="interactive"
               />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Downloads */}
+      <section className="section bg-ash dark:bg-background">
+        <div className="container-narrow">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-10 flex items-center gap-4"
+          >
+            <h2 className="text-2xl md:text-3xl font-bold text-charcoal dark:text-foreground">
+              Featured Downloads
+            </h2>
+            <div className="h-px flex-1 bg-charcoal/10 dark:bg-white/10" />
+            <Link
+              href="/downloads"
+              className="text-ember font-medium hover:underline flex items-center gap-1 group text-sm"
+            >
+              View All
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "The Complete Mid-Market GTM Execution Kit",
+                tag: "SMB",
+                tagColor: "text-ember",
+                tagBg: "bg-ember/10",
+                bar: "bg-ember",
+                href: "/smb",
+              },
+              {
+                title: "The Fractional Marketing Lead Pipeline Dashboard",
+                tag: "Solopreneurs",
+                tagColor: "text-lavender",
+                tagBg: "bg-lavender/10",
+                bar: "bg-lavender",
+                href: "/solopreneurs",
+              },
+              {
+                title: "The Content Hook Mastery Bundle",
+                tag: "Thinkers",
+                tagColor: "text-copper",
+                tagBg: "bg-copper/10",
+                bar: "bg-copper",
+                href: "/thinkers",
+              },
+            ].map((product, index) => (
+              <motion.div
+                key={product.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+              >
+                <Link
+                  href={product.href}
+                  className="group flex flex-col p-6 bg-card rounded-xl border border-border hover:border-charcoal/20 dark:hover:border-white/20 transition-all duration-200 relative overflow-hidden h-full"
+                >
+                  <div className={`absolute top-0 left-0 right-0 h-1 ${product.bar}`} />
+                  <div className="flex items-center justify-between mb-4">
+                    <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${product.tagBg} ${product.tagColor}`}>
+                      {product.tag}
+                    </span>
+                  </div>
+                  <h3 className="font-bold text-charcoal dark:text-foreground mb-4 flex-1 leading-snug">
+                    {product.title}
+                  </h3>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 bg-charcoal/5 dark:bg-white/10 text-slate dark:text-foreground-muted rounded-full mb-3 self-start">
+                    <Bell className="w-3 h-3" />
+                    Coming Soon
+                  </span>
+                  <span className={`text-sm font-semibold inline-flex items-center gap-1 ${product.tagColor}`}>
+                    Learn more
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  </span>
+                </Link>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -526,12 +523,13 @@ export default function HomeClient() {
         description="Direct answers to hard questions about marketing architecture and fractional execution."
         items={[
           {
-            question: "Why hire a Fractional CMO instead of a full-time marketing executive?",
-            answer: "A Fractional CMO gives you senior GTM leadership to build your strategy and operations without the bloated executive salary, equity package, and overhead of a full-timer who just wants to manage agencies. You get active system-building, positioning clarity, and operational pipeline setup for early-stage and Series A startups, rather than a slide-deck generator."
+            question: "Why hire a Fractional Marketing Lead instead of a full-time marketing executive?",
+            answer: "A Fractional Marketing Lead gives you senior GTM leadership to build your strategy and operations without the bloated executive salary, equity package, and overhead of a full-timer who just wants to manage agencies. You get active system-building, positioning clarity, and operational pipeline setup for early-stage and Series A startups, rather than a slide-deck generator.",
+            link: { href: "/fractional-marketing-lead/cost", label: "See real engagement pricing →" }
           },
           {
             question: "What does \"demand generation as engineering\" actually mean?",
-            answer: "It means we treat your pipeline like a software system—defined by data inputs, logic gates, and feedback loops—instead of a series of hope-based branding campaigns. We build intent detection, lead scoring, and automated GTM tracking to capture active buyers, rather than throwing budget at Google Ads and hoping for a miracle."
+            answer: "It means I treat your pipeline like a software system—defined by data inputs, logic gates, and feedback loops—instead of a series of hope-based branding campaigns. I build intent detection, lead scoring, and automated GTM tracking to capture active buyers, rather than throwing budget at Google Ads and hoping for a miracle."
           },
           {
             question: "What size startups benefit most from Saren's consulting?",

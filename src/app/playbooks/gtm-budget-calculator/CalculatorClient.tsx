@@ -98,7 +98,7 @@ export default function CalculatorClient() {
                     </h2>
                     <p className="text-ash/70 text-lg max-w-2xl mx-auto mb-8">
                         If usage of this calculator revealed a gap in your plan, let&apos;s fix
-                        the inputs. We build demand architectures that improve conversion
+                        the inputs. I build demand architectures that improve conversion
                         and lower CAC.
                     </p>
                     <Link

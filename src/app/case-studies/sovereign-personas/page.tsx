@@ -84,6 +84,27 @@ export default function SovereignPersonasPage() {
           })
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "@id": "https://saren.ai/case-studies/sovereign-personas/#article",
+            "headline": "Sovereign buyer personas: committee buying logic for national-resilience deals",
+            "description": "Buyer personas for sovereign infrastructure deals. Why 'CTO' isn't enough when you're selling national resilience.",
+            "url": "https://saren.ai/case-studies/sovereign-personas",
+            "mainEntityOfPage": { "@id": "https://saren.ai/case-studies/sovereign-personas/#webpage" },
+            "author": { "@id": "https://saren.ai/#person" },
+            "publisher": { "@id": "https://identogram.com/#organization" },
+            "image": "https://saren.ai/portfolio/portfolio-sovereign-personas.png",
+            "about": ["buyer personas", "enterprise sales", "sovereign infrastructure"],
+            "inLanguage": "en-US",
+            "datePublished": "2026-02-03",
+            "dateModified": "2026-05-28"
+          })
+        }}
+      />
       <SovereignPersonasClient />
     </>
   );
