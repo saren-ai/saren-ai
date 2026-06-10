@@ -51,7 +51,7 @@ export default function CylanceClient() {
               transition={{ delay: 0.2 }}
               className="text-xl md:text-2xl text-ash/80 font-light leading-relaxed mb-8"
             >
-              Director, Demand Generation → Sr. Director, Digital Marketing
+              Director of Marketing → Senior Director of Marketing
             </motion.p>
 
             <motion.div
@@ -212,7 +212,7 @@ export default function CylanceClient() {
                 <p>
                   Six straight quarters of double-digit pipeline growth — reaching $4M in quarterly pipeline — sustained
                   right up to the BlackBerry acquisition. After the acquisition I moved into the
-                  Sr. Director, Digital Marketing role, leading digital marketing through integration and
+                  Senior Director of Marketing role, leading digital marketing through integration and
                   maintaining the growth momentum as the combined organization came together.
                 </p>
               </div>

@@ -42,7 +42,7 @@ const experience = [
   },
   {
     years: 'Nov 2020–Jan 2023',
-    role: 'Senior Director, Digital Marketing & Web',
+    role: 'Senior Director of Marketing',
     company: 'BlackBerry (Cylance Post-Acquisition) · Irvine, CA · Remote',
     intro:
       "Managed global digital marketing for the world's largest AI cybersecurity software firm across 5 regions, 7 languages.",

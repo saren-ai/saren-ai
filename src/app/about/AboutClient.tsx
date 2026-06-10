@@ -109,7 +109,7 @@ const careerTimeline: CareerItem[] = [
         },
     },
     {
-        role: "Head of Growth Marketing",
+        role: "Head of Growth",
         company: "Qwiet AI",
         period: "2023",
         metric: "70% Google Ads CAC reduction",
@@ -117,7 +117,7 @@ const careerTimeline: CareerItem[] = [
             "Built and scaled growth marketing function for application security startup — 300% inbound MQL growth.",
     },
     {
-        role: "Sr. Director, Digital Marketing",
+        role: "Senior Director of Marketing",
         company: "BlackBerry/Cylance",
         period: "2020 - 2023",
         metric: "8:1 ROI on $2.3M paid budget",

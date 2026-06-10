@@ -222,7 +222,7 @@ const timelineEntries = [
   },
   {
     years: '2020–2023',
-    role: 'Senior Director, Digital Marketing & Web',
+    role: 'Senior Director of Marketing',
     company: 'BlackBerry (post-Cylance acquisition)',
     bullets: [
       'Managed $2.3M global paid media across 5 regions, 7 languages — 8:1 ROI',

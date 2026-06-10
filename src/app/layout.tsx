@@ -117,7 +117,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               image: "https://saren.ai/profile/saren-profile_2026.png",
               jobTitle: "Fractional Marketing Lead & AI Operations Consultant",
               description:
-                "Fractional Marketing Lead and AI Operations Consultant specializing in B2B SaaS go-to-market strategy, demand generation, and AI-powered marketing operations. Formerly Senior Director of Demand Generation and Web at Cylance (acquired by BlackBerry for $1.4B). Principal at Identogram LLC.",
+                "Fractional Marketing Lead and AI Operations Consultant specializing in B2B SaaS go-to-market strategy, demand generation, and AI-powered marketing operations. Formerly Senior Director of Marketing at BlackBerry, following Cylance's $1.4B acquisition. Principal at Identogram LLC.",
               worksFor: {
                 "@type": "Organization",
                 "@id": "https://identogram.com/#organization",
