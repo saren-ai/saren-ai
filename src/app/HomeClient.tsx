@@ -104,7 +104,7 @@ export default function HomeClient() {
               transition={{ duration: 0.5 }}
               className="text-lavender font-mono text-sm md:text-base mb-6 tracking-wider uppercase"
             >
-              AI-Native Systems · Fractional Engagement
+              AI-Native Systems · Fractional &amp; Full-Time
             </motion.p>
 
             {/* Headline */}
@@ -121,9 +121,9 @@ export default function HomeClient() {
             <div className="space-y-6 text-base md:text-lg text-slate dark:text-foreground-muted max-w-3xl mx-auto leading-relaxed mb-10 text-center">
               {/* Entity sentence — plain <p>, no animation: answer engines extract visible prose */}
               <p className="text-charcoal dark:text-foreground">
-                I&apos;m Saren Sakurai. I engineer demand generation systems for
-                Series A–C B2B SaaS and cybersecurity companies — built AI-native,
-                delivered as a fractional marketing lead. 20+ years from Cylance
+                I&apos;m Saren Sakurai. I engineer AI-native demand systems for
+                B2B SaaS and cybersecurity teams — turning long, committee-driven
+                buying cycles into predictable pipeline. 20+ years from Cylance
                 ($1.4B exit) to AKQA.
               </p>
               <motion.p
@@ -139,7 +139,7 @@ export default function HomeClient() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                Most early-stage companies are stuck between buying ChatGPT and actually running an AI-powered operation — the modern symptom of demand built on tactics instead of systems. I engineer the system itself: data inputs, scoring logic, feedback loops, wired into the workflows your team already runs.
+                Most teams are stuck between buying ChatGPT and actually running an AI-powered operation — demand built on tactics instead of systems. I build the system itself: data inputs, scoring logic, and feedback loops, wired into the workflows your team already runs.
               </motion.p>
             </div>
 
@@ -170,13 +170,14 @@ export default function HomeClient() {
                   />
                 </svg>
               </Link>
-              <Link
-                href="/downloads"
+              <a
+                href="/downloads/Saren-Sakurai-Resume.pdf"
+                download="Saren-Sakurai-Resume.pdf"
                 className="btn-secondary"
-                aria-label="Browse Downloads"
+                aria-label="Download Résumé"
               >
-                Browse Downloads
-              </Link>
+                Download Résumé
+              </a>
             </motion.div>
 
             {/* Reframe client logos and wins */}
