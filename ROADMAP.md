@@ -9,9 +9,9 @@ Living document. Updated as priorities shift.
 Full audit + remediation shipped in 4 local commits (see
 `docs/changelogs/2026-06-12-site-audit-remediation.md`). Immediate follow-ups:
 
-- [ ] **Push to main** and verify in prod: persona PDF downloads, OG images
-      (re-scrape LinkedIn/X link debuggers — social caches hold old 308 URLs),
-      homepage hero waveform color (Electric Blue → lavender was a visible change)
+- [x] **Push to main** and verify in prod — done 2026-06-12: persona PDFs and OG
+      images 200, /resume live, custom 404 rendering; social caches re-scraped;
+      hero waveform color (lavender) approved
 - [ ] **Pagefind indexes only 1 page** — `await headers()` in `layout.tsx` makes all
       routes dynamic, so the postbuild crawl finds no static HTML. Site search is
       effectively empty. Fix or accept until Search Phase 2.
