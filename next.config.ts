@@ -11,14 +11,11 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
 
   // Image optimization configuration
+  // No remotePatterns: all images are served from /public. A wildcard allowlist
+  // turns /_next/image into an open proxy — add specific hosts if remote images
+  // are ever introduced.
   images: {
     formats: ["image/avif", "image/webp"],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**",
-      },
-    ],
   },
 
   // Metadata for deployment
