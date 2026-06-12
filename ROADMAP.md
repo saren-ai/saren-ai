@@ -15,7 +15,9 @@ Full audit + remediation shipped in 4 local commits (see
 - [ ] **Pagefind indexes only 1 page** — `await headers()` in `layout.tsx` makes all
       routes dynamic, so the postbuild crawl finds no static HTML. Site search is
       effectively empty. Fix or accept until Search Phase 2.
-- [ ] Privacy policy + Terms pages — site runs Stripe checkout; footer slot exists
+- [x] Privacy policy + Terms pages — shipped 2026-06-12 (`/privacy`, `/terms`, footer
+      bottom-bar links, sitemap @ 0.3). Standard boilerplate — have counsel review
+      before relying on the liability/refund language
 - [ ] Verify `public/downloads/Saren-Sakurai-Resume.pdf` matches resume v03 content
 - [ ] Decide: homepage "Featured Downloads" section markets 3 Coming Soon products —
       collapse to teaser or move below Case Studies until they ship
