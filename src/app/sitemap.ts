@@ -25,7 +25,9 @@ const routes: Record<string, RouteEntry> = {
   '/brand': { lastModified: '2026-05-08' },
   '/contact': { lastModified: '2026-06-09', priority: 0.9 },
   '/engage': { lastModified: '2026-06-09' },
+  '/privacy': { lastModified: '2026-06-12', priority: 0.3 },
   '/resume': { lastModified: '2026-06-12', priority: 0.9 },
+  '/terms': { lastModified: '2026-06-12', priority: 0.3 },
   '/feature': { lastModified: '2026-05-08' },
   '/feature/psylocke-timeline': { lastModified: '2026-05-08' },
 

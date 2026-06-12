@@ -316,9 +316,25 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-ash/10">
-          <p className="text-ash/50 text-sm text-center md:text-left">
-            © {currentYear} Saren Sakurai. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-ash/50 text-sm">
+              © {currentYear} Saren Sakurai. All rights reserved.
+            </p>
+            <div className="flex items-center gap-4 text-sm">
+              <Link
+                href="/privacy"
+                className="text-ash/50 hover:text-ember transition-colors"
+              >
+                Privacy
+              </Link>
+              <Link
+                href="/terms"
+                className="text-ash/50 hover:text-ember transition-colors"
+              >
+                Terms
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
