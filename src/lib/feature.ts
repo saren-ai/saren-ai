@@ -13,6 +13,6 @@ export const featureArticles: FeatureArticle[] = [
     description:
       "A fan-made interactive timeline of Kwannon and Betsy Braddock — the most narratively tangled bodies in X-Men history. 1989–2019.",
     publishedDate: "2026-02-09",
-    heroImage: "/portfolio/portfolio-psylocke.png",
+    heroImage: "/images/portfolio/portfolio-psylocke.png",
   },
 ];

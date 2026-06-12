@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Sovereign Personas | Saren.ai",
     description:
       "Buyer personas for sovereign infrastructure deals. Why 'CTO' isn't enough when you're selling national resilience.",
-    images: ["/portfolio/portfolio-sovereign-personas.png"],
+    images: ["/images/portfolio/portfolio-sovereign-personas.png"],
     type: "website",
   },
   twitter: {
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Sovereign Personas | Saren.ai",
     description:
       "Buyer personas for sovereign infrastructure deals. Why 'CTO' isn't enough when you're selling national resilience.",
-    images: ["/portfolio/portfolio-sovereign-personas.png"],
+    images: ["/images/portfolio/portfolio-sovereign-personas.png"],
   },
 };
 
@@ -73,7 +73,7 @@ export default function SovereignPersonasPage() {
             "about": ["B2B persona development", "AI infrastructure market segmentation", "ICP strategy"],
             "image": {
               "@type": "ImageObject",
-              "url": "https://saren.ai/portfolio/portfolio-sovereign-personas.png",
+              "url": "https://saren.ai/images/portfolio/portfolio-sovereign-personas.png",
               "width": 1200,
               "height": 630
             },
@@ -97,7 +97,7 @@ export default function SovereignPersonasPage() {
             "mainEntityOfPage": { "@id": "https://saren.ai/case-studies/sovereign-personas/#webpage" },
             "author": { "@id": "https://saren.ai/#person" },
             "publisher": { "@id": "https://identogram.com/#organization" },
-            "image": "https://saren.ai/portfolio/portfolio-sovereign-personas.png",
+            "image": "https://saren.ai/images/portfolio/portfolio-sovereign-personas.png",
             "about": ["buyer personas", "enterprise sales", "sovereign infrastructure"],
             "inLanguage": "en-US",
             "datePublished": "2026-02-03",

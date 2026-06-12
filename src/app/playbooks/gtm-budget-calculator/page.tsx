@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "GTM Budget Calculator | Saren.ai",
     description:
       "An interactive go-to-market budget planning tool for B2B SaaS teams. Model budget allocation across channels, plan spend by stage, and scenario-test your GTM investment before committing.",
-    images: ["/portfolio/portfolio-calculator.png"],
+    images: ["/images/portfolio/portfolio-calculator.png"],
     type: "website",
   },
   twitter: {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "GTM Budget Calculator | Saren.ai",
     description:
       "An interactive go-to-market budget planning tool for B2B SaaS teams. Model budget allocation across channels, plan spend by stage, and scenario-test your GTM investment before committing.",
-    images: ["/portfolio/portfolio-calculator.png"],
+    images: ["/images/portfolio/portfolio-calculator.png"],
   },
 };
 
@@ -82,7 +82,7 @@ export default function CalculatorPage() {
             "keywords": "GTM budget calculator, go-to-market planning, budget allocation, B2B SaaS, revenue planning",
             "image": {
               "@type": "ImageObject",
-              "url": "https://saren.ai/portfolio/portfolio-calculator.png",
+              "url": "https://saren.ai/images/portfolio/portfolio-calculator.png",
               "width": 1200,
               "height": 630
             },

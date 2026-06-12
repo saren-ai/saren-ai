@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "Paid Media ROI Simulator | Saren.ai",
     description:
       "Stop guessing. Simulate the revenue impact of your ad spend using real unit economics.",
-    images: ["/portfolio/roi-simulator-og.png"],
+    images: ["/images/portfolio/roi-simulator-og.png"],
   },
 };
 
@@ -80,7 +80,7 @@ export default function GoldenDashboardPage() {
             "keywords": "paid media, ROI simulator, demand generation, B2B SaaS, revenue forecasting, ad spend",
             "image": {
               "@type": "ImageObject",
-              "url": "https://saren.ai/portfolio/roi-simulator-og.png",
+              "url": "https://saren.ai/images/portfolio/roi-simulator-og.png",
               "width": 1200,
               "height": 630
             },

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Lead Scoring in 2026: The Hybrid Architecture That Works — saren.ai",
     description:
       "An interactive hybrid scoring model + a practitioner's framework for upgrading HubSpot lead scoring post the August 2025 overhaul. Free print-to-PDF setup blueprint.",
-    images: ["/portfolio/portfolio-lead-scoring.png"],
+    images: ["/images/portfolio/portfolio-lead-scoring.png"],
     type: "website",
   },
   twitter: {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Lead Scoring in 2026: The Hybrid Architecture That Works",
     description:
       "An interactive hybrid scoring model + a practitioner's framework for upgrading HubSpot lead scoring post the August 2025 overhaul. Free print-to-PDF setup blueprint.",
-    images: ["/portfolio/portfolio-lead-scoring.png"],
+    images: ["/images/portfolio/portfolio-lead-scoring.png"],
   },
 };
 
@@ -34,12 +34,12 @@ export default function HybridLeadScoringPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "@id": "https://saren.ai/portfolio/hybrid-lead-scoring/#article",
+    "@id": "https://saren.ai/playbooks/hybrid-lead-scoring/#article",
     name: "Lead Scoring in 2026: The Hybrid Architecture That Works",
     headline: "Lead Scoring in 2026: The Hybrid Architecture That Works",
     description:
       "An interactive hybrid scoring model and practitioner's framework for upgrading HubSpot lead scoring after the August 2025 overhaul.",
-    url: "https://saren.ai/portfolio/hybrid-lead-scoring",
+    url: "https://saren.ai/playbooks/hybrid-lead-scoring",
     author: {
       "@type": "Person",
       "@id": "https://saren.ai/#person",
@@ -56,7 +56,7 @@ export default function HybridLeadScoringPage() {
     isPartOf: { "@id": "https://saren.ai/#website" },
     image: {
       "@type": "ImageObject",
-      url: "https://saren.ai/portfolio/portfolio-lead-scoring.png",
+      url: "https://saren.ai/images/portfolio/portfolio-lead-scoring.png",
       width: 1200,
       height: 630,
     },
@@ -80,7 +80,7 @@ export default function HybridLeadScoringPage() {
         "@type": "ListItem",
         position: 3,
         name: "Hybrid Lead Scoring",
-        item: "https://saren.ai/portfolio/hybrid-lead-scoring",
+        item: "https://saren.ai/playbooks/hybrid-lead-scoring",
       },
     ],
   };

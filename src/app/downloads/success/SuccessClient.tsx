@@ -22,9 +22,9 @@ export default function SuccessClient(props: Props) {
             <h1 className="text-3xl font-bold mb-4">Something went wrong</h1>
             <p className="text-ash/70 mb-8 max-w-md mx-auto">{props.message}</p>
             <div className="flex gap-4 justify-center">
-              <Link href="/downloads" className="btn-secondary-dark inline-flex items-center gap-2">
+              <Link href="/playbooks" className="btn-secondary-dark inline-flex items-center gap-2">
                 <ArrowLeft className="w-4 h-4" />
-                Back to Downloads
+                Back to Playbooks
               </Link>
               <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
                 Contact Support
@@ -79,8 +79,8 @@ export default function SuccessClient(props: Props) {
           </p>
 
           <div className="mt-10 pt-8 border-t border-white/10">
-            <Link href="/downloads" className="text-ash/50 hover:text-ash text-sm transition-colors">
-              ← Back to Downloads
+            <Link href="/playbooks" className="text-ash/50 hover:text-ash text-sm transition-colors">
+              ← Back to Playbooks
             </Link>
           </div>
         </motion.div>

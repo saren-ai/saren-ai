@@ -13,7 +13,7 @@ export async function generateMetadata() {
             description: 'An interactive 21-step prompt sequence for building B2B SaaS positioning from scratch — ICP definition, messaging pillars, value proposition, sales playbook, and launch-ready narrative.',
             url: 'https://saren.ai/playbooks/b2b-marketing-framework',
             siteName: 'Saren.ai',
-            images: [{ url: '/portfolio/marketing-framework-og.png', width: 1200, height: 630 }],
+            images: [{ url: '/images/portfolio/marketing-framework-og.png', width: 1200, height: 630 }],
             locale: 'en_US',
             type: 'website',
         },
@@ -21,7 +21,7 @@ export async function generateMetadata() {
             card: 'summary_large_image',
             title: 'B2B SaaS Marketing Framework: 21-Step AI Positioning System',
             description: '21 AI prompt sequences for B2B SaaS positioning — ICP, messaging pillars, value proposition, sales playbook, and launch-ready narrative.',
-            images: ['/portfolio/marketing-framework-og.png'],
+            images: ['/images/portfolio/marketing-framework-og.png'],
         },
     };
 }

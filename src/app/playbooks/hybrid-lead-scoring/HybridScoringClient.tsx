@@ -616,7 +616,7 @@ export default function HybridScoringClient() {
         <div className="border-b-2 border-black pb-4 mb-6">
           <h1 className="text-2xl font-bold">Hybrid Lead Scoring Setup Blueprint</h1>
           <p className="text-sm text-gray-600 mt-1">
-            Generated {today} · saren.ai/portfolio/hybrid-lead-scoring
+            Generated {today} · saren.ai/playbooks/hybrid-lead-scoring
           </p>
         </div>
 

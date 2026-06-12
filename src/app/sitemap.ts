@@ -24,8 +24,8 @@ const routes: Record<string, RouteEntry> = {
   '/ai-orchestration': { lastModified: '2026-06-09', priority: 0.9 },
   '/brand': { lastModified: '2026-05-08' },
   '/contact': { lastModified: '2026-06-09', priority: 0.9 },
-  '/downloads': { lastModified: '2026-05-27' },
   '/engage': { lastModified: '2026-06-09' },
+  '/resume': { lastModified: '2026-06-12', priority: 0.9 },
   '/feature': { lastModified: '2026-05-08' },
   '/feature/psylocke-timeline': { lastModified: '2026-05-08' },
 

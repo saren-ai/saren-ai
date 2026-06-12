@@ -27,8 +27,8 @@ export const personaData: PersonaCard[] = [
     id: "minister",
     title: "The Minister",
     subtitle: "Political sponsor of national AI & infrastructure",
-    thumbSrc: "/portfolio/personas/thumbnail/minister-al-rashid.png",
-    pdfHref: "/portfolio/personas/Minister_Al-Rashid_Architecting_Sovereignty.pdf",
+    thumbSrc: "/downloads/personas/thumbnail/minister-al-rashid.png",
+    pdfHref: "/downloads/personas/Minister_Al-Rashid_Architecting_Sovereignty.pdf",
     mandate:
       "Deliver national AI competitiveness, sovereignty, and measurable economic transformation.",
     risks: [
@@ -65,8 +65,8 @@ export const personaData: PersonaCard[] = [
     id: "architect",
     title: "The Architect",
     subtitle: "National technical authority & risk translator",
-    thumbSrc: "/portfolio/personas/thumbnail/dr-wei-chen.png",
-    pdfHref: "/portfolio/personas/The_Architects_Mandate_Dr_Wei_Chen.pdf",
+    thumbSrc: "/downloads/personas/thumbnail/dr-wei-chen.png",
+    pdfHref: "/downloads/personas/The_Architects_Mandate_Dr_Wei_Chen.pdf",
     mandate:
       "Turn political ambition into an executable, multi-vendor architecture that can be defended publicly.",
     risks: [
@@ -104,8 +104,8 @@ export const personaData: PersonaCard[] = [
     id: "operator",
     title: "The Sovereign Cloud Chief",
     subtitle: "Operator accountable for performance and economics",
-    thumbSrc: "/portfolio/personas/thumbnail/sovreign-cloud-chief.png",
-    pdfHref: "/portfolio/personas/The_Sovereign_Cloud_Chief_s_Dilemma.pdf",
+    thumbSrc: "/downloads/personas/thumbnail/sovreign-cloud-chief.png",
+    pdfHref: "/downloads/personas/The_Sovereign_Cloud_Chief_s_Dilemma.pdf",
     mandate:
       "Drive GPU utilization, profitability, and customer satisfaction while competing with hyperscalers on merit.",
     risks: [

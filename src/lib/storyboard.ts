@@ -21,7 +21,7 @@ export const frames: StoryboardFrame[] = [
     description:
       "Wide establishing shot: exec at the head of the table as three distinct teams prepare to pitch.",
     mood: "anticipation",
-    imageSrc: "/portfolio/storyboards/storyboard_01.png",
+    imageSrc: "/images/portfolio/storyboards/storyboard_01.png",
     alt: "Conference room wide shot with an executive and multiple teams prepared to pitch.",
   },
   {
@@ -31,7 +31,7 @@ export const frames: StoryboardFrame[] = [
     description:
       "A tech-forward presenter uses a laser pointer to pitch motion and digital concepts.",
     mood: "energetic",
-    imageSrc: "/portfolio/storyboards/storyboard_02.png",
+    imageSrc: "/images/portfolio/storyboards/storyboard_02.png",
     alt: "Presenter pitching with laser pointer in a conference room.",
   },
   {
@@ -41,7 +41,7 @@ export const frames: StoryboardFrame[] = [
     description:
       "Close-up: thoughtful evaluation—hand on chin, engaged but reserving judgment.",
     mood: "thoughtful",
-    imageSrc: "/portfolio/storyboards/storyboard_03.png",
+    imageSrc: "/images/portfolio/storyboards/storyboard_03.png",
     alt: "Close-up of executive thinking with hand on chin.",
   },
   {
@@ -51,7 +51,7 @@ export const frames: StoryboardFrame[] = [
     description:
       "A polished agency lead draws a strategy framework on a whiteboard.",
     mood: "confident",
-    imageSrc: "/portfolio/storyboards/storyboard_04.png",
+    imageSrc: "/images/portfolio/storyboards/storyboard_04.png",
     alt: "Presenter at a whiteboard showing campaign framework sketches.",
   },
   {
@@ -61,7 +61,7 @@ export const frames: StoryboardFrame[] = [
     description:
       "High-energy pitch: dual presentation with boards and screen—unexpected, bold ideas.",
     mood: "electric",
-    imageSrc: "/portfolio/storyboards/storyboard_05.png",
+    imageSrc: "/images/portfolio/storyboards/storyboard_05.png",
     alt: "Creative team presenting with energetic gestures and visual boards.",
   },
   {
@@ -71,7 +71,7 @@ export const frames: StoryboardFrame[] = [
     description:
       "Clarity arrives—glasses adjustment, then a decisive raised finger.",
     mood: "clarity",
-    imageSrc: "/portfolio/storyboards/storyboard_06.png",
+    imageSrc: "/images/portfolio/storyboards/storyboard_06.png",
     alt: "Executive adjusting glasses and raising a finger in a eureka gesture.",
   },
   {
@@ -81,7 +81,7 @@ export const frames: StoryboardFrame[] = [
     description:
       "Satisfied and resolved—leaning back with a confident smile.",
     mood: "satisfied",
-    imageSrc: "/portfolio/storyboards/storyboard_07.png",
+    imageSrc: "/images/portfolio/storyboards/storyboard_07.png",
     alt: "Executive leaning back with a satisfied expression in the conference room.",
   },
   {
