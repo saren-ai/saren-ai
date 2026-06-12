@@ -358,9 +358,13 @@ export default function SignalStateClient() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
+            className="flex flex-wrap gap-4 justify-center"
           >
             <Link href="/signal-state/framework" className="btn-primary">
               Read the full framework →
+            </Link>
+            <Link href="/ai-orchestration" className="btn-secondary-dark">
+              See how I deploy it →
             </Link>
           </motion.div>
         </div>

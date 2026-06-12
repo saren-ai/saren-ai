@@ -103,7 +103,7 @@ export default function SolopreneursClient() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/downloads"
+                href="/playbooks"
                 className="btn-primary inline-flex items-center gap-2"
               >
                 Browse Resources
@@ -131,7 +131,7 @@ export default function SolopreneursClient() {
             </h2>
             <p className="text-slate dark:text-foreground-muted text-lg max-w-xl mx-auto">
               These three patterns show up in almost every solo operator
-              engagement before I build the leverage layer.
+              engagement before I build the systems layer.
             </p>
           </motion.div>
 
@@ -307,6 +307,15 @@ export default function SolopreneursClient() {
                 See engagement pricing
               </Link>
             </div>
+            <p className="text-ash/60 text-sm mt-6">
+              New to the model?{" "}
+              <Link
+                href="/fractional-marketing-lead"
+                className="text-ash underline underline-offset-4 hover:text-ash/70 transition-colors"
+              >
+                How a fractional marketing lead engagement works
+              </Link>
+            </p>
           </motion.div>
         </div>
       </section>

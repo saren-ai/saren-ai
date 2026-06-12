@@ -32,11 +32,11 @@ const getLevelColors = (level: string) => {
         case "L3":
             return {
                 border: "border-lavender/30 group-hover:border-lavender/50",
-                glow: "group-hover:shadow-[0_0_20px_-5px_rgba(0,255,255,0.2)]",
+                glow: "group-hover:shadow-[0_0_20px_-5px_rgba(181,126,220,0.2)]",
                 text: "text-lavender",
                 accent: "bg-lavender/10 text-lavender",
-                code: "text-lavender-300",
-                gradient: "from-cyan-900/80 to-cyan-900/20" // Electric approximation
+                code: "text-lavender",
+                gradient: "from-lavender/30 to-lavender/5"
             };
         case "L4":
             return {

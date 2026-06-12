@@ -677,6 +677,9 @@ Advantage: Expressed, not inferred.
             <Link href="/signal-state/use-cases" className="btn-secondary-dark">
               See use cases →
             </Link>
+            <Link href="/ai-orchestration" className="btn-secondary-dark">
+              How I build this for clients →
+            </Link>
           </motion.div>
         </div>
       </section>

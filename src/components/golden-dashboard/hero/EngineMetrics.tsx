@@ -16,7 +16,7 @@ export default function EngineMetrics({ model }: EngineMetricsProps) {
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-lavender/0 via-lavender/50 to-lavender/0 opacity-30" />
 
             <div className="flex items-center gap-3 mb-2">
-                <div className="p-2 bg-lavender/10 rounded-lg text-lavender shadow-lg shadow-electric/10">
+                <div className="p-2 bg-lavender/10 rounded-lg text-lavender shadow-lg shadow-lavender/10">
                     <Activity className="w-5 h-5" />
                 </div>
                 <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">
@@ -103,7 +103,7 @@ function MetricCard({ label, icon, value, subtext, highlight, delay, trend, form
             className={`
                 relative p-4 rounded-2xl border transition-all group overflow-hidden flex flex-col justify-between
                 ${highlight
-                    ? "bg-lavender/10 border-lavender/40 min-h-[120px] shadow-lg shadow-electric/5"
+                    ? "bg-lavender/10 border-lavender/40 min-h-[120px] shadow-lg shadow-lavender/5"
                     : "bg-card-bg/50 border-border hover:border-border-hover min-h-[100px]"}
             `}
         >

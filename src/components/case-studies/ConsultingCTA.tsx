@@ -20,25 +20,33 @@ export default function ConsultingCTA() {
                         I help early-stage and Series A founders install these systems to
                         drive predictable pipeline.
                     </p>
-                    <Link
-                        href="/contact"
-                        className="btn-primary inline-flex text-lg"
-                    >
-                        Start a conversation
-                        <svg
-                            className="w-5 h-5 ml-2"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
+                    <div className="flex flex-wrap gap-4 justify-center">
+                        <Link
+                            href="/contact"
+                            className="btn-primary inline-flex text-lg"
                         >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M17 8l4 4m0 0l-4 4m4-4H3"
-                            />
-                        </svg>
-                    </Link>
+                            Start a conversation
+                            <svg
+                                className="w-5 h-5 ml-2"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                />
+                            </svg>
+                        </Link>
+                        <Link
+                            href="/ai-orchestration"
+                            className="btn-secondary-dark inline-flex text-lg"
+                        >
+                            See how I build systems like this
+                        </Link>
+                    </div>
                 </motion.div>
             </div>
         </section>

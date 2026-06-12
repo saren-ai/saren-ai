@@ -18,7 +18,7 @@ export const solutionsMegaMenu: MegaMenuContent = {
         {
           href: "/solopreneurs",
           label: "Solo Founders & Fractional CMOs",
-          description: "Pipeline automation and leverage systems for independent operators",
+          description: "Pipeline automation for independent operators",
         },
         {
           href: "/thinkers",
@@ -129,8 +129,8 @@ export const caseStudiesMegaMenu: MegaMenuContent = {
     description:
       "Pipeline programs, scoring models, and frameworks built for enterprise B2B. Not just outcomes — the actual systems behind them.",
     cta: {
-      label: "Client Brands",
-      href: "/about/clients",
+      label: "View All Case Studies",
+      href: "/case-studies",
     },
   },
 };
@@ -149,6 +149,11 @@ export const aboutMegaMenu: MegaMenuContent = {
           href: "/about",
           label: "About Me",
           description: "Career journey and background",
+        },
+        {
+          href: "/resume",
+          label: "Resume",
+          description: "Career history, impact metrics, and core competencies",
         },
         {
           href: "https://calendly.com/sarenai",
@@ -189,7 +194,3 @@ export const aboutMegaMenu: MegaMenuContent = {
     },
   },
 };
-
-// Legacy export aliases — used by any older imports not yet updated
-export const whoWeServeMegaMenu = solutionsMegaMenu;
-export const workMegaMenu = caseStudiesMegaMenu;

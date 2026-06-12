@@ -13,9 +13,9 @@ const CHAR_LIST = [...CHARS]; // split on codepoints, not bytes
 const FONT_SIZE = 14; // px — character cell height
 
 // Brand color palette: [light-mode hex, dark-mode hex]
-// Weighted: Electric Blue dominant, Copper secondary, Ember Red accent
+// Weighted: Lavender dominant, Copper secondary, Ember Red accent
 const PALETTE: [string, string][] = [
-  ["#7C5AA3", "#B57EDC"], // Electric Blue
+  ["#7C5AA3", "#B57EDC"], // Lavender
   ["#7C5AA3", "#B57EDC"],
   ["#7C5AA3", "#B57EDC"],
   ["#7C5AA3", "#B57EDC"],

@@ -41,8 +41,8 @@ export default function MatrixCell({
           w-full h-full min-h-[100px] p-3 text-left text-sm
           border border-border rounded-lg
           transition-all duration-200
-          hover:border-lavender hover:shadow-lg hover:shadow-electric/10
-          focus:outline-none focus:ring-2 focus:ring-electric
+          hover:border-lavender hover:shadow-lg hover:shadow-lavender/10
+          focus:outline-none focus:ring-2 focus:ring-lavender
           ${isHighlighted ? "bg-lavender/5 border-lavender/50" : "bg-card-bg"}
         `}
       >

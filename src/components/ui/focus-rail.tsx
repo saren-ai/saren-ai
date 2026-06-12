@@ -210,7 +210,7 @@ export function FocusRail({
                                 key={absIndex}
                                 className={cn(
                                     "absolute aspect-[2/3] w-[280px] md:w-[320px] rounded-2xl border border-border bg-card shadow-2xl transition-all duration-300",
-                                    isCenter ? "z-20 shadow-electric/20 border-lavender/50" : "z-10 bg-card/50"
+                                    isCenter ? "z-20 shadow-lavender/20 border-lavender/50" : "z-10 bg-card/50"
                                 )}
                                 initial={false}
                                 animate={{

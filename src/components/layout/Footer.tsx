@@ -76,10 +76,42 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/case-studies"
+                  href="/engage"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
-                  Case Studies
+                  Work With Me
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/fractional-marketing-lead"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  Fractional Marketing Lead
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/ai-orchestration"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  AI Orchestration
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/signal-state"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  Signal State
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/resume"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  Resume
                 </Link>
               </li>
               <li>
@@ -199,10 +231,18 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link
-                  href="/feature/psylocke-timeline"
+                  href="/feature"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
-                  Psylocke timeline
+                  Feature Articles
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about/concerts"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  Concert Log
                 </Link>
               </li>
               <li>
@@ -276,16 +316,9 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-ash/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            {/* Copyright */}
-            <p className="text-ash/50 text-sm">
-              © {currentYear} Saren Sakurai. All rights reserved.
-            </p>
-
-            {/* Legal Links (Removed placeholders) */}
-            <div className="flex items-center gap-4 text-sm">
-            </div>
-          </div>
+          <p className="text-ash/50 text-sm text-center md:text-left">
+            © {currentYear} Saren Sakurai. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

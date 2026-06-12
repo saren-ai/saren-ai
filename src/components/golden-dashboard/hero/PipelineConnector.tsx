@@ -8,10 +8,10 @@ export default function PipelineConnector({ trigger }: { trigger?: number }) {
         <div className="absolute inset-0 pointer-events-none overflow-visible">
             <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" className="overflow-visible">
                 <defs>
-                    <linearGradient id="electric-flow" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#3B82F6" stopOpacity="0" />
-                        <stop offset="50%" stopColor="#3B82F6" stopOpacity="1" />
-                        <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
+                    <linearGradient id="lavender-flow" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#B57EDC" stopOpacity="0" />
+                        <stop offset="50%" stopColor="#B57EDC" stopOpacity="1" />
+                        <stop offset="100%" stopColor="#B57EDC" stopOpacity="0" />
                     </linearGradient>
                     <linearGradient id="ember-flow" x1="0%" y1="0%" x2="100%" y2="0%">
                         <stop offset="0%" stopColor="#F59E0B" stopOpacity="0" />
@@ -23,7 +23,7 @@ export default function PipelineConnector({ trigger }: { trigger?: number }) {
                 {/* Connection 1: Inputs -> Metrics */}
                 <ConnectorPath
                     d="M 24 50 C 25 50, 25 50, 26 50"
-                    gradient="url(#electric-flow)"
+                    gradient="url(#lavender-flow)"
                     trigger={trigger}
                 />
 

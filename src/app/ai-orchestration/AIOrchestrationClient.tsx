@@ -334,7 +334,7 @@ export default function AIOrchestrationClient() {
       {/* FAQ Section */}
       <FAQ
         title="AI Orchestration FAQ"
-        description="Clear operational details on designing high-leverage human-in-the-loop AI systems."
+        description="Clear operational details on designing high-impact human-in-the-loop AI systems."
         items={[
           {
             question: "Can I just automate all of my outbound marketing with AI agents?",

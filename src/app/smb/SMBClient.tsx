@@ -55,6 +55,13 @@ const resources = [
     href: "/case-studies/executive-dashboard",
   },
   {
+    type: "Case Study",
+    title: "10-Touch Sales Play",
+    description:
+      "A systematic multi-channel outbound sequence that turns cold outreach into executive conversations.",
+    href: "/case-studies/10-touch-sales-play",
+  },
+  {
     type: "Framework",
     title: "Signal-State: Org Alignment",
     description:
@@ -99,7 +106,7 @@ export default function SMBClient() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/downloads"
+                href="/playbooks"
                 className="btn-primary inline-flex items-center gap-2"
               >
                 Browse Resources
@@ -302,6 +309,15 @@ export default function SMBClient() {
                 See engagement pricing
               </Link>
             </div>
+            <p className="text-ash/60 text-sm mt-6">
+              New to the model?{" "}
+              <Link
+                href="/fractional-marketing-lead"
+                className="text-ash underline underline-offset-4 hover:text-ash/70 transition-colors"
+              >
+                How a fractional marketing lead engagement works
+              </Link>
+            </p>
           </motion.div>
         </div>
       </section>

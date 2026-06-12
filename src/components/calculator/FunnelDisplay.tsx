@@ -240,7 +240,7 @@ export function FunnelDisplay({
                       onClick={() => handleEditStart(index)}
                       className={`group relative text-xs font-mono font-semibold px-1.5 py-0.5 rounded-full whitespace-nowrap transition-all ${
                         getPerformanceColor(conversionRateValues[index], conversionRateBenchmarks[index])
-                      } ${onConversionRateEdit ? "cursor-pointer hover:ring-1 hover:ring-electric" : "cursor-default"}`}
+                      } ${onConversionRateEdit ? "cursor-pointer hover:ring-1 hover:ring-lavender" : "cursor-default"}`}
                       disabled={!onConversionRateEdit}
                       title={
                         onConversionRateEdit

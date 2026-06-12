@@ -121,18 +121,18 @@ export default function WaveformHero() {
         let r: number, g: number, b: number, a: number;
 
         if (pm < 0.48) {
-          // Slate gray → Electric blue
+          // Slate gray → Lavender
           const mix = smoothstep(pm / 0.48);
-          r = isDark ? lerp(155, 47, mix) : lerp(91, 47, mix);
-          g = isDark ? lerp(165, 109, mix) : lerp(100, 109, mix);
-          b = isDark ? lerp(178, 142, mix) : lerp(112, 142, mix);
+          r = isDark ? lerp(155, 124, mix) : lerp(91, 124, mix);
+          g = isDark ? lerp(165, 90, mix) : lerp(100, 90, mix);
+          b = isDark ? lerp(178, 163, mix) : lerp(112, 163, mix);
           a = isDark ? lerp(0.20, 0.32, mix) : lerp(0.16, 0.28, mix);
         } else {
-          // Electric blue → Copper/amber
+          // Lavender → Copper/amber
           const mix = smoothstep((pm - 0.48) / 0.52);
-          r = lerp(47, 193, mix);
-          g = lerp(109, 125, mix);
-          b = lerp(142, 58, mix);
+          r = lerp(124, 193, mix);
+          g = lerp(90, 125, mix);
+          b = lerp(163, 58, mix);
           a = isDark ? lerp(0.32, 0.20, mix) : lerp(0.28, 0.18, mix);
         }
 

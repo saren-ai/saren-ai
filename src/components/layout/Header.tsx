@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
@@ -19,12 +20,15 @@ interface NavItem {
   href?: string;
   megaMenu?: MegaMenuContent;
   mobileChildren?: { href: string; label: string; description?: string; isExternal?: boolean }[];
+  /** Route prefixes that mark this nav item as the current section */
+  activePrefixes?: string[];
 }
 
 const navLinks: NavItem[] = [
   {
     label: "Solutions",
     megaMenu: solutionsMegaMenu,
+    activePrefixes: ["/smb", "/solopreneurs", "/thinkers", "/ai-orchestration", "/signal-state", "/fractional-marketing-lead", "/engage"],
     mobileChildren: [
       { href: "/smb", label: "Founders & Mid-Market", description: "GTM systems for growth-stage companies" },
       { href: "/solopreneurs", label: "Solo Founders & Fractional CMOs", description: "Pipeline automation for independent operators" },
@@ -36,10 +40,12 @@ const navLinks: NavItem[] = [
   {
     label: "Playbooks",
     href: "/playbooks",
+    activePrefixes: ["/playbooks"],
   },
   {
     label: "Case Studies",
     megaMenu: caseStudiesMegaMenu,
+    activePrefixes: ["/case-studies"],
     mobileChildren: [
       { href: "/case-studies", label: "View All Case Studies" },
       ...caseStudiesMegaMenu.sections.flatMap(section =>
@@ -55,6 +61,7 @@ const navLinks: NavItem[] = [
   {
     label: "About Me",
     megaMenu: aboutMegaMenu,
+    activePrefixes: ["/about", "/resume", "/brand", "/feature"],
     mobileChildren: aboutMegaMenu.sections.flatMap(section =>
       section.links.map(link => ({
         href: link.href,
@@ -71,6 +78,12 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(null);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const pathname = usePathname();
+
+  const isActiveSection = (link: NavItem) =>
+    !!link.activePrefixes?.some(
+      (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`)
+    );
 
   const handleMouseEnter = (label: string, hasMegaMenu: boolean) => {
     if (closeTimeoutRef.current) {
@@ -171,11 +184,12 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
                 {link.href ? (
                   <Link
                     href={link.href}
+                    aria-current={isActiveSection(link) ? "true" : undefined}
                     className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm font-semibold dark:font-medium transition-all duration-150 ${
                       link.label === "Playbooks"
                         ? "text-ember hover:bg-ember/[0.08]"
                         : "text-foreground hover:text-ember hover:bg-charcoal/[0.05] dark:hover:bg-white/[0.06]"
-                    }`}
+                    } ${isActiveSection(link) ? "bg-charcoal/[0.05] dark:bg-white/[0.06]" : ""}`}
                   >
                     {link.label === "Playbooks" && (
                       <span className="w-1.5 h-1.5 rounded-full bg-ember shrink-0" />
@@ -187,10 +201,13 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
                     className={`flex items-center gap-1 px-3.5 py-1.5 rounded-full text-sm font-semibold dark:font-medium transition-all duration-150 ${
                       openMegaMenu === link.label
                         ? "bg-charcoal/[0.08] dark:bg-white/[0.10] text-ember"
-                        : "text-foreground hover:text-ember hover:bg-charcoal/[0.05] dark:hover:bg-white/[0.06]"
+                        : isActiveSection(link)
+                          ? "text-ember bg-charcoal/[0.05] dark:bg-white/[0.06]"
+                          : "text-foreground hover:text-ember hover:bg-charcoal/[0.05] dark:hover:bg-white/[0.06]"
                     }`}
                     aria-expanded={openMegaMenu === link.label}
                     aria-haspopup="true"
+                    aria-current={isActiveSection(link) ? "true" : undefined}
                   >
                     {link.label}
                     <svg

@@ -89,7 +89,7 @@ export default function MetricCard({
         className={`
           relative bg-card-bg border border-border rounded-lg p-4 md:p-5
           transition-all duration-300 cursor-pointer
-          hover:border-border-hover hover:shadow-lg hover:shadow-electric/10
+          hover:border-border-hover hover:shadow-lg hover:shadow-lavender/10
           ${isFirst ? "border-l-4 border-l-ember" : ""}
           ${isLast ? "border-r-4 border-r-copper" : ""}
         `}

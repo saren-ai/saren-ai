@@ -851,6 +851,15 @@ export default function IntentDataClient() {
               calculate lift. The output: a signal model that let the demand gen team know what content to
               serve, to whom, and when — based on observed behavior from real buyers.
             </p>
+            <p className="text-white/48 leading-relaxed text-sm mt-4">
+              Want to see how signals like these turn into a score?{" "}
+              <Link
+                href="/playbooks/hybrid-lead-scoring"
+                className="text-lavender underline underline-offset-2 hover:text-white transition-colors"
+              >
+                Try the hybrid lead scoring tool →
+              </Link>
+            </p>
           </div>
         </div>
       </section>
@@ -870,6 +879,25 @@ export default function IntentDataClient() {
           }
         ]}
       />
+
+      {/* Closing CTA */}
+      <section className="py-16 md:py-20 border-t border-white/5">
+        <div className="container-narrow text-center">
+          <p className="font-mono text-lavender text-[10px] uppercase tracking-[0.2em] mb-4">
+            From signal to system
+          </p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+            This is the kind of system I still build — now with AI in the loop.
+          </h2>
+          <p className="text-white/48 max-w-xl mx-auto mb-8">
+            Intent models, scoring, and orchestrated outreach that run on your
+            stack instead of in a slide deck.
+          </p>
+          <Link href="/ai-orchestration" className="btn-primary inline-flex">
+            See how I build systems like this
+          </Link>
+        </div>
+      </section>
     </article>
   );
 }

@@ -3,7 +3,6 @@ import { Sora, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import TopBanner from "@/components/layout/TopBanner";
 import ThemeProvider from "@/components/layout/ThemeProvider";
 import { PagefindProvider } from "@/components/search/PagefindProvider";
 import { SearchProvider } from "@/components/search/SearchContext";
@@ -262,7 +261,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <PagefindProvider>
               <SearchProvider>
                 <SearchModal />
-                {/* <TopBanner /> */}
+                
                 <div className="sticky top-0 z-50 bg-background">
                   <Header latestPost={latestPost} />
                 </div>

@@ -19,7 +19,7 @@ function CardContent({ tool, isOverlay }: { tool: AiTool; isOverlay?: boolean })
           alt={tool.name}
           width={48}
           height={48}
-          className={`rounded-lg shrink-0 ${isOverlay ? "ring-2 ring-electric" : ""}`}
+          className={`rounded-lg shrink-0 ${isOverlay ? "ring-2 ring-lavender" : ""}`}
           draggable={false}
         />
       )}

@@ -6,12 +6,12 @@ import { ChevronDown } from "lucide-react";
 interface FunnelHandoffProps {
   rate: number;
   rateLabel: string;
-  color?: "electric" | "copper";
+  color?: "lavender" | "copper";
   className?: string;
 }
 
 const colorConfig = {
-  electric: {
+  lavender: {
     bg: "bg-lavender/10",
     border: "border-lavender/30",
     text: "text-lavender",
@@ -37,7 +37,7 @@ const colorConfig = {
 export function FunnelHandoff({ 
   rate, 
   rateLabel, 
-  color = "electric",
+  color = "lavender",
   className = ""
 }: FunnelHandoffProps) {
   const { bg, border, text, arrow } = colorConfig[color];

@@ -40,7 +40,7 @@ export default function EngineInputs({ inputs, onChange }: EngineInputsProps) {
                     sensitivity={100} // Higher sensitivity for larger values
                     format={(v) => `$${v.toLocaleString()}`}
                     onChange={(v) => onChange("monthlyBudget", v)}
-                    color="electric"
+                    color="lavender"
                     icon={<DollarSign className="w-4 h-4" />}
                 />
 
@@ -53,7 +53,7 @@ export default function EngineInputs({ inputs, onChange }: EngineInputsProps) {
                     sensitivity={0.1}
                     format={(v) => `$${v.toFixed(2)}`}
                     onChange={(v) => onChange("targetCpc", v)}
-                    color="electric"
+                    color="lavender"
                     icon={<MousePointer2 className="w-4 h-4" />}
                 />
 
@@ -66,7 +66,7 @@ export default function EngineInputs({ inputs, onChange }: EngineInputsProps) {
                     sensitivity={1}
                     format={(v) => `$${v.toFixed(0)}`}
                     onChange={(v) => onChange("targetCpl", v)}
-                    color="electric"
+                    color="lavender"
                     icon={<Users className="w-4 h-4" />}
                 />
             </div>
@@ -85,7 +85,7 @@ interface InputCardProps {
     sensitivity: number;
     format: (v: number) => string;
     onChange: (v: number) => void;
-    color: "electric" | "ember";
+    color: "lavender" | "ember";
     icon: React.ReactNode;
 }
 

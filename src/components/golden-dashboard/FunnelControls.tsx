@@ -104,7 +104,7 @@ export default function FunnelControls({
                       onChange={(e) =>
                         handleChange("spend", parseFloat(e.target.value) || 0)
                       }
-                      className="w-full px-3 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-electric text-foreground"
+                      className="w-full px-3 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-lavender text-foreground"
                       min="0"
                       step="1000"
                     />
@@ -121,7 +121,7 @@ export default function FunnelControls({
                       onChange={(e) =>
                         handleChange("cpm", parseFloat(e.target.value) || 0)
                       }
-                      className="w-full px-3 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-electric text-foreground"
+                      className="w-full px-3 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-lavender text-foreground"
                       min="0"
                       step="1"
                     />

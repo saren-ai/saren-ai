@@ -235,7 +235,7 @@ export default function DashboardFlow() {
           <StaticSConnector
             rate={currentModel.conversionRates.leadToMql}
             rateLabel="Lead→MQL"
-            color="electric"
+            color="lavender"
           />
 
           {/* ROW 3: Lead Scoring Container */}

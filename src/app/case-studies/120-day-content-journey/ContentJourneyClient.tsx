@@ -26,6 +26,16 @@ export default function ContentJourneyClient() {
                             <p>
                                 To engineer demand, you need to map content to the buyer&apos;s psychological state at each stage of the journey.
                             </p>
+                            <p>
+                                This is the architecture I built at{" "}
+                                <Link
+                                    href="/about/work/cylance"
+                                    className="text-lavender underline underline-offset-2 hover:text-ember transition-colors"
+                                >
+                                    Cylance
+                                </Link>
+                                , where it fed $4M in quarterly pipeline.
+                            </p>
                         </div>
                     </div>
                 </div>
