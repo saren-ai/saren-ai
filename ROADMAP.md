@@ -4,6 +4,50 @@ Living document. Updated as priorities shift.
 
 ---
 
+## Up next (post-audit, 2026-06-12)
+
+Full audit + remediation shipped in 4 local commits (see
+`docs/changelogs/2026-06-12-site-audit-remediation.md`). Immediate follow-ups:
+
+- [ ] **Push to main** and verify in prod: persona PDF downloads, OG images
+      (re-scrape LinkedIn/X link debuggers — social caches hold old 308 URLs),
+      homepage hero waveform color (Electric Blue → lavender was a visible change)
+- [ ] **Pagefind indexes only 1 page** — `await headers()` in `layout.tsx` makes all
+      routes dynamic, so the postbuild crawl finds no static HTML. Site search is
+      effectively empty. Fix or accept until Search Phase 2.
+- [ ] Privacy policy + Terms pages — site runs Stripe checkout; footer slot exists
+- [ ] Verify `public/downloads/Saren-Sakurai-Resume.pdf` matches resume v03 content
+- [ ] Decide: homepage "Featured Downloads" section markets 3 Coming Soon products —
+      collapse to teaser or move below Case Studies until they ship
+- [ ] About page dark-mode consistency pass (hero→timeline rely on global overrides)
+- [ ] Mobile mega-menu promos don't render; `/fractional-marketing-lead` is
+      footer-only on mobile — consider a mobile menu entry
+
+---
+
+## Completed (2026-06-12) — Site audit & remediation
+
+- [x] Security: deleted unauthenticated `/api/upload-video`; Next 16.1.6 → 16.2.9
+      (middleware-bypass CVEs); removed wildcard `images.remotePatterns`
+- [x] Verified Supabase migration 003 lockdown live in prod (anon → 401 on all CRM tables)
+- [x] Fixed redirect-shadowed static assets: `public/portfolio/*` was 308→404 for ALL
+      OG images, persona PDFs, storyboards → moved to `public/images/portfolio/` +
+      `public/downloads/personas/`; fixed hybrid-lead-scoring JSON-LD page URLs
+- [x] `/downloads` retired: links → `/playbooks`, page deleted, sitemap cleaned
+- [x] `/resume` page shipped + unified (hero CTA → page, PDF button on page, sitemap 0.9,
+      footer, mega menu); section labels `<p>` → `<h2>`
+- [x] About timeline reconciled with resume (canonical): Cylance title, CloudKitchens
+      added, Trigger removed, agency-era spine matches; "Coming soon" pills removed
+- [x] Custom 404 page; footer IA refresh; header active states; robots.txt single group
+- [x] Cross-linking pass: case studies ↔ ai-orchestration ↔ tools; persona pages →
+      proof + engagement model; signal-state → service page; 120-day ↔ Cylance page
+- [x] Electric Blue fully retired (incl. two real rendered colors: WaveformHero canvas,
+      BentoCard L3); banned-word copy cleanup; Wethos AI spelling unified
+- [x] Decide: should `/smb`, `/solopreneurs`, `/thinkers`, `/engage`, `/about/concerts` be
+      in `sitemap.ts`? → Resolved: all present in sitemap as of this session
+
+---
+
 ## In progress — Commerce (next session)
 
 - [ ] **RSC gate** — `/playbooks/[id]/page.tsx` reads `dlx_{id}` cookie, validates `cookie_token` + `expires_at` against `entitlements`, renders gated JSX server-side only
@@ -41,7 +85,7 @@ Living document. Updated as priorities shift.
 ### Commerce (deferred v1 scope)
 - [ ] Magic-link email re-entry for multi-device access (data model already supports it — look up entitlement by email, re-set cookie)
 - [ ] Upload files for legacy `/downloads` products (`gtm-execution-kit`, `fractional-cmo-dashboard`, `content-hook-bundle` — all have `filePath: null`)
-- [ ] Consider deprecating `/downloads` page once paid playbook tier is the canonical commerce surface
+- [x] Deprecate `/downloads` page — done 2026-06-12 (page deleted, route 301s to `/playbooks`, `/downloads/success` kept for legacy purchase links)
 
 ### Resilience & observability
 - [ ] Configure Sentry DSN in Vercel env vars (needs Sentry account setup)
@@ -64,7 +108,7 @@ Living document. Updated as priorities shift.
 - [x] Add canonical + OG + Twitter card to signal-state use-case sub-pages (2026-05-31)
 - [x] Fix redirect ordering bug in `next.config.ts` (specific before catch-alls) (2026-05-31)
 - [x] Redirect old Medium publication URLs (saren.ai was a Medium custom domain pre-2026) (2026-05-31)
-- [ ] Decide: should `/smb`, `/solopreneurs`, `/thinkers`, `/engage`, `/about/concerts` be in `sitemap.ts`? All have canonical tags but are unlisted — either add to sitemap or add `noindex`.
+- [x] Decide: should `/smb`, `/solopreneurs`, `/thinkers`, `/engage`, `/about/concerts` be in `sitemap.ts`? → All in sitemap (resolved by 2026-06-12).
 - [ ] Investigate "Crawled — currently not indexed" pages (14 pages) via Search Console export — likely thin content on some `/playbooks/[id]` pages.
 - [ ] OG images: most pages reference `/og/playbooks-{id}.jpg` etc. that don't exist in `public/` — generate or update to a real fallback image.
 
@@ -93,4 +137,4 @@ Living document. Updated as priorities shift.
 
 ---
 
-*Last updated: 2026-05-28*
+*Last updated: 2026-06-12*

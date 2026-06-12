@@ -14,7 +14,7 @@ npm run lint     # ESLint
 
 ## Tech Stack
 
-Next.js 16.1 (App Router) · React 19 · TypeScript (strict) · Tailwind CSS v4 (CSS-based config, no tailwind.config.js) · Framer Motion 12 · @dnd-kit (tier list only) · Lucide React icons · MDX for content · Pagefind (static search index, generated at build time) · Stripe (hosted checkout, webhooks) · Supabase (Postgres + Storage) · No external carousel/state libs
+Next.js 16.2 (App Router) · React 19 · TypeScript (strict) · Tailwind CSS v4 (CSS-based config, no tailwind.config.js) · Framer Motion 12 · @dnd-kit (tier list only) · Lucide React icons · MDX for content · Pagefind (static search index, generated at build time) · Stripe (hosted checkout, webhooks) · Supabase (Postgres + Storage) · No external carousel/state libs
 
 ## Studio (Hustle & Flow) — prospecting cockpit
 
@@ -63,16 +63,24 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 
 ```
 /                                         Homepage
-/about                                    Profile, career timeline, stats, FAQ
+/about                                    Profile, career timeline (mirrors /resume — resume is canonical), stats, FAQ
 /about/clients                            Client logos
 /about/concerts                           Concert log
+/about/expertise                          Expertise timeline
+/about/work/cylance                       Cylance work deep-dive
+/resume                                   Interactive resume — canonical career history; PDF download lives here
+/engage                                   Engagement hub — primary "Work With Me" CTA target
+/fractional-marketing-lead                Engagement model (money page, priority 0.9)
+/fractional-marketing-lead/cost           Pricing page
+/smb                                      Audience page — founders & mid-market
+/solopreneurs                             Audience page — solo founders & fractional CMOs
+/thinkers                                 Audience page — subject matter experts
 /ai-orchestration                         AI orchestration service page
 /brand                                    Fire Horse 2026 brand guidelines
 /contact                                  Contact form
 /feature                                  Feature articles index
 /feature/psylocke-timeline                 Kwannon timeline editorial + interactive
-/downloads                                Digital products store (legacy flow — 4 products)
-/downloads/success                        Post-purchase download page (purchases table)
+/downloads/success                        Post-purchase download page (purchases table; /downloads itself 301s to /playbooks — page deleted 2026-06-12)
 /playbooks                                Playbook Library index (toggle: Playbooks | Interactive Tools)
 /playbooks/b2b-marketing-framework        B2B marketing framework (prompt library + interactive)
 /playbooks/gtm-budget-calculator          SaaS revenue calculator tool
@@ -189,6 +197,8 @@ Correct order:
 1. Specific slugs (e.g. `/portfolio/behavioral-lead-scoring → /playbooks/hybrid-lead-scoring`)
 2. Prefix-specific catch-alls (e.g. `/portfolio/b2b-marketing-framework/:slug*`)
 3. General catch-alls (e.g. `/portfolio/:slug*`)
+
+**Redirects also shadow `public/` static files.** `redirects()` runs before public-file serving, so a catch-all like `/portfolio/:slug*` 308s every asset under `public/portfolio/` into a 404. This silently broke all OG images, the persona PDFs, and the storyboard images until 2026-06-12 (assets now live in `public/images/portfolio/` and `public/downloads/personas/`). Never store static assets under a path prefix that has a catch-all redirect.
 
 ### Domain history: saren.ai was a Medium custom domain
 
