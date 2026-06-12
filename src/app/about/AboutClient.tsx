@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { Guitar, BookOpen, Disc3, Film, Drama } from "lucide-react";
 import FAQ from "@/components/ui/FAQ";
 import { TierListBoard } from "@/components/tier-list/TierListBoard";
 import { AI_TOOLS } from "@/lib/tier-list";
@@ -54,7 +55,7 @@ interface CareerItem {
     role: string;
     company: string;
     period: string;
-    metric: string;
+    metric?: string;
     description: string;
     href?: string;
     details?: {
@@ -65,8 +66,8 @@ interface CareerItem {
 const careerTimeline: CareerItem[] = [
     {
         role: "Fractional Head of Marketing",
-        company: "WethosAI",
-        period: "2023 - Present",
+        company: "Wethos AI",
+        period: "Oct 2023 – Present",
         metric: "+344% lead growth",
         description:
             "Leading marketing strategy and demand generation for an AI-powered team collaboration platform.",
@@ -111,49 +112,61 @@ const careerTimeline: CareerItem[] = [
     {
         role: "Head of Growth",
         company: "Qwiet AI",
-        period: "2023",
+        period: "Jul – Dec 2023",
         metric: "70% Google Ads CAC reduction",
         description:
             "Built and scaled growth marketing function for application security startup — 300% inbound MQL growth.",
     },
     {
+        role: "Head of Marketing (Fractional)",
+        company: "CloudKitchens",
+        period: "Jan – Jun 2023",
+        description:
+            "Six-month fractional engagement applying B2B demand generation and marketing operations practices to the ghost kitchen / food-tech platform.",
+    },
+    {
         role: "Senior Director of Marketing",
-        company: "BlackBerry/Cylance",
-        period: "2020 - 2023",
+        company: "BlackBerry (formerly Cylance)",
+        period: "Nov 2020 – Jan 2023",
         metric: "8:1 ROI on $2.3M paid budget",
         description:
             "Acquihired with the Cylance demand team post-acquisition. Inherited an underperforming digital program and rebuilt it end to end — SEM, SEO, landing experience, and conversion infrastructure. 550% paid search recovery and a 33% product page conversion lift from the rebuilt program.",
         href: "/about/work/cylance",
     },
     {
-        role: "Director, Demand Generation",
+        role: "Director of Marketing",
         company: "Cylance",
-        period: "2017 - 2020",
+        period: "Jul 2017 – Nov 2020",
         metric: "$4M quarterly pipeline",
         description:
             "Built demand gen engine from scratch, scaling from startup to $400M+ revenue — through to the BlackBerry acquisition.",
         href: "/about/work/cylance",
     },
     {
-        role: "Director, Digital Marketing",
-        company: "Trigger",
-        period: "2014 - 2017",
-        metric: "Coming soon",
+        role: "Group Account Director",
+        company: "Perficient Digital",
+        period: "2012 – 2017",
         description:
-            "Full story coming soon.",
+            "Led enterprise marketing delivery for national clients — creative, UX, and advertising work supporting Adobe Experience Manager and Salesforce platform implementations.",
     },
     {
-        role: "Senior Digital Strategist",
+        role: "Director of Client Service",
+        company: "JUXT Interactive",
+        period: "2010 – 2012",
+        description:
+            "Directed client service for the Newport Beach interactive agency's digital brand and campaign engagements.",
+    },
+    {
+        role: "Management Supervisor",
         company: "AKQA",
-        period: "2010 - 2014",
-        metric: "Coming soon",
+        period: "2007 – 2010",
         description:
-            "Full story coming soon.",
+            "Account leadership at the global digital agency's San Francisco office, serving as day-to-day partner for executive client stakeholders.",
     },
     {
-        role: "Web Producer",
-        company: "Nike",
-        period: "2001 - 2007",
+        role: "Web Producer, Asia Pacific Region",
+        company: "Nike (via Aquent)",
+        period: "2001 – 2007",
         metric: "4 APAC markets",
         description:
             "Localized AKQA-built Nike.com experiences for Japan, Korea, China, and Taiwan — early-career digital production across four Asia-Pacific markets.",
@@ -161,11 +174,11 @@ const careerTimeline: CareerItem[] = [
 ];
 
 const statsData = [
-    { value: "3x", label: "MQL→SQL Conversion" },
-    { value: "70%", label: "CAC Reduction" },
-    { value: "344%", label: "Lead Growth" },
-    { value: "8:1", label: "ROI on Paid Media" },
-    { value: "$4M", label: "Quarterly Pipeline" },
+    { value: "3x", label: "MQL→SQL Conversion · Wethos AI" },
+    { value: "70%", label: "CAC Reduction · Qwiet AI" },
+    { value: "344%", label: "Lead Growth · Wethos AI" },
+    { value: "8:1", label: "ROI on Paid Media · BlackBerry" },
+    { value: "$4M", label: "Quarterly Pipeline · Cylance" },
     { value: "20+", label: "Years Experience" },
 ];
 
@@ -174,31 +187,36 @@ const personalLinks = [
         name: "Concert History",
         description: "My archival log of every show, venue, and festival I've attended",
         href: "/about/concerts",
-        icon: "🎸",
+        icon: Guitar,
+        external: false,
     },
     {
         name: "Comic Collection",
         description: "My pulls and collection on League of Comic Geeks",
         href: "https://leagueofcomicgeeks.com/profile/saren/collection",
-        icon: "📚",
+        icon: BookOpen,
+        external: true,
     },
     {
         name: "Vinyl Collection",
         description: "Browse my record collection on Discogs",
         href: "https://www.discogs.com/user/saren13",
-        icon: "🎵",
+        icon: Disc3,
+        external: true,
     },
     {
         name: "Letterboxd",
         description: "Films I've watched and reviewed",
         href: "https://letterboxd.com/saren13/films/",
-        icon: "🎬",
+        icon: Film,
+        external: true,
     },
     {
         name: "Funko Pop Collection",
         description: "Pop culture collectibles on Pops.Today",
         href: "https://pops.today/user/Saren/collection/",
-        icon: "🎭",
+        icon: Drama,
+        external: true,
     },
 ];
 
@@ -488,9 +506,20 @@ export default function AboutClient() {
             {/* Career Timeline */}
             <section className="section bg-ash">
                 <div className="container-narrow">
-                    <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-12 text-center">
+                    <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4 text-center">
                         Career Journey
                     </h2>
+                    <div className="text-center mb-12">
+                        <Link
+                            href="/resume"
+                            className="inline-flex items-center gap-1 text-sm text-lavender hover:text-ember font-medium transition-colors"
+                        >
+                            View full resume
+                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </Link>
+                    </div>
 
                     <div className="relative">
                         {/* Timeline Line */}
@@ -524,11 +553,13 @@ export default function AboutClient() {
                                             <p className="text-slate mt-3 text-sm leading-relaxed">
                                                 {item.description}
                                             </p>
-                                            <div className="mt-4 inline-block px-3 py-1 bg-ember/10 rounded-full">
-                                                <span className="text-ember font-mono font-semibold text-sm">
-                                                    {item.metric}
-                                                </span>
-                                            </div>
+                                            {item.metric && (
+                                                <div className="mt-4 inline-block px-3 py-1 bg-ember/10 rounded-full">
+                                                    <span className="text-ember font-mono font-semibold text-sm">
+                                                        {item.metric}
+                                                    </span>
+                                                </div>
+                                            )}
                                             {item.href && (
                                                 <Link
                                                     href={item.href}
@@ -603,15 +634,15 @@ export default function AboutClient() {
                     {/* Logo Preview Grid */}
                     <div className="grid grid-cols-4 md:grid-cols-6 gap-4 max-w-4xl mx-auto mb-8">
                         {[
-                            "blackberry.png",
-                            "cisco.png",
-                            "nike.png",
-                            "red-bull.png",
-                            "palo-alto.png",
-                            "coca-cola.png",
+                            { filename: "white/blackberry.svg", name: "BlackBerry" },
+                            { filename: "white/cisco.svg", name: "Cisco" },
+                            { filename: "white/nike.svg", name: "Nike" },
+                            { filename: "white/red-bull-energy.svg", name: "Red Bull" },
+                            { filename: "white/palo-alto-networks.svg", name: "Palo Alto Networks" },
+                            { filename: "white/coca-cola.svg", name: "Coca-Cola" },
                         ].map((logo, index) => (
                             <motion.div
-                                key={logo}
+                                key={logo.filename}
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
@@ -619,8 +650,8 @@ export default function AboutClient() {
                                 className="aspect-square flex items-center justify-center p-3 rounded-lg bg-offblack/80 border border-ash/10"
                             >
                                 <Image
-                                    src={`/logos/clients/${logo}`}
-                                    alt="Client logo"
+                                    src={`/logos/clients/${logo.filename}`}
+                                    alt={`${logo.name} logo`}
                                     width={100}
                                     height={100}
                                     className="w-full h-auto object-contain opacity-70"
@@ -634,7 +665,7 @@ export default function AboutClient() {
                             href="/about/clients"
                             className="inline-flex items-center gap-2 text-lavender hover:text-ember transition-colors font-medium"
                         >
-                            View all {26} brands
+                            View all client brands
                             <svg
                                 className="w-4 h-4"
                                 fill="none"
@@ -695,40 +726,67 @@ export default function AboutClient() {
                         </p>
 
                         <div className="grid sm:grid-cols-2 gap-4">
-                            {personalLinks.map((link, index) => (
-                                <motion.a
-                                    key={link.name}
-                                    href={link.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    initial={{ opacity: 0, y: 10 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.05 }}
-                                    className="flex items-start gap-4 p-4 bg-white rounded-lg border border-charcoal/10 hover:border-lavender hover:shadow-md transition-all group"
-                                >
-                                    <span className="text-2xl">{link.icon}</span>
-                                    <div>
-                                        <h3 className="font-semibold text-charcoal group-hover:text-ember transition-colors">
-                                            {link.name}
-                                        </h3>
-                                        <p className="text-sm text-slate">{link.description}</p>
-                                    </div>
-                                    <svg
-                                        className="w-4 h-4 text-slate/40 ml-auto mt-1 group-hover:text-lavender transition-colors"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
+                            {personalLinks.map((link, index) => {
+                                const Icon = link.icon;
+                                const cardClass =
+                                    "flex items-start gap-4 p-4 bg-white rounded-lg border border-charcoal/10 hover:border-lavender hover:shadow-md transition-all group h-full";
+                                const cardContent = (
+                                    <>
+                                        <Icon className="w-6 h-6 text-lavender shrink-0" strokeWidth={1.5} />
+                                        <div>
+                                            <h3 className="font-semibold text-charcoal group-hover:text-ember transition-colors">
+                                                {link.name}
+                                            </h3>
+                                            <p className="text-sm text-slate">{link.description}</p>
+                                        </div>
+                                        <svg
+                                            className="w-4 h-4 text-slate/40 ml-auto mt-1 group-hover:text-lavender transition-colors"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                            />
+                                        </svg>
+                                    </>
+                                );
+
+                                if (!link.external) {
+                                    return (
+                                        <Link key={link.name} href={link.href} className="block">
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 10 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                viewport={{ once: true }}
+                                                transition={{ delay: index * 0.05 }}
+                                                className={cardClass}
+                                            >
+                                                {cardContent}
+                                            </motion.div>
+                                        </Link>
+                                    );
+                                }
+
+                                return (
+                                    <motion.a
+                                        key={link.name}
+                                        href={link.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        initial={{ opacity: 0, y: 10 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: index * 0.05 }}
+                                        className={cardClass}
                                     >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                                        />
-                                    </svg>
-                                </motion.a>
-                            ))}
+                                        {cardContent}
+                                    </motion.a>
+                                );
+                            })}
                         </div>
                     </div>
                 </div>
@@ -805,7 +863,7 @@ export default function AboutClient() {
             {stackCategories.map((category, categoryIndex) => (
                 <section
                     key={category.name}
-                    className={`section ${categoryIndex % 2 === 0 ? "bg-charcoal/5 dark:bg-background-secondary" : "bg-ash dark:bg-background"}`}
+                    className={`section ${categoryIndex % 2 === 0 ? "bg-charcoal/5 dark:bg-card" : "bg-ash dark:bg-background"}`}
                 >
                     <div className="container-narrow">
                         <motion.div
@@ -836,7 +894,7 @@ export default function AboutClient() {
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: toolIndex * 0.05 }}
-                                        className="group bg-white dark:bg-card-bg p-5 rounded-xl border border-charcoal/10 dark:border-ember/20 hover:border-lavender hover:shadow-lg hover:shadow-electric/10 transition-all"
+                                        className="group bg-white dark:bg-card p-5 rounded-xl border border-charcoal/10 dark:border-ember/20 hover:border-lavender hover:shadow-lg hover:shadow-lavender/10 transition-all"
                                     >
                                         <div className="flex items-start gap-4">
                                             {tool.logo && (

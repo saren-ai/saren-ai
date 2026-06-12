@@ -36,7 +36,7 @@ export function BuyButton({ playbookId }: { playbookId: string }) {
       ) : (
         <>
           <Lock className="w-4 h-4" />
-          Unlock this playbook
+          Get this playbook
         </>
       )}
     </button>

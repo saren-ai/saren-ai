@@ -3,39 +3,38 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 
 const clientLogos = [
   // B2B Technology
-  { name: "BlackBerry", filename: "blackberry.png", category: "tech", href: "/case-studies/120-day-content-journey" },
-  { name: "Cisco", filename: "cisco.png", category: "tech" },
-  { name: "Cylance", filename: "cylance.png", category: "tech", href: "/case-studies/120-day-content-journey" },
-  { name: "Palo Alto Networks", filename: "palo-alto.png", category: "tech" },
-  { name: "Qwiet AI", filename: "qwiet.png", category: "tech", href: "/case-studies" },
-  { name: "Symantec", filename: "symantec.png", category: "tech" },
-  { name: "Veritas", filename: "veritas.png", category: "tech" },
-  { name: "WethosAI", filename: "wethos.png", category: "tech", href: "/case-studies" },
-  { name: "Peak Nano", filename: "peak-nano.png", category: "tech" },
-  
+  { name: "BlackBerry", filename: "white/blackberry.svg", category: "tech", href: "/case-studies/120-day-content-journey" },
+  { name: "Cisco", filename: "white/cisco.svg", category: "tech" },
+  { name: "Cylance", filename: "white/cylance.svg", category: "tech", href: "/case-studies/120-day-content-journey" },
+  { name: "Palo Alto Networks", filename: "white/palo-alto-networks.svg", category: "tech" },
+  { name: "Qwiet AI", filename: "white/qwietai.svg", category: "tech" },
+  { name: "Symantec", filename: "white/symantec.svg", category: "tech" },
+  { name: "Veritas", filename: "white/veritas.svg", category: "tech" },
+  { name: "Wethos AI", filename: "white/wethosai.png", category: "tech" },
+  { name: "Peak Nano", filename: "white/peak-nano.svg", category: "tech" },
+
   // Consumer Brands
-  { name: "Coca-Cola", filename: "coca-cola.png", category: "consumer" },
-  { name: "DiGiorno", filename: "digiorno.png", category: "consumer" },
-  { name: "Honda", filename: "honda.png", category: "consumer" },
-  { name: "Kraft", filename: "kraft.png", category: "consumer" },
-  { name: "Method", filename: "method.png", category: "consumer" },
-  { name: "Nike", filename: "nike.png", category: "consumer" },
-  { name: "Philadelphia", filename: "philadelphia.png", category: "consumer" },
-  { name: "Red Bull", filename: "red-bull.png", category: "consumer" },
-  { name: "Sprite", filename: "sprite.png", category: "consumer" },
-  { name: "Toyota", filename: "toyota.png", category: "consumer" },
-  
+  { name: "Coca-Cola", filename: "white/coca-cola.svg", category: "consumer" },
+  { name: "DiGiorno", filename: "white/diGiorno.svg", category: "consumer" },
+  { name: "Honda", filename: "white/honda.svg", category: "consumer" },
+  { name: "Kraft", filename: "white/kraft-foods.svg", category: "consumer" },
+  { name: "Method", filename: "white/method.svg", category: "consumer" },
+  { name: "Nike", filename: "white/nike.svg", category: "consumer" },
+  { name: "Philadelphia", filename: "white/kraft-philadelphia.svg", category: "consumer" },
+  { name: "Red Bull", filename: "white/red-bull-energy.svg", category: "consumer" },
+  { name: "Sprite", filename: "white/sprite.svg", category: "consumer" },
+  { name: "Toyota", filename: "white/toyota.svg", category: "consumer" },
+
   // Other
-  { name: "CloudKitchens", filename: "cloudkitchens.png", category: "other" },
-  { name: "Paramount", filename: "paramount.png", category: "other" },
-  { name: "Sony", filename: "sony.png", category: "other" },
-  { name: "Ampd", filename: "ampd.png", category: "other" },
-  { name: "Number One", filename: "number-one.png", category: "other" },
+  { name: "CloudKitchens", filename: "white/cloudkitchens.svg", category: "other" },
+  { name: "Paramount", filename: "white/paramount.svg", category: "other" },
+  { name: "Sony", filename: "white/sony-pictures.svg", category: "other" },
+  { name: "Ampd", filename: "white/ampd-mobile.svg", category: "other" },
+  { name: "Number One", filename: "white/numberone_ai.svg", category: "other" },
 ];
 
 export default function ClientsPageContent() {

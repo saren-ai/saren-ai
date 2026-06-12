@@ -5,12 +5,12 @@ import PagefindBoundary from "@/components/search/PagefindBoundary";
 export const metadata: Metadata = {
   title: "For Solo Founders & Fractional CMOs | saren.ai",
   description:
-    "Pipeline automation, personal leverage, and self-managed workflows for solopreneurs, fractional CMOs, and independents who are the whole marketing department.",
+    "Pipeline automation, systems that multiply solo output, and self-managed workflows for solopreneurs, fractional CMOs, and independents who are the whole marketing department.",
   alternates: { canonical: "https://saren.ai/solopreneurs" },
   openGraph: {
     title: "For Solo Founders & Fractional CMOs | saren.ai",
     description:
-      "Pipeline automation, personal leverage, and self-managed workflows for solopreneurs, fractional CMOs, and independents who are the whole marketing department.",
+      "Pipeline automation, systems that multiply solo output, and self-managed workflows for solopreneurs, fractional CMOs, and independents who are the whole marketing department.",
     type: "website",
   },
 };
@@ -28,7 +28,7 @@ export default function SolopreneursPage() {
             url: "https://saren.ai/solopreneurs",
             name: "For Solo Founders & Fractional CMOs | saren.ai",
             description:
-              "Pipeline automation, personal leverage, and self-managed workflows for solopreneurs and fractional CMOs.",
+              "Pipeline automation, systems that multiply solo output, and self-managed workflows for solopreneurs and fractional CMOs.",
             isPartOf: { "@id": "https://saren.ai/#website" },
             inLanguage: "en-US",
           }),

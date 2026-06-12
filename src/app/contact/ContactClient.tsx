@@ -19,7 +19,7 @@ export default function ContactClient() {
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.4 }}
-                            className="shrink-0"
+                            className="shrink-0 hidden sm:block"
                         >
                             <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden ring-2 ring-white/20">
                                 <Image

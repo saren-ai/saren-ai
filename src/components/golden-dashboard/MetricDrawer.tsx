@@ -46,7 +46,7 @@ export default function MetricDrawer({
                     {metric.label}
                   </h2>
                   <p className="text-foreground-muted text-sm">
-                    Deep dive into this metric
+                    Full breakdown of this metric
                   </p>
                 </div>
                 <button

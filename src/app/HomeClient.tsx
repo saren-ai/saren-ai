@@ -123,8 +123,8 @@ export default function HomeClient() {
               <p className="text-charcoal dark:text-foreground">
                 I&apos;m Saren Sakurai. I engineer AI-native demand systems for
                 B2B SaaS and cybersecurity teams — turning long, committee-driven
-                buying cycles into predictable pipeline. 20+ years from Cylance
-                ($1.4B exit) to AKQA.
+                buying cycles into predictable pipeline. 20+ years from AKQA to
+                Cylance ($1.4B exit).
               </p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -170,14 +170,13 @@ export default function HomeClient() {
                   />
                 </svg>
               </Link>
-              <a
-                href="/downloads/Saren-Sakurai-Resume.pdf"
-                download="Saren-Sakurai-Resume.pdf"
+              <Link
+                href="/resume"
                 className="btn-secondary"
-                aria-label="Download Résumé"
+                aria-label="View Resume"
               >
-                Download Résumé
-              </a>
+                View Resume
+              </Link>
             </motion.div>
 
             {/* Reframe client logos and wins */}
@@ -196,10 +195,10 @@ export default function HomeClient() {
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
                 {[
-                  { name: "BlackBerry", logo: "blackberry.png", metric: "8:1 ROI on Paid Media", href: "/about" },
-                  { name: "Qwiet AI", logo: "qwiet.png", metric: "70% CAC Reduction", href: "/about/clients" },
-                  { name: "Cylance", logo: "cylance.png", metric: "$4M Quarterly Pipeline", href: "/case-studies/120-day-content-journey" },
-                  { name: "Wethos AI", logo: "wethos.png", metric: "344% Lead Growth", href: "/about/clients" },
+                  { name: "BlackBerry", logo: "white/blackberry.svg", metric: "8:1 ROI on Paid Media", href: "/about" },
+                  { name: "Qwiet AI", logo: "white/qwietai.svg", metric: "70% CAC Reduction", href: "/about/clients" },
+                  { name: "Cylance", logo: "white/cylance.svg", metric: "$4M Quarterly Pipeline", href: "/case-studies/120-day-content-journey" },
+                  { name: "Wethos AI", logo: "white/wethosai.png", metric: "344% Lead Growth", href: "/about/clients" },
                 ].map((client) => (
                   <Link
                     key={client.name}
@@ -265,7 +264,7 @@ export default function HomeClient() {
                 icon: User,
                 label: "Solo Founders & Fractional CMOs",
                 description:
-                  "Pipeline automation, personal leverage, and self-managed workflows for operators who are the whole marketing team.",
+                  "Pipeline automation and self-managed workflows for operators who are the whole marketing team.",
                 href: "/solopreneurs",
                 accent: "lavender",
                 cta: "Built for your practice",
@@ -384,7 +383,7 @@ export default function HomeClient() {
             </h2>
             <div className="h-px flex-1 bg-charcoal/10 dark:bg-white/10" />
             <Link
-              href="/downloads"
+              href="/playbooks"
               className="text-ember font-medium hover:underline flex items-center gap-1 group text-sm"
             >
               View All
@@ -471,7 +470,7 @@ export default function HomeClient() {
               href="/case-studies"
               className="text-lavender font-medium hover:text-ember transition-colors flex items-center gap-1 group"
             >
-              View All Work
+              View All Case Studies
               <svg
                 className="w-4 h-4 group-hover:translate-x-1 transition-transform"
                 fill="none"

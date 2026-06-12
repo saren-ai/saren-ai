@@ -121,7 +121,7 @@ export default function CellDrawer({
                 {expandedContent?.instruments && (
                   <section>
                     <h3 className="text-sm font-semibold text-ember uppercase tracking-wider mb-3">
-                      What We&apos;d Instrument
+                      What I&apos;d Instrument
                     </h3>
                     <ul className="space-y-2">
                       {expandedContent.instruments.map((item, index) => (
