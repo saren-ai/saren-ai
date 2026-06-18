@@ -24,12 +24,14 @@ const routes: Record<string, RouteEntry> = {
   '/ai-orchestration': { lastModified: '2026-06-09', priority: 0.9 },
   '/brand': { lastModified: '2026-05-08' },
   '/contact': { lastModified: '2026-06-09', priority: 0.9 },
-  '/engage': { lastModified: '2026-06-09' },
+  '/work': { lastModified: '2026-06-17' },
   '/privacy': { lastModified: '2026-06-12', priority: 0.3 },
   '/resume': { lastModified: '2026-06-12', priority: 0.9 },
   '/terms': { lastModified: '2026-06-12', priority: 0.3 },
-  '/feature': { lastModified: '2026-05-08' },
-  '/feature/psylocke-timeline': { lastModified: '2026-05-08' },
+  '/studio': { lastModified: '2026-06-17' },
+  '/studio/ai-for-liberal-arts': { lastModified: '2026-06-17' },
+  '/studio/oblique-techniques': { lastModified: '2026-06-17' },
+  '/studio/psylocke-timeline': { lastModified: '2026-05-08' },
 
   // Services
   '/fractional-marketing-lead': { lastModified: '2026-06-09', priority: 0.9 },

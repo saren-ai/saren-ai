@@ -1,5 +1,9 @@
 # 2026-05-31 — Pipeline backend + Studio refactor
 
+> **2026-06-17 rename:** The admin app described here as `/studio` is now **`/desk`**
+> (`(desk)` route group). Public editorial moved to **`/studio`** (formerly `/feature`).
+> See `docs/changelogs/2026-06-17-ia-nav-search-restructure.md`.
+
 Reworked the Hustle & Flow backend into a proper pipeline model and rebuilt `/studio` around it, removing the v1 surfaces. Companion work (sourcing skills, dead Svelte prototype) lives in the separate `lead-prospecting` workspace.
 
 ## What shipped

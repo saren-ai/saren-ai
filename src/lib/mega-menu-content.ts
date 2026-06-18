@@ -1,34 +1,14 @@
 import type { MegaMenuContent } from "@/components/layout/MegaMenu";
 
 /**
- * Solutions Mega Menu
- * Audience paths (SMB / Solopreneurs / Thinkers) + AI Capability offerings.
+ * Work Mega Menu
+ * The commercial core: what I do (Services) + proof it works (Case Studies).
  */
-export const solutionsMegaMenu: MegaMenuContent = {
+export const workMegaMenu: MegaMenuContent = {
   layout: "three-column",
   sections: [
     {
-      title: "By Audience",
-      links: [
-        {
-          href: "/smb",
-          label: "Founders & Mid-Market",
-          description: "GTM systems and demand gen architecture for growth-stage companies",
-        },
-        {
-          href: "/solopreneurs",
-          label: "Solo Founders & Fractional CMOs",
-          description: "Pipeline automation for independent operators",
-        },
-        {
-          href: "/thinkers",
-          label: "Subject Matter Experts",
-          description: "Authority engineering and content architecture for knowledge practitioners",
-        },
-      ],
-    },
-    {
-      title: "By Capability",
+      title: "Services",
       links: [
         {
           href: "/ai-orchestration",
@@ -41,38 +21,19 @@ export const solutionsMegaMenu: MegaMenuContent = {
           description: "AI-enabled expressed intent targeting",
         },
         {
-          href: "/signal-state/framework",
-          label: "The Framework",
-          description: "The Signal-State method, step by step",
+          href: "/fractional-marketing-lead",
+          label: "Fractional Marketing Lead",
+          description: "Your first real marketing engine, built to scale",
         },
         {
-          href: "/signal-state/signal-library",
-          label: "Signal Library",
-          description: "Catalogued intent patterns and targeting signals",
+          href: "/work",
+          label: "Work With Me →",
+          description: "Engagement models and how to start",
         },
       ],
     },
-  ],
-  promotional: {
-    headline: "Built for your situation",
-    description:
-      "Every resource, playbook, and framework on this site maps to a specific audience challenge. Find yours and go deeper.",
-    cta: {
-      label: "Browse Playbook Library",
-      href: "/playbooks",
-    },
-  },
-};
-
-/**
- * Case Studies Mega Menu
- * B2B proof narratives — pipeline programs and strategy & systems.
- */
-export const caseStudiesMegaMenu: MegaMenuContent = {
-  layout: "three-column",
-  sections: [
     {
-      title: "Pipeline Programs",
+      title: "Case Studies",
       links: [
         {
           href: "/case-studies/120-day-content-journey",
@@ -85,52 +46,145 @@ export const caseStudiesMegaMenu: MegaMenuContent = {
           description: "Multi-channel outbound system",
         },
         {
-          href: "/case-studies/intent-data",
-          label: "Intent Data Intelligence",
-          description: "Bombora signals → enterprise close",
-        },
-        {
-          href: "/case-studies/dynamic-nurture",
-          label: "Dynamic Email Nurture",
-          description: "Personalized B2B nurture engine",
-        },
-      ],
-    },
-    {
-      title: "Strategy & Systems",
-      links: [
-        {
           href: "/case-studies/executive-dashboard",
           label: "Demand Gen Command Center",
           description: "AI-built exec dashboard, 5 live APIs",
         },
         {
-          href: "/case-studies/sovereign-personas",
-          label: "Sovereign Buyer Personas",
-          description: "Committee buying logic mapped",
-        },
-        {
-          href: "/case-studies/authority-engineering",
-          label: "Authority Engineering",
-          description: "LLM-citation content architecture",
-        },
-        {
-          href: "/case-studies/thought-leadership-development",
-          label: "Thought Leadership Dev",
-          description: "Executive visibility pipeline",
+          href: "/case-studies",
+          label: "All case studies →",
+          description: "Eight enterprise B2B proof narratives",
         },
       ],
     },
   ],
   promotional: {
-    image: "/mega-menu/120-day-content-journey.png",
-    imageAlt: "120-Day Content Journey",
-    headline: "Proof Over Promises",
+    image: "/images/og/ai-operations.png",
+    imageAlt: "AI-orchestrated marketing operations",
+    headline: "Build the engine, not the headcount",
     description:
-      "Pipeline programs, scoring models, and frameworks built for enterprise B2B. Not just outcomes — the actual systems behind them.",
+      "Fractional marketing leadership and AI-orchestrated GTM systems for early-stage and Series A founders — demand gen, attribution, and category, without ripping out what works.",
     cta: {
-      label: "View All Case Studies",
-      href: "/case-studies",
+      label: "Work With Me",
+      href: "/work",
+    },
+  },
+};
+
+/**
+ * Playbooks Mega Menu
+ * Prompt-sequence playbooks + interactive tools (mirrors the /playbooks toggle).
+ */
+export const playbooksMegaMenu: MegaMenuContent = {
+  layout: "three-column",
+  sections: [
+    {
+      title: "Playbooks",
+      links: [
+        {
+          href: "/playbooks/cmo-gtm-playbook",
+          label: "CMO GTM Playbook",
+          description: "6-step go-to-market intelligence build for B2B",
+        },
+        {
+          href: "/playbooks/mckinsey-strategy-suite",
+          label: "McKinsey Strategy Suite",
+          description: "Consulting-grade strategic analysis frameworks",
+        },
+        {
+          href: "/playbooks/research-intelligence-pipeline",
+          label: "Research Intelligence Pipeline",
+          description: "Turn open questions into structured intelligence",
+        },
+        {
+          href: "/playbooks",
+          label: "Browse all Playbooks →",
+          description: "The full prompt-sequence library",
+        },
+      ],
+    },
+    {
+      title: "Interactive Tools",
+      links: [
+        {
+          href: "/playbooks/roi-simulator",
+          label: "Paid Media ROI Simulator",
+          description: "Model revenue impact from real unit economics",
+        },
+        {
+          href: "/playbooks/gtm-budget-calculator",
+          label: "SaaS Revenue Calculator",
+          description: "Reverse-engineer the funnel from a revenue goal",
+        },
+        {
+          href: "/playbooks/hybrid-lead-scoring",
+          label: "Hybrid Lead Scoring",
+          description: "Fit + engagement dual-axis scoring model",
+        },
+        {
+          href: "/playbooks/b2b-marketing-framework",
+          label: "B2B Marketing Framework",
+          description: "7-layer positioning built from scratch",
+        },
+      ],
+    },
+  ],
+  promotional: {
+    headline: "Run it now — no setup",
+    description:
+      "Calculators, scoring models, and prompt sequences drawn from real $4M pipeline programs. Browse by type or jump straight to a tool.",
+    cta: {
+      label: "Open the Playbook Library",
+      href: "/playbooks",
+    },
+  },
+};
+
+/**
+ * Studio Mega Menu
+ * Creative & editorial — headlines the AI for Liberal Arts Majors series.
+ */
+export const studioMegaMenu: MegaMenuContent = {
+  layout: "three-column",
+  sections: [
+    {
+      title: "AI for Liberal Arts Majors",
+      links: [
+        {
+          href: "/studio/ai-for-liberal-arts",
+          label: "The Series",
+          description: "Creative AI skills for humanities thinkers",
+        },
+        {
+          href: "/studio/oblique-techniques",
+          label: "Oblique Techniques",
+          description: "Prompt Against the Machine — constraint-based stratagems",
+        },
+      ],
+    },
+    {
+      title: "Features",
+      links: [
+        {
+          href: "/studio",
+          label: "All of the Studio",
+          description: "Creative work and editorial, in one place",
+        },
+        {
+          href: "/studio/psylocke-timeline",
+          label: "Psylocke Timeline",
+          description: "Interactive Kwannon / Betsy Braddock comics timeline",
+        },
+      ],
+    },
+  ],
+  promotional: {
+    headline: "Oblique Techniques",
+    description:
+      "A collection of stratagems from Surrealism, Oulipo, and Fluxus — for people who think the default AI output is the problem, not the solution.",
+    cta: {
+      label: "Explore the series",
+      href: "/studio/ai-for-liberal-arts",
     },
   },
 };

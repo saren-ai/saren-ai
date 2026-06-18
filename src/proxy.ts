@@ -4,9 +4,9 @@ import { NextResponse, type NextRequest } from 'next/server'
 // Common attack paths bots scan for — 404 them immediately
 const BLOCKED_PATH = /\/(\.env|\.git|\.svn|\.htaccess|\.htpasswd|wp-admin|wp-login|wp-content|xmlrpc|phpinfo|phpmyadmin|adminer|administrator|config\.php|setup\.php|install\.php|eval-stdin|shell|webshell|\.aws|\.ssh)(\/|$|\?|\.)/i
 
-function studioRequest(request: NextRequest) {
+function deskRequest(request: NextRequest) {
   const headers = new Headers(request.headers)
-  headers.set('x-is-studio', '1')
+  headers.set('x-is-desk', '1')
   return NextResponse.next({ request: { headers } })
 }
 
@@ -18,17 +18,17 @@ export async function proxy(request: NextRequest) {
     return new NextResponse(null, { status: 404 })
   }
 
-  // Only gate studio routes past this point
-  if (!pathname.startsWith('/studio')) {
+  // Only gate desk (admin) routes past this point
+  if (!pathname.startsWith('/desk')) {
     return NextResponse.next()
   }
 
   // Login page is always accessible — still stamp the header
-  if (pathname === '/studio/login') {
-    return studioRequest(request)
+  if (pathname === '/desk/login') {
+    return deskRequest(request)
   }
 
-  let response = studioRequest(request)
+  let response = deskRequest(request)
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -40,7 +40,7 @@ export async function proxy(request: NextRequest) {
         },
         setAll(cookiesToSet) {
           const headers = new Headers(request.headers)
-          headers.set('x-is-studio', '1')
+          headers.set('x-is-desk', '1')
           cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
           response = NextResponse.next({ request: { headers } })
           cookiesToSet.forEach(({ name, value, options }) =>
@@ -55,7 +55,7 @@ export async function proxy(request: NextRequest) {
 
   if (!user) {
     const loginUrl = request.nextUrl.clone()
-    loginUrl.pathname = '/studio/login'
+    loginUrl.pathname = '/desk/login'
     loginUrl.searchParams.set('next', pathname)
     return NextResponse.redirect(loginUrl)
   }
@@ -63,7 +63,7 @@ export async function proxy(request: NextRequest) {
   const allowedEmails = ['saren@wethos.ai', 'saren.sakurai@gmail.com', 'saren@saren.ai']
   if (!user.email || !allowedEmails.includes(user.email)) {
     const loginUrl = request.nextUrl.clone()
-    loginUrl.pathname = '/studio/login'
+    loginUrl.pathname = '/desk/login'
     loginUrl.searchParams.set('error', 'unauthorized')
     return NextResponse.redirect(loginUrl)
   }

@@ -12,7 +12,7 @@ export default function FeatureCard({ article, index }: FeatureCardProps) {
 
   return (
     <div className={`animate-fadeInUp ${staggerClass}`}>
-      <Link href={`/feature/${article.slug}`} className="block group h-full">
+      <Link href={`/studio/${article.slug}`} className="block group h-full">
         <article className="card overflow-hidden h-full flex flex-col relative">
           <div className="relative h-48 w-full overflow-hidden bg-charcoal/5">
             <Image

@@ -1,14 +1,7 @@
 import type { Metadata } from "next";
 import { Sora, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 import ThemeProvider from "@/components/layout/ThemeProvider";
-import { PagefindProvider } from "@/components/search/PagefindProvider";
-import { SearchProvider } from "@/components/search/SearchContext";
-import SearchModal from "@/components/search/SearchModal";
-import { getLatestSubstackPosts } from "@/lib/substack-rss";
-import { headers } from "next/headers";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -74,17 +67,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const headersList = await headers();
-  const isStudio = headersList.get('x-is-studio') === '1';
-
-  const posts = isStudio ? [] : await getLatestSubstackPosts(1);
-  const latestPost = posts.length > 0 ? posts[0] : null;
-
   return (
     <html lang="en" className={`${sora.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
       <head>
@@ -254,23 +241,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        <ThemeProvider>
-          {isStudio ? (
-            <main className="flex-1">{children}</main>
-          ) : (
-            <PagefindProvider>
-              <SearchProvider>
-                <SearchModal />
-                
-                <div className="sticky top-0 z-50 bg-background">
-                  <Header latestPost={latestPost} />
-                </div>
-                <main className="flex-1">{children}</main>
-                <Footer />
-              </SearchProvider>
-            </PagefindProvider>
-          )}
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

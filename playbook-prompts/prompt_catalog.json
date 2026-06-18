@@ -458,17 +458,17 @@
         {
           "step": 1,
           "title": "The Samurai's Morning (Naturalistic Cinematic Realism)",
-          "file": "_Sora 2/\ud83c\udfac Prompt 1 \u2014 \"The Samurai's Morning\" (Naturalistic Cinematic Realism\u2026.md"
+          "file": "Uncategorized/_Sora 2/\ud83c\udfac Prompt 1 \u2014 \"The Samurai's Morning\" (Naturalistic Cinematic Realism\u2026.md"
         },
         {
           "step": 2,
           "title": "The Ninja at Night (Stylized Neo-Noir Fantasy)",
-          "file": "_Sora 2/\ud83c\udfac Prompt 2 \u2014 \"The Ninja at Night\" (Stylized Neo-Noir Fantasy).md"
+          "file": "Prompts/Creative/Sora 2 - Samurai in San Onofre.md"
         },
         {
           "step": 3,
           "title": "Samurai Soul, Sunset Ride (Retro 1970s Surf Film)",
-          "file": "_Sora 2/\ud83c\udfac Prompt 3 \u2014 \"Samurai Soul, Sunset Ride\" (Retro 1970s Surf Film Aesthetic\u2026.md"
+          "file": "Uncategorized/_Sora 2/\ud83c\udfac Prompt 3 \u2014 \"Samurai Soul, Sunset Ride\" (Retro 1970s Surf Film Aesthetic\u2026.md"
         }
       ],
       "date": "2026-03-03"
@@ -2172,7 +2172,7 @@
       {
         "id": "sora2-samurai-morning",
         "title": "Sora 2 - The Samurai's Morning",
-        "file": "_Sora 2/\ud83c\udfac Prompt 1 \u2014 \"The Samurai's Morning\" (Naturalistic Cinematic Realism\u2026.md",
+        "file": "Uncategorized/_Sora 2/\ud83c\udfac Prompt 1 \u2014 \"The Samurai's Morning\" (Naturalistic Cinematic Realism\u2026.md",
         "category": [
           "Creative"
         ],
@@ -2188,7 +2188,7 @@
       {
         "id": "sora2-ninja-night",
         "title": "Sora 2 - The Ninja at Night",
-        "file": "_Sora 2/\ud83c\udfac Prompt 2 \u2014 \"The Ninja at Night\" (Stylized Neo-Noir Fantasy).md",
+        "file": "Prompts/Creative/Sora 2 - Samurai in San Onofre.md",
         "category": [
           "Creative"
         ],
@@ -2204,7 +2204,7 @@
       {
         "id": "sora2-samurai-soul",
         "title": "Sora 2 - Samurai Soul, Sunset Ride",
-        "file": "_Sora 2/\ud83c\udfac Prompt 3 \u2014 \"Samurai Soul, Sunset Ride\" (Retro 1970s Surf Film Aesthetic\u2026.md",
+        "file": "Uncategorized/_Sora 2/\ud83c\udfac Prompt 3 \u2014 \"Samurai Soul, Sunset Ride\" (Retro 1970s Surf Film Aesthetic\u2026.md",
         "category": [
           "Creative"
         ],

@@ -4,16 +4,32 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePagefind, PagefindResultData } from "./PagefindProvider";
 import SearchResultItem from "./SearchResultItem";
+import { partitionSearchResults } from "@/lib/search-rank";
 
 interface SearchResultsProps {
   query: string;
   onClose: () => void;
   onSuggest: (term: string) => void;
+  onResultCountChange?: (count: number) => void;
 }
 
-const SUGGESTIONS = ["demand generation", "Cylance", "fractional marketing lead"];
+const SUGGESTIONS = [
+  "demand generation",
+  "Cylance",
+  "fractional marketing lead",
+  "AI orchestration",
+  "Oblique Techniques",
+];
 
-export default function SearchResults({ query, onClose, onSuggest }: SearchResultsProps) {
+const RESULT_FETCH_LIMIT = 24;
+const RESULT_DISPLAY_LIMIT = 12;
+
+export default function SearchResults({
+  query,
+  onClose,
+  onSuggest,
+  onResultCountChange,
+}: SearchResultsProps) {
   const pagefind = usePagefind();
   const [results, setResults] = useState<PagefindResultData[]>([]);
   const [loading, setLoading] = useState(false);
@@ -24,6 +40,7 @@ export default function SearchResults({ query, onClose, onSuggest }: SearchResul
     if (debounceRef.current) clearTimeout(debounceRef.current);
     if (!query.trim()) {
       setResults([]);
+      onResultCountChange?.(0);
       return;
     }
     if (!pagefind) return;
@@ -32,11 +49,17 @@ export default function SearchResults({ query, onClose, onSuggest }: SearchResul
     debounceRef.current = setTimeout(async () => {
       try {
         const res = await pagefind.search(query);
-        const data = await Promise.all(res.results.slice(0, 12).map((r) => r.data()));
-        setResults(data);
+        const data = await Promise.all(
+          res.results.slice(0, RESULT_FETCH_LIMIT).map((r) => r.data())
+        );
+        const { primary, mentions } = partitionSearchResults(data, query);
+        const ranked = [...primary, ...mentions].slice(0, RESULT_DISPLAY_LIMIT);
+        setResults(ranked);
         setActiveIndex(0);
+        onResultCountChange?.(ranked.length);
       } catch {
         setResults([]);
+        onResultCountChange?.(0);
       } finally {
         setLoading(false);
       }
@@ -45,7 +68,7 @@ export default function SearchResults({ query, onClose, onSuggest }: SearchResul
     return () => {
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
-  }, [query, pagefind]);
+  }, [query, pagefind, onResultCountChange]);
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -77,73 +100,96 @@ export default function SearchResults({ query, onClose, onSuggest }: SearchResul
     onClose();
   }
 
-  // Group results by section
-  const grouped: Record<string, PagefindResultData[]> = {};
-  for (const r of results) {
-    const section = r.meta.section ?? "Other";
-    if (!grouped[section]) grouped[section] = [];
-    grouped[section].push(r);
-  }
-
   if (!query.trim()) {
     return (
-      <div className="px-4 py-6">
-        <p className="text-xs uppercase tracking-wider font-mono text-slate mb-3">Suggested</p>
-        <div className="flex flex-wrap gap-2">
+      <div className="px-6 md:px-8 py-5 min-h-[180px]">
+        <p className="text-sm uppercase tracking-wider font-mono text-slate mb-3">
+          Suggested searches
+        </p>
+        <div className="flex flex-wrap gap-2.5 mb-4">
           {SUGGESTIONS.map((s) => (
             <button
               key={s}
               onClick={() => onSuggest(s)}
-              className="text-sm px-3 py-1.5 rounded-full border border-border text-foreground-muted hover:border-ember hover:text-ember transition-colors"
+              className="text-base md:text-lg px-4 py-2 rounded-full border border-charcoal/[0.08] dark:border-white/[0.08] text-foreground-muted hover:border-lavender hover:text-lavender transition-colors"
             >
               {s}
             </button>
           ))}
         </div>
+        <p className="text-sm text-slate/70 font-mono mb-1">
+          Start typing — matches appear here as you go
+        </p>
+        <p className="text-xs text-slate/50 font-mono">
+          Shortcuts: /K search · /W work · /P playbooks · /S studio · /A about · /H home
+        </p>
       </div>
     );
   }
 
   if (loading) {
     return (
-      <div className="px-4 py-6 text-sm text-slate font-mono">Searching...</div>
+      <div className="px-6 md:px-8 py-5 min-h-[180px]" aria-busy="true" aria-label="Searching">
+        <p className="text-sm uppercase tracking-wider font-mono text-slate mb-3">
+          Searching for &ldquo;{query}&rdquo;
+        </p>
+        <div className="space-y-2.5">
+          {[0, 1, 2].map((i) => (
+            <div
+              key={i}
+              className="h-12 rounded-xl bg-charcoal/[0.04] dark:bg-white/[0.04] animate-pulse"
+            />
+          ))}
+        </div>
+      </div>
     );
   }
 
   if (!results.length) {
     return (
-      <div className="px-4 py-6">
-        <p className="text-sm text-foreground-muted mb-3">
+      <div className="px-6 md:px-8 py-5 min-h-[180px]">
+        <p className="text-lg text-foreground-muted mb-3">
           No matches for &ldquo;{query}&rdquo;. Try fewer keywords.
         </p>
         <Link
           href="/case-studies"
           onClick={onClose}
-          className="text-sm text-ember hover:underline"
+          className="text-base text-lavender hover:underline"
         >
-          Browse all portfolio work →
+          Browse all case studies →
         </Link>
       </div>
     );
   }
 
+  const { primary, mentions } = partitionSearchResults(results, query);
+  const flatIndex = (item: PagefindResultData) => results.indexOf(item);
+
+  function renderGroup(label: string, items: PagefindResultData[]) {
+    if (!items.length) return null;
+    return (
+      <div key={label}>
+        <p className="px-6 md:px-8 py-2.5 text-sm uppercase tracking-wider font-mono text-slate">
+          {label}
+        </p>
+        {items.map((item) => (
+          <SearchResultItem
+            key={item.url}
+            result={item}
+            isActive={flatIndex(item) === activeIndex}
+            onSelect={handleSelect}
+          />
+        ))}
+      </div>
+    );
+  }
+
   return (
-    <div className="overflow-y-auto flex-1 py-2">
-      {Object.entries(grouped).map(([section, items]) => (
-        <div key={section}>
-          <p className="px-4 py-2 text-xs uppercase tracking-wider font-mono text-slate">
-            {section}
-          </p>
-          {items.map((item) => (
-            <SearchResultItem
-              key={item.url}
-              result={item}
-              isActive={results.indexOf(item) === activeIndex}
-              onSelect={handleSelect}
-            />
-          ))}
-        </div>
-      ))}
+    <div className="py-1">
+      {primary.length > 0 &&
+        renderGroup(primary.length === 1 ? "Best match" : "Best matches", primary)}
+      {mentions.length > 0 &&
+        renderGroup(primary.length > 0 ? "Also mentioned on" : "Results", mentions)}
     </div>
   );
 }

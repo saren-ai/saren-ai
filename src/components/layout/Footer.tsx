@@ -76,7 +76,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/engage"
+                  href="/work"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
                   Work With Me
@@ -104,6 +104,30 @@ export default function Footer() {
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
                   Signal State
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/smb"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  For Founders &amp; Mid-Market
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/solopreneurs"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  For Solo Founders &amp; Fractional CMOs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/thinkers"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  For Subject Matter Experts
                 </Link>
               </li>
               <li>
@@ -231,10 +255,18 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link
-                  href="/feature"
+                  href="/studio"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
-                  Feature Articles
+                  Studio
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/studio/ai-for-liberal-arts"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  AI for Liberal Arts Majors
                 </Link>
               </li>
               <li>

@@ -11,11 +11,25 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
 
   // Image optimization configuration
-  // No remotePatterns: all images are served from /public. A wildcard allowlist
-  // turns /_next/image into an open proxy — add specific hosts if remote images
-  // are ever introduced.
   images: {
     formats: ["image/avif", "image/webp"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
+        pathname: "/saren-ai/oblique-techniques/**",
+      },
+      {
+        protocol: "https",
+        hostname: "substackcdn.com",
+        pathname: "/image/**",
+      },
+      {
+        protocol: "https",
+        hostname: "substack-post-media.s3.amazonaws.com",
+        pathname: "/public/images/**",
+      },
+    ],
   },
 
   // Metadata for deployment
@@ -40,7 +54,10 @@ const nextConfig: NextConfig = {
       { source: "/portfolio/behavioral-lead-scoring",               destination: "/playbooks/hybrid-lead-scoring",                   permanent: true },
       { source: "/portfolio/calculator",                             destination: "/playbooks/gtm-budget-calculator",                 permanent: true },
       { source: "/portfolio/golden-dashboard",                      destination: "/playbooks/roi-simulator",                         permanent: true },
-      { source: "/portfolio/psylocke-timeline",                     destination: "/feature/psylocke-timeline",                       permanent: true },
+      { source: "/portfolio/psylocke-timeline",                     destination: "/studio/psylocke-timeline",                        permanent: true },
+      // ── Editorial rebrand: /feature → /studio (2026-06-17) ──────────────
+      { source: "/feature",                                          destination: "/studio",                                          permanent: true },
+      { source: "/feature/:slug*",                                   destination: "/studio/:slug*",                                   permanent: true },
       // ── IA Refactor: /portfolio → /case-studies (catch-all, must be last) ─
       { source: "/portfolio",                                        destination: "/case-studies",                                    permanent: true },
       { source: "/portfolio/:slug*",                                 destination: "/case-studies/:slug*",                             permanent: true },
@@ -52,7 +69,9 @@ const nextConfig: NextConfig = {
       // ── Other pre-refactor aliases ───────────────────────────────────────
       { source: "/about/stack",                                      destination: "/about#stack",                                     permanent: true },
       { source: "/about/brand",                                      destination: "/brand",                                           permanent: true },
-      { source: "/about/fractional-cmo-services",                    destination: "/engage",                                          permanent: true },
+      { source: "/about/fractional-cmo-services",                    destination: "/work",                                            permanent: true },
+      // ── Work hub rename: /engage → /work (2026-06-17) ────────────────────
+      { source: "/engage",                                           destination: "/work",                                            permanent: true },
       { source: "/thinking",                                         destination: "/case-studies",                                    permanent: true },
       { source: "/thinking/:slug*",                                  destination: "/case-studies",                                    permanent: true },
       { source: "/podcast",                                          destination: "/",                                                permanent: true },
@@ -63,7 +82,7 @@ const nextConfig: NextConfig = {
       // These articles accumulated backlinks before the domain moved to Next.js.
       // Redirecting to the nearest topically-relevant page preserves link equity.
       { source: "/b2b-content-at-ai-scale-thriving-in-the-era-of-zero-click-serps-f380153f45ca",       destination: "/case-studies",       permanent: true },
-      { source: "/decentralized-social-disenshittification-now-b4d6ac43c307",                           destination: "/feature",             permanent: true },
+      { source: "/decentralized-social-disenshittification-now-b4d6ac43c307",                           destination: "/studio",              permanent: true },
       { source: "/the-3-questions-c-level-prospects-are-scanning-for-on-your-website-3efab4c7aa5e",     destination: "/case-studies",        permanent: true },
       { source: "/be-more-human-cultivating-your-uniquely-human-skills-in-the-age-of-ai-c24fbe945d05",  destination: "/about",               permanent: true },
       { source: "/ai-industry-reality-check-2024-a124530a003b",                                         destination: "/ai-orchestration",    permanent: true },

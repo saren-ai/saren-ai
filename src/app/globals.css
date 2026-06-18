@@ -197,6 +197,13 @@ h6 {
   outline-offset: 2px;
 }
 
+/* Search modal — focus ring lives on the pill wrapper, not the input */
+.search-pill-input:focus,
+.search-pill-input:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
   width: 8px;

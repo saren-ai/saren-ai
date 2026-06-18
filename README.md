@@ -12,7 +12,7 @@ Built entirely with Claude Code. Not as a gimmick — as a working proof of conc
 
 | Layer | Choice |
 |---|---|
-| Framework | Next.js 16.1 — App Router, RSC-first |
+| Framework | Next.js 16.2 — App Router, RSC-first |
 | Language | TypeScript (strict) |
 | Styling | Tailwind CSS v4 — CSS-based config, no `tailwind.config.js` |
 | Animation | Framer Motion 12 |
@@ -50,12 +50,18 @@ Full spec in `src/app/globals.css` and `docs/DESIGN.md`.
 
 Content classification is enforced at the route level:
 
+- `/work` — engagement hub (“Work With Me”; formerly `/engage`, 301 redirect)
 - `/case-studies/*` — static B2B proof narratives. No interactive widgets.
 - `/playbooks/*` — prompt sequences, interactive tools, paid downloads. The index page toggles between Playbooks and Interactive Tools via `?type=tools`.
-- `/feature/*` — editorial and personal projects. Not in primary nav.
+- `/studio/*` — creative/editorial work (formerly `/feature`, 301 redirect). Primary nav item **Studio**.
+- `/desk/*` — admin-only Hustle & Flow prospecting cockpit (formerly `/studio`, noindex). Not public marketing.
 - `/signal-state/*` — Signal-State framework workspace (in development).
 
-The rule: **interactive feature on the page OR paid download → `/playbooks/`. Static narrative → `/case-studies/`.**
+**Primary nav (2026-06-17):** Work · Playbooks · Studio · About Me — each opens a 3-column mega menu. Audience pages (`/smb`, `/solopreneurs`, `/thinkers`) live in the footer.
+
+The rule: **interactive feature on the page OR paid download → `/playbooks/`. Static narrative → `/case-studies/`. Editorial/creative → `/studio/`.**
+
+Agent-oriented docs: `AGENTS.md` (source of truth for routes, tasks, and conventions).
 
 ---
 
@@ -68,7 +74,9 @@ npm run build    # Production build (also generates Pagefind index)
 npm run lint     # ESLint
 ```
 
-The search index (`pagefind/`) is only generated at build time. `npm run dev` won't have it — run `npm run build && npm start` to test search locally.
+The search index is only generated at build time (`postbuild` → `public/_pagefind`). `npm run dev` won't have it — run `npm run build && npm run start` to test search locally.
+
+**Search shortcuts:** `⌘K` opens the modal; `/` then `W` / `P` / `S` / `A` / `H` jumps to Work / Playbooks / Studio / About / Home.
 
 ---
 

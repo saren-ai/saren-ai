@@ -4,26 +4,36 @@ Living document. Updated as priorities shift.
 
 ---
 
-## Up next (post-audit, 2026-06-12)
+## Up next (post-IA restructure, 2026-06-17)
 
-Full audit + remediation shipped in 4 local commits (see
-`docs/changelogs/2026-06-12-site-audit-remediation.md`). Immediate follow-ups:
+Session shipped in `docs/changelogs/2026-06-17-ia-nav-search-restructure.md`. Immediate follow-ups:
 
-- [x] **Push to main** and verify in prod — done 2026-06-12: persona PDFs and OG
-      images 200, /resume live, custom 404 rendering; social caches re-scraped;
-      hero waveform color (lavender) approved
-- [ ] **Pagefind indexes only 1 page** — `await headers()` in `layout.tsx` makes all
-      routes dynamic, so the postbuild crawl finds no static HTML. Site search is
-      effectively empty. Fix or accept until Search Phase 2.
-- [x] Privacy policy + Terms pages — shipped 2026-06-12 (`/privacy`, `/terms`, footer
-      bottom-bar links, sitemap @ 0.3). Standard boilerplate — have counsel review
-      before relying on the liability/refund language
+- [ ] **Oblique Techniques hero** — create `public/images/feature/oblique-techniques-hero.png` (1200×630 OG; spec in `public/images/feature/README.md`)
 - [ ] Verify `public/downloads/Saren-Sakurai-Resume.pdf` matches resume v03 content
 - [ ] Decide: homepage "Featured Downloads" section markets 3 Coming Soon products —
       collapse to teaser or move below Case Studies until they ship
 - [ ] About page dark-mode consistency pass (hero→timeline rely on global overrides)
 - [ ] Mobile mega-menu promos don't render; `/fractional-marketing-lead` is
       footer-only on mobile — consider a mobile menu entry
+
+---
+
+## Completed (2026-06-17) — IA, nav, search, Pagefind
+
+- [x] **Admin app** `/studio` → `/desk` — `(desk)` route group, `src/components/desk/`, proxy gate, runbook rename
+- [x] **Editorial** `/feature` → `/studio` — 301 redirects; AI for Liberal Arts hub, Oblique Techniques page
+- [x] **Work hub** `/engage` → `/work` — 301, canonicals, sitemap, nav CTAs
+- [x] **Primary nav** — Work · Playbooks · Studio · About Me (clickable labels + 3-col mega menus); audience pages → footer
+- [x] **Route groups** — public marketing under `(site)/`; static root `layout.tsx`; Substack RSS via `unstable_cache` in `(site)/layout.tsx`
+- [x] **Pagefind** — 74+ pages indexed (was 1); Psylocke timeline indexing/metadata pass
+- [x] **Search UX** — pill modal, lavender chrome, suggested searches, result ranking, site hotkeys (`⌘K`, `/`+letter)
+- [x] **Config** — Substack CDN in `images.remotePatterns`; Sora 2 catalog path fix; indexnow/llms.txt/sitemap updates
+
+---
+
+## Up next (post-audit, 2026-06-12)
+
+Full audit + remediation: `docs/changelogs/2026-06-12-site-audit-remediation.md`. All immediate follow-ups from that session are done (prod verified, Pagefind fixed in 2026-06-17 session, legal pages shipped). Open items moved to **Up next (post-IA restructure)** above.
 
 ---
 
@@ -45,8 +55,8 @@ Full audit + remediation shipped in 4 local commits (see
       proof + engagement model; signal-state → service page; 120-day ↔ Cylance page
 - [x] Electric Blue fully retired (incl. two real rendered colors: WaveformHero canvas,
       BentoCard L3); banned-word copy cleanup; Wethos AI spelling unified
-- [x] Decide: should `/smb`, `/solopreneurs`, `/thinkers`, `/engage`, `/about/concerts` be
-      in `sitemap.ts`? → Resolved: all present in sitemap as of this session
+- [x] Decide: should `/smb`, `/solopreneurs`, `/thinkers`, `/work`, `/about/concerts` be
+      in `sitemap.ts`? → Resolved: all present in sitemap as of 2026-06-12; `/engage` 301s to `/work`
 
 ---
 
@@ -110,7 +120,7 @@ Full audit + remediation shipped in 4 local commits (see
 - [x] Add canonical + OG + Twitter card to signal-state use-case sub-pages (2026-05-31)
 - [x] Fix redirect ordering bug in `next.config.ts` (specific before catch-alls) (2026-05-31)
 - [x] Redirect old Medium publication URLs (saren.ai was a Medium custom domain pre-2026) (2026-05-31)
-- [x] Decide: should `/smb`, `/solopreneurs`, `/thinkers`, `/engage`, `/about/concerts` be in `sitemap.ts`? → All in sitemap (resolved by 2026-06-12).
+- [x] Decide: should `/smb`, `/solopreneurs`, `/thinkers`, `/work`, `/about/concerts` be in `sitemap.ts`? → All in sitemap (resolved by 2026-06-12; `/engage` → `/work` 2026-06-17).
 - [ ] Investigate "Crawled — currently not indexed" pages (14 pages) via Search Console export — likely thin content on some `/playbooks/[id]` pages.
 - [ ] OG images: most pages reference `/og/playbooks-{id}.jpg` etc. that don't exist in `public/` — generate or update to a real fallback image.
 
@@ -139,4 +149,4 @@ Full audit + remediation shipped in 4 local commits (see
 
 ---
 
-*Last updated: 2026-06-12*
+*Last updated: 2026-06-18*

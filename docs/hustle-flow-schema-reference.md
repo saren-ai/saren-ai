@@ -1,7 +1,7 @@
 # Hustle & Flow — Schema Reference
 
 Supabase project: `ltsuosasgblbqhsjckfg` (us-west-2, Hustle & Flow)
-Studio: https://saren.ai/studio
+Desk: https://saren.ai/desk (admin pipeline — renamed from `/studio` 2026-06-17)
 Migrations of record: `supabase/migrations/001–003` (in this repo)
 
 > **Model in one line:** `clients → companies → contacts → sequences → touches`.

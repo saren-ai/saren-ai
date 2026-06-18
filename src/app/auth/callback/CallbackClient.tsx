@@ -13,10 +13,10 @@ export default function CallbackClient() {
       const accessToken = params.get("access_token");
       const refreshToken = params.get("refresh_token");
       const errorParam = searchParams.get("error") || params.get("error");
-      const next = searchParams.get("next") ?? "/studio";
+      const next = searchParams.get("next") ?? "/desk";
 
       if (errorParam) {
-        window.location.replace(`/studio/login?error=${encodeURIComponent(errorParam)}`);
+        window.location.replace(`/desk/login?error=${encodeURIComponent(errorParam)}`);
         return;
       }
 
@@ -32,7 +32,7 @@ export default function CallbackClient() {
         });
 
         if (error) {
-          window.location.replace(`/studio/login?error=${encodeURIComponent(error.message)}`);
+          window.location.replace(`/desk/login?error=${encodeURIComponent(error.message)}`);
           return;
         }
 
@@ -41,7 +41,7 @@ export default function CallbackClient() {
       }
 
       // No token and no error — unexpected state
-      window.location.replace("/studio/login?error=callback_failed");
+      window.location.replace("/desk/login?error=callback_failed");
     }
 
     handleCallback();

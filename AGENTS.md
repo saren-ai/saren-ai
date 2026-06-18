@@ -16,15 +16,15 @@ npm run lint     # ESLint
 
 Next.js 16.2 (App Router) · React 19 · TypeScript (strict) · Tailwind CSS v4 (CSS-based config, no tailwind.config.js) · Framer Motion 12 · @dnd-kit (tier list only) · Lucide React icons · MDX for content · Pagefind (static search index, generated at build time) · Stripe (hosted checkout, webhooks) · Supabase (Postgres + Storage) · No external carousel/state libs
 
-## Studio (Hustle & Flow) — prospecting cockpit
+## Desk (Hustle & Flow) — prospecting cockpit
 
-`/studio` is the admin-only lead-prospecting app, backed by the Hustle & Flow Supabase project (`ltsuosasgblbqhsjckfg`). It is **not** part of the public marketing site — noindex, gated in `src/proxy.ts`, isolated in the `(studio)` route group.
+`/desk` is the admin-only lead-prospecting app, backed by the Hustle & Flow Supabase project (`ltsuosasgblbqhsjckfg`). It is **not** part of the public marketing site — noindex, gated in `src/proxy.ts`, isolated in the `(desk)` route group. (Renamed from `/studio` on 2026-06-17 to free that path for the public Studio editorial section — see IA Conventions.)
 
 - **Data model:** `clients → companies → contacts → sequences → touches`, with a `v_pipeline` view that derives each contact's stage, next action, due date, and priority. Records are written by the sourcing skills (in the separate `lead-prospecting` workspace, run via Claude); outreach **state** is the `touches` event log. Supabase is the system of record.
-- **Routes:** `/studio` is the pipeline landing (funnel + Do-Next queue + gamification); `/studio/contacts/[id]` is the per-contact cockpit (inline edit, touch timeline, reply logging); `/studio/login` is magic-link auth. There is no contacts-list, sequences, or outreach-pages page — those v1 surfaces were removed.
+- **Routes:** `/desk` is the pipeline landing (funnel + Do-Next queue + gamification); `/desk/contacts/[id]` is the per-contact cockpit (inline edit, touch timeline, reply logging); `/desk/login` is magic-link auth. There is no contacts-list, sequences, or outreach-pages page — those v1 surfaces were removed.
 - **Auth/RLS:** Supabase Auth (magic link) + `@supabase/ssr`. Access is admin-only via the `public.is_admin()` function, which whitelists specific UIDs (migration `003`). Edit that function to grant/revoke. `outreach_pages` (public `/for/[slug]`) keeps its own public policies and is untouched.
 - **Migrations:** `supabase/migrations/001–003` are the schema of record (pipeline model, verified/valid email fix, auth lockdown).
-- **Docs:** `docs/studio-runbook.md` (workflow), `docs/hustle-flow-schema-reference.md` (tables + write patterns).
+- **Docs:** `docs/desk-runbook.md` (workflow), `docs/hustle-flow-schema-reference.md` (tables + write patterns).
 - **Note:** `src/lib/supabase/database.types.ts` predates `001–003` — regenerate it to type `v_pipeline`/`companies`/`clients` (a single justified cast reads the view meanwhile).
 
 ## Modular Rules
@@ -49,9 +49,15 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 ├── playbook-prompts/     # Obsidian vault — prompt catalog
 ├── public/               # Static assets (logos, images, PDFs)
 ├── scripts/              # One-off and utility scripts
-├── supabase/             # DB migrations (001–003) — schema of record for the Studio
+├── supabase/             # DB migrations (001–003) — schema of record for the Desk
 └── src/
-    ├── app/              # Next.js App Router pages
+    ├── app/
+    │   ├── (site)/       # Public marketing routes — Header/Footer/search chrome
+    │   ├── (desk)/       # Admin prospecting app (/desk/*)
+    │   ├── api/          # Route handlers (desk OTP, indexnow, etc.)
+    │   ├── auth/         # Supabase auth callback
+    │   ├── layout.tsx    # Root layout — static (no headers()); fonts + providers only
+    │   └── globals.css
     ├── components/       # React components by domain
     ├── content/          # MDX content
     ├── data/             # Static data files
@@ -69,7 +75,7 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 /about/expertise                          Expertise timeline
 /about/work/cylance                       Cylance work deep-dive
 /resume                                   Interactive resume — canonical career history; PDF download lives here
-/engage                                   Engagement hub — primary "Work With Me" CTA target
+/work                                     Work hub — primary "Work With Me" CTA target (formerly /engage; 301 redirect kept)
 /fractional-marketing-lead                Engagement model (money page, priority 0.9)
 /fractional-marketing-lead/cost           Pricing page
 /smb                                      Audience page — founders & mid-market
@@ -78,8 +84,10 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 /ai-orchestration                         AI orchestration service page
 /brand                                    Fire Horse 2026 brand guidelines
 /contact                                  Contact form
-/feature                                  Feature articles index
-/feature/psylocke-timeline                 Kwannon timeline editorial + interactive
+/studio                                   Studio — creative/editorial index (formerly /feature)
+/studio/ai-for-liberal-arts                AI for Liberal Arts Majors series hub
+/studio/oblique-techniques                 Oblique Techniques (Claude Skills promo)
+/studio/psylocke-timeline                  Kwannon timeline editorial + interactive
 /downloads/success                        Post-purchase download page (purchases table; /downloads itself 301s to /playbooks — page deleted 2026-06-12)
 /playbooks                                Playbook Library index (toggle: Playbooks | Interactive Tools)
 /playbooks/b2b-marketing-framework        B2B marketing framework (prompt library + interactive)
@@ -124,7 +132,8 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 | `case-studies/` | Shared case study layout components |
 | `comparison-table/` | Comparison table UI |
 | `content-journey/` | 120-day content journey components |
-| `feature/` | Feature section shared components (FeatureCard) |
+| `desk/` | Desk (Hustle & Flow) UI — JobTriggers, StatusPill, TouchDots, etc. |
+| `feature/` | Studio editorial shared components (FeatureCard) — route is `/studio`, lib name is `feature` |
 | `feature/psylocke-timeline/` | Kwannon interactive timeline (9 components + data) |
 | `framework/` | Framework page components |
 | `golden-dashboard/` | Executive dashboard components |
@@ -134,7 +143,7 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 | `marketing-framework/` | B2B marketing framework components |
 | `portfolio/` | Portfolio grid and card components |
 | `psylocke-timeline/` | (moved to `feature/psylocke-timeline/`) |
-| `search/` | Search modal, provider, hotkey, boundary (8 files) |
+| `search/` | Search modal, Pagefind provider, site hotkeys, ranking (9 files) |
 | `seo/` | JsonLd and other SEO helpers |
 | `signal-state/` | Signal State framework components |
 | `sovereign-personas/` | Sovereign personas tool components |
@@ -152,6 +161,7 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 | `playbooks.ts` | Playbooks data fetching and types (includes `paid?` field on `Playbook`) |
 | `playbook-tiers.ts` | `PAID_TIERS` map of `playbook_id → { priceId, storageKey }` — add entries here to gate a playbook |
 | `products.ts` | Legacy `/downloads` product config (price, items, filePath) |
+| `search-rank.ts` | Pagefind result ranking — title/body match scoring for “Best match” vs “Also mentioned on” |
 | `stripe.ts` | Lazy Stripe singleton (`getStripe()`) |
 | `portfolio-data.ts` | Portfolio item types |
 | `psylocke-timeline.ts` | Comic issue data for the Kwannon timeline (internal to `feature/psylocke-timeline/` components) |
@@ -173,13 +183,13 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 
 **New case study:** Use `/project:new-case-study <slug>` command. `/case-studies/*` is for static B2B proof narratives only. Interactive tools and paid downloads go in `/playbooks/*`.
 
-**New feature article:** Add entry to `featureArticles` in `src/lib/feature.ts` → create `src/app/feature/<slug>/page.tsx` (server component, metadata + JSON-LD) + `src/app/feature/<slug>/ArticleClient.tsx` (`"use client"` if interactive) → create `src/components/feature/<slug>/` if the article needs dedicated components → no mega menu entry needed (feature lives as editorial, not primary nav).
+**New Studio entry (feature article):** Add entry to `featureArticles` in `src/lib/feature.ts` → create `src/app/studio/<slug>/page.tsx` (server component, metadata + JSON-LD) + `src/app/studio/<slug>/ArticleClient.tsx` (`"use client"` if interactive) → create `src/components/feature/<slug>/` if the entry needs dedicated components → optionally surface in the Studio mega menu (`src/lib/mega-menu-content.ts`). Note: route base is `/studio`, but the internal lib/components domain is still named `feature` (the content type); the public section brand is "Studio".
 
 **Design system changes:** All in `src/app/globals.css` via `@theme inline` blocks (Tailwind v4 CSS-based config)
 
 **New paid playbook:** Add entry to `PAID_TIERS` in `src/lib/playbook-tiers.ts` with `priceId` (Stripe Price ID) and `storageKey` (Supabase Storage path in `downloads` bucket) → add catalog entry to `playbook-prompts/prompt_catalog.json` → build landing page copy and buy button on the `/playbooks/[id]` page. The RSC gate reads `cookies().get('dlx_' + id)` and validates against the `entitlements` table.
 
-**Adding searchable content:** New routes are indexed automatically at build time. Add `data-pagefind-ignore` to elements that should not be searched. Wrap section content with `<PagefindBoundary section="...">` to set group label. Halcyon and `/api/*` are excluded globally. Test locally with `npm run build && npm run start` (not `npm run dev` — index doesn't exist there).
+**Adding searchable content:** New routes under `(site)/` are indexed automatically at build time. Root `layout.tsx` must stay static — do not add `headers()` or other dynamic APIs there (breaks Pagefind). Add `data-pagefind-ignore` to elements that should not be searched. Wrap section content with `<PagefindBoundary section="...">` to set group label. Halcyon and `/api/*` are excluded globally. Test locally with `npm run build && npm run start` (not `npm run dev` — index doesn't exist there).
 
 ## SEO & Redirects
 
@@ -187,7 +197,7 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 
 Every `page.tsx` that should be indexed **must** declare `alternates: { canonical: 'https://saren.ai/path' }` in its `metadata` export. Pages missing this will appear in Search Console as "Duplicate without user-selected canonical." Check any new routes before pushing.
 
-Pages intentionally not indexed use `robots: { index: false, follow: false }` instead (e.g. `/downloads/success`, `/for/[slug]`, `/studio/*`).
+Pages intentionally not indexed use `robots: { index: false, follow: false }` instead (e.g. `/downloads/success`, `/for/[slug]`, `/desk/*`).
 
 ### Redirect rules in `next.config.ts`
 
@@ -206,7 +216,7 @@ Before the current Next.js site, `saren.ai` was the custom domain for a Medium p
 
 ### robots.txt
 
-`public/robots.txt` disallows `/halcyon` and `/api`. The halcyon section is archived and must stay disallowed. Studio routes (`/studio/*`) are not in robots.txt but carry `noindex` in their metadata — that's intentional (noindex is sufficient; robots.txt would block Googlebot from seeing the noindex tag itself).
+`public/robots.txt` disallows `/halcyon` and `/api`. The halcyon section is archived and must stay disallowed. Desk routes (`/desk/*`) are not in robots.txt but carry `noindex` in their metadata — that's intentional (noindex is sufficient; robots.txt would block Googlebot from seeing the noindex tag itself).
 
 ## IA Conventions
 
@@ -214,7 +224,7 @@ Before the current Next.js site, `saren.ai` was the custom domain for a Medium p
 
 - `/case-studies/*` — static B2B proof narratives (no interactive widgets). Pure case studies only.
 - `/playbooks/*` — Playbook Library: prompt sequences, interactive tools, paid downloads. The index page has a toggle (Playbooks | Interactive Tools). Interactive tools live at `/playbooks/<tool-slug>/`. Paid playbooks gate content via HttpOnly cookie (`dlx_{id}`) validated against the `entitlements` table.
-- `/feature/*` — editorial / personal projects (magazine-style articles). Not indexed in primary nav.
+- `/studio/*` — Studio: creative/editorial work, magazine-style articles, and the AI for Liberal Arts Majors series. Surfaced via the **Studio** mega menu. (Formerly `/feature/*`, which 301s here. Internal lib/components are still named `feature`.)
 - `/signal-state/*` — Signal State framework workspace (in development).
 - `/halcyon/*` — archived; do not link from primary nav. Routes still resolve.
 - `/brand` — Fire Horse 2026 brand guideline page. `/about/brand` is deprecated and 301s to `/brand`.
@@ -268,4 +278,6 @@ The `.gitignore` covers: dependencies, build output, env files, local databases,
 
 ## Search
 
-Site-wide search uses Pagefind, generated at build time. The modal lives in `src/components/search/` and is triggered by Cmd+K or the header search button. The architecture supports a future "Ask" mode (Phase 2 — semantic search + chat via RAG); the mode switcher already exists as a disabled UI state. See `docs/search-phase-2.md`.
+Site-wide search uses Pagefind, generated at build time (postbuild → `public/_pagefind`). The modal lives in `src/components/search/` and opens via **⌘K**, the header search button, or **`/`** then a section key (`W` Work, `P` Playbooks, `S` Studio, `A` About, `H` Home). Results are ranked by `src/lib/search-rank.ts` (24 fetched, 12 shown, grouped as Best match / Also mentioned on). Focus ring is on the pill input wrapper, not the raw `<input>` (`.search-pill-input` in `globals.css`).
+
+The architecture supports a future **Ask** mode (Phase 2 — semantic search + chat via RAG); the mode switcher exists as a disabled UI state. See `docs/search-phase-2.md`.

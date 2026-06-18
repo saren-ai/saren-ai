@@ -94,9 +94,9 @@ export async function GET() {
       .join('\n')
   }`
 
-  const editorialSection = `\n## Editorial\n\n- [Feature Articles](${BASE_URL}/feature): Magazine-style essays on personal projects and creative work\n${
+  const editorialSection = `\n## Studio\n\n- [Studio](${BASE_URL}/studio): Creative work and the AI for Liberal Arts Majors series\n- [AI for Liberal Arts Majors](${BASE_URL}/studio/ai-for-liberal-arts): Creative AI skills series for humanities thinkers\n${
     articles
-      .map(a => `- [${a.title}](${BASE_URL}/feature/${a.slug}): ${a.description}`)
+      .map(a => `- [${a.title}](${BASE_URL}/studio/${a.slug}): ${a.description}`)
       .join('\n')
   }`
 

@@ -8,8 +8,9 @@ import ThemeToggle from "./ThemeToggle";
 import SearchTrigger from "@/components/search/SearchTrigger";
 import MegaMenu, { type MegaMenuContent } from "./MegaMenu";
 import {
-  solutionsMegaMenu,
-  caseStudiesMegaMenu,
+  workMegaMenu,
+  playbooksMegaMenu,
+  studioMegaMenu,
   aboutMegaMenu,
 } from "@/lib/mega-menu-content";
 
@@ -26,29 +27,27 @@ interface NavItem {
 
 const navLinks: NavItem[] = [
   {
-    label: "Solutions",
-    megaMenu: solutionsMegaMenu,
-    activePrefixes: ["/smb", "/solopreneurs", "/thinkers", "/ai-orchestration", "/signal-state", "/fractional-marketing-lead", "/engage"],
+    label: "Work",
+    href: "/work",
+    megaMenu: workMegaMenu,
+    activePrefixes: ["/work", "/ai-orchestration", "/signal-state", "/fractional-marketing-lead", "/case-studies", "/smb", "/solopreneurs", "/thinkers"],
     mobileChildren: [
-      { href: "/smb", label: "Founders & Mid-Market", description: "GTM systems for growth-stage companies" },
-      { href: "/solopreneurs", label: "Solo Founders & Fractional CMOs", description: "Pipeline automation for independent operators" },
-      { href: "/thinkers", label: "Subject Matter Experts", description: "Authority engineering for knowledge practitioners" },
+      { href: "/work", label: "Work With Me", description: "Engagement models and how to start" },
       { href: "/ai-orchestration", label: "AI Orchestration", description: "Machines handle scale. Humans handle meaning." },
       { href: "/signal-state", label: "Signal-State Marketing", description: "AI-enabled expressed intent targeting" },
+      { href: "/fractional-marketing-lead", label: "Fractional Marketing Lead", description: "Your first real marketing engine, built to scale" },
+      { href: "/case-studies", label: "Case Studies", description: "Eight enterprise B2B proof narratives" },
     ],
   },
   {
     label: "Playbooks",
     href: "/playbooks",
+    megaMenu: playbooksMegaMenu,
     activePrefixes: ["/playbooks"],
-  },
-  {
-    label: "Case Studies",
-    megaMenu: caseStudiesMegaMenu,
-    activePrefixes: ["/case-studies"],
     mobileChildren: [
-      { href: "/case-studies", label: "View All Case Studies" },
-      ...caseStudiesMegaMenu.sections.flatMap(section =>
+      { href: "/playbooks", label: "Playbook Library", description: "Prompt sequences and frameworks" },
+      { href: "/playbooks?type=tools", label: "Interactive Tools", description: "Calculators and scoring models you can run now" },
+      ...playbooksMegaMenu.sections.flatMap(section =>
         section.links.map(link => ({
           href: link.href,
           label: link.label,
@@ -59,9 +58,22 @@ const navLinks: NavItem[] = [
     ],
   },
   {
+    label: "Studio",
+    href: "/studio",
+    megaMenu: studioMegaMenu,
+    activePrefixes: ["/studio"],
+    mobileChildren: [
+      { href: "/studio", label: "All of the Studio", description: "Creative work and editorial" },
+      { href: "/studio/ai-for-liberal-arts", label: "AI for Liberal Arts Majors", description: "Creative AI skills series" },
+      { href: "/studio/oblique-techniques", label: "Oblique Techniques", description: "Prompt Against the Machine" },
+      { href: "/studio/psylocke-timeline", label: "Psylocke Timeline", description: "Interactive comics timeline" },
+    ],
+  },
+  {
     label: "About Me",
+    href: "/about",
     megaMenu: aboutMegaMenu,
-    activePrefixes: ["/about", "/resume", "/brand", "/feature"],
+    activePrefixes: ["/about", "/resume", "/brand"],
     mobileChildren: aboutMegaMenu.sections.flatMap(section =>
       section.links.map(link => ({
         href: link.href,
@@ -176,54 +188,59 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-0.5">
-            {navLinks.map((link) => (
-              <div
-                key={link.label}
-                onMouseEnter={() => handleMouseEnter(link.label, !!link.megaMenu)}
-              >
-                {link.href ? (
-                  <Link
-                    href={link.href}
-                    aria-current={isActiveSection(link) ? "true" : undefined}
-                    className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm font-semibold dark:font-medium transition-all duration-150 ${
-                      link.label === "Playbooks"
-                        ? "text-ember hover:bg-ember/[0.08]"
-                        : "text-foreground hover:text-ember hover:bg-charcoal/[0.05] dark:hover:bg-white/[0.06]"
-                    } ${isActiveSection(link) ? "bg-charcoal/[0.05] dark:bg-white/[0.06]" : ""}`}
-                  >
-                    {link.label === "Playbooks" && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-ember shrink-0" />
-                    )}
-                    {link.label}
-                  </Link>
-                ) : (
-                  <button
-                    className={`flex items-center gap-1 px-3.5 py-1.5 rounded-full text-sm font-semibold dark:font-medium transition-all duration-150 ${
-                      openMegaMenu === link.label
-                        ? "bg-charcoal/[0.08] dark:bg-white/[0.10] text-ember"
-                        : isActiveSection(link)
-                          ? "text-ember bg-charcoal/[0.05] dark:bg-white/[0.06]"
-                          : "text-foreground hover:text-ember hover:bg-charcoal/[0.05] dark:hover:bg-white/[0.06]"
-                    }`}
-                    aria-expanded={openMegaMenu === link.label}
-                    aria-haspopup="true"
-                    aria-current={isActiveSection(link) ? "true" : undefined}
-                  >
-                    {link.label}
+            {navLinks.map((link) => {
+              const isOpen = openMegaMenu === link.label;
+              const active = isActiveSection(link);
+              const itemClass = `flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm font-semibold dark:font-medium transition-all duration-150 ${
+                isOpen
+                  ? "bg-charcoal/[0.08] dark:bg-white/[0.10] text-ember"
+                  : active
+                    ? "text-ember bg-charcoal/[0.05] dark:bg-white/[0.06]"
+                    : "text-foreground hover:text-ember hover:bg-charcoal/[0.05] dark:hover:bg-white/[0.06]"
+              }`;
+              const itemInner = (
+                <>
+                  {link.label}
+                  {link.megaMenu && (
                     <svg
-                      className={`w-3 h-3 transition-transform duration-200 ${
-                        openMegaMenu === link.label ? "rotate-180" : ""
-                      }`}
+                      className={`w-3 h-3 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
-                  </button>
-                )}
-              </div>
-            ))}
+                  )}
+                </>
+              );
+              return (
+                <div
+                  key={link.label}
+                  onMouseEnter={() => handleMouseEnter(link.label, !!link.megaMenu)}
+                >
+                  {link.href ? (
+                    <Link
+                      href={link.href}
+                      aria-current={active ? "true" : undefined}
+                      aria-expanded={link.megaMenu ? isOpen : undefined}
+                      aria-haspopup={link.megaMenu ? "true" : undefined}
+                      className={itemClass}
+                    >
+                      {itemInner}
+                    </Link>
+                  ) : (
+                    <button
+                      className={itemClass}
+                      aria-expanded={isOpen}
+                      aria-haspopup="true"
+                      aria-current={active ? "true" : undefined}
+                    >
+                      {itemInner}
+                    </button>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
           {/* Right side: Search + Theme Toggle + Work With Me CTA */}
@@ -231,7 +248,7 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
             <SearchTrigger />
             <ThemeToggle />
             <Link
-              href="/engage"
+              href="/work"
               className="btn-primary text-sm py-1.5 px-4 inline-flex items-center gap-1.5"
             >
               Work With Me
@@ -383,7 +400,7 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
                 ))}
                 <div className="pt-2 border-t border-charcoal/[0.08] dark:border-white/[0.08] mt-2">
                   <Link
-                    href="/engage"
+                    href="/work"
                     onClick={() => setIsMenuOpen(false)}
                     className="block py-2.5 px-4 bg-ember text-white rounded-xl font-semibold text-sm text-center transition-all hover:bg-ember/90"
                   >

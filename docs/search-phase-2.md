@@ -1,8 +1,16 @@
 # Search Phase 2 — Semantic + Chat UX
 
-**Status:** Planned for Q2 2026  
-**Depends on:** Phase 1 (Pagefind) shipped and validated  
+**Status:** Planned  
+**Depends on:** Phase 1 (Pagefind) shipped and validated — **enhanced 2026-06-17** (modal redesign, ranking, site hotkeys, 74+ pages indexed)  
 **Prerequisite:** 4–6 weeks of Phase 1 query logs to inform corpus tuning
+
+## Phase 1 shipped (reference)
+
+- Pagefind static index at build time; `(site)` route group keeps root layout static
+- Modal: pill input, lavender chrome, suggested searches, Best match / Also mentioned on grouping
+- Hotkeys: `⌘K`, `/` + section letter (`W`/`P`/`S`/`A`/`H`)
+- Ranking: `src/lib/search-rank.ts`
+- Changelog: `docs/changelogs/2026-06-17-ia-nav-search-restructure.md`
 
 ## Goals
 
