@@ -16,6 +16,11 @@ export const workMegaMenu: MegaMenuContent = {
           description: "Machines handle scale. Humans handle meaning.",
         },
         {
+          href: "/gtm-engineering",
+          label: "GTM Engineering",
+          description: "Stop running campaigns. Engineer the system.",
+        },
+        {
           href: "/signal-state",
           label: "Signal-State Marketing",
           description: "AI-enabled expressed intent targeting",
