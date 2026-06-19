@@ -104,7 +104,7 @@ export default function HomeClient() {
               transition={{ duration: 0.5 }}
               className="text-lavender font-mono text-sm md:text-base mb-6 tracking-wider uppercase"
             >
-              AI-Native Systems · Fractional &amp; Full-Time
+              GTM Engineer · Fractional &amp; Full-Time
             </motion.p>
 
             {/* Headline */}
@@ -114,17 +114,14 @@ export default function HomeClient() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-6xl lg:text-[4rem] font-bold text-charcoal dark:text-foreground leading-[1.1] mb-8"
             >
-              Demand generation,<br /><span className="text-gradient">engineered.</span>
+              Stop running campaigns.<br /><span className="text-gradient">Engineer the system.</span>
             </motion.h1>
 
             {/* Body / value prop */}
             <div className="space-y-6 text-base md:text-lg text-slate dark:text-foreground-muted max-w-3xl mx-auto leading-relaxed mb-10 text-center">
               {/* Entity sentence — plain <p>, no animation: answer engines extract visible prose */}
               <p className="text-charcoal dark:text-foreground">
-                I&apos;m Saren Sakurai. I engineer AI-native demand systems for
-                B2B SaaS and cybersecurity teams — turning long, committee-driven
-                buying cycles into predictable pipeline. 20+ years from AKQA to
-                Cylance ($1.4B exit).
+                I&apos;m Saren Sakurai — a GTM Engineer. I design instrumented demand systems for B2B SaaS and cybersecurity teams: signal intelligence, behavioral scoring, content routing, paid spend, and AI — wired into one compounding engine. 20+ years from AKQA to Cylance ($1.4B exit).
               </p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -139,7 +136,7 @@ export default function HomeClient() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                Most teams are stuck between buying ChatGPT and actually running an AI-powered operation — demand built on tactics instead of systems. I build the system itself: data inputs, scoring logic, and feedback loops, wired into the workflows your team already runs.
+                Most teams ask what campaign to run next. The teams that compound ask how every input — signal, scoring, content, spend, AI — connects into one system. I build that system, then own it as your fractional marketing lead.
               </motion.p>
             </div>
 
@@ -171,11 +168,11 @@ export default function HomeClient() {
                 </svg>
               </Link>
               <Link
-                href="/resume"
+                href="/gtm-engineering"
                 className="btn-secondary"
-                aria-label="View Resume"
+                aria-label="See GTM Engineering"
               >
-                View Resume
+                See GTM Engineering →
               </Link>
             </motion.div>
 
