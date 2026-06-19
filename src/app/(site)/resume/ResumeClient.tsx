@@ -186,8 +186,8 @@ export default function ResumeClient() {
             <a href="tel:+13105707585" className="hover:text-ash/80 transition-colors">
               (310) 570-7585
             </a>
-            <a href="mailto:saren.sakurai@me.com" className="hover:text-ash/80 transition-colors">
-              saren.sakurai@me.com
+            <a href="mailto:saren@saren.ai" className="hover:text-ash/80 transition-colors">
+              saren@saren.ai
             </a>
             <a
               href="https://linkedin.com/in/saren"
@@ -463,10 +463,10 @@ export default function ResumeClient() {
               Let&apos;s build something together.
             </h2>
             <p className="text-ash/50 text-sm mb-8 font-mono">
-              saren.sakurai@me.com · (310) 570-7585
+              saren@saren.ai · (310) 570-7585
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a href="mailto:saren.sakurai@me.com" className="btn-primary">
+              <a href="mailto:saren@saren.ai" className="btn-primary">
                 Email Saren
               </a>
               <a
