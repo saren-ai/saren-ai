@@ -600,7 +600,7 @@ export default function AboutClient() {
                             href="/about/expertise"
                             className="btn-lavender inline-flex items-center gap-2 group font-semibold"
                         >
-                            Explore Subject Matter Expertise Timeline
+                            Explore the Marketing Brain
                             <svg
                                 className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
                                 fill="none"

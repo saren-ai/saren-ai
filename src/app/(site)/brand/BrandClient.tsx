@@ -1483,7 +1483,7 @@ export default function BrandClient() {
                 {
                   label: "About Me",
                   mega: true,
-                  children: ["Bio & Booking (About Me, Book 30 Minutes)", "The Archives (Expertise Timeline, Brand Guide, My Stack)"],
+                  children: ["Bio & Booking (About Me, Book 30 Minutes)", "The Archives (Marketing Brain, Brand Guide, My Stack)"],
                 },
                 { label: "Contact", mega: false, children: [] },
               ].map((item) => (

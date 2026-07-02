@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "@/components/layout/ThemeProvider";
 import trendsDataRaw from "@/data/trends-data.json";
@@ -29,6 +30,12 @@ interface TrendsData {
   files_by_trend: Record<string, FileItem[]>;
 }
 
+interface ParsedFile {
+  title: string;
+  publisher: string;
+  year: number;
+}
+
 const data = trendsDataRaw as unknown as TrendsData;
 
 // Theme color definitions for light and dark modes
@@ -52,6 +59,58 @@ const THEME_COLORS: Record<string, { light: string; dark: string; label: string 
   Engagement: { light: "#C084FC", dark: "#E9D5FF", label: "lavender" },
 };
 
+// How the vault works — methodology steps
+const METHOD_STEPS = [
+  {
+    step: "01",
+    title: "Capture",
+    body: "Reports, books, talks, teardowns — anything that changes how I think about a problem goes into the vault the day I read it.",
+  },
+  {
+    step: "02",
+    title: "Catalog",
+    body: "Every file is tagged with topic, source, and year — then pruned. What stays has earned its place.",
+  },
+  {
+    step: "03",
+    title: "Link",
+    body: "Obsidian backlinks connect each note to the work it informed, so a 2009 behavior model points forward to a 2018 lead-scoring build.",
+  },
+  {
+    step: "04",
+    title: "Resurface",
+    body: "When a client problem lands, I query the vault before I open a blank page. Twenty years of prior art is the head start.",
+  },
+];
+
+// Research thread → shipped outcome
+const RECEIPTS = [
+  {
+    thread: "Persuasion / Behavioral",
+    years: "2009–2014",
+    theme: "Behavior",
+    body: "BJ Fogg's behavior model and Cialdini's persuasion research became the backbone of the hybrid lead scoring model.",
+    href: "/playbooks/hybrid-lead-scoring",
+    cta: "See the model",
+  },
+  {
+    thread: "B2B / GTM Strategy",
+    years: "2017–2020",
+    theme: "B2B",
+    body: "Demand gen, ABM, and intent-data study fed the Cylance program: $4M in quarterly pipeline on a $1M budget.",
+    href: "/about/work/cylance",
+    cta: "Read the case",
+  },
+  {
+    thread: "AI / GenAI in Marketing",
+    years: "2023–present",
+    theme: "Ops",
+    body: "The newest and fastest-growing thread — 26 files and counting — now runs my AI orchestration practice.",
+    href: "/ai-orchestration",
+    cta: "See the practice",
+  },
+];
+
 // Era divisions
 const ERAS = [
   { start: 2003, end: 2008, label: "UX & pitch foundations" },
@@ -67,6 +126,29 @@ function cleanFileName(name: string): string {
   clean = clean.replace(/^\d+[-_]/, ""); // Strip leading catalog numbers
   clean = clean.replace(/_/g, " "); // Replace underscores with spaces
   return clean;
+}
+
+// Parse a file label into { title, publisher, year } — label format: "Title — Publisher, Year"
+function parseFileLabel(label: string, fileYear: number): ParsedFile {
+  const parts = label.split(" — ");
+  const title = cleanFileName(parts[0].trim());
+
+  let publisher = "";
+  let year = fileYear;
+
+  if (parts.length >= 2) {
+    const rest = parts.slice(1).join(" — ").trim();
+    const yearMatch = rest.match(/^(.+?),\s*(\d{4})$/);
+    if (yearMatch) {
+      const rawPub = yearMatch[1].trim();
+      publisher = rawPub.toLowerCase() === "unknown" ? "" : rawPub;
+      year = parseInt(yearMatch[2], 10);
+    } else {
+      publisher = rest.toLowerCase() === "unknown" ? "" : rest;
+    }
+  }
+
+  return { title, publisher, year: year > 0 ? year : fileYear };
 }
 
 // Deterministic random jitter generator based on string seed
@@ -109,12 +191,15 @@ export default function ExpertiseClient() {
   // Year View sorting: "chrono" | "volume"
   const [yearSortMode, setYearSortMode] = useState<"chrono" | "volume">("chrono");
 
+  const tooltipHideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   // Global hover tooltip state (used by all views)
   const [tooltip, setTooltip] = useState<{
     show: boolean;
     title: string;
     subtitle: string;
     details: string;
+    files: ParsedFile[];
     x: number;
     y: number;
   }>({
@@ -122,6 +207,7 @@ export default function ExpertiseClient() {
     title: "",
     subtitle: "",
     details: "",
+    files: [],
     x: 0,
     y: 0,
   });
@@ -133,14 +219,14 @@ export default function ExpertiseClient() {
   };
 
   // Dimensions & Constants
-  const startYear = data.years[0];
+  const endYear = data.years[data.years.length - 1];
   const maxCount = useMemo(() => {
     return Math.max(...data.trends.flatMap((t) => t.counts));
   }, []);
 
-  // Sort trends by 'first' year ascending for Matrix rows
+  // Sort trends by 'last' year descending for Matrix rows (most recently active at top)
   const sortedTrends = useMemo(() => {
-    return [...data.trends].sort((a, b) => a.first - b.first);
+    return [...data.trends].sort((a, b) => b.last - a.last);
   }, []);
 
   // Max total count across all trends (used for bubble sizing)
@@ -148,9 +234,10 @@ export default function ExpertiseClient() {
     return Math.max(...data.trends.map((t) => t.total));
   }, []);
 
-  // Total files count across the entire dataset
-  const totalFiles = useMemo(() => {
-    return Object.values(data.files_by_trend).reduce((sum, list) => sum + list.length, 0);
+  // Total cataloged references across the entire dataset (a file cross-filed
+  // under two threads counts once per thread — hence "references", not "files")
+  const totalRefs = useMemo(() => {
+    return data.trends.reduce((sum, t) => sum + t.total, 0);
   }, []);
 
   // Bubble Map: Sort themes chronologically by earliest 'first' year of member trends
@@ -187,14 +274,25 @@ export default function ExpertiseClient() {
     if (yearSortMode === "volume") {
       return [...records].sort((a, b) => b.total - a.total);
     }
-    return records;
+    return [...records].reverse();
   }, [yearSortMode]);
 
   // Selected Detail Panel Computed Values
   const selectedTrendFiles = useMemo(() => {
     if (!selectedTrend) return [];
     const files = data.files_by_trend[selectedTrend.trend] || [];
-    return [...files].sort((a, b) => a.year - b.year);
+    // Recover a year from the "Title — Publisher, Year" label when the record
+    // itself has year 0 (unknown); newest first, unknowns sink to the end.
+    return files
+      .map((f) => ({
+        ...f,
+        year: f.year > 0 ? f.year : parseFileLabel(f.label, f.year).year,
+      }))
+      .sort((a, b) => {
+        if (a.year <= 0) return b.year <= 0 ? 0 : 1;
+        if (b.year <= 0) return -1;
+        return b.year - a.year;
+      });
   }, [selectedTrend]);
 
   const selectedYearFiles = useMemo(() => {
@@ -212,6 +310,15 @@ export default function ExpertiseClient() {
       if (a.theme !== b.theme) return a.theme.localeCompare(b.theme);
       return a.label.localeCompare(b.label);
     });
+  }, [selectedYear]);
+
+  // Counts-based total for the selected year (matches the heatmap/bars, unlike
+  // selectedYearFiles which only holds the labeled citation subset)
+  const selectedYearRefTotal = useMemo(() => {
+    if (selectedYear === null) return 0;
+    const idx = data.years.indexOf(selectedYear);
+    if (idx < 0) return 0;
+    return data.trends.reduce((sum, t) => sum + t.counts[idx], 0);
   }, [selectedYear]);
 
   const selectedYearTopThemes = useMemo(() => {
@@ -257,21 +364,48 @@ export default function ExpertiseClient() {
     e: React.MouseEvent,
     title: string,
     subtitle: string,
-    details: string
+    details: string,
+    files: ParsedFile[] = []
   ) => {
+    if (tooltipHideTimer.current) {
+      clearTimeout(tooltipHideTimer.current);
+      tooltipHideTimer.current = null;
+    }
     const rect = e.currentTarget.getBoundingClientRect();
     setTooltip({
       show: true,
       title,
       subtitle,
       details,
+      files,
       x: rect.left + window.scrollX + rect.width / 2,
       y: rect.top + window.scrollY - 10,
     });
   };
 
+  // Specialized handler for matrix/bubble cells — looks up per-file details
+  const handleShowCellTooltip = (
+    e: React.MouseEvent,
+    trend: Trend,
+    year: number,
+    count: number
+  ) => {
+    const cellFiles = (data.files_by_trend[trend.trend] || [])
+      .filter((f) => f.year === year)
+      .map((f) => parseFileLabel(f.label, f.year));
+    handleShowTooltip(
+      e,
+      trend.trend,
+      `${year} · ${trend.theme}`,
+      `${count} reference${count === 1 ? "" : "s"}`,
+      cellFiles
+    );
+  };
+
   const handleHideTooltip = () => {
-    setTooltip((prev) => ({ ...prev, show: false }));
+    tooltipHideTimer.current = setTimeout(() => {
+      setTooltip((prev) => ({ ...prev, show: false }));
+    }, 80);
   };
 
   return (
@@ -279,7 +413,42 @@ export default function ExpertiseClient() {
       
       {/* Header Banner */}
       <section className="section bg-charcoal text-ash relative overflow-hidden py-8">
-        <div className="absolute inset-0 bg-gradient-to-r from-ember/15 to-lavender/15 opacity-40 pointer-events-none" />
+
+        {/* Background brain images — screen blend knocks out the dark bg */}
+        <div className="absolute inset-0" style={{ mixBlendMode: "screen" }}>
+          {/* Close view — always visible as base */}
+          <Image
+            src="/images/expertise/obsidian-close_2400x600.jpg"
+            alt=""
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+            priority
+          />
+          {/* Full / far view — crossfades over the top */}
+          <motion.div
+            className="absolute inset-0"
+            animate={{ opacity: [0, 0, 1, 1, 0, 0] }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut",
+              times: [0, 0.1, 0.3, 0.7, 0.9, 1],
+            }}
+          >
+            <Image
+              src="/images/expertise/obsidian-full-2400x600.jpg"
+              alt=""
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
+            />
+          </motion.div>
+        </div>
+
+        {/* Left-to-right gradient so text stays legible over the graph */}
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/95 via-charcoal/60 to-charcoal/20 dark:from-[#0F0F0F] dark:via-[#0F0F0F]/90 dark:to-[#0F0F0F]/50 pointer-events-none" />
+
         <div className="container-narrow relative z-10">
           <Link
             href="/about"
@@ -296,19 +465,50 @@ export default function ExpertiseClient() {
             </svg>
             Back to About
           </Link>
-          <h1 className="text-xl md:text-2xl font-bold font-heading mb-3 tracking-tight">
-            Two decades of digital marketing — Saren&apos;s research library, {data.years[0]}–{data.years[data.years.length - 1]}
+          <h1 className="text-2xl md:text-3xl font-bold font-heading mb-2 tracking-tight dark:text-charcoal">
+            My Marketing Brain
           </h1>
+          <p className="text-sm text-ash/80 dark:text-charcoal/80 max-w-xl mb-4 leading-relaxed">
+            Twenty-plus years of marketing research — cataloged, tagged, and
+            linked in an Obsidian vault. This is its index.
+          </p>
           <div className="flex flex-wrap gap-2 text-xs">
             <span className="bg-ash/10 text-slate px-2.5 py-1 rounded-full font-mono border border-white/5">
-              {totalFiles} files
+              {totalRefs} references
             </span>
             <span className="bg-ash/10 text-slate px-2.5 py-1 rounded-full font-mono border border-white/5">
-              {data.trends.length} trends
+              {data.trends.length} research threads
             </span>
             <span className="bg-ash/10 text-slate px-2.5 py-1 rounded-full font-mono border border-white/5">
               {data.years.length} years
             </span>
+          </div>
+        </div>
+      </section>
+
+      {/* What you're looking at */}
+      <section className="py-8 bg-background border-b border-border">
+        <div className="container-narrow">
+          <div className="max-w-3xl">
+            <h2 className="text-xs font-bold font-mono uppercase tracking-wider text-ember mb-3">
+              What you&apos;re looking at
+            </h2>
+            <p className="text-sm md:text-base text-foreground leading-relaxed mb-3">
+              Since 2003 I&apos;ve kept every report, framework, and study that
+              changed how I work — first as folders of PDFs, now as an Obsidian
+              vault where each file is cataloged by topic, source, and year,
+              and linked to the ideas it feeds.
+            </p>
+            <p className="text-sm md:text-base text-foreground-muted leading-relaxed">
+              This page reads that catalog directly:{" "}
+              <span className="font-mono font-bold text-foreground">{totalRefs} cataloged references</span>{" "}
+              across{" "}
+              <span className="font-mono font-bold text-foreground">{data.trends.length} research threads</span>,
+              mapped over{" "}
+              <span className="font-mono font-bold text-foreground">{data.years.length} years</span>.
+              It isn&apos;t a reading list — it&apos;s the raw material behind
+              every framework and playbook on this site.
+            </p>
           </div>
         </div>
       </section>
@@ -383,8 +583,8 @@ export default function ExpertiseClient() {
                       >
                         {/* Era Background Band Annotations */}
                         {ERAS.map((era) => {
-                          const x = PAD_LEFT + (era.start - startYear) * CELL_W;
                           const w = (era.end - era.start + 1) * CELL_W;
+                          const x = PAD_LEFT + (endYear - era.end) * CELL_W;
                           return (
                             <g key={era.label}>
                               <rect
@@ -406,8 +606,8 @@ export default function ExpertiseClient() {
                           );
                         })}
 
-                        {/* Year Axis Labels */}
-                        {data.years.map((y, i) => (
+                        {/* Year Axis Labels (reversed: newest left → oldest right) */}
+                        {[...data.years].reverse().map((y, i) => (
                           <text
                             key={y}
                             x={PAD_LEFT + i * CELL_W + CELL_W / 2}
@@ -496,7 +696,7 @@ export default function ExpertiseClient() {
                               {t.counts.map((c, j) => {
                                 if (c === 0) return null;
                                 const intensity = Math.pow(c / maxCount, 0.5);
-                                const cellX = PAD_LEFT + j * CELL_W + 2;
+                                const cellX = PAD_LEFT + (data.years.length - 1 - j) * CELL_W + 2;
                                 const cellY = PAD_TOP + i * ROW_H + 2;
                                 const cellW = CELL_W - 4;
                                 const cellH = ROW_H - 4;
@@ -524,12 +724,7 @@ export default function ExpertiseClient() {
                                         setSelectionType("trend");
                                       }}
                                       onMouseEnter={(e) =>
-                                        handleShowTooltip(
-                                          e,
-                                          t.trend,
-                                          `${data.years[j]} · ${t.theme}`,
-                                          `${c} file${c === 1 ? "" : "s"}`
-                                        )
+                                        handleShowCellTooltip(e, t, data.years[j], c)
                                       }
                                       onMouseLeave={handleHideTooltip}
                                     />
@@ -636,7 +831,7 @@ export default function ExpertiseClient() {
                                         e,
                                         theme,
                                         `${r.year} breakdown`,
-                                        `${count} file${count === 1 ? "" : "s"} (${widthPct.toFixed(0)}%)`
+                                        `${count} reference${count === 1 ? "" : "s"} (${widthPct.toFixed(0)}%)`
                                       )
                                     }
                                     onMouseLeave={handleHideTooltip}
@@ -670,10 +865,10 @@ export default function ExpertiseClient() {
                         viewBox={`0 0 ${BubbleW} ${BubbleH}`}
                         className="select-none font-mono"
                       >
-                        {/* Year grids vertical lines (Every 3 years) */}
+                        {/* Year grids vertical lines (Every 3 years) — newest (2026) on left */}
                         {data.years.map((y, i) => {
                           if (i % 3 !== 0 && y !== data.years[data.years.length - 1]) return null;
-                          const x = BubblePadLeft + i * BubbleCellW + BubbleCellW / 2;
+                          const x = BubblePadLeft + (data.years.length - 1 - i) * BubbleCellW + BubbleCellW / 2;
                           return (
                             <g key={`grid-v-${y}`}>
                               <line
@@ -744,7 +939,7 @@ export default function ExpertiseClient() {
 
                           const yearIdx = data.years.indexOf(t.peak_year);
                           const bubbleX =
-                            BubblePadLeft + yearIdx * BubbleCellW + BubbleCellW / 2;
+                            BubblePadLeft + (data.years.length - 1 - yearIdx) * BubbleCellW + BubbleCellW / 2;
 
                           // Sqrt scaling for radius: min 8px, max 26px
                           const radius =
@@ -770,12 +965,7 @@ export default function ExpertiseClient() {
                                   setSelectionType("trend");
                                 }}
                                 onMouseEnter={(e) =>
-                                  handleShowTooltip(
-                                    e,
-                                    t.trend,
-                                    `${t.theme} · Peak: ${t.peak_year}`,
-                                    `Total: ${t.total} files (Peak: ${t.peak_count})`
-                                  )
+                                  handleShowCellTooltip(e, t, t.peak_year, t.peak_count)
                                 }
                                 onMouseLeave={handleHideTooltip}
                               />
@@ -813,7 +1003,7 @@ export default function ExpertiseClient() {
                     exit={{ opacity: 0, y: -10 }}
                     className="bg-card border border-border rounded-xl p-6 text-center text-foreground-muted"
                   >
-                    <p className="text-sm font-medium">Click any trend, year, or bubble to inspect.</p>
+                    <p className="text-sm font-medium">Click any thread, year, or bubble to inspect it.</p>
                   </motion.div>
                 )}
 
@@ -851,7 +1041,7 @@ export default function ExpertiseClient() {
                       <div>
                         <div className="text-[10px] uppercase text-foreground-muted/60 mb-0.5">Peak Activity</div>
                         <span className="font-mono text-foreground font-bold">
-                          {selectedTrend.peak_year} ({selectedTrend.peak_count} file{selectedTrend.peak_count === 1 ? "" : "s"})
+                          {selectedTrend.peak_year} ({selectedTrend.peak_count} ref{selectedTrend.peak_count === 1 ? "" : "s"})
                         </span>
                       </div>
                       <div>
@@ -866,13 +1056,13 @@ export default function ExpertiseClient() {
                       </div>
                       <div className="col-span-2">
                         <div className="text-[10px] uppercase text-foreground-muted/60 mb-0.5">Total References</div>
-                        <span className="font-mono text-foreground font-bold">{selectedTrend.total} files</span>
+                        <span className="font-mono text-foreground font-bold">{selectedTrend.total}</span>
                       </div>
                     </div>
 
                     {/* Library references */}
                     <h3 className="font-semibold text-slate dark:text-foreground-muted uppercase tracking-wider mb-2 font-heading text-[10px]">
-                      Files List ({selectedTrendFiles.length})
+                      Sources on file ({selectedTrendFiles.length})
                     </h3>
 
                     <div className="max-h-[50vh] overflow-y-auto pr-1 scrollbar-thin divide-y divide-border/40">
@@ -881,15 +1071,18 @@ export default function ExpertiseClient() {
                       ) : (
                         selectedTrendFiles.map((file, idx) => (
                           <div key={idx} className="py-2.5 flex items-start gap-2 hover:bg-ash/20 dark:hover:bg-white/[0.01] px-1 rounded transition-colors duration-150">
-                            <span className="font-mono text-ember font-bold shrink-0 bg-ember/5 dark:bg-ember/20 px-1 rounded">
-                              {file.year}
+                            <span
+                              className={`font-mono shrink-0 px-1 rounded ${
+                                file.year > 0
+                                  ? "text-ember font-bold bg-ember/5 dark:bg-ember/20"
+                                  : "text-foreground-muted bg-ash/60 dark:bg-white/5"
+                              }`}
+                            >
+                              {file.year > 0 ? file.year : "n.d."}
                             </span>
                             <div className="min-w-0 flex-1">
                               <p className="font-medium text-foreground leading-normal break-words">
                                 {cleanFileName(file.label)}
-                              </p>
-                              <p className="text-[9.5px] text-foreground-muted font-mono truncate opacity-60 mt-0.5 select-all" title={file.label}>
-                                {file.label}
                               </p>
                             </div>
                           </div>
@@ -913,7 +1106,7 @@ export default function ExpertiseClient() {
                       {selectedYear}
                     </h2>
                     <p className="text-foreground-muted font-mono mb-4 text-[11px]">
-                      Total files this year: <strong className="text-foreground font-bold">{selectedYearFiles.length}</strong>
+                      References this year: <strong className="text-foreground font-bold">{selectedYearRefTotal}</strong>
                     </p>
 
                     {/* Top themes breakdown badges */}
@@ -939,7 +1132,7 @@ export default function ExpertiseClient() {
 
                     {/* Files list for that year */}
                     <h3 className="font-semibold text-slate dark:text-foreground-muted uppercase tracking-wider mb-2 font-heading text-[10px]">
-                      All files this year ({selectedYearFiles.length})
+                      Sources on file ({selectedYearFiles.length})
                     </h3>
 
                     <div className="max-h-[50vh] overflow-y-auto pr-1 scrollbar-thin divide-y divide-border/40">
@@ -965,9 +1158,6 @@ export default function ExpertiseClient() {
                               <p className="font-medium text-foreground leading-normal break-words">
                                 {cleanFileName(item.label)}
                               </p>
-                              <p className="text-[9.5px] text-foreground-muted font-mono truncate opacity-60 mt-0.5 select-all" title={item.label}>
-                                {item.label}
-                              </p>
                             </div>
                           </div>
                         ))
@@ -983,23 +1173,206 @@ export default function ExpertiseClient() {
         </div>
       </section>
 
+      {/* How the Brain works */}
+      <section className="section bg-card border-t border-border">
+        <div className="container-narrow">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mb-10"
+          >
+            <h2 className="text-2xl md:text-3xl font-bold font-heading text-foreground mb-3">
+              How the Brain works
+            </h2>
+            <p className="text-foreground-muted leading-relaxed">
+              The visualizer above is the output. The system underneath is a
+              working Obsidian vault with one rule: nothing gets saved without
+              being cataloged, and nothing gets cataloged without being linked.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+            {METHOD_STEPS.map((s, i) => (
+              <motion.div
+                key={s.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="bg-background border border-border rounded-lg p-5"
+              >
+                <div className="font-mono text-xs font-bold text-ember mb-2">{s.step}</div>
+                <h3 className="font-heading font-semibold text-foreground mb-2">{s.title}</h3>
+                <p className="text-sm text-foreground-muted leading-relaxed">{s.body}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Vault graph figures */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <motion.figure
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="relative rounded-lg overflow-hidden border border-border">
+                <Image
+                  src="/images/expertise/obsidian-close_2400x600.jpg"
+                  alt="Close-up of the Obsidian vault graph view: individual notes as dots, connected by backlinks"
+                  width={2400}
+                  height={600}
+                  className="w-full h-auto"
+                />
+              </div>
+              <figcaption className="mt-2 text-xs font-mono text-foreground-muted">
+                Inside the vault — each dot is a note; the lines are links
+                between ideas.
+              </figcaption>
+            </motion.figure>
+            <motion.figure
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <div className="relative rounded-lg overflow-hidden border border-border">
+                <Image
+                  src="/images/expertise/obsidian-full-2400x600.jpg"
+                  alt="The full Obsidian vault graph view, with notes clustering into research eras"
+                  width={2400}
+                  height={600}
+                  className="w-full h-auto"
+                />
+              </div>
+              <figcaption className="mt-2 text-xs font-mono text-foreground-muted">
+                Zoomed out — clusters form around the same eras you can trace
+                in the matrix above.
+              </figcaption>
+            </motion.figure>
+          </div>
+        </div>
+      </section>
+
+      {/* From shelf to shipped — synthesis receipts */}
+      <section className="section bg-background">
+        <div className="container-narrow">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mb-10"
+          >
+            <h2 className="text-2xl md:text-3xl font-bold font-heading text-foreground mb-3">
+              From shelf to shipped
+            </h2>
+            <p className="text-foreground-muted leading-relaxed">
+              Collecting proves diligence. Synthesis is the point — research
+              threads in the vault become client outcomes. A few traces:
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {RECEIPTS.map((r, i) => (
+              <motion.div
+                key={r.href}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="bg-card border border-border rounded-lg p-5 flex flex-col"
+              >
+                <div className="flex items-center gap-2 mb-3 font-mono text-[10px] uppercase tracking-wider">
+                  <span
+                    className="w-2.5 h-2.5 rounded-[2px] shrink-0"
+                    style={{ backgroundColor: getThemeColor(r.theme) }}
+                  />
+                  <span className="font-bold text-foreground">{r.thread}</span>
+                  <span className="text-foreground-muted">{r.years}</span>
+                </div>
+                <p className="text-sm text-foreground-muted leading-relaxed flex-1 mb-4">
+                  {r.body}
+                </p>
+                <Link
+                  href={r.href}
+                  className="inline-flex items-center gap-1 text-sm text-lavender hover:text-ember font-semibold transition-colors"
+                >
+                  {r.cta}
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Closing CTA */}
+      <section className="section gradient-dark">
+        <div className="container-narrow text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-2xl md:text-3xl font-bold font-heading text-ash mb-4">
+              Put the Brain to work
+            </h2>
+            <p className="text-ash/80 max-w-2xl mx-auto leading-relaxed mb-8">
+              Every engagement starts with what&apos;s already on these
+              shelves. If your problem rhymes with something I&apos;ve studied
+              for twenty years, we skip the ramp-up.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link href="/work" className="btn-primary">
+                Work with me
+              </Link>
+              <Link href="/playbooks" className="btn-secondary-dark">
+                Browse the playbooks
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Floating cell/bubble hover tooltip */}
       {tooltip.show && (
         <div
-          className="fixed z-50 pointer-events-none bg-charcoal text-ash text-[11px] px-3 py-2 rounded-lg border border-border shadow-xl font-mono max-w-[280px]"
+          className="fixed z-50 pointer-events-none bg-charcoal text-ash text-[11px] px-3 py-2.5 rounded-lg border border-border shadow-xl font-mono max-w-[320px]"
           style={{
             left: tooltip.x - window.scrollX,
             top: tooltip.y - window.scrollY,
             transform: "translate(-50%, -100%)",
           }}
         >
+          {/* Trend + year header */}
           <div className="font-bold text-ember truncate mb-0.5">{tooltip.title}</div>
-          <div className="text-[10px] text-slate dark:text-ash/60 truncate mb-1">
+          <div className="text-[10px] text-ash/50 truncate mb-1">
             {tooltip.subtitle}
           </div>
           <div className="text-lavender font-bold text-[10px] border-t border-border/20 pt-1 mt-1">
             {tooltip.details}
           </div>
+
+          {/* Per-file details */}
+          {tooltip.files.length > 0 && (
+            <div className="mt-2 pt-2 border-t border-border/20 space-y-2 max-h-[180px] overflow-y-auto">
+              {tooltip.files.map((file, i) => (
+                <div key={i} className="leading-snug">
+                  <div className="text-[10px] text-ash/90 font-semibold break-words whitespace-normal">
+                    {file.title}
+                  </div>
+                  {file.publisher && (
+                    <div className="text-[9.5px] text-ash/50 truncate mt-0.5">{file.publisher}</div>
+                  )}
+                  {file.year > 0 && (
+                    <div className="text-[9px] text-ember/70 font-mono mt-0.5">{file.year}</div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
 

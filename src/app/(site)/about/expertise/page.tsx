@@ -3,23 +3,23 @@ import ExpertiseClient from "./ExpertiseClient";
 import JsonLd from "@/components/seo/JsonLd";
 import PagefindBoundary from "@/components/search/PagefindBoundary";
 
+const DESCRIPTION =
+  "An interactive index of my Obsidian research vault: 650+ cataloged references across 63 research threads, from 2003 to 2026 — the raw material behind every framework and playbook on this site.";
+
 export const metadata: Metadata = {
-  title: "Subject Matter Expertise Timeline | Saren",
-  description:
-    "An interactive visualizer tracing two decades of digital marketing trends and subject matter expertise across 420 research and project library files (2003–2024).",
+  title: "The Marketing Brain — 20 Years of Research, Linked | Saren",
+  description: DESCRIPTION,
   alternates: { canonical: "https://saren.ai/about/expertise" },
   openGraph: {
-    title: "Subject Matter Expertise Timeline | Saren",
-    description:
-      "An interactive visualizer tracing two decades of digital marketing trends and subject matter expertise across 420 research and project library files (2003–2024).",
+    title: "The Marketing Brain — 20 Years of Research, Linked | Saren",
+    description: DESCRIPTION,
     images: ["/images/og/about.png"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Subject Matter Expertise Timeline | Saren",
-    description:
-      "An interactive visualizer tracing two decades of digital marketing trends and subject matter expertise across 420 research and project library files (2003–2024).",
+    title: "The Marketing Brain — 20 Years of Research, Linked | Saren",
+    description: DESCRIPTION,
     images: ["/images/og/about.png"],
   },
 };
@@ -33,14 +33,13 @@ export default function ExpertisePage() {
           "@type": "AboutPage",
           "@id": "https://saren.ai/about/expertise/#webpage",
           "url": "https://saren.ai/about/expertise",
-          "name": "Subject Matter Expertise Timeline | Saren",
-          "description":
-            "An interactive visualizer tracing two decades of digital marketing trends and subject matter expertise across 420 research and project library files (2003–2024).",
+          "name": "The Marketing Brain — 20 Years of Research, Linked | Saren",
+          "description": DESCRIPTION,
           "isPartOf": { "@id": "https://saren.ai/#website" },
           "about": { "@id": "https://saren.ai/#person" },
           "author": { "@id": "https://saren.ai/#person" },
           "inLanguage": "en-US",
-          "dateModified": "2026-05-21",
+          "dateModified": "2026-07-02",
         }}
       />
       <JsonLd
@@ -53,7 +52,7 @@ export default function ExpertisePage() {
             {
               "@type": "ListItem",
               "position": 3,
-              "name": "Expertise Timeline",
+              "name": "Marketing Brain",
               "item": "https://saren.ai/about/expertise",
             },
           ],

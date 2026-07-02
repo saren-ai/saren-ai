@@ -227,8 +227,8 @@ export const aboutMegaMenu: MegaMenuContent = {
       links: [
         {
           href: "/about/expertise",
-          label: "Expertise Timeline",
-          description: "Two decades of digital marketing trends",
+          label: "Marketing Brain",
+          description: "20+ years of research, cataloged and linked in Obsidian",
         },
         {
           href: "/brand",

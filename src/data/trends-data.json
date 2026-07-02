@@ -307,7 +307,7 @@
       "peak_count": 3
     },
     {
-      "trend": "Misc / Health (CUT pile)",
+      "trend": "Health & Behavior Change",
       "theme": "Misc",
       "counts": [
         0,
@@ -2235,166 +2235,166 @@
   "files_by_trend": {
     "Persuasion / Behavioral": [
       {
-        "year": 0,
-        "label": "7/15/12 BJ Fogg's Behavior Grid"
+        "year": 2009,
+        "label": "BJ Fogg's Behavior Grid — BJ Fogg, Stanford Behavior Design Lab, 2009"
+      },
+      {
+        "year": 2008,
+        "label": "Yes! 50 Scientifically Proven Ways to Be Persuasive — Goldstein, Martin & Cialdini, 2008"
+      },
+      {
+        "year": 2009,
+        "label": "BJ Fogg's Behavior Model — BJ Fogg, Stanford Behavior Design Lab, 2009"
       },
       {
         "year": 0,
-        "label": "Yes! 50 Scientifically Proven Ways to Be Persuasive"
+        "label": "6 Behavioral Science Principles for Deeper Human Insights — Material"
       },
       {
-        "year": 0,
-        "label": "7/15/12 BJ Fogg's Behavior Model"
-      },
-      {
-        "year": 0,
-        "label": "6 Behavioral Science Principles for Deeper Human Insights \u2014 Material, Unknown"
-      },
-      {
-        "year": 0,
-        "label": "Dan Ariely Predictably Irrational - The Hidden Forces That Shape Our Decisions"
+        "year": 2008,
+        "label": "Predictably Irrational — Dan Ariely, 2008"
       },
       {
         "year": 2025,
-        "label": "Polarization by Design: How Elites Could Shape Mass Preferences as AI Reduces Persuasion Costs \u2014 Nadav Kunievsky, 2025"
+        "label": "Polarization by Design: How Elites Could Shape Mass Preferences as AI Reduces Persuasion Costs — Nadav Kunievsky, 2025"
       }
     ],
     "AI / GenAI in Marketing": [
       {
         "year": 0,
-        "label": "AI Prompt Playbook:"
+        "label": "AI Prompt Playbook"
       },
       {
         "year": 0,
-        "label": "1 The Responsible AI Roadmap"
+        "label": "The Responsible AI Roadmap"
       },
       {
-        "year": 0,
-        "label": "AI for Marketing _Leaders"
-      },
-      {
-        "year": 2025,
-        "label": "The 2025 AI-Driven Demand Generation Benchmark Report \u2014 LeadSpot, 2025"
+        "year": 2024,
+        "label": "AI for Marketing Leaders — CMO Alliance / Webflow, 2024"
       },
       {
         "year": 2025,
-        "label": "Provocations from the Humanities for Generative AI Research \u2014 Lauren Klein, Meredith Martin, Andre Brock, Maria Antoniak, Melanie Walsh, Jessica Marie Johnson, Lauren Tilton, David Mimno, 2025"
+        "label": "The 2025 AI-Driven Demand Generation Benchmark Report — LeadSpot, 2025"
+      },
+      {
+        "year": 2025,
+        "label": "Provocations from the Humanities for Generative AI Research — Lauren Klein, Meredith Martin, Andre Brock, Maria Antoniak, Melanie Walsh, Jessica Marie Johnson, Lauren Tilton, David Mimno, 2025"
       },
       {
         "year": 2026,
-        "label": "AI Agents Unleashed: Playbook for 2026 Success \u2014 Adam Biddlecombe, Kevin Hutson, 2026"
+        "label": "AI Agents Unleashed: Playbook for 2026 Success — Adam Biddlecombe, Kevin Hutson, 2026"
       },
       {
         "year": 2026,
-        "label": "The New World of B2A Marketing: How to Market to AI Agents \u2014 Unknown, 2026"
+        "label": "The New World of B2A Marketing: How to Market to AI Agents — Unknown, 2026"
       },
       {
         "year": 2026,
-        "label": "AI-Driven Ads vs. AI-Driven Buyers: How Lead Gen Must Adapt in 2026 \u2014 Omar Jenblat, 2026"
+        "label": "AI-Driven Ads vs. AI-Driven Buyers: How Lead Gen Must Adapt in 2026 — Omar Jenblat, 2026"
       },
       {
         "year": 2026,
-        "label": "Interaction Context Often Increases Sycophancy in LLMs \u2014 Shomik Jain, Charlotte Park, Matt Viana, Ashia Wilson, Dana Calacci, 2026"
+        "label": "Interaction Context Often Increases Sycophancy in LLMs — Shomik Jain, Charlotte Park, Matt Viana, Ashia Wilson, Dana Calacci, 2026"
       },
       {
         "year": 2026,
-        "label": "Claude Environment: How It's Organized \u2014 Saren Sakurai, 2026"
+        "label": "Claude Environment: How It's Organized — Saren Sakurai, 2026"
       },
       {
         "year": 2026,
-        "label": "AI Must Embrace Specialization via Superhuman Adaptable Intelligence \u2014 Judah Goldfeder, Philippe Wyder, Yann LeCun, Ravid Shwartz-Ziv, 2026"
+        "label": "AI Must Embrace Specialization via Superhuman Adaptable Intelligence — Judah Goldfeder, Philippe Wyder, Yann LeCun, Ravid Shwartz-Ziv, 2026"
       },
       {
         "year": 2026,
-        "label": "The Adolescence of Technology \u2014 Confronting and Overcoming the Risks of Powerful AI \u2014 Dario Amodei, 2026"
+        "label": "The Adolescence of Technology — Confronting and Overcoming the Risks of Powerful AI — Dario Amodei, 2026"
       },
       {
         "year": 2026,
-        "label": "The Anthropic Economic Index Report: Economic Primitives \u2014 Ruth Appel, Maxim Massenkoff, Peter McCrory, Miles McCain, Ryan Heller, Tyler Neylon, Alex Tamkin, 2026"
+        "label": "The Anthropic Economic Index Report: Economic Primitives — Ruth Appel, Maxim Massenkoff, Peter McCrory, Miles McCain, Ryan Heller, Tyler Neylon, Alex Tamkin, 2026"
       },
       {
         "year": 2026,
-        "label": "The Complete Guide to Building Skills for Claude \u2014 Anthropic, 2026"
+        "label": "The Complete Guide to Building Skills for Claude — Anthropic, 2026"
       },
       {
         "year": 2026,
-        "label": "AI-Powered B2B Demand Generation Strategy for 2026 \u2014 MassMetric, 2026"
+        "label": "AI-Powered B2B Demand Generation Strategy for 2026 — MassMetric, 2026"
       },
       {
         "year": 2026,
-        "label": "Building AI Agents for the Enterprise \u2014 Anthropic, 2026"
+        "label": "Building AI Agents for the Enterprise — Anthropic, 2026"
       }
     ],
     "Analytics & Data Stack": [
       {
-        "year": 0,
-        "label": "How to Calculate Your Marketing Funnel Metrics and Budget"
+        "year": 2023,
+        "label": "How to Calculate Your Marketing Funnel Metrics and Budget — Plannuh, 2023"
       },
       {
         "year": 0,
-        "label": "Here\u02bcs everything you need to know about Google Analytics 4"
+        "label": "Here's everything you need to know about Google Analytics 4"
       },
       {
         "year": 2022,
-        "label": "Top Five Analytics Personas \u2014 Sisense, 2022"
+        "label": "Top Five Analytics Personas — Sisense, 2022"
       },
       {
         "year": 2022,
-        "label": "THE MODERN MARKETING DATA STACK \u2014 Snowflake, 2022"
+        "label": "THE MODERN MARKETING DATA STACK — Snowflake, 2022"
       },
       {
         "year": 2022,
-        "label": "Why is this the best second step for becoming data-driven? \u2014 Segment, 2022"
+        "label": "Why is this the best second step for becoming data-driven? — Segment, 2022"
       }
     ],
     "Industry Stats / Year-in-Review": [
       {
-        "year": 0,
+        "year": 2024,
         "label": "State of Design Guide 2024"
       },
       {
-        "year": 0,
+        "year": 2025,
         "label": "State of the Website 2025"
       },
       {
         "year": 2025,
-        "label": "Predictions 2025: B2B Marketing & Sales \u2014 Forrester Research, 2025"
+        "label": "Predictions 2025: B2B Marketing & Sales — Forrester Research, 2025"
       },
       {
         "year": 2025,
-        "label": "The State of Demand Generation in 2025: Lean Teams, Fragile Data, and the Fight for Pipeline \u2014 LeadGenius, 2025"
+        "label": "The State of Demand Generation in 2025: Lean Teams, Fragile Data, and the Fight for Pipeline — LeadGenius, 2025"
       },
       {
         "year": 2025,
-        "label": "Digital Marketing Trends 2026 \u2014 Brandwatch, 2025"
+        "label": "Digital Marketing Trends 2026 — Brandwatch, 2025"
       },
       {
         "year": 2026,
-        "label": "Energize Marketing \u2014 2026 State of Demand Generation Report: The Year of the Pipeline Mandate \u2014 Energize Marketing, 2026"
+        "label": "Energize Marketing — 2026 State of Demand Generation Report: The Year of the Pipeline Mandate — Energize Marketing, 2026"
       },
       {
         "year": 2026,
-        "label": "2026 Marketing Trends Shaping Trust in the Era of AI \u2014 Blake Droesch, 2026"
+        "label": "2026 Marketing Trends Shaping Trust in the Era of AI — Blake Droesch, 2026"
       },
       {
         "year": 2026,
-        "label": "Commercial Filmmaking Trend Report 2026 \u2014 Filmsupply, 2026"
+        "label": "Commercial Filmmaking Trend Report 2026 — Filmsupply, 2026"
       },
       {
         "year": 2026,
-        "label": "State of B2B Marketing 2026: 75+ Statistics, Trends & Benchmarks \u2014 Chris, Visionary Marketing, 2026"
+        "label": "State of B2B Marketing 2026: 75+ Statistics, Trends & Benchmarks — Chris, Visionary Marketing, 2026"
       },
       {
         "year": 2026,
-        "label": "ARK Big Ideas 2026 \u2014 ARK Investment Management LLC (Brett Winton, Frank Downing, Jozef Soja, Nicholas Grous, Varshika Prasanna, David Puell, Lorenzo Valente, Raye Hadi, Shea Wihlborg), 2026"
+        "label": "ARK Big Ideas 2026 — ARK Investment Management LLC (Brett Winton, Frank Downing, Jozef Soja, Nicholas Grous, Varshika Prasanna, David Puell, Lorenzo Valente, Raye Hadi, Shea Wihlborg), 2026"
       },
       {
         "year": 2026,
-        "label": "Predictions 2026: B2B Marketing, Sales, and Product \u2014 Forrester Research, 2026"
+        "label": "Predictions 2026: B2B Marketing, Sales, and Product — Forrester Research, 2026"
       },
       {
         "year": 2026,
-        "label": "iF Design Trend Report 2026 \u2014 iF Design, 2026"
+        "label": "iF Design Trend Report 2026 — iF Design, 2026"
       }
     ],
     "ICP / Segmentation": [
@@ -2403,8 +2403,8 @@
         "label": "ICP Guide"
       },
       {
-        "year": 0,
-        "label": "How to activate your ICP in 5 steps"
+        "year": 2022,
+        "label": "How to activate your ICP in 5 steps — Clearbit, 2022"
       },
       {
         "year": 0,
@@ -2412,39 +2412,39 @@
       },
       {
         "year": 2012,
-        "label": "Ideal Customer Profile: How to Create One \u2014 Clearbit Research, Inc., 2012"
+        "label": "Ideal Customer Profile: How to Create One — Clearbit Research, Inc., 2012"
       },
       {
         "year": 2023,
-        "label": "IDEAL CUSTOMER PROFILE WORKSHEET: \u2014 Clearbit, 2023"
+        "label": "IDEAL CUSTOMER PROFILE WORKSHEET — Clearbit, 2023"
       },
       {
         "year": 2023,
-        "label": "Ideal Customer Profile \u2014 Qualtrics, 2023"
+        "label": "Ideal Customer Profile — Qualtrics, 2023"
       },
       {
         "year": 2023,
-        "label": "How to Scale Your Business with Your Ideal Customer in Mind \u2014 Clearbit, 2023"
+        "label": "How to Scale Your Business with Your Ideal Customer in Mind — Clearbit, 2023"
       },
       {
         "year": 2023,
-        "label": "Ideal Customer Profile \u2014 2023"
+        "label": "Ideal Customer Profile — 2023"
       },
       {
         "year": 2023,
-        "label": "IDEAL CUSTOMER PROFILE WORKSHEET: \u2014 HubSpot, 2023"
+        "label": "IDEAL CUSTOMER PROFILE WORKSHEET — HubSpot, 2023"
       },
       {
         "year": 2023,
-        "label": "How to Scale Your Business with Your Ideal Customer in Mind \u2014 HubSpot, 2023"
+        "label": "How to Scale Your Business with Your Ideal Customer in Mind — HubSpot, 2023"
       },
       {
         "year": 2026,
-        "label": "WethosAI Apollo ICP + Messaging Framework \u2014 Saren Sakurai, 2026"
+        "label": "WethosAI Apollo ICP + Messaging Framework — Saren Sakurai, 2026"
       },
       {
         "year": 2026,
-        "label": "CAIO Persona Research: Chief AI Officer Profile \u2014 Perplexity / Saren Sakurai, 2026"
+        "label": "CAIO Persona Research: Chief AI Officer Profile — Perplexity / Saren Sakurai, 2026"
       }
     ],
     "Customer Journey & Lifecycle": [
@@ -2454,11 +2454,11 @@
       },
       {
         "year": 2009,
-        "label": "The 21st Century Purchase Paradigm: The Purchase Funnel Reimagined \u2014 Unknown (Razorfish + McKinsey synthesis), 2009"
+        "label": "The 21st Century Purchase Paradigm: The Purchase Funnel Reimagined — Unknown (Razorfish + McKinsey synthesis), 2009"
       },
       {
         "year": 2014,
-        "label": "Journey Mapping Best Practices \u2014 2014"
+        "label": "Journey Mapping Best Practices — 2014"
       }
     ],
     "UX Process & Documentation": [
@@ -2472,15 +2472,15 @@
       },
       {
         "year": 2014,
-        "label": "UX STORIES \u2014 2014"
+        "label": "UX STORIES — 2014"
       },
       {
         "year": 2014,
-        "label": "UX Design Process and Documentation \u2014 UXPin, 2014"
+        "label": "UX Design Process and Documentation — UXPin, 2014"
       },
       {
         "year": 2015,
-        "label": "UX Research Methodologies \u2014 UserTesting, 2015"
+        "label": "UX Research Methodologies — UserTesting, 2015"
       }
     ],
     "Sociology / Academic": [
@@ -2490,20 +2490,20 @@
       },
       {
         "year": 2012,
-        "label": "Four Degrees of Separation \u2014 Facebook, 2012"
+        "label": "Four Degrees of Separation — Facebook, 2012"
       },
       {
         "year": 2021,
-        "label": "Pandemic practice: Horror fans and morbidly curious individuals are more psychologically resilient during the COVID-19 pandemic \u2014 Coltan Scrivner, John A. Johnson, Jens Kjeldgaard-Christiansen, Mathias Clasen, 2021"
+        "label": "Pandemic practice: Horror fans and morbidly curious individuals are more psychologically resilient during the COVID-19 pandemic — Coltan Scrivner, John A. Johnson, Jens Kjeldgaard-Christiansen, Mathias Clasen, 2021"
       },
       {
         "year": 2025,
-        "label": "Polarization by Design: How Elites Could Shape Mass Preferences as AI Reduces Persuasion Costs \u2014 Nadav Kunievsky, 2025"
+        "label": "Polarization by Design: How Elites Could Shape Mass Preferences as AI Reduces Persuasion Costs — Nadav Kunievsky, 2025"
       }
     ],
     "Demand Generation": [
       {
-        "year": 0,
+        "year": 2022,
         "label": "Demand Generation Primer for 2022"
       },
       {
@@ -2512,33 +2512,33 @@
       },
       {
         "year": 2025,
-        "label": "The State of Demand Generation in 2025: Lean Teams, Fragile Data, and the Fight for Pipeline \u2014 LeadGenius, 2025"
+        "label": "The State of Demand Generation in 2025: Lean Teams, Fragile Data, and the Fight for Pipeline — LeadGenius, 2025"
       },
       {
         "year": 2025,
-        "label": "The 2025 AI-Driven Demand Generation Benchmark Report \u2014 LeadSpot, 2025"
+        "label": "The 2025 AI-Driven Demand Generation Benchmark Report — LeadSpot, 2025"
       },
       {
         "year": 2026,
-        "label": "Energize Marketing \u2014 2026 State of Demand Generation Report: The Year of the Pipeline Mandate \u2014 Energize Marketing, 2026"
+        "label": "Energize Marketing — 2026 State of Demand Generation Report: The Year of the Pipeline Mandate — Energize Marketing, 2026"
       },
       {
         "year": 2026,
-        "label": "AI-Powered B2B Demand Generation Strategy for 2026 \u2014 MassMetric, 2026"
+        "label": "AI-Powered B2B Demand Generation Strategy for 2026 — MassMetric, 2026"
       }
     ],
     "Brand & Storytelling": [
       {
-        "year": 0,
-        "label": "All Marketers Are Liars"
+        "year": 2005,
+        "label": "All Marketers Are Liars — Seth Godin, 2005"
       },
       {
         "year": 0,
         "label": "David Ogilvy"
       },
       {
-        "year": 0,
-        "label": "Customer-obsessed firms push brand, marketing, and customer experience to converge. The"
+        "year": 2016,
+        "label": "The Convergence Of Brand, Marketing, And Customer Experience — Forrester Research, 2016"
       },
       {
         "year": 0,
@@ -2550,43 +2550,39 @@
       },
       {
         "year": 0,
-        "label": "IDC eBook The Tech Marketer\u2019s Guide to Brand Messaging"
+        "label": "IDC eBook The Tech Marketer’s Guide to Brand Messaging"
       },
       {
-        "year": 0,
-        "label": "Designing Brand Identity (4th Edition)"
+        "year": 2012,
+        "label": "Designing Brand Identity (4th Edition) — Alina Wheeler, 2012"
       },
       {
         "year": 0,
         "label": "5 Reasons Why Every Brand Needs a Digital Design System"
       },
       {
-        "year": 0,
-        "label": "Designing Brand Identity (4th Edition)"
-      },
-      {
         "year": 2007,
-        "label": "Write Brothers [\u00ae] Inc. 138 N. Brand Blvd. #201 Glendale, CA 91203 \u2014 2007"
+        "label": "Write Brothers [®] Inc. 138 N. Brand Blvd. #201 Glendale, CA 91203 — 2007"
       },
       {
         "year": 2009,
-        "label": "Designing Brand Identity (3rd Edition) \u2014 Alina Wheeler, 2009"
+        "label": "Designing Brand Identity (3rd Edition) — Alina Wheeler, 2009"
       },
       {
         "year": 2012,
-        "label": "Interbrand | Pg. 2 \u2014 Interbrand, 2012"
+        "label": "Interbrand | Pg. 2 — Interbrand, 2012"
       },
       {
         "year": 2025,
-        "label": "Strategic Narrative Frameworks: Lowman & Trevarthen \u2014 Josh Lowman, Tobin Trevarthen, 2025"
+        "label": "Strategic Narrative Frameworks: Lowman & Trevarthen — Josh Lowman, Tobin Trevarthen, 2025"
       },
       {
         "year": 2025,
-        "label": "Digital Marketing Trends 2026 \u2014 Brandwatch, 2025"
+        "label": "Digital Marketing Trends 2026 — Brandwatch, 2025"
       },
       {
         "year": 2026,
-        "label": "Commercial Filmmaking Trend Report 2026 \u2014 Filmsupply, 2026"
+        "label": "Commercial Filmmaking Trend Report 2026 — Filmsupply, 2026"
       }
     ],
     "Marketing Automation": [
@@ -2596,96 +2592,96 @@
       },
       {
         "year": 2014,
-        "label": "THE GUIDE TO CREATING \u2014 HubSpot, 2014"
+        "label": "THE GUIDE TO CREATING — HubSpot, 2014"
       },
       {
         "year": 2014,
-        "label": "LEAD GENERATION DEFINED \u2014 Marketo, 2014"
+        "label": "LEAD GENERATION DEFINED — Marketo, 2014"
       },
       {
         "year": 2015,
-        "label": "Definitive Guide to Social Marketing \u2014 Marketo, 2015"
+        "label": "Definitive Guide to Social Marketing — Marketo, 2015"
       },
       {
         "year": 2015,
-        "label": "Selling Marketing Automation to the C-Suite \u2014 Marketo, 2015"
+        "label": "Selling Marketing Automation to the C-Suite — Marketo, 2015"
       },
       {
         "year": 2015,
-        "label": "Multi-Channel Marketing Workbook \u2014 Marketo, 2015"
+        "label": "Multi-Channel Marketing Workbook — Marketo, 2015"
       },
       {
         "year": 2023,
-        "label": "IDEAL CUSTOMER PROFILE WORKSHEET: \u2014 HubSpot, 2023"
+        "label": "IDEAL CUSTOMER PROFILE WORKSHEET — HubSpot, 2023"
       },
       {
         "year": 2023,
-        "label": "How to Scale Your Business with Your Ideal Customer in Mind \u2014 HubSpot, 2023"
+        "label": "How to Scale Your Business with Your Ideal Customer in Mind — HubSpot, 2023"
       },
       {
         "year": 2024,
-        "label": "51 HubSpot Workflows: The Ultimate Automation Swipe File for Igniting Your Growth Engines \u2014 Hubjoy, 2024"
+        "label": "51 HubSpot Workflows: The Ultimate Automation Swipe File for Igniting Your Growth Engines — Hubjoy, 2024"
       },
       {
         "year": 2026,
-        "label": "WethosAI Quarterly HubSpot Hygiene Program \u2014 Saren Sakurai, 2026"
+        "label": "WethosAI Quarterly HubSpot Hygiene Program — Saren Sakurai, 2026"
       }
     ],
     "Social Media Marketing": [
       {
-        "year": 0,
-        "label": "Defining and Measuring Share of Voice"
+        "year": 2018,
+        "label": "Defining and Measuring Share of Voice — Forrester Research (Ian Bruce), 2018"
       },
       {
         "year": 2015,
-        "label": "Definitive Guide to Social Marketing \u2014 Marketo, 2015"
+        "label": "Definitive Guide to Social Marketing — Marketo, 2015"
       },
       {
         "year": 2022,
-        "label": "How to Lower Your CAC on LinkedIn \u2014 LinkedIn, 2022"
+        "label": "How to Lower Your CAC on LinkedIn — LinkedIn, 2022"
       },
       {
         "year": 2024,
-        "label": "HOW TO USE \u2014 LinkedIn, 2024"
+        "label": "HOW TO USE — LinkedIn, 2024"
       },
       {
         "year": 2025,
-        "label": "Feeds, Feelings, and Focus: A Systematic Review and Meta-Analysis Examining the Cognitive and Mental Health Correlates of Short-Form Video Use \u2014 Lan Nguyen, Jared Walters, Siddharth Paul, Shay Monreal Ijurco, Georgia E. Rainey, Nupur Parekh, Gabriel Blair, Miranda Darrah, 2025"
+        "label": "Feeds, Feelings, and Focus: A Systematic Review and Meta-Analysis Examining the Cognitive and Mental Health Correlates of Short-Form Video Use — Lan Nguyen, Jared Walters, Siddharth Paul, Shay Monreal Ijurco, Georgia E. Rainey, Nupur Parekh, Gabriel Blair, Miranda Darrah, 2025"
       },
       {
         "year": 2025,
-        "label": "Effective Short-Form Video Hooks for 'AI for Liberal Arts Majors' \u2014 Ghosts Group, 2025"
+        "label": "Effective Short-Form Video Hooks for 'AI for Liberal Arts Majors' — Ghosts Group, 2025"
       },
       {
         "year": 2026,
-        "label": "Trends Report 2026: Creators Edition \u2014 Unknown, 2026"
+        "label": "Trends Report 2026: Creators Edition — Unknown, 2026"
       }
     ],
     "Customer Experience (CX)": [
       {
-        "year": 0,
-        "label": "Customer-obsessed firms push brand, marketing, and customer experience to converge. The"
+        "year": 2016,
+        "label": "The Convergence Of Brand, Marketing, And Customer Experience — Forrester Research, 2016"
       },
       {
         "year": 2009,
-        "label": "Emotional Experience Design \u2014 Forrester Research, 2009"
+        "label": "Emotional Experience Design — Forrester Research, 2009"
       },
       {
         "year": 2011,
-        "label": "Mastering Emotional Experience Design: Engage A Mix Of Senses \u2014 2011"
+        "label": "Mastering Emotional Experience Design: Engage A Mix Of Senses — 2011"
       },
       {
         "year": 2012,
-        "label": "Emotional Experience Design: Version 7.0 \u2014 Perficient Inc., 2012"
+        "label": "Emotional Experience Design: Version 7.0 — Perficient Inc., 2012"
       },
       {
         "year": 2023,
-        "label": "Partnership Marketing: How to Achieve Exponential Growth and Provide Exceptional Customer Experiences \u2014 impact.com, 2023"
+        "label": "Partnership Marketing: How to Achieve Exponential Growth and Provide Exceptional Customer Experiences — impact.com, 2023"
       }
     ],
     "Marketing Strategy / CMO Playbooks": [
       {
-        "year": 0,
+        "year": 2022,
         "label": "CMO Leadership Vision Ebook 2022"
       },
       {
@@ -2693,24 +2689,24 @@
         "label": "7 Ways to Use AI to Superpower Your Marketing Strategy"
       },
       {
-        "year": 0,
-        "label": "AI for Marketing _Leaders"
+        "year": 2024,
+        "label": "AI for Marketing Leaders — CMO Alliance / Webflow, 2024"
       },
       {
         "year": 2013,
-        "label": "Seven Steps to a Needs-Based Marketing Strategy \u2014 Forrester Research, 2013"
+        "label": "Seven Steps to a Needs-Based Marketing Strategy — Forrester Research, 2013"
       },
       {
         "year": 2024,
-        "label": "How to Solve the Key Problem With Operational Marketing Leadership \u2014 Planful, 2024"
+        "label": "How to Solve the Key Problem With Operational Marketing Leadership — Planful, 2024"
       },
       {
         "year": 2024,
-        "label": "2024 CMO Outlook Guide \u2014 2024"
+        "label": "2024 CMO Outlook Guide — 2024"
       },
       {
         "year": 2026,
-        "label": "Marketing Predictions for 2026 | Gartner \u2014 Gartner, 2026"
+        "label": "Marketing Predictions for 2026 | Gartner — Gartner, 2026"
       }
     ],
     "Search / SEO / Ads": [
@@ -2722,53 +2718,53 @@
     "Attribution & ROI": [
       {
         "year": 2023,
-        "label": "How to Validate the Value of Your Marketing \u2014 Planful, 2023"
+        "label": "How to Validate the Value of Your Marketing — Planful, 2023"
       }
     ],
     "CRO / Conversion": [
       {
         "year": 2022,
-        "label": "Why should your company care about CRO? \u2014 Heap, 2022"
+        "label": "Why should your company care about CRO? — Heap, 2022"
       },
       {
         "year": 2024,
-        "label": "Retargeting is one of those terms you\u2019ll hear over and over in marketing webinars, blogs, and podcasts \u2014 \u2014 AdRoll, 2024"
+        "label": "Retargeting is one of those terms you’ll hear over and over in marketing webinars, blogs, and podcasts — AdRoll, 2024"
       },
       {
         "year": 2025,
-        "label": "AI-Integrated Cross-Disciplinary Liberal Arts Colloquium \u2014 Diana S. Perdue, Niloofar Gholamrezaei, Jennifer Krusinger, Shannon Hogan, 2025"
+        "label": "AI-Integrated Cross-Disciplinary Liberal Arts Colloquium — Diana S. Perdue, Niloofar Gholamrezaei, Jennifer Krusinger, Shannon Hogan, 2025"
       },
       {
         "year": 2026,
-        "label": "The Anthropic Economic Index Report: Economic Primitives \u2014 Ruth Appel, Maxim Massenkoff, Peter McCrory, Miles McCain, Ryan Heller, Tyler Neylon, Alex Tamkin, 2026"
+        "label": "The Anthropic Economic Index Report: Economic Primitives — Ruth Appel, Maxim Massenkoff, Peter McCrory, Miles McCain, Ryan Heller, Tyler Neylon, Alex Tamkin, 2026"
       }
     ],
     "Innovation / Creativity": [
       {
-        "year": 0,
-        "label": "Where Good Ideas Come From"
+        "year": 2010,
+        "label": "Where Good Ideas Come From — Steven Johnson, 2010"
       },
       {
         "year": 2003,
-        "label": "Assessing Creativity in Hollywood Pitch Meetings: Evidence for a Dual-Process Model of \u2014 2003"
+        "label": "Assessing Creativity in Hollywood Pitch Meetings: Evidence for a Dual-Process Model of — 2003"
       },
       {
         "year": 2025,
-        "label": "Amplifying Human Creativity and Problem Solving with AI Through Generative Collective Intelligence \u2014 Thomas P. Kehler, Scott E. Page, Alex Pentland, Martin Reeves, John Seely Brown, 2025"
+        "label": "Amplifying Human Creativity and Problem Solving with AI Through Generative Collective Intelligence — Thomas P. Kehler, Scott E. Page, Alex Pentland, Martin Reeves, John Seely Brown, 2025"
       },
       {
         "year": 2025,
-        "label": "Human-Centered AI Communication in Co-Creativity: An Initial Framework and Insights \u2014 Jeba Rezwana, Corey Ford, 2025"
+        "label": "Human-Centered AI Communication in Co-Creativity: An Initial Framework and Insights — Jeba Rezwana, Corey Ford, 2025"
       },
       {
         "year": 2025,
-        "label": "Cool People \u2014 Todd Pezzuti, Caleb Warren, Jinjie Chen, 2025"
+        "label": "Cool People — Todd Pezzuti, Caleb Warren, Jinjie Chen, 2025"
       }
     ],
     "UX Foundations": [
       {
-        "year": 0,
-        "label": "6/13/13 The UX of Learning \u00b7 An A List Apart Article"
+        "year": 2013,
+        "label": "The UX of Learning · An A List Apart Article"
       }
     ],
     "Email Marketing": [
@@ -2778,35 +2774,35 @@
       },
       {
         "year": 0,
-        "label": "50 Best Practices for Email Marketers \u2014 Unknown, Unknown"
+        "label": "50 Best Practices for Email Marketers"
       },
       {
         "year": 2023,
-        "label": "How to Write a Great Email Sequence \u2014 ZoomInfo, 2023"
+        "label": "How to Write a Great Email Sequence — ZoomInfo, 2023"
       },
       {
         "year": 2026,
-        "label": "Onederous Email Strategy: Transactional + Marketing \u2014 Saren Sakurai, 2026"
+        "label": "Onederous Email Strategy: Transactional + Marketing — Saren Sakurai, 2026"
       }
     ],
     "Customer Data / CDP": [
       {
         "year": 2023,
-        "label": "1 Zero-party data: straight from the source \u2014 Typeform, 2023"
+        "label": "Zero-party data: straight from the source — Typeform, 2023"
       }
     ],
     "Pitching": [
       {
-        "year": 0,
-        "label": "Praise for the First Edition of _Presenting to Win"
+        "year": 2003,
+        "label": "Presenting to Win — Jerry Weissman, 2003"
       },
       {
         "year": 2003,
-        "label": "Assessing Creativity in Hollywood Pitch Meetings: Evidence for a Dual-Process Model of \u2014 2003"
+        "label": "Assessing Creativity in Hollywood Pitch Meetings: Evidence for a Dual-Process Model of — 2003"
       },
       {
         "year": 2015,
-        "label": "Pitching to Win: A Rapid-Fire Method for Sales & Influence \u2014 Saren Sakurai, 2015"
+        "label": "Pitching to Win: A Rapid-Fire Method for Sales & Influence — Saren Sakurai, 2015"
       }
     ],
     "B2B / GTM Strategy": [
@@ -2824,47 +2820,47 @@
       },
       {
         "year": 2021,
-        "label": "THE 8 STAGES OF YOUR REVENUE FUNNEL \u2014 Full Circle Insights, 2021"
+        "label": "THE 8 STAGES OF YOUR REVENUE FUNNEL — Full Circle Insights, 2021"
       },
       {
         "year": 2022,
-        "label": "Full Funnel Velocity \u2014 Bombora, 2022"
+        "label": "Full Funnel Velocity — Bombora, 2022"
       },
       {
         "year": 2023,
-        "label": "Gartner for Sales \u2014 Gartner, 2023"
+        "label": "Gartner for Sales — Gartner, 2023"
       },
       {
         "year": 2025,
-        "label": "Predictions 2025: B2B Marketing & Sales \u2014 Forrester Research, 2025"
+        "label": "Predictions 2025: B2B Marketing & Sales — Forrester Research, 2025"
       },
       {
         "year": 2025,
-        "label": "Wynter Index Q4 2025 \u2014 B2B Marketing \u2014 Wynter, 2025"
+        "label": "Wynter Index Q4 2025 — B2B Marketing — Wynter, 2025"
       },
       {
         "year": 2026,
-        "label": "State of B2B Marketing 2026: 75+ Statistics, Trends & Benchmarks \u2014 Chris, Visionary Marketing, 2026"
+        "label": "State of B2B Marketing 2026: 75+ Statistics, Trends & Benchmarks — Chris, Visionary Marketing, 2026"
       },
       {
         "year": 2026,
-        "label": "Predictions 2026: B2B Marketing, Sales, and Product \u2014 Forrester Research, 2026"
+        "label": "Predictions 2026: B2B Marketing, Sales, and Product — Forrester Research, 2026"
       },
       {
         "year": 2026,
-        "label": "Pricing Experimentation Playbook \u2014 Metronome, 2026"
+        "label": "Pricing Experimentation Playbook — Metronome, 2026"
       },
       {
         "year": 2026,
-        "label": "r/b2bmarketing Top 100 Post Synthesis \u2014 Saren Sakurai, 2026"
+        "label": "r/b2bmarketing Top 100 Post Synthesis — Saren Sakurai, 2026"
       },
       {
         "year": 2026,
-        "label": "The WethosAI Sales Dossier \u2014 Operator Manual \u2014 Saren Sakurai, 2026"
+        "label": "The WethosAI Sales Dossier — Operator Manual — Saren Sakurai, 2026"
       },
       {
         "year": 2026,
-        "label": "The Sales Dossier Playbook \u2014 Saren Sakurai, 2026"
+        "label": "The Sales Dossier Playbook — Saren Sakurai, 2026"
       }
     ],
     "Lead Generation / Nurturing": [
@@ -2873,52 +2869,52 @@
         "label": "The definitive guide to lead nurturing."
       },
       {
-        "year": 0,
-        "label": "The Definitive Guide to Lead Generation:"
+        "year": 2014,
+        "label": "The Definitive Guide to Lead Generation — Marketo, 2014"
       },
       {
         "year": 2014,
-        "label": "LEAD GENERATION DEFINED \u2014 Marketo, 2014"
+        "label": "LEAD GENERATION DEFINED — Marketo, 2014"
       },
       {
         "year": 2023,
-        "label": "01 Target to Lead \u2014 ZoomInfo, 2023"
+        "label": "01 Target to Lead — ZoomInfo, 2023"
       },
       {
         "year": 2026,
-        "label": "AI-Driven Ads vs. AI-Driven Buyers: How Lead Gen Must Adapt in 2026 \u2014 Omar Jenblat, 2026"
+        "label": "AI-Driven Ads vs. AI-Driven Buyers: How Lead Gen Must Adapt in 2026 — Omar Jenblat, 2026"
       }
     ],
     "Gamification": [
       {
-        "year": 0,
-        "label": "Gamification by Design"
+        "year": 2011,
+        "label": "Gamification by Design — Zichermann & Cunningham, 2011"
       },
       {
-        "year": 0,
-        "label": "What Is Gamifi cation?"
-      },
-      {
-        "year": 2013,
-        "label": "Gamification: Level Up Your Strategic Approach \u2014 Forrester Research, 2013"
+        "year": 2012,
+        "label": "What Is Gamification? — Karl M. Kapp, 2012"
       },
       {
         "year": 2013,
-        "label": "Raising engagement in e-learning through gamification \u2014 2013"
+        "label": "Gamification: Level Up Your Strategic Approach — Forrester Research, 2013"
+      },
+      {
+        "year": 2013,
+        "label": "Raising engagement in e-learning through gamification — 2013"
       }
     ],
     "Educational Psychology / Memory": [
       {
         "year": 0,
-        "label": "230 VOCABULARY LEARNING: FRAMEWORK AND TRACKING"
+        "label": "VOCABULARY LEARNING: FRAMEWORK AND TRACKING"
       },
       {
-        "year": 0,
-        "label": "The Role of Metacognitive Knowledge in"
+        "year": 2002,
+        "label": "The Role of Metacognitive Knowledge in Learning, Teaching, and Assessing — Paul R. Pintrich, 2002"
       },
       {
         "year": 2012,
-        "label": "Educ Psychol Rev (2012) 24:369\u2013378 \u2014 2012"
+        "label": "Educ Psychol Rev (2012) 24:369–378 — 2012"
       }
     ],
     "Lead Scoring / MQL Ops": [
@@ -2940,31 +2936,31 @@
       },
       {
         "year": 2026,
-        "label": "The WethosAI Sales Dossier \u2014 Operator Manual \u2014 Saren Sakurai, 2026"
+        "label": "The WethosAI Sales Dossier — Operator Manual — Saren Sakurai, 2026"
       },
       {
         "year": 2026,
-        "label": "The Sales Dossier Playbook \u2014 Saren Sakurai, 2026"
+        "label": "The Sales Dossier Playbook — Saren Sakurai, 2026"
       }
     ],
     "Startup / Strategy Books": [
       {
-        "year": 0,
-        "label": "The 48 Laws of Power"
+        "year": 1998,
+        "label": "The 48 Laws of Power — Robert Greene, 1998"
       }
     ],
     "Intent Data": [
       {
         "year": 2022,
-        "label": "Intent Data Guide \u2014 Bombora, 2022"
+        "label": "Intent Data Guide — Bombora, 2022"
       },
       {
         "year": 2022,
-        "label": "Full Funnel Velocity \u2014 Bombora, 2022"
+        "label": "Full Funnel Velocity — Bombora, 2022"
       },
       {
         "year": 2023,
-        "label": "The Clearbit playbook for intent-based outreach \u2014 Clearbit, 2023"
+        "label": "The Clearbit playbook for intent-based outreach — Clearbit, 2023"
       }
     ],
     "Persona Methods": [
@@ -2982,11 +2978,11 @@
       },
       {
         "year": 2022,
-        "label": "Top Five Analytics Personas \u2014 Sisense, 2022"
+        "label": "Top Five Analytics Personas — Sisense, 2022"
       },
       {
         "year": 2026,
-        "label": "CAIO Persona Research: Chief AI Officer Profile \u2014 Perplexity / Saren Sakurai, 2026"
+        "label": "CAIO Persona Research: Chief AI Officer Profile — Perplexity / Saren Sakurai, 2026"
       }
     ],
     "Content Marketing / Strategy": [
@@ -2995,32 +2991,32 @@
         "label": "Content Marketing Workbook"
       },
       {
-        "year": 0,
-        "label": "The marketer\u2019s guide to composable content"
+        "year": 2023,
+        "label": "The marketer’s guide to composable content — Contentful, 2023"
       },
       {
         "year": 2016,
-        "label": "CHALLENGES OF FORMULATING A CONTENT STRATEGY \u2014 Altimeter Group, 2016"
+        "label": "CHALLENGES OF FORMULATING A CONTENT STRATEGY — Altimeter Group, 2016"
       }
     ],
     "Game-Based Learning": [
       {
-        "year": 0,
-        "label": "Does Game-Based Learning Work? Results from Three Recent Studies"
+        "year": 2007,
+        "label": "Does Game-Based Learning Work? Results from Three Recent Studies — Richard Blunt, 2007"
       },
       {
         "year": 0,
-        "label": "1 Introduction others, to use games for therapy, to rehearse skills, to"
+        "label": "Introduction others, to use games for therapy, to rehearse skills, to"
       }
     ],
     "Market Research": [
       {
         "year": 2025,
-        "label": "Wynter Index Q4 2025 \u2014 B2B Marketing \u2014 Wynter, 2025"
+        "label": "Wynter Index Q4 2025 — B2B Marketing — Wynter, 2025"
       },
       {
         "year": 2026,
-        "label": "r/b2bmarketing Top 100 Post Synthesis \u2014 Saren Sakurai, 2026"
+        "label": "r/b2bmarketing Top 100 Post Synthesis — Saren Sakurai, 2026"
       }
     ],
     "Mobile-first / App Marketing": [
@@ -3030,13 +3026,13 @@
       },
       {
         "year": 2026,
-        "label": "OneSignal Mobile Engagement Playbook \u2014 OneSignal, 2026"
+        "label": "OneSignal Mobile Engagement Playbook — OneSignal, 2026"
       }
     ],
     "Cookieless / Privacy-era Marketing": [
       {
         "year": 2023,
-        "label": "Digital Advertising in the Cookieless World \u2014 Segment, 2023"
+        "label": "Digital Advertising in the Cookieless World — Segment, 2023"
       }
     ],
     "ABM": [
@@ -3046,11 +3042,11 @@
       },
       {
         "year": 2021,
-        "label": "Full Circle Insights \u2014 ABM Framework Cheat Sheet \u2014 Full Circle Insights, 2021"
+        "label": "Full Circle Insights — ABM Framework Cheat Sheet — Full Circle Insights, 2021"
       },
       {
         "year": 2026,
-        "label": "ABM Playbook: 10 Quickplays for Big Wins \u2014 AdRoll, 2026"
+        "label": "ABM Playbook: 10 Quickplays for Big Wins — AdRoll, 2026"
       }
     ],
     "Agency Craft": [
@@ -3066,7 +3062,7 @@
     "Agile Marketing / Ops": [
       {
         "year": 0,
-        "label": "Why You Should A do pt Agile Digital Marketing"
+        "label": "Why You Should Adopt Agile Digital Marketing"
       }
     ],
     "Culture / Company Studies": [
@@ -3078,7 +3074,7 @@
     "Verbal Brand / Messaging Architecture": [
       {
         "year": 2026,
-        "label": "WethosAI Apollo ICP + Messaging Framework \u2014 Saren Sakurai, 2026"
+        "label": "WethosAI Apollo ICP + Messaging Framework — Saren Sakurai, 2026"
       }
     ]
   }
