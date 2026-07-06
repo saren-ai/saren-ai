@@ -1,14 +1,44 @@
 import type { MegaMenuContent } from "@/components/layout/MegaMenu";
 
 /**
- * Work Mega Menu
- * The commercial core: what I do (Services) + proof it works (Case Studies).
+ * Services Mega Menu
+ * The commercial core: engagement types + the deep-dive service pages.
  */
-export const workMegaMenu: MegaMenuContent = {
+export const servicesMegaMenu: MegaMenuContent = {
   layout: "three-column",
   sections: [
     {
-      title: "Services",
+      title: "Engagement Types",
+      links: [
+        {
+          href: "/services",
+          label: "GTM Systems Audit",
+          description: "Fixed-price, 2-week teardown of your funnel, stack, and spend",
+        },
+        {
+          href: "/fractional-marketing-lead",
+          label: "Fractional Marketing Lead",
+          description: "Your first real marketing engine, built to scale",
+        },
+        {
+          href: "/case-studies",
+          label: "Project Engagement",
+          description: "Scoped deliverables for a specific initiative",
+        },
+        {
+          href: "/thinkers",
+          label: "Advisory & Positioning",
+          description: "Thought leadership and personal brand strategy",
+        },
+        {
+          href: "/services",
+          label: "All Services →",
+          description: "How I work with teams",
+        },
+      ],
+    },
+    {
+      title: "Deep Dives",
       links: [
         {
           href: "/ai-orchestration",
@@ -26,39 +56,9 @@ export const workMegaMenu: MegaMenuContent = {
           description: "AI-enabled expressed intent targeting",
         },
         {
-          href: "/fractional-marketing-lead",
-          label: "Fractional Marketing Lead",
-          description: "Your first real marketing engine, built to scale",
-        },
-        {
-          href: "/work",
-          label: "Work With Me →",
-          description: "Engagement models and how to start",
-        },
-      ],
-    },
-    {
-      title: "Case Studies",
-      links: [
-        {
-          href: "/case-studies/120-day-content-journey",
-          label: "120-Day Content Journey",
-          description: "$4M pipeline from content",
-        },
-        {
-          href: "/case-studies/10-touch-sales-play",
-          label: "10-Touch Sales Play",
-          description: "Multi-channel outbound system",
-        },
-        {
-          href: "/case-studies/executive-dashboard",
-          label: "Demand Gen Command Center",
-          description: "AI-built exec dashboard, 5 live APIs",
-        },
-        {
-          href: "/case-studies",
-          label: "All case studies →",
-          description: "Eight enterprise B2B proof narratives",
+          href: "/aeo-playbook",
+          label: "AEO Playbook",
+          description: "Win the AI shortlist before the first call",
         },
       ],
     },
@@ -70,7 +70,7 @@ export const workMegaMenu: MegaMenuContent = {
     description:
       "Fractional marketing leadership and AI-orchestrated GTM systems for early-stage and Series A founders — demand gen, attribution, and category, without ripping out what works.",
     cta: {
-      label: "Work With Me",
+      label: "Book a Call",
       href: "/work",
     },
   },
