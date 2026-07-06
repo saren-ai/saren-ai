@@ -67,3 +67,19 @@ halcyon-content/
 
 # obsidian (content vaults checked in, but not config)
 **/.obsidian
+
+# ── Prospecting workspace (merged from @lead-prospecting, 2026-06-18) ──
+# Client dossiers contain PII / OSINT — keep on disk, never commit to this public repo
+/prospecting/clients/
+# Agent runtime state
+/prospecting/.active-client
+/prospecting/.inbox-watch-state.json
+# Vendored external sales suite (has its own git history; external, read-only)
+/prospecting/vendor/
+# Legacy dashboard build artifacts (archived source kept, build output ignored)
+/prospecting/legacy-dashboard/node_modules/
+/prospecting/legacy-dashboard/.next/
+/prospecting/legacy-dashboard/*.tsbuildinfo
+
+# generated markdown snapshot of the live site (drifts from source, regenerate on demand)
+/docs/site-export/

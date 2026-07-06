@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap");
+
+@theme {
+  --color-akane: #c43322;
+  --color-fuji: #7c5aa3;
+  --color-kintsu: #c17d3a;
+  --color-kori: #1d1d1f;
+  --color-kasumi: #5b6470;
+  --color-sumi: #0f0f0f;
+  --color-washi: #f5f5f7;
+
+  --font-sans: "Sora", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --radius-btn: 9999px;
+  --radius-card: 8px;
+  --radius-panel: 12px;
+  --radius-badge: 4px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-washi);
+  color: var(--color-kori);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 9999px; }
