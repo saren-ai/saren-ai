@@ -65,9 +65,6 @@ export function useSiteHotkeys({
         clearPending();
 
         switch (cmd) {
-          case "k":
-            onOpenSearch();
-            break;
           case "w":
             router.push("/work");
             break;

@@ -18,28 +18,45 @@ const MONTH_NUM: Record<string, string> = {
     JUL: "07", AUG: "08", SEP: "09", OCT: "10", NOV: "11", DEC: "12",
 };
 
+const BRAND_OG_IMAGE = "https://saren.ai/og/home.png";
+const DEFAULT_START_TIME = "T19:00:00";
+const DEFAULT_END_TIME = "T20:00:00";
+
 export default function ConcertsPage() {
     const concerts = getAllConcerts();
 
-    const eventItems = concerts.map((c, i) => ({
-        "@type": "ListItem",
-        "position": i + 1,
-        "item": {
-            "@type": "Event",
-            "name": `${c.artist} at ${c.venue}`,
-            "startDate": `${c.date_year}-${MONTH_NUM[c.date_month] ?? "01"}-${String(c.date_day).padStart(2, "0")}`,
-            "location": {
-                "@type": "Place",
-                "name": c.venue,
-                "address": c.location,
+    const eventItems = concerts.map((c, i) => {
+        const dateStr = `${c.date_year}-${MONTH_NUM[c.date_month] ?? "01"}-${String(c.date_day).padStart(2, "0")}`;
+        return {
+            "@type": "ListItem",
+            "position": i + 1,
+            "item": {
+                "@type": "Event",
+                "name": `${c.artist} at ${c.venue}`,
+                "startDate": `${dateStr}${DEFAULT_START_TIME}`,
+                "endDate": `${dateStr}${DEFAULT_END_TIME}`,
+                "description": `${c.artist} live at ${c.venue}, ${c.location}.`,
+                "image": BRAND_OG_IMAGE,
+                "eventStatus": "https://schema.org/EventScheduled",
+                "location": {
+                    "@type": "Place",
+                    "name": c.venue,
+                    "address": c.location,
+                },
+                "performer": {
+                    "@type": "MusicGroup",
+                    "name": c.artist,
+                },
+                "organizer": { "@id": "https://saren.ai/#person" },
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock",
+                },
             },
-            "performer": {
-                "@type": "MusicGroup",
-                "name": c.artist,
-            },
-            "organizer": { "@id": "https://saren.ai/#person" },
-        },
-    }));
+        };
+    });
 
     return (
         <PagefindBoundary section="About">

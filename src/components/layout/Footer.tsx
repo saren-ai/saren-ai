@@ -55,8 +55,8 @@ export default function Footer() {
               saren<span className="text-ember">.</span>ai
             </Link>
             <p className="text-ash/60 max-w-xs leading-relaxed text-sm">
-              I help early-stage and Series A companies build marketing
-              infrastructure that scales—using AI, not headcount.
+              GTM Engineer based in Orange County. I build marketing systems
+              that scale with AI, not headcount.
             </p>
           </div>
 
@@ -79,7 +79,15 @@ export default function Footer() {
                   href="/work"
                   className="text-ash/70 hover:text-ember transition-colors"
                 >
-                  Work With Me
+                  Book a Call
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services"
+                  className="text-ash/70 hover:text-ember transition-colors"
+                >
+                  Services
                 </Link>
               </li>
               <li>

@@ -8,46 +8,14 @@ import {
   Mail,
   Clock,
   ArrowRight,
-  Building2,
-  User,
-  Lightbulb,
 } from "lucide-react";
+import CalendlyInlineWidget from "@/components/ui/CalendlyInlineWidget";
 
 const proofPoints = [
   { metric: "$4M", label: "Quarterly pipeline generated at Cylance", href: "/case-studies/120-day-content-journey" },
   { metric: "8:1", label: "ROI on $2.3M paid media at BlackBerry", href: "/about" },
   { metric: "42%", label: "Meeting rate on cold outbound sequences", href: "/case-studies/10-touch-sales-play" },
   { metric: "70%", label: "CAC reduction for Qwiet AI", href: "/about/clients" },
-];
-
-const engagementTypes = [
-  {
-    icon: Building2,
-    title: "Fractional Marketing Lead",
-    description:
-      "Strategic marketing leadership 10–20 hours/week. System building, demand gen architecture, team development, and GTM execution.",
-    fits: "Series A–C, $1M–$15M ARR",
-    cta: "Explore this fit",
-    href: "/smb",
-  },
-  {
-    icon: User,
-    title: "Project Engagement",
-    description:
-      "Scoped deliverables: pipeline framework, attribution system, AI ops build-out, or full GTM strategy for a specific launch.",
-    fits: "Teams with clear initiatives",
-    cta: "See project work",
-    href: "/case-studies",
-  },
-  {
-    icon: Lightbulb,
-    title: "Advisory & Positioning",
-    description:
-      "Thought leadership architecture, personal brand strategy, or positioning for subject matter experts and founders.",
-    fits: "SMEs, consultants, solopreneurs",
-    cta: "Learn more",
-    href: "/thinkers",
-  },
 ];
 
 export default function WorkClient() {
@@ -88,9 +56,7 @@ export default function WorkClient() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-[1.1]"
               >
-                Let&apos;s build your
-                <br />
-                growth engine.
+                Book a call.
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -98,14 +64,12 @@ export default function WorkClient() {
                 transition={{ delay: 0.1 }}
                 className="text-lg text-ash/80 leading-relaxed max-w-xl mb-6"
               >
-                I work with founders, fractional operators, and subject matter
-                experts to build marketing infrastructure that compounds —
-                pipeline systems, AI operations, and authority architecture.
+                I&apos;ll read what you share beforehand so we don&apos;t
+                spend the call on background. We&apos;ll get straight to
+                what&apos;s not working.
               </motion.p>
               <motion.a
-                href="https://calendly.com/sarenai"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#book"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.18 }}
@@ -159,161 +123,70 @@ export default function WorkClient() {
         </div>
       </section>
 
-      {/* How to Engage */}
-      <section className="section bg-white dark:bg-card">
+      {/* Link to Services */}
+      <section className="section bg-white dark:bg-card py-10">
+        <div className="container-narrow text-center">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-slate dark:text-foreground-muted text-base"
+          >
+            Not sure which engagement fits?{" "}
+            <Link href="/services" className="text-ember font-semibold hover:underline inline-flex items-center gap-1 group">
+              See how I work with teams
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Book inline */}
+      <section id="book" className="section bg-ash dark:bg-background scroll-mt-24">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-10"
+            className="p-6 md:p-8 bg-card rounded-2xl border border-border relative overflow-hidden mb-8"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-charcoal dark:text-foreground mb-4">
-              How we can work together
-            </h2>
-            <p className="text-slate dark:text-foreground-muted text-lg max-w-2xl">
-              Three engagement types depending on where you are and what you
-              need.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {engagementTypes.map((type, index) => {
-              const Icon = type.icon;
-              return (
-                <motion.div
-                  key={type.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex flex-col p-6 bg-ash dark:bg-background rounded-xl border border-border"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-ember/10 flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-ember" />
-                  </div>
-                  <h3 className="font-bold text-charcoal dark:text-foreground mb-2">
-                    {type.title}
-                  </h3>
-                  <p className="text-slate dark:text-foreground-muted text-sm leading-relaxed mb-4 flex-1">
-                    {type.description}
-                  </p>
-                  <div className="text-xs text-slate/70 dark:text-foreground-muted/70 font-mono uppercase tracking-wide mb-4">
-                    Best for: {type.fits}
-                  </div>
-                  <Link
-                    href={type.href}
-                    className="text-ember text-sm font-semibold hover:underline inline-flex items-center gap-1 group"
-                  >
-                    {type.cta}
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Book + Contact split */}
-      <section className="section bg-ash dark:bg-background">
-        <div className="container-narrow">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-            {/* Calendly card */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="p-8 bg-card rounded-2xl border border-border relative overflow-hidden"
-            >
-              <div className="absolute top-0 left-0 right-0 h-1 bg-ember rounded-t-2xl" />
-              <CalendarDays className="w-8 h-8 text-ember mb-4" />
-              <h2 className="text-2xl font-bold text-charcoal dark:text-foreground mb-3">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-ember rounded-t-2xl" />
+            <div className="flex items-center gap-3 mb-4">
+              <CalendarDays className="w-6 h-6 text-ember" />
+              <h2 className="text-2xl font-bold text-charcoal dark:text-foreground">
                 Schedule a call
               </h2>
-              <p className="text-slate dark:text-foreground-muted mb-6 leading-relaxed">
-                30 minutes to talk through your situation. I&apos;ll read what
-                you share beforehand so we don&apos;t spend the call on
-                background. We&apos;ll get straight to what&apos;s not working.
-              </p>
-              <a
-                href="https://calendly.com/sarenai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary inline-flex items-center gap-2"
-              >
-                <CalendarDays className="w-4 h-4" />
-                Open Calendly
-              </a>
-              <p className="text-xs text-slate/60 dark:text-foreground-muted/60 mt-3">
-                Opens in a new tab · calendly.com/sarenai
-              </p>
-            </motion.div>
+            </div>
+            <CalendlyInlineWidget />
+          </motion.div>
 
-            {/* Email card */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="p-8 bg-card rounded-2xl border border-border relative overflow-hidden"
-            >
-              <div className="absolute top-0 left-0 right-0 h-1 bg-lavender rounded-t-2xl" />
-              <Mail className="w-8 h-8 text-lavender mb-4" />
-              <h2 className="text-2xl font-bold text-charcoal dark:text-foreground mb-3">
-                Send a message
-              </h2>
-              <p className="text-slate dark:text-foreground-muted mb-6 leading-relaxed">
-                Not ready to schedule? Write directly. Tell me what&apos;s
-                going on — what&apos;s working, what isn&apos;t, what
-                you&apos;ve already tried. I read every message and write back.
-              </p>
-              <a
-                href="mailto:hello@saren.ai?subject=Working%20Together"
-                className="btn-lavender inline-flex items-center gap-2"
-              >
-                <Mail className="w-4 h-4" />
-                Email Saren
-              </a>
-              <p className="text-xs text-slate/60 dark:text-foreground-muted/60 mt-3 flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5" />
-                Typical reply within 24–48 hours
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Breadcrumb back to persona pages */}
-      <section className="py-12 bg-white dark:bg-card border-t border-border">
-        <div className="container-narrow">
+          {/* Email fallback */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+            className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-6 bg-card rounded-2xl border border-border"
           >
-            <p className="text-slate dark:text-foreground-muted text-sm">
-              Not sure which engagement fits? Start with your audience.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {[
-                { label: "Founders & Mid-Market", href: "/smb" },
-                { label: "Solopreneurs", href: "/solopreneurs" },
-                { label: "Subject Matter Experts", href: "/thinkers" },
-              ].map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-semibold text-ember hover:underline inline-flex items-center gap-1 group"
-                >
-                  {link.label}
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
-              ))}
+            <div>
+              <p className="text-charcoal dark:text-foreground font-semibold mb-1">
+                Not ready to schedule? Send a message.
+              </p>
+              <p className="text-sm text-slate dark:text-foreground-muted flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5" />
+                Typical reply within 24–48 hours
+              </p>
             </div>
+            <a
+              href="mailto:hello@saren.ai?subject=Working%20Together"
+              className="btn-lavender inline-flex items-center gap-2 shrink-0"
+            >
+              <Mail className="w-4 h-4" />
+              Email Saren
+            </a>
           </motion.div>
         </div>
       </section>
+
     </article>
   );
 }

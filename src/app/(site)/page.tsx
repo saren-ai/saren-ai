@@ -3,22 +3,22 @@ import HomeClient from "./HomeClient";
 
 
 export const metadata: Metadata = {
-  title: "Saren Sakurai | Fractional Marketing Lead & AI Operations Consultant",
+  title: "Saren Sakurai | GTM Engineer — Fractional Marketing Lead & AI Operations",
   description:
-    "Demand generation as engineering. Building AI-driven growth engines for early-stage and Series A startups.",
+    "GTM Engineer in Orange County, CA. I build AI-driven demand systems that turn marketing spend into repeatable pipeline for B2B SaaS and cybersecurity teams.",
   alternates: { canonical: "https://saren.ai" },
   openGraph: {
-    title: "Saren Sakurai | Fractional Marketing Lead & AI Operations Consultant",
+    title: "Saren Sakurai | GTM Engineer — Fractional Marketing Lead & AI Operations",
     description:
-      "Demand generation as engineering. Building AI-driven growth engines for early-stage and Series A startups.",
+      "GTM Engineer in Orange County, CA. I build AI-driven demand systems that turn marketing spend into repeatable pipeline for B2B SaaS and cybersecurity teams.",
     images: ["/images/og/home.png"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Saren Sakurai | Fractional Marketing Lead & AI Operations Consultant",
+    title: "Saren Sakurai | GTM Engineer — Fractional Marketing Lead & AI Operations",
     description:
-      "Demand generation as engineering. Building AI-driven growth engines for early-stage and Series A startups.",
+      "GTM Engineer in Orange County, CA. I build AI-driven demand systems that turn marketing spend into repeatable pipeline for B2B SaaS and cybersecurity teams.",
     images: ["/images/og/home.png"],
   },
 };
@@ -54,13 +54,13 @@ export default function HomePage() {
             "@type": "WebPage",
             "@id": "https://saren.ai/#webpage",
             "url": "https://saren.ai",
-            "name": "Saren Sakurai | Fractional Marketing Lead & AI Operations Consultant",
-            "description": "Demand generation as engineering. Building AI-driven growth engines for early-stage and Series A startups.",
+            "name": "Saren Sakurai | GTM Engineer — Fractional Marketing Lead & AI Operations",
+            "description": "GTM Engineer in Orange County, CA. I build AI-driven demand systems that turn marketing spend into repeatable pipeline for B2B SaaS and cybersecurity teams.",
             "isPartOf": { "@id": "https://saren.ai/#website" },
             "about": { "@id": "https://saren.ai/#person" },
             "author": { "@id": "https://saren.ai/#person" },
             "inLanguage": "en-US",
-            "dateModified": "2026-03-27"
+            "dateModified": "2026-07-05"
           })
         }}
       />
@@ -138,13 +138,13 @@ export default function HomePage() {
             "@type": "ProfilePage",
             "@id": "https://saren.ai/#profilepage",
             "url": "https://saren.ai",
-            "name": "Saren Sakurai | Fractional Marketing Lead & AI Operations Consultant",
-            "description": "Demand generation as engineering. Building AI-driven growth engines for early-stage and Series A startups.",
+            "name": "Saren Sakurai | GTM Engineer — Fractional Marketing Lead & AI Operations",
+            "description": "GTM Engineer in Orange County, CA. I build AI-driven demand systems that turn marketing spend into repeatable pipeline for B2B SaaS and cybersecurity teams.",
             "mainEntity": { "@id": "https://saren.ai/#person" },
             "isPartOf": { "@id": "https://saren.ai/#website" },
             "image": "https://saren.ai/images/og/home.png",
             "inLanguage": "en-US",
-            "dateModified": "2026-03-27"
+            "dateModified": "2026-07-05"
           })
         }}
       />

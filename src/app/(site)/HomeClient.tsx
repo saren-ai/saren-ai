@@ -9,7 +9,38 @@ import MatrixRain from "@/components/home/MatrixRain";
 import FAQ from "@/components/ui/FAQ";
 import { TestimonialGrid } from "@/components/ui/Testimonial";
 import { TESTIMONIALS } from "@/data/testimonials";
-import { Building2, User, Lightbulb, Bell, ArrowRight } from "lucide-react";
+import { ClipboardCheck, Building2, User, Lightbulb, ArrowRight } from "lucide-react";
+
+const entryPoints = [
+  {
+    icon: ClipboardCheck,
+    title: "GTM Systems Audit",
+    description: "Fixed-price, 2-week teardown of your funnel, stack, and spend.",
+    fits: "Pre-seed/seed, incubator cohorts",
+    href: "/services",
+  },
+  {
+    icon: Building2,
+    title: "Fractional Marketing Lead",
+    description: "Strategic marketing leadership 10–20 hours/week, system building and GTM execution.",
+    fits: "Series A–C, $1M–$15M ARR",
+    href: "/fractional-marketing-lead",
+  },
+  {
+    icon: User,
+    title: "Project Engagement",
+    description: "Scoped deliverables: pipeline framework, attribution system, or a full GTM strategy.",
+    fits: "Teams with clear initiatives",
+    href: "/case-studies",
+  },
+  {
+    icon: Lightbulb,
+    title: "Advisory & Positioning",
+    description: "Thought leadership architecture and personal brand strategy.",
+    fits: "SMEs, consultants, solopreneurs",
+    href: "/thinkers",
+  },
+];
 
 const interactiveTools = [
   {
@@ -43,13 +74,13 @@ const interactiveTools = [
 
 const caseStudies = [
   {
-    title: "Sovereign Buyer Personas",
+    title: "120-Day Content Journey",
     description:
-      "Making complex markets simple. A framework for building personas that drive real targeting, messaging, and content decisions.",
-    metric: "3x",
-    metricLabel: "Conversion Lift",
-    href: "/case-studies/sovereign-personas",
-    pillars: ["Human Strategy"],
+      "How I engineered $4M in quarterly pipeline at Cylance. A 120-day content system that turned awareness into closed deals.",
+    metric: "$4M",
+    metricLabel: "Quarterly Pipeline",
+    href: "/case-studies/120-day-content-journey",
+    pillars: ["Scale Without Headcount"],
   },
   {
     title: "10-Touch Sales Play",
@@ -60,23 +91,35 @@ const caseStudies = [
     href: "/case-studies/10-touch-sales-play",
     pillars: ["Predictive Infrastructure"],
   },
+];
+
+const audiences = [
   {
-    title: "120-Day Content Journey",
+    icon: Building2,
+    label: "We have budget but no system.",
     description:
-      "How I engineered $4M in quarterly pipeline at Cylance. A 120-day content system that turned awareness into closed deals.",
-    metric: "$4M",
-    metricLabel: "Quarterly Pipeline",
-    href: "/case-studies/120-day-content-journey",
-    pillars: ["Scale Without Headcount"],
+      "GTM systems, demand gen architecture, and AI operations for growth-stage companies with budget but no infrastructure.",
+    href: "/smb",
+    accent: "ember",
+    cta: "Built for your stage",
   },
   {
-    title: "B2B Marketing Framework",
+    icon: User,
+    label: "I am the entire marketing team.",
     description:
-      "The messaging infrastructure for teams who can't afford to build on quicksand. A 7-layer framework that creates B2B SaaS positioning from scratch.",
-    metric: "21",
-    metricLabel: "Prompts",
-    href: "/playbooks/b2b-marketing-framework",
-    pillars: ["Human Strategy"],
+      "Pipeline automation and self-managed workflows for operators who are the whole marketing team.",
+    href: "/solopreneurs",
+    accent: "lavender",
+    cta: "Built for your practice",
+  },
+  {
+    icon: Lightbulb,
+    label: "I have expertise, but no audience.",
+    description:
+      "Authority engineering, content architecture, and monetization frameworks for practitioners who need to scale their expertise.",
+    href: "/thinkers",
+    accent: "copper",
+    cta: "Built for your expertise",
   },
 ];
 
@@ -104,7 +147,7 @@ export default function HomeClient() {
               transition={{ duration: 0.5 }}
               className="text-lavender font-mono text-sm md:text-base mb-6 tracking-wider uppercase"
             >
-              GTM Engineer · Fractional &amp; Full-Time
+              GTM Engineer · Orange County, CA · Fractional &amp; Full-Time
             </motion.p>
 
             {/* Headline */}
@@ -118,26 +161,12 @@ export default function HomeClient() {
             </motion.h1>
 
             {/* Body / value prop */}
-            <div className="space-y-6 text-base md:text-lg text-slate dark:text-foreground-muted max-w-3xl mx-auto leading-relaxed mb-10 text-center">
-              {/* Entity sentence — plain <p>, no animation: answer engines extract visible prose */}
+            <div className="text-base md:text-lg text-slate dark:text-foreground-muted max-w-3xl mx-auto leading-relaxed mb-10 text-center">
               <p className="text-charcoal dark:text-foreground">
-                I&apos;m Saren Sakurai — a GTM Engineer. I design instrumented demand systems for B2B SaaS and cybersecurity teams: signal intelligence, behavioral scoring, content routing, paid spend, and AI — wired into one compounding engine. 20+ years from AKQA to Cylance ($1.4B exit).
+                I build the demand system that turns your marketing spend into
+                repeatable pipeline — then run it as your fractional marketing
+                lead. 20+ years from AKQA to Cylance ($1.4B exit).
               </p>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="font-semibold text-charcoal dark:text-foreground text-lg md:text-xl"
-              >
-                Pipeline isn&apos;t a campaign problem. It&apos;s a systems problem.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                Most teams ask what campaign to run next. The teams that compound ask how every input — signal, scoring, content, spend, AI — connects into one system. I build that system, then own it as your fractional marketing lead.
-              </motion.p>
             </div>
 
             {/* CTAs */}
@@ -150,9 +179,9 @@ export default function HomeClient() {
               <Link
                 href="/work"
                 className="btn-primary"
-                aria-label="Work With Me"
+                aria-label="Book a Call"
               >
-                Work With Me
+                Book a Call
                 <svg
                   className="w-5 h-5 ml-2"
                   fill="none"
@@ -168,11 +197,11 @@ export default function HomeClient() {
                 </svg>
               </Link>
               <Link
-                href="/gtm-engineering"
+                href="/case-studies"
                 className="btn-secondary"
-                aria-label="See GTM Engineering"
+                aria-label="See Results"
               >
-                See GTM Engineering →
+                See Results
               </Link>
             </motion.div>
 
@@ -223,12 +252,11 @@ export default function HomeClient() {
                 ))}
               </div>
             </motion.div>
-
           </div>
         </div>
       </section>
 
-      {/* Audience Router */}
+      {/* How We Work Together */}
       <section className="section bg-white dark:bg-card">
         <div className="container-narrow">
           <motion.div
@@ -238,44 +266,150 @@ export default function HomeClient() {
             className="mb-10 text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-charcoal dark:text-foreground mb-4">
-              Who are you building for?
+              Pick your entry point.
+            </h2>
+            <p className="text-slate dark:text-foreground-muted text-lg max-w-xl mx-auto">
+              Four engagement types depending on where you are and what you need.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {entryPoints.map((entry, index) => {
+              const Icon = entry.icon;
+              return (
+                <motion.div
+                  key={entry.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                >
+                  <Link
+                    href={entry.href}
+                    className="group flex flex-col p-6 bg-ash dark:bg-background rounded-xl border border-border hover:border-ember/40 transition-all duration-200 h-full"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-ember/10 flex items-center justify-center mb-4">
+                      <Icon className="w-5 h-5 text-ember" />
+                    </div>
+                    <h3 className="font-bold text-charcoal dark:text-foreground mb-2">
+                      {entry.title}
+                    </h3>
+                    <p className="text-slate dark:text-foreground-muted text-sm leading-relaxed flex-1 mb-4">
+                      {entry.description}
+                    </p>
+                    <div className="text-xs text-slate/70 dark:text-foreground-muted/70 font-mono uppercase tracking-wide mb-4">
+                      Best for: {entry.fits}
+                    </div>
+                    <span className="text-ember text-sm font-semibold inline-flex items-center gap-1">
+                      Learn more
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                    </span>
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Case Studies */}
+      <section className="section bg-ash dark:bg-background">
+        <div className="container-narrow">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-10 flex items-center gap-4"
+          >
+            <h2 className="text-2xl md:text-3xl font-bold text-charcoal dark:text-foreground">
+              Recent Case Studies
+            </h2>
+            <div className="h-px flex-1 bg-charcoal/10 dark:bg-white/10" />
+            <Link
+              href="/case-studies"
+              className="text-lavender font-medium hover:text-ember transition-colors flex items-center gap-1 group"
+            >
+              All case studies
+              <svg
+                className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </Link>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {caseStudies.map((item, index) => (
+              <PortfolioCard
+                key={item.href}
+                {...item}
+                index={index}
+                variant="case_study"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Tools */}
+      <section className="section bg-white dark:bg-card pb-0">
+        <div className="container-narrow">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-10 text-center"
+          >
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal dark:text-foreground mb-4">
+              Try the tools I build.
+            </h2>
+            <p className="text-slate dark:text-foreground-muted text-lg max-w-2xl mx-auto">
+              Interactive financial models and frameworks you can use right now
+              to validate your growth strategy.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-20">
+            {interactiveTools.map((item, index) => (
+              <PortfolioCard
+                key={item.href}
+                {...item}
+                index={index}
+                variant="interactive"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Audience Router */}
+      <section className="section bg-ash dark:bg-background">
+        <div className="container-narrow">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-10 text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal dark:text-foreground mb-4">
+              Where do you start?
             </h2>
             <p className="text-slate dark:text-foreground-muted text-lg max-w-xl mx-auto">
               Every resource, playbook, and engagement here is mapped to a
-              specific audience challenge. Find yours.
+              specific situation. Find yours.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                icon: Building2,
-                label: "Founders & Mid-Market",
-                description:
-                  "GTM systems, demand gen architecture, and AI operations for growth-stage companies with budget but no infrastructure.",
-                href: "/smb",
-                accent: "ember",
-                cta: "Built for your stage",
-              },
-              {
-                icon: User,
-                label: "Solo Founders & Fractional CMOs",
-                description:
-                  "Pipeline automation and self-managed workflows for operators who are the whole marketing team.",
-                href: "/solopreneurs",
-                accent: "lavender",
-                cta: "Built for your practice",
-              },
-              {
-                icon: Lightbulb,
-                label: "Subject Matter Experts",
-                description:
-                  "Authority engineering, content architecture, and monetization frameworks for practitioners who need to scale their expertise.",
-                href: "/thinkers",
-                accent: "copper",
-                cta: "Built for your expertise",
-              },
-            ].map((audience, index) => {
+            {audiences.map((audience, index) => {
               const Icon = audience.icon;
               const accentText =
                 audience.accent === "ember"
@@ -305,7 +439,7 @@ export default function HomeClient() {
                 >
                   <Link
                     href={audience.href}
-                    className={`group flex flex-col p-6 bg-ash dark:bg-background rounded-xl border border-border ${accentBorder} transition-all duration-200 h-full`}
+                    className={`group flex flex-col p-6 bg-card rounded-xl border border-border ${accentBorder} transition-all duration-200 h-full`}
                   >
                     <div className={`w-10 h-10 rounded-lg ${accentBg} flex items-center justify-center mb-4`}>
                       <Icon className={`w-5 h-5 ${accentText}`} />
@@ -330,189 +464,6 @@ export default function HomeClient() {
 
       {/* Testimonials — renders nothing until real quotes exist in src/data/testimonials.ts */}
       <TestimonialGrid items={TESTIMONIALS} />
-
-      {/* Interactive Tools ("Try something") — live tools lead; they're stronger proof than unshipped products */}
-      <section className="section bg-ash dark:bg-background pb-0">
-        <div className="container-narrow">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-10 text-center"
-          >
-            <span className="inline-block px-4 py-1.5 bg-ember/10 text-ember text-sm font-bold rounded-full uppercase tracking-wide mb-4">
-              Interactive Tryouts
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal dark:text-foreground mb-4">
-              Don&apos;t just read about it.{" "}
-              <span className="text-gradient">Launch it.</span>
-            </h2>
-            <p className="text-slate dark:text-foreground-muted text-lg max-w-2xl mx-auto">
-              Interactive financial models and frameworks you can use right now
-              to validate your growth strategy.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-20">
-            {interactiveTools.map((item, index) => (
-              <PortfolioCard
-                key={item.href}
-                {...item}
-                index={index}
-                variant="interactive"
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Downloads */}
-      <section className="section bg-ash dark:bg-background">
-        <div className="container-narrow">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-10 flex items-center gap-4"
-          >
-            <h2 className="text-2xl md:text-3xl font-bold text-charcoal dark:text-foreground">
-              Featured Downloads
-            </h2>
-            <div className="h-px flex-1 bg-charcoal/10 dark:bg-white/10" />
-            <Link
-              href="/playbooks"
-              className="text-ember font-medium hover:underline flex items-center gap-1 group text-sm"
-            >
-              View All
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                title: "The Complete Mid-Market GTM Execution Kit",
-                tag: "SMB",
-                tagColor: "text-ember",
-                tagBg: "bg-ember/10",
-                bar: "bg-ember",
-                href: "/smb",
-              },
-              {
-                title: "The Fractional Marketing Lead Pipeline Dashboard",
-                tag: "Solopreneurs",
-                tagColor: "text-lavender",
-                tagBg: "bg-lavender/10",
-                bar: "bg-lavender",
-                href: "/solopreneurs",
-              },
-              {
-                title: "The Content Hook Mastery Bundle",
-                tag: "Thinkers",
-                tagColor: "text-copper",
-                tagBg: "bg-copper/10",
-                bar: "bg-copper",
-                href: "/thinkers",
-              },
-            ].map((product, index) => (
-              <motion.div
-                key={product.title}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-              >
-                <Link
-                  href={product.href}
-                  className="group flex flex-col p-6 bg-card rounded-xl border border-border hover:border-charcoal/20 dark:hover:border-white/20 transition-all duration-200 relative overflow-hidden h-full"
-                >
-                  <div className={`absolute top-0 left-0 right-0 h-1 ${product.bar}`} />
-                  <div className="flex items-center justify-between mb-4">
-                    <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${product.tagBg} ${product.tagColor}`}>
-                      {product.tag}
-                    </span>
-                  </div>
-                  <h3 className="font-bold text-charcoal dark:text-foreground mb-4 flex-1 leading-snug">
-                    {product.title}
-                  </h3>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 bg-charcoal/5 dark:bg-white/10 text-slate dark:text-foreground-muted rounded-full mb-3 self-start">
-                    <Bell className="w-3 h-3" />
-                    Coming Soon
-                  </span>
-                  <span className={`text-sm font-semibold inline-flex items-center gap-1 ${product.tagColor}`}>
-                    Learn more
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                  </span>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Case Studies */}
-      <section className="section bg-ash dark:bg-background">
-        <div className="container-narrow">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-10 flex items-center gap-4"
-          >
-            <h2 className="text-2xl md:text-3xl font-bold text-charcoal dark:text-foreground">
-              Recent Case Studies
-            </h2>
-            <div className="h-px flex-1 bg-charcoal/10 dark:bg-white/10" />
-            <Link
-              href="/case-studies"
-              className="text-lavender font-medium hover:text-ember transition-colors flex items-center gap-1 group"
-            >
-              View All Case Studies
-              <svg
-                className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </Link>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {caseStudies.map((item, index) => (
-              <PortfolioCard
-                key={item.href}
-                {...item}
-                index={index}
-                variant="case_study"
-              />
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-12 text-center"
-          >
-            <p className="text-slate dark:text-foreground-muted text-sm font-mono">
-              Looking for B2B frameworks and AI prompts you can run today?{" "}
-              <Link
-                href="/playbooks"
-                className="text-ember dark:text-lavender font-bold hover:underline transition-all"
-              >
-                Browse the Playbooks &rarr;
-              </Link>
-            </p>
-          </motion.div>
-        </div>
-      </section>
 
       {/* FAQ Section */}
       <FAQ
@@ -552,7 +503,7 @@ export default function HomeClient() {
               into predictable pipeline.
             </p>
             <Link href="/work" className="btn-primary inline-flex text-lg">
-              Work With Me
+              Book a Call
               <svg
                 className="w-5 h-5"
                 fill="none"

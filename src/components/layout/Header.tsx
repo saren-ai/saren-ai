@@ -8,9 +8,8 @@ import ThemeToggle from "./ThemeToggle";
 import SearchTrigger from "@/components/search/SearchTrigger";
 import MegaMenu, { type MegaMenuContent } from "./MegaMenu";
 import {
-  workMegaMenu,
+  servicesMegaMenu,
   playbooksMegaMenu,
-  studioMegaMenu,
   aboutMegaMenu,
 } from "@/lib/mega-menu-content";
 
@@ -27,17 +26,26 @@ interface NavItem {
 
 const navLinks: NavItem[] = [
   {
-    label: "Work",
-    href: "/work",
-    megaMenu: workMegaMenu,
-    activePrefixes: ["/work", "/ai-orchestration", "/signal-state", "/fractional-marketing-lead", "/case-studies", "/smb", "/solopreneurs", "/thinkers"],
+    label: "Services",
+    href: "/services",
+    megaMenu: servicesMegaMenu,
+    activePrefixes: ["/services", "/ai-orchestration", "/gtm-engineering", "/signal-state", "/fractional-marketing-lead", "/smb", "/solopreneurs", "/thinkers"],
     mobileChildren: [
-      { href: "/work", label: "Work With Me", description: "Engagement models and how to start" },
-      { href: "/ai-orchestration", label: "AI Orchestration", description: "Machines handle scale. Humans handle meaning." },
-      { href: "/signal-state", label: "Signal-State Marketing", description: "AI-enabled expressed intent targeting" },
-      { href: "/fractional-marketing-lead", label: "Fractional Marketing Lead", description: "Your first real marketing engine, built to scale" },
-      { href: "/case-studies", label: "Case Studies", description: "Eight enterprise B2B proof narratives" },
+      { href: "/services", label: "How I Work With Teams", description: "Engagement types, start to finish" },
+      ...servicesMegaMenu.sections.flatMap(section =>
+        section.links.map(link => ({
+          href: link.href,
+          label: link.label,
+          description: link.description,
+          isExternal: link.isExternal,
+        }))
+      ),
     ],
+  },
+  {
+    label: "Results",
+    href: "/case-studies",
+    activePrefixes: ["/case-studies"],
   },
   {
     label: "Playbooks",
@@ -58,19 +66,7 @@ const navLinks: NavItem[] = [
     ],
   },
   {
-    label: "Studio",
-    href: "/studio",
-    megaMenu: studioMegaMenu,
-    activePrefixes: ["/studio"],
-    mobileChildren: [
-      { href: "/studio", label: "All of the Studio", description: "Creative work and editorial" },
-      { href: "/studio/ai-for-liberal-arts", label: "AI for Liberal Arts Majors", description: "Creative AI skills series" },
-      { href: "/studio/oblique-techniques", label: "Oblique Techniques", description: "Prompt Against the Machine" },
-      { href: "/studio/psylocke-timeline", label: "Psylocke Timeline", description: "Interactive comics timeline" },
-    ],
-  },
-  {
-    label: "About Me",
+    label: "About",
     href: "/about",
     megaMenu: aboutMegaMenu,
     activePrefixes: ["/about", "/resume", "/brand"],
@@ -130,7 +126,7 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
   // Build mega menu content (injects Substack data for About)
   const getMegaMenuContent = (link: NavItem): MegaMenuContent | undefined => {
     if (!link.megaMenu) return undefined;
-    if (link.label === "About Me" && latestPost) {
+    if (link.label === "About" && latestPost) {
       const desc = latestPost.contentSnippet || link.megaMenu.promotional?.description || "";
       return {
         ...link.megaMenu,
@@ -251,7 +247,7 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
               href="/work"
               className="btn-primary text-sm py-1.5 px-4 inline-flex items-center gap-1.5"
             >
-              Work With Me
+              Book a Call
             </Link>
           </div>
 
@@ -404,7 +400,7 @@ export default function Header({ latestPost }: { latestPost?: SubstackPost | nul
                     onClick={() => setIsMenuOpen(false)}
                     className="block py-2.5 px-4 bg-ember text-white rounded-xl font-semibold text-sm text-center transition-all hover:bg-ember/90"
                   >
-                    Work With Me
+                    Book a Call
                   </Link>
                 </div>
               </nav>
