@@ -51,8 +51,8 @@ export default function HybridLeadScoringPage() {
       name: "Identogram LLC",
       url: "https://saren.ai",
     },
-    datePublished: "2026-05-24",
-    dateModified: "2026-05-24",
+    datePublished: "2026-05-24T00:00:00Z",
+    dateModified: "2026-05-24T00:00:00Z",
     isPartOf: { "@id": "https://saren.ai/#website" },
     image: {
       "@type": "ImageObject",

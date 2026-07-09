@@ -45,7 +45,7 @@ export default function GoldenDashboardPage() {
             "about": { "@id": "https://saren.ai/#person" },
             "author": { "@id": "https://saren.ai/#person" },
             "inLanguage": "en-US",
-            "dateModified": "2026-03-27"
+            "dateModified": "2026-03-27T00:00:00Z"
           })
         }}
       />
@@ -88,7 +88,7 @@ export default function GoldenDashboardPage() {
             "operatingSystem": "Web",
             "inLanguage": "en-US",
             "dateCreated": "2026-02-13",
-            "dateModified": "2026-03-27"
+            "dateModified": "2026-03-27T00:00:00Z"
           })
         }}
       />

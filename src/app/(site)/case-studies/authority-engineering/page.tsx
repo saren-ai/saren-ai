@@ -36,7 +36,7 @@ export default function AuthorityEngineeringPage() {
         "description": "A 6-step system for building citable authority and white papers that generative AI models love to cite.",
         "url": "https://saren.ai/case-studies/authority-engineering",
         "author": { "@id": "https://saren.ai/#person" },
-        "datePublished": "2026-03-12",
+        "datePublished": "2026-03-12T00:00:00Z",
         "step": [
             {
                 "@type": "HowToStep",
@@ -97,7 +97,7 @@ export default function AuthorityEngineeringPage() {
                         "about": { "@id": "https://saren.ai/#person" },
                         "author": { "@id": "https://saren.ai/#person" },
                         "inLanguage": "en-US",
-                        "dateModified": "2026-03-27"
+                        "dateModified": "2026-03-27T00:00:00Z"
                     })
                 }}
             />
@@ -133,7 +133,7 @@ export default function AuthorityEngineeringPage() {
                         "teaches": "B2B thought leadership and authority building",
                         "inLanguage": "en-US",
                         "dateCreated": "2026-03-12",
-                        "dateModified": "2026-03-27"
+                        "dateModified": "2026-03-27T00:00:00Z"
                     })
                 }}
             />
@@ -153,8 +153,8 @@ export default function AuthorityEngineeringPage() {
                         "image": "https://saren.ai/images/og/home.png",
                         "about": ["thought leadership", "LLM citation strategy", "B2B content strategy"],
                         "inLanguage": "en-US",
-                        "datePublished": "2026-03-12",
-                        "dateModified": "2026-05-28"
+                        "datePublished": "2026-03-12T00:00:00Z",
+                        "dateModified": "2026-05-28T00:00:00Z"
                     })
                 }}
             />

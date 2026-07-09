@@ -40,7 +40,7 @@ export default function CaseStudiesPage() {
             "about": { "@id": "https://saren.ai/#person" },
             "author": { "@id": "https://saren.ai/#person" },
             "inLanguage": "en-US",
-            "dateModified": "2026-05-28"
+            "dateModified": "2026-05-28T00:00:00Z"
           })
         }}
       />

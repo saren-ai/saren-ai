@@ -39,7 +39,7 @@ export default function SovereignPersonasPage() {
             "about": { "@id": "https://saren.ai/#person" },
             "author": { "@id": "https://saren.ai/#person" },
             "inLanguage": "en-US",
-            "dateModified": "2026-03-27"
+            "dateModified": "2026-03-27T00:00:00Z"
           })
         }}
       />
@@ -80,7 +80,7 @@ export default function SovereignPersonasPage() {
             "keywords": "buyer personas, ICP, sovereign infrastructure, B2B segmentation, enterprise sales",
             "inLanguage": "en-US",
             "dateCreated": "2026-02-03",
-            "dateModified": "2026-03-27"
+            "dateModified": "2026-03-27T00:00:00Z"
           })
         }}
       />
@@ -100,8 +100,8 @@ export default function SovereignPersonasPage() {
             "image": "https://saren.ai/images/portfolio/portfolio-sovereign-personas.png",
             "about": ["buyer personas", "enterprise sales", "sovereign infrastructure"],
             "inLanguage": "en-US",
-            "datePublished": "2026-02-03",
-            "dateModified": "2026-05-28"
+            "datePublished": "2026-02-03T00:00:00Z",
+            "dateModified": "2026-05-28T00:00:00Z"
           })
         }}
       />

@@ -40,7 +40,7 @@ export default function KwannonTimelinePage() {
             about: { "@id": "https://saren.ai/#person" },
             author: { "@id": "https://saren.ai/#person" },
             inLanguage: "en-US",
-            dateModified: "2026-05-08",
+            dateModified: "2026-05-08T00:00:00Z",
           }),
         }}
       />
@@ -102,9 +102,9 @@ export default function KwannonTimelinePage() {
               "Kwannon, Psylocke, X-Men, comics timeline, Japanese cultural representation, Marvel, interactive timeline",
             genre: "Cultural analysis",
             inLanguage: "en-US",
-            datePublished: "2026-02-09",
+            datePublished: "2026-02-09T00:00:00Z",
             dateCreated: "2026-02-09",
-            dateModified: "2026-05-08",
+            dateModified: "2026-05-08T00:00:00Z",
           }),
         }}
       />

@@ -41,7 +41,7 @@ export default function SignalStatePage() {
             "author": { "@id": "https://saren.ai/#person" },
             "inLanguage": "en-US",
             "dateCreated": "2026-02-15",
-            "dateModified": "2026-04-01"
+            "dateModified": "2026-04-01T00:00:00Z"
           })
         }}
       />

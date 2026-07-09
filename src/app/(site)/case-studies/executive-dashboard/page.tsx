@@ -50,7 +50,7 @@ export default function ExecutiveDashboardPage() {
             about: { "@id": "https://saren.ai/#person" },
             author: { "@id": "https://saren.ai/#person" },
             inLanguage: "en-US",
-            dateModified: "2026-04-01",
+            dateModified: "2026-04-01T00:00:00Z",
           }),
         }}
       />
@@ -108,7 +108,7 @@ export default function ExecutiveDashboardPage() {
               "demand generation, executive dashboard, HubSpot, Apollo, LinkedIn Ads, GA4, Pendo, Claude Code, AI operations, marketing ops",
             inLanguage: "en-US",
             dateCreated: "2026-04-01",
-            dateModified: "2026-04-01",
+            dateModified: "2026-04-01T00:00:00Z",
           }),
         }}
       />
@@ -128,8 +128,8 @@ export default function ExecutiveDashboardPage() {
             "image": "https://saren.ai/images/portfolio/executive-dashboard/demand-dash_bigview.jpg",
             "about": ["marketing attribution", "executive reporting", "AI-assisted development"],
             "inLanguage": "en-US",
-            "datePublished": "2026-04-14",
-            "dateModified": "2026-05-28"
+            "datePublished": "2026-04-14T00:00:00Z",
+            "dateModified": "2026-05-28T00:00:00Z"
           })
         }}
       />

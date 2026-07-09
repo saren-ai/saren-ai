@@ -37,7 +37,7 @@ export default function AEOPlaybookPage() {
                         "about": { "@id": "https://saren.ai/#person" },
                         "author": { "@id": "https://saren.ai/#person" },
                         "inLanguage": "en-US",
-                        "dateModified": "2026-07-06"
+                        "dateModified": "2026-07-06T00:00:00Z"
                     })
                 }}
             />
@@ -58,8 +58,8 @@ export default function AEOPlaybookPage() {
                         "about": ["answer engine optimization", "AEO", "B2B buyer journey", "AI search", "citation optimization"],
                         "keywords": "answer engine optimization, AEO, AI shortlist, B2B buyer journey, LLM citations, generative engine optimization, AI Overviews, ChatGPT search, Perplexity",
                         "inLanguage": "en-US",
-                        "datePublished": "2026-07-06",
-                        "dateModified": "2026-07-06"
+                        "datePublished": "2026-07-06T00:00:00Z",
+                        "dateModified": "2026-07-06T00:00:00Z"
                     })
                 }}
             />

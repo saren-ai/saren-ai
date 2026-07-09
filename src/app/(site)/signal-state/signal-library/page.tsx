@@ -40,7 +40,7 @@ export default function SignalLibraryPage() {
             "author": { "@id": "https://saren.ai/#person" },
             "inLanguage": "en-US",
             "dateCreated": "2026-02-20",
-            "dateModified": "2026-04-01"
+            "dateModified": "2026-04-01T00:00:00Z"
           })
         }}
       />

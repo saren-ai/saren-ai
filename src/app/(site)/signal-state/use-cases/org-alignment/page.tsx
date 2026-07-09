@@ -40,7 +40,7 @@ export default function OrgAlignmentPage() {
             "author": { "@id": "https://saren.ai/#person" },
             "inLanguage": "en-US",
             "dateCreated": "2026-02-20",
-            "dateModified": "2026-04-01"
+            "dateModified": "2026-04-01T00:00:00Z"
           })
         }}
       />
@@ -75,8 +75,8 @@ export default function OrgAlignmentPage() {
             "about": ["Organizational alignment consulting", "Intent-based marketing", "Signal-State Marketing", "B2B consulting"],
             "keywords": "organizational alignment, consulting marketing, dysfunction signals, leadership conflict, Signal-State Marketing, expressed intent, B2B consulting",
             "inLanguage": "en-US",
-            "datePublished": "2026-02-20",
-            "dateModified": "2026-04-01",
+            "datePublished": "2026-02-20T00:00:00Z",
+            "dateModified": "2026-04-01T00:00:00Z",
             "articleSection": "Signal-State Use Cases"
           })
         }}

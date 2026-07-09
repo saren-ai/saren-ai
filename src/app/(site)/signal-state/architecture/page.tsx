@@ -40,7 +40,7 @@ export default function ArchitecturePage() {
             "author": { "@id": "https://saren.ai/#person" },
             "inLanguage": "en-US",
             "dateCreated": "2026-02-15",
-            "dateModified": "2026-04-01"
+            "dateModified": "2026-04-01T00:00:00Z"
           })
         }}
       />
@@ -75,7 +75,7 @@ export default function ArchitecturePage() {
             "keywords": "Signal-State architecture, AI marketing platform, intent targeting system, signal scoring, marketing automation",
             "inLanguage": "en-US",
             "dateCreated": "2026-02-15",
-            "dateModified": "2026-04-01"
+            "dateModified": "2026-04-01T00:00:00Z"
           })
         }}
       />

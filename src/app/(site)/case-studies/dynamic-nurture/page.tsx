@@ -41,7 +41,7 @@ export default function DynamicNurturePage() {
             "author": { "@id": "https://saren.ai/#person" },
             "inLanguage": "en-US",
             "dateCreated": "2026-01-15",
-            "dateModified": "2026-03-27"
+            "dateModified": "2026-03-27T00:00:00Z"
           })
         }}
       />
@@ -77,7 +77,7 @@ export default function DynamicNurturePage() {
             "teaches": "Building a segment-stage email nurture matrix with behavioral routing logic",
             "inLanguage": "en-US",
             "dateCreated": "2026-01-15",
-            "dateModified": "2026-03-27"
+            "dateModified": "2026-03-27T00:00:00Z"
           })
         }}
       />
@@ -97,8 +97,8 @@ export default function DynamicNurturePage() {
             "image": "https://saren.ai/images/og/home.png",
             "about": ["email nurture", "marketing automation", "lead scoring"],
             "inLanguage": "en-US",
-            "datePublished": "2026-03-27",
-            "dateModified": "2026-05-28"
+            "datePublished": "2026-03-27T00:00:00Z",
+            "dateModified": "2026-05-28T00:00:00Z"
           })
         }}
       />

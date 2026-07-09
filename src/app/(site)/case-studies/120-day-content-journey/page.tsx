@@ -39,7 +39,7 @@ export default function ContentJourneyPage() {
             "about": { "@id": "https://saren.ai/#person" },
             "author": { "@id": "https://saren.ai/#person" },
             "inLanguage": "en-US",
-            "dateModified": "2026-03-27"
+            "dateModified": "2026-03-27T00:00:00Z"
           })
         }}
       />
@@ -82,7 +82,7 @@ export default function ContentJourneyPage() {
             "timeRequired": "P120D",
             "inLanguage": "en-US",
             "dateCreated": "2026-02-03",
-            "dateModified": "2026-03-27"
+            "dateModified": "2026-03-27T00:00:00Z"
           })
         }}
       />
@@ -136,8 +136,8 @@ export default function ContentJourneyPage() {
             "image": "https://saren.ai/images/portfolio/portfolio-content-journey.png",
             "about": ["content marketing", "B2B demand generation", "pipeline development"],
             "inLanguage": "en-US",
-            "datePublished": "2026-02-03",
-            "dateModified": "2026-05-28"
+            "datePublished": "2026-02-03T00:00:00Z",
+            "dateModified": "2026-05-28T00:00:00Z"
           })
         }}
       />

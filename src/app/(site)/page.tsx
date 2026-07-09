@@ -60,7 +60,7 @@ export default function HomePage() {
             "about": { "@id": "https://saren.ai/#person" },
             "author": { "@id": "https://saren.ai/#person" },
             "inLanguage": "en-US",
-            "dateModified": "2026-07-05"
+            "dateModified": "2026-07-05T00:00:00Z"
           })
         }}
       />
@@ -144,7 +144,7 @@ export default function HomePage() {
             "isPartOf": { "@id": "https://saren.ai/#website" },
             "image": "https://saren.ai/images/og/home.png",
             "inLanguage": "en-US",
-            "dateModified": "2026-07-05"
+            "dateModified": "2026-07-05T00:00:00Z"
           })
         }}
       />

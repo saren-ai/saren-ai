@@ -67,7 +67,7 @@ export default function AiForLiberalArtsPage() {
             about: { "@id": "https://saren.ai/#person" },
             author: { "@id": "https://saren.ai/#person" },
             inLanguage: "en-US",
-            dateModified: "2026-06-17",
+            dateModified: "2026-06-17T00:00:00Z",
           }),
         }}
       />

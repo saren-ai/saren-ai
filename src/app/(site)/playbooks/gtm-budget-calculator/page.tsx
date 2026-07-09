@@ -47,7 +47,7 @@ export default function CalculatorPage() {
             "about": { "@id": "https://saren.ai/#person" },
             "author": { "@id": "https://saren.ai/#person" },
             "inLanguage": "en-US",
-            "dateModified": "2026-03-27"
+            "dateModified": "2026-03-27T00:00:00Z"
           })
         }}
       />
@@ -90,7 +90,7 @@ export default function CalculatorPage() {
             "operatingSystem": "Web",
             "inLanguage": "en-US",
             "dateCreated": "2026-02-04",
-            "dateModified": "2026-03-27"
+            "dateModified": "2026-03-27T00:00:00Z"
           })
         }}
       />

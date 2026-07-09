@@ -39,7 +39,7 @@ export default function ItsGoodToBePitchedPage() {
             "about": { "@id": "https://saren.ai/#person" },
             "author": { "@id": "https://saren.ai/#person" },
             "inLanguage": "en-US",
-            "dateModified": "2026-03-27"
+            "dateModified": "2026-03-27T00:00:00Z"
           })
         }}
       />
@@ -80,7 +80,7 @@ export default function ItsGoodToBePitchedPage() {
             "keywords": "pitch strategy, sales storytelling, agency concept, AI storyboarding, B2B sales enablement",
             "inLanguage": "en-US",
             "dateCreated": "2026-02-03",
-            "dateModified": "2026-03-27"
+            "dateModified": "2026-03-27T00:00:00Z"
           })
         }}
       />

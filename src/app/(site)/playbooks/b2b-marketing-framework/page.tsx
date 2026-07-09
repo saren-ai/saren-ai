@@ -135,7 +135,7 @@ export default async function B2BFrameworkPage() {
             "isPartOf": { "@id": "https://saren.ai/#website" },
             "author": { "@id": "https://saren.ai/#person" },
             "inLanguage": "en-US",
-            "dateModified": "2026-04-01"
+            "dateModified": "2026-04-01T00:00:00Z"
           })
         }}
       />

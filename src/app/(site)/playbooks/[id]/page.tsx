@@ -207,8 +207,8 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
                 "seller": { "@id": "https://saren.ai/#person" }
             }
         }),
-        ...(playbook.date && { "datePublished": playbook.date }),
-        "dateModified": "2026-04-01",
+        ...(playbook.date && { "datePublished": `${playbook.date}T00:00:00Z` }),
+        "dateModified": "2026-04-01T00:00:00Z",
         "inLanguage": "en-US",
         "articleSection": playbook.category
     };

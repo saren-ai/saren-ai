@@ -37,7 +37,7 @@ export default function GTMEngineeringPage() {
                         "about": { "@id": "https://saren.ai/#person" },
                         "author": { "@id": "https://saren.ai/#person" },
                         "inLanguage": "en-US",
-                        "dateModified": "2026-06-19"
+                        "dateModified": "2026-06-19T00:00:00Z"
                     })
                 }}
             />
@@ -58,8 +58,8 @@ export default function GTMEngineeringPage() {
                         "about": ["GTM Engineering", "demand generation systems", "B2B demand engineering", "marketing operations", "AI orchestration"],
                         "keywords": "GTM engineering, demand engineering, demand generation systems, lead scoring, content strategy matrix, paid media optimization, marketing attribution, AI orchestration, B2B cybersecurity marketing",
                         "inLanguage": "en-US",
-                        "datePublished": "2026-06-19",
-                        "dateModified": "2026-06-19"
+                        "datePublished": "2026-06-19T00:00:00Z",
+                        "dateModified": "2026-06-19T00:00:00Z"
                     })
                 }}
             />

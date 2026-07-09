@@ -41,7 +41,7 @@ export default function IntentDataPage() {
             "author": { "@id": "https://saren.ai/#person" },
             "inLanguage": "en-US",
             "dateCreated": "2026-01-20",
-            "dateModified": "2026-03-27"
+            "dateModified": "2026-03-27T00:00:00Z"
           })
         }}
       />
@@ -77,7 +77,7 @@ export default function IntentDataPage() {
             "teaches": "Using third-party intent data to map the B2B buyer journey and build a content engine keyed to purchase proximity",
             "inLanguage": "en-US",
             "dateCreated": "2026-01-20",
-            "dateModified": "2026-03-27"
+            "dateModified": "2026-03-27T00:00:00Z"
           })
         }}
       />
@@ -148,8 +148,8 @@ export default function IntentDataPage() {
             "image": "https://saren.ai/images/og/home.png",
             "about": ["intent data", "B2B demand generation", "funnel analytics"],
             "inLanguage": "en-US",
-            "datePublished": "2026-03-27",
-            "dateModified": "2026-06-08"
+            "datePublished": "2026-03-27T00:00:00Z",
+            "dateModified": "2026-06-08T00:00:00Z"
           })
         }}
       />

@@ -38,7 +38,7 @@ export default function ThoughtLeadershipPage() {
             "author": { "@id": "https://saren.ai/#person" },
             "inLanguage": "en-US",
             "dateCreated": "2026-02-01",
-            "dateModified": "2026-03-27"
+            "dateModified": "2026-03-27T00:00:00Z"
           })
         }}
       />
@@ -79,8 +79,8 @@ export default function ThoughtLeadershipPage() {
             },
             "teaches": "How to build LLM-citable thought leadership through named frameworks, structured argumentation, and original data synthesis",
             "inLanguage": "en-US",
-            "datePublished": "2026-02-01",
-            "dateModified": "2026-03-27",
+            "datePublished": "2026-02-01T00:00:00Z",
+            "dateModified": "2026-03-27T00:00:00Z",
             "articleSection": "B2B Marketing Strategy"
           })
         }}

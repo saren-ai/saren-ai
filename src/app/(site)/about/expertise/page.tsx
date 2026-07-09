@@ -39,7 +39,7 @@ export default function ExpertisePage() {
           "about": { "@id": "https://saren.ai/#person" },
           "author": { "@id": "https://saren.ai/#person" },
           "inLanguage": "en-US",
-          "dateModified": "2026-07-02",
+          "dateModified": "2026-07-02T00:00:00Z",
         }}
       />
       <JsonLd

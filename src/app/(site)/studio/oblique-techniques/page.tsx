@@ -48,7 +48,7 @@ export default function ObliqueTechniquesPage() {
             about: { "@id": "https://saren.ai/#person" },
             author: { "@id": "https://saren.ai/#person" },
             inLanguage: "en-US",
-            dateModified: "2026-06-17",
+            dateModified: "2026-06-17T00:00:00Z",
           }),
         }}
       />
@@ -114,9 +114,9 @@ export default function ObliqueTechniquesPage() {
               "Claude Skills, creative constraints, Oulipo, surrealism, Fluxus, liberal arts AI, creative writing, avant-garde techniques",
             genre: "Educational software",
             inLanguage: "en-US",
-            datePublished: "2026-06-17",
+            datePublished: "2026-06-17T00:00:00Z",
             dateCreated: "2026-06-17",
-            dateModified: "2026-06-17",
+            dateModified: "2026-06-17T00:00:00Z",
             codeRepository: "https://github.com/saren-ai/oblique-techniques",
             programmingLanguage: "Markdown",
           }),

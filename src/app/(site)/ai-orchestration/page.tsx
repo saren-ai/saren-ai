@@ -36,8 +36,8 @@ const jsonLd = {
     "author": { "@id": "https://saren.ai/#person" },
     "publisher": { "@id": "https://saren.ai/#person" },
     "mainEntityOfPage": { "@id": "https://saren.ai/ai-orchestration/#webpage" },
-    "datePublished": "2026-03-27",
-    "dateModified": "2026-03-27",
+    "datePublished": "2026-03-27T00:00:00Z",
+    "dateModified": "2026-03-27T00:00:00Z",
     "inLanguage": "en-US",
     "about": ["AI orchestration", "Signal-State Marketing", "B2B AI strategy"],
     "keywords": "AI orchestration, Signal-State Marketing, agentic pipelines, behavioral targeting, human-in-the-loop AI, B2B demand generation",
@@ -65,7 +65,7 @@ export default function AIOrchestrationPage() {
                         "about": { "@id": "https://saren.ai/#person" },
                         "author": { "@id": "https://saren.ai/#person" },
                         "inLanguage": "en-US",
-                        "dateModified": "2026-03-27"
+                        "dateModified": "2026-03-27T00:00:00Z"
                     })
                 }}
             />

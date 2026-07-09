@@ -31,7 +31,7 @@ export default function CylancePage() {
             author: { "@id": "https://saren.ai/#person" },
             isPartOf: { "@id": "https://saren.ai/#website" },
             inLanguage: "en-US",
-            dateModified: "2026-06-03",
+            dateModified: "2026-06-03T00:00:00Z",
           }),
         }}
       />

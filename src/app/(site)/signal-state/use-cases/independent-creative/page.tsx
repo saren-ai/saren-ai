@@ -40,7 +40,7 @@ export default function IndependentCreativePage() {
             "author": { "@id": "https://saren.ai/#person" },
             "inLanguage": "en-US",
             "dateCreated": "2026-02-20",
-            "dateModified": "2026-04-01"
+            "dateModified": "2026-04-01T00:00:00Z"
           })
         }}
       />
@@ -75,8 +75,8 @@ export default function IndependentCreativePage() {
             "about": ["AI tools marketing", "Independent creatives", "Signal-State Marketing", "Solo operators", "Expressed intent"],
             "keywords": "AI tools, independent creatives, solo operators, capability gap signals, expressed intent, Signal-State Marketing, creator economy",
             "inLanguage": "en-US",
-            "datePublished": "2026-02-20",
-            "dateModified": "2026-04-01",
+            "datePublished": "2026-02-20T00:00:00Z",
+            "dateModified": "2026-04-01T00:00:00Z",
             "articleSection": "Signal-State Use Cases"
           })
         }}

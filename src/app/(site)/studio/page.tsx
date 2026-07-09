@@ -40,7 +40,7 @@ export default function FeaturePage() {
             isPartOf: { "@id": "https://saren.ai/#website" },
             author: { "@id": "https://saren.ai/#person" },
             inLanguage: "en-US",
-            dateModified: "2026-05-08",
+            dateModified: "2026-05-08T00:00:00Z",
           }),
         }}
       />

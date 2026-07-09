@@ -69,7 +69,7 @@ export default function FractionalMarketingLeadPage() {
             about: { "@id": "https://saren.ai/#person" },
             author: { "@id": "https://saren.ai/#person" },
             inLanguage: "en-US",
-            dateModified: "2026-06-09",
+            dateModified: "2026-06-09T00:00:00Z",
           }),
         }}
       />

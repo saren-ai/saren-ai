@@ -40,7 +40,7 @@ export default function FrameworkPage() {
             "author": { "@id": "https://saren.ai/#person" },
             "inLanguage": "en-US",
             "dateCreated": "2026-02-15",
-            "dateModified": "2026-04-01"
+            "dateModified": "2026-04-01T00:00:00Z"
           })
         }}
       />
@@ -74,8 +74,8 @@ export default function FrameworkPage() {
             "about": ["Intent-based marketing", "Signal-State Marketing", "B2B demand generation", "AI targeting"],
             "keywords": "Signal-State Marketing, expressed intent, intent targeting, signal decay, B2B marketing framework, AI-enabled marketing",
             "inLanguage": "en-US",
-            "datePublished": "2026-02-15",
-            "dateModified": "2026-04-01",
+            "datePublished": "2026-02-15T00:00:00Z",
+            "dateModified": "2026-04-01T00:00:00Z",
             "articleSection": "Marketing Frameworks"
           })
         }}

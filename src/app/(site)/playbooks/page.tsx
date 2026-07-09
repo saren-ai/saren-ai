@@ -113,7 +113,7 @@ export default async function PlaybooksIndex({
                         isPartOf: { '@id': 'https://saren.ai/#website' },
                         author: { '@id': 'https://saren.ai/#person' },
                         inLanguage: 'en-US',
-                        dateModified: '2026-05-28',
+                        dateModified: '2026-05-28T00:00:00Z',
                     }),
                 }}
             />
