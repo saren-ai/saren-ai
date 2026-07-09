@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
         title: `${prompt.title} | B2B Marketing Framework`,
         description: prompt.hook,
+        alternates: { canonical: `https://saren.ai/playbooks/b2b-marketing-framework/${prompt.slug}` },
     };
 }
 
