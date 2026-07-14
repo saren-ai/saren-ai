@@ -132,6 +132,14 @@ const nextConfig: NextConfig = {
           { key: "Content-Security-Policy", value: csp },
         ],
       },
+      {
+        // Advertise the markdown variant of public pages (RFC 8288). Relative
+        // reference resolves against the request URL, so this is correct on every page.
+        source: "/((?!api|desk|auth|_next).*)",
+        headers: [
+          { key: "Link", value: '<?format=md>; rel="alternate"; type="text/markdown"' },
+        ],
+      },
     ];
   },
 };
