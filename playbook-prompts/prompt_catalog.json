@@ -584,8 +584,29 @@
         "prompts"
       ],
       "status": "active",
-      "date": "2026-05-28",
-      "steps": []
+      "date": "2026-07-14",
+      "steps": [
+        { "step": 1, "title": "The Pre-Meeting Oracle", "file": "Playbooks/genx-executive-ai-playbook/1.1_The_Pre-Meeting_Oracle.md" },
+        { "step": 2, "title": "The Pattern Spotter", "file": "Playbooks/genx-executive-ai-playbook/1.2_The_Pattern_Spotter.md" },
+        { "step": 3, "title": "The Political Chess Master", "file": "Playbooks/genx-executive-ai-playbook/1.3_The_Political_Chess_Master.md" },
+        { "step": 4, "title": "The Accountability Enforcer", "file": "Playbooks/genx-executive-ai-playbook/1.4_The_Accountability_Enforcer.md" },
+        { "step": 5, "title": "The Agenda Optimizer", "file": "Playbooks/genx-executive-ai-playbook/1.5_The_Agenda_Optimizer.md" },
+        { "step": 6, "title": "The Board Whisperer", "file": "Playbooks/genx-executive-ai-playbook/2.1_The_Board_Whisperer.md" },
+        { "step": 7, "title": "The Multi-Generation Translator", "file": "Playbooks/genx-executive-ai-playbook/2.2_The_Multi-Generation_Translator.md" },
+        { "step": 8, "title": "The Investor Narrative Builder", "file": "Playbooks/genx-executive-ai-playbook/2.3_The_Investor_Narrative_Builder.md" },
+        { "step": 9, "title": "The Crisis Response Architect", "file": "Playbooks/genx-executive-ai-playbook/2.4_The_Crisis_Response_Architect.md" },
+        { "step": 10, "title": "The Culture Pulse Decoder", "file": "Playbooks/genx-executive-ai-playbook/2.5_The_Culture_Pulse_Decoder.md" },
+        { "step": 11, "title": "The Scenario Engine", "file": "Playbooks/genx-executive-ai-playbook/3.1_The_Scenario_Engine.md" },
+        { "step": 12, "title": "The Bias Detector", "file": "Playbooks/genx-executive-ai-playbook/3.2_The_Bias_Detector.md" },
+        { "step": 13, "title": "The Weak Signal Detector", "file": "Playbooks/genx-executive-ai-playbook/3.3_The_Weak_Signal_Detector.md" },
+        { "step": 14, "title": "Resource Allocation Optimizer", "file": "Playbooks/genx-executive-ai-playbook/3.4_Resource_Allocation_Optimizer.md" },
+        { "step": 15, "title": "Strategic Risk Manager", "file": "Playbooks/genx-executive-ai-playbook/3.5_Strategic_Risk_Manager.md" },
+        { "step": 16, "title": "The Initiative Kill List", "file": "Playbooks/genx-executive-ai-playbook/4.1_The_Initiative_Kill_List.md" },
+        { "step": 17, "title": "Executive Time Audit", "file": "Playbooks/genx-executive-ai-playbook/4.2_Executive_Time_Audit.md" },
+        { "step": 18, "title": "The Delegation Decoder", "file": "Playbooks/genx-executive-ai-playbook/4.3_The_Delegation_Decoder.md" },
+        { "step": 19, "title": "The Energy Optimizer", "file": "Playbooks/genx-executive-ai-playbook/4.4_The_Energy_Optimizer.md" },
+        { "step": 20, "title": "The Strategic Alignment Enforcer", "file": "Playbooks/genx-executive-ai-playbook/4.5_The_Strategic_Alignment_Enforcer.md" }
+      ]
     }
   ],
   "prompts": {
