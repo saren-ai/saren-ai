@@ -147,7 +147,7 @@ export default function HomeClient() {
               transition={{ duration: 0.5 }}
               className="text-lavender font-mono text-sm md:text-base mb-6 tracking-wider uppercase"
             >
-              AGENTIC GTM · THE 2026 EVOLUTION OF GO-TO-MARKET
+              AGENTIC GTM · AUDIT → ORCHESTRATION → SCALE
             </motion.p>
 
             {/* Headline */}
@@ -157,16 +157,17 @@ export default function HomeClient() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-6xl lg:text-[4rem] font-bold text-charcoal dark:text-foreground leading-[1.1] mb-8"
             >
-              Agentic GTM: swarms of agents,<br /><span className="text-gradient">one predictable revenue system.</span>
+              Your GTM motion has a ceiling.<br /><span className="text-gradient">I build the system that removes it.</span>
             </motion.h1>
 
             {/* Body / value prop */}
             <div className="text-base md:text-lg text-slate dark:text-foreground-muted max-w-3xl mx-auto leading-relaxed mb-10 text-center">
               <p className="text-charcoal dark:text-foreground">
-                I architect agent swarms that find buying signals in comments and
-                communities, then respond in real time with value and education —
-                turning go-to-market from a campaign calendar into a system for
-                predictable revenue. 20+ years from AKQA to Cylance ($1.4B exit).
+                I&apos;m a forward-deployed GTM engineer: I audit how your marketing
+                and sales actually run today, then design the agent orchestration
+                layer that replaces the busywork — signal detection, qualification,
+                follow-up — running around the clock. 20+ years from AKQA to
+                Cylance ($1.4B exit).
               </p>
             </div>
 
