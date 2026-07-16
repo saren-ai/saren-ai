@@ -147,7 +147,7 @@ export default function HomeClient() {
               transition={{ duration: 0.5 }}
               className="text-lavender font-mono text-sm md:text-base mb-6 tracking-wider uppercase"
             >
-              GTM Engineer · Orange County, CA · Fractional &amp; Full-Time
+              AGENTIC GTM · THE 2026 EVOLUTION OF GO-TO-MARKET
             </motion.p>
 
             {/* Headline */}
@@ -157,15 +157,16 @@ export default function HomeClient() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-6xl lg:text-[4rem] font-bold text-charcoal dark:text-foreground leading-[1.1] mb-8"
             >
-              Stop running campaigns.<br /><span className="text-gradient">Engineer the system.</span>
+              Agentic GTM: swarms of agents,<br /><span className="text-gradient">one predictable revenue system.</span>
             </motion.h1>
 
             {/* Body / value prop */}
             <div className="text-base md:text-lg text-slate dark:text-foreground-muted max-w-3xl mx-auto leading-relaxed mb-10 text-center">
               <p className="text-charcoal dark:text-foreground">
-                I build the demand system that turns your marketing spend into
-                repeatable pipeline — then run it as your fractional marketing
-                lead. 20+ years from AKQA to Cylance ($1.4B exit).
+                I architect agent swarms that find buying signals in comments and
+                communities, then respond in real time with value and education —
+                turning go-to-market from a campaign calendar into a system for
+                predictable revenue. 20+ years from AKQA to Cylance ($1.4B exit).
               </p>
             </div>
 
