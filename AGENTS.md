@@ -216,7 +216,11 @@ Before the current Next.js site, `saren.ai` was the custom domain for a Medium p
 
 ### robots.txt
 
-`public/robots.txt` disallows `/halcyon` and `/api`. The halcyon section is archived and must stay disallowed. Desk routes (`/desk/*`) are not in robots.txt but carry `noindex` in their metadata — that's intentional (noindex is sufficient; robots.txt would block Googlebot from seeing the noindex tag itself).
+`public/robots.txt` disallows `/halcyon` and `/api`. The halcyon section is archived and must stay disallowed. Desk routes (`/desk/*`) are not in robots.txt but carry `noindex` in their metadata — that's intentional (noindex is sufficient; robots.txt would block Googlebot from seeing the noindex tag itself). It also declares `Content-Signal` directives (search/ai-input/ai-train/use) and names retrieval crawlers explicitly (added 2026-07-30) — see Cloudflare below for the enforcement layer that backs this up.
+
+### Cloudflare
+
+saren.ai is proxied through Cloudflare in front of Vercel (Bot Fight Mode on) — `robots.txt` is advisory, Cloudflare is the actual enforcement layer for bots that ignore it. `CLOUDFLARE_API_TOKEN` in `.env.local` is a zone-scoped token (Zone Settings:Edit, Bot Management:Edit, Cache Purge:Purge) covering saren.ai plus six other personal domains — server-only, never expose via `NEXT_PUBLIC_`. Source of truth for the token and its full zone list is `~/Projects/.env.local` under `─── CLOUDFLARE ───`.
 
 ## IA Conventions
 
