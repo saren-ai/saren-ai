@@ -43,7 +43,7 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 │   ├── commands/         # /project:deploy, /project:review, /project:new-case-study
 │   ├── rules/            # code-style, design-system, animations
 │   └── agents/           # code-reviewer
-├── docs/                 # Changelogs, setup guides, screenshots
+├── docs/                 # Changelogs, setup guides, screenshots — gitignored, local-only
 │   ├── briefs/           # Original page specs and build instructions (archive)
 │   └── changelogs/       # Per-session change logs
 ├── playbook-prompts/     # Obsidian vault — prompt catalog
@@ -245,7 +245,7 @@ Only config files (`next.config.ts`, `tsconfig.json`, `vercel.json`, `eslint.con
 | What | Where |
 |------|-------|
 | One-off / utility scripts | `scripts/` |
-| Build specs, briefs, guides, screenshots | `docs/` (archive in `docs/briefs/`) |
+| Build specs, briefs, guides, screenshots | `docs/` (archive in `docs/briefs/`) — **gitignored, local-only as of 2026-08-04** |
 | Session changelogs | `docs/changelogs/` |
 | Application code | `src/` |
 | Static assets | `public/` |
@@ -255,7 +255,7 @@ Only config files (`next.config.ts`, `tsconfig.json`, `vercel.json`, `eslint.con
 
 - **Never leave stray scripts, images, or data files at root.** Move them immediately.
 - **New scripts** → `scripts/`. Name descriptively (`sync-prompts.js`, not `fix.mjs`).
-- **New docs/guides** → `docs/`. Build specs go in `docs/briefs/`.
+- **New docs/guides** → `docs/`. Build specs go in `docs/briefs/`. `docs/` itself is gitignored (2026-08-04) — local working notes only, never committed.
 - **New test files** → colocate with source (`src/lib/__tests__/`) or in `src/test/`.
 - **Database files** (`.db`, `.db-shm`, `.db-wal`) are gitignored. Never commit them.
 - **`.DS_Store`**, `.obsidian/`, editor configs (`.cursor`, `.idea`, `.vscode`) are gitignored.

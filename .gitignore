@@ -83,3 +83,6 @@ halcyon-content/
 
 # generated markdown snapshot of the live site (drifts from source, regenerate on demand)
 /docs/site-export/
+
+# docs/ is local-only working notes as of 2026-08-04 — not committed to the repo
+/docs/
