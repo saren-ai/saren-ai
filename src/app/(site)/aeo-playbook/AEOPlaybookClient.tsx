@@ -3,8 +3,7 @@
 import { motion } from 'framer-motion';
 import FAQ from '@/components/ui/FAQ';
 import { FAQS } from '@/data/faqs';
-
-const CALENDLY_URL = 'https://calendly.com/sarenai';
+import { BOOKING_URL } from '@/lib/booking';
 
 const heroStats = [
   { value: '95%', label: 'The winning vendor is already on the Day One shortlist before any outreach begins' },
@@ -91,7 +90,7 @@ export default function AEOPlaybookClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
           >
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
               Book an intro call
             </a>
           </motion.div>
@@ -208,7 +207,7 @@ export default function AEOPlaybookClient() {
             <p className="text-foreground-muted text-lg leading-relaxed mb-6">
               The full audit checklist and canonical boilerplate framework are what we walk through on an intro call.
             </p>
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-secondary">
               Book an intro call
             </a>
           </motion.div>
@@ -272,7 +271,7 @@ export default function AEOPlaybookClient() {
             transition={{ delay: 0.05 }}
             className="flex flex-wrap justify-center items-center gap-4"
           >
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
               Book an intro call
             </a>
             <a href="mailto:hello@saren.ai" className="text-sm text-ash/70 hover:text-ash transition-colors">

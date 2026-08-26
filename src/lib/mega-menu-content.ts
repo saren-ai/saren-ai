@@ -1,4 +1,5 @@
 import type { MegaMenuContent } from "@/components/layout/MegaMenu";
+import { BOOKING_URL } from "@/lib/booking";
 
 /**
  * Services Mega Menu
@@ -215,7 +216,7 @@ export const aboutMegaMenu: MegaMenuContent = {
           description: "Career history, impact metrics, and core competencies",
         },
         {
-          href: "https://calendly.com/sarenai",
+          href: BOOKING_URL,
           label: "Book 30 Minutes",
           description: "Schedule a call — no pitch, just a real conversation",
           isExternal: true,

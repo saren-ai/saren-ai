@@ -7,6 +7,7 @@ import FAQ from "@/components/ui/FAQ";
 import { FAQS } from "@/data/faqs";
 import { TestimonialGrid } from "@/components/ui/Testimonial";
 import { TESTIMONIALS } from "@/data/testimonials";
+import { BOOKING_URL } from "@/lib/booking";
 
 export default function ContactClient() {
     return (
@@ -54,7 +55,7 @@ export default function ContactClient() {
                                 I&apos;d love to hear from you.
                             </motion.p>
                             <motion.a
-                                href="https://calendly.com/sarenai"
+                                href={BOOKING_URL}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 initial={{ opacity: 0, y: 10 }}

@@ -113,7 +113,7 @@ const nextConfig: NextConfig = {
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: blob: https:",
       "connect-src 'self' https://*.supabase.co https://*.sentry.io https://o*.ingest.sentry.io https://www.google-analytics.com https://analytics.google.com",
-      "frame-src https://calendly.com https://www.googletagmanager.com",
+      "frame-src https://calendar.google.com https://www.googletagmanager.com",
       "frame-ancestors 'none'",
       "object-src 'none'",
       "base-uri 'self'",

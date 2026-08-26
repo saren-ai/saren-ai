@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import CalendlyInlineWidget from "@/components/ui/CalendlyInlineWidget";
+import GoogleCalendarInlineWidget from "@/components/ui/GoogleCalendarInlineWidget";
 
 const proof = [
   { name: "BlackBerry", logo: "white/blackberry.svg", metric: "8:1", label: "ROI on Paid Media", href: "/about" },
@@ -173,7 +173,7 @@ export default function OcClient() {
           </motion.p>
 
           <div className="p-4 md:p-6 bg-ash dark:bg-background rounded-2xl border border-border">
-            <CalendlyInlineWidget />
+            <GoogleCalendarInlineWidget />
           </div>
 
           <p className="text-sm text-slate dark:text-foreground-muted mt-6">

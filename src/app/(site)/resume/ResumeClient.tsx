@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Download, Printer } from 'lucide-react'
 import Link from 'next/link'
+import { BOOKING_URL } from '@/lib/booking'
 
 const competencies = [
   {
@@ -470,7 +471,7 @@ export default function ResumeClient() {
                 Email Saren
               </a>
               <a
-                href="https://calendly.com/sarenai"
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary-dark"

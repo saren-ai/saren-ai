@@ -9,7 +9,7 @@ import {
   Clock,
   ArrowRight,
 } from "lucide-react";
-import CalendlyInlineWidget from "@/components/ui/CalendlyInlineWidget";
+import GoogleCalendarInlineWidget from "@/components/ui/GoogleCalendarInlineWidget";
 
 const proofPoints = [
   { metric: "$4M", label: "Quarterly pipeline generated at Cylance", href: "/case-studies/120-day-content-journey" },
@@ -157,7 +157,7 @@ export default function WorkClient() {
                 Schedule a call
               </h2>
             </div>
-            <CalendlyInlineWidget />
+            <GoogleCalendarInlineWidget />
           </motion.div>
 
           {/* Email fallback */}
