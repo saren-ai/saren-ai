@@ -43,11 +43,11 @@ future migrations via psql, without the MCP connector:
 3. Add BOTH to `~/Projects/.env.local` (master registry) under a new header:
    ```
    # ── Lead Prospecting (Supabase: ltsuosasgblbqhsjckfg) ─────────
-   # Used by: @lead-prospecting (dashboard server actions, skills, migrations)
+   # Used by: #lead-prospecting (dashboard server actions, skills, migrations)
    LEADPROSPECTING_SUPABASE_SERVICE_ROLE_KEY=...
    LEADPROSPECTING_SUPABASE_DB_URL=...
    ```
-4. Copy the same two lines into `@lead-prospecting/dashboard/.env.local`
+4. Copy the same two lines into `#lead-prospecting/dashboard/.env.local`
    (as `SUPABASE_SERVICE_ROLE_KEY` and `SUPABASE_DB_URL`).
 5. Tell the work-account session "Supabase keys are in place" — it takes over from
    there (future migrations apply via `psql "$SUPABASE_DB_URL" -f migrations/xxx.sql`).

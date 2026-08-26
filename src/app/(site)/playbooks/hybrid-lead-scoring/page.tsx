@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildGraph } from "@/lib/schema";
 
 const HybridScoringClient = dynamic(() => import("./HybridScoringClient"), {
   loading: () => (
@@ -30,71 +33,37 @@ export const metadata: Metadata = {
   },
 };
 
-export default function HybridLeadScoringPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "@id": "https://saren.ai/playbooks/hybrid-lead-scoring/#article",
-    name: "Lead Scoring in 2026: The Hybrid Architecture That Works",
+const PATH = "/playbooks/hybrid-lead-scoring";
+const trail = [
+  { href: "/", label: "Home" },
+  { href: "/playbooks", label: "Playbooks" },
+  { label: "Hybrid Lead Scoring" },
+];
+
+// This page previously had no WebPage node at all (Article + BreadcrumbList
+// only) — buildGraph adds one as standard behavior, fixing that gap.
+const graph = buildGraph({
+  path: PATH,
+  name: "Lead Scoring in 2026: The Hybrid Architecture That Works",
+  description: "An interactive hybrid scoring model and practitioner's framework for upgrading HubSpot lead scoring after the August 2025 overhaul.",
+  dateModified: "2026-05-24T00:00:00Z",
+  breadcrumb: trail,
+  article: {
     headline: "Lead Scoring in 2026: The Hybrid Architecture That Works",
-    description:
-      "An interactive hybrid scoring model and practitioner's framework for upgrading HubSpot lead scoring after the August 2025 overhaul.",
-    url: "https://saren.ai/playbooks/hybrid-lead-scoring",
-    author: {
-      "@type": "Person",
-      "@id": "https://saren.ai/#person",
-      name: "Saren Peetz",
-      url: "https://saren.ai",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Identogram LLC",
-      url: "https://saren.ai",
-    },
     datePublished: "2026-05-24T00:00:00Z",
     dateModified: "2026-05-24T00:00:00Z",
-    isPartOf: { "@id": "https://saren.ai/#website" },
-    image: {
-      "@type": "ImageObject",
-      url: "https://saren.ai/images/portfolio/portfolio-lead-scoring.png",
-      width: 1200,
-      height: 630,
-    },
-    inLanguage: "en-US",
-    about: [
-      "Lead scoring",
-      "HubSpot",
-      "B2B marketing",
-      "Revenue operations",
-      "AI predictive scoring",
-    ],
-  };
+    image: "https://saren.ai/images/portfolio/portfolio-lead-scoring.png",
+    about: ["Lead scoring", "HubSpot", "B2B marketing", "Revenue operations", "AI predictive scoring"],
+  },
+});
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://saren.ai" },
-      { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://saren.ai/portfolio" },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Hybrid Lead Scoring",
-        item: "https://saren.ai/playbooks/hybrid-lead-scoring",
-      },
-    ],
-  };
-
+export default function HybridLeadScoringPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
+      <JsonLd schema={graph} />
+      <div className="container-narrow pt-6">
+        <Breadcrumb trail={trail} />
+      </div>
       <HybridScoringClient />
     </>
   );

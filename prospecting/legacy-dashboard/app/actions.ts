@@ -728,7 +728,7 @@ export async function getGmailThread(
             .slice(0, 700);
 
           const fromAddr = (envelope.from as Array<{ address?: string; name?: string }> | undefined)?.[0]?.address ?? "";
-          const myAddresses = [imapUser, "saren@saren.ai", "saren@wethos.ai"];
+          const myAddresses = [imapUser, "saren#saren.ai", "saren@wethos.ai"];
           const isOutbound = myAddresses.some((a) =>
             fromAddr.toLowerCase().includes(a.toLowerCase())
           );

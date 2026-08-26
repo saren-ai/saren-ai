@@ -6,6 +6,7 @@ import ConsultingCTA from "@/components/case-studies/ConsultingCTA";
 import RelatedWork from "@/components/case-studies/RelatedWork";
 import PersonaGallery from "@/components/sovereign-personas/PersonaGallery";
 import FAQ from "@/components/ui/FAQ";
+import { FAQS } from "@/data/faqs";
 import { useCases } from "@/lib/sovereign-personas";
 import Link from "next/link";
 
@@ -243,39 +244,7 @@ export default function SovereignPersonasClient() {
             </section>
 
             {/* FAQ */}
-            <FAQ
-                title="Frequently Asked Questions"
-                items={[
-                    {
-                        question: "Why do sovereign infrastructure deals need different personas than enterprise IT?",
-                        answer: "Sovereign deals involve public justification, geopolitical scrutiny, and 7–16 month approval journeys across buying committees. Generic 'CIO/CTO' personas collapse under this complexity—you need personas built around power dynamics, career risk, and the language altitude required at each level (policy/architecture/operations)."
-                    },
-                    {
-                        question: "How are these personas actually used in practice?",
-                        answer: "These personas drive five key workstreams: (1) Messaging architecture tailored by altitude, (2) Content strategy matched to trust signals, (3) Sales enablement for committee navigation, (4) Executive briefings addressing persona-specific concerns, and (5) Long-cycle deal orchestration mapping the 7–16 month approval journey."
-                    },
-                    {
-                        question: "What makes the Minister persona different from typical 'executive buyer' personas?",
-                        answer: "The Minister cares about legacy outcomes—AI competitiveness, sovereignty, GDP impact—not speeds and feeds. They face political fallout, geopolitical scrutiny, and public accountability. Messaging must be strategic and geopolitical, never technical-first. They trust policy briefs, peer nation examples, and top-tier validation—and dismiss vendor bravado."
-                    },
-                    {
-                        question: "Why is the Architect persona described as the 'quiet scapegoat'?",
-                        answer: "The Architect translates political ambition into executable architecture but bears technical risk if the recommendation fails. They're caught between political pressure and technical reality. They trust evaluation frameworks, peer references, and implementation realism—and dismiss hype. Winning requires acknowledging complexity, not oversimplifying it."
-                    },
-                    {
-                        question: "How do you sell to the Sovereign Cloud Chief when they're competing with hyperscalers?",
-                        answer: "The Operator owns P&L, GPU utilization, and customer satisfaction. They need ROI in 12–18 months, live workload proof, and low-disruption migration plans. Messaging must connect sovereignty to operational excellence and competitive advantage. Sovereignty talk without operational proof gets dismissed immediately."
-                    },
-                    {
-                        question: "Can I use this persona framework for non-sovereign infrastructure deals?",
-                        answer: "The framework—building personas around mandate, risk, trust signals, and language altitude—applies to any complex B2B buying committee. The specific sovereign context (geopolitical risk, public justification, national outcomes) is unique, but the methodology works for enterprise infrastructure, defense, healthcare systems, or any multi-stakeholder deal."
-                    },
-                    {
-                        question: "Do you build these personas for clients, or teach teams to build them?",
-                        answer: "Both. For fractional engagements, I typically build the initial persona set through stakeholder interviews and deal forensics, then train the team to maintain and evolve them. The goal is to leave you with both the artifacts and the capability to update personas as your market evolves."
-                    }
-                ]}
-            />
+            <FAQ title="Frequently Asked Questions" items={FAQS.sovereignPersonas} />
 
             {/* CTA */}
             <ConsultingCTA />

@@ -1,5 +1,8 @@
 import ProcessNavigator from "@/components/thought-leadership-development/ProcessNavigator";
 import { AnimatedGrid } from "@/components/ui/AnimatedGrid";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildGraph } from "@/lib/schema";
 
 export const metadata = {
     title: "Thought Leadership Development — B2B Authority Engineering | Saren.ai",
@@ -20,73 +23,40 @@ export const metadata = {
     },
 };
 
+const trail = [
+    { href: "/", label: "Home" },
+    { href: "/case-studies", label: "Case Studies" },
+    { label: "Thought Leadership Development" },
+];
+
+const graph = buildGraph({
+    path: "/case-studies/thought-leadership-development",
+    name: "Thought Leadership Development | Saren.ai",
+    description: "Engineering B2B authority in the age of LLMs. A framework for becoming the source AI systems cite — through named frameworks, structured argumentation, and original synthesis.",
+    dateModified: "2026-03-27T00:00:00Z",
+    breadcrumb: trail,
+    article: {
+        headline: "Thought Leadership Development: From Clicks to Citations",
+        datePublished: "2026-02-01T00:00:00Z",
+        dateModified: "2026-03-27T00:00:00Z",
+        image: "https://saren.ai/images/og/home.png",
+        about: ["Thought leadership", "LLM citation strategy", "B2B content marketing", "Authority engineering"],
+    },
+});
+
 export default function ThoughtLeadershipPage() {
     return (
         <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "@id": "https://saren.ai/case-studies/thought-leadership-development/#webpage",
-            "url": "https://saren.ai/case-studies/thought-leadership-development",
-            "name": "Thought Leadership Development | Saren.ai",
-            "description": "Engineering B2B authority in the age of LLMs. A framework for becoming the source AI systems cite — through named frameworks, structured argumentation, and original synthesis.",
-            "isPartOf": { "@id": "https://saren.ai/#website" },
-            "about": { "@id": "https://saren.ai/#person" },
-            "author": { "@id": "https://saren.ai/#person" },
-            "inLanguage": "en-US",
-            "dateCreated": "2026-02-01",
-            "dateModified": "2026-03-27T00:00:00Z"
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saren.ai" },
-              { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://saren.ai/portfolio" },
-              { "@type": "ListItem", "position": 3, "name": "Thought Leadership Development", "item": "https://saren.ai/case-studies/thought-leadership-development" }
-            ]
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "@id": "https://saren.ai/case-studies/thought-leadership-development/#article",
-            "headline": "Thought Leadership Development: From Clicks to Citations",
-            "description": "Engineering B2B authority in the age of LLMs. How to build a citable body of work that AI systems reference — moving from static PDFs to named frameworks, structured argumentation, and original synthesis that earns zero-click authority.",
-            "url": "https://saren.ai/case-studies/thought-leadership-development",
-            "author": { "@id": "https://saren.ai/#person" },
-            "publisher": { "@id": "https://identogram.com/#organization" },
-            "isPartOf": { "@id": "https://saren.ai/#website" },
-            "about": ["Thought leadership", "LLM citation strategy", "B2B content marketing", "Authority engineering"],
-            "keywords": "thought leadership, LLM citation strategy, B2B authority, content marketing, AI-era marketing, schema markup, named frameworks",
-            "image": {
-              "@type": "ImageObject",
-              "url": "https://saren.ai/images/og/home.png",
-              "width": 1200,
-              "height": 630
-            },
-            "teaches": "How to build LLM-citable thought leadership through named frameworks, structured argumentation, and original data synthesis",
-            "inLanguage": "en-US",
-            "datePublished": "2026-02-01T00:00:00Z",
-            "dateModified": "2026-03-27T00:00:00Z",
-            "articleSection": "B2B Marketing Strategy"
-          })
-        }}
-      />
+      <JsonLd schema={graph} />
         <article className="min-h-screen bg-ash relative overflow-hidden">
             <AnimatedGrid />
+
+            {/* Breadcrumbs */}
+            <div className="relative z-10 border-b border-slate/10 dark:border-white/5">
+                <div className="container-narrow py-3">
+                    <Breadcrumb trail={trail} />
+                </div>
+            </div>
 
             {/* Hero Section */}
             <section className="relative z-10 pt-32 pb-16 px-6 max-w-7xl mx-auto text-center">

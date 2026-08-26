@@ -4,10 +4,139 @@ Living document. Updated as priorities shift.
 
 ---
 
+## The Three-Surface Plan — Human / Machine / Agent proof of concept
+
+North-star initiative, started 2026-08-25. The goal grew over the course of that
+session's discussion: this isn't just a saren.ai tune-up, it's the reference platform
+Saren recommends to clients for AI-native, AEO/GEO-optimized sites — saren.ai is the
+live proof, not a slide. This is the AI-first-websites thesis (record / corroboration /
+interface) built as a working demo. Immediate next actions live in `TODO.md`; this
+section is the big picture.
+
+### The foundational call: content-as-data, not content-as-prose
+
+Everything wrong the 2026-08-25 audit found traces back to one root cause: content
+lives inside the presentation layer instead of being its own structured thing. Case
+study prose is hand-written JSX per page (`DynamicNurtureClient.tsx` etc.), playbook
+content is read from the filesystem at request time (Node-only, breaks on Workers),
+and JSON-LD is hand-written per page separately from the visible copy it's supposed to
+describe (the exact failure `AGENTS.md` already calls out — "Schema you can't see is a
+lie you're telling a machine that will check").
+
+**The fix, and the platform recommendation this whole initiative is built to prove
+out:** content is authored once, as structured data, and every surface is a
+*rendering* of that same record, not an independent copy someone has to remember to
+keep in sync. **Correction from the original framing (2026-08-26, after exploration):**
+this isn't MDX/frontmatter — the 2026-08-25 audit assumed case studies were prose that
+needed an authoring format; they're not (see Surface 1 below), so the actual mechanism
+is Zod-validated TS data modules, matching the repo's existing convention (`faqs.ts`,
+`testimonials.ts`, `portfolio-data.ts`). Next.js stays the canonical host and serves
+the structured content two ways — as rendered human pages, and as a generated JSON
+export at a predictable URL (`/api/record/*.json`). Surface 2 and Surface 3 both
+consume that JSON export over HTTP; neither owns its own copy of the content, so
+there's nothing to drift. Phase 1 (case studies + playbooks) shipped 2026-08-26 — see
+`TODO.md` for what's done vs. still open.
+
+### Surface 1 — Human (Next.js on Vercel) — current site, gets a content refactor
+
+Keeps Next.js/Vercel — not because it's the default, but because saren.ai genuinely
+carries app weight (Desk admin app, Stripe commerce, gated playbooks, interactive
+tools) that justifies the framework. The decision framework for clients going forward:
+**Astro on Cloudflare for content-only marketing sites** (zero JS by default, cheaper
+at the edge, content negotiation is just a route instead of a hydration workaround);
+**Next.js when there's a real app inside the site** (auth, checkout, a dashboard,
+meaningful client state). saren.ai is the hybrid case, which is exactly why it's a good
+flagship — it can show both patterns.
+
+Immediate work: close the remaining `is-agentic` gaps (see `TODO.md`). Content-layer
+work is scoped narrower than originally planned — 6 of 8 case studies are bespoke
+interactive builds (persona gallery, tabbed data explorer, bento dashboard, hand-drawn
+diagram, long-form essays), not prose, and the "thin record only" decision means their
+bodies stay exactly as they are. What moved to structured data (2026-08-26): the
+summary/index-card record for all 8 case studies (title, tagline, category, highlights,
+url) and the playbook catalog export — previously duplicated across 3-4 independent
+hand-maintained lists, now generated from one source each.
+
+### Surface 2 — Machine (Astro on Cloudflare) — committed, thin record only
+
+No mirroring. Serves record content only (case study summaries, pricing/services, bio,
+playbook metadata) as clean markdown/JSON with content negotiation, read live from
+Surface 1's JSON export — not a second authored copy. Real consumers: retrieval-time
+fetches (Perplexity, ChatGPT browsing, Claude's search tool — these hit pages live on a
+user query, not on a crawl schedule) and Surface 3's own tool calls. Also the
+stack-diversity portfolio proof itself — a real Astro/Cloudflare deploy, not a demo repo.
+
+### Surface 3 — Agent (Cloudflare Workers + MCP) — port and expand the existing build
+
+**Not starting from zero** — `/api/mcp` already exists and is live on Vercel, with 3
+tools (`search_saren_content`, `list_playbooks`, `get_playbook`), discovered during the
+2026-08-25 audit and previously undocumented. Plan: port it to a Cloudflare Worker
+(swap the `fs`-based playbook loader and direct Supabase/Voyage calls for the shared
+JSON export + HTTP calls, both of which work fine from Workers), and expand the tool
+set toward genuinely transactional shapes — check playbook availability, get current
+pricing, start a contact/booking flow — with clean input/output schemas designed to
+map onto ACP/AP2/UCP "offer" and "availability" concepts now, so standardization later
+is a schema alignment, not a rewrite. Needs the Cloudflare token's DNS:Edit permission
+(deferred 2026-08-25) once `mcp.saren.ai` is actually being wired up.
+
+### Platform baseline (applies to every future client build, not just saren.ai)
+
+Correct Cloudflare AI-bot-category config from day one (saren.ai's own was inverted
+until 2026-08-25 — silently blocking the exact retrieval/agent traffic it should have
+allowed), Content-Signal directives in `robots.txt`, JSON-LD generated from structured
+content instead of hand-written, content negotiation on every content route. Ship these
+as the platform default for new client sites, not something an audit catches later.
+
+### Sequencing
+
+1. Extract case studies + playbooks into the structured content layer; migrate the
+   Next.js pages that currently hand-write this content to read from it instead
+2. Generate the JSON export Surfaces 2 and 3 will consume
+3. Build Surface 2 (Astro/Cloudflare, thin record content, content negotiation)
+4. Port and expand Surface 3 (MCP → Cloudflare Worker, transactional tool shapes)
+5. Write up the platform baseline as a reusable pattern (candidate:
+   `wiki/patterns/ai-native-marketing-site-model.md`, alongside the existing
+   `nextjs-marketing-site-model.md`) once proven out here
+
+---
+
+## Completed (2026-08-15) — JSON-LD graph consolidation, LocalBusiness, FAQ SSR fix, CI
+
+Session shipped in `docs/changelogs/2026-08-15-jsonld-graph-consolidation.md`.
+
+- [x] **One `@graph` per page** — 52 files / 143 separate `<script ld+json>` blocks →
+      shared `src/lib/schema/` library (`buildGraph`, stable `@id` registry,
+      `validateGraph`), wired through `src/components/seo/JsonLd.tsx` as the sole
+      emission point (grep-guarded by a vitest test)
+- [x] **LocalBusiness** — service-area business, `GeoCircle` on Irvine at a 10mi
+      radius, backed by new visible copy in the footer and `/contact` (no fabricated
+      address/phone)
+- [x] **Fixed FAQ SSR bug** — collapsed answers were unmounted, never in server HTML;
+      now always rendered, collapsed via height/opacity. All 16 FAQ sections
+      centralized in `src/data/faqs.ts`, shared by the visible component and the
+      JSON-LD (fixes `gtm-engineering`/`aeo-playbook` FAQ text that had drifted
+      between the hand-written schema and the visible copy)
+- [x] **Visibility audit** — added real visible breadcrumbs to ~20 pages that were
+      emitting `BreadcrumbList` JSON-LD with no breadcrumb UI on the page at all;
+      fixed paid/locked playbooks marking up `HowTo` step content the paywall never
+      renders
+- [x] Fixed 5 pre-existing structured-data defects (dangling `@id`, `@id` squatting,
+      a page missing its `WebPage` node, duplicate Service entities, unlinked
+      `hasPart`) — see changelog for detail
+- [x] **CI added** — repo had none; new `.github/workflows/ci.yml`
+      (lint → test → build → `validate:schema`), new `scripts/validate-schema.ts`
+- [x] Documented a real environment limitation: `npm test`/`npm run build` can't
+      complete locally because `#` in this repo's directory path breaks Vite and
+      Turbopack — see `wiki/patterns/fuse-mount-gotchas.md`
+
+---
+
 ## Up next (post-IA restructure, 2026-06-17)
 
 Session shipped in `docs/changelogs/2026-06-17-ia-nav-search-restructure.md`. Immediate follow-ups:
 
+- [ ] **Vault Chat / Ingest Pipeline** — `scripts/ingest-vault.ts`, `/playbooks/vault-chat`, `/api/vault-chat` RAG interface over Obsidian prompt vault catalog
+- [x] **Linting & React 19 Hook Hygiene** — `RelativeTime.tsx` set-state-in-effect fix, eslint ignore for legacy prospecting/vault data, JSX entity escapes
 - [ ] **Oblique Techniques hero** — create `public/images/feature/oblique-techniques-hero.png` (1200×630 OG; spec in `public/images/feature/README.md`)
 - [ ] Verify `public/downloads/Saren-Sakurai-Resume.pdf` matches resume v03 content
 - [ ] Decide: homepage "Featured Downloads" section markets 3 Coming Soon products —
@@ -149,4 +278,4 @@ Full audit + remediation: `docs/changelogs/2026-06-12-site-audit-remediation.md`
 
 ---
 
-*Last updated: 2026-06-18*
+*Last updated: 2026-08-25*

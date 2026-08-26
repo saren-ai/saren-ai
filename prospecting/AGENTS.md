@@ -1,8 +1,32 @@
-# AGENTS.md — @lead-prospecting
+# AGENTS.md — #lead-prospecting
 
 White-glove, multi-client B2B prospecting platform. Quality over volume: 3–10
 hyper-personalized contacts per client per weekday, human-reviewed at every
 judgment point, sent from the client's own mailbox. Never spray-and-pray.
+
+## Folder status — read before trusting anything below
+
+Reconciled with disk 2026-08-25.
+
+- **This folder is no longer its own repo.** It was `~/Projects/#lead-prospecting`;
+  it now lives inside the saren.ai repo at `#saren.ai/prospecting/` and is tracked
+  there. `git log` from inside this folder resolves to the saren.ai repo.
+- **`legacy-dashboard/` is superseded.** The live cockpit is `/desk` in the saren.ai
+  app (`src/app/(desk)/`, gated in `src/proxy.ts`, renamed from `/studio` 2026-06-17).
+  `legacy-dashboard/` is the Railway-deployed Next.js app from the June sprint and
+  still has uncommitted edits in `app/actions.ts` — do not move or delete it without
+  resolving those first.
+- **`migrations/` and `.claude/skills/` did not come across.** Schema of record is now
+  `#saren.ai/supabase/migrations/001–003`. Migrations 005–008 referenced in SPRINT.md
+  are not in that set — reconcile before writing SQL against the assumptions below.
+- **`SPRINT.md` is frozen at 2026-06-12** and describes a sprint that ended. Its
+  "Next up" is not a live queue. `ROADMAP.md` is still valid as a backlog.
+- **`vendor/ai-sales-team-claude/`** is an unmodified external checkout, read-only.
+- **`clients/README.md`** is the current client registry. `clients/_template/` is the
+  scaffold for adding one.
+
+The architecture table below still describes the intended pipeline correctly. The
+*locations* it names are what drifted.
 
 ## The playbook (target architecture)
 

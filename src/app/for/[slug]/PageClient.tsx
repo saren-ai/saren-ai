@@ -136,7 +136,7 @@ export default function OutreachPageClient({ page }: Props) {
             The work above is live.
           </h2>
           <p className="text-white/70 text-lg mb-8">
-            If it's useful, let's talk about what it looks like inside{' '}
+            If it&apos;s useful, let&apos;s talk about what it looks like inside{' '}
             {company ?? 'your organization'}.
           </p>
           <a

@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
 import ExpertiseClient from "./ExpertiseClient";
 import JsonLd from "@/components/seo/JsonLd";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 import PagefindBoundary from "@/components/search/PagefindBoundary";
+import { buildGraph } from "@/lib/schema";
 
 const DESCRIPTION =
   "An interactive index of my Obsidian research vault: 650+ cataloged references across 63 research threads, from 2003 to 2026 — the raw material behind every framework and playbook on this site.";
+
+const trail = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { label: "Marketing Brain" },
+];
 
 export const metadata: Metadata = {
   title: "The Marketing Brain — 20 Years of Research, Linked | Saren",
@@ -25,39 +33,24 @@ export const metadata: Metadata = {
 };
 
 export default function ExpertisePage() {
+  const graph = buildGraph({
+    path: "/about/expertise",
+    pageType: "AboutPage",
+    name: "The Marketing Brain — 20 Years of Research, Linked | Saren",
+    description: DESCRIPTION,
+    dateModified: "2026-07-02T00:00:00Z",
+    identity: "full",
+    breadcrumb: trail,
+  });
+
   return (
     <PagefindBoundary section="About">
-      <JsonLd
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "AboutPage",
-          "@id": "https://saren.ai/about/expertise/#webpage",
-          "url": "https://saren.ai/about/expertise",
-          "name": "The Marketing Brain — 20 Years of Research, Linked | Saren",
-          "description": DESCRIPTION,
-          "isPartOf": { "@id": "https://saren.ai/#website" },
-          "about": { "@id": "https://saren.ai/#person" },
-          "author": { "@id": "https://saren.ai/#person" },
-          "inLanguage": "en-US",
-          "dateModified": "2026-07-02T00:00:00Z",
-        }}
-      />
-      <JsonLd
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saren.ai" },
-            { "@type": "ListItem", "position": 2, "name": "About", "item": "https://saren.ai/about" },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "Marketing Brain",
-              "item": "https://saren.ai/about/expertise",
-            },
-          ],
-        }}
-      />
+      <JsonLd schema={graph} />
+      <div className="border-b border-slate/10 dark:border-white/5">
+        <div className="container-narrow py-3">
+          <Breadcrumb trail={trail} />
+        </div>
+      </div>
       <ExpertiseClient />
     </PagefindBoundary>
   );

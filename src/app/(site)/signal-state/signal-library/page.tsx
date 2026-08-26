@@ -1,5 +1,7 @@
 import { Metadata } from 'next'
 import SignalLibraryClient from './SignalLibraryClient'
+import JsonLd from '@/components/seo/JsonLd'
+import { buildGraph, pageUrl } from '@/lib/schema'
 
 export const metadata: Metadata = {
   title: 'Signal Library — B2B Intent Signal Patterns for AI Targeting | Saren Sakurai',
@@ -23,57 +25,38 @@ export const metadata: Metadata = {
   },
 }
 
+const PATH = '/signal-state/signal-library'
+
+// Matches the visible breadcrumb rendered by SignalLibraryClient (Breadcrumb
+// back/current API — "← Signal-State · Signal Library"); no separate "Home" segment.
+const trail = [{ href: '/signal-state', label: 'Signal-State' }, { label: 'Signal Library' }]
+
+const definedTermSet = {
+  '@type': 'DefinedTermSet',
+  '@id': `${pageUrl(PATH)}/#terms`,
+  name: 'Signal-State Signal Library',
+  description:
+    'A catalogued reference of expressed-intent signal patterns used in Signal-State Marketing: ransomware vulnerability signals, organizational dysfunction signals, and independent creative struggle signals.',
+  url: pageUrl(PATH),
+  author: { '@id': 'https://saren.ai/#person' },
+  inLanguage: 'en-US',
+  keywords: 'intent signals, expressed intent, ransomware vulnerability, organizational dysfunction, creative struggle, B2B targeting signals',
+}
+
+const graph = buildGraph({
+  path: PATH,
+  pageType: 'CollectionPage',
+  name: 'Signal Library — Signal-State Marketing',
+  description: 'Catalogued signal patterns for AI agent targeting. Ransomware vulnerability, organizational dysfunction, and creative struggle signals.',
+  dateModified: '2026-04-01T00:00:00Z',
+  breadcrumb: trail,
+  extra: [definedTermSet],
+})
+
 export default function SignalLibraryPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "CollectionPage",
-            "@id": "https://saren.ai/signal-state/signal-library/#webpage",
-            "url": "https://saren.ai/signal-state/signal-library",
-            "name": "Signal Library — Signal-State Marketing",
-            "description": "Catalogued signal patterns for AI agent targeting. Ransomware vulnerability, organizational dysfunction, and creative struggle signals.",
-            "isPartOf": { "@id": "https://saren.ai/#website" },
-            "author": { "@id": "https://saren.ai/#person" },
-            "inLanguage": "en-US",
-            "dateCreated": "2026-02-20",
-            "dateModified": "2026-04-01T00:00:00Z"
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saren.ai" },
-              { "@type": "ListItem", "position": 2, "name": "Signal-State Marketing", "item": "https://saren.ai/signal-state" },
-              { "@type": "ListItem", "position": 3, "name": "Signal Library", "item": "https://saren.ai/signal-state/signal-library" }
-            ]
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "DefinedTermSet",
-            "@id": "https://saren.ai/signal-state/signal-library/#terms",
-            "name": "Signal-State Signal Library",
-            "description": "A catalogued reference of expressed-intent signal patterns used in Signal-State Marketing: ransomware vulnerability signals, organizational dysfunction signals, and independent creative struggle signals.",
-            "url": "https://saren.ai/signal-state/signal-library",
-            "author": { "@id": "https://saren.ai/#person" },
-            "inLanguage": "en-US",
-            "keywords": "intent signals, expressed intent, ransomware vulnerability, organizational dysfunction, creative struggle, B2B targeting signals"
-          })
-        }}
-      />
+      <JsonLd schema={graph} />
       <SignalLibraryClient />
     </>
   )

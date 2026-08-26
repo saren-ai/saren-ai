@@ -9,9 +9,12 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "validate:schema": "tsx scripts/validate-schema.ts"
   },
   "dependencies": {
+    "@ai-sdk/anthropic": "^4.0.18",
+    "@ai-sdk/react": "^4.0.37",
     "@dnd-kit/core": "^6.3.1",
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
@@ -26,12 +29,14 @@
     "@supabase/supabase-js": "^2.106.1",
     "@tailwindcss/typography": "^0.5.19",
     "@vercel/blob": "^2.2.0",
+    "ai": "^7.0.34",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.31.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.563.0",
     "marked": "^17.0.3",
+    "mcp-handler": "^2.1.0",
     "next": "^16.2.9",
     "react": "19.2.3",
     "react-dom": "19.2.3",
@@ -41,7 +46,8 @@
     "remark-gfm": "^4.0.1",
     "rss-parser": "^3.13.0",
     "stripe": "^22.2.0",
-    "tailwind-merge": "^3.4.1"
+    "tailwind-merge": "^3.4.1",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^16.1.7",
@@ -56,6 +62,7 @@
     "jsdom": "^27.0.1",
     "pagefind": "^1.5.2",
     "tailwindcss": "^4",
+    "tsx": "^4.23.12",
     "typescript": "^5",
     "vitest": "^3.2.4"
   }

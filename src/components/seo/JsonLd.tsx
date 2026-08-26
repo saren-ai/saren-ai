@@ -1,5 +1,7 @@
+import type { JsonLdGraph } from "@/lib/schema";
+
 interface JsonLdProps {
-  schema: Record<string, unknown> | Record<string, unknown>[];
+  schema: JsonLdGraph | Record<string, unknown> | Record<string, unknown>[];
 }
 
 export default function JsonLd({ schema }: JsonLdProps) {

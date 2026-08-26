@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 export interface FAQItem {
@@ -16,39 +16,13 @@ interface FAQProps {
   items: FAQItem[];
   title?: string;
   description?: string;
-  /**
-   * FAQPage JSON-LD is off by default: Google restricted FAQ rich results to
-   * gov/health sites (Aug 2023), and the visible Q&A structure is the actual
-   * AEO signal. Set true only with a documented reason.
-   */
-  schema?: boolean;
 }
 
-export default function FAQ({ items, title = "Frequently Asked Questions", description, schema = false }: FAQProps) {
+export default function FAQ({ items, title = "Frequently Asked Questions", description }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: items.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
 
   return (
     <>
-      {schema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-        />
-      )}
-
       {/* FAQ Section */}
       <section className="section bg-ash dark:bg-background-secondary">
         <div className="container-narrow">
@@ -72,6 +46,8 @@ export default function FAQ({ items, title = "Frequently Asked Questions", descr
                 >
                   <button
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                    aria-expanded={openIndex === index}
+                    aria-controls={`faq-answer-${index}`}
                     className="w-full px-6 py-4 text-left flex items-center justify-between gap-4 hover:bg-charcoal/5 dark:hover:bg-ash/5 transition-colors"
                   >
                     <span className="font-semibold text-foreground text-lg">
@@ -86,32 +62,34 @@ export default function FAQ({ items, title = "Frequently Asked Questions", descr
                     </motion.div>
                   </button>
 
-                  <AnimatePresence>
-                    {openIndex === index && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="px-6 pb-4 text-foreground-muted leading-relaxed">
-                          {item.answer}
-                          {item.link && (
-                            <>
-                              {" "}
-                              <Link
-                                href={item.link.href}
-                                className="text-lavender underline underline-offset-4 hover:text-ember transition-colors"
-                              >
-                                {item.link.label}
-                              </Link>
-                            </>
-                          )}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  {/* Always rendered — collapsed via height/opacity, not unmounted —
+                      so the answer text ships in the server-rendered HTML. */}
+                  <motion.div
+                    id={`faq-answer-${index}`}
+                    role="region"
+                    initial={false}
+                    animate={{
+                      height: openIndex === index ? "auto" : 0,
+                      opacity: openIndex === index ? 1 : 0,
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-6 pb-4 text-foreground-muted leading-relaxed">
+                      {item.answer}
+                      {item.link && (
+                        <>
+                          {" "}
+                          <Link
+                            href={item.link.href}
+                            className="text-lavender underline underline-offset-4 hover:text-ember transition-colors"
+                          >
+                            {item.link.label}
+                          </Link>
+                        </>
+                      )}
+                    </div>
+                  </motion.div>
                 </div>
               ))}
             </div>

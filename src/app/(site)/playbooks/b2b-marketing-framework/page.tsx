@@ -2,6 +2,9 @@ import fs from 'fs/promises';
 import path from 'path';
 import B2BFrameworkClient from './B2BFrameworkClient';
 import { notFound } from 'next/navigation';
+import Breadcrumb from '@/components/ui/Breadcrumb';
+import JsonLd from '@/components/seo/JsonLd';
+import { buildGraph, workId, howToId } from '@/lib/schema';
 
 export async function generateMetadata() {
     return {
@@ -120,57 +123,53 @@ export default async function B2BFrameworkPage() {
         "text": extractStepDescription(step.content, step.title)
     }));
 
+    const PATH = '/playbooks/b2b-marketing-framework';
+    const trail = [
+        { href: '/', label: 'Home' },
+        { href: '/playbooks', label: 'Playbooks' },
+        { label: 'B2B Marketing Framework' },
+    ];
+
+    // Defines the #work @id that every /playbooks/b2b-marketing-framework/[slug]
+    // child page references via isPartOf — previously dangling, nothing defined it.
+    const work = {
+        '@type': 'CreativeWork',
+        '@id': workId(PATH),
+        name: 'B2B SaaS Marketing Framework: 21-Step AI Positioning System',
+        description: 'An interactive 21-step prompt sequence for building B2B SaaS positioning from scratch — ICP definition, messaging pillars, value proposition, sales playbook, and launch-ready narrative.',
+        url: `https://saren.ai${PATH}`,
+        author: { '@id': 'https://saren.ai/#person' },
+        isPartOf: { '@id': 'https://saren.ai/#website' },
+    };
+
+    const howTo = {
+        '@type': 'HowTo',
+        '@id': howToId(PATH),
+        name: 'B2B Marketing Framework: 21-Step Positioning System',
+        description: 'An interactive, 21-step prompt-driven sequence to engineer complete B2B SaaS positioning from scratch — covering customer profiles, brand identity, core messaging, message articulation, supporting context, governance, and continuous improvement.',
+        url: `https://saren.ai${PATH}`,
+        author: { '@id': 'https://saren.ai/#person' },
+        totalTime: 'PT4H',
+        keywords: 'B2B marketing framework, SaaS positioning, brand strategy, messaging framework, GTM, content strategy',
+        step: howToSteps,
+    };
+
+    const graph = buildGraph({
+        path: PATH,
+        name: 'B2B Marketing Framework | Playbooks',
+        description: 'An interactive, 21-step tracked sequence to engineer your B2B SaaS positioning from scratch.',
+        dateModified: '2026-04-01T00:00:00Z',
+        breadcrumb: trail,
+        extra: [work, howTo],
+    });
+
     return (
         <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "@id": "https://saren.ai/playbooks/b2b-marketing-framework/#webpage",
-            "url": "https://saren.ai/playbooks/b2b-marketing-framework",
-            "name": "B2B Marketing Framework | Playbooks",
-            "description": "An interactive, 21-step tracked sequence to engineer your B2B SaaS positioning from scratch.",
-            "isPartOf": { "@id": "https://saren.ai/#website" },
-            "author": { "@id": "https://saren.ai/#person" },
-            "inLanguage": "en-US",
-            "dateModified": "2026-04-01T00:00:00Z"
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saren.ai" },
-              { "@type": "ListItem", "position": 2, "name": "Playbooks", "item": "https://saren.ai/playbooks" },
-              { "@type": "ListItem", "position": 3, "name": "B2B Marketing Framework", "item": "https://saren.ai/playbooks/b2b-marketing-framework" }
-            ]
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "HowTo",
-            "@id": "https://saren.ai/playbooks/b2b-marketing-framework/#howto",
-            "name": "B2B Marketing Framework: 21-Step Positioning System",
-            "description": "An interactive, 21-step prompt-driven sequence to engineer complete B2B SaaS positioning from scratch — covering customer profiles, brand identity, core messaging, message articulation, supporting context, governance, and continuous improvement.",
-            "url": "https://saren.ai/playbooks/b2b-marketing-framework",
-            "author": { "@id": "https://saren.ai/#person" },
-            "totalTime": "PT4H",
-            "keywords": "B2B marketing framework, SaaS positioning, brand strategy, messaging framework, GTM, content strategy",
-            "step": howToSteps
-          })
-        }}
-      />
+        <JsonLd schema={graph} />
         <div className="min-h-screen bg-offblack text-white pt-24 pb-20 px-6 lg:px-12 selection:bg-lavender/30">
+            <div className="max-w-4xl mx-auto mb-4">
+                <Breadcrumb trail={trail} />
+            </div>
             <B2BFrameworkClient initialSteps={steps} variablesContent={variablesContent} />
         </div>
         </>

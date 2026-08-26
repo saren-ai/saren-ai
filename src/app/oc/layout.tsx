@@ -43,8 +43,8 @@ export default function OcLayout({ children }: { children: React.ReactNode }) {
             >
               LinkedIn
             </a>
-            <a href="mailto:saren@saren.ai" className="hover:text-ember transition-colors">
-              saren@saren.ai
+            <a href="mailto:saren#saren.ai" className="hover:text-ember transition-colors">
+              saren#saren.ai
             </a>
           </div>
         </div>

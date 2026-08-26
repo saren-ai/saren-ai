@@ -681,7 +681,7 @@ export default function HybridScoringClient() {
           <li>Expose top 3 signal-contribution drivers on every contact and company record</li>
           <li>Surface color-coded tier badges (A/B/C/D) in AE and SDR list views</li>
           <li>Add a plain-language explanation string to the contact card</li>
-          <li>If an AE can't explain a score in 5 seconds, the model is dead on arrival</li>
+          <li>If an AE can&apos;t explain a score in 5 seconds, the model is dead on arrival</li>
         </ul>
 
         <h2 className="text-lg font-bold mb-2">5. Wire Scores into Workflows</h2>
@@ -715,9 +715,9 @@ export default function HybridScoringClient() {
                 Most B2B marketing teams are still running a 2018 scoring model on a 2026 buyer.
               </p>
               <p className="text-foreground-muted leading-relaxed mb-4">
-                The buyer has changed. Buying groups are larger (Gartner's last cut put the average
+                The buyer has changed. Buying groups are larger (Gartner&apos;s last cut put the average
                 B2B buying committee at 11+ people). Cycles are longer. First-touch happens in places
-                your CRM can't see — Slack communities, LinkedIn posts, peer recommendations, AI
+                your CRM can&apos;t see — Slack communities, LinkedIn posts, peer recommendations, AI
                 search. And the same lead can look like a tire-kicker on Monday and a sales-ready
                 PQA on Thursday because three of their colleagues quietly opened your pricing page.
               </p>
@@ -741,7 +741,7 @@ export default function HybridScoringClient() {
                 ))}
               </ul>
               <p className="text-foreground-muted leading-relaxed mb-4">
-                Result: a number sales doesn't trust, scoring a person who isn't actually the
+                Result: a number sales doesn&apos;t trust, scoring a person who isn&apos;t actually the
                 decision-maker, based on signals that went cold two months ago. The score still goes
                 up. Sales still ignores it. Marketing still reports MQLs. Nobody closes.
               </p>
@@ -766,7 +766,7 @@ export default function HybridScoringClient() {
               viewport={{ once: true }}
             >
               <h2 className="text-2xl font-bold text-foreground mb-6">
-                The old way (and why it's broken)
+                The old way (and why it&apos;s broken)
               </h2>
               <div className="space-y-6">
                 {[
@@ -819,7 +819,7 @@ export default function HybridScoringClient() {
                 The new way: hybrid architecture
               </h2>
               <p className="text-foreground-muted leading-relaxed mb-8">
-                The 2026 model is not "let AI do it." It's{" "}
+                The 2026 model is not &quot;let AI do it.&quot; It&apos;s{" "}
                 <strong className="text-foreground">
                   AI + manual rules, contact + company, fit + engagement, with explainability and
                   decay baked in.
@@ -843,7 +843,7 @@ export default function HybridScoringClient() {
                     <p className="text-sm text-foreground-muted">
                       <strong className="text-foreground">Activation requirements:</strong> 500+
                       contacts, 3 months of clean historical data, properly labeled closed-won and
-                      closed-lost outcomes. If you don't have the data hygiene, fix that before
+                      closed-lost outcomes. If you don&apos;t have the data hygiene, fix that before
                       turning on the model. Garbage in, confident garbage out.
                     </p>
                   </div>
@@ -856,7 +856,7 @@ export default function HybridScoringClient() {
                   </h3>
                   <p className="text-foreground-muted leading-relaxed mb-3">
                     80%+ of B2B SaaS purchases are buying-group decisions. Scoring individuals in
-                    isolation tells you who's curious. Scoring accounts tells you who's{" "}
+                    isolation tells you who&apos;s curious. Scoring accounts tells you who&apos;s{" "}
                     <em>buying</em>.
                   </p>
                   <ul className="space-y-2 text-foreground-muted">
@@ -885,7 +885,7 @@ export default function HybridScoringClient() {
                     3. Fit vs. engagement weighting and decay
                   </h3>
                   <p className="text-foreground-muted leading-relaxed mb-4">
-                    HubSpot's 2025 default is a 50/50 split between firmographic fit and behavioral
+                    HubSpot&apos;s 2025 default is a 50/50 split between firmographic fit and behavioral
                     engagement on a 100-point scale. Configure each layer with its own decay rules:
                   </p>
                   <div className="overflow-x-auto mb-4">
@@ -923,10 +923,10 @@ export default function HybridScoringClient() {
                 {/* Non-negotiable 4 */}
                 <div>
                   <h3 className="text-lg font-bold text-foreground mb-2">
-                    4. Explainability — or sales won't use it
+                    4. Explainability — or sales won&apos;t use it
                   </h3>
                   <p className="text-foreground-muted leading-relaxed mb-3">
-                    The reason predictive scoring fails is not technical. It's that AEs distrust
+                    The reason predictive scoring fails is not technical. It&apos;s that AEs distrust
                     black-box numbers. HubSpot now exposes{" "}
                     <strong className="text-foreground">signal-contribution explanations</strong>{" "}
                     showing which inputs drove the score. Surface them.
@@ -944,8 +944,8 @@ export default function HybridScoringClient() {
                     ))}
                   </ul>
                   <p className="text-foreground-muted leading-relaxed mt-3 italic">
-                    If your AEs can't tell you why a score is what it is in 5 seconds, the model
-                    is dead on arrival. The math doesn't matter if humans don't trust it.
+                    If your AEs can&apos;t tell you why a score is what it is in 5 seconds, the model
+                    is dead on arrival. The math doesn&apos;t matter if humans don&apos;t trust it.
                   </p>
                 </div>
 
@@ -955,12 +955,12 @@ export default function HybridScoringClient() {
                     5. Workflows: routing and third-party intent triggers
                   </h3>
                   <p className="text-foreground-muted leading-relaxed mb-3">
-                    Scoring only generates ROI when it's wired into RevOps execution:
+                    Scoring only generates ROI when it&apos;s wired into RevOps execution:
                   </p>
                   <ul className="space-y-2 text-foreground-muted">
                     {[
                       "Auto-route top-decile + ICP-fit accounts to senior AEs with sub-1-hour first-touch SLAs",
-                      "Third-party intent as a trigger, not a base score. A Bombora surge alone shouldn't move the needle — but a Bombora surge plus a first-party engagement event inside a 14-day window → escalate to sales-ready",
+                      "Third-party intent as a trigger, not a base score. A Bombora surge alone shouldn&apos;t move the needle — but a Bombora surge plus a first-party engagement event inside a 14-day window → escalate to sales-ready",
                       "Ecosystem integration: Crossbeam / Reveal for partner-overlap signals → feed into account-level engagement scores natively",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-2">
@@ -987,8 +987,8 @@ export default function HybridScoringClient() {
                 What it takes to upgrade your platform
               </h2>
               <p className="text-foreground-muted leading-relaxed mb-8">
-                If you're on Marketing Hub Pro or Enterprise, you already have the tooling. What
-                you don't have is the time, the data hygiene, or the cross-functional buy-in to
+                If you&apos;re on Marketing Hub Pro or Enterprise, you already have the tooling. What
+                you don&apos;t have is the time, the data hygiene, or the cross-functional buy-in to
                 ship this without dropping the rest of your quarter.
               </p>
 
@@ -1085,9 +1085,9 @@ export default function HybridScoringClient() {
                 I do this for a living.
               </h2>
               <p className="text-foreground-muted leading-relaxed mb-8">
-                I'm Saren — Fractional Marketing Lead and AI Ops consultant. I've rebuilt scoring systems for
+                I&apos;m Saren — Fractional Marketing Lead and AI Ops consultant. I&apos;ve rebuilt scoring systems for
                 sovereign AI infrastructure companies, behavioral intelligence platforms, and B2B
-                SaaS teams running on HubSpot Pro and Enterprise. I'll audit what you have, design
+                SaaS teams running on HubSpot Pro and Enterprise. I&apos;ll audit what you have, design
                 the hybrid model your buyers actually need, and ship it inside your HubSpot instance
                 with sales adoption built into the rollout.
               </p>
@@ -1101,7 +1101,7 @@ export default function HybridScoringClient() {
                   </p>
                   <h3 className="font-bold text-foreground mb-2">Diagnostic call</h3>
                   <p className="text-sm text-foreground-muted mb-4">
-                    I'll review your current scoring setup and tell you, honestly, whether you need
+                    I&apos;ll review your current scoring setup and tell you, honestly, whether you need
                     a tune-up or a rebuild.
                   </p>
                   <Link href="/contact" className="btn-primary text-sm inline-flex items-center gap-2">

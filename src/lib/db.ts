@@ -1,5 +1,13 @@
 import concertsData from '@/data/concerts.json';
 
+export interface ConcertDetails {
+    headline?: string;
+    lineup?: string[];
+    setlistArtist?: string;
+    setlist?: string[];
+    notes?: string;
+}
+
 export interface ConcertRecord {
     id: number;
     date_year: number;
@@ -8,6 +16,7 @@ export interface ConcertRecord {
     artist: string;
     venue: string;
     location: string;
+    details?: ConcertDetails;
 }
 
 const monthMap: Record<string, number> = {

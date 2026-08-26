@@ -147,7 +147,7 @@ const env = Object.fromEntries(readFileSync("dashboard/.env.local","utf8")
   .map(l => [l.slice(0, l.indexOf("=")), l.slice(l.indexOf("=") + 1)]));
 const since = new Date(process.argv[1]);            // last_run_at ISO string
 const addrs = process.argv.slice(2);                // contact emails
-const me = [env.GMAIL_IMAP_USER, "saren@saren.ai", "saren@wethos.ai"]
+const me = [env.GMAIL_IMAP_USER, "saren#saren.ai", "saren@wethos.ai"]
   .filter(Boolean).map(a => a.toLowerCase());
 const client = new ImapFlow({ host: "imap.gmail.com", port: 993, secure: true,
   auth: { user: env.GMAIL_IMAP_USER, pass: env.GMAIL_IMAP_PASS }, logger: false });

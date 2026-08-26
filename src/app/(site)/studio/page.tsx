@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { featureArticles } from "@/lib/feature";
 import FeatureCard from "@/components/feature/FeatureCard";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildGraph } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Studio | Saren.ai",
@@ -23,53 +26,26 @@ export const metadata: Metadata = {
   },
 };
 
+const PATH = "/studio";
+
+const trail = [{ href: "/", label: "Home" }, { label: "Studio" }];
+
+const graph = buildGraph({
+  path: PATH,
+  pageType: "CollectionPage",
+  name: "Studio | Saren.ai",
+  description: "Saren's creative studio — the AI for Liberal Arts Majors series and editorial on personal projects.",
+  dateModified: "2026-05-08T00:00:00Z",
+  breadcrumb: trail,
+});
+
 export default function FeaturePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "CollectionPage",
-            "@id": "https://saren.ai/studio/#webpage",
-            url: "https://saren.ai/studio",
-            name: "Studio | Saren.ai",
-            description:
-              "Saren's creative studio — the AI for Liberal Arts Majors series and editorial on personal projects.",
-            isPartOf: { "@id": "https://saren.ai/#website" },
-            author: { "@id": "https://saren.ai/#person" },
-            inLanguage: "en-US",
-            dateModified: "2026-05-08T00:00:00Z",
-          }),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                name: "Home",
-                item: "https://saren.ai",
-              },
-              {
-                "@type": "ListItem",
-                position: 2,
-                name: "Studio",
-                item: "https://saren.ai/studio",
-              },
-            ],
-          }),
-        }}
-      />
-
+      <JsonLd schema={graph} />
       <section className="section">
         <div className="container-narrow">
+          <Breadcrumb trail={trail} className="mb-8" />
           <header className="mb-12">
             <p className="text-xs font-mono text-slate uppercase tracking-widest mb-3">
               The Studio

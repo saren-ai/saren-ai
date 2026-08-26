@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import FAQ from '@/components/ui/FAQ';
+import { FAQS } from '@/data/faqs';
 
 const instruments = [
   {
@@ -123,7 +124,7 @@ export default function GTMEngineeringClient() {
             Most demand teams ask the wrong question.
           </motion.p>
           <p className="text-lg md:text-xl text-foreground-muted max-w-2xl leading-relaxed mb-10">
-            <em>What campaign do we run next?</em> The teams that compound ask a harder one — how do data, media, content, scoring, AI, and channel connect into one instrumented system that reliably produces revenue? I've been building those systems for a decade. Before the category had a name.
+            <em>What campaign do we run next?</em> The teams that compound ask a harder one — how do data, media, content, scoring, AI, and channel connect into one instrumented system that reliably produces revenue? I&apos;ve been building those systems for a decade. Before the category had a name.
           </p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -155,13 +156,13 @@ export default function GTMEngineeringClient() {
               Campaign marketing is linear. Engineered demand is architectural.
             </h2>
             <p className="text-foreground-muted text-lg leading-relaxed mb-4">
-              Campaign-centric demand gen runs in a straight line: build an asset, launch a program, count the leads, repeat. Every quarter starts near zero. Knowledge lives in someone's head. When they leave, it walks out the door.
+              Campaign-centric demand gen runs in a straight line: build an asset, launch a program, count the leads, repeat. Every quarter starts near zero. Knowledge lives in someone&apos;s head. When they leave, it walks out the door.
             </p>
             <p className="text-foreground-muted text-lg leading-relaxed mb-4">
-              GTM Engineering inverts that. You design the system. You instrument every layer. You optimize the connections <em>between</em> the layers — because that's where pipeline actually leaks. Then you let the machine compound.
+              GTM Engineering inverts that. You design the system. You instrument every layer. You optimize the connections <em>between</em> the layers — because that&apos;s where pipeline actually leaks. Then you let the machine compound.
             </p>
             <p className="text-foreground-muted text-lg leading-relaxed">
-              Campaigns don't disappear. They become an <em>output</em> of the system — one component of an engineered motion, not the strategy itself. That's the difference between activity and compounding pipeline. Big difference.
+              Campaigns don&apos;t disappear. They become an <em>output</em> of the system — one component of an engineered motion, not the strategy itself. That&apos;s the difference between activity and compounding pipeline. Big difference.
             </p>
           </motion.div>
         </div>
@@ -246,7 +247,7 @@ export default function GTMEngineeringClient() {
                     The connective layer — Integration
                   </p>
                   <p className="text-sm text-foreground-muted leading-relaxed mb-4">
-                    A demand engine isn't one channel. It's parallel forces moving in coordination. Channel, field marketing, sales, and events are four routes to the same pipeline — and they fail separately unless something connects them. The marketing team I led ran the engine room across all four: the through-partner content, co-branded advertising, and microsites that let channel partners execute in-market, synchronized with field activation and sales motion. The instruments above are layers. This is the wiring that makes them fire as one system.
+                    A demand engine isn&apos;t one channel. It&apos;s parallel forces moving in coordination. Channel, field marketing, sales, and events are four routes to the same pipeline — and they fail separately unless something connects them. The marketing team I led ran the engine room across all four: the through-partner content, co-branded advertising, and microsites that let channel partners execute in-market, synchronized with field activation and sales motion. The instruments above are layers. This is the wiring that makes them fire as one system.
                   </p>
                   <div className="pt-3 border-t border-border">
                     <Link
@@ -277,7 +278,7 @@ export default function GTMEngineeringClient() {
               Campaign marketing vs. GTM Engineering
             </h2>
             <p className="text-foreground-muted text-lg">
-              Most competitors are still planning campaigns. That's the window.
+              Most competitors are still planning campaigns. That&apos;s the window.
             </p>
           </motion.div>
 
@@ -388,7 +389,7 @@ export default function GTMEngineeringClient() {
               ))}
             </ul>
             <p className="text-ash text-lg font-semibold">
-              If you're nodding, you don't have a campaign problem. You have a systems problem. That's the one I solve.
+              If you&apos;re nodding, you don&apos;t have a campaign problem. You have a systems problem. That&apos;s the one I solve.
             </p>
           </motion.div>
         </div>
@@ -398,28 +399,7 @@ export default function GTMEngineeringClient() {
       <FAQ
         title="GTM Engineering FAQ"
         description="The most common questions about systems-thinking demand generation."
-        items={[
-          {
-            question: "How is GTM Engineering different from demand generation?",
-            answer: "Demand generation asks what campaign to run next. GTM Engineering asks how every input — data, media, content, scoring, AI, channel — connects into one measurable system. Campaigns are an output of that system, not the strategy itself."
-          },
-          {
-            question: "Isn't this just marketing ops with a new name?",
-            answer: "Marketing ops keeps the stack running. GTM Engineering designs the demand strategy and owns the infrastructure it runs on — so strategy and systems stop being separate jobs handed between separate people. The two only compound when one person owns both."
-          },
-          {
-            question: "Do I need to rip out my current stack?",
-            answer: "No. I evaluate what you have with a bias toward capability, simplicity, and measurable impact — then evolve it. Most engagements start by connecting layers you already own, not buying new ones."
-          },
-          {
-            question: "Where does AI actually fit?",
-            answer: "As an instrumented layer with a human review gate — signal detection, scoring, drafting at scale, with judgment kept in human hands. Not automation that runs wrong at scale until someone notices. Orchestration that catches drift before it compounds."
-          },
-          {
-            question: "Can you do this as a fractional engagement, or do you need to be full-time?",
-            answer: "Both work. The system is the same whether I build it embedded as a fractional leader or own it full-time — what matters is that one person holds strategy and infrastructure together."
-          }
-        ]}
+        items={FAQS.gtmEngineering}
       />
 
       {/* ── CTA ────────────────────────────────────────────────────────────── */}

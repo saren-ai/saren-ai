@@ -9,6 +9,7 @@ import MatrixRain from "@/components/home/MatrixRain";
 import FAQ from "@/components/ui/FAQ";
 import { TestimonialGrid } from "@/components/ui/Testimonial";
 import { TESTIMONIALS } from "@/data/testimonials";
+import { FAQS } from "@/data/faqs";
 import { ClipboardCheck, Building2, User, Lightbulb, ArrowRight } from "lucide-react";
 
 const entryPoints = [
@@ -471,21 +472,7 @@ export default function HomeClient() {
       <FAQ
         title="GTM & Operations FAQ"
         description="Direct answers to hard questions about marketing architecture and fractional execution."
-        items={[
-          {
-            question: "Why hire a Fractional Marketing Lead instead of a full-time marketing executive?",
-            answer: "A Fractional Marketing Lead gives you senior GTM leadership to build your strategy and operations without the bloated executive salary, equity package, and overhead of a full-timer who just wants to manage agencies. You get active system-building, positioning clarity, and operational pipeline setup for early-stage and Series A startups, rather than a slide-deck generator.",
-            link: { href: "/fractional-marketing-lead/cost", label: "See real engagement pricing →" }
-          },
-          {
-            question: "What does \"demand generation as engineering\" actually mean?",
-            answer: "It means I treat your pipeline like a software system—defined by data inputs, logic gates, and feedback loops—instead of a series of hope-based branding campaigns. I build intent detection, lead scoring, and automated GTM tracking to capture active buyers, rather than throwing budget at Google Ads and hoping for a miracle."
-          },
-          {
-            question: "What size startups benefit most from Saren's consulting?",
-            answer: "Startups that have product-market fit (usually $1M–$10M ARR) but find their growth is stalling because their messaging is muddy and their sales cycles are stretching. If you're spending $50k+/month on ads or sales development and can't trace where your best deals are coming from, we need to talk."
-          }
-        ]}
+        items={FAQS.home}
       />
 
       {/* CTA Section */}

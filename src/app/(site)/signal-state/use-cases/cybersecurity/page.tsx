@@ -1,5 +1,8 @@
 import { Metadata } from 'next'
 import CybersecurityClient from './CybersecurityClient'
+import Breadcrumb from '@/components/ui/Breadcrumb'
+import JsonLd from '@/components/seo/JsonLd'
+import { buildGraph } from '@/lib/schema'
 
 export const metadata: Metadata = {
   title: 'Cybersecurity Use Case — Signal-State Marketing | Saren Sakurai',
@@ -23,64 +26,38 @@ export const metadata: Metadata = {
   },
 }
 
+const PATH = '/signal-state/use-cases/cybersecurity'
+
+const trail = [
+  { href: '/', label: 'Home' },
+  { href: '/signal-state', label: 'Signal-State Marketing' },
+  { href: '/signal-state/use-cases', label: 'Use Cases' },
+  { label: 'Cybersecurity' },
+]
+
+const graph = buildGraph({
+  path: PATH,
+  name: 'Cybersecurity Use Case — Signal-State Marketing',
+  description: 'Finding organizational vulnerability before the attack. A Signal-State use case for B2B cybersecurity.',
+  dateModified: '2026-04-01T00:00:00Z',
+  breadcrumb: trail,
+  article: {
+    headline: 'Signal-State Marketing for B2B Cybersecurity',
+    datePublished: '2026-02-20T00:00:00Z',
+    dateModified: '2026-04-01T00:00:00Z',
+    about: ['B2B cybersecurity marketing', 'Intent-based marketing', 'Signal-State Marketing', 'Ransomware vulnerability'],
+  },
+})
+
 export default function CybersecurityPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "@id": "https://saren.ai/signal-state/use-cases/cybersecurity/#webpage",
-            "url": "https://saren.ai/signal-state/use-cases/cybersecurity",
-            "name": "Cybersecurity Use Case — Signal-State Marketing",
-            "description": "Finding organizational vulnerability before the attack. A Signal-State use case for B2B cybersecurity.",
-            "isPartOf": { "@id": "https://saren.ai/#website" },
-            "author": { "@id": "https://saren.ai/#person" },
-            "inLanguage": "en-US",
-            "dateCreated": "2026-02-20",
-            "dateModified": "2026-04-01T00:00:00Z"
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saren.ai" },
-              { "@type": "ListItem", "position": 2, "name": "Signal-State Marketing", "item": "https://saren.ai/signal-state" },
-              { "@type": "ListItem", "position": 3, "name": "Use Cases", "item": "https://saren.ai/signal-state/use-cases" },
-              { "@type": "ListItem", "position": 4, "name": "Cybersecurity", "item": "https://saren.ai/signal-state/use-cases/cybersecurity" }
-            ]
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "@id": "https://saren.ai/signal-state/use-cases/cybersecurity/#article",
-            "headline": "Signal-State Marketing for B2B Cybersecurity",
-            "description": "How Signal-State Marketing identifies organizational vulnerability signals before a cyberattack occurs — finding buyers who have publicly signaled exposure and reaching them with relevant cybersecurity solutions before any competitor does.",
-            "url": "https://saren.ai/signal-state/use-cases/cybersecurity",
-            "author": { "@id": "https://saren.ai/#person" },
-            "publisher": { "@id": "https://saren.ai/#person" },
-            "isPartOf": { "@id": "https://saren.ai/#website" },
-            "about": ["B2B cybersecurity marketing", "Intent-based marketing", "Signal-State Marketing", "Ransomware vulnerability"],
-            "keywords": "cybersecurity marketing, intent targeting, vulnerability signals, B2B security, Signal-State Marketing, expressed intent",
-            "inLanguage": "en-US",
-            "datePublished": "2026-02-20T00:00:00Z",
-            "dateModified": "2026-04-01T00:00:00Z",
-            "articleSection": "Signal-State Use Cases"
-          })
-        }}
-      />
+      <JsonLd schema={graph} />
+      <div className="border-b border-slate/10 dark:border-white/5">
+        <div className="container-narrow py-3">
+          <Breadcrumb trail={trail} />
+        </div>
+      </div>
       <CybersecurityClient />
     </>
   )

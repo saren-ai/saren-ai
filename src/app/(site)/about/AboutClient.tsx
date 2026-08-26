@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Guitar, BookOpen, Disc3, Film, Drama } from "lucide-react";
 import FAQ from "@/components/ui/FAQ";
+import { FAQS } from "@/data/faqs";
 import { TierListBoard } from "@/components/tier-list/TierListBoard";
 import { AI_TOOLS } from "@/lib/tier-list";
 
@@ -793,35 +794,7 @@ export default function AboutClient() {
             </section>
 
             {/* FAQ */}
-            <FAQ
-                items={[
-                    {
-                        question: "What does 'fractional marketing lead' actually mean?",
-                        answer: "I work with companies that need senior marketing leadership but don't need (or can't afford) a full-time CMO. Typical engagements are 10-20 hours per week for 6-12 months. I build the strategy, set up systems, hire and coach the team, then hand off execution to your in-house team or agency partners. It's like having a CMO on retainer."
-                    },
-                    {
-                        question: "What size companies do you typically work with?",
-                        answer: "I focus on B2B SaaS companies in two stages: (1) Series A/B startups scaling from $1M-$10M ARR, and (2) growth-stage companies ($10M-$50M ARR) that need to professionalize their marketing function. If you're spending $50K+/month on marketing and sales but can't articulate what's working, we should talk."
-                    },
-                    {
-                        question: "Do you only work with AI/security companies?",
-                        answer: "No, but that's where most of my experience is. The principles of demand generation, funnel optimization, and growth marketing apply across B2B SaaS. What matters more is sales motion (enterprise vs PLG), deal size, and sales cycle length. If you're selling complex software to technical buyers with 60+ day sales cycles, I've probably solved your problem before."
-                    },
-                    {
-                        question: "How is working with you different from hiring a marketing agency?",
-                        answer: "Agencies execute campaigns. I build systems and strategy. I'll help you figure out what to do (channel strategy, positioning, demand gen architecture), then either execute it myself or work with your agency to implement it. Most companies hire me because they don't know what to tell their agency to do—or because their agency is doing what they're told but it's not working."
-                    },
-                    {
-                        question: "Can you help if we already have a VP Marketing?",
-                        answer: "Yes. Many of my clients have VPs or Directors of Marketing who are strong executors but need strategic guidance on growth architecture, analytics frameworks, or demand gen systems. I often work alongside internal leaders as a strategic advisor and coach, helping them level up while building the infrastructure they need."
-                    },
-                    {
-                        question: "What's your typical engagement timeline and cost?",
-                        answer: "Most engagements start with a 3-month sprint to diagnose, strategize, and start building, then extend for 6-12 months to execute and hand off. Real rates and engagement structures are published on the pricing page.",
-                        link: { href: "/fractional-marketing-lead/cost", label: "See fractional marketing lead pricing →" }
-                    }
-                ]}
-            />
+            <FAQ items={FAQS.about} />
 
             {/* My Stack */}
             <section id="stack" className="section bg-ash dark:bg-background">

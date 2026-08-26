@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import FAQ from "@/components/ui/FAQ";
+import { FAQS } from "@/data/faqs";
 import { ArrowRight, FileText, Target, BarChart, Users } from "lucide-react";
 import CodeBlock from "@/components/ui/CodeBlock";
 import HeroContentJourney from "@/components/content-journey/HeroContentJourney";
@@ -115,22 +116,7 @@ No tool can fix this. It's a mindset shift.`}
             </section>
 
             {/* FAQ */}
-            <FAQ
-                items={[
-                    {
-                        question: "Do I need all 120 days?",
-                        answer: "The timeline is symbolic of a quarter. You can compress it to 30 days for a sprint or expand it to 6 months for enterprise deals. The physics of the journey remain the same."
-                    },
-                    {
-                        question: "What if we don't have a content team?",
-                        answer: "You don't need a team. You need a subject matter expert and a writer (or a very good AI workflow). Quality of insight > quantity of production."
-                    },
-                    {
-                        question: "How do we measure this?",
-                        answer: "Early stage: Consumption and Qualitative Feedback (comments, DMs). Mid stage: Website engagement and retargeting pool growth. Late stage: Demo requests and pipeline influence."
-                    }
-                ]}
-            />
+            <FAQ items={FAQS.contentJourney120Day} />
 
             {/* CTA */}
             <section className="section gradient-dark text-ash">

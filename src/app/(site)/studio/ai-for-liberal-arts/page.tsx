@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Github, Sparkles } from "lucide-react";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildGraph } from "@/lib/schema";
 
 const TITLE = "AI for Liberal Arts Majors | Saren.ai";
 const DESCRIPTION =
@@ -50,49 +53,26 @@ const entries: SeriesEntry[] = [
   },
 ];
 
+const PATH = "/studio/ai-for-liberal-arts";
+
+const trail = [{ href: "/", label: "Home" }, { href: "/studio", label: "Studio" }, { label: "AI for Liberal Arts Majors" }];
+
+const graph = buildGraph({
+  path: PATH,
+  pageType: "CollectionPage",
+  name: TITLE,
+  description: DESCRIPTION,
+  dateModified: "2026-06-17T00:00:00Z",
+  breadcrumb: trail,
+});
+
 export default function AiForLiberalArtsPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "CollectionPage",
-            "@id": "https://saren.ai/studio/ai-for-liberal-arts/#webpage",
-            url: "https://saren.ai/studio/ai-for-liberal-arts",
-            name: TITLE,
-            description: DESCRIPTION,
-            isPartOf: { "@id": "https://saren.ai/#website" },
-            about: { "@id": "https://saren.ai/#person" },
-            author: { "@id": "https://saren.ai/#person" },
-            inLanguage: "en-US",
-            dateModified: "2026-06-17T00:00:00Z",
-          }),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://saren.ai" },
-              { "@type": "ListItem", position: 2, name: "Studio", item: "https://saren.ai/studio" },
-              {
-                "@type": "ListItem",
-                position: 3,
-                name: "AI for Liberal Arts Majors",
-                item: "https://saren.ai/studio/ai-for-liberal-arts",
-              },
-            ],
-          }),
-        }}
-      />
-
+      <JsonLd schema={graph} />
       <section className="section">
         <div className="container-narrow">
+          <Breadcrumb trail={trail} className="mb-8" />
           <header className="mb-12 max-w-2xl">
             <p className="text-xs font-mono text-ember uppercase tracking-widest mb-3">
               A Saren.ai Series

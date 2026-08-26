@@ -3,6 +3,10 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { Check } from "lucide-react";
 import FAQ from "@/components/ui/FAQ";
+import { FAQS } from "@/data/faqs";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildGraph, workId } from "@/lib/schema";
 
 const HeroBentoEngine = dynamic(
   () => import("@/components/golden-dashboard/hero/HeroBentoEngine"),
@@ -28,70 +32,54 @@ export const metadata: Metadata = {
   },
 };
 
+const PATH = "/playbooks/roi-simulator";
+const trail = [
+  { href: "/", label: "Home" },
+  { href: "/playbooks", label: "Playbooks" },
+  { label: "Paid Media ROI Simulator" },
+];
+
+const graph = buildGraph({
+  path: PATH,
+  name: "Paid Media ROI Simulator: Forecast Outcomes Before You Spend",
+  description: "An interactive financial model for performance marketers. Simulate the revenue impact of your ad spend using real unit economics.",
+  dateModified: "2026-03-27T00:00:00Z",
+  breadcrumb: trail,
+  faq: FAQS.roiSimulator,
+  extra: [
+    {
+      "@type": ["CreativeWork", "SoftwareApplication"],
+      "@id": workId(PATH),
+      "name": "Paid Media ROI Simulator: Forecast Outcomes Before You Spend",
+      "description": "An interactive financial model for performance marketers. Simulate the revenue impact of your ad spend using real unit economics.",
+      "url": `https://saren.ai${PATH}`,
+      "author": { "@id": "https://saren.ai/#person" },
+      "creator": { "@id": "https://saren.ai/#person" },
+      "isPartOf": { "@id": "https://saren.ai/#website" },
+      "about": ["Paid media ROI analysis", "Demand generation", "B2B SaaS revenue forecasting"],
+      "keywords": "paid media, ROI simulator, demand generation, B2B SaaS, revenue forecasting, ad spend",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://saren.ai/images/portfolio/roi-simulator-og.png",
+        "width": 1200,
+        "height": 630
+      },
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en-US",
+      "dateCreated": "2026-02-13",
+      "dateModified": "2026-03-27T00:00:00Z"
+    },
+  ],
+});
+
 export default function GoldenDashboardPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "@id": "https://saren.ai/playbooks/roi-simulator/#webpage",
-            "url": "https://saren.ai/playbooks/roi-simulator",
-            "name": "Paid Media ROI Simulator: Forecast Outcomes Before You Spend",
-            "description": "An interactive financial model for performance marketers. Simulate the revenue impact of your ad spend using real unit economics.",
-            "isPartOf": { "@id": "https://saren.ai/#website" },
-            "about": { "@id": "https://saren.ai/#person" },
-            "author": { "@id": "https://saren.ai/#person" },
-            "inLanguage": "en-US",
-            "dateModified": "2026-03-27T00:00:00Z"
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saren.ai" },
-              { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://saren.ai/portfolio" },
-              { "@type": "ListItem", "position": 3, "name": "Paid Media ROI Simulator", "item": "https://saren.ai/playbooks/roi-simulator" }
-            ]
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": ["CreativeWork", "SoftwareApplication"],
-            "@id": "https://saren.ai/playbooks/roi-simulator/#work",
-            "name": "Paid Media ROI Simulator: Forecast Outcomes Before You Spend",
-            "description": "An interactive financial model for performance marketers. Simulate the revenue impact of your ad spend using real unit economics.",
-            "url": "https://saren.ai/playbooks/roi-simulator",
-            "author": { "@id": "https://saren.ai/#person" },
-            "creator": { "@id": "https://saren.ai/#person" },
-            "isPartOf": { "@id": "https://saren.ai/#website" },
-            "about": ["Paid media ROI analysis", "Demand generation", "B2B SaaS revenue forecasting"],
-            "keywords": "paid media, ROI simulator, demand generation, B2B SaaS, revenue forecasting, ad spend",
-            "image": {
-              "@type": "ImageObject",
-              "url": "https://saren.ai/images/portfolio/roi-simulator-og.png",
-              "width": 1200,
-              "height": 630
-            },
-            "applicationCategory": "BusinessApplication",
-            "operatingSystem": "Web",
-            "inLanguage": "en-US",
-            "dateCreated": "2026-02-13",
-            "dateModified": "2026-03-27T00:00:00Z"
-          })
-        }}
-      />
+      <JsonLd schema={graph} />
+      <div className="container-narrow pt-6">
+        <Breadcrumb trail={trail} />
+      </div>
     <article>
       {/* New Hero Engine */}
       <div data-pagefind-ignore><HeroBentoEngine /></div>
@@ -233,30 +221,7 @@ export default function GoldenDashboardPage() {
       </section>
 
       {/* FAQ */}
-      <FAQ
-        items={[
-          {
-            question: "Is this tool for SEO or Organic traffic?",
-            answer: "No. This simulator is specifically designed for Paid Media (Performance Marketing) where you have direct control over levers like Budget and Max CPC. Organic channels require a different set of inputs and lag assumptions."
-          },
-          {
-            question: "How accurate are the projections?",
-            answer: "The projections are as accurate as the inputs you provide. The model uses standard funnel math. If you input your historical conversion rates (e.g., Lead-to-MQL), the revenue projection will be mathematically consistent with your budget."
-          },
-          {
-            question: "What is 'ACV'?",
-            answer: "ACV stands for Annual Contract Value. In B2B SaaS, this is the average revenue you generate from a single closed deal over one year. We use a default of $25k for this simulation, but custom versions can make this dynamic."
-          },
-          {
-            question: "Can I export these scenarios?",
-            answer: "Yes! Use the 'Share Scenario' button in the top right to generate a unique link. You can send this to your team or CFO to show them exactly what budget you need to hit your targets."
-          },
-          {
-            question: "Do you build this for Hubspot or Salesforce?",
-            answer: "Yes. I build custom integrations that pull your live data from CRMs and Ad Platforms into unified views like this, so you're not just simulating—you're tracking actuals against forecast."
-          }
-        ]}
-      />
+      <FAQ items={FAQS.roiSimulator} />
 
       {/* More Portfolio */}
       <section className="section bg-ash">

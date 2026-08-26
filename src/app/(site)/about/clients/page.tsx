@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import ClientsPageContent from "./ClientsPageContent";
 import PagefindBoundary from "@/components/search/PagefindBoundary";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildGraph, listId } from "@/lib/schema";
+
+const trail = [{ href: "/", label: "Home" }, { href: "/about", label: "About" }, { label: "Client Brands" }];
 
 export const metadata: Metadata = {
   title: "Client Brands | Saren.ai",
@@ -15,48 +19,19 @@ export const metadata: Metadata = {
 };
 
 export default function ClientsPage() {
-  return (
-    <PagefindBoundary section="About">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "CollectionPage",
-            "@id": "https://saren.ai/about/clients/#webpage",
-            "url": "https://saren.ai/about/clients",
-            "name": "Client Brands | Saren.ai",
-            "description": "Trusted by leading B2B technology companies and Fortune 500 consumer brands. From cybersecurity unicorns to household names.",
-            "isPartOf": { "@id": "https://saren.ai/#website" },
-            "about": { "@id": "https://saren.ai/#person" },
-            "author": { "@id": "https://saren.ai/#person" },
-            "inLanguage": "en-US",
-            "dateModified": "2026-03-27T00:00:00Z"
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saren.ai" },
-              { "@type": "ListItem", "position": 2, "name": "About", "item": "https://saren.ai/about" },
-              { "@type": "ListItem", "position": 3, "name": "Client Brands", "item": "https://saren.ai/about/clients" }
-            ]
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ItemList",
-            "@id": "https://saren.ai/about/clients/#list",
-            "name": "Brands Saren Sakurai Has Worked With",
+  const graph = buildGraph({
+    path: "/about/clients",
+    pageType: "CollectionPage",
+    name: "Client Brands | Saren.ai",
+    description:
+      "Trusted by leading B2B technology companies and Fortune 500 consumer brands. From cybersecurity unicorns to household names.",
+    dateModified: "2026-03-27T00:00:00Z",
+    breadcrumb: trail,
+    extra: [
+      {
+        "@type": "ItemList",
+        "@id": listId("/about/clients"),
+        "name": "Brands Saren Sakurai Has Worked With",
             "description": "B2B technology and consumer brands across cybersecurity, enterprise software, automotive, food & beverage, and entertainment.",
             "numberOfItems": 24,
             "itemListElement": [
@@ -83,11 +58,15 @@ export default function ClientsPage() {
               { "@type": "ListItem", "position": 21, "item": { "@type": "Organization", "name": "Paramount",           "url": "https://www.paramount.com" } },
               { "@type": "ListItem", "position": 22, "item": { "@type": "Organization", "name": "Sony",                "url": "https://www.sony.com" } },
               { "@type": "ListItem", "position": 23, "item": { "@type": "Organization", "name": "Ampd" } },
-              { "@type": "ListItem", "position": 24, "item": { "@type": "Organization", "name": "Number One" } }
-            ]
-          })
-        }}
-      />
+              { "@type": "ListItem", "position": 24, "item": { "@type": "Organization", "name": "Number One" } },
+            ],
+          },
+        ],
+      });
+
+  return (
+    <PagefindBoundary section="About">
+      <JsonLd schema={graph} />
       <ClientsPageContent />
     </PagefindBoundary>
   );

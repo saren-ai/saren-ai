@@ -219,7 +219,7 @@ sourced scored), **wethosai (0 contacts — needs ICP + first list build)**.
 2. **Railway deploy runbook** (Dockerfile at repo root ships clients/ beside the
    app; build UNVERIFIED locally — no Docker on this Mac). After `! railway login`:
    ```bash
-   cd ~/Projects/@lead-prospecting && railway init -n lead-prospecting
+   cd ~/Projects/#lead-prospecting && railway init -n lead-prospecting
    for VAR in SUPABASE_SERVICE_ROLE_KEY ANTHROPIC_API_KEY GMAIL_IMAP_USER \
               GMAIL_IMAP_PASS GMAIL_FROM DASHBOARD_AUTH \
               NEXT_PUBLIC_SUPABASE_URL NEXT_PUBLIC_SUPABASE_ANON_KEY; do

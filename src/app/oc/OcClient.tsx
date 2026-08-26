@@ -178,8 +178,8 @@ export default function OcClient() {
 
           <p className="text-sm text-slate dark:text-foreground-muted mt-6">
             Prefer email?{" "}
-            <a href="mailto:saren@saren.ai" className="text-ember font-semibold hover:underline">
-              saren@saren.ai
+            <a href="mailto:saren#saren.ai" className="text-ember font-semibold hover:underline">
+              saren#saren.ai
             </a>
           </p>
         </div>

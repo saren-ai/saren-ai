@@ -55,8 +55,9 @@ export default function Footer() {
               saren<span className="text-ember">.</span>ai
             </Link>
             <p className="text-ash/60 max-w-xs leading-relaxed text-sm">
-              GTM Engineer based in Orange County. I build marketing systems
-              that scale with AI, not headcount.
+              GTM Engineer based in Irvine, California, serving Orange County
+              within a 10-mile radius (remote beyond that). I build marketing
+              systems that scale with AI, not headcount.
             </p>
           </div>
 

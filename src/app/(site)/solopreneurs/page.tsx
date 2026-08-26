@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import SolopreneursClient from "./SolopreneursClient";
 import PagefindBoundary from "@/components/search/PagefindBoundary";
+import JsonLd from "@/components/seo/JsonLd";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import { buildGraph } from "@/lib/schema";
+
+const trail = [{ href: "/", label: "Home" }, { label: "Solo Founders & Fractional CMOs" }];
 
 export const metadata: Metadata = {
   title: "For Solo Founders & Fractional CMOs | saren.ai",
@@ -18,22 +23,19 @@ export const metadata: Metadata = {
 export default function SolopreneursPage() {
   return (
     <PagefindBoundary section="Solutions">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "@id": "https://saren.ai/solopreneurs/#webpage",
-            url: "https://saren.ai/solopreneurs",
-            name: "For Solo Founders & Fractional CMOs | saren.ai",
-            description:
-              "Pipeline automation, systems that multiply solo output, and self-managed workflows for solopreneurs and fractional CMOs.",
-            isPartOf: { "@id": "https://saren.ai/#website" },
-            inLanguage: "en-US",
-          }),
-        }}
+      <JsonLd
+        schema={buildGraph({
+          path: "/solopreneurs",
+          name: "For Solo Founders & Fractional CMOs | saren.ai",
+          description: "Pipeline automation, systems that multiply solo output, and self-managed workflows for solopreneurs and fractional CMOs.",
+          breadcrumb: trail,
+        })}
       />
+      <div className="border-b border-slate/10 dark:border-white/5">
+        <div className="container-narrow py-3">
+          <Breadcrumb trail={trail} />
+        </div>
+      </div>
       <SolopreneursClient />
     </PagefindBoundary>
   );

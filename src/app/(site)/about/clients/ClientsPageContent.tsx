@@ -44,8 +44,11 @@ export default function ClientsPageContent() {
       <section className="hero-card section gradient-dark text-ash">
         <div className="container-narrow">
           <Breadcrumb
-            back={{ href: '/about', label: 'About' }}
-            current="Client Brands"
+            trail={[
+              { href: "/", label: "Home" },
+              { href: "/about", label: "About" },
+              { label: "Client Brands" },
+            ]}
             accentColor="var(--ember-red)"
             className="mb-6"
           />

@@ -2,10 +2,14 @@ import ConcertsClient from "./ConcertsClient";
 import { Metadata } from "next";
 import { getAllConcerts } from "@/lib/db";
 import JsonLd from "@/components/seo/JsonLd";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 import PagefindBoundary from "@/components/search/PagefindBoundary";
+import { buildGraph, ID, listId } from "@/lib/schema";
+
+const trail = [{ href: "/", label: "Home" }, { href: "/about", label: "About" }, { label: "Concerts" }];
 
 export const metadata: Metadata = {
-    title: "I Saw All Sub-Cultural Bands | Saren",
+    title: "I Saw All the Best Bands | Saren",
     description: "A chronological calendar of concerts attended by Saren Sakurai — from post-hardcore and noise rock to ambient and jazz.",
     alternates: { canonical: "https://saren.ai/about/concerts" },
 };
@@ -47,7 +51,7 @@ export default function ConcertsPage() {
                     "@type": "MusicGroup",
                     "name": c.artist,
                 },
-                "organizer": { "@id": "https://saren.ai/#person" },
+                "organizer": { "@id": ID.person },
                 "offers": {
                     "@type": "Offer",
                     "price": "0",
@@ -58,38 +62,34 @@ export default function ConcertsPage() {
         };
     });
 
-    return (
-        <PagefindBoundary section="About">
-            <JsonLd schema={{
-                "@context": "https://schema.org",
-                "@type": "CollectionPage",
-                "@id": "https://saren.ai/about/concerts/#webpage",
-                "url": "https://saren.ai/about/concerts",
-                "name": "I Saw All Sub-Cultural Bands | Saren",
-                "description": "A chronological calendar of concerts attended by Saren Sakurai — from post-hardcore and noise rock to ambient and jazz.",
-                "isPartOf": { "@id": "https://saren.ai/#website" },
-                "about": { "@id": "https://saren.ai/#person" },
-                "author": { "@id": "https://saren.ai/#person" },
-                "inLanguage": "en-US",
-                "dateModified": "2026-04-01T00:00:00Z"
-            }} />
-            <JsonLd schema={{
-                "@context": "https://schema.org",
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saren.ai" },
-                    { "@type": "ListItem", "position": 2, "name": "About", "item": "https://saren.ai/about" },
-                    { "@type": "ListItem", "position": 3, "name": "Concerts", "item": "https://saren.ai/about/concerts" }
-                ]
-            }} />
-            <JsonLd schema={{
-                "@context": "https://schema.org",
+    const graph = buildGraph({
+        path: "/about/concerts",
+        pageType: "CollectionPage",
+        name: "I Saw All the Best Bands | Saren",
+        description:
+            "A chronological calendar of concerts attended by Saren Sakurai — from post-hardcore and noise rock to ambient and jazz.",
+        dateModified: "2026-04-01T00:00:00Z",
+        breadcrumb: trail,
+        extra: [
+            {
                 "@type": "ItemList",
+                "@id": listId("/about/concerts"),
                 "name": "Concerts Attended by Saren Sakurai",
                 "description": "A chronological list of concerts attended from 1982 to 2008.",
                 "numberOfItems": concerts.length,
                 "itemListElement": eventItems,
-            }} />
+            },
+        ],
+    });
+
+    return (
+        <PagefindBoundary section="About">
+            <JsonLd schema={graph} />
+            <div className="border-b border-slate/10 dark:border-white/5">
+                <div className="container-narrow py-3">
+                    <Breadcrumb trail={trail} />
+                </div>
+            </div>
             <ConcertsClient concerts={concerts} />
         </PagefindBoundary>
     );

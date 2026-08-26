@@ -2,6 +2,7 @@
 
 import HeroStoryboard from "@/components/storyboard/HeroStoryboard";
 import FAQ from "@/components/ui/FAQ";
+import { FAQS } from "@/data/faqs";
 import { processPhases, applications } from "@/lib/storyboard";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -265,46 +266,7 @@ export default function ItsGoodToBePitchedClient() {
             </section>
 
             {/* FAQ */}
-            <FAQ
-                title="Frequently Asked Questions"
-                items={[
-                    {
-                        question: "What is this project?",
-                        answer:
-                            "A storyboarded 30-second TV spot concept built to sell the experience of being pitched—having three great options.",
-                    },
-                    {
-                        question: "What's the insight behind it?",
-                        answer:
-                            "The pleasure isn't 'who wins.' The pleasure is the buyer's confidence when multiple ideas are genuinely strong.",
-                    },
-                    {
-                        question: "Why use storyboard sketch style instead of photoreal images?",
-                        answer:
-                            "Sketch storyboards reduce uncanny valley and match how real pre-production work looks. They feel more authentic and production-ready than AI-generated photoreal images.",
-                    },
-                    {
-                        question: "How did you maintain character consistency across frames?",
-                        answer:
-                            "By generating prompts per shot with explicit carryover details—same protagonist description and continuity notes across every frame. The JSON structure prevented AI drift.",
-                    },
-                    {
-                        question: "What tools did you use?",
-                        answer:
-                            "Claude for concept and prompt structure; Nano Banana/Gemini for image generation; JSON to keep the system deterministic.",
-                    },
-                    {
-                        question: "How would this concept translate to a final commercial?",
-                        answer:
-                            "The beats stay the same; the storyboards become a shot list, then production design, casting, and edit timing. This is a production-ready blueprint.",
-                    },
-                    {
-                        question: "Can you apply this process to other narratives?",
-                        answer:
-                            "Yes—any short-form story benefits from beat structure plus consistency constraints. The methodology works for explainer videos, product demos, testimonials, and educational content.",
-                    },
-                ]}
-            />
+            <FAQ title="Frequently Asked Questions" items={FAQS.itsGoodToBePitched} />
 
             {/* CTA */}
             <section className="section gradient-dark text-ash">

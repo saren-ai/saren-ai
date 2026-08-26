@@ -2,6 +2,7 @@
 
 import HeroCalculator from "@/components/calculator/HeroCalculator";
 import FAQ from "@/components/ui/FAQ";
+import { FAQS } from "@/data/faqs";
 import Link from "next/link";
 import { ArrowRight, ExternalLink } from "lucide-react";
 
@@ -73,22 +74,7 @@ export default function CalculatorClient() {
             </section>
 
             {/* FAQ */}
-            <FAQ
-                items={[
-                    {
-                        question: "What is a 'Good' MQL to SQL conversion rate?",
-                        answer: "15-20% is healthy for inbound. Outbound is often lower (5-10%). If you're above 30%, your definition of MQL might be too strict (leaving opportunity on the table). If below 10%, your scoring is too loose."
-                    },
-                    {
-                        question: "How does ACV impact this model?",
-                        answer: "ACV (Average Contract Value) is the biggest lever. Doubling ACV halves the number of deals you need, but usually increases sales cycle length and decreases win rate. The 'Growth Golden Ratio' is balancing ACV friction with velocity."
-                    },
-                    {
-                        question: "Why does the required budget seem so high?",
-                        answer: "Most companies underestimate Customer Acquisition Cost (CAC). To get $1M in new ARR, you might need to spend $800k-$1.2M depending on your efficiency. This calculator reveals the harsh truth of inefficient funnels."
-                    }
-                ]}
-            />
+            <FAQ items={FAQS.gtmBudgetCalculator} />
 
             {/* CTA */}
             <section className="section gradient-dark text-ash">

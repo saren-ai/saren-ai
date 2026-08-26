@@ -2,6 +2,9 @@ import { getActivePlaybooks } from '@/lib/playbooks';
 import { INTERACTIVE_TOOLS } from '@/lib/interactive-tools';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import Breadcrumb from '@/components/ui/Breadcrumb';
+import JsonLd from '@/components/seo/JsonLd';
+import { buildGraph, listId } from '@/lib/schema';
 
 export const metadata = {
     title: 'AI Marketing Playbooks & B2B Growth Tools | Saren.ai',
@@ -90,69 +93,45 @@ export default async function PlaybooksIndex({
     );
     const categoryNames = Object.keys(categories).sort();
 
-    const jsonLdItems = playbooks.map((pb, i) => ({
+    const trail = [{ href: '/', label: 'Home' }, { label: 'Playbook Library' }];
+
+    const listItems = playbooks.map((pb, i) => ({
         '@type': 'ListItem',
         position: i + 1,
         url: `https://saren.ai/playbooks/${pb.playbook_id}`,
         name: pb.title,
     }));
 
+    const graph = buildGraph({
+        path: '/playbooks',
+        pageType: 'CollectionPage',
+        name: 'Playbook Library | Saren.ai',
+        description:
+            'A curated library of advanced prompt sequences, structured frameworks, and multi-step AI playbooks to accelerate execution.',
+        dateModified: '2026-05-28T00:00:00Z',
+        breadcrumb: trail,
+        extra: [
+            {
+                '@type': 'ItemList',
+                '@id': listId('/playbooks'),
+                name: 'AI Prompt Playbooks by Saren Sakurai',
+                description:
+                    'A curated library of advanced prompt sequences, structured frameworks, and multi-step AI playbooks for B2B marketing, sales, and GTM execution.',
+                author: { '@id': 'https://saren.ai/#person' },
+                numberOfItems: playbooks.length,
+                itemListElement: listItems,
+            },
+        ],
+    });
+
     return (
         <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        '@context': 'https://schema.org',
-                        '@type': 'CollectionPage',
-                        '@id': 'https://saren.ai/playbooks/#webpage',
-                        url: 'https://saren.ai/playbooks',
-                        name: 'Playbook Library | Saren.ai',
-                        description:
-                            'A curated library of advanced prompt sequences, structured frameworks, and multi-step AI playbooks to accelerate execution.',
-                        isPartOf: { '@id': 'https://saren.ai/#website' },
-                        author: { '@id': 'https://saren.ai/#person' },
-                        inLanguage: 'en-US',
-                        dateModified: '2026-05-28T00:00:00Z',
-                    }),
-                }}
-            />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        '@context': 'https://schema.org',
-                        '@type': 'BreadcrumbList',
-                        itemListElement: [
-                            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://saren.ai' },
-                            {
-                                '@type': 'ListItem',
-                                position: 2,
-                                name: 'Playbook Library',
-                                item: 'https://saren.ai/playbooks',
-                            },
-                        ],
-                    }),
-                }}
-            />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        '@context': 'https://schema.org',
-                        '@type': 'ItemList',
-                        '@id': 'https://saren.ai/playbooks/#list',
-                        name: 'AI Prompt Playbooks by Saren Sakurai',
-                        description:
-                            'A curated library of advanced prompt sequences, structured frameworks, and multi-step AI playbooks for B2B marketing, sales, and GTM execution.',
-                        author: { '@id': 'https://saren.ai/#person' },
-                        numberOfItems: playbooks.length,
-                        itemListElement: jsonLdItems,
-                    }),
-                }}
-            />
+            <JsonLd schema={graph} />
 
             <div className="min-h-screen bg-ash dark:bg-offblack text-charcoal dark:text-white pt-16 pb-16 px-6 lg:px-12 relative transition-colors duration-300">
+                <div className="max-w-6xl mx-auto mb-4">
+                    <Breadcrumb trail={trail} />
+                </div>
                 {/* Type toggle */}
                 <div className="max-w-6xl mx-auto mb-4 flex gap-2">
                     <Link

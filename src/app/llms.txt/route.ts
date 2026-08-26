@@ -1,5 +1,6 @@
 import { getActivePlaybooks } from '@/lib/playbooks'
 import { featureArticles } from '@/lib/feature'
+import { CASE_STUDIES } from '@/lib/case-studies'
 
 export const dynamic = 'force-static'
 
@@ -46,16 +47,9 @@ Saren works best with:
 
 ## Case Studies
 
-- [10-Touch Sales Play](${BASE_URL}/case-studies/10-touch-sales-play): Multi-touch outbound system for senior AI executive buyers, built at WethosAI
-- [120-Day Content Journey](${BASE_URL}/case-studies/120-day-content-journey): Buyer journey demand engine architected at Cylance
-- [Authority Engineering](${BASE_URL}/case-studies/authority-engineering): Building category authority through structured content
+${CASE_STUDIES.map(cs => `- [${cs.name}](${BASE_URL}${cs.href}): ${cs.tagline}`).join('\n')}
 - [Behavioral Lead Scoring](${BASE_URL}/playbooks/hybrid-lead-scoring): Fit + engagement scoring system for B2B buyers
-- [Dynamic Nurture](${BASE_URL}/case-studies/dynamic-nurture): Behavior-driven email and content nurture sequences
-- [Executive Dashboard](${BASE_URL}/case-studies/executive-dashboard): Full-funnel ROI attribution dashboard built at CloudKitchens
-- [Intent Data](${BASE_URL}/case-studies/intent-data): Intent signal capture and activation
 - [It's Good To Be Pitched](${BASE_URL}/playbooks/its-good-to-be-pitched): TV spot storyboard case study
-- [Sovereign Personas](${BASE_URL}/case-studies/sovereign-personas): Buyer persona framework for sovereign cloud infrastructure
-- [Thought Leadership Development](${BASE_URL}/case-studies/thought-leadership-development): Executive thought leadership programs
 
 ## Tools
 

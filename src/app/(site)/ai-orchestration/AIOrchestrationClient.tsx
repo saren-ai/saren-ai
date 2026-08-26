@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import FAQ from '@/components/ui/FAQ';
+import { FAQS } from '@/data/faqs';
 
 export default function AIOrchestrationClient() {
   return (
@@ -335,20 +336,7 @@ export default function AIOrchestrationClient() {
       <FAQ
         title="AI Orchestration FAQ"
         description="Clear operational details on designing high-impact human-in-the-loop AI systems."
-        items={[
-          {
-            question: "Can I just automate all of my outbound marketing with AI agents?",
-            answer: "Sure, if you want your brand to sound like a generic spambot and systematically alienate every high-value prospect in your pipeline. AI orchestration is about using machines for high-scale scanning and drafting, while keeping humans at critical review gates to inject actual judgment and empathy before anything touches a client."
-          },
-          {
-            question: "Why is a human review gate necessary in AI operations?",
-            answer: "Because LLMs are excellent at hallucinating confidently and will happily email the wrong pitch to your top enterprise prospect without blinking. A human review gate catches context failures, ensuring you don't scale embarrassing GTM mistakes at the speed of light."
-          },
-          {
-            question: "How does AI orchestration prevent systems from failing quietly?",
-            answer: "It flags anomalies, scoring drifts, and edge cases to human operators rather than letting a broken automation run unchecked for three quarters. When an AI system operates without a human loop, a miscalibrated scoring model can route worthless leads to sales for months before anyone notices the pipeline is dry."
-          }
-        ]}
+        items={FAQS.aiOrchestration}
       />
 
       {/* ── CTA ──────────────────────────────────────────────────────────── */}

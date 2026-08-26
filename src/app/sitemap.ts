@@ -78,7 +78,6 @@ const routes: Record<string, RouteEntry> = {
   '/playbooks/personal-bio-brand-builder': { lastModified: '2026-05-28' },
   '/playbooks/research-intelligence-pipeline': { lastModified: '2026-05-28' },
   '/playbooks/self-discovery-mindset-journey': { lastModified: '2026-05-28' },
-  '/playbooks/sora2-samurai-creative-series': { lastModified: '2026-05-28' },
   '/playbooks/viral-content-hook-trilogy': { lastModified: '2026-05-28' },
 
   // B2B marketing framework prompt pages

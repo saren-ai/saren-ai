@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HomeClient from "./HomeClient";
-
+import JsonLd from "@/components/seo/JsonLd";
+import { buildGraph, ID, serviceId } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Saren Sakurai | GTM Engineer — Fractional Marketing Lead & AI Operations",
@@ -23,130 +24,88 @@ export const metadata: Metadata = {
   },
 };
 
+// Same entity as fractional-marketing-lead/page.tsx's Service node — shared @id so
+// Google/answer engines merge the two descriptions of one offering.
+const fractionalMarketingLeadService = {
+  "@type": "ProfessionalService",
+  "@id": serviceId("/fractional-marketing-lead"),
+  name: "Fractional Marketing Lead & AI-Native Demand Generation",
+  description:
+    "Full-funnel demand generation infrastructure for B2B SaaS and cybersecurity companies. AI-powered lead scoring, intent signal activation, multi-agent marketing workflows, and pipeline attribution systems that produce predictable revenue.",
+  provider: { "@id": ID.person },
+  serviceType: ["Fractional Marketing Lead", "Demand Generation", "AI Marketing Operations"],
+  areaServed: [
+    { "@type": "Country", name: "United States" },
+    { "@type": "Country", name: "Canada" },
+  ],
+  audience: {
+    "@type": "BusinessAudience",
+    audienceType: "B2B SaaS and cybersecurity companies (Series A–C, 10–500 employees)",
+    numberOfEmployees: {
+      "@type": "QuantitativeValue",
+      minValue: 10,
+      maxValue: 500,
+    },
+  },
+  url: "https://saren.ai/contact",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Fractional Marketing Lead & AI GTM Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Fractional Marketing Lead",
+          description:
+            "Strategic marketing leadership (10–20 hours/week) for system building, demand generation, and team development in early-stage B2B SaaS and cybersecurity.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "AI-Native Demand Generation Architecture",
+          description:
+            "Building agentic GTM systems: multi-step intent signal pipelines, AI-augmented SDR workflows, full-funnel attribution, and predictive lead scoring models.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Answer Engine Optimization (AEO)",
+          description:
+            "Structuring B2B website content and JSON-LD schemas to appear in AI-generated answers from Perplexity, ChatGPT, Claude, and other LLM-powered search engines.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Marketing Operations Audit",
+          description: "Diagnosing pipeline leaks, CAC inefficiencies, and automation gaps — with a documented playbook for remediation.",
+        },
+      },
+    ],
+  },
+};
+
 export default function HomePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "@id": "https://saren.ai/#website",
-            "url": "https://saren.ai",
-            "name": "saren.ai",
-            "description": "Fractional Marketing Lead and AI Operations Consultant — B2B SaaS go-to-market strategy, demand generation, and AI-powered marketing systems.",
-            "publisher": { "@id": "https://saren.ai/#person" },
-            "inLanguage": "en-US",
-            "potentialAction": {
-              "@type": "ContactAction",
-              "target": "https://saren.ai/contact",
-              "name": "Inquire about fractional marketing lead or AI marketing operations services"
-            }
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "@id": "https://saren.ai/#webpage",
-            "url": "https://saren.ai",
-            "name": "Saren Sakurai | GTM Engineer — Fractional Marketing Lead & AI Operations",
-            "description": "GTM Engineer in Orange County, CA. I build AI-driven demand systems that turn marketing spend into repeatable pipeline for B2B SaaS and cybersecurity teams.",
-            "isPartOf": { "@id": "https://saren.ai/#website" },
-            "about": { "@id": "https://saren.ai/#person" },
-            "author": { "@id": "https://saren.ai/#person" },
-            "inLanguage": "en-US",
-            "dateModified": "2026-07-05T00:00:00Z"
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ProfessionalService",
-            "@id": "https://saren.ai/#fractional-marketing-lead-service",
-            "name": "Fractional Marketing Lead & AI-Native Demand Generation",
-            "description": "Full-funnel demand generation infrastructure for B2B SaaS and cybersecurity companies. AI-powered lead scoring, intent signal activation, multi-agent marketing workflows, and pipeline attribution systems that produce predictable revenue.",
-            "provider": { "@id": "https://saren.ai/#person" },
-            "serviceType": ["Fractional Marketing Lead", "Demand Generation", "AI Marketing Operations"],
-            "areaServed": [
-              { "@type": "Country", "name": "United States" },
-              { "@type": "Country", "name": "Canada" }
-            ],
-            "audience": {
-              "@type": "BusinessAudience",
-              "audienceType": "B2B SaaS and cybersecurity companies (Series A–C, 10–500 employees)",
-              "numberOfEmployees": {
-                "@type": "QuantitativeValue",
-                "minValue": 10,
-                "maxValue": 500
-              }
-            },
-            "url": "https://saren.ai/contact",
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Fractional Marketing Lead & AI GTM Services",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Fractional Marketing Lead",
-                    "description": "Strategic marketing leadership (10–20 hours/week) for system building, demand generation, and team development in early-stage B2B SaaS and cybersecurity."
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "AI-Native Demand Generation Architecture",
-                    "description": "Building agentic GTM systems: multi-step intent signal pipelines, AI-augmented SDR workflows, full-funnel attribution, and predictive lead scoring models."
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Answer Engine Optimization (AEO)",
-                    "description": "Structuring B2B website content and JSON-LD schemas to appear in AI-generated answers from Perplexity, ChatGPT, Claude, and other LLM-powered search engines."
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Marketing Operations Audit",
-                    "description": "Diagnosing pipeline leaks, CAC inefficiencies, and automation gaps — with a documented playbook for remediation."
-                  }
-                }
-              ]
-            }
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ProfilePage",
-            "@id": "https://saren.ai/#profilepage",
-            "url": "https://saren.ai",
-            "name": "Saren Sakurai | GTM Engineer — Fractional Marketing Lead & AI Operations",
-            "description": "GTM Engineer in Orange County, CA. I build AI-driven demand systems that turn marketing spend into repeatable pipeline for B2B SaaS and cybersecurity teams.",
-            "mainEntity": { "@id": "https://saren.ai/#person" },
-            "isPartOf": { "@id": "https://saren.ai/#website" },
-            "image": "https://saren.ai/images/og/home.png",
-            "inLanguage": "en-US",
-            "dateModified": "2026-07-05T00:00:00Z"
-          })
-        }}
+      <JsonLd
+        schema={buildGraph({
+          path: "/",
+          pageType: "ProfilePage",
+          identity: "full",
+          name: "Saren Sakurai | GTM Engineer — Fractional Marketing Lead & AI Operations",
+          description:
+            "GTM Engineer in Orange County, CA. I build AI-driven demand systems that turn marketing spend into repeatable pipeline for B2B SaaS and cybersecurity teams.",
+          image: "https://saren.ai/images/og/home.png",
+          dateModified: "2026-07-05T00:00:00Z",
+          extra: [fractionalMarketingLeadService],
+        })}
       />
       <HomeClient />
     </>

@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import PagefindBoundary from "@/components/search/PagefindBoundary";
+import JsonLd from "@/components/seo/JsonLd";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import { buildGraph, serviceId, ID } from "@/lib/schema";
+
+const trail = [{ href: "/", label: "Home" }, { label: "Fractional Marketing Lead" }];
 
 export const metadata: Metadata = {
   title: "Fractional Marketing Lead for B2B SaaS | Saren.ai",
@@ -52,75 +57,55 @@ const coverage = [
 ];
 
 export default function FractionalMarketingLeadPage() {
+  const graph = buildGraph({
+    path: "/fractional-marketing-lead",
+    pageType: "WebPage",
+    name: "Fractional Marketing Lead for B2B SaaS | Saren.ai",
+    description:
+      "Embedded senior marketing leadership, 10–20 hours/week, for Series A–C B2B SaaS and cybersecurity companies.",
+    dateModified: "2026-06-09T00:00:00Z",
+    breadcrumb: trail,
+    extra: [
+      {
+        "@type": "Service",
+        "@id": serviceId("/fractional-marketing-lead"),
+        name: "Fractional Marketing Lead",
+        serviceType: ["Fractional Marketing Lead", "Marketing Leadership", "Demand Generation"],
+        description:
+          "Embedded senior marketing leadership, 10–20 hours/week, for Series A–C B2B SaaS and cybersecurity companies — GTM strategy, demand generation architecture, AI-native marketing operations, and team development.",
+        provider: { "@id": ID.person },
+        url: "https://saren.ai/fractional-marketing-lead",
+        areaServed: [
+          { "@type": "Country", name: "United States" },
+          { "@type": "Country", name: "Canada" },
+        ],
+        audience: {
+          "@type": "BusinessAudience",
+          audienceType: "Series A–C B2B SaaS and cybersecurity companies (10–500 employees)",
+        },
+        offers: {
+          "@type": "Offer",
+          url: "https://saren.ai/fractional-marketing-lead/cost",
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            priceCurrency: "USD",
+            minPrice: 8000,
+            maxPrice: 15000,
+            unitText: "MONTH",
+          },
+        },
+      },
+    ],
+  });
+
   return (
     <PagefindBoundary section="Services">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "@id": "https://saren.ai/fractional-marketing-lead/#webpage",
-            url: "https://saren.ai/fractional-marketing-lead",
-            name: "Fractional Marketing Lead for B2B SaaS | Saren.ai",
-            description:
-              "Embedded senior marketing leadership, 10–20 hours/week, for Series A–C B2B SaaS and cybersecurity companies.",
-            isPartOf: { "@id": "https://saren.ai/#website" },
-            about: { "@id": "https://saren.ai/#person" },
-            author: { "@id": "https://saren.ai/#person" },
-            inLanguage: "en-US",
-            dateModified: "2026-06-09T00:00:00Z",
-          }),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://saren.ai" },
-              { "@type": "ListItem", position: 2, name: "Fractional Marketing Lead", item: "https://saren.ai/fractional-marketing-lead" },
-            ],
-          }),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "@id": "https://saren.ai/fractional-marketing-lead/#service",
-            name: "Fractional Marketing Lead",
-            serviceType: ["Fractional Marketing Lead", "Marketing Leadership", "Demand Generation"],
-            description:
-              "Embedded senior marketing leadership, 10–20 hours/week, for Series A–C B2B SaaS and cybersecurity companies — GTM strategy, demand generation architecture, AI-native marketing operations, and team development.",
-            provider: { "@id": "https://saren.ai/#person" },
-            url: "https://saren.ai/fractional-marketing-lead",
-            areaServed: [
-              { "@type": "Country", name: "United States" },
-              { "@type": "Country", name: "Canada" },
-            ],
-            audience: {
-              "@type": "BusinessAudience",
-              audienceType: "Series A–C B2B SaaS and cybersecurity companies (10–500 employees)",
-            },
-            offers: {
-              "@type": "Offer",
-              url: "https://saren.ai/fractional-marketing-lead/cost",
-              priceSpecification: {
-                "@type": "PriceSpecification",
-                priceCurrency: "USD",
-                minPrice: 8000,
-                maxPrice: 15000,
-                unitText: "MONTH",
-              },
-            },
-          }),
-        }}
-      />
+      <JsonLd schema={graph} />
+      <div className="border-b border-slate/10 dark:border-white/5">
+        <div className="container-narrow py-3">
+          <Breadcrumb trail={trail} />
+        </div>
+      </div>
 
       <article>
         {/* Hero */}

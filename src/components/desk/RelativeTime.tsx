@@ -22,11 +22,11 @@ function formatRelative(date: Date): string {
 }
 
 export default function RelativeTime({ iso }: { iso: string }) {
-  const [label, setLabel] = useState<string>("");
+  const [label, setLabel] = useState<string>(() => (iso ? formatRelative(new Date(iso)) : ""));
 
   useEffect(() => {
+    if (!iso) return;
     const date = new Date(iso);
-    setLabel(formatRelative(date));
     const id = setInterval(() => setLabel(formatRelative(date)), 60_000);
     return () => clearInterval(id);
   }, [iso]);

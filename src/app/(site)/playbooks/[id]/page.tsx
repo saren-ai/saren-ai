@@ -14,6 +14,9 @@ import { GatedTeaser } from './GatedTeaser';
 import { AnimatedNavFramer } from '@/components/ui/navigation-menu';
 import { ProspectTable } from './ProspectTable';
 import type { Playbook } from '@/lib/playbooks';
+import Breadcrumb from '@/components/ui/Breadcrumb';
+import JsonLd from '@/components/seo/JsonLd';
+import { buildGraph, articleId, webPageId, howToId, ID } from '@/lib/schema';
 
 // ---------------------------------------------------------------------------
 // Access check — one lookup, one result, drives both the gate and the button
@@ -179,98 +182,84 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
         }))
     ];
 
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "@id": `https://saren.ai/playbooks/${playbook.playbook_id}/#article`,
-        "headline": playbook.title,
-        "description": playbook.description,
-        "abstract": playbook.description,
-        "url": `https://saren.ai/playbooks/${playbook.playbook_id}`,
-        "image": {
-            "@type": "ImageObject",
-            "url": "https://saren.ai/images/og/home.png",
-            "width": 1200,
-            "height": 630
+    const path = `/playbooks/${playbook.playbook_id}`;
+    const trail = [
+        { href: '/', label: 'Home' },
+        { href: '/playbooks', label: 'Playbooks' },
+        { label: playbook.title },
+    ];
+
+    // Tag → DefinedTerm mapping is shared by `about` and `teaches` below.
+    const tagTerms = playbook.tags.map((tag) => ({ '@type': 'DefinedTerm', name: tag }));
+
+    // Hand-built (not via buildGraph's `article` helper) because this Article node
+    // carries fields — abstract, keywords, teaches, isAccessibleForFree, offers,
+    // articleSection — the shared articleNode() builder doesn't model, and several
+    // are conditional on DB-backed playbook state that must be preserved exactly.
+    const articleNode = {
+        '@type': 'Article',
+        '@id': articleId(path),
+        headline: playbook.title,
+        description: playbook.description,
+        abstract: playbook.description,
+        url: `https://saren.ai${path}`,
+        image: {
+            '@type': 'ImageObject',
+            url: 'https://saren.ai/images/og/home.png',
+            width: 1200,
+            height: 630,
         },
-        "author": { "@id": "https://saren.ai/#person" },
-        "publisher": { "@id": "https://identogram.com/#organization" },
-        "mainEntityOfPage": { "@id": `https://saren.ai/playbooks/${playbook.playbook_id}/#webpage` },
-        "keywords": playbook.tags.join(", "),
-        "about": playbook.tags.map(tag => ({ "@type": "DefinedTerm", "name": tag })),
-        "teaches": playbook.tags.map(tag => ({ "@type": "DefinedTerm", "name": tag })),
-        "isAccessibleForFree": !playbook.paid,
+        author: { '@id': ID.person },
+        publisher: { '@id': ID.organization },
+        mainEntityOfPage: { '@id': webPageId(path) },
+        keywords: playbook.tags.join(', '),
+        about: tagTerms,
+        teaches: tagTerms,
+        isAccessibleForFree: !playbook.paid,
         ...(playbook.paid && {
-            "offers": {
-                "@type": "Offer",
-                "availability": "https://schema.org/InStock",
-                "seller": { "@id": "https://saren.ai/#person" }
-            }
+            offers: {
+                '@type': 'Offer',
+                availability: 'https://schema.org/InStock',
+                seller: { '@id': ID.person },
+            },
         }),
-        ...(playbook.date && { "datePublished": `${playbook.date}T00:00:00Z` }),
-        "dateModified": "2026-04-01T00:00:00Z",
-        "inLanguage": "en-US",
-        "articleSection": playbook.category
+        ...(playbook.date && { datePublished: `${playbook.date}T00:00:00Z` }),
+        dateModified: '2026-04-01T00:00:00Z',
+        inLanguage: 'en-US',
+        articleSection: playbook.category,
     };
 
-    const howToLd = playbook.steps.length > 0 ? {
-        "@context": "https://schema.org",
-        "@type": "HowTo",
-        "@id": `https://saren.ai/playbooks/${playbook.playbook_id}/#howto`,
-        "name": playbook.title,
-        "description": playbook.description,
-        "tool": { "@type": "HowToTool", "name": "Claude AI" },
-        "step": playbook.steps.map((step, i) => ({
-            "@type": "HowToStep",
-            "position": i + 1,
-            "name": step.title,
-            "text": step.content ? step.content.replace(/[#*`]/g, '').slice(0, 300) : step.title,
-        }))
+    // Locked (paid, unpurchased) pages only ever show a step count via
+    // GatedTeaser — step titles and content never enter the rendered HTML — so
+    // the HowTo node (which lists both) must not be emitted while locked.
+    const howToNode = access.state !== 'locked' && playbook.steps.length > 0 ? {
+        '@type': 'HowTo',
+        '@id': howToId(path),
+        name: playbook.title,
+        description: playbook.description,
+        tool: { '@type': 'HowToTool', name: 'Claude AI' },
+        step: playbook.steps.map((step, i) => ({
+            '@type': 'HowToStep',
+            position: i + 1,
+            name: step.title,
+            text: step.content ? step.content.replace(/[#*`]/g, '').slice(0, 300) : step.title,
+        })),
     } : null;
 
-    const webPageLd = {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "@id": `https://saren.ai/playbooks/${playbook.playbook_id}/#webpage`,
-        "url": `https://saren.ai/playbooks/${playbook.playbook_id}`,
-        "name": playbook.title,
-        "description": playbook.description,
-        "isPartOf": { "@id": "https://saren.ai/#website" },
-        "about": { "@id": "https://saren.ai/#person" },
-        "author": { "@id": "https://saren.ai/#person" },
-        "inLanguage": "en-US"
-    };
-
-    const breadcrumbLd = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saren.ai" },
-            { "@type": "ListItem", "position": 2, "name": "Playbooks", "item": "https://saren.ai/playbooks" },
-            { "@type": "ListItem", "position": 3, "name": playbook.title, "item": `https://saren.ai/playbooks/${playbook.playbook_id}` }
-        ]
-    };
+    const graph = buildGraph({
+        path,
+        name: playbook.title,
+        description: playbook.description,
+        breadcrumb: trail,
+        extra: [articleNode, ...(howToNode ? [howToNode] : [])],
+    });
 
     return (
         <div className="min-h-screen bg-ash dark:bg-offblack text-charcoal dark:text-white pt-32 pb-20 px-6 lg:px-12 selection:bg-lavender/30 dark:selection:bg-lavender/30 relative transition-colors duration-300">
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageLd) }}
-            />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-            />
-            {howToLd && (
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }}
-                />
-            )}
+            <JsonLd schema={graph} />
+            <div className="max-w-4xl mx-auto mb-4">
+                <Breadcrumb trail={trail} />
+            </div>
             <AnimatedNavFramer items={navItems} activeCategory={playbook.category} />
             <div className="max-w-4xl mx-auto space-y-12">
 

@@ -2,7 +2,7 @@
   "meta": {
     "generated": "2026-03-03",
     "archive_cutoff": "2025-03-03",
-    "total_prompts_active": 111,
+    "total_prompts_active": 108,
     "total_prompts_archived": 28,
     "total_playbooks": 14,
     "active_playbooks": 13,
@@ -432,43 +432,6 @@
           "step": 5,
           "title": "Social Pain Point Research",
           "file": "Playbooks/Research Intelligence Pipeline/5_Social Pain Point Research.md"
-        }
-      ],
-      "date": "2026-03-03"
-    },
-    {
-      "playbook_id": "sora2-samurai-creative-series",
-      "title": "Sora 2 Samurai Creative Series",
-      "description": "4 escalating video prompts exploring one character concept across visual styles \u2014 cinematic realism \u2192 neo-noir \u2192 retro surf. A template for building visual IP through progressive AI video generation.",
-      "category": "Creative",
-      "tags": [
-        "Video Generation",
-        "Sora 2",
-        "AI Video",
-        "Creative",
-        "Storytelling"
-      ],
-      "status": "active",
-      "steps": [
-        {
-          "step": 0,
-          "title": "Samurai in San Onofre (Base Concept)",
-          "file": "Playbooks/Sora 2 Samurai Creative Series/0_Samurai in San Onofre Base Concept.md"
-        },
-        {
-          "step": 1,
-          "title": "The Samurai's Morning (Naturalistic Cinematic Realism)",
-          "file": "Uncategorized/_Sora 2/\ud83c\udfac Prompt 1 \u2014 \"The Samurai's Morning\" (Naturalistic Cinematic Realism\u2026.md"
-        },
-        {
-          "step": 2,
-          "title": "The Ninja at Night (Stylized Neo-Noir Fantasy)",
-          "file": "Prompts/Creative/Sora 2 - Samurai in San Onofre.md"
-        },
-        {
-          "step": 3,
-          "title": "Samurai Soul, Sunset Ride (Retro 1970s Surf Film)",
-          "file": "Uncategorized/_Sora 2/\ud83c\udfac Prompt 3 \u2014 \"Samurai Soul, Sunset Ride\" (Retro 1970s Surf Film Aesthetic\u2026.md"
         }
       ],
       "date": "2026-03-03"
@@ -2173,70 +2136,6 @@
           "AI Prompts"
         ],
         "date": "2025-10-25"
-      },
-      {
-        "id": "sora2-samurai-base",
-        "title": "Sora 2 - Samurai in San Onofre",
-        "file": "Prompts/Creative/Sora 2 - Samurai in San Onofre.md",
-        "category": [
-          "Creative"
-        ],
-        "tags": [
-          "Video Gen",
-          "Sora 2",
-          "Samurai"
-        ],
-        "date": "2025-10-13",
-        "series_id": "sora2-samurai-creative-series",
-        "series_step": 0
-      },
-      {
-        "id": "sora2-samurai-morning",
-        "title": "Sora 2 - The Samurai's Morning",
-        "file": "Uncategorized/_Sora 2/\ud83c\udfac Prompt 1 \u2014 \"The Samurai's Morning\" (Naturalistic Cinematic Realism\u2026.md",
-        "category": [
-          "Creative"
-        ],
-        "tags": [
-          "Video Gen",
-          "Sora 2",
-          "Cinematic"
-        ],
-        "date": "2025-10-13",
-        "series_id": "sora2-samurai-creative-series",
-        "series_step": 1
-      },
-      {
-        "id": "sora2-ninja-night",
-        "title": "Sora 2 - The Ninja at Night",
-        "file": "Prompts/Creative/Sora 2 - Samurai in San Onofre.md",
-        "category": [
-          "Creative"
-        ],
-        "tags": [
-          "Video Gen",
-          "Sora 2",
-          "Neo-Noir"
-        ],
-        "date": "2025-10-13",
-        "series_id": "sora2-samurai-creative-series",
-        "series_step": 2
-      },
-      {
-        "id": "sora2-samurai-soul",
-        "title": "Sora 2 - Samurai Soul, Sunset Ride",
-        "file": "Uncategorized/_Sora 2/\ud83c\udfac Prompt 3 \u2014 \"Samurai Soul, Sunset Ride\" (Retro 1970s Surf Film Aesthetic\u2026.md",
-        "category": [
-          "Creative"
-        ],
-        "tags": [
-          "Video Gen",
-          "Sora 2",
-          "Retro Surf"
-        ],
-        "date": "2025-10-13",
-        "series_id": "sora2-samurai-creative-series",
-        "series_step": 3
       },
       {
         "id": "google-veo3-builder",

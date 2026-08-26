@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Clock, CalendarDays } from "lucide-react";
+import { Mail, Clock, CalendarDays, MapPin } from "lucide-react";
 import Image from "next/image";
 import FAQ from "@/components/ui/FAQ";
+import { FAQS } from "@/data/faqs";
 import { TestimonialGrid } from "@/components/ui/Testimonial";
 import { TESTIMONIALS } from "@/data/testimonials";
 
@@ -89,14 +90,14 @@ export default function ContactClient() {
                                 read it and write back.
                             </p>
                             <a
-                                href="mailto:hello@saren.ai?subject=Let%27s%20Work%20Together"
+                                href="mailto:hello#saren.ai?subject=Let%27s%20Work%20Together"
                                 className="btn-primary inline-flex items-center gap-3 self-start text-lg px-8 py-4"
                             >
                                 <Mail className="w-5 h-5" />
                                 Email Saren
                             </a>
                             <p className="text-sm text-slate/70 mt-4">
-                                Opens your email client · hello@saren.ai
+                                Opens your email client · hello#saren.ai
                             </p>
                         </motion.div>
 
@@ -139,6 +140,14 @@ export default function ContactClient() {
                                     Typical response time: 24-48 hours
                                 </p>
                             </div>
+
+                            {/* Location */}
+                            <div className="p-4 bg-charcoal/5 rounded-lg">
+                                <p className="text-sm text-slate flex items-center gap-2">
+                                    <MapPin className="w-4 h-4 text-lavender" />
+                                    Based in Irvine, California — serving Orange County within a 10-mile radius, remote-friendly beyond that
+                                </p>
+                            </div>
                         </motion.div>
                     </div>
                 </div>
@@ -151,33 +160,7 @@ export default function ContactClient() {
             <FAQ
                 title="Before You Reach Out"
                 description="Quick answers to common questions"
-                items={[
-                    {
-                        question: "What's the best way to work with you?",
-                        answer: "Most clients engage me as a fractional marketing lead (10-20 hours/week) for strategic leadership and system building. Some bring me in for project-based work like building a demand gen engine, implementing analytics frameworks, or creating a growth strategy. Send me an email and we'll figure out the best fit.",
-                        link: { href: "/fractional-marketing-lead/cost", label: "Engagement tiers and rates →" }
-                    },
-                    {
-                        question: "Do you take on short-term projects?",
-                        answer: "It depends. If it's a well-defined deliverable (like 'build an attribution dashboard' or 'create a content strategy'), yes. But most of my engagements start with at least 3 months to properly diagnose, build strategy, and start implementation. I'm not a good fit for one-off campaigns or quick audits."
-                    },
-                    {
-                        question: "What industries do you specialize in?",
-                        answer: "I focus on B2B SaaS, with deep experience in cybersecurity, AI/ML, and infrastructure software. But the principles of demand generation apply across complex B2B sales. What matters more is your sales motion (enterprise vs PLG), deal size ($10K+ ACV), and sales cycle length (60+ days)."
-                    },
-                    {
-                        question: "How quickly can you start?",
-                        answer: "I typically have 1-2 fractional slots available at any time. If we're a good fit, we can usually kick off within 2-3 weeks. Project-based work has more flexibility. Enterprise consulting engagements (through my network) can start immediately."
-                    },
-                    {
-                        question: "Do you work with agencies or only direct with companies?",
-                        answer: "Both. Many agencies bring me in for strategic guidance when their client needs demand gen architecture, analytics frameworks, or fractional marketing lead services. I also work directly with companies that have agencies handling execution but need strategic direction."
-                    },
-                    {
-                        question: "What if I'm not sure what I need?",
-                        answer: "That's normal. Most companies reach out because they know something isn't working but can't diagnose it. Just email me and describe your situation — what's working, what's not, what you've tried. We'll schedule a 30-min call to figure out if I can help and how."
-                    }
-                ]}
+                items={FAQS.contact}
             />
         </article>
     );

@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus } from "lucide-react";
 import type { ConcertRecord } from "@/lib/db";
 
 const fadeUp = {
@@ -20,6 +22,19 @@ const staggerContainer = {
 };
 
 export default function ConcertsClient({ concerts }: { concerts: ConcertRecord[] }) {
+    const [openIds, setOpenIds] = useState<Set<number>>(new Set());
+
+    const toggleOpen = (id: number) => {
+        setOpenIds((prev) => {
+            const next = new Set(prev);
+            if (next.has(id)) {
+                next.delete(id);
+            } else {
+                next.add(id);
+            }
+            return next;
+        });
+    };
 
     // Grouping concerts by Year
     const groupedByYear = concerts.reduce((acc, current) => {
@@ -120,46 +135,127 @@ export default function ConcertsClient({ concerts }: { concerts: ConcertRecord[]
 
                                         return Object.values(groupedByDateVenue).map((group, idx) => {
                                             const primaryConcert = group[0];
+                                            const details = group.map((c) => c.details).find(Boolean);
+                                            const hasDetails = Boolean(details?.lineup?.length || details?.setlist?.length || details?.notes);
+                                            const cardId = primaryConcert.id ?? idx;
+                                            const isOpen = openIds.has(cardId);
 
                                             return (
                                                 <div
-                                                    key={primaryConcert.id || idx}
-                                                    className="group relative bg-charcoal/30 border border-ash/5 rounded-2xl p-6 md:p-8 hover:bg-charcoal/50 hover:border-ember/30 transition-all shadow-xl hover:shadow-2xl overflow-hidden flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center"
+                                                    key={cardId}
+                                                    className="group relative bg-charcoal/30 border border-ash/5 rounded-2xl p-6 md:p-8 hover:bg-charcoal/50 hover:border-ember/30 transition-all shadow-xl hover:shadow-2xl overflow-hidden"
                                                 >
-                                                    {/* Date Leaf / Calendar Icon */}
-                                                    <div className="shrink-0 flex flex-col items-center justify-center bg-black/40 border border-ash/10 rounded-xl w-24 h-24 p-2 relative shadow-inner group-hover:border-ember/40 transition-colors">
-                                                        <div className="text-ember font-mono text-xs font-bold uppercase tracking-widest bg-ember/10 w-full text-center py-1 rounded-md mb-1">
-                                                            {primaryConcert.date_month || "???"}
+                                                    <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center">
+                                                        {/* Date Leaf / Calendar Icon */}
+                                                        <div className="shrink-0 flex flex-col items-center justify-center bg-black/40 border border-ash/10 rounded-xl w-24 h-24 p-2 relative shadow-inner group-hover:border-ember/40 transition-colors">
+                                                            <div className="text-ember font-mono text-xs font-bold uppercase tracking-widest bg-ember/10 w-full text-center py-1 rounded-md mb-1">
+                                                                {primaryConcert.date_month || "???"}
+                                                            </div>
+                                                            <div className="text-3xl md:text-4xl font-black text-white stretch-tighter leading-none mt-1">
+                                                                {primaryConcert.date_day || "??"}
+                                                            </div>
                                                         </div>
-                                                        <div className="text-3xl md:text-4xl font-black text-white stretch-tighter leading-none mt-1">
-                                                            {primaryConcert.date_day || "??"}
+
+                                                        {/* Main Info */}
+                                                        <div className="flex-1 min-w-0">
+                                                            <div className="mb-2">
+                                                                {details?.headline ? (
+                                                                    <span className="text-3xl font-bold text-white group-hover:text-ember transition-colors leading-tight inline-block">
+                                                                        {details.headline}
+                                                                    </span>
+                                                                ) : (
+                                                                    group.map((c, i) => (
+                                                                        <span key={c.id || i} className="text-3xl font-bold text-white group-hover:text-ember transition-colors leading-tight inline-block">
+                                                                            {c.artist}
+                                                                            {i < group.length - 1 && <span className="text-copper mx-2 text-2xl">•</span>}
+                                                                        </span>
+                                                                    ))
+                                                                )}
+                                                            </div>
+                                                            <div className="flex flex-col sm:flex-row gap-1 sm:gap-4 text-ash/60 items-start sm:items-center text-sm font-mono mt-3">
+                                                                <span className="flex items-center gap-2 truncate text-lavender">
+                                                                    <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                                    </svg>
+                                                                    {primaryConcert.venue}
+                                                                </span>
+                                                                <span className="hidden sm:inline-block text-ash/30">•</span>
+                                                                <span className="truncate text-ash/40">
+                                                                    {primaryConcert.location}
+                                                                </span>
+                                                            </div>
                                                         </div>
+
+                                                        {/* Details Toggle */}
+                                                        {hasDetails && (
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => toggleOpen(cardId)}
+                                                                aria-expanded={isOpen}
+                                                                aria-label={isOpen ? "Hide show details" : "Show more details"}
+                                                                className="shrink-0 self-start md:self-center flex items-center justify-center w-10 h-10 rounded-full border border-ash/20 text-ash/60 hover:text-ember hover:border-ember/40 transition-all"
+                                                            >
+                                                                <Plus
+                                                                    className="w-5 h-5 transition-transform duration-300"
+                                                                    style={{ transform: isOpen ? "rotate(45deg)" : "rotate(0deg)" }}
+                                                                    strokeWidth={1.5}
+                                                                />
+                                                            </button>
+                                                        )}
                                                     </div>
 
-                                                    {/* Main Info */}
-                                                    <div className="flex-1 min-w-0">
-                                                        <div className="mb-2">
-                                                            {group.map((c, i) => (
-                                                                <span key={c.id || i} className="text-3xl font-bold text-white group-hover:text-ember transition-colors leading-tight inline-block">
-                                                                    {c.artist}
-                                                                    {i < group.length - 1 && <span className="text-copper mx-2 text-2xl">•</span>}
-                                                                </span>
-                                                            ))}
-                                                        </div>
-                                                        <div className="flex flex-col sm:flex-row gap-1 sm:gap-4 text-ash/60 items-start sm:items-center text-sm font-mono mt-3">
-                                                            <span className="flex items-center gap-2 truncate text-lavender">
-                                                                <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                                </svg>
-                                                                {primaryConcert.venue}
-                                                            </span>
-                                                            <span className="hidden sm:inline-block text-ash/30">•</span>
-                                                            <span className="truncate text-ash/40">
-                                                                {primaryConcert.location}
-                                                            </span>
-                                                        </div>
-                                                    </div>
+                                                    {/* Details Drawer */}
+                                                    {hasDetails && (
+                                                        <AnimatePresence initial={false}>
+                                                            {isOpen && (
+                                                                <motion.div
+                                                                    initial={{ height: 0, opacity: 0 }}
+                                                                    animate={{ height: "auto", opacity: 1 }}
+                                                                    exit={{ height: 0, opacity: 0 }}
+                                                                    transition={{ duration: 0.3 }}
+                                                                    className="overflow-hidden"
+                                                                >
+                                                                    <div className="mt-6 pt-6 border-t border-ash/10 grid md:grid-cols-2 gap-6">
+                                                                        {details?.lineup && details.lineup.length > 0 && (
+                                                                            <div>
+                                                                                <div className="text-xs font-mono text-copper uppercase tracking-widest mb-2">
+                                                                                    Full Lineup
+                                                                                </div>
+                                                                                <ul className="space-y-1 text-ash/70 text-sm">
+                                                                                    {details.lineup.map((act, i) => (
+                                                                                        <li key={i}>{act}</li>
+                                                                                    ))}
+                                                                                </ul>
+                                                                            </div>
+                                                                        )}
+                                                                        {details?.setlist && details.setlist.length > 0 && (
+                                                                            <div>
+                                                                                <div className="text-xs font-mono text-lavender uppercase tracking-widest mb-2">
+                                                                                    {details.setlistArtist ? `${details.setlistArtist} Setlist` : "Setlist"}
+                                                                                </div>
+                                                                                <ol className="space-y-1 text-ash/70 text-sm list-decimal list-inside">
+                                                                                    {details.setlist.map((song, i) => (
+                                                                                        <li key={i}>{song}</li>
+                                                                                    ))}
+                                                                                </ol>
+                                                                            </div>
+                                                                        )}
+                                                                        {details?.notes && (
+                                                                            <div className="md:col-span-2">
+                                                                                <div className="text-xs font-mono text-ember uppercase tracking-widest mb-2">
+                                                                                    Notes
+                                                                                </div>
+                                                                                <p className="text-ash/70 text-sm leading-relaxed">
+                                                                                    {details.notes}
+                                                                                </p>
+                                                                            </div>
+                                                                        )}
+                                                                    </div>
+                                                                </motion.div>
+                                                            )}
+                                                        </AnimatePresence>
+                                                    )}
                                                 </div>
                                             );
                                         });

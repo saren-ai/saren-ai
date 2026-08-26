@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import FAQ from '@/components/ui/FAQ';
+import { FAQS } from '@/data/faqs';
 
 const CALENDLY_URL = 'https://calendly.com/sarenai';
 
@@ -113,7 +114,7 @@ export default function AEOPlaybookClient() {
               Answer engine optimization (AEO) is the practice of structuring your content and reputation so AI systems — ChatGPT, Perplexity, Google AI Overviews — extract, trust, and cite your brand as the answer to buyer questions. It moves the success metric from ranked-and-clicked to extracted-and-cited.
             </p>
             <p className="text-foreground-muted text-lg leading-relaxed mb-4">
-              LLMs answer from either frozen training data or live retrieval. Only retrieval is optimizable on a business timeline, since training data updates on the vendor's schedule, not yours.
+              LLMs answer from either frozen training data or live retrieval. Only retrieval is optimizable on a business timeline, since training data updates on the vendor&apos;s schedule, not yours.
             </p>
             <p className="text-foreground-muted text-lg leading-relaxed mb-4">
               Retrieval behaves like search. It rewards solid SEO, clean structure, and corroborated reputation — the same fundamentals, applied to a new consumer.
@@ -250,28 +251,7 @@ export default function AEOPlaybookClient() {
       <FAQ
         title="AEO Playbook FAQ"
         description="The most common questions about answer engine optimization."
-        items={[
-          {
-            question: 'Is AEO different from SEO?',
-            answer: "They're complementary, not competing. AEO is the citation layer built on top of technical SEO — weak SEO means there's nothing for an answer engine to extract and cite in the first place.",
-          },
-          {
-            question: 'How long until results?',
-            answer: 'Faster than traditional SEO for restructured existing pages, because engines re-crawl and swap cited sources continuously rather than waiting for a ranking refresh. Off-site authority — reviews, forums, community mentions — compounds over quarters, not weeks.',
-          },
-          {
-            question: 'How do you measure AEO?',
-            answer: 'Citation frequency, AI-agent referral traffic, and share of answer against named competitors. Rankings alone no longer describe buyer reality.',
-          },
-          {
-            question: 'Does this replace demand gen?',
-            answer: 'No — it determines whether demand gen has a shortlist to land on. 95% of deals already have a winning vendor on the Day One shortlist before outreach starts.',
-          },
-          {
-            question: 'What does an engagement look like?',
-            answer: 'Four phases over 90 days — audit, restructure, seed, measure — followed by ongoing measurement. The operational detail is what we walk through on an intro call.',
-          },
-        ]}
+        items={FAQS.aeoPlaybook}
       />
 
       {/* ── Closing CTA ────────────────────────────────────────────────────── */}
@@ -295,8 +275,8 @@ export default function AEOPlaybookClient() {
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
               Book an intro call
             </a>
-            <a href="mailto:hello@saren.ai" className="text-sm text-ash/70 hover:text-ash transition-colors">
-              or email hello@saren.ai
+            <a href="mailto:hello#saren.ai" className="text-sm text-ash/70 hover:text-ash transition-colors">
+              or email hello#saren.ai
             </a>
           </motion.div>
         </div>

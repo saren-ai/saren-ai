@@ -493,7 +493,7 @@ export default function FaqClient() {
             Saren would bring to Halcyon on day one.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="mailto:hello@saren.ai" className="btn-primary">
+            <a href="mailto:hello#saren.ai" className="btn-primary">
               Email Saren
             </a>
             <Link href="/halcyon/lead-scoring" className="btn-secondary">

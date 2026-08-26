@@ -1,5 +1,7 @@
 import { Metadata } from 'next'
 import FrameworkClient from './FrameworkClient'
+import JsonLd from '@/components/seo/JsonLd'
+import { buildGraph } from '@/lib/schema'
 
 export const metadata: Metadata = {
   title: 'Signal-State Framework — Intent Signal Typology & Decay Model | Saren Sakurai',
@@ -23,63 +25,30 @@ export const metadata: Metadata = {
   },
 }
 
+const PATH = '/signal-state/framework'
+
+// Matches the visible breadcrumb rendered by FrameworkClient (Breadcrumb back/current
+// API — "← Signal-State · Framework"), which does not show a separate "Home" segment.
+const trail = [{ href: '/signal-state', label: 'Signal-State' }, { label: 'Framework' }]
+
+const graph = buildGraph({
+  path: PATH,
+  name: 'Signal-State Framework — Saren Sakurai',
+  description:
+    'The full Signal-State Marketing framework. Psychological research, signal typology, decay model, and response architecture.',
+  dateModified: '2026-04-01T00:00:00Z',
+  breadcrumb: trail,
+  article: {
+    headline: 'The Signal-State Marketing Framework',
+    datePublished: '2026-02-15T00:00:00Z',
+    dateModified: '2026-04-01T00:00:00Z',
+  },
+})
+
 export default function FrameworkPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "@id": "https://saren.ai/signal-state/framework/#webpage",
-            "url": "https://saren.ai/signal-state/framework",
-            "name": "Signal-State Framework — Saren Sakurai",
-            "description": "The full Signal-State Marketing framework. Psychological research, signal typology, decay model, and response architecture.",
-            "isPartOf": { "@id": "https://saren.ai/#website" },
-            "author": { "@id": "https://saren.ai/#person" },
-            "inLanguage": "en-US",
-            "dateCreated": "2026-02-15",
-            "dateModified": "2026-04-01T00:00:00Z"
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saren.ai" },
-              { "@type": "ListItem", "position": 2, "name": "Signal-State Marketing", "item": "https://saren.ai/signal-state" },
-              { "@type": "ListItem", "position": 3, "name": "Framework", "item": "https://saren.ai/signal-state/framework" }
-            ]
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "@id": "https://saren.ai/signal-state/framework/#article",
-            "headline": "The Signal-State Marketing Framework",
-            "description": "The full Signal-State Marketing framework — covering psychological foundations of expressed intent, signal typology (explicit, implicit, behavioral, contextual), signal decay model, and complete response architecture for AI-enabled B2B targeting.",
-            "url": "https://saren.ai/signal-state/framework",
-            "author": { "@id": "https://saren.ai/#person" },
-            "publisher": { "@id": "https://saren.ai/#person" },
-            "isPartOf": { "@id": "https://saren.ai/#website" },
-            "about": ["Intent-based marketing", "Signal-State Marketing", "B2B demand generation", "AI targeting"],
-            "keywords": "Signal-State Marketing, expressed intent, intent targeting, signal decay, B2B marketing framework, AI-enabled marketing",
-            "inLanguage": "en-US",
-            "datePublished": "2026-02-15T00:00:00Z",
-            "dateModified": "2026-04-01T00:00:00Z",
-            "articleSection": "Marketing Frameworks"
-          })
-        }}
-      />
+      <JsonLd schema={graph} />
       <FrameworkClient />
     </>
   )

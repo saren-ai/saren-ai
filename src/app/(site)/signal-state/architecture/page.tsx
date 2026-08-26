@@ -1,5 +1,7 @@
 import { Metadata } from 'next'
 import ArchitecturePageContent from './ArchitecturePageContent'
+import JsonLd from '@/components/seo/JsonLd'
+import { buildGraph, workId, pageUrl } from '@/lib/schema'
 
 export const metadata: Metadata = {
   title: 'Signal-State Architecture — Interactive Platform Diagram | Saren Sakurai',
@@ -23,62 +25,42 @@ export const metadata: Metadata = {
   },
 }
 
+const PATH = '/signal-state/architecture'
+
+// Matches the visible breadcrumb rendered by ArchitecturePageContent (Breadcrumb
+// back/current API — "← Signal-State · Architecture"); no separate "Home" segment.
+const trail = [{ href: '/signal-state', label: 'Signal-State' }, { label: 'Architecture' }]
+
+const work = {
+  '@type': 'CreativeWork',
+  '@id': workId(PATH),
+  name: 'Signal-State Marketing Platform Architecture',
+  description:
+    'Interactive system architecture diagram for the Signal-State Marketing platform, illustrating data flow from signal ingestion through AI classification, scoring, response routing, and outreach delivery.',
+  url: pageUrl(PATH),
+  author: { '@id': 'https://saren.ai/#person' },
+  creator: { '@id': 'https://saren.ai/#person' },
+  isPartOf: { '@id': 'https://saren.ai/#website' },
+  about: ['System architecture', 'Signal-State Marketing', 'AI marketing platform', 'Intent targeting'],
+  keywords: 'Signal-State architecture, AI marketing platform, intent targeting system, signal scoring, marketing automation',
+  inLanguage: 'en-US',
+  dateCreated: '2026-02-15',
+  dateModified: '2026-04-01T00:00:00Z',
+}
+
+const graph = buildGraph({
+  path: PATH,
+  name: 'Signal-State Architecture — Saren Sakurai',
+  description: 'Interactive architecture diagram for the Signal-State Marketing platform. Click any node to expand details.',
+  dateModified: '2026-04-01T00:00:00Z',
+  breadcrumb: trail,
+  extra: [work],
+})
+
 export default function ArchitecturePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "@id": "https://saren.ai/signal-state/architecture/#webpage",
-            "url": "https://saren.ai/signal-state/architecture",
-            "name": "Signal-State Architecture — Saren Sakurai",
-            "description": "Interactive architecture diagram for the Signal-State Marketing platform. Click any node to expand details.",
-            "isPartOf": { "@id": "https://saren.ai/#website" },
-            "author": { "@id": "https://saren.ai/#person" },
-            "inLanguage": "en-US",
-            "dateCreated": "2026-02-15",
-            "dateModified": "2026-04-01T00:00:00Z"
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saren.ai" },
-              { "@type": "ListItem", "position": 2, "name": "Signal-State Marketing", "item": "https://saren.ai/signal-state" },
-              { "@type": "ListItem", "position": 3, "name": "Architecture", "item": "https://saren.ai/signal-state/architecture" }
-            ]
-          })
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "CreativeWork",
-            "@id": "https://saren.ai/signal-state/architecture/#work",
-            "name": "Signal-State Marketing Platform Architecture",
-            "description": "Interactive system architecture diagram for the Signal-State Marketing platform, illustrating data flow from signal ingestion through AI classification, scoring, response routing, and outreach delivery.",
-            "url": "https://saren.ai/signal-state/architecture",
-            "author": { "@id": "https://saren.ai/#person" },
-            "creator": { "@id": "https://saren.ai/#person" },
-            "isPartOf": { "@id": "https://saren.ai/#website" },
-            "about": ["System architecture", "Signal-State Marketing", "AI marketing platform", "Intent targeting"],
-            "keywords": "Signal-State architecture, AI marketing platform, intent targeting system, signal scoring, marketing automation",
-            "inLanguage": "en-US",
-            "dateCreated": "2026-02-15",
-            "dateModified": "2026-04-01T00:00:00Z"
-          })
-        }}
-      />
+      <JsonLd schema={graph} />
       <ArchitecturePageContent />
     </>
   )

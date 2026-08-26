@@ -24,15 +24,31 @@ function estimateTokens(text: string): number {
   return Math.ceil(text.length / 4)
 }
 
+// Fetching the public saren.ai domain from inside Vercel round-trips through Cloudflare,
+// which challenges the request ("Just a moment...") instead of serving real HTML — every
+// markdown response ends up being the challenge page. VERCEL_URL is Vercel's own direct
+// deployment host, which bypasses Cloudflare entirely for this internal call. Unset in
+// local dev, where the request's own origin is already Cloudflare-free.
+function internalFetchOrigin(publicOrigin: string): string {
+  return process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : publicOrigin
+}
+
 async function serveMarkdown(request: NextRequest): Promise<NextResponse> {
   const upstreamUrl = new URL(request.nextUrl.toString())
   upstreamUrl.searchParams.delete('format')
 
-  const upstreamRes = await fetch(upstreamUrl.toString(), {
+  const fetchUrl = new URL(
+    upstreamUrl.pathname + upstreamUrl.search,
+    internalFetchOrigin(upstreamUrl.origin)
+  )
+
+  const upstreamRes = await fetch(fetchUrl.toString(), {
     headers: { accept: 'text/html' },
   })
   const html = await upstreamRes.text()
   const { title, body } = extractMain(html)
+  // Always resolve relative links/images against the public origin, not the internal
+  // fetch origin — a reader outside Vercel needs a URL it can actually reach.
   const markdown = htmlToMarkdown(body, upstreamUrl.origin)
   const heading = title ? `# ${title}\n\n` : ''
   const content = `${heading}${markdown}\n\nSource: ${upstreamUrl.origin}${upstreamUrl.pathname}\n`
@@ -42,6 +58,7 @@ async function serveMarkdown(request: NextRequest): Promise<NextResponse> {
     headers: {
       'content-type': 'text/markdown; charset=utf-8',
       'x-markdown-tokens': String(estimateTokens(content)),
+      vary: 'Accept, Accept-Encoding',
     },
   })
 }

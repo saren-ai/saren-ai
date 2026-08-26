@@ -1,6 +1,7 @@
 "use client";
 
 import FAQ from "@/components/ui/FAQ";
+import { FAQS } from "@/data/faqs";
 import CodeBlock from "@/components/ui/CodeBlock";
 import CaseStudyHero from "@/components/case-studies/CaseStudyHero";
 import OutcomeMetrics from "@/components/case-studies/OutcomeMetrics";
@@ -128,25 +129,7 @@ Best,
             </section>
 
             {/* FAQ */}
-            <FAQ
-                items={[
-                    {
-                        question: "Why 25 days?",
-                        answer:
-                            "Executive attention is scarce. A 25-day sequence shows persistence without desperation. It gives them time to digest your content and recognize your name before you push for the meeting.",
-                    },
-                    {
-                        question: "Does this work for all industries?",
-                        answer:
-                            "It works best for complex B2B sales where the ACV justifies the effort. If you're selling a transactional $50/mo tool, this is overkill. If you're selling $50k+ outcomes, this is the baseline.",
-                    },
-                    {
-                        question: "How much personalization is required?",
-                        answer:
-                            "The 10-20-70 rule: 10% on the individual (LinkedIn bio), 20% on the company (news, 10-K), 70% on the persona pain points. You don't need to write a novel, just show you've done your homework.",
-                    },
-                ]}
-            />
+            <FAQ items={FAQS.tenTouchSalesPlay} />
 
             {/* CTA */}
             <ConsultingCTA />

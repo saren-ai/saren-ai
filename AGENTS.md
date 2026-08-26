@@ -10,7 +10,10 @@ Portfolio + consulting site for Saren Sakurai (fractional CMO / AI ops consultan
 npm run dev      # Turbopack dev server
 npm run build    # Production build (run before deploying)
 npm run lint     # ESLint
+npm test         # Vitest
 ```
+
+`npm run dev`, `npm run build`, and `npm test` cannot complete when this repo lives at a path containing `#` (breaks Turbopack and Vite path resolution — confirmed for `dev` too 2026-08-26, a null-byte-mangled path crashes the Tailwind CSS loader on every route — see [Repo Hygiene → Before finishing a session](#before-finishing-a-session)). Works fine on Vercel and in CI.
 
 ## Tech Stack
 
@@ -189,7 +192,7 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 
 **New paid playbook:** Add entry to `PAID_TIERS` in `src/lib/playbook-tiers.ts` with `priceId` (Stripe Price ID) and `storageKey` (Supabase Storage path in `downloads` bucket) → add catalog entry to `playbook-prompts/prompt_catalog.json` → build landing page copy and buy button on the `/playbooks/[id]` page. The RSC gate reads `cookies().get('dlx_' + id)` and validates against the `entitlements` table.
 
-**Adding searchable content:** New routes under `(site)/` are indexed automatically at build time. Root `layout.tsx` must stay static — do not add `headers()` or other dynamic APIs there (breaks Pagefind). Add `data-pagefind-ignore` to elements that should not be searched. Wrap section content with `<PagefindBoundary section="...">` to set group label. Halcyon and `/api/*` are excluded globally. Test locally with `npm run build && npm run start` (not `npm run dev` — index doesn't exist there).
+**Adding searchable content:** New routes under `(site)/` are indexed automatically at build time. Root `layout.tsx` must stay static — do not add `headers()` or other dynamic APIs there (breaks Pagefind). Add `data-pagefind-ignore` to elements that should not be searched. Wrap section content with `<PagefindBoundary section="...">` to set group label. Halcyon and `/api/*` are excluded globally. Test locally with `npm run build && npm run start` (not `npm run dev` — index doesn't exist there). Blocked by the `#`-in-path build limitation noted above — verify via a Vercel preview instead when working from this checkout.
 
 ## SEO & Redirects
 
@@ -221,6 +224,20 @@ Before the current Next.js site, `saren.ai` was the custom domain for a Medium p
 ### Cloudflare
 
 saren.ai is proxied through Cloudflare in front of Vercel (Bot Fight Mode on) — `robots.txt` is advisory, Cloudflare is the actual enforcement layer for bots that ignore it. `CLOUDFLARE_API_TOKEN` in `.env.local` is a zone-scoped token (Zone Settings:Edit, Bot Management:Edit, Cache Purge:Purge) covering saren.ai plus six other personal domains — server-only, never expose via `NEXT_PUBLIC_`. Source of truth for the token and its full zone list is `~/Projects/.env.local` under `─── CLOUDFLARE ───`.
+
+## Structured data
+
+Every indexable page emits exactly **one** JSON-LD `@graph`, assembled by `src/lib/schema/` and rendered through `src/components/seo/JsonLd.tsx` — that component is the only place a `<script type="application/ld+json">` may appear (enforced by a vitest guard in `src/lib/schema/__tests__/graph.test.ts` that greps `src/` for the string). Never hand-write a raw `<script>` JSON-LD block in a page.
+
+- **`buildGraph({...})`** (`src/lib/schema/graph.ts`) assembles the graph for one page. It always embeds full `Person`, `Organization`, `WebSite`, and `LocalBusiness` nodes — not bare `@id` references — so a single page is self-contained for a single-page fetch (an AI answer-engine crawler that only sees one page still resolves every reference). The same stable `@id`s repeat across every page's graph by design; Google and other crawlers merge same-`@id` nodes across a site.
+- **`@id` registry** lives in `src/lib/schema/ids.ts` (`ID.person`, `ID.organization`, `ID.website`, `ID.localBusiness`, plus path-scoped helpers `webPageId`/`articleId`/`breadcrumbId`/`workId`/`howToId`/`serviceId`/`listId`). Never hand-type an `@id` string in a page — use these helpers so the convention stays consistent site-wide.
+- **Person detail** (`identity: "full" | "lean"`, default `"lean"`) — only pass `"full"` on pages that actually render the career/bio detail (knowsAbout, alumniOf, skills): `/`, `/about`, `/about/expertise`. Every other page gets the lean identity node (name/url/jobTitle/worksFor/sameAs) — putting the full node on a tool page would mark up content that isn't on that page.
+- **Breadcrumb rule:** `buildGraph({ breadcrumb: trail })` and the visible `<Breadcrumb trail={trail} />` (`src/components/ui/Breadcrumb.tsx`) must be fed the exact same `trail` array. A page must never emit `BreadcrumbList` JSON-LD without a corresponding visible breadcrumb on the page — that's the "never mark up anything not visible" rule made concrete, and it's checked in CI (see below).
+- **FAQ:** all FAQ content lives in `src/data/faqs.ts` (`FAQS` record) — the visible `<FAQ items={FAQS.x} />` and the JSON-LD `buildGraph({ faq: FAQS.x })` read the same array, so visible copy and markup cannot drift. `FAQ_SCHEMA_EXCLUDED` in that file flags FAQ sets whose answers are too short (under ~40 words) to be self-contained answer-engine citations — those still render visibly, just without `FAQPage` markup. `src/components/ui/FAQ.tsx` always renders answer text in the DOM (collapsed via height/opacity, never unmounted) — don't reintroduce a mount/unmount gate, or answers disappear from the server-rendered HTML again.
+- **LocalBusiness** is a service-area business (no street address or phone published) — `GeoCircle` centered on Irvine at a 10-mile radius. It's backed by visible "Irvine, California" + service-radius text in the sitewide footer and on `/contact`; don't widen the radius or change the city without updating that visible text too.
+- **Paywalled content:** on `playbooks/[id]/page.tsx`, the `HowTo` node is only built when `access.state !== 'locked' && playbook.steps.length > 0` — a locked (paid, unpurchased) page renders `GatedTeaser`, which shows a step *count* only, never step titles or content. If you add another gated content type anywhere, apply the same rule: a node describing content the paywall hides is a visibility violation, not just an access-control nuance.
+- **CI enforcement:** `.github/workflows/ci.yml` runs `npm run validate:schema` (`scripts/validate-schema.ts`) after `npm run build` — it parses every prerendered page's HTML, fails if a page has more than one `ld+json` block, fails on any dangling `@id` reference (via `validateGraph()` in `src/lib/schema/validate.ts`), and fails if a `Question`/`BreadcrumbList` item/`Article` headline in the graph doesn't appear as visible text on that page. Force-dynamic and DB-backed dynamic routes (`about/concerts`, `playbooks/[id]`) aren't prerendered so this check can't reach them — they're covered by the unit tests instead.
+- `src/app/(site)/halcyon/faq/FaqClient.tsx` has the same historical SSR gap FAQ.tsx used to have (answers absent until clicked) — left as-is since `/halcyon` is archived and disallowed in robots.txt. Don't use it as a reference pattern.
 
 ## IA Conventions
 
@@ -262,7 +279,7 @@ Only config files (`next.config.ts`, `tsconfig.json`, `vercel.json`, `eslint.con
 
 ### Before finishing a session
 
-1. Run `npm run build` — nothing merges unless it compiles.
+1. Run `npm run build` — nothing merges unless it compiles. **Known limitation:** `npm run dev`, `npm test`, and `npm run build` cannot complete in this environment because `#saren.ai` contains a literal `#`, which breaks Vite/Vitest and Turbopack's path resolution alike (deterministic, not flaky — see `wiki/patterns/fuse-mount-gotchas.md`). Verify locally with `tsc --noEmit` + `eslint` + targeted `npx tsx` scripts instead, and treat CI (`.github/workflows/ci.yml`, checkout path has no `#`) or a Vercel preview as the real build/test/dev oracle.
 2. Check `git status` — no unintended files at root, no stray untracked artifacts.
 3. If you created temporary files during debugging, clean them up.
 
@@ -285,3 +302,18 @@ The `.gitignore` covers: dependencies, build output, env files, local databases,
 Site-wide search uses Pagefind, generated at build time (postbuild → `public/_pagefind`). The modal lives in `src/components/search/` and opens via **⌘K**, the header search button, or **`/`** then a section key (`W` Work, `P` Playbooks, `S` Studio, `A` About, `H` Home). Results are ranked by `src/lib/search-rank.ts` (24 fetched, 12 shown, grouped as Best match / Also mentioned on). Focus ring is on the pill input wrapper, not the raw `<input>` (`.search-pill-input` in `globals.css`).
 
 The architecture supports a future **Ask** mode (Phase 2 — semantic search + chat via RAG); the mode switcher exists as a disabled UI state. See `docs/search-phase-2.md`.
+
+---
+
+## Workspace knowledge hub
+
+Cross-project knowledge lives in the LLM wiki at `~/Projects/wiki/`. Read it before any
+broad architectural change, and update it in the same session when something changes.
+
+- **This project:** [`../wiki/projects/#saren.ai.md`](../wiki/projects/#saren.ai.md)
+- **Map:** [`../wiki/index.md`](../wiki/index.md)
+- **Before searching the workspace:** [`../wiki/reference/markdown-corpus-map.md`](../wiki/reference/markdown-corpus-map.md)
+- **Before running shell commands:** [`../wiki/patterns/fuse-mount-gotchas.md`](../wiki/patterns/fuse-mount-gotchas.md)
+- **Building a new site off this one as a model:** [`../wiki/patterns/nextjs-marketing-site-model.md`](../wiki/patterns/nextjs-marketing-site-model.md) (rendering, animation, search, gating, verification) and [`../wiki/patterns/aeo-structured-data.md`](../wiki/patterns/aeo-structured-data.md) (JSON-LD architecture) — this repo is their reference implementation; the patterns are written generically for reuse, this file documents the specific implementation
+
+Self-maintenance protocol: [`../AGENTS.md`](../AGENTS.md)

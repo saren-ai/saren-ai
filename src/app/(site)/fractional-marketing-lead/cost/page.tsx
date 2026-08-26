@@ -2,9 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import FAQ from "@/components/ui/FAQ";
+import { FAQS } from "@/data/faqs";
 import { TestimonialGrid } from "@/components/ui/Testimonial";
 import { TESTIMONIALS } from "@/data/testimonials";
 import PagefindBoundary from "@/components/search/PagefindBoundary";
+import JsonLd from "@/components/seo/JsonLd";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import { buildGraph } from "@/lib/schema";
+
+const trail = [
+  { href: "/", label: "Home" },
+  { href: "/fractional-marketing-lead", label: "Fractional Marketing Lead" },
+  { label: "Cost" },
+];
 
 export const metadata: Metadata = {
   title: "Fractional Marketing Lead Cost — Real 2026 Rates | Saren.ai",
@@ -76,99 +86,25 @@ const wrongChoice = [
 ];
 
 export default function FractionalMarketingLeadCostPage() {
+  const graph = buildGraph({
+    path: "/fractional-marketing-lead/cost",
+    pageType: "WebPage",
+    name: "Fractional Marketing Lead Cost — Real 2026 Rates | Saren.ai",
+    description:
+      "Fractional marketing lead pricing in 2026: real rates ($8K–$15K/mo), engagement structures, and when you shouldn't hire one.",
+    dateModified: "2026-06-09T00:00:00Z",
+    breadcrumb: trail,
+    faq: FAQS.fractionalMarketingLeadCost,
+  });
+
   return (
     <PagefindBoundary section="Services">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "@id": "https://saren.ai/fractional-marketing-lead/cost/#webpage",
-            url: "https://saren.ai/fractional-marketing-lead/cost",
-            name: "Fractional Marketing Lead Cost — Real 2026 Rates | Saren.ai",
-            description:
-              "Fractional marketing lead pricing in 2026: real rates ($8K–$15K/mo), engagement structures, and when you shouldn't hire one.",
-            isPartOf: { "@id": "https://saren.ai/#website" },
-            about: { "@id": "https://saren.ai/#person" },
-            author: { "@id": "https://saren.ai/#person" },
-            inLanguage: "en-US",
-            dateModified: "2026-06-09T00:00:00Z",
-          }),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://saren.ai" },
-              { "@type": "ListItem", position: 2, name: "Fractional Marketing Lead", item: "https://saren.ai/fractional-marketing-lead" },
-              { "@type": "ListItem", position: 3, name: "Cost", item: "https://saren.ai/fractional-marketing-lead/cost" },
-            ],
-          }),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "@id": "https://saren.ai/fractional-marketing-lead/cost/#service",
-            name: "Fractional Marketing Lead Engagements",
-            serviceType: ["Fractional Marketing Lead", "Marketing Consulting"],
-            provider: { "@id": "https://saren.ai/#person" },
-            url: "https://saren.ai/fractional-marketing-lead/cost",
-            areaServed: [
-              { "@type": "Country", name: "United States" },
-              { "@type": "Country", name: "Canada" },
-            ],
-            hasOfferCatalog: {
-              "@type": "OfferCatalog",
-              name: "Engagement tiers",
-              itemListElement: [
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: "Fractional marketing lead",
-                    description:
-                      "Embedded senior marketing leadership, 10–20 hours/week, over 6–12 months. GTM strategy, demand generation architecture, AI operations, and team handoff.",
-                  },
-                  priceSpecification: {
-                    "@type": "UnitPriceSpecification",
-                    priceCurrency: "USD",
-                    minPrice: 8000,
-                    maxPrice: 15000,
-                    unitText: "MONTH",
-                  },
-                },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: "Project engagement",
-                    description:
-                      "A scoped deliverable — attribution system, lead scoring model, or GTM strategy for a specific launch. Fixed fee, defined by scope.",
-                  },
-                },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: "Advisory & positioning",
-                    description:
-                      "Ongoing strategic direction for subject matter experts, consultants, and founders. Custom pricing.",
-                  },
-                },
-              ],
-            },
-          }),
-        }}
-      />
+      <JsonLd schema={graph} />
+      <div className="border-b border-slate/10 dark:border-white/5">
+        <div className="container-narrow py-3">
+          <Breadcrumb trail={trail} />
+        </div>
+      </div>
 
       <article>
         {/* Answer-first hero */}
@@ -288,27 +224,11 @@ export default function FractionalMarketingLeadCostPage() {
           </div>
         </section>
 
-        {/* FAQ — visible Q&A is the AEO signal; FAQPage schema intentionally off */}
+        {/* FAQ — visible Q&A + FAQPage JSON-LD, built from the same src/data/faqs.ts array */}
         <FAQ
           title="Pricing questions"
           description="Direct answers about engagement cost and structure"
-          items={[
-            {
-              question: "What's included in a fractional marketing lead engagement?",
-              answer:
-                "Everything a senior marketing hire would own at 10–20 hours per week: GTM strategy, demand generation architecture, lead scoring and attribution systems, AI-native marketing operations, and coaching for your in-house team or agency. Engagements start with a 3-month diagnose-and-build sprint, then extend to 6–12 months for execution and handoff. The deliverable is a system your team can run without me.",
-            },
-            {
-              question: "Fractional marketing lead vs. marketing agency — which is cheaper?",
-              answer:
-                "An agency retainer often costs less per month, but it buys execution, not direction — someone still has to decide what the agency should do. At $8K–$15K/month, a fractional lead sets the strategy and builds the systems, then directs cheaper execution resources. Most companies that hire me either have an agency that's underperforming for lack of direction, or replace agency spend with a leaner in-house system.",
-            },
-            {
-              question: "How long until results?",
-              answer:
-                "The first 3 months produce diagnosis and working systems — scoring, attribution, outbound architecture. Pipeline movement typically shows in months 3–6, depending on your sales cycle length. Anyone promising meaningful B2B pipeline inside 90 days is selling you something. If your deals take 60+ days to close, the math says new programs need at least two cycles to prove out.",
-            },
-          ]}
+          items={FAQS.fractionalMarketingLeadCost}
         />
 
         {/* Testimonials — renders nothing until real quotes exist in src/data/testimonials.ts */}
