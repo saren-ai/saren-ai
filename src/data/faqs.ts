@@ -386,6 +386,49 @@ export const FAQS = {
         "Yes, because we only analyze public forum posts and every message sent is a personalized, one-to-one email routed through a human review gate. We do not run bulk spam lists or scrape private data; we match public questions with direct, manual answers.",
     },
   ],
+
+  agenticWeb: [
+    {
+      question: "What is the agentic web?",
+      answer:
+        "The layer of the web built for agents with a task, not just people reading a screen. It's the same internet, but a growing share of first contact with a business now comes from a model reading a site on a buyer's behalf, or an agent trying to act on it directly. A site built for the agentic web is legible and usable by both.",
+    },
+    {
+      question: "How is this different from SEO or AEO?",
+      answer:
+        "SEO optimizes for a ranking algorithm and a click. AEO optimizes for getting quoted inside an AI answer. Both stop at citation. The agentic web adds a layer neither covers: whether an agent can act once it arrives, not just read and repeat what it found.",
+      link: { href: "/agentic-web/agent-access", label: "See what Agent Access covers →" },
+    },
+    {
+      question: "Do I need to rebuild my whole site?",
+      answer:
+        "No. The three layers, Human Experience, Machine Readability, Agent Access, can each be worked on independently, and most sites already have real strength in at least one. The audit exists to find out which layer is actually costing you before anything gets rebuilt.",
+      link: { href: "/services/audit", label: "See what the audit covers →" },
+    },
+    {
+      question: "What is llms.txt, and do I actually need one?",
+      answer:
+        "A plain-text index at the root of a domain that tells a model what a site contains and where to find it, the same job robots.txt does for crawlers. It's one piece of Agent Access, not the whole layer. This site publishes one, and it's a starting point, not a finish line.",
+      link: { href: "/agentic-web/agent-access", label: "Read Layer 03 →" },
+    },
+    {
+      question: "How do I know if my site already fails this?",
+      answer:
+        "Ask an AI assistant to describe the business from the site alone. If it hedges, contradicts the actual copy, or can't find a way to check pricing or book time, that's the failure showing up in the open. The three failure modes above are checkable on any site in a few minutes, including this one.",
+    },
+    {
+      question: "Isn't this just \"add schema markup\"?",
+      answer:
+        "Schema is Machine Readability's mechanism, not the whole layer, and it's the easiest piece to get wrong. Markup that describes content the visible page doesn't actually show is a common failure, not a rare one. Machine Readability means the record and the page agree, with schema as the proof.",
+      link: { href: "/agentic-web/machine-readability", label: "Read Layer 02 →" },
+    },
+    {
+      question: "What's the difference between the audit and the retainer?",
+      answer:
+        "The audit is a fixed-scope diagnostic across all three layers, a snapshot. The retainer is ongoing ownership of Machine Readability and Agent Access, because the standards, crawlers, and model behavior a site is legible against keep changing after the snapshot is taken.",
+      link: { href: "/agentic-web/standards", label: "See what's changed lately →" },
+    },
+  ],
 } satisfies Record<string, FAQItem[]>;
 
 /**

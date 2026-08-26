@@ -742,10 +742,10 @@ export default function HalcyonClient() {
               Kelly Fiedler · Jon Miller · Scott Stout — this is the hire.
             </p>
             <p className="text-ash/50 text-base mb-10">
-              hello#saren.ai · Irvine, CA · Remote-ready
+              hello@saren.ai · Irvine, CA · Remote-ready
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a href="mailto:hello#saren.ai" className="btn-primary">
+              <a href="mailto:hello@saren.ai" className="btn-primary">
                 Email Saren
               </a>
               <Link

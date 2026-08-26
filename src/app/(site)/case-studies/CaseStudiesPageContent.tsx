@@ -3,18 +3,17 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Building2, User, Lightbulb } from "lucide-react";
+import { ArrowRight, Building2, User } from "lucide-react";
 import { CASE_STUDIES } from "@/lib/case-studies";
 
-type FilterTag = "All" | "SMB" | "Solopreneurs" | "Thinkers";
+type FilterTag = "All" | "SMB" | "Solopreneurs";
 
-const filterTabs: FilterTag[] = ["All", "SMB", "Solopreneurs", "Thinkers"];
+const filterTabs: FilterTag[] = ["All", "SMB", "Solopreneurs"];
 
 const filterIcons: Record<FilterTag, React.ComponentType<{ className?: string }>> = {
   All: ArrowRight,
   SMB: Building2,
   Solopreneurs: User,
-  Thinkers: Lightbulb,
 };
 
 const accentClasses = {

@@ -3,88 +3,79 @@ import HomeClient from "./HomeClient";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildGraph, ID, serviceId } from "@/lib/schema";
 
+const TITLE = "Saren Sakurai | AI-native website architecture";
+const DESCRIPTION =
+  "Your site's job used to be getting found and read by a person. Now the first contact is an agent. I build AI-native websites: legible to models, usable by agents, and still built to sell.";
+
 export const metadata: Metadata = {
-  title: "Saren Sakurai | GTM Engineer — Fractional Marketing Lead & AI Operations",
-  description:
-    "GTM Engineer in Orange County, CA. I build AI-driven demand systems that turn marketing spend into repeatable pipeline for B2B SaaS and cybersecurity teams.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "https://saren.ai" },
   openGraph: {
-    title: "Saren Sakurai | GTM Engineer — Fractional Marketing Lead & AI Operations",
-    description:
-      "GTM Engineer in Orange County, CA. I build AI-driven demand systems that turn marketing spend into repeatable pipeline for B2B SaaS and cybersecurity teams.",
+    title: TITLE,
+    description: DESCRIPTION,
     images: ["/images/og/home.png"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Saren Sakurai | GTM Engineer — Fractional Marketing Lead & AI Operations",
-    description:
-      "GTM Engineer in Orange County, CA. I build AI-driven demand systems that turn marketing spend into repeatable pipeline for B2B SaaS and cybersecurity teams.",
+    title: TITLE,
+    description: DESCRIPTION,
     images: ["/images/og/home.png"],
   },
 };
 
-// Same entity as fractional-marketing-lead/page.tsx's Service node — shared @id so
-// Google/answer engines merge the two descriptions of one offering.
-const fractionalMarketingLeadService = {
+const architecturePracticeService = {
   "@type": "ProfessionalService",
-  "@id": serviceId("/fractional-marketing-lead"),
-  name: "Fractional Marketing Lead & AI-Native Demand Generation",
+  "@id": serviceId("/services/architecture-partner"),
+  name: "AI-Native Website Architecture",
   description:
-    "Full-funnel demand generation infrastructure for B2B SaaS and cybersecurity companies. AI-powered lead scoring, intent signal activation, multi-agent marketing workflows, and pipeline attribution systems that produce predictable revenue.",
+    "Ongoing ownership of a company's machine-readable and agent-access layers, as standards, crawlers, and model behavior change. Entry points are a fixed-scope AI-native build and an agentic readiness audit.",
   provider: { "@id": ID.person },
-  serviceType: ["Fractional Marketing Lead", "Demand Generation", "AI Marketing Operations"],
+  serviceType: ["AI-Native Website Architecture", "Machine Readability", "Agent Access", "Answer Engine Optimization"],
   areaServed: [
     { "@type": "Country", name: "United States" },
     { "@type": "Country", name: "Canada" },
   ],
   audience: {
     "@type": "BusinessAudience",
-    audienceType: "B2B SaaS and cybersecurity companies (Series A–C, 10–500 employees)",
-    numberOfEmployees: {
-      "@type": "QuantitativeValue",
-      minValue: 10,
-      maxValue: 500,
-    },
+    audienceType: "B2B companies whose buyers now research and transact through AI agents",
   },
-  url: "https://saren.ai/contact",
+  url: "https://saren.ai/agentic-web",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Fractional Marketing Lead & AI GTM Services",
+    name: "AI-Native Website Architecture Services",
     itemListElement: [
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
+          name: "Architecture Partner",
+          description: "Retained ownership of Machine Readability and Agent Access, as the standards and models they're built against keep changing.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "AI-Native Website Build",
+          description: "Fixed-scope build of a site across all three layers: Human Experience, Machine Readability, Agent Access.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Agentic Readiness Audit",
+          description: "A fixed-scope diagnostic of a site across the three layers, with a checkable scope published in advance.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
           name: "Fractional Marketing Lead",
-          description:
-            "Strategic marketing leadership (10–20 hours/week) for system building, demand generation, and team development in early-stage B2B SaaS and cybersecurity.",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "AI-Native Demand Generation Architecture",
-          description:
-            "Building agentic GTM systems: multi-step intent signal pipelines, AI-augmented SDR workflows, full-funnel attribution, and predictive lead scoring models.",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Answer Engine Optimization (AEO)",
-          description:
-            "Structuring B2B website content and JSON-LD schemas to appear in AI-generated answers from Perplexity, ChatGPT, Claude, and other LLM-powered search engines.",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Marketing Operations Audit",
-          description: "Diagnosing pipeline leaks, CAC inefficiencies, and automation gaps — with a documented playbook for remediation.",
+          description: "Strategic marketing leadership (10-20 hours/week) applying the same systems thinking to the whole GTM function.",
         },
       },
     ],
@@ -99,12 +90,11 @@ export default function HomePage() {
           path: "/",
           pageType: "ProfilePage",
           identity: "full",
-          name: "Saren Sakurai | GTM Engineer — Fractional Marketing Lead & AI Operations",
-          description:
-            "GTM Engineer in Orange County, CA. I build AI-driven demand systems that turn marketing spend into repeatable pipeline for B2B SaaS and cybersecurity teams.",
+          name: TITLE,
+          description: DESCRIPTION,
           image: "https://saren.ai/images/og/home.png",
-          dateModified: "2026-07-05T00:00:00Z",
-          extra: [fractionalMarketingLeadService],
+          dateModified: "2026-08-26T00:00:00Z",
+          extra: [architecturePracticeService],
         })}
       />
       <HomeClient />

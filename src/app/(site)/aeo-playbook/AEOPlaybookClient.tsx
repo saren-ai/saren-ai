@@ -275,8 +275,8 @@ export default function AEOPlaybookClient() {
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
               Book an intro call
             </a>
-            <a href="mailto:hello#saren.ai" className="text-sm text-ash/70 hover:text-ash transition-colors">
-              or email hello#saren.ai
+            <a href="mailto:hello@saren.ai" className="text-sm text-ash/70 hover:text-ash transition-colors">
+              or email hello@saren.ai
             </a>
           </motion.div>
         </div>

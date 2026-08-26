@@ -177,7 +177,7 @@ export default function WorkClient() {
               </p>
             </div>
             <a
-              href="mailto:hello#saren.ai?subject=Working%20Together"
+              href="mailto:hello@saren.ai?subject=Working%20Together"
               className="btn-lavender inline-flex items-center gap-2 shrink-0"
             >
               <Mail className="w-4 h-4" />

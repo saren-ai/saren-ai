@@ -26,6 +26,11 @@ interface NavItem {
 
 const navLinks: NavItem[] = [
   {
+    label: "The Agentic Web",
+    href: "/agentic-web",
+    activePrefixes: ["/agentic-web"],
+  },
+  {
     label: "Services",
     href: "/services",
     megaMenu: servicesMegaMenu,

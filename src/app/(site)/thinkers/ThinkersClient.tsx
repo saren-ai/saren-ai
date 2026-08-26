@@ -48,18 +48,11 @@ const resources = [
     href: "/playbooks/research-intelligence-pipeline",
   },
   {
-    type: "Case Study",
+    type: "Method",
     title: "Authority Engineering",
     description:
-      "A systematic approach to engineering credibility — how to build thought leadership infrastructure that works at scale.",
-    href: "/case-studies/authority-engineering",
-  },
-  {
-    type: "Case Study",
-    title: "Thought Leadership Development",
-    description:
-      "The complete process for developing and distributing expertise-driven content that positions you as a category authority.",
-    href: "/case-studies/thought-leadership-development",
+      "A systematic approach to engineering credibility, how to build thought leadership infrastructure that a model can cite, not just a person can read.",
+    href: "/agentic-web/authority-engineering",
   },
   {
     type: "Deep-Dive",

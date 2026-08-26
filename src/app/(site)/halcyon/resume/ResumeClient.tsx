@@ -178,7 +178,7 @@ export default function ResumeClient() {
             className="flex flex-wrap gap-x-6 gap-y-1 text-sm text-ash/50 font-mono"
           >
             <span>310.570.7585</span>
-            <span>hello#saren.ai</span>
+            <span>hello@saren.ai</span>
             <span>saren.ai</span>
             <span>Irvine, CA (Remote)</span>
           </motion.div>
@@ -377,9 +377,9 @@ export default function ResumeClient() {
             <h2 className="text-2xl md:text-3xl font-bold text-ash mb-3">
               Ready to build Halcyon&apos;s demand engine.
             </h2>
-            <p className="text-ash/50 text-sm mb-8 font-mono">hello#saren.ai · 310.570.7585</p>
+            <p className="text-ash/50 text-sm mb-8 font-mono">hello@saren.ai · 310.570.7585</p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a href="mailto:hello#saren.ai" className="btn-primary">
+              <a href="mailto:hello@saren.ai" className="btn-primary">
                 Email Saren
               </a>
               <Link

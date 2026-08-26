@@ -180,11 +180,6 @@ export const studioMegaMenu: MegaMenuContent = {
           label: "All of the Studio",
           description: "Creative work and editorial, in one place",
         },
-        {
-          href: "/studio/psylocke-timeline",
-          label: "Psylocke Timeline",
-          description: "Interactive Kwannon / Betsy Braddock comics timeline",
-        },
       ],
     },
   ],

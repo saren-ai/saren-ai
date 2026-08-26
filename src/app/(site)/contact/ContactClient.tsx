@@ -90,14 +90,14 @@ export default function ContactClient() {
                                 read it and write back.
                             </p>
                             <a
-                                href="mailto:hello#saren.ai?subject=Let%27s%20Work%20Together"
+                                href="mailto:hello@saren.ai?subject=Let%27s%20Work%20Together"
                                 className="btn-primary inline-flex items-center gap-3 self-start text-lg px-8 py-4"
                             >
                                 <Mail className="w-5 h-5" />
                                 Email Saren
                             </a>
                             <p className="text-sm text-slate/70 mt-4">
-                                Opens your email client · hello#saren.ai
+                                Opens your email client · hello@saren.ai
                             </p>
                         </motion.div>
 

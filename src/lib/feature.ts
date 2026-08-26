@@ -15,12 +15,4 @@ export const featureArticles: FeatureArticle[] = [
     publishedDate: "2026-06-17",
     heroImage: "/images/feature/oblique-techniques-hero.png",
   },
-  {
-    slug: "psylocke-timeline",
-    title: "Psylocke Timeline",
-    description:
-      "A fan-made interactive timeline of Kwannon and Betsy Braddock — the most narratively tangled bodies in X-Men history. 1989–2019.",
-    publishedDate: "2026-02-09",
-    heroImage: "/images/portfolio/portfolio-psylocke.png",
-  },
 ];

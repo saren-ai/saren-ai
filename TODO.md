@@ -65,12 +65,12 @@ existing convention (`faqs.ts`, `testimonials.ts`, `portfolio-data.ts`, etc.).
 - [x] `src/app/api/record/case-studies.json/route.ts` — same pattern as playbooks,
       serves `CASE_STUDIES.map(toPublicRecord)` (id/name/tagline/category/highlights/url,
       no full body — matches the "thin record only" scope). Content layer phase is now
-      complete: both JSON exports exist, ready for Surface 2/3 to consume.
+      complete: both JSON exports exist, ready for Surface 3 to consume.
 - [ ] Full case-study body extraction — explicitly **not** happening. 6 of 8 case
       studies are bespoke interactive builds (persona gallery, tabbed data explorer,
       bento dashboard, hand-drawn diagram, 2 long-form essays), not prose — rewriting
       them into a shared content format would be a high-risk six-app rewrite for no
-      benefit, given Surface 2/3 only need thin records
+      benefit, given Surface 3 only needs thin records
 - [ ] Playbook step content still lives behind `fs.readFile` in `playbooks.ts` itself —
       unchanged, still fine for Vercel/Node. Only the *export* (above) is
       filesystem-free; if `/api/mcp` moves to a literal Worker later, it should read
@@ -95,15 +95,14 @@ existing convention (`faqs.ts`, `testimonials.ts`, `portfolio-data.ts`, etc.).
   trying to smoke-test this phase live. `AGENTS.md`'s environment-limitation note should
   be updated to say "dev/build/test" instead of "build/test."
 
-## Surface 2 — Astro on Cloudflare (thin record content)
+## Surface 2 — retired 2026-08-26
 
-- [ ] Scaffold the Astro project, Cloudflare adapter
-- [ ] Fetch the JSON export from saren.ai at build/request time — no separate authored
-      content, no content mirroring
-- [ ] Implement `Accept: text/markdown` content negotiation (with `Vary: Accept`) —
-      closes the acceptmarkdown.com gap `is-agentic` flagged
-- [ ] Decide the subdomain (needs the Cloudflare token's DNS:Edit permission, deferred
-      2026-08-25 — see `wiki/reference/infrastructure-accounts.md`)
+Was briefly `records.saren.ai` (Astro on Cloudflare Workers, repo
+`saren-ai/records-saren-ai`, scaffolded and pushed, build green on CI, deploy never
+completed). Retired the same day: the content it served (Gen X concert history, comic
+tracking) belongs to much richer, independent systems — `@j-comics` and
+`@Brain/genx-canon` — being planned on their own, not as saren.ai subdomains. Nothing
+left to track here.
 
 ## Surface 3 — port `/api/mcp` to a Cloudflare Worker, expand its tools
 
@@ -115,7 +114,8 @@ existing convention (`faqs.ts`, `testimonials.ts`, `portfolio-data.ts`, etc.).
 - [ ] Design each new tool's input/output schema to map cleanly onto ACP/AP2/UCP
       "offer"/"availability" concepts, so future standardization is a schema alignment,
       not a rewrite
-- [ ] Same subdomain/DNS dependency as Surface 2
+- [ ] Needs the Cloudflare token's DNS:Edit permission (deferred 2026-08-25) once
+      `mcp.saren.ai` is actually being wired up
 
 ---
 

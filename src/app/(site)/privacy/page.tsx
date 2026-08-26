@@ -12,7 +12,7 @@ const sections = [
   {
     heading: "Who I am",
     body: [
-      "saren.ai is the personal portfolio and consulting site of Saren Sakurai, operating through Identogram LLC, based in Orange County, California. For anything related to this policy, email hello#saren.ai.",
+      "saren.ai is the personal portfolio and consulting site of Saren Sakurai, operating through Identogram LLC, based in Orange County, California. For anything related to this policy, email hello@saren.ai.",
     ],
   },
   {
@@ -48,7 +48,7 @@ const sections = [
   {
     heading: "Your rights",
     body: [
-      "You can ask me what information I hold about you, ask me to correct it, or ask me to delete it. Email hello#saren.ai and I'll respond within 30 days. If you're in a jurisdiction with specific privacy rights (such as the California Consumer Privacy Act or the GDPR), those rights apply and the same email is the way to exercise them.",
+      "You can ask me what information I hold about you, ask me to correct it, or ask me to delete it. Email hello@saren.ai and I'll respond within 30 days. If you're in a jurisdiction with specific privacy rights (such as the California Consumer Privacy Act or the GDPR), those rights apply and the same email is the way to exercise them.",
     ],
   },
   {
@@ -105,10 +105,10 @@ export default function PrivacyPage() {
         <p className="text-sm text-slate dark:text-foreground-muted mt-12 pt-8 border-t border-border">
           Questions? Email{" "}
           <a
-            href="mailto:hello#saren.ai"
+            href="mailto:hello@saren.ai"
             className="text-lavender hover:text-ember transition-colors"
           >
-            hello#saren.ai
+            hello@saren.ai
           </a>{" "}
           or see the{" "}
           <Link

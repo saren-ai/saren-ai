@@ -1,5 +1,27 @@
-import { ID, SITE_URL, pageUrl, webPageId, articleId, breadcrumbId } from "./ids";
+import { ID, SITE_URL, pageUrl, webPageId, articleId, breadcrumbId, howToId, definedTermSetId } from "./ids";
 import type { ArticleInput, FAQItem, PageType, SchemaNode, TrailItem } from "./types";
+
+export interface HowToStepInput {
+  name: string;
+  text: string;
+}
+
+export interface HowToInput {
+  name: string;
+  description: string;
+  steps: HowToStepInput[];
+}
+
+export interface DefinedTermInput {
+  term: string;
+  definition: string;
+}
+
+export interface DefinedTermSetInput {
+  name: string;
+  description: string;
+  terms: DefinedTermInput[];
+}
 
 /** Full Person node — career detail. Only pages that render this content should use it. */
 export function personNode(detail: "full" | "lean" = "lean"): SchemaNode {
@@ -16,6 +38,7 @@ export function personNode(detail: "full" | "lean" = "lean"): SchemaNode {
       "https://bsky.app/profile/saren.bsky.social",
       "https://www.instagram.com/saren/",
       "https://mastodon.social/@saren",
+      "https://sarensakurai.com",
     ],
   };
 
@@ -266,4 +289,35 @@ export function webPageNode(
   }
 
   return node;
+}
+
+export function howToNode(input: HowToInput, path: string): SchemaNode {
+  return {
+    "@type": "HowTo",
+    "@id": howToId(path),
+    name: input.name,
+    description: input.description,
+    step: input.steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  };
+}
+
+export function definedTermSetNode(input: DefinedTermSetInput, path: string): SchemaNode {
+  const setId = definedTermSetId(path);
+  return {
+    "@type": "DefinedTermSet",
+    "@id": setId,
+    name: input.name,
+    description: input.description,
+    hasDefinedTerm: input.terms.map((entry) => ({
+      "@type": "DefinedTerm",
+      name: entry.term,
+      description: entry.definition,
+      inDefinedTermSet: { "@id": setId },
+    })),
+  };
 }

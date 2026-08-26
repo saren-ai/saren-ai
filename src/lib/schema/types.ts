@@ -19,7 +19,7 @@ export interface ArticleInput {
   about?: string[];
 }
 
-export type PageType = "WebPage" | "AboutPage" | "ProfilePage" | "CollectionPage" | "ContactPage";
+export type PageType = "WebPage" | "AboutPage" | "ProfilePage" | "CollectionPage" | "ContactPage" | "TechArticle";
 
 export interface PageGraphInput {
   path: string;

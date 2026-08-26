@@ -108,34 +108,6 @@ export const CASE_STUDIES: CaseStudyRecord[] = CaseStudyRecordSchema.array().par
     ],
     href: "/case-studies/10-touch-sales-play",
   },
-  {
-    id: "authority-engineering",
-    name: "Authority Engineering Process",
-    tagline: "The system for building compounding authority as a knowledge practitioner.",
-    tag: "Thinkers",
-    accentColor: "copper",
-    items: [
-      "Converts deep expertise into inbound gravity over time",
-      "Content architecture that ranks and compounds — not resets",
-      "Positioning framework for subject matter experts entering market",
-      "Battle-tested in cybersecurity and AI verticals",
-    ],
-    href: "/case-studies/authority-engineering",
-  },
-  {
-    id: "thought-leadership-development",
-    name: "Thought Leadership Development",
-    tagline: "How to build a reputation that does your pipeline work for you.",
-    tag: "Thinkers",
-    accentColor: "copper",
-    items: [
-      "Executive POV framework for consistent, credible positioning",
-      "Publishing cadence and format strategy for knowledge workers",
-      "Ghostwriting architecture for busy executives",
-      "Used to build visibility for CISOs and CMOs",
-    ],
-    href: "/case-studies/thought-leadership-development",
-  },
 ]);
 
 /** Thin machine-facing record — drops UI-only fields (accentColor) for Surface 2/3 consumers. */

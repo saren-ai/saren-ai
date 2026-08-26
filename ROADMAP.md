@@ -32,10 +32,10 @@ needed an authoring format; they're not (see Surface 1 below), so the actual mec
 is Zod-validated TS data modules, matching the repo's existing convention (`faqs.ts`,
 `testimonials.ts`, `portfolio-data.ts`). Next.js stays the canonical host and serves
 the structured content two ways — as rendered human pages, and as a generated JSON
-export at a predictable URL (`/api/record/*.json`). Surface 2 and Surface 3 both
-consume that JSON export over HTTP; neither owns its own copy of the content, so
-there's nothing to drift. Phase 1 (case studies + playbooks) shipped 2026-08-26 — see
-`TODO.md` for what's done vs. still open.
+export at a predictable URL (`/api/record/*.json`). Surface 3 consumes that JSON
+export over HTTP; it doesn't own its own copy of the content, so there's nothing to
+drift. Phase 1 (case studies + playbooks) shipped 2026-08-26 — see `TODO.md` for what's
+done vs. still open.
 
 ### Surface 1 — Human (Next.js on Vercel) — current site, gets a content refactor
 
@@ -57,14 +57,23 @@ summary/index-card record for all 8 case studies (title, tagline, category, high
 url) and the playbook catalog export — previously duplicated across 3-4 independent
 hand-maintained lists, now generated from one source each.
 
-### Surface 2 — Machine (Astro on Cloudflare) — committed, thin record only
+### Surface 2 — retired 2026-08-26, not part of saren.ai
 
-No mirroring. Serves record content only (case study summaries, pricing/services, bio,
-playbook metadata) as clean markdown/JSON with content negotiation, read live from
-Surface 1's JSON export — not a second authored copy. Real consumers: retrieval-time
-fetches (Perplexity, ChatGPT browsing, Claude's search tool — these hit pages live on a
-user query, not on a crawl schedule) and Surface 3's own tool calls. Also the
-stack-diversity portfolio proof itself — a real Astro/Cloudflare deploy, not a demo repo.
+Briefly built as `records.saren.ai` (Astro on Cloudflare, serving Gen X concert history
+and comic tracking) on 2026-08-26, then retired the same day once it became clear
+those content verticals already have far richer, independent homes: `@j-comics`
+(21,233+ comic-issue records — the real "Japanese diaspora comics" publication) and
+`@Brain/genx-canon` (~3,930 notes — the real "Gen X Canon" content). Both are being
+planned as **fully independent projects**, each on their own, not as saren.ai
+subdomains or spokes of this roadmap. saren.ai's role in that model is narrower and
+cleaner: `author`/`publisher` credit via JSON-LD `@id` reference
+(`https://saren.ai/#person`), not content hosting. No further tracking of either here —
+see their own project planning when it happens.
+
+`pay.saren.ai` and `portal.saren.ai` (payment-rail isolation; an Identogram LLC client
+portal) were also named in the same discussion as possible future saren.ai subdomains,
+unbuilt and unscoped — left out of this doc entirely for now since neither has a
+concrete plan yet; revisit if either becomes real work.
 
 ### Surface 3 — Agent (Cloudflare Workers + MCP) — port and expand the existing build
 
@@ -91,10 +100,9 @@ as the platform default for new client sites, not something an audit catches lat
 
 1. Extract case studies + playbooks into the structured content layer; migrate the
    Next.js pages that currently hand-write this content to read from it instead
-2. Generate the JSON export Surfaces 2 and 3 will consume
-3. Build Surface 2 (Astro/Cloudflare, thin record content, content negotiation)
-4. Port and expand Surface 3 (MCP → Cloudflare Worker, transactional tool shapes)
-5. Write up the platform baseline as a reusable pattern (candidate:
+2. Generate the JSON export Surface 3 will consume
+3. Port and expand Surface 3 (MCP → Cloudflare Worker, transactional tool shapes)
+4. Write up the platform baseline as a reusable pattern (candidate:
    `wiki/patterns/ai-native-marketing-site-model.md`, alongside the existing
    `nextjs-marketing-site-model.md`) once proven out here
 
@@ -260,7 +268,7 @@ Full audit + remediation: `docs/changelogs/2026-06-12-site-audit-remediation.md`
 
 ### DX & maintenance
 - [ ] Audit `class-variance-authority` usage — adopt more broadly or remove
-- [ ] Clean up `psylocke-backstory/` in public/ if not serving live pages
+- [x] Clean up `psylocke-backstory/` in public/ — removed 2026-08-26; feature and assets moved to `_jpn/psylocke-timeline` (fan content, not professional site scope)
 - [ ] Move `playbook-prompts/` to separate content repo if it keeps growing (31 MB)
 - [ ] Address 3 remaining `setState in effect` lint errors (mount-only patterns — low priority)
 

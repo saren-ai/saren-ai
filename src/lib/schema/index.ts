@@ -1,4 +1,4 @@
-export { ID, SITE_URL, ORG_URL, pageUrl, webPageId, articleId, breadcrumbId, workId, howToId, serviceId, listId } from "./ids";
+export { ID, SITE_URL, ORG_URL, pageUrl, webPageId, articleId, breadcrumbId, workId, howToId, serviceId, listId, definedTermSetId } from "./ids";
 export { buildGraph } from "./graph";
 export type { JsonLdGraph } from "./graph";
 export { validateGraph } from "./validate";
@@ -10,5 +10,15 @@ export {
   breadcrumbNode,
   articleNode,
   webPageNode,
+  howToNode,
+  definedTermSetNode,
 } from "./nodes";
-export type { PageGraphInput, PageType, TrailItem, FAQItem, ArticleInput, SchemaNode } from "./types";
+export type {
+  PageGraphInput,
+  PageType,
+  TrailItem,
+  FAQItem,
+  ArticleInput,
+  SchemaNode,
+} from "./types";
+export type { HowToStepInput, HowToInput, DefinedTermInput, DefinedTermSetInput } from "./nodes";

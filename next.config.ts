@@ -43,6 +43,9 @@ const nextConfig: NextConfig = {
     return [
       // ── Rebranded routes ─────────────────────────────────────────────────
       { source: "/ai-operations",                                    destination: "/ai-orchestration",                                permanent: true },
+      // ── v02: duplicate case studies merged into the Agentic Web pillar (2026-08-26) ─
+      { source: "/case-studies/authority-engineering",               destination: "/agentic-web/authority-engineering",               permanent: true },
+      { source: "/case-studies/thought-leadership-development",      destination: "/agentic-web/authority-engineering",               permanent: true },
       // ── IA Refactor: tools moved portfolio → playbooks ──────────────────
       { source: "/portfolio/roi-simulator",                         destination: "/playbooks/roi-simulator",                         permanent: true },
       { source: "/portfolio/gtm-budget-calculator",                 destination: "/playbooks/gtm-budget-calculator",                 permanent: true },
@@ -54,7 +57,6 @@ const nextConfig: NextConfig = {
       { source: "/portfolio/behavioral-lead-scoring",               destination: "/playbooks/hybrid-lead-scoring",                   permanent: true },
       { source: "/portfolio/calculator",                             destination: "/playbooks/gtm-budget-calculator",                 permanent: true },
       { source: "/portfolio/golden-dashboard",                      destination: "/playbooks/roi-simulator",                         permanent: true },
-      { source: "/portfolio/psylocke-timeline",                     destination: "/studio/psylocke-timeline",                        permanent: true },
       // ── Editorial rebrand: /feature → /studio (2026-06-17) ──────────────
       { source: "/feature",                                          destination: "/studio",                                          permanent: true },
       { source: "/feature/:slug*",                                   destination: "/studio/:slug*",                                   permanent: true },

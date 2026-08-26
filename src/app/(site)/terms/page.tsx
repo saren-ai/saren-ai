@@ -32,7 +32,7 @@ const sections = [
     body: [
       "Paid playbooks are sold through Stripe Checkout. Prices are shown at checkout in US dollars. After payment, access is delivered to the device and email used at purchase.",
       "Purchases are licensed, not sold: you get a personal, non-exclusive, non-transferable license to use the content for your own work or your company's internal use. You may not resell, redistribute, or republish it.",
-      "Because these are digital products delivered immediately, all sales are final once content has been delivered — except where the product is materially defective or a refund is required by law. If something went wrong with your purchase, email hello#saren.ai and I'll make it right.",
+      "Because these are digital products delivered immediately, all sales are final once content has been delivered — except where the product is materially defective or a refund is required by law. If something went wrong with your purchase, email hello@saren.ai and I'll make it right.",
     ],
   },
   {
@@ -107,10 +107,10 @@ export default function TermsPage() {
         <p className="text-sm text-slate dark:text-foreground-muted mt-12 pt-8 border-t border-border">
           Questions? Email{" "}
           <a
-            href="mailto:hello#saren.ai"
+            href="mailto:hello@saren.ai"
             className="text-lavender hover:text-ember transition-colors"
           >
-            hello#saren.ai
+            hello@saren.ai
           </a>{" "}
           or see the{" "}
           <Link

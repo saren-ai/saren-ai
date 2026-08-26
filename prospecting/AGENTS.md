@@ -9,7 +9,7 @@ judgment point, sent from the client's own mailbox. Never spray-and-pray.
 Reconciled with disk 2026-08-25.
 
 - **This folder is no longer its own repo.** It was `~/Projects/#lead-prospecting`;
-  it now lives inside the saren.ai repo at `#saren.ai/prospecting/` and is tracked
+  it now lives inside the saren.ai repo at `saren.ai/prospecting/` and is tracked
   there. `git log` from inside this folder resolves to the saren.ai repo.
 - **`legacy-dashboard/` is superseded.** The live cockpit is `/desk` in the saren.ai
   app (`src/app/(desk)/`, gated in `src/proxy.ts`, renamed from `/studio` 2026-06-17).
@@ -17,7 +17,7 @@ Reconciled with disk 2026-08-25.
   still has uncommitted edits in `app/actions.ts` — do not move or delete it without
   resolving those first.
 - **`migrations/` and `.claude/skills/` did not come across.** Schema of record is now
-  `#saren.ai/supabase/migrations/001–003`. Migrations 005–008 referenced in SPRINT.md
+  `saren.ai/supabase/migrations/001–003`. Migrations 005–008 referenced in SPRINT.md
   are not in that set — reconcile before writing SQL against the assumptions below.
 - **`SPRINT.md` is frozen at 2026-06-12** and describes a sprint that ended. Its
   "Next up" is not a live queue. `ROADMAP.md` is still valid as a backlog.

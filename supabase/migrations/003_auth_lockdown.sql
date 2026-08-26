@@ -23,7 +23,7 @@ begin;
 -- ----------------------------------------------------------------------------
 -- Single source of "who is allowed". Add/remove a UID here to grant/revoke.
 --   eb6f0525-4669-4e66-8fd1-f2453ff41eff  = saren.sakurai@gmail.com (super admin)
---   113bc2bb-716e-4a94-8ddc-fc32a3b2e220  = saren#saren.ai (send-as identity)
+--   113bc2bb-716e-4a94-8ddc-fc32a3b2e220  = saren@saren.ai (send-as identity)
 -- To go gmail-only, delete the second UID line below.
 -- ----------------------------------------------------------------------------
 create or replace function public.is_admin()

@@ -45,3 +45,7 @@ export function serviceId(path: string): string {
 export function listId(path: string): string {
   return `${pageUrl(path)}/#list`;
 }
+
+export function definedTermSetId(path: string): string {
+  return `${pageUrl(path)}/#termset`;
+}

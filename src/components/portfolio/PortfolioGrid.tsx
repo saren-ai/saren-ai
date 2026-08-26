@@ -90,7 +90,7 @@ const portfolioItems = [
       "Engineering B2B authority in the age of LLMs. How to build white papers that models love to cite using a modern tool stack.",
     metric: "6",
     metricLabel: "Engineered Steps",
-    href: "/case-studies/authority-engineering",
+    href: "/agentic-web/authority-engineering",
     pillars: ["Human Strategy"],
   },
 ];

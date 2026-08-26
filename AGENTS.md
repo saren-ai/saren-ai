@@ -13,7 +13,7 @@ npm run lint     # ESLint
 npm test         # Vitest
 ```
 
-`npm run dev`, `npm run build`, and `npm test` cannot complete when this repo lives at a path containing `#` (breaks Turbopack and Vite path resolution — confirmed for `dev` too 2026-08-26, a null-byte-mangled path crashes the Tailwind CSS loader on every route — see [Repo Hygiene → Before finishing a session](#before-finishing-a-session)). Works fine on Vercel and in CI.
+**Formerly blocked, resolved 2026-08-25:** `npm run dev`, `npm run build`, and `npm test` could not complete while this repo lived at a `#`-prefixed path (`#saren.ai` → `saren.ai`, breaks Turbopack and Vite path resolution — confirmed for `dev` too 2026-08-26, a null-byte-mangled path crashed the Tailwind CSS loader on every route). The path no longer contains `#`; not yet re-verified with an actual local run in this session — see [Repo Hygiene → Before finishing a session](#before-finishing-a-session). Works fine on Vercel and in CI regardless.
 
 ## Tech Stack
 
@@ -90,7 +90,6 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 /studio                                   Studio — creative/editorial index (formerly /feature)
 /studio/ai-for-liberal-arts                AI for Liberal Arts Majors series hub
 /studio/oblique-techniques                 Oblique Techniques (Claude Skills promo)
-/studio/psylocke-timeline                  Kwannon timeline editorial + interactive
 /downloads/success                        Post-purchase download page (purchases table; /downloads itself 301s to /playbooks — page deleted 2026-06-12)
 /playbooks                                Playbook Library index (toggle: Playbooks | Interactive Tools)
 /playbooks/b2b-marketing-framework        B2B marketing framework (prompt library + interactive)
@@ -137,7 +136,6 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 | `content-journey/` | 120-day content journey components |
 | `desk/` | Desk (Hustle & Flow) UI — JobTriggers, StatusPill, TouchDots, etc. |
 | `feature/` | Studio editorial shared components (FeatureCard) — route is `/studio`, lib name is `feature` |
-| `feature/psylocke-timeline/` | Kwannon interactive timeline (9 components + data) |
 | `framework/` | Framework page components |
 | `golden-dashboard/` | Executive dashboard components |
 | `halcyon/` | Halcyon workspace components (archived section) |
@@ -145,7 +143,6 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 | `layout/` | Header, Footer, nav, providers |
 | `marketing-framework/` | B2B marketing framework components |
 | `portfolio/` | Portfolio grid and card components |
-| `psylocke-timeline/` | (moved to `feature/psylocke-timeline/`) |
 | `search/` | Search modal, Pagefind provider, site hotkeys, ranking (9 files) |
 | `seo/` | JsonLd and other SEO helpers |
 | `signal-state/` | Signal State framework components |
@@ -167,7 +164,6 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 | `search-rank.ts` | Pagefind result ranking — title/body match scoring for “Best match” vs “Also mentioned on” |
 | `stripe.ts` | Lazy Stripe singleton (`getStripe()`) |
 | `portfolio-data.ts` | Portfolio item types |
-| `psylocke-timeline.ts` | Comic issue data for the Kwannon timeline (internal to `feature/psylocke-timeline/` components) |
 | `tier-list.ts` | AI tools list, SAREN_PICKS, stack categories |
 | `utils.ts` | Shared utility functions |
 | `supabase/admin.ts` | Service role Supabase client — server-side only, never expose to browser |
@@ -192,7 +188,7 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 
 **New paid playbook:** Add entry to `PAID_TIERS` in `src/lib/playbook-tiers.ts` with `priceId` (Stripe Price ID) and `storageKey` (Supabase Storage path in `downloads` bucket) → add catalog entry to `playbook-prompts/prompt_catalog.json` → build landing page copy and buy button on the `/playbooks/[id]` page. The RSC gate reads `cookies().get('dlx_' + id)` and validates against the `entitlements` table.
 
-**Adding searchable content:** New routes under `(site)/` are indexed automatically at build time. Root `layout.tsx` must stay static — do not add `headers()` or other dynamic APIs there (breaks Pagefind). Add `data-pagefind-ignore` to elements that should not be searched. Wrap section content with `<PagefindBoundary section="...">` to set group label. Halcyon and `/api/*` are excluded globally. Test locally with `npm run build && npm run start` (not `npm run dev` — index doesn't exist there). Blocked by the `#`-in-path build limitation noted above — verify via a Vercel preview instead when working from this checkout.
+**Adding searchable content:** New routes under `(site)/` are indexed automatically at build time. Root `layout.tsx` must stay static — do not add `headers()` or other dynamic APIs there (breaks Pagefind). Add `data-pagefind-ignore` to elements that should not be searched. Wrap section content with `<PagefindBoundary section="...">` to set group label. Halcyon and `/api/*` are excluded globally. Test locally with `npm run build && npm run start` (not `npm run dev` — index doesn't exist there). Formerly blocked by the `#`-in-path build limitation noted above (resolved 2026-08-25, not yet re-verified) — verify via a Vercel preview if a local build still won't complete.
 
 ## SEO & Redirects
 
@@ -279,7 +275,7 @@ Only config files (`next.config.ts`, `tsconfig.json`, `vercel.json`, `eslint.con
 
 ### Before finishing a session
 
-1. Run `npm run build` — nothing merges unless it compiles. **Known limitation:** `npm run dev`, `npm test`, and `npm run build` cannot complete in this environment because `#saren.ai` contains a literal `#`, which breaks Vite/Vitest and Turbopack's path resolution alike (deterministic, not flaky — see `wiki/patterns/fuse-mount-gotchas.md`). Verify locally with `tsc --noEmit` + `eslint` + targeted `npx tsx` scripts instead, and treat CI (`.github/workflows/ci.yml`, checkout path has no `#`) or a Vercel preview as the real build/test/dev oracle.
+1. Run `npm run build` — nothing merges unless it compiles. **Formerly blocked, resolved 2026-08-25:** `npm run dev`, `npm test`, and `npm run build` could not complete while the project root was `#saren.ai` (breaks Vite/Vitest and Turbopack's path resolution — deterministic, not flaky — see `wiki/patterns/fuse-mount-gotchas.md`). The root is now `saren.ai`, no `#`; not yet re-verified with an actual local run in this session. If a local build/test still fails, treat it as a new bug and confirm with `tsc --noEmit` + `eslint` + targeted `npx tsx` scripts, falling back on CI (`.github/workflows/ci.yml`) or a Vercel preview as the oracle.
 2. Check `git status` — no unintended files at root, no stray untracked artifacts.
 3. If you created temporary files during debugging, clean them up.
 
@@ -310,7 +306,7 @@ The architecture supports a future **Ask** mode (Phase 2 — semantic search + c
 Cross-project knowledge lives in the LLM wiki at `~/Projects/wiki/`. Read it before any
 broad architectural change, and update it in the same session when something changes.
 
-- **This project:** [`../wiki/projects/#saren.ai.md`](../wiki/projects/#saren.ai.md)
+- **This project:** [`../wiki/projects/saren.ai.md`](../wiki/projects/saren.ai.md)
 - **Map:** [`../wiki/index.md`](../wiki/index.md)
 - **Before searching the workspace:** [`../wiki/reference/markdown-corpus-map.md`](../wiki/reference/markdown-corpus-map.md)
 - **Before running shell commands:** [`../wiki/patterns/fuse-mount-gotchas.md`](../wiki/patterns/fuse-mount-gotchas.md)

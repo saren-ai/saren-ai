@@ -35,7 +35,14 @@ const routes: Record<string, RouteEntry> = {
   '/studio': { lastModified: '2026-06-17' },
   '/studio/ai-for-liberal-arts': { lastModified: '2026-06-17' },
   '/studio/oblique-techniques': { lastModified: '2026-06-17' },
-  '/studio/psylocke-timeline': { lastModified: '2026-05-08' },
+
+  // The Agentic Web (v02 pillar)
+  '/agentic-web': { lastModified: '2026-08-26', priority: 0.9 },
+  '/agentic-web/human-experience': { lastModified: '2026-08-26' },
+  '/agentic-web/machine-readability': { lastModified: '2026-08-26' },
+  '/agentic-web/agent-access': { lastModified: '2026-08-26' },
+  '/agentic-web/authority-engineering': { lastModified: '2026-08-26' },
+  '/agentic-web/glossary': { lastModified: '2026-08-26' },
 
   // Services
   '/fractional-marketing-lead': { lastModified: '2026-06-09', priority: 0.9 },
@@ -50,12 +57,10 @@ const routes: Record<string, RouteEntry> = {
   '/case-studies': { lastModified: '2026-05-28', priority: 0.9 },
   '/case-studies/10-touch-sales-play': { lastModified: '2026-05-28' },
   '/case-studies/120-day-content-journey': { lastModified: '2026-05-28' },
-  '/case-studies/authority-engineering': { lastModified: '2026-05-28' },
   '/case-studies/dynamic-nurture': { lastModified: '2026-05-28' },
   '/case-studies/executive-dashboard': { lastModified: '2026-06-09' },
   '/case-studies/intent-data': { lastModified: '2026-06-08' },
   '/case-studies/sovereign-personas': { lastModified: '2026-05-28' },
-  '/case-studies/thought-leadership-development': { lastModified: '2026-06-09' },
 
   // Playbooks — interactive tools
   '/playbooks': { lastModified: '2026-05-31', priority: 0.9 },
