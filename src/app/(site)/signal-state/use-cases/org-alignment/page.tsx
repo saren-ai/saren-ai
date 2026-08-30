@@ -42,7 +42,7 @@ const graph = buildGraph({
   dateModified: '2026-04-01T00:00:00Z',
   breadcrumb: trail,
   article: {
-    headline: 'Signal-State Marketing for Organizational Alignment Consulting',
+    headline: 'Organizational Misalignment / Culture Dysfunction',
     datePublished: '2026-02-20T00:00:00Z',
     dateModified: '2026-04-01T00:00:00Z',
     about: ['Organizational alignment consulting', 'Intent-based marketing', 'Signal-State Marketing', 'B2B consulting'],

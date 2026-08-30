@@ -39,7 +39,7 @@ const graph = buildGraph({
   dateModified: '2026-04-01T00:00:00Z',
   breadcrumb: trail,
   article: {
-    headline: 'The Signal-State Marketing Framework',
+    headline: 'The Full Framework',
     datePublished: '2026-02-15T00:00:00Z',
     dateModified: '2026-04-01T00:00:00Z',
   },

@@ -58,7 +58,7 @@ const graph = buildGraph({
   dateModified: "2026-03-27T00:00:00Z",
   breadcrumb: trail,
   article: {
-    headline: "Dynamic email nurture: score-gated personalization on HubSpot",
+    headline: "Email That Knows Who You Are",
     datePublished: "2026-03-27T00:00:00Z",
     dateModified: "2026-05-28T00:00:00Z",
     image: "https://saren.ai/images/og/home.png",

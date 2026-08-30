@@ -105,7 +105,7 @@ const graph = buildGraph({
   dateModified: "2026-03-27T00:00:00Z",
   breadcrumb: trail,
   article: {
-    headline: "Intent data as funnel intelligence: Bombora signals across 100 enterprise accounts",
+    headline: "Intent Data as Funnel Intelligence",
     datePublished: "2026-03-27T00:00:00Z",
     dateModified: "2026-06-08T00:00:00Z",
     image: "https://saren.ai/images/og/home.png",

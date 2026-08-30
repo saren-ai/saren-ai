@@ -54,6 +54,8 @@ export default async function FrameworkPromptPage({ params }: PageProps) {
         { label: prompt.title },
     ];
 
+    const parentPath = "/playbooks/b2b-marketing-framework";
+
     const work = {
         "@type": "CreativeWork",
         "@id": workId(path),
@@ -62,8 +64,7 @@ export default async function FrameworkPromptPage({ params }: PageProps) {
         url,
         author: { "@id": "https://saren.ai/#person" },
         creator: { "@id": "https://saren.ai/#person" },
-        // References the CreativeWork the parent page now defines for real.
-        isPartOf: { "@id": workId("/playbooks/b2b-marketing-framework") },
+        isPartOf: { "@id": workId(parentPath) },
         about: ["B2B SaaS go-to-market strategy", "Messaging frameworks", prompt.level],
         keywords: `B2B marketing, ${prompt.level.toLowerCase()}, ${prompt.title.toLowerCase()}, go-to-market, messaging framework, SaaS`,
         teaches: prompt.hook,
@@ -73,13 +74,27 @@ export default async function FrameworkPromptPage({ params }: PageProps) {
         dateModified: "2026-04-01T00:00:00Z",
     };
 
+    // Embedded in full (not just referenced by @id) — each page's graph must be
+    // self-contained for a single-page fetch, so the parent CreativeWork that
+    // `isPartOf` points at has to be defined here too, not only on the parent page.
+    const parentWork = {
+        "@type": "CreativeWork",
+        "@id": workId(parentPath),
+        name: "B2B SaaS Marketing Framework: 21-Step AI Positioning System",
+        description:
+            "An interactive 21-step prompt sequence for building B2B SaaS positioning from scratch — ICP definition, messaging pillars, value proposition, sales playbook, and launch-ready narrative.",
+        url: `https://saren.ai${parentPath}`,
+        author: { "@id": "https://saren.ai/#person" },
+        isPartOf: { "@id": "https://saren.ai/#website" },
+    };
+
     const graph = buildGraph({
         path,
         name: `${prompt.title} | B2B Marketing Framework`,
         description: prompt.hook,
         dateModified: "2026-04-01T00:00:00Z",
         breadcrumb: trail,
-        extra: [work],
+        extra: [work, parentWork],
     });
 
     return (

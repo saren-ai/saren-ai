@@ -74,7 +74,7 @@ const graph = buildGraph({
   dateModified: "2026-04-01T00:00:00Z",
   breadcrumb: trail,
   article: {
-    headline: "Demand gen command center: an AI-built executive dashboard across 5 live APIs",
+    headline: "Demand Generation Command Center",
     datePublished: "2026-04-14T00:00:00Z",
     dateModified: "2026-05-28T00:00:00Z",
     image: "https://saren.ai/images/portfolio/executive-dashboard/demand-dash_bigview.jpg",

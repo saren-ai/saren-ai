@@ -93,7 +93,7 @@ const graph = buildGraph({
   dateModified: "2026-03-27T00:00:00Z",
   breadcrumb: trail,
   article: {
-    headline: "120-day content journey: $4M quarterly pipeline at Cylance",
+    headline: "120-Day Content Journey",
     datePublished: "2026-02-03T00:00:00Z",
     dateModified: "2026-05-28T00:00:00Z",
     image: "https://saren.ai/images/portfolio/portfolio-content-journey.png",

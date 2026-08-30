@@ -64,7 +64,7 @@ const graph = buildGraph({
   dateModified: "2026-03-27T00:00:00Z",
   breadcrumb: trail,
   article: {
-    headline: "10-touch sales play: 42% meeting rate on cold outbound",
+    headline: "10-Touch Sales Play",
     datePublished: "2026-02-03T00:00:00Z",
     dateModified: "2026-05-28T00:00:00Z",
     image: "https://saren.ai/images/portfolio/portfolio-10-touch.png",

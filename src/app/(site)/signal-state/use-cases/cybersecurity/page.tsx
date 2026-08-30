@@ -42,7 +42,7 @@ const graph = buildGraph({
   dateModified: '2026-04-01T00:00:00Z',
   breadcrumb: trail,
   article: {
-    headline: 'Signal-State Marketing for B2B Cybersecurity',
+    headline: 'Cybersecurity / Ransomware Vulnerability',
     datePublished: '2026-02-20T00:00:00Z',
     dateModified: '2026-04-01T00:00:00Z',
     about: ['B2B cybersecurity marketing', 'Intent-based marketing', 'Signal-State Marketing', 'Ransomware vulnerability'],

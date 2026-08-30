@@ -28,7 +28,7 @@ export default function CylancePage() {
     dateModified: "2026-06-03T00:00:00Z",
     breadcrumb: trail,
     article: {
-      headline: "Cylance — Director of Demand Generation",
+      headline: "Cylance Director of Marketing → Senior Director of Marketing",
       datePublished: "2026-06-03T00:00:00Z",
     },
   });

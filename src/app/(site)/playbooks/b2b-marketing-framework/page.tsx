@@ -130,8 +130,9 @@ export default async function B2BFrameworkPage() {
         { label: 'B2B Marketing Framework' },
     ];
 
-    // Defines the #work @id that every /playbooks/b2b-marketing-framework/[slug]
-    // child page references via isPartOf — previously dangling, nothing defined it.
+    // Defines the #work @id for this page's own graph. Each child page under
+    // /playbooks/b2b-marketing-framework/[slug] embeds its own equivalent copy
+    // of this node (per-page graphs must be self-contained), not just a reference.
     const work = {
         '@type': 'CreativeWork',
         '@id': workId(PATH),

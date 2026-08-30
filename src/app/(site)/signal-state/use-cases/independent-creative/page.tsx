@@ -42,7 +42,7 @@ const graph = buildGraph({
   dateModified: '2026-04-01T00:00:00Z',
   breadcrumb: trail,
   article: {
-    headline: 'Signal-State Marketing for AI Tools Targeting Independent Creatives',
+    headline: 'Independent Creative / Solo Strategist',
     datePublished: '2026-02-20T00:00:00Z',
     dateModified: '2026-04-01T00:00:00Z',
     about: ['AI tools marketing', 'Independent creatives', 'Signal-State Marketing', 'Solo operators', 'Expressed intent'],

@@ -87,7 +87,7 @@ export default function AIOrchestrationPage() {
                     dateModified: "2026-03-27T00:00:00Z",
                     breadcrumb: trail,
                     article: {
-                        headline: "AI Orchestration: Machines Handle Scale. Humans Handle Meaning.",
+                        headline: "Machines handle scale. Humans handle meaning.",
                         datePublished: "2026-03-27T00:00:00Z",
                         dateModified: "2026-03-27T00:00:00Z",
                         image: "https://saren.ai/images/og/ai-operations.png",

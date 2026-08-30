@@ -36,7 +36,7 @@ export default function GTMEngineeringPage() {
         dateModified: "2026-06-19T00:00:00Z",
         breadcrumb: trail,
         article: {
-            headline: "GTM Engineering: demand as an engineered system, not a campaign calendar",
+            headline: "Stop running campaigns. Engineer the system.",
             datePublished: "2026-06-19T00:00:00Z",
             about: ["GTM Engineering", "demand generation systems", "B2B demand engineering", "marketing operations", "AI orchestration"],
         },
