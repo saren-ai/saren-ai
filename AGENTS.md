@@ -4,6 +4,25 @@ Portfolio + consulting site for Saren Sakurai (fractional CMO / AI ops consultan
 
 **Live:** https://saren.ai | **Dev:** `npm run dev` → localhost:3000
 
+## Working Style
+
+### Confirmations
+When I reply 'yes', 'go', or 'ship it' to a proposed action, treat it as full authorization and proceed — do not ask for a second confirmation. If a request is ambiguous in scope (especially deletions or route removals), state the exact list of files/routes you will change and ask once, before doing anything.
+
+## Deployment
+
+After any merge to `main`, verify the Vercel **production** alias actually points at the newest build (`vercel ls` + `vercel alias set`). GitHub being current does not mean production is current — auto-deploy hooks are unreliable on these projects.
+
+- **Automatic:** pushes to `main` on GitHub trigger a Vercel deployment — always confirm the production alias actually moved (see above), don't trust the trigger alone.
+- **Manual (avoid):** CLI deployment (`vercel deploy`) is not recommended due to file size limits with project assets. Use the GitHub integration.
+- **Region:** iad1 (US East)
+- **Security headers:** `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`
+- **Font caching:** immutable 1yr
+
+## Pre-push checklist
+
+Before committing or pushing: run typecheck, lint, and a production build. Client/server import-boundary errors in Next.js only surface at build time, so `next build` is mandatory — a passing dev server is not sufficient evidence.
+
 ## Commands
 
 ```bash
@@ -12,8 +31,6 @@ npm run build    # Production build (run before deploying)
 npm run lint     # ESLint
 npm test         # Vitest
 ```
-
-**Formerly blocked, resolved 2026-08-25:** `npm run dev`, `npm run build`, and `npm test` could not complete while this repo lived at a `#`-prefixed path (`#saren.ai` → `saren.ai`, breaks Turbopack and Vite path resolution — confirmed for `dev` too 2026-08-26, a null-byte-mangled path crashed the Tailwind CSS loader on every route). The path no longer contains `#`; not yet re-verified with an actual local run in this session — see [Repo Hygiene → Before finishing a session](#before-finishing-a-session). Works fine on Vercel and in CI regardless.
 
 ## Tech Stack
 
@@ -37,6 +54,11 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 - **code-style.md** — directives, imports, dependencies, localStorage, TypeScript conventions
 - **design-system.md** — Fire Horse 2026 colors, fonts, layout, dark mode, images
 - **animations.md** — framer-motion patterns, CSS animation classes, @dnd-kit constraints
+
+## Conventions
+
+### Shared constants
+Site-wide URLs and third-party endpoints (booking links, scheduler URLs, API bases) must live in a single exported constant (e.g. `BOOKING_URL`) and be imported everywhere. Never hardcode the same external URL in more than one file.
 
 ## Directory Structure
 
@@ -79,12 +101,21 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 /about/work/cylance                       Cylance work deep-dive
 /resume                                   Interactive resume — canonical career history; PDF download lives here
 /work                                     Work hub — primary "Work With Me" CTA target (formerly /engage; 301 redirect kept)
+/services                                 Services index — GTM Systems Audit, Fractional Marketing Lead, Project Engagement, Advisory & Positioning
 /fractional-marketing-lead                Engagement model (money page, priority 0.9)
 /fractional-marketing-lead/cost           Pricing page
+/gtm-engineering                          GTM Engineering service page — systems-thinking pipeline approach
+/ai-orchestration                         AI orchestration service page
+/aeo-playbook                             AEO playbook essay — winning the AI shortlist
 /smb                                      Audience page — founders & mid-market
 /solopreneurs                             Audience page — solo founders & fractional CMOs
 /thinkers                                 Audience page — subject matter experts
-/ai-orchestration                         AI orchestration service page
+/agentic-web                              Agentic Web pillar hub — definition + layer pages (replaces the retired authority-engineering and thought-leadership-development case studies)
+/agentic-web/agent-access                 Agentic Web layer page
+/agentic-web/authority-engineering        Agentic Web layer page
+/agentic-web/glossary                     Agentic Web glossary
+/agentic-web/human-experience             Agentic Web layer page
+/agentic-web/machine-readability          Agentic Web layer page
 /brand                                    Fire Horse 2026 brand guidelines
 /contact                                  Contact form
 /studio                                   Studio — creative/editorial index (formerly /feature)
@@ -97,17 +128,16 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 /playbooks/hybrid-lead-scoring            Hybrid lead scoring tool
 /playbooks/its-good-to-be-pitched         TV spot storyboard / creative production demo
 /playbooks/roi-simulator                  Paid media ROI simulator tool
+/playbooks/vault-chat                     Ask-the-marketing-knowledge-base RAG chat tool
 /playbooks/[id]                           Dynamic playbook pages (free + paid tiers)
 /playbooks/[id]/success                   Route Handler — verifies Stripe session, sets dlx_ cookie, redirects
 /case-studies                             Case Studies index (static B2B narratives)
 /case-studies/10-touch-sales-play         Case study
 /case-studies/120-day-content-journey     Case study
-/case-studies/authority-engineering       Case study
 /case-studies/dynamic-nurture             Case study
 /case-studies/executive-dashboard         Case study
 /case-studies/intent-data                 Case study
 /case-studies/sovereign-personas          Case study
-/case-studies/thought-leadership-development Case study
 /signal-state                             Signal State framework overview
 /signal-state/architecture
 /signal-state/framework
@@ -116,6 +146,11 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 /signal-state/use-cases/cybersecurity
 /signal-state/use-cases/independent-creative
 /signal-state/use-cases/org-alignment
+/privacy                                  Privacy policy
+/terms                                    Terms of service
+/oc                                       Local-SEO landing page — "GTM Engineer, Orange County" (lives at app root, not in the (site) group)
+/llms.txt                                 llms.txt endpoint
+/openapi.json                             OpenAPI spec endpoint
 /halcyon                                  (archived — not in primary nav)
 /halcyon/content-matrix
 /halcyon/faq
@@ -124,11 +159,13 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 /halcyon/resume
 ```
 
+`/api/*` route handlers (checkout, desk OTP, download tokens, indexnow, MCP, record JSON feeds, reddit proxy, vault-chat, Stripe webhooks) and `/auth/callback` are omitted from this table — see `src/app/api/` directly.
+
 ### Components (`src/components/`)
 
 | Directory | Purpose |
 |---|---|
-| `authority-engineering/` | Authority Engineering case study components |
+| `agentic-web/` | Agentic Web pillar components (replaces the retired `authority-engineering/` and `thought-leadership-development/` case study components) |
 | `behavioral-scoring/` | Lead scoring tool components |
 | `calculator/` | GTM budget calculator components |
 | `case-studies/` | Shared case study layout components |
@@ -143,13 +180,14 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 | `layout/` | Header, Footer, nav, providers |
 | `marketing-framework/` | B2B marketing framework components |
 | `portfolio/` | Portfolio grid and card components |
+| `sales-play/` | Sales play case study components |
 | `search/` | Search modal, Pagefind provider, site hotkeys, ranking (9 files) |
 | `seo/` | JsonLd and other SEO helpers |
 | `signal-state/` | Signal State framework components |
 | `sovereign-personas/` | Sovereign personas tool components |
 | `storyboard/` | Storyboard case study components |
-| `thought-leadership-development/` | TLD case study components |
 | `tier-list/` | AI stack tier list (About page) |
+| `vault-chat/` | Vault Chat (RAG playbook chat) components |
 | `ui/` | Shared primitives (navigation menu, etc.) |
 
 ### Libraries (`src/lib/`)
@@ -188,7 +226,7 @@ Detailed rules live in `.claude/rules/` and are loaded automatically:
 
 **New paid playbook:** Add entry to `PAID_TIERS` in `src/lib/playbook-tiers.ts` with `priceId` (Stripe Price ID) and `storageKey` (Supabase Storage path in `downloads` bucket) → add catalog entry to `playbook-prompts/prompt_catalog.json` → build landing page copy and buy button on the `/playbooks/[id]` page. The RSC gate reads `cookies().get('dlx_' + id)` and validates against the `entitlements` table.
 
-**Adding searchable content:** New routes under `(site)/` are indexed automatically at build time. Root `layout.tsx` must stay static — do not add `headers()` or other dynamic APIs there (breaks Pagefind). Add `data-pagefind-ignore` to elements that should not be searched. Wrap section content with `<PagefindBoundary section="...">` to set group label. Halcyon and `/api/*` are excluded globally. Test locally with `npm run build && npm run start` (not `npm run dev` — index doesn't exist there). Formerly blocked by the `#`-in-path build limitation noted above (resolved 2026-08-25, not yet re-verified) — verify via a Vercel preview if a local build still won't complete.
+**Adding searchable content:** New routes under `(site)/` are indexed automatically at build time. Root `layout.tsx` must stay static — do not add `headers()` or other dynamic APIs there (breaks Pagefind). Add `data-pagefind-ignore` to elements that should not be searched. Wrap section content with `<PagefindBoundary section="...">` to set group label. Halcyon and `/api/*` are excluded globally. Test locally with `npm run build && npm run start` (not `npm run dev` — index doesn't exist there).
 
 ## SEO & Redirects
 
@@ -247,6 +285,11 @@ Every indexable page emits exactly **one** JSON-LD `@graph`, assembled by `src/l
 - `/brand` — Fire Horse 2026 brand guideline page. `/about/brand` is deprecated and 301s to `/brand`.
 - `/portfolio/*` — all old routes redirect via `next.config.ts`; do not create new content here.
 
+## Repository / Project Layout
+
+### Project layout
+Project directories under `~/Projects/` are named without `#` prefixes. When renaming or moving directories, sweep all docs, wiki cards, and code references — but exclude markdown headings, CSS colors, and URL fragments from `#` matches.
+
 ## Repo Hygiene
 
 Keep the repo clean so every Claude Code session starts with minimal noise.
@@ -275,23 +318,13 @@ Only config files (`next.config.ts`, `tsconfig.json`, `vercel.json`, `eslint.con
 
 ### Before finishing a session
 
-1. Run `npm run build` — nothing merges unless it compiles. **Formerly blocked, resolved 2026-08-25:** `npm run dev`, `npm test`, and `npm run build` could not complete while the project root was `#saren.ai` (breaks Vite/Vitest and Turbopack's path resolution — deterministic, not flaky — see `wiki/patterns/fuse-mount-gotchas.md`). The root is now `saren.ai`, no `#`; not yet re-verified with an actual local run in this session. If a local build/test still fails, treat it as a new bug and confirm with `tsc --noEmit` + `eslint` + targeted `npx tsx` scripts, falling back on CI (`.github/workflows/ci.yml`) or a Vercel preview as the oracle.
+1. Run `npm run build` — nothing merges unless it compiles. If a local build/test fails, confirm with `tsc --noEmit` + `eslint` + targeted `npx tsx` scripts, falling back on CI (`.github/workflows/ci.yml`) or a Vercel preview as the oracle.
 2. Check `git status` — no unintended files at root, no stray untracked artifacts.
 3. If you created temporary files during debugging, clean them up.
 
 ### Gitignore principles
 
 The `.gitignore` covers: dependencies, build output, env files, local databases, OS files, editor configs, and Obsidian vault configs. If a new category of generated/local file appears, add it to `.gitignore` rather than committing it.
-
-## Deployment
-
-### Vercel (Recommended)
-
-- **Automatic:** Pushes to `main` branch on GitHub automatically trigger a Vercel deployment.
-- **Manual (Avoid):** CLI deployment (`vercel deploy`) is **not recommended** due to file size limits with project assets. Always use the GitHub integration.
-- **Region:** iad1 (US East)
-- **Security headers:** `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`
-- **Font caching:** immutable 1yr
 
 ## Search
 

@@ -149,6 +149,9 @@ describe("JsonLd emission guard", () => {
         }
         if (!/\.(tsx|ts)$/.test(entry)) continue;
         if (full.endsWith(path.join("src", "components", "seo", "JsonLd.tsx"))) continue;
+        // This test greps for the literal emission string, so it would match
+        // itself — skip test files.
+        if (full.includes(path.join("__tests__", ""))) continue;
         const contents = readFileSync(full, "utf8");
         if (contents.includes("application/ld+json")) {
           offenders.push(path.relative(root, full));

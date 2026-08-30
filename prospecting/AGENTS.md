@@ -4,6 +4,26 @@ White-glove, multi-client B2B prospecting platform. Quality over volume: 3–10
 hyper-personalized contacts per client per weekday, human-reviewed at every
 judgment point, sent from the client's own mailbox. Never spray-and-pray.
 
+## Working Style
+
+### Confirmations
+When I reply 'yes', 'go', or 'ship it' to a proposed action, treat it as full authorization and proceed — do not ask for a second confirmation. If a request is ambiguous in scope (especially deletions or route removals), state the exact list of files/routes you will change and ask once, before doing anything.
+
+## Deployment
+
+This folder is tracked inside the `saren.ai` repo (see below) — it has no separate
+production deployment or build. Changes here ship as part of a `saren.ai` deploy;
+follow `saren.ai/AGENTS.md`'s Deployment section (verify the Vercel production alias
+after any merge to `main` — don't trust GitHub-current as proof production is current).
+`legacy-dashboard/` is a separate, superseded Railway-deployed app with uncommitted
+edits — do not deploy it.
+
+## Pre-push checklist
+
+Same checklist as the parent `saren.ai` repo: run typecheck, lint, and `npm run build`
+before pushing. Client/server import-boundary errors in Next.js only surface at build
+time — a passing dev server is not sufficient evidence.
+
 ## Folder status — read before trusting anything below
 
 Reconciled with disk 2026-08-25.
@@ -106,6 +126,16 @@ Deploy-only: `DASHBOARD_AUTH` (`user:pass` — enables the HTTP Basic gate in
 actions run with the service-role key), `CLIENTS_DIR` (base path for the
 `clients/` tree when the repo layout isn't available, e.g. a mounted volume).
 Master registry: `~/Projects/.env.local` (see workspace secrets policy).
+
+## Conventions
+
+### Shared constants
+Site-wide URLs and third-party endpoints (booking links, scheduler URLs, API bases) must live in a single exported constant (e.g. `BOOKING_URL`) and be imported everywhere — relevant here once the roadmapped Calendly integration lands. Never hardcode the same external URL in more than one file.
+
+## Repository / Project Layout
+
+### Project layout
+Project directories under `~/Projects/` are named without `#` prefixes. When renaming or moving directories, sweep all docs, wiki cards, and code references — but exclude markdown headings, CSS colors, and URL fragments from `#` matches. (This folder's own name, `#lead-prospecting`, is an internal doc reference from before the 2026-08-25 move into `saren.ai/prospecting/` — the directory itself is no longer `#`-prefixed on disk.)
 
 ## Hard rules
 

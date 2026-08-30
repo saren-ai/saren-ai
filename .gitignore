@@ -49,6 +49,7 @@ yarn-error.log*
 *.db
 *.db-shm
 *.db-wal
+*.sqlite3
 
 # editor / IDE
 .cursor
