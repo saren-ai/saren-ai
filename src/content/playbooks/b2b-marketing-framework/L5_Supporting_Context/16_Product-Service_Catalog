@@ -1,0 +1,250 @@
+# Product/service catalog
+
+## What this generates
+
+Your comprehensive product/service catalog and market intelligence package using Jobs-To-Be-Done framework, Feature/Benefit/Proof structure, Porter's Five Forces, Gartner Hype Cycle, Technology Adoption Life Cycle (TALC), and PESTEL analysis. You'll get detailed product profiles with JTBD statements, feature/benefit/proof architecture, pricing structure, use case matrix, integration profiles, competitive landscape analysis, market maturity assessment, macro-environmental analysis, and strategic insights including industry trends, regulatory requirements, terminology glossary, and myths to address.
+
+## Why you need this
+
+You can't sell effectively if your team doesn't understand what jobs customers are hiring your product to do, how features translate to tangible benefits, or what proof backs up your claims. And you can't position strategically without understanding competitive forces, market maturity, and macro trends shaping buyer behavior. This framework creates both the product knowledge foundation your team needs and the strategic market intelligence that informs positioning and messaging.
+
+## Before you start
+
+This prompt works best when you have:
+- Detailed product/service specifications and capabilities
+- Customer outcome data, metrics, or case study results
+- Clear understanding of use cases across different personas and industries
+- Pricing structure with tier differentiation
+- Competitive intelligence and market positioning clarity
+- Knowledge of regulatory requirements and compliance standards
+
+If you're early-stage, you can build this based on product roadmap, customer discovery insights, and strategic hypotheses about market positioning. Just be clear about what's validated vs. aspirational.
+
+## Prepare your inputs
+
+Fill out this form before running the prompt. The more detailed and specific your inputs, the more actionable your catalog and market intelligence will be.
+
+### Product/service information
+
+**{{productList}}**  
+Complete list of all offerings with brief descriptions.  
+Example: "Core Platform (enterprise sales enablement), Content Intelligence Add-on (AI-powered recommendations), Mobile App (field sales access), Professional Services (implementation and training)"
+
+**{{keyFeatures}}**  
+Detailed features and capabilities for each product/service.  
+Example: "Core Platform features: Deal context engine, Win/loss learning algorithm, Content recommendation engine, Rep performance analytics, CRM integration, Mobile SDK. Content Intelligence features: Sentiment analysis, Competitive intelligence extraction, Buyer journey mapping"
+
+**{{pricingModel}}**  
+Tiers, price points, and what's included at each level.  
+Example: "Starter ($5K/year, up to 10 users), Professional ($15K/year, up to 50 users, includes mobile), Enterprise ($50K+/year, unlimited users, includes Content Intelligence and white-glove onboarding)"
+
+**{{customerOutcomes}}**  
+Known results, metrics, or improvements customers have achieved.  
+Example: "Average 30% reduction in sales cycle, 25% increase in win rates, 40% faster rep onboarding, 10 hours per week saved per rep on content search"
+
+**{{proofPoints}}**  
+Case studies, testimonials, statistics, certifications, awards, or third-party validation.  
+Example: "12 G2 reviews averaging 4.8/5 stars, SOC 2 Type II certified, Featured in Forrester Wave Report, Customer case study: TechCorp reduced sales cycle from 90 to 63 days"
+
+**{{technicalSpecs}}**  
+Integration requirements, platform compatibility, system requirements.  
+Example: "Integrates with Salesforce, HubSpot, Microsoft Dynamics. API-first architecture. Single-tenant or multi-tenant deployment options. Requires modern browser (Chrome, Safari, Firefox). Mobile apps for iOS and Android"
+
+**{{useCases}}**  
+How different personas or industries currently use each product.  
+Example: "Sales enablement teams use it to scale consistent messaging. RevOps uses analytics to identify coaching opportunities. Sales managers use it for deal inspection. Reps use mobile app for field access"
+
+### Market & customer context
+
+**{{buyerPersonas}}**  
+Who uses each product? Include roles, industries, company sizes.  
+Reference your Target Customer Profiles if you've already created them.  
+Example: "VP of Sales (economic buyer, 50-500 employee B2B SaaS), Sales Enablement Manager (champion, mid-market tech), RevOps Leader (influencer, high-growth companies)"
+
+**{{icpIndustries}}**  
+Primary industries or sectors you serve.  
+Example: "B2B SaaS, technology services, manufacturing, financial services, healthcare technology"
+
+**{{competitiveLandscape}}**  
+Known competitors and alternative solutions.  
+Example: "Direct competitors: Competitor A (feature-rich but complex), Competitor B (fast implementation but limited analytics). Substitutes: Generic CRMs with content libraries, DIY solutions using Google Drive + Salesforce, hiring more enablement staff"
+
+**{{marketPosition}}**  
+How you currently describe your market category and position.  
+Reference your Brand Positioning Statement if you've already created it.  
+Example: "Sales enablement platform for scaling consistent messaging in B2B teams—differentiated by learning from deal outcomes, not just usage"
+
+**{{pains}}**  
+Problems customers are trying to solve.  
+Example: "Inconsistent messaging across growing sales teams, long sales cycles due to rep inefficiency, inability to replicate top performer behavior, lack of visibility into what content actually drives deals"
+
+**{{regulatoryRequirements}}**  
+Any compliance, certification, or regulatory considerations.  
+Example: "SOC 2 Type II required for enterprise deals, GDPR compliance for EU customers, data residency requirements for financial services, FedRAMP for government contracts"
+
+### Strategic context
+
+**{{companyStage}}**  
+Startup phase, funding stage, or maturity level.  
+Examples: "Series B startup with $25M raised," "Bootstrapped and profitable for 5 years," "Public company, market leader"
+
+**{{geo}}**  
+Regions or countries you operate in or target.  
+Example: "Primarily North America, expanding into UK and Western Europe, APAC markets planned for 2026"
+
+**{{techStack}}**  
+Core technologies, platforms, or methodologies used.  
+Example: "Built on AWS, microservices architecture, ML models using TensorFlow, GraphQL API, React + TypeScript frontend"
+
+**{{growthGoals}}**  
+Key business objectives or market expansion plans.  
+Example: "Expand from mid-market to enterprise, launch Content Intelligence to existing base, enter European market, achieve 95% gross retention"
+
+**{{differentiators}}**  
+What makes your offering distinct or superior.  
+Reference your Competitive Differentiation Matrix if you've already created it.  
+Example: "Only platform that learns from won/lost deals. 48-hour implementation vs. industry 6-8 weeks. Built for remote teams from day one, not retrofitted"
+
+**Pro tip:** For customer outcomes and proof points, include specific numbers with context. "Customers see 30% improvement" is weak. "Enterprise customers reduced sales cycle from 90 to 63 days (30% improvement) within first quarter of implementation" is powerful.
+
+## The prompt
+
+Copy everything below this line and paste it into your LLM. Fill in your prepared inputs where indicated.
+
+---
+```
+You are a strategic product marketing expert. Your task is to create a detailed product/service catalog that articulates value through customer jobs-to-be-done, connects features to tangible benefits with proof, and provides strategic market context for effective positioning and messaging.
+
+## Part 1: Product/service catalog (JTBD + Feature/Benefit/Proof)
+
+For each product or service, create:
+
+### Jobs-to-be-done statement
+- Identify the functional, emotional, and social jobs the customer is hiring this product to accomplish
+- Frame from the customer's perspective: "When I [situation], I want to [motivation], so I can [expected outcome]"
+
+### Feature → Benefit → Proof structure
+- **Features:** Core capabilities and specifications
+- **Benefits:** Tangible outcomes and value delivered (connect features to customer results)
+- **Proof points:** Quantifiable evidence, metrics, case study results, testimonials, certifications, or third-party validation
+
+### Pricing architecture
+- Tier structure with feature differentiation
+- Value justification for each tier
+- Typical customer profile per tier
+
+### Use case matrix
+- Primary use cases mapped to personas
+- Industry-specific applications
+- Workflow integration scenarios
+
+### Integration & compatibility profile
+- Technical requirements
+- Platform compatibility
+- Key integrations available
+- Implementation considerations
+
+## Part 2: Industry & market context analysis
+
+Provide strategic market intelligence using multiple analytical frameworks:
+
+### A. Competitive landscape (Porter's Five Forces)
+- **Threat of new entrants:** Barriers to entry, capital requirements, switching costs
+- **Bargaining power of suppliers:** Dependency, concentration, differentiation
+- **Bargaining power of buyers:** Price sensitivity, volume, alternatives
+- **Threat of substitutes:** Alternative solutions, value-price trade-offs
+- **Competitive rivalry:** Market concentration, growth rate, differentiation
+
+### B. Market maturity assessment (Gartner Hype Cycle + TALC)
+- **Hype Cycle position:** Where does this product category sit? (Innovation Trigger → Peak of Inflated Expectations → Trough of Disillusionment → Slope of Enlightenment → Plateau of Productivity)
+- **Adoption segment:** Primary target (Innovators/Early Adopters/Early Majority/Late Majority/Laggards)
+- **Implications:** Go-to-market and messaging strategy based on maturity
+
+### C. Macro-environmental analysis (PESTEL)
+- **Political:** Regulatory landscape, government policies, trade restrictions
+- **Economic:** Market conditions, economic indicators, funding environment
+- **Sociocultural:** Demographic trends, cultural shifts, workforce changes
+- **Technological:** Innovation pace, infrastructure, emerging technologies
+- **Environmental:** Sustainability requirements, climate considerations
+- **Legal:** Compliance requirements, intellectual property, data privacy
+
+### D. Strategic insights compilation
+- **Key industry trends:** Top 3-5 trends with implications for the business
+- **Regulatory & compliance requirements:** Must-know standards, certifications, legal considerations
+- **Industry terminology glossary:** 15-20 essential terms for consistent communication
+- **Myths & misconceptions:** Common misunderstandings that need addressing in messaging
+
+## Output format
+
+Deliver the following structured documents:
+
+### 1. Product catalog master document
+- Executive summary
+- Individual product/service profiles (JTBD + Feature/Benefit/Proof)
+- Pricing comparison chart
+- Use case matrix
+- Integration guide
+
+### 2. Market intelligence brief
+- Competitive landscape analysis
+- Market maturity assessment
+- PESTEL analysis summary
+- Strategic implications and recommendations
+
+### 3. Market education assets
+- Industry glossary
+- Myths vs. reality sheet
+- Trend analysis with positioning opportunities
+
+## Client context
+
+[Paste all your prepared inputs here]
+
+### Product/service information
+- Product/service list: {{productList}}
+- Key features: {{keyFeatures}}
+- Pricing structure: {{pricingModel}}
+- Customer outcomes: {{customerOutcomes}}
+- Proof points: {{proofPoints}}
+- Technical specifications: {{technicalSpecs}}
+- Use case examples: {{useCases}}
+
+### Market & customer context
+- Target personas: {{buyerPersonas}}
+- Industry/vertical focus: {{icpIndustries}}
+- Competitive landscape: {{competitiveLandscape}}
+- Market position: {{marketPosition}}
+- Customer pain points: {{pains}}
+- Regulatory requirements: {{regulatoryRequirements}}
+
+### Strategic context
+- Company stage: {{companyStage}}
+- Geographic markets: {{geo}}
+- Technology stack: {{techStack}}
+- Growth goals: {{growthGoals}}
+- Unique differentiators: {{differentiators}}
+```
+
+---
+
+## After you run it
+
+Turn this into your product knowledge system:
+- **Train every customer-facing team** (sales, CS, product marketing) on the JTBD framework and feature/benefit/proof structure
+- **Build sales enablement assets** - battlecards, one-pagers, comparison charts based on the catalog
+- **Create pricing justification** materials that connect tier value to customer profiles
+- **Develop use case libraries** organized by persona and industry
+- **Update your website** to lead with jobs-to-be-done and benefits, not feature lists
+- **Brief your content team** on industry trends, terminology, and myths to address
+
+Use the market intelligence to inform strategy:
+- **Align product roadmap** to Porter's Five Forces insights (e.g., if threat of substitutes is high, invest in differentiation)
+- **Tailor messaging** based on Hype Cycle position (early adopters need different language than mainstream buyers)
+- **Build thought leadership** around the trends and myths you've identified
+- **Track regulatory changes** and update compliance positioning as requirements evolve
+
+Refresh this quarterly or when major product launches, competitive shifts, or market changes occur. Your product catalog should be a living document that evolves with your business.
+
+## Examples
+
+[Coming soon—sample product catalogs and market intelligence briefs from real consulting engagements]

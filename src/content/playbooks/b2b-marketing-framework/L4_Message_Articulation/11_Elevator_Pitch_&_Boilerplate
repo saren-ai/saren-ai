@@ -1,0 +1,215 @@
+# Elevator pitch & boilerplate
+
+## What this generates
+
+Your complete suite of elevator pitches and boilerplate text using Guy Kawasaki's 10/20/30 Rule and AP Style guidelines. You'll get tiered pitches (1-sentence, 30-second, 60-second), audience-specific variants (executive, technical, general), AP-style boilerplate paragraphs (short, standard, long), and application examples showing how to use them across channels.
+
+## Why you need this
+
+Every team member needs a consistent, rehearsed way to introduce your company—whether it's a 10-second hallway conversation, a 30-second cold call, or a 60-second investor pitch. Without this, your sales rep says one thing, your CEO says another, and your marketing team writes something completely different. This framework gives everyone the same story, adapted for different contexts and audiences, so you sound like one company instead of five.
+
+## Before you start
+
+This prompt works best when you have:
+- Clear positioning and differentiation already defined (reference your Positioning Statement and Message Map)
+- Credibility markers ready: awards, client names, metrics, milestones
+- A sense of your brand voice and tone (reference your Brand Voice & Tone doc)
+- Real customer outcomes or proof points you can cite
+
+If you're early-stage, you can still create these based on founder vision and strategic positioning. Just be ready to refine as you gather proof points and market validation.
+
+## Prepare your inputs
+
+Fill out this form before running the prompt. The more specific your inputs, the more credible and differentiated your pitches will be.
+
+### Company overview
+
+**{{companyName}}**  
+Your official company name
+
+**{{industry}}**  
+Your industry or market category.  
+Examples: "B2B SaaS," "Healthcare technology," "Sales enablement software," "API infrastructure"
+
+**{{targetAudiences}}**  
+Primary audience segments (list 2-3).  
+Examples: "VPs of Sales at mid-market B2B companies, Sales enablement managers, Revenue operations leaders"
+
+**{{coreProblem}}**  
+The main problem your customers face. Be specific and use customer language.  
+Example: "Sales teams struggle to maintain consistent messaging across reps as they scale, leading to longer sales cycles and lower win rates"
+
+**{{uniqueSolution}}**  
+How your product/service solves this problem uniquely—not just better, but different.  
+Example: "AI-powered content recommendation engine that learns from won/lost deals, not just content consumption, to automatically replicate top performer behavior"
+
+**{{customerOutcomes}}**  
+Primary benefits or results customers achieve. Use specific metrics if possible.  
+Examples: "Reduce sales cycle by 30%," "Increase win rates by 25%," "Cut rep onboarding time from 90 to 21 days"
+
+### Positioning foundation
+
+**{{categoryPosition}}**  
+How you position within your category.  
+Examples: "Category leader in sales enablement for remote teams," "Disruptive challenger in CRM space," "Niche specialist for healthcare compliance software"
+
+**{{differentiators}}**  
+Top 2-3 factors that distinguish you from competitors. Be specific.  
+Examples: "Only platform that learns from deal outcomes, not usage," "48-hour implementation vs. industry average of 6-8 weeks," "Built specifically for remote sales teams from day one"
+
+**{{voiceDescription}}**  
+Your brand's tone and personality. Reference your Brand Voice & Tone doc if you've already created it.  
+Examples: "Authoritative yet approachable," "Technical and precise," "Bold and innovative," "Expert but not intimidating"
+
+### Credibility elements
+
+**{{yearFounded}}**  
+Company founding year
+
+**{{keyMilestones}}**  
+2-3 significant company achievements or timeline moments.  
+Examples: "Raised $10M Series A from Sequoia," "Surpassed 500 enterprise customers," "Named to Forbes Cloud 100," "Achieved SOC 2 Type II certification"
+
+**{{awards}}**  
+Notable awards, certifications, or industry recognition.  
+Examples: "G2 Top 50 Sales Software 2024," "Gartner Cool Vendor," "Inc. 5000 Fastest Growing Companies," "SOC 2 Type II certified"
+
+**{{notableClients}}**  
+Recognizable customers or partners (if applicable and permissible to name).  
+Example: "Trusted by companies like Stripe, HubSpot, and Notion"
+
+**{{growthMetrics}}**  
+Relevant metrics like customers served, funding raised, market presence (optional).  
+Examples: "500+ enterprise customers across 30 countries," "$25M in funding from top-tier VCs," "95% customer retention rate"
+
+**Pro tip:** For the boilerplate, stick to verifiable facts only. No "world-class," "cutting-edge," or "revolutionary" claims. Think like a journalist would write about you—factual, third-person, no hyperbole. That's what makes it credible for press releases and partner announcements.
+
+## The prompt
+
+Copy everything below this line and paste it into your LLM. Fill in your prepared inputs where indicated.
+
+---
+```
+You are an expert brand messaging strategist specializing in creating concise, compelling company narratives. Using Guy Kawasaki's 10/20/30 Rule and AP Style guidelines, create a comprehensive set of elevator pitches and a standardized boilerplate for {{companyName}}.
+
+## Deliverables
+
+### 1. Tiered elevator pitches
+
+Create elevator pitches for each scenario, following the Problem → Solution → Outcome structure:
+
+**A. 1-sentence pitch (10-15 words)**
+- Ultimate compression for quick introductions
+- Lead with the transformational outcome
+
+**B. 30-second pitch (~75 words)**
+- Suitable for: Brief networking, cold outreach, email signatures
+- Include: Problem hook, solution summary, unique differentiator, outcome
+
+**C. 60-second pitch (~150 words)**
+- Suitable for: Formal introductions, investor meetings, podcast intros
+- Include: Context-setting, problem depth, solution mechanism, proof point, call-to-action
+
+### 2. Audience-specific pitch variants
+
+Adapt the 30-second pitch for:
+
+**A. Executive/C-suite audience**
+- Focus on business outcomes, ROI, strategic value
+- Use business language, minimize technical jargon
+
+**B. Technical/practitioner audience**
+- Emphasize methodology, technical approach, implementation
+- Use industry-specific terminology appropriately
+
+**C. General/consumer audience**
+- Simplify language, focus on relatable benefits
+- Use analogies and accessible metaphors
+
+### 3. AP-style boilerplate paragraph
+
+Create a 75-100 word standardized boilerplate that includes:
+- Company name and founding year
+- Clear category definition
+- Core value proposition
+- Key differentiator
+- Brief credibility marker (client, award, or metric)
+- Website URL
+
+**Format requirements:**
+- Third-person, present tense
+- AP Style adherence (state abbreviations, number style, punctuation)
+- No marketing hyperbole or subjective claims
+- Facts and verifiable statements only
+- Suitable for press releases, partner announcements, and media kits
+
+### 4. Boilerplate variations
+
+**A. Short boilerplate (50 words)**
+- For space-constrained contexts: email footers, social bios, directory listings
+
+**B. Long boilerplate (150 words)**
+- For comprehensive contexts: annual reports, major announcements, investment materials
+- Include additional history, leadership, or market context
+
+### 5. Application examples
+
+Demonstrate usage in:
+- Email signature format
+- LinkedIn "About" section (company page)
+- Press release footer
+- Partnership announcement template
+
+## Formatting & style guidelines
+
+- Maintain {{voiceDescription}} throughout all variants
+- Ensure consistency with positioning from {{categoryPosition}}
+- Use active voice and strong verbs
+- Avoid clichés ("cutting-edge," "world-class," "revolutionary")
+- Make every word count—prioritize clarity and impact
+- Ensure pitches can be spoken naturally (read aloud test)
+
+## Client context
+
+[Paste all your prepared inputs here]
+
+### Company overview
+- Company name: {{companyName}}
+- Industry: {{industry}}
+- Target audiences: {{targetAudiences}}
+- Core problem: {{coreProblem}}
+- Unique solution: {{uniqueSolution}}
+- Key outcomes: {{customerOutcomes}}
+
+### Positioning foundation
+- Category position: {{categoryPosition}}
+- Differentiators: {{differentiators}}
+- Brand voice: {{voiceDescription}}
+
+### Credibility elements
+- Year founded: {{yearFounded}}
+- Key milestones: {{keyMilestones}}
+- Awards: {{awards}}
+- Notable clients: {{notableClients}}
+- Growth metrics: {{growthMetrics}}
+```
+
+---
+
+## After you run it
+
+Put these to work immediately:
+- **Train everyone** on the pitches—CEO, sales, marketing, even engineering should know the 30-second version
+- **Record yourself** delivering each pitch and time it—if you can't say it naturally in the allotted time, it's too long
+- **Update email signatures** with the 1-sentence pitch
+- **Refresh LinkedIn company page** with the boilerplate
+- **Create a "boilerplate library"** doc so everyone uses the same text for press releases, partner announcements, etc.
+- **Test with strangers** at networking events—if they don't immediately get what you do, simplify the language
+
+Role-play the pitches with your team. If someone stumbles over a phrase or struggles to remember the structure, it's not tight enough. Push back on the output and ask for more natural, conversational language.
+
+Update these when positioning shifts, major milestones happen, or your differentiation evolves. The 1-sentence pitch should be stable, but proof points and credibility markers will change as you grow.
+
+## Examples
+
+[Coming soon—sample elevator pitches and boilerplates from real consulting engagements]

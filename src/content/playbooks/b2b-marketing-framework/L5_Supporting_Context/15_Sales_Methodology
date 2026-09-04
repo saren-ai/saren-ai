@@ -1,0 +1,296 @@
+# Sales methodology
+
+## What this generates
+
+Your comprehensive sales methodology framework using proven B2B selling frameworks like MEDDPICC, BANT 2.0, Sandler Pain Funnel, SPIN Selling, and Challenger Sale. You'll get methodology selection with rationale, detailed qualification criteria, deal stages with exit criteria, discovery question framework, demo best practices, red flags and disqualification triggers, top performer playbook, sales manager coaching guide, and a 90-day implementation roadmap.
+
+## Why you need this
+
+Without a consistent sales methodology, every rep sells differently, qualification is subjective, and deals stall at unpredictable stages. You can't forecast accurately, you can't coach effectively, and you waste time on bad-fit opportunities. A rigorous methodology creates a shared language, enables objective deal inspection, and systematically replicates what your top performers do naturally. This is how you go from art to science in your sales motion.
+
+## Before you start
+
+This prompt works best when you have:
+- Clear patterns in why deals win or lose (win/loss analysis)
+- Understanding of what your top performers do differently
+- Data on your current sales cycle length and deal sizes
+- Visibility into typical stakeholder counts and buying processes
+- Knowledge of where deals typically get stuck or disqualified
+
+If you're early-stage, you can build this based on founder selling experience, initial customer patterns, and strategic hypotheses. Just be ready to validate and refine as your sales team scales.
+
+## Prepare your inputs
+
+Fill out this form before running the prompt. The more specific your context and patterns, the more tailored your methodology will be.
+
+### Company & market profile
+
+**{{companyName}}**  
+Your company name
+
+**{{primarySegment}}**  
+Are you primarily selling to Enterprise, Mid-Market, or SMB customers?
+
+**{{acvRange}}**  
+What is your average deal value (ACV or total contract value)?
+
+**{{salesCycleDays}}**  
+How long does a typical sales cycle take from first contact to close?
+
+**{{productDescription}}**  
+Briefly describe what you sell (product/service/solution)
+
+### Current sales process
+
+**{{salesMotion}}**  
+Describe your current sales process from lead to close. Include stages and key activities.  
+Example: "Lead → Discovery → Demo → Proposal → Negotiation → Closed Won. Discovery focuses on pain, Demo customized to persona, Proposal includes ROI calculator"
+
+**{{qualification}}**  
+How do you currently qualify opportunities? What criteria do you use?  
+Example: "We ask about budget, decision-maker involvement, and timeline. But it's subjective—each rep qualifies differently"
+
+**{{salesStages}}**  
+What are your current pipeline stages?  
+Example: "Prospecting, Discovery, Demo Scheduled, Demo Completed, Proposal Sent, Negotiation, Closed Won/Lost"
+
+**{{salesTeamStructure}}**  
+How many sellers do you have? How is the team organized?  
+Example: "8 AEs split into hunters (new business) and farmers (expansion). 3 SDRs feeding the hunters. No industry specialization yet"
+
+### Discovery & qualification insights
+
+**{{idealDiscoveryCall}}**  
+Describe what a great discovery call looks like. What gets covered? What outcomes indicate success?  
+Example: "Great discovery: We uncover specific pain (not just 'it's hard'), quantify business impact ($X lost per quarter), identify who's affected, understand current workarounds, get timeline urgency. Success = prospect says 'I haven't thought about it that way' or asks 'how does your solution solve this?'"
+
+**{{dealbreakers}}**  
+What typically disqualifies a deal? When should you walk away?  
+Example: "No budget authority identified after 2 calls. No quantifiable pain or ROI case. Competitor already implemented (we don't rip-and-replace well). Timeline beyond 6 months with no urgency"
+
+**{{topPerformerBehaviors}}**  
+What do your top-performing reps do differently than average performers?  
+Example: "Top reps always get executive involvement early. They challenge prospects' assumptions instead of just pitching features. They disqualify faster—their pipeline is smaller but higher quality. They always send post-call summaries with next steps"
+
+**{{salesChallenges}}**  
+What are your biggest sales execution challenges right now?  
+Example: "Deals stall in negotiation stage. Reps struggle to get past mid-level managers to economic buyers. We lose to 'do nothing' more than competitors. Average reps don't ask good discovery questions"
+
+### Buyer & competitive context
+
+**{{buyerPersonas}}**  
+Who are the typical buyers/stakeholders involved in purchase decisions? Include titles and roles.  
+Example: "VP of Sales (economic buyer), Sales Enablement Manager (champion), RevOps (influencer/technical buyer), IT/Security (gatekeeper for procurement)"
+
+**{{stakeholderCount}}**  
+How many people are typically involved in buying decisions?  
+Example: "Usually 3-5 stakeholders in mid-market, 7-10 in enterprise deals"
+
+**{{directCompetitors}}**  
+Who are your top 3-5 competitors?
+
+**{{differentiators}}**  
+What are your key differentiators vs. competition? Why do customers choose you?  
+Example: "We learn from won/lost deals, not just content usage. Our implementation is 48 hours vs. competitor average of 6-8 weeks. We're built for remote teams specifically, not retrofitted"
+
+**Pro tip:** The "top performer behaviors" and "biggest sales challenges" sections are critical. They reveal what methodology elements to emphasize and where coaching should focus. Don't generalize—pull specific examples from recent deals.
+
+## The prompt
+
+Copy everything below this line and paste it into your LLM. Fill in your prepared inputs where indicated.
+
+---
+```
+You are a world-class sales methodology architect with deep expertise in enterprise and mid-market B2B selling frameworks including MEDDPICC, BANT 2.0, Sandler Pain Funnel, SPIN Selling, and Challenger Sale methodologies.
+
+Your task is to design a comprehensive, actionable Sales Methodology Framework tailored to the client's business that will drive consistent revenue growth, improve qualification rigor, and enable sales teams to win more deals at higher velocity.
+
+## Output deliverables
+
+Create a comprehensive Sales Methodology Framework document that includes:
+
+### 1. Recommended methodology selection & rationale
+
+- Analyze the company's market segment, deal complexity, and sales environment
+- Recommend the optimal primary methodology (MEDDPICC for enterprise, BANT 2.0 for mid-market, or hybrid approach)
+- Recommend complementary methodologies (Sandler Pain Funnel, SPIN, or Challenger) based on buyer sophistication and competitive landscape
+- Provide clear rationale for methodology selection tied to their specific context
+
+### 2. Detailed qualification criteria
+
+Based on the recommended methodology, define:
+
+**MEDDPICC criteria (if applicable):**
+- **Metrics:** What economic impact must be quantifiable?
+- **Economic Buyer:** Who has budget authority? How to identify them?
+- **Decision Criteria:** What are the evaluation criteria?
+- **Decision Process:** What's their buying process?
+- **Paper Process:** What's the procurement/legal process?
+- **Identify Pain:** What business pain must exist?
+- **Champion:** What defines a true champion?
+- **Competition:** How to assess competitive threats?
+
+**BANT 2.0 criteria (if applicable):**
+- **Budget:** Not just "do they have money" but "is the ROI compelling?"
+- **Authority:** Who influences vs. decides?
+- **Need:** Business pain + timing urgency
+- **Timeline:** Deal velocity indicators
+
+**Minimum qualification thresholds:** What must be true to advance a deal?
+
+### 3. Deal stages & exit criteria
+
+Create a stage-gated sales process with:
+- 5-7 clearly defined deal stages aligned to the buyer journey
+- Specific exit criteria for each stage (what must be validated/achieved to advance)
+- Required activities and deliverables per stage
+- Expected timeline ranges per stage
+- Probability/forecast guidance per stage
+- Red flag indicators that signal stage regression or disqualification
+
+### 4. Discovery question framework
+
+Develop a structured discovery approach:
+
+**Sandler Pain Funnel adaptation (if selected):**
+- Initial surface-level pain questions
+- Questions that deepen understanding of impact
+- Questions that explore emotional/personal impact
+- Questions that establish urgency and cost of inaction
+
+**SPIN Selling framework (if selected):**
+- **Situation questions:** Understanding current state
+- **Problem questions:** Uncovering difficulties and dissatisfactions
+- **Implication questions:** Exploring consequences and effects
+- **Need-Payoff questions:** Focusing on solution value
+
+**Challenger approach (if selected):**
+- **Teaching questions:** Reframing their thinking
+- **Tailoring questions:** Customizing insights to their context
+- **Taking control questions:** Guiding toward your solution
+
+Map specific questions to each buyer persona and deal stage. Include follow-up question examples and probing techniques. Provide guidance on question sequencing and conversational flow.
+
+### 5. Demo & presentation best practices
+
+Design a framework for conducting effective demos and presentations:
+- Pre-demo qualification and discovery requirements
+- Demo/presentation structure and flow
+- How to customize presentations based on persona and pain
+- Storytelling techniques and proof point deployment
+- Handling objections during presentations
+- Call-to-action and next-step frameworks
+- Success metrics for effective demos (e.g., what outcomes indicate momentum)
+
+### 6. Red flags & disqualification triggers
+
+Create a comprehensive guide including:
+- **Hard disqualification criteria:** Conditions that should immediately remove a deal from pipeline
+- **Yellow flags:** Warning signs that require validation or mitigation
+- **Competitive red flags:** Indicators of low win probability against competitors
+- **Internal red flags:** Signs of poor internal alignment or capability to deliver
+- Recommended actions when red flags appear
+- When to walk away vs. persist
+- How to gracefully disqualify and maintain relationship
+
+### 7. Top performer playbook
+
+Based on top performer behaviors, document:
+- Specific behaviors and techniques that differentiate top performers
+- Adoption framework for average performers to level up
+- Coaching points for sales managers
+- Success patterns and deal execution habits
+- Relationship-building and stakeholder management tactics
+
+### 8. Sales manager coaching guide
+
+Include:
+- How to coach to the methodology in pipeline reviews
+- Key questions managers should ask at each deal stage
+- Deal inspection checklist
+- Coaching frameworks for common challenges
+- How to identify coaching opportunities through methodology adherence
+
+### 9. Implementation roadmap
+
+Provide a practical 90-day rollout plan:
+- **Phase 1 (Weeks 1-4):** Methodology training and adoption
+- **Phase 2 (Weeks 5-8):** Application and coaching intensification
+- **Phase 3 (Weeks 9-12):** Reinforcement and optimization
+- Required tools, templates, and enablement assets
+- Success metrics and KPIs to track adoption and impact
+
+## Formatting & style guidelines
+
+- Use clear, actionable language that sales teams can immediately apply
+- Include specific examples and scenarios based on the client's context
+- Provide visual frameworks (describe tables, flowcharts, decision trees that should be created)
+- Balance rigor with practicality—methodology should be comprehensive but not bureaucratic
+- Include "Quick Reference" sections for easy adoption
+- Use bullet points, numbered lists, and bold headings for scannability
+- Incorporate real-world examples that resonate with the market segment
+
+## Quality standards
+
+Ensure the framework:
+- Aligns methodology selection to deal complexity and market segment
+- Provides specific, measurable qualification criteria
+- Creates clear stage gates that prevent premature advancement
+- Equips sellers with powerful discovery questions, not generic ones
+- Addresses the specific challenges noted
+- Builds on what already works (top performer behaviors)
+- Provides clear guidance on when to disqualify
+- Is immediately implementable with provided examples
+- Includes manager coaching integration
+- Balances structure with sales agility
+
+## Client context
+
+[Paste all your prepared inputs here]
+
+### Company & market profile
+- Company name: {{companyName}}
+- Primary market segment: {{primarySegment}}
+- Average deal size: {{acvRange}}
+- Sales cycle length: {{salesCycleDays}}
+- Product/service description: {{productDescription}}
+
+### Current sales process
+- Current sales process: {{salesMotion}}
+- Current qualification approach: {{qualification}}
+- Current deal stages: {{salesStages}}
+- Sales team structure: {{salesTeamStructure}}
+
+### Discovery & qualification insights
+- Ideal discovery call: {{idealDiscoveryCall}}
+- Disqualification reasons: {{dealbreakers}}
+- Top performer behaviors: {{topPerformerBehaviors}}
+- Biggest sales challenges: {{salesChallenges}}
+
+### Buyer & competitive context
+- Buyer personas: {{buyerPersonas}}
+- Stakeholder count: {{stakeholderCount}}
+- Main competitors: {{directCompetitors}}
+- Competitive differentiators: {{differentiators}}
+```
+
+---
+
+## After you run it
+
+Turn this into your sales operating system:
+- **Train the entire sales team** on the methodology in a 2-day intensive
+- **Update your CRM** to enforce exit criteria at each stage gate
+- **Create deal inspection templates** for weekly pipeline reviews
+- **Build question libraries** in your sales content management system
+- **Record top performers** using the methodology and create training modules
+- **Certify reps** on the methodology before they can move deals past Discovery
+- **Tie compensation** to methodology adherence, not just quota attainment
+
+Coach to the methodology religiously. In every pipeline review, ask: "What's the quantified pain? Who's the economic buyer? What are the decision criteria?" If reps can't answer, the deal shouldn't advance—period.
+
+Refresh quarterly based on win/loss patterns. Your methodology should evolve as your market, product, and competition change. But the core discipline—rigorous qualification, stage-gated advancement, consistent discovery—should remain constant.
+
+## Examples
+
+[Coming soon—sample sales methodology frameworks from real consulting engagements]

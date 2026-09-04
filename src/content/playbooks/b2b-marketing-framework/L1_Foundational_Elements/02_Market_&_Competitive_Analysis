@@ -1,0 +1,275 @@
+# Market & competitive analysis
+
+## What this generates
+
+A complete competitive intelligence package built on Porter's Five Forces and PESTEL frameworks. You'll get battlecards, trap-setting questions, win/loss analysis, and a deal qualification framework—everything your sales and marketing teams need to compete effectively and position with confidence.
+
+## Why you need this
+
+You can't build differentiated messaging or train a sales team without knowing exactly where you stand in the market. This isn't academic analysis—it's battle-tested competitive intel that helps you win more deals and walk away from the ones you shouldn't chase.
+
+## Before you start
+
+This prompt works best when you feed it real competitive intelligence, not guesses. Gather:
+- Win/loss data from recent deals
+- Sales call recordings where competitors came up
+- Competitive intel from your sales team
+- Analyst reports or market research on your category
+- Competitor websites, pricing pages, and case studies
+- Customer feedback about alternatives they considered
+
+If you're early-stage, lean on founder experience, investor conversations, and whatever you can scrape from competitor positioning and customer reviews.
+
+## Prepare your inputs
+
+Fill out this form before running the prompt. The more specific you are, the sharper the output.
+
+### Company profile
+
+**{{companyName}}**  
+Your company name
+
+**{{productDescription}}**  
+What you sell in 2-3 sentences—focus on the problem you solve, not feature lists
+
+**{{icpIndustries}}**  
+Who buys from you? Include industries, company sizes, specific roles.
+
+**{{companyStage}}**  
+Where are you? Choose one: Startup / Growth-stage / Established Enterprise
+
+### Competitive intelligence
+
+**{{directCompetitors}}**  
+List 3-5 companies you compete with most often in deals. Include their names and a one-line description if they're not well-known.
+
+**{{indirectCompetitors}}**  
+Emerging or adjacent competitors on your radar. These might not be direct competitors today but could be threats tomorrow.
+
+**{{whyWeWin}}**  
+Why do you typically win deals? Be specific: features, service quality, pricing model, relationships, faster implementation, better support, etc. Pull from sales notes or customer interviews.
+
+**{{whyWeLose}}**  
+Why do you typically lose deals? Be honest: feature gaps, pricing concerns, brand perception, implementation complexity, lack of integrations, etc.
+
+**{{comparisonCriteria}}**  
+What dimensions do prospects use to evaluate vendors? Examples: ease of integration, security certifications, customization options, price, support response time, scalability, user experience, etc.
+
+**{{competitorWeaknesses}}**  
+Known vulnerabilities in competitor offerings, positioning, or go-to-market strategy. Examples: poor customer service, outdated technology, complex pricing, limited integrations, weak mobile experience, slow innovation pace, etc.
+
+### Market dynamics
+
+**{{marketShifts}}**  
+Any significant industry changes in the last 12-18 months that impact how you compete. Think: new regulations, buyer behavior changes, economic factors, consolidation, funding environment shifts, remote work impacts, etc.
+
+**{{emergingCompetitors}}**  
+New entrants or companies expanding into your space. Include startups that just raised funding or adjacent players moving into your category.
+
+**{{techTrends}}**  
+Relevant tech developments impacting your market. Examples: AI adoption, automation trends, platform shifts, API-first architectures, no-code movement, data privacy regulations, etc.
+
+### Strategic boundaries
+
+**{{icpDescription}}**  
+Who is your best-fit customer? Include company size, industry, use case, pain points, tech stack, buying process. Reference your Target Customer Profiles if you've already created them.
+
+**{{antiIcp}}**  
+Red flags or deal types that historically haven't worked out. Examples: companies under 50 employees, organizations without dedicated IT teams, prospects requiring custom development, price-sensitive buyers in certain verticals, etc.
+
+### Supporting materials (optional but helpful)
+
+**{{existingCollateral}}**  
+Links to current positioning documents, website, pitch decks, or one-pagers.
+
+**{{winLossData}}**  
+Any formal win/loss analysis, Gong call summaries, or customer feedback from recent deals.
+
+**{{salesTeamInsights}}**  
+Common objections, trap questions that work, competitive situations your team faces most often, or internal competitive notes.
+
+**Pro tip:** The win/loss reasons and competitor weaknesses are the most critical inputs. If you don't have formal data, interview your top 3 sales reps and synthesize their insights. Real quotes from customer calls make everything more actionable.
+
+## The prompt
+
+Copy everything below this line and paste it into your LLM. Fill in your prepared inputs where indicated.
+
+---
+```
+You are a world-class marketing strategist specializing in competitive intelligence, positioning, and go-to-market strategy. Your task is to conduct a comprehensive market and competitive analysis using Porter's Five Forces and PESTEL frameworks to create foundational marketing artifacts for a B2B SaaS client.
+
+## Your objective
+
+Generate battle-tested marketing assets that sales and marketing teams can immediately operationalize, including:
+- Competitive landscape map - Visual/narrative overview of key players and market structure
+- Head-to-head comparison matrix - Feature, pricing, and value prop comparison on critical dimensions
+- Win/loss analysis - Patterns and insights from competitive situations
+- Trap-setting question bank - Challenger Sale-style questions that expose competitor weaknesses
+- Deal qualification framework - Criteria for when to walk away
+- Competitive differentiator matrix - What makes this company uniquely defensible
+
+## Analysis framework
+
+### Porter's Five Forces Analysis
+
+Evaluate and document:
+- **Competitive rivalry:** Intensity of competition, market share distribution, differentiation levels
+- **Threat of new entrants:** Barriers to entry, capital requirements, switching costs
+- **Bargaining power of buyers:** Customer concentration, price sensitivity, alternatives
+- **Bargaining power of suppliers:** Supplier concentration, uniqueness of service, switching costs
+- **Threat of substitutes:** Alternative solutions, price-performance trade-offs, emerging technologies
+
+### PESTEL Analysis
+
+Assess macro-environmental factors:
+- **Political:** Regulations, trade policies, government stability affecting the industry
+- **Economic:** Market growth rates, economic cycles, funding environment
+- **Social:** Buyer behavior shifts, workforce trends, demographic changes
+- **Technological:** Emerging tech, automation trends, innovation pace
+- **Environmental:** Sustainability pressures, ESG considerations
+- **Legal:** Compliance requirements, IP protection, contractual norms
+
+## Output requirements
+
+### 1. Competitive landscape overview (500-750 words)
+- Market map with competitor positioning
+- Category leaders, challengers, niche players
+- Market forces shaping competitive dynamics (Porter's Five Forces summary)
+- PESTEL factors creating opportunities or threats
+
+### 2. Head-to-head competitor comparison (table format)
+
+Create a detailed matrix comparing {{companyName}} against {{directCompetitors}} across:
+- Core product/service capabilities
+- Pricing model and typical deal size
+- Target customer segments
+- Key differentiators
+- Strengths and weaknesses
+- Market positioning
+- Sales approach
+- Customer support model
+
+### 3. Win/loss analysis & themes
+- **Common win scenarios:** Situations where {{companyName}} consistently wins
+- **Common loss scenarios:** Patterns in lost deals
+- **Key differentiators that matter:** What actually influences buyer decisions
+- **Competitive gaps:** Where the company is vulnerable
+- **Messaging insights:** What resonates in competitive situations
+
+### 4. Trap-setting question bank (15-20 questions)
+
+Develop Challenger Sale-style questions organized by competitor:
+- Questions that highlight {{companyName}}'s unique strengths
+- Questions that expose specific competitor weaknesses from {{competitorWeaknesses}}
+- Questions that reframe evaluation criteria in favorable ways
+- Questions that uncover hidden costs/risks in competitive solutions
+
+Format: Question | Why It Works | Ideal Follow-up
+
+### 5. Deal qualification framework
+
+Create clear criteria for:
+- **Green light deals:** High-probability wins with strong fit
+- **Yellow light deals:** Proceed with caution, requires specific conditions
+- **Red light deals:** Walk away scenarios based on {{antiIcp}}
+
+Include scoring rubric with qualifying questions.
+
+### 6. Competitive differentiator matrix
+
+Map differentiators across two dimensions:
+- **Axis 1:** Importance to buyer (high/low)
+- **Axis 2:** Competitive advantage (strong/weak)
+
+Identify:
+- **Core differentiators:** High importance + strong advantage (lead with these)
+- **Table stakes:** High importance + weak advantage (must maintain parity)
+- **Niche advantages:** Low importance + strong advantage (use selectively)
+- **Deprioritize:** Low importance + weak advantage (don't emphasize)
+
+### 7. Messaging pillars & positioning statement
+
+Based on all analysis above, create:
+
+**Positioning statement:** [For {{icpIndustries}}] who [need/want], {{companyName}} is the [category] that [key benefit]. Unlike {{directCompetitors}}, we [unique differentiator].
+
+**3-5 messaging pillars:** Core themes that ladder up to positioning, each with supporting proof points
+
+### 8. Battlecard summary (1-page format per competitor)
+
+For each primary competitor, create a sales-ready battlecard:
+- Quick overview
+- When you'll compete
+- Their strengths (be honest)
+- Their weaknesses (attack points)
+- Trap-setting questions
+- Proof points (case studies, metrics, testimonials)
+- Key differentiators
+- Landmines to avoid
+
+## Tone & style
+
+- **Actionable:** Sales and marketing teams should be able to use these immediately
+- **Honest:** Acknowledge real competitive strengths; credibility matters
+- **Strategic:** Focus on defensible differentiation, not just feature comparisons
+- **Data-informed:** Reference {{whyWeWin}}, {{whyWeLose}}, and market trends
+- **Confident but not arrogant:** Professional competitive intelligence, not trash-talking
+
+## Deliverable format
+
+Organize output as:
+1. Executive summary (key findings and strategic recommendations)
+2. Detailed analysis sections (as outlined above)
+3. Appendices (full comparison tables, extended question banks)
+
+Use markdown formatting with clear headers, tables, and bullet points for scannability.
+
+## Client context
+
+[Paste all your prepared inputs here]
+
+### Company profile
+- Company name: {{companyName}}
+- Product/service: {{productDescription}}
+- Target market: {{icpIndustries}}
+- Company stage: {{companyStage}}
+
+### Competitive intelligence
+- Primary competitors: {{directCompetitors}}
+- Secondary competitors: {{indirectCompetitors}}
+- Why we win: {{whyWeWin}}
+- Why we lose: {{whyWeLose}}
+- Evaluation criteria: {{comparisonCriteria}}
+- Competitor weaknesses: {{competitorWeaknesses}}
+
+### Market dynamics
+- Recent market shifts: {{marketShifts}}
+- Emerging competitors: {{emergingCompetitors}}
+- Technology trends: {{techTrends}}
+
+### Strategic boundaries
+- Ideal customer profile: {{icpDescription}}
+- Deals to avoid: {{antiIcp}}
+
+### Supporting materials (if available)
+- Existing collateral: {{existingCollateral}}
+- Win/loss data: {{winLossData}}
+- Sales team insights: {{salesTeamInsights}}
+```
+
+---
+
+## After you run it
+
+Don't just file this away. Turn it into:
+- **Sales battlecards** that live in your CRM or deal rooms
+- **Onboarding materials** for new sales hires
+- **Messaging briefs** for your content and demand gen teams
+- **Product roadmap inputs** based on competitive gaps
+- **Win/loss review framework** for ongoing deal analysis
+
+Schedule quarterly reviews to keep this fresh. Markets shift, competitors evolve, and yesterday's trap-setting questions become today's table stakes.
+
+## Examples
+
+[Coming soon—sample competitive analysis outputs from real consulting engagements]

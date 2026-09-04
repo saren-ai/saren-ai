@@ -1,0 +1,228 @@
+# Communication strategy
+
+## What this generates
+
+Your comprehensive communication strategy by channel using Integrated Marketing Communications (IMC), Customer Journey Mapping, and RACE Planning (Reach, Act, Convert, Engage) frameworks. You'll get channel inventory and assessment, channel-specific strategies (5-10 channels) with messaging adaptation rules, tone modulation guidelines, content format specifications, frequency and cadence recommendations, performance metrics, cross-channel consistency framework, governance and workflow, and a 90-day implementation roadmap.
+
+## Why you need this
+
+Without a channel strategy, your messaging is either inconsistent (confusing customers) or identical everywhere (ignoring how people consume content differently on LinkedIn vs. email vs. events). This framework ensures your core brand DNA stays intact while optimizing for each channel's unique characteristics, audience expectations, and funnel objectives. It's how you scale communications without chaos.
+
+## Before you start
+
+This prompt works best when you have:
+- Clear inventory of channels you're currently using and which are working vs. not working
+- Examples of content that performed well and content that flopped (with data or hypotheses)
+- Understanding of your team structure and who owns which channels
+- Sense of your approval comfort level (tight control vs. move fast)
+- Brand voice and messaging foundation already defined (reference your Brand Voice & Tone and Core Messaging Pillars docs)
+
+If you're early-stage, you can build this based on founder insights about what's resonated so far and strategic priorities for channel expansion. Just be ready to validate and iterate as you scale.
+
+## Prepare your inputs
+
+Fill out this form before running the prompt. The more specific your examples and context, the more practical your channel strategy will be.
+
+### Channel landscape
+
+**{{channels}}**  
+List all communication channels currently in use.  
+Examples: "LinkedIn (company page + CEO personal), Email newsletter (monthly to customers + prospects), Blog (weekly), Trade shows (3-4 per year), Paid LinkedIn ads, Webinars (monthly), Sales outreach emails, Customer community (Slack)"
+
+**{{plannedChannels}}**  
+List any channels planned for expansion or testing in the next 6-12 months.  
+Examples: "YouTube (product demos + thought leadership), Podcast (interviewing customers), Instagram (if we pivot to visual storytelling), Twitter/X (CEO thought leadership), Reddit (community engagement), TikTok (if we target younger buyers)"
+
+### Team & workflow context
+
+**{{teamStructure}}**  
+Describe who owns what channels and how your team is organized.  
+Examples:  
+- "Marketing Manager owns LinkedIn, blog, newsletter. Sales team owns outbound email. CEO handles thought leadership posts. We have a contractor for paid ads"  
+- "Single marketing person handling everything—need to prioritize ruthlessly"  
+- "Agency supports paid channels and content creation. In-house team handles social and email"
+
+**{{approvalLevel}}**  
+Describe approval preferences and constraints.  
+Examples:  
+- "CEO wants to review everything before it goes out—we move slowly but stay on-brand"  
+- "Team can self-approve social posts and blog content, but need VP approval for emails and paid campaigns"  
+- "Fast-moving startup, minimal approvals—trust the team but need guardrails"  
+- "Regulated industry (healthcare) requiring legal review for anything customer-facing"
+
+### Performance context
+
+**{{contentThatWorks}}**  
+Provide 2-5 examples of content/campaigns that performed well, with brief explanation of what made them successful.  
+Examples:  
+- "LinkedIn post about 'Sales reps waste 5 hours per week' got 450+ likes, 87 comments, 15 demo requests—specific stat in headline drove engagement"  
+- "Cold email with ROI calculator attachment had 34% reply rate vs. our 8% average—tangible value upfront"  
+- "Customer case study video on YouTube got 12K views and was shared internally at 6 prospect companies—storytelling format resonated"
+
+**{{contentThatFailed}}**  
+Provide 2-3 examples of content/campaigns that underperformed, with lessons learned or hypotheses about why.  
+Examples:  
+- "Product feature announcement email had 4% open rate—subject line too generic, timing wrong (Friday afternoon)"  
+- "LinkedIn carousel post explaining our methodology got 12 likes—too dense, text-heavy, no clear takeaway"  
+- "Webinar on 'Future of Sales' attracted only 15 registrants—topic too broad, no tangible value promise"
+
+**Pro tip:** For content that works/doesn't work, include specific metrics and your hypothesis about why. "It flopped" is useless. "4% open rate because subject line was generic and we sent Friday afternoon" gives the LLM actionable insights.
+
+## The prompt
+
+Copy everything below this line and paste it into your LLM. Fill in your prepared inputs where indicated.
+
+---
+```
+You are a marketing strategist specializing in Integrated Marketing Communications (IMC) and multi-channel strategy development. Your task is to create a comprehensive Communication Strategy by Channel document that ensures consistent brand messaging while optimizing for each channel's unique characteristics and audience expectations.
+
+## Framework approach
+
+Apply three complementary frameworks:
+- **Integrated Marketing Communications (IMC)** - Ensure message consistency across all touchpoints while adapting for channel-specific formats
+- **Customer Journey Mapping** - Align channel strategy with customer decision stages (awareness, consideration, purchase, post-purchase)
+- **RACE Planning (Reach, Act, Convert, Engage)** - Structure channel objectives to optimize for funnel progression
+
+## Document structure & requirements
+
+Create a strategic document (2,500-3,500 words) containing the following sections:
+
+### 1. Channel inventory & assessment
+
+- Map all current channels
+- Identify planned expansion channels
+- Assign ownership based on team structure
+- Analyze successful content examples
+- Review underperforming content lessons
+
+### 2. Channel-specific strategy (5-10 channels)
+
+For each major channel, provide:
+
+**Channel profile**
+- Primary audience and their expectations
+- Optimal content formats
+- RACE objective alignment (Reach/Act/Convert/Engage)
+- Customer journey stage relevance
+
+**Messaging adaptation rules**
+- How to translate core messages for this channel
+- Format requirements and constraints
+- 3-5 concrete examples showing message adaptation from other channels
+
+**Tone modulation guidelines**
+- Formality level adjustments
+- Energy and style variations
+- Language and vocabulary considerations
+- Visual tone specifications
+
+**Content format specifications**
+- Recommended content types (video, text, image, interactive, etc.)
+- Length/duration parameters
+- Technical specifications
+- Accessibility requirements
+
+**Frequency & cadence**
+- Optimal posting/sending schedule
+- Seasonality considerations
+- Engagement pattern observations
+- Fatigue threshold warnings
+
+**Performance metrics**
+- Primary KPIs for this channel
+- Secondary engagement metrics
+- Benchmark targets
+- Review frequency
+
+### 3. Cross-channel consistency framework
+
+Develop a checklist ensuring:
+- Core message DNA remains intact across adaptations
+- Visual identity consistency standards
+- Brand voice recognition despite tone shifts
+- Campaign coordination across channels
+- Terminology and naming consistency
+
+### 4. Governance & workflow
+
+Design an approval process reflecting the client's approval comfort level.
+
+Include:
+- Decision authority matrix by channel and content type
+- Review and approval workflow
+- Quality control checkpoints
+- Emergency/reactive communication protocols
+- Escalation procedures
+- Update and refresh cycles
+
+### 5. Implementation roadmap
+
+Provide:
+- Prioritized channel activation sequence
+- Quick wins vs. long-term builds
+- Resource allocation recommendations
+- Training and enablement needs
+- 90-day activation plan
+
+## Output quality standards
+
+- **Actionable:** Every guideline must be immediately implementable
+- **Specific:** Provide concrete examples, not just principles
+- **Balanced:** Address both consistency and channel optimization
+- **Realistic:** Consider the team structure and approval comfort provided
+- **Measurable:** Include clear success metrics for each channel
+
+## Tone & format
+
+- Professional but accessible language
+- Use tables, matrices, and visual frameworks where helpful
+- Include before/after examples of message adaptation
+- Provide decision trees for common scenarios
+- Use callout boxes for critical warnings or best practices
+
+## Client context
+
+[Paste all your prepared inputs here]
+
+### Channel landscape
+- Current channels: {{channels}}
+- Planned channels: {{plannedChannels}}
+
+### Team & workflow context
+- Team structure: {{teamStructure}}
+- Approval comfort level: {{approvalLevel}}
+
+### Performance context
+- Content that works: {{contentThatWorks}}
+- Content that failed: {{contentThatFailed}}
+```
+
+---
+
+## After you run it
+
+Turn this strategy into your communications operating system:
+- **Create channel playbooks** - One-pagers for each channel with quick-reference guidelines
+- **Build content calendars** that map to channel frequency and cadence recommendations
+- **Train channel owners** on their specific strategy, metrics, and approval workflows
+- **Set up dashboards** tracking KPIs for each channel
+- **Create message adaptation templates** so anyone can translate core messaging appropriately
+- **Document approval workflows** in your project management tool (Asana, Monday, etc.)
+
+Run quarterly channel reviews:
+- What's working? Double down.
+- What's underperforming? Kill it or fix it.
+- Are new channels emerging that we should test?
+- Is our messaging staying consistent across channels?
+- Are approval workflows creating bottlenecks?
+
+Update the strategy when:
+- You launch new products or enter new markets
+- Your positioning or messaging changes
+- You hire channel-specific specialists
+- Platform algorithms or best practices shift significantly
+- Performance data reveals major channel opportunities or failures
+
+## Examples
+
+[Coming soon—sample communication strategy documents from real consulting engagements]

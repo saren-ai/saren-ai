@@ -1,0 +1,187 @@
+# Unique value propositions
+
+## What this generates
+
+Your complete positioning and messaging foundation using April Dunford's Obviously Awesome framework and Geoffrey Moore's value proposition structure. You'll get a positioning statement, persona-specific value propositions, competitive differentiation statements, proof points matrix, and messaging architecture—everything you need for your homepage, sales decks, and customer-facing communications.
+
+## Why you need this
+
+Generic value props like "we help companies be more efficient" don't win deals. You need messaging that's specific, differentiated, and backed by proof. This framework forces you to articulate exactly why customers choose you over alternatives, what makes you uniquely different (not just better), and how to prove it. Without this, your sales team is winging it and your marketing is forgettable.
+
+## Before you start
+
+This prompt works best when you have:
+- Clear customer feedback about why they chose you (or didn't)
+- Win/loss data from recent deals showing competitive patterns
+- Proof points ready: metrics, testimonials, case studies, retention data
+- A sense of your competitive landscape and where you fit
+
+If you're early-stage, lean on customer discovery interviews, founder insights, and competitive research. The framework still works—you're just testing hypotheses rather than validating patterns.
+
+## Prepare your inputs
+
+Fill out this form before running the prompt. The more specific your inputs, the sharper your messaging will be.
+
+### Company basics
+
+**{{companyName}}**  
+Your company or product name
+
+**{{coreProblem}}**  
+What core problem does your solution solve? Describe it in 2-3 sentences from your customer's perspective.
+
+**{{buyerPersonas}}**  
+Who are your primary customer segments or personas? List each with a brief description (role, company size, key characteristics). Reference your Target Customer Profiles if you've already created them.
+
+**{{category}}**  
+What product category are you in or defining?  
+Examples: "CRM software," "AI-powered analytics platform," "workflow automation for healthcare," "API infrastructure for developers"
+
+### Competitive context
+
+**{{directCompetitors}}**  
+Who are your primary competitors and alternatives? Include direct competitors AND alternative solutions customers might consider (including "do nothing" or "build it ourselves" if relevant).
+
+**{{whyWeWin}}**  
+Why do customers choose your solution over alternatives? Pull from customer feedback, sales conversations, close-won reports, or post-sale interviews. Be specific—what did they say?
+
+**{{winLossData}}**  
+What have you learned from competitive wins and losses? Optional but highly valuable.  
+Examples: "We win when speed matters more than features," "We lose to Competitor X when prospects need on-premise deployment," "We win against DIY solutions when teams hit scale challenges"
+
+**{{categoryContext}}**  
+Market category context: Is this an established or emerging category? Are you defining new category criteria? What makes this space unique right now?  
+Examples: "Established CRM space but we're the first built specifically for remote teams," "Emerging category around AI code review—most buyers still building internally," "Mature category but recent regulatory changes created new requirements"
+
+### Proof & validation
+
+**{{proofPoints}}**  
+What evidence validates your claims? Include all available proof:
+- Customer metrics (time saved, revenue increased, costs reduced, etc.)
+- Testimonials (with customer names and titles if possible)
+- Case study summaries (problem → solution → result)
+- Retention rates, NPS scores, or customer satisfaction data
+- Growth numbers, user adoption stats, or scale metrics
+- Awards, certifications, analyst recognition, or media coverage
+
+Be specific. "Customers love us" is useless. "94% customer retention rate, 50+ enterprise customers, average ROI of 240% in first year" is actionable.
+
+**Pro tip:** The proof points section is critical. Real numbers and customer quotes make everything else credible. If you don't have formal proof yet, use founding customer stories, pilot results, or even pre-sale validation from discovery calls.
+
+## The prompt
+
+Copy everything below this line and paste it into your LLM. Fill in your prepared inputs where indicated.
+
+---
+```
+You are a strategic marketing expert specializing in positioning and messaging. Your task is to develop comprehensive messaging artifacts for a client using April Dunford's Obviously Awesome positioning framework combined with Geoffrey Moore's value proposition structure.
+
+## Your objective
+
+Create a complete set of messaging and positioning artifacts that will serve as the foundation for the client's homepage, sales decks, and all customer-facing communications.
+
+## Required deliverables
+
+### 1. Positioning statement (Geoffrey Moore format)
+
+Create a concise positioning statement following this structure:
+
+For [target customer]  
+Who [statement of need or opportunity]  
+Our product is a [product category]  
+That [key benefit/compelling reason to buy]  
+Unlike [primary competitive alternative]  
+We [primary differentiation]
+
+### 2. Unique value propositions by persona/segment
+
+For each target customer segment identified, develop:
+- A primary value proposition (one compelling sentence)
+- 3-5 supporting value pillars
+- Specific outcomes/benefits relevant to that persona
+- Emotional and rational drivers
+
+### 3. Competitive differentiation statements
+
+Create clear differentiation statements that:
+- Identify what makes this solution uniquely different (not just better)
+- Address the most common objection: "Why not just use [competitor]?"
+- Frame differences as strengths, not feature comparisons
+- Connect differentiation to customer value
+
+### 4. Proof points matrix
+
+Organize all evidence into:
+- Quantitative metrics (with context)
+- Customer testimonials (matched to claims)
+- Case study summaries (problem → solution → result)
+- Third-party validation (awards, analyst recognition, certifications)
+- Map each proof point to specific claims/value props
+
+### 5. Messaging architecture summary
+
+Create a one-page messaging hierarchy showing:
+- Core positioning statement
+- Primary value proposition
+- 3-5 key messaging pillars
+- Supporting evidence for each pillar
+- Recommended message prioritization by channel/audience
+
+## Output format
+
+Present your work in a clean, scannable format with:
+- Clear headers for each section
+- Bullet points for readability
+- Callout boxes for the most critical statements
+- A summary section at the beginning
+- Notes on usage recommendations for different contexts (homepage vs. sales deck vs. email)
+
+## Quality standards
+
+Ensure all messaging is:
+- **Clear:** Avoid jargon; use customer language
+- **Specific:** Include concrete benefits, not vague claims
+- **Credible:** Every claim backed by proof points
+- **Differentiated:** Distinctly different from competitors
+- **Compelling:** Emotionally resonant while rationally sound
+- **Consistent:** Aligned across all statements and segments
+
+## Client context
+
+[Paste all your prepared inputs here]
+
+### Company basics
+- Company name: {{companyName}}
+- Problem statement: {{coreProblem}}
+- Target personas: {{buyerPersonas}}
+- Product category: {{category}}
+
+### Competitive context
+- Primary competitors & alternatives: {{directCompetitors}}
+- Reasons customers choose us: {{whyWeWin}}
+- Win/loss insights: {{winLossData}}
+- Category context: {{categoryContext}}
+
+### Proof & validation
+- Proof points: {{proofPoints}}
+```
+
+---
+
+## After you run it
+
+Don't let this sit in a doc. Turn it into:
+- **Homepage hero copy** using your core positioning and primary value prop
+- **Sales deck opening slides** with positioning statement and persona-specific value props
+- **Email templates** for outbound prospecting, segmented by persona
+- **Sales battlecards** with differentiation statements and proof points
+- **Product marketing briefs** so every launch uses consistent messaging
+- **Content calendar themes** built around your messaging pillars
+
+Test the messaging with customers and prospects. If they don't immediately get it or if they confuse you with competitors, your differentiation isn't sharp enough. Push back on the output and ask for more specificity.
+
+Update this quarterly or after major product launches, competitive shifts, or positioning changes. Your category and proof points will evolve—your messaging should too.
+
+## Examples
+
+[Coming soon—sample value proposition frameworks from real consulting engagements]

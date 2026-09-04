@@ -5,6 +5,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 
+import FAQ from "@/components/ui/FAQ";
+import { FAQS } from "@/data/faqs";
 import MatrixRain from "@/components/home/MatrixRain";
 import { LAYERS } from "@/lib/agentic-web/layers";
 
@@ -55,7 +57,7 @@ const services = [
     order: "Audit",
     title: "Agentic Readiness Audit",
     description: "A fixed-scope diagnostic across the three layers, with a checklist published in advance.",
-    href: "/services/audit",
+    href: "/contact",
     cta: "Get the audit",
   },
 ];
@@ -109,7 +111,7 @@ export default function HomeClient() {
               transition={{ duration: 0.5, delay: 0.45 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <Link href="/services/audit" className="btn-primary" aria-label="Get the agentic readiness audit">
+              <Link href="/contact" className="btn-primary" aria-label="Get the agentic readiness audit">
                 Get the agentic readiness audit
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
@@ -342,6 +344,14 @@ export default function HomeClient() {
         </div>
       </section>
 
+      {/* ── FAQ ───────────────────────────────────────────────────────────── */}
+      {/* Visible Q&A + FAQPage JSON-LD, both built from FAQS.home in src/data/faqs.ts */}
+      <FAQ
+        title="Questions about the agentic web"
+        description="What an AI-native website is, and what it is not"
+        items={FAQS.home}
+      />
+
       {/* ── Close ──────────────────────────────────────────────────────────── */}
       <section className="section gradient-dark text-ash">
         <div className="container-narrow text-center">
@@ -358,7 +368,7 @@ export default function HomeClient() {
               The agentic readiness audit checks all three layers and hands back
               a published, specific scope. No guessing at what you get.
             </p>
-            <Link href="/services/audit" className="btn-primary inline-flex text-lg">
+            <Link href="/contact" className="btn-primary inline-flex text-lg">
               Get the agentic readiness audit
               <ArrowRight className="w-5 h-5" />
             </Link>

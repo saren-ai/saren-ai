@@ -1,4 +1,12 @@
+import { timingSafeEqual } from 'crypto';
 import { NextResponse } from 'next/server';
+
+function safeCompare(a: string, b: string): boolean {
+  const bufA = Buffer.from(a);
+  const bufB = Buffer.from(b);
+  if (bufA.length !== bufB.length) return false;
+  return timingSafeEqual(bufA, bufB);
+}
 
 const SITE_URLS = [
   'https://saren.ai',
@@ -43,10 +51,14 @@ const SITE_URLS = [
  * This can be run automatically by a Vercel Cron Job on a daily schedule
  */
 export async function GET(request: Request) {
-    // Prevent abuse of the quota endpoint by ensuring it is authenticated via Vercel Cron
-    // If CRON_SECRET is missing (e.g. strict local dev environment), allow it as fallback.
-    const authHeader = request.headers.get('authorization');
-    if (process.env.CRON_SECRET && authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    const cronSecret = process.env.CRON_SECRET;
+    const isLocalDev = process.env.NODE_ENV === 'development';
+    if (!cronSecret && !isLocalDev) {
+        return NextResponse.json({ error: 'CRON_SECRET not configured' }, { status: 500 });
+    }
+
+    const authHeader = request.headers.get('authorization') ?? '';
+    if (cronSecret && !safeCompare(authHeader, `Bearer ${cronSecret}`)) {
         return new NextResponse('Unauthorized', { status: 401 });
     }
 

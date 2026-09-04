@@ -29,10 +29,29 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const { email, redirectTo } = await request.json() as { email: string; redirectTo: string };
+    const { email, redirectTo } = await request.json() as { email: string; redirectTo?: string };
 
     if (!email || !ALLOWED_EMAILS.includes(email)) {
       return NextResponse.json({ error: "Unauthorized." }, { status: 403 });
+    }
+
+    if (redirectTo) {
+      let isAllowed = false;
+      if (redirectTo.startsWith('/') && !redirectTo.startsWith('//')) {
+        isAllowed = true;
+      } else {
+        try {
+          const parsed = new URL(redirectTo);
+          const allowedHosts = ['saren.ai', 'www.saren.ai', 'localhost'];
+          if (process.env.VERCEL_URL) allowedHosts.push(process.env.VERCEL_URL);
+          isAllowed = allowedHosts.includes(parsed.hostname);
+        } catch {
+          isAllowed = false;
+        }
+      }
+      if (!isAllowed) {
+        return NextResponse.json({ error: "Invalid redirect URL." }, { status: 400 });
+      }
     }
 
     const supabase = createClient(

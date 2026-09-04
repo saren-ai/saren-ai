@@ -47,6 +47,25 @@ Next.js 16.2 (App Router) · React 19 · TypeScript (strict) · Tailwind CSS v4 
 - **Docs:** `docs/desk-runbook.md` (workflow), `docs/hustle-flow-schema-reference.md` (tables + write patterns).
 - **Note:** `src/lib/supabase/database.types.ts` predates `001–003` — regenerate it to type `v_pipeline`/`companies`/`clients` (a single justified cast reads the view meanwhile).
 
+## Admin (`/admin`) & Live Chat Cockpit
+
+`/admin` is the administrative control surface for site operations (live chat cockpit, purchase logs, overview metrics), isolated in the `(admin)` route group.
+
+- **Edge Security:** Gated at the edge by Cloudflare Access and defense-in-depth validated in `src/proxy.ts` + each `/api/admin/*` route handler using `isAuthorizedAdminRequest` (`src/lib/admin/cloudflare-access.ts`). Verifies Cloudflare Access RS256 JWT tokens using Web Crypto against `https://${CF_ACCESS_TEAM_DOMAIN}/cdn-cgi/access/certs`.
+- **Routes:** `/admin` (overview cards: waiting chats, today's purchases/unlocks, Desk pipeline contacts); `/admin/chat` (live chat cockpit with message timelines and real-time admin replies); `/admin/purchases` (audit log of playbook entitlements and legacy purchases).
+- **Public Chat Architecture (`ChatWidget.tsx`):**
+  - **Protection:** Invisible Cloudflare Turnstile verification (`NEXT_PUBLIC_TURNSTILE_SITE_KEY`), burst rate-limiting (`src/lib/rate-limit.ts`), daily IP limits (20 messages/day), global session cap (100 sessions/day), and keyword/pattern spam filtering (`src/lib/chat/spam-filter.ts`).
+  - **Routing:** Day mode (7am–11pm Pacific) alerts Saren via Twilio SMS (`sendSms`) with two-way SMS reply webhook support (`/api/chat/twilio-webhook`). Night mode (11pm–7am Pacific) engages Claude Haiku 4.5 (`src/lib/chat/ai-reply.ts`) with bounded output (`maxOutputTokens: 300`) as an after-hours stand-in.
+  - **Performance:** `/api/chat/status` is edge-cached (`Cache-Control: public, s-maxage=60, stale-while-revalidate=300`) and lazy-checked on visitor interaction rather than firing uncached queries on every page view. Polling auto-pauses when the browser tab is hidden.
+  - **Database:** Supabase service-role only (`src/lib/supabase/admin.ts`), tables `chat_sessions` and `chat_messages` with RLS enabled and zero anon policies.
+
+## Security Conventions
+
+- **Constant-Time Comparisons:** All bearer tokens and webhook signature checks (`process.env.CRON_SECRET`, `process.env.REDDIT_PROXY_SECRET`, `process.env.CHAT_TWILIO_AUTH_TOKEN`) must use constant-time byte comparisons (`crypto.timingSafeEqual` or bitwise XOR `safeCompare`) to prevent timing attacks. Never compare secrets with `!==`.
+- **Fail-Closed Auth:** Protected API routes and cron endpoints must fail closed. If an authentication secret (`CRON_SECRET`) is missing or undefined in production, reject the request with 500/401 instead of skipping validation.
+- **Server Action Authorization & Whitelisting:** All Server Actions (`use server`) must verify the caller's session via `await supabase.auth.getUser()`. Any mutation that accepts field names (e.g. `updateContactField`) must check against an explicit whitelist (`ALLOWED_CONTACT_FIELDS`) before updating the database.
+- **Redirect Validation:** Any endpoint generating redirects or magic links (e.g. `/api/desk/send-otp`) must validate that `redirectTo` is a relative path or restricted to an approved origin.
+
 ## Modular Rules
 
 Detailed rules live in `.claude/rules/` and are loaded automatically:
@@ -146,10 +165,14 @@ Site-wide URLs and third-party endpoints (booking links, scheduler URLs, API bas
 /signal-state/use-cases/cybersecurity
 /signal-state/use-cases/independent-creative
 /signal-state/use-cases/org-alignment
+/admin                                    Admin overview — live chat stats, purchases, Desk pipeline
+/admin/chat                               Live chat cockpit — session view, message timeline, admin replies
+/admin/purchases                          Purchases cockpit — playbook entitlements & legacy downloads
 /privacy                                  Privacy policy
 /terms                                    Terms of service
 /oc                                       Local-SEO landing page — "GTM Engineer, Orange County" (lives at app root, not in the (site) group)
 /llms.txt                                 llms.txt endpoint
+/llms-full.txt                            Full uncurated llms context endpoint
 /openapi.json                             OpenAPI spec endpoint
 /halcyon                                  (archived — not in primary nav)
 /halcyon/content-matrix
@@ -159,7 +182,7 @@ Site-wide URLs and third-party endpoints (booking links, scheduler URLs, API bas
 /halcyon/resume
 ```
 
-`/api/*` route handlers (checkout, desk OTP, download tokens, indexnow, MCP, record JSON feeds, reddit proxy, vault-chat, Stripe webhooks) and `/auth/callback` are omitted from this table — see `src/app/api/` directly.
+`/api/*` route handlers (admin chat reply/sessions, checkout, desk OTP, download tokens, indexnow, MCP, record JSON feeds, reddit proxy, vault-chat, Stripe webhooks, Twilio chat webhook) and `/auth/callback` are omitted from this table — see `src/app/api/` directly.
 
 ### Components (`src/components/`)
 
@@ -169,6 +192,7 @@ Site-wide URLs and third-party endpoints (booking links, scheduler URLs, API bas
 | `behavioral-scoring/` | Lead scoring tool components |
 | `calculator/` | GTM budget calculator components |
 | `case-studies/` | Shared case study layout components |
+| `chat/` | Live chat widget (`ChatWidget`) with Turnstile verification, Edge-cached status, and lazy interaction loading |
 | `comparison-table/` | Comparison table UI |
 | `content-journey/` | 120-day content journey components |
 | `desk/` | Desk (Hustle & Flow) UI — JobTriggers, StatusPill, TouchDots, etc. |
@@ -194,11 +218,14 @@ Site-wide URLs and third-party endpoints (booking links, scheduler URLs, API bas
 
 | File | Purpose |
 |---|---|
+| `admin/cloudflare-access.ts` | Cloudflare Access JWT verification via Web Crypto for `/admin` and `/api/admin/*` |
+| `chat/` | Live chat helpers: `ai-reply.ts` (Claude Haiku after-hours stand-in), `limits.ts`, `night-mode.ts`, `spam-filter.ts`, `turnstile.ts`, `twilio.ts`, `types.ts` |
 | `feature.ts` | `FeatureArticle` type + `featureArticles` registry |
 | `mega-menu-content.ts` | Nav mega menu structure and links |
 | `playbooks.ts` | Playbooks data fetching and types (includes `paid?` field on `Playbook`) |
 | `playbook-tiers.ts` | `PAID_TIERS` map of `playbook_id → { priceId, storageKey }` — add entries here to gate a playbook |
 | `products.ts` | Legacy `/downloads` product config (price, items, filePath) |
+| `rate-limit.ts` | In-memory burst rate limiting |
 | `search-rank.ts` | Pagefind result ranking — title/body match scoring for “Best match” vs “Also mentioned on” |
 | `stripe.ts` | Lazy Stripe singleton (`getStripe()`) |
 | `portfolio-data.ts` | Portfolio item types |
@@ -346,3 +373,13 @@ broad architectural change, and update it in the same session when something cha
 - **Building a new site off this one as a model:** [`../wiki/patterns/nextjs-marketing-site-model.md`](../wiki/patterns/nextjs-marketing-site-model.md) (rendering, animation, search, gating, verification) and [`../wiki/patterns/aeo-structured-data.md`](../wiki/patterns/aeo-structured-data.md) (JSON-LD architecture) — this repo is their reference implementation; the patterns are written generically for reuse, this file documents the specific implementation
 
 Self-maintenance protocol: [`../AGENTS.md`](../AGENTS.md)
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

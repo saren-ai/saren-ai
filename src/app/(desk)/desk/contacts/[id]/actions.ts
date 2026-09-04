@@ -127,12 +127,34 @@ export async function pushToDrafts(
   return { queued: true as const };
 }
 
+const ALLOWED_CONTACT_FIELDS = new Set([
+  "full_name",
+  "email",
+  "title",
+  "company",
+  "linkedin_url",
+  "location",
+  "segment",
+  "notes",
+  "fit_score",
+  "stage",
+]);
+
 export async function updateContactField(
   id: string,
   field: string,
   value: string
 ) {
   const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) throw new Error("Not authenticated");
+
+  if (!ALLOWED_CONTACT_FIELDS.has(field)) {
+    throw new Error(`Field '${field}' is not editable`);
+  }
+
   await supabase
     .from("contacts")
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -148,6 +170,11 @@ export async function logReply(
   formData: FormData
 ) {
   const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) throw new Error("Not authenticated");
+
   const body = (formData.get("body") as string).trim();
   const sentiment = formData.get("sentiment") as string;
 

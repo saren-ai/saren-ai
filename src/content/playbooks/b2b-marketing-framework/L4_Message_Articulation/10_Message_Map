@@ -1,0 +1,182 @@
+# Message map
+
+## What this generates
+
+Your complete one-page message map using the proven 1-3-9 framework: 1 headline (your overarching brand promise), 3 key messages (primary value pillars), and 9 proof points (3 supporting pieces of evidence for each key message). This becomes your messaging north star—the foundation for sales conversations, content creation, and all communications.
+
+## Why you need this
+
+Without a message map, every team creates their own version of your story. Sales reps emphasize different benefits. Marketing highlights different value props. Your website says one thing, your deck says another. The 1-3-9 framework forces brutal prioritization and creates a shared language that fits on one page. If your team can't articulate your value consistently, your customers definitely can't.
+
+## Before you start
+
+This prompt works best when you have:
+- Clear differentiation from competitors (not just "we're better," but truly different)
+- Quantifiable proof points—metrics, testimonials, case studies with real numbers
+- Understanding of what business outcomes your buyers care about most
+- Competitive intelligence about what claims you need to counter
+
+If you're early-stage, you can build this based on customer discovery insights, founder vision, and strategic positioning. Just be ready to validate and refine as you get market feedback.
+
+## Prepare your inputs
+
+Fill out this form before running the prompt. The more specific your differentiators and proof points, the sharper your message map will be.
+
+### Company basics
+
+**{{companyName}}**  
+Your company or brand name
+
+**{{buyerPersonas}}**  
+Primary buyer personas or decision-maker roles.  
+Examples: "CFOs at mid-market manufacturing companies," "VPs of Sales at B2B SaaS companies (50-500 employees)," "IT Directors at healthcare organizations"
+
+**{{voiceDescription}}**  
+Desired tone and personality for messaging. Reference your Brand Voice & Tone doc if you've already created it.  
+Examples: "Bold and visionary," "Trusted and enterprise-grade," "Innovative yet approachable," "Expert but not intimidating"
+
+### Differentiation & value
+
+**{{differentiators}}**  
+List 3-5 biggest differentiators that set you apart from competitors. Be specific—not just "better" but "different."  
+Examples:  
+- "Only platform that learns from won/lost deals, not just content consumption"  
+- "Built specifically for remote sales teams—not retrofitted from in-office workflows"  
+- "Implementation in 48 hours vs. industry average of 6-8 weeks"
+
+**{{customerOutcomes}}**  
+Top 3-5 business outcomes that matter most to your buyers—the results they're measured on.  
+Examples: "Reduce sales cycle length," "Increase win rates," "Improve rep productivity," "Accelerate onboarding of new hires," "Maintain consistent messaging at scale"
+
+### Proof & credibility
+
+**{{proofMetrics}}**  
+Key metrics, results, or outcomes you can demonstrate. Include specific numbers with context.  
+Examples: "95% customer retention rate," "Average 3x ROI within 6 months," "500+ enterprise customers," "Reduced onboarding time from 90 days to 21 days," "Increased win rates by an average of 28%"
+
+**{{testimonials}}**  
+Direct quotes or paraphrased feedback from satisfied customers. Include attribution (name, title, company) if possible.  
+Example: "'We cut our sales cycle by 40% in the first quarter.' - VP of Sales, mid-market SaaS company"
+
+**{{awards}}**  
+Any relevant certifications, awards, partnerships, or third-party validations.  
+Examples: "SOC 2 Type II certified," "Named Leader in Gartner Magic Quadrant," "G2 Top 50 Sales Software 2024," "Strategic partnership with Salesforce"
+
+### Competitive context
+
+**{{competitorClaims}}**  
+What are your main competitors claiming? What messages do you need to counter or differentiate against?  
+Example: "Competitor A claims 'most comprehensive feature set.' Competitor B claims 'easiest implementation—live in 24 hours.' Competitor C claims 'AI does all the work so reps don't have to think.'"
+
+**{{additionalContext}}**  
+Any other relevant information about market position, recent company developments, or strategic priorities.
+
+**Pro tip:** The proof points make or break this exercise. "Customers love us" is useless. "94% retention rate, 50+ G2 reviews averaging 4.8/5 stars, and 3 customers featured in Forrester case studies" is powerful. Gather real data before you start.
+
+## The prompt
+
+Copy everything below this line and paste it into your LLM. Fill in your prepared inputs where indicated.
+
+---
+```
+You are a strategic messaging expert specializing in creating clear, compelling, and defensible message hierarchies for B2B and B2C brands. Your task is to develop a comprehensive Message Map using the proven 1-3-9 framework (1 Headline, 3 Key Messages, 9 Proof Points).
+
+## Context
+
+The Message Map is a foundational messaging tool that enforces clarity and prioritization. It enables sales teams to deliver consistent conversations, helps marketers create aligned content, and ensures all communications ladder up to a single, compelling brand promise. The structure is intentionally concise and memorable—designed to fit on one page and serve as the north star for all messaging efforts.
+
+## Framework structure
+
+### 1. Headline (overarching brand promise)
+
+- One sentence that captures the brand's unique value proposition
+- Must be concise (10-15 words maximum), compelling, and memorable
+- Should differentiate from competitors while resonating with target buyers
+- Think: "What is the ONE thing we want everyone to remember about us?"
+
+### 2. Three key messages (primary value pillars)
+
+- Three distinct supporting themes that reinforce and elaborate on the headline
+- Each should address a separate dimension of value or benefit
+- 15-20 words each
+- These become the foundation for different content pieces, sales conversations, and campaign themes
+
+### 3. Proof points (three per key message = 9 total)
+
+- Specific, credible evidence that validates each key message
+- Can include: customer testimonials/quotes, quantifiable metrics, certifications, awards, case study results, technical differentiators, or industry recognition
+- 1-2 sentences each, with data/specifics when possible
+- Must be defensible and verifiable
+
+## Your task
+
+Using the client inputs provided below, create a strategic Message Map that:
+- Clearly differentiates {{companyName}} from competitors
+- Speaks directly to the business outcomes that matter to {{buyerPersonas}}
+- Leverages the strongest proof points available
+- Counters or sidesteps competitor claims
+- Maintains strategic coherence across all three levels
+
+## Output requirements
+
+### Format:
+- 1 Headline (10-15 words max)
+- 3 Key Messages (15-20 words each)
+- 9 Proof Points (1-2 sentences each, with data when possible)
+- Total length: 300-400 words
+- Structured to fit on one page/slide
+
+### Tone & style:
+- Follow {{voiceDescription}} guidelines
+- Language should be clear, jargon-free (unless industry-specific terms add credibility)
+- Active voice preferred
+- Benefits-focused rather than feature-focused
+
+### Strategic considerations:
+- Ensure each key message represents a distinct value pillar (avoid overlap)
+- Distribute proof points strategically—use the strongest evidence for each message
+- Where competitors make similar claims, find angles that differentiate or provide superior proof
+- Balance emotional appeal (headline/key messages) with rational credibility (proof points)
+
+## Client context
+
+[Paste all your prepared inputs here]
+
+### Company basics
+- Company name: {{companyName}}
+- Target buyers: {{buyerPersonas}}
+- Brand voice: {{voiceDescription}}
+
+### Differentiation & value
+- Top differentiators: {{differentiators}}
+- Buyer outcomes: {{customerOutcomes}}
+
+### Proof & credibility
+- Provable metrics: {{proofMetrics}}
+- Customer testimonials: {{testimonials}}
+- Certifications/awards: {{awards}}
+
+### Competitive context
+- Competitor claims: {{competitorClaims}}
+- Additional context: {{additionalContext}}
+```
+
+---
+
+## After you run it
+
+Make this operational, not decorative:
+- **Print it** and put it on every wall in your office—sales bullpen, marketing team area, customer success desks
+- **Train everyone** on the map—test them until they can recite the headline and three key messages without looking
+- **Build content briefs** that map to each key message (blog posts, case studies, webinars)
+- **Create sales talk tracks** that open with the headline and weave in key messages naturally
+- **Score content** based on whether it supports one of the three key messages (if it doesn't, kill it)
+- **Review every major deliverable** (website, deck, one-pager) against the map before shipping
+
+Test the map in real conversations. If prospects don't remember your headline after a 30-minute call, it's not sticky enough. If sales reps are still making up their own messaging, the key messages aren't clear enough. Push back on the output and demand more memorability.
+
+Update quarterly or when positioning shifts. The headline should be stable, but key messages and proof points will evolve as you gather more customer wins, launch new capabilities, or respond to competitive moves.
+
+## Examples
+
+[Coming soon—sample message maps from real consulting engagements]

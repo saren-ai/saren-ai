@@ -9,7 +9,7 @@ Living document. Updated as priorities shift.
 North-star initiative, started 2026-08-25. The goal grew over the course of that
 session's discussion: this isn't just a saren.ai tune-up, it's the reference platform
 Saren recommends to clients for AI-native, AEO/GEO-optimized sites — saren.ai is the
-live proof, not a slide. This is the AI-first-websites thesis (record / corroboration /
+live proof, not a slide. This is the AI-native-websites thesis (record / corroboration /
 interface) built as a working demo. Immediate next actions live in `TODO.md`; this
 section is the big picture.
 

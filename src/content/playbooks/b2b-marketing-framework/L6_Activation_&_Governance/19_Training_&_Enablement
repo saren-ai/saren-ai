@@ -1,0 +1,273 @@
+# Training & enablement materials
+
+## What this generates
+
+Your comprehensive training and enablement framework using Adult Learning Theory (Malcolm Knowles), the 70-20-10 Learning Model, Bloom's Taxonomy, and the ADDIE Model. You'll get onboarding curriculum, six core training modules, role-specific training guides, three-tier certification framework, self-assessment tools, practice scenarios and simulations, refresher training modules, ongoing enablement calendar, measurement framework, and implementation roadmap. This ensures knowledge retention, practical application, and measurable competency.
+
+## Why you need this
+
+Inconsistent onboarding and ad-hoc training create teams that don't speak the same brand language, make the same mistakes repeatedly, and can't scale without constant supervision. A systematic enablement program turns tribal knowledge into transferable competency, reduces time-to-productivity for new hires, and creates a culture of continuous learning. This is how you scale expertise, not just headcount.
+
+## Before you start
+
+This prompt works best when you have:
+- Clear patterns in recurring mistakes or knowledge gaps your team encounters
+- Understanding of your current onboarding process and what's working vs. not
+- Sense of who will own ongoing enablement and what capacity they have
+- Knowledge of available training tools and delivery preferences
+- All 16 foundational brand artifacts completed (these become training content)
+
+If you're early-stage with a small team, you can still build this as a scalable framework to implement as you grow. Just be realistic about what you can execute now vs. later.
+
+## Prepare your inputs
+
+Fill out this form before running the prompt. The more specific your context and examples, the more practical and implementable your training program will be.
+
+### Team & organizational context
+
+**{{teamRoles}}**  
+Describe your current team structure, size, and key roles.  
+Example: "15-person team: 5 AEs (sales), 3 SDRs, 4 marketing (1 content, 1 demand gen, 1 product marketing, 1 ops), 2 customer success managers, 1 sales engineer"
+
+**{{onboardingProcess}}**  
+Describe your current onboarding approach, duration, and what's working/not working.  
+Examples:  
+- "2-week informal buddy system where new hires shadow different team members. No structured curriculum. Works: People get to know the team quickly. Doesn't work: Inconsistent knowledge transfer, reps take 6 months to ramp"  
+- "We have a 30-day checklist but it's just admin tasks (benefits, tools setup). No training on brand, messaging, or methodology"
+
+**{{onboardingTimeline}}**  
+Specify your ideal onboarding duration and any constraints.  
+Examples: "30-day intensive program with weekly milestones," "90-day gradual integration with monthly check-ins," "2-week crash course due to fast hiring pace"
+
+### Performance & gaps
+
+**{{commonMistakes}}**  
+List the top 3-5 recurring errors, knowledge gaps, or performance issues your team encounters.  
+Examples:  
+- "Sales reps use generic value props instead of our messaging pillars"  
+- "Inconsistent product positioning—everyone describes us differently"  
+- "Customer success team doesn't know how to handle competitive objections"  
+- "Marketing creates content off-brand because they don't understand our voice guidelines"  
+- "New hires take 90 days to learn our qualification methodology"
+
+### Delivery & ownership
+
+**{{trainingPreference}}**  
+Specify your preferred delivery method(s).  
+Examples:  
+- "Hybrid: 30% live virtual sessions, 70% self-paced asynchronous"  
+- "100% in-person workshops during quarterly team gatherings"  
+- "Fully remote and asynchronous—team is distributed globally"  
+- "Live sessions for onboarding, self-paced for ongoing enablement"
+
+**{{enablementOwner}}**  
+Identify who will own ongoing training and enablement. Include their capacity/bandwidth.  
+Examples:  
+- "VP Sales, 5 hours/month available—needs turnkey materials"  
+- "Dedicated Enablement Manager starting next quarter—can build custom content"  
+- "Founder for now, will hire enablement lead at 25 employees"  
+- "Marketing Manager + Sales Manager co-own, 10 hours/month combined"
+
+**{{toolsAvailable}}**  
+List learning/training tools and platforms you currently use or have access to.  
+Examples:  
+- "Zoom, Google Workspace, no LMS currently—need simple solutions"  
+- "Articulate 360 for course creation, Docebo LMS, Gong for call reviews"  
+- "Notion for documentation, Loom for video walkthroughs, no formal LMS"  
+- "We can invest in tools if needed—budget for LMS if recommended"
+
+### Optional but helpful
+
+**{{productDescription}}**  
+Brief description of what you do, who you serve, and key differentiators. Reference your Brand Positioning Statement if you've already created it.
+
+**{{trainingPriorities}}**  
+Any urgent skills gaps or upcoming launches requiring accelerated enablement.  
+Example: "New product launching in Q2—need sales team trained on positioning in 6 weeks"
+
+**{{kpis}}**  
+How you currently measure team readiness or performance (if applicable).  
+Example: "Track time-to-first-deal for new reps, win rate by rep, customer onboarding completion rates"
+
+**Pro tip:** The "common mistakes" section is gold—it reveals exactly where training should focus and what scenarios to build practice exercises around. Don't generalize. Pull real examples from recent performance reviews or deal losses.
+
+## The prompt
+
+Copy everything below this line and paste it into your LLM. Fill in your prepared inputs where indicated.
+
+---
+```
+You are an expert instructional designer and organizational learning strategist. Using Adult Learning Theory (Malcolm Knowles), the 70-20-10 Learning Model, Bloom's Taxonomy, and the ADDIE Model, create comprehensive training and enablement materials that ensure knowledge retention, practical application, and measurable competency.
+
+## Framework application
+
+- **Adult Learning Theory:** Design all materials to be self-directed, experience-based, and problem-focused, respecting that adult learners bring valuable experience and need immediate relevance
+- **70-20-10 Model:** Structure learning so 70% happens through on-the-job experiences, 20% through coaching and peer learning, and 10% through formal training sessions
+- **Bloom's Taxonomy:** Progress learning objectives from foundational knowledge → comprehension → application → analysis → evaluation → creation, ensuring learners can apply concepts in real business situations
+- **ADDIE Model:** Follow Analysis → Design → Development → Implementation → Evaluation to create systematic, continuously improving training programs
+
+## Your deliverables
+
+Create a comprehensive Training & Enablement document (3000-4000 words) containing:
+
+### 1. Onboarding curriculum
+
+- Foundational knowledge modules for new hires
+- Brand essentials and company culture integration
+- Progressive learning path aligned with Bloom's Taxonomy
+- Timeline considerations
+- Adaptation for current team size and roles
+
+### 2. Six core training modules
+
+Design each module with:
+- Clear learning objectives (mapped to Bloom's levels)
+- 70-20-10 activity breakdown
+- Estimated time to completion
+- Prerequisites and dependencies
+- Assessment criteria
+
+Address common mistakes as learning opportunities within relevant modules.
+
+### 3. Role-specific training guides
+
+Create tailored materials for each role including:
+- Unique skills and knowledge requirements
+- Application scenarios per role
+- Cross-functional touchpoint training where roles intersect
+
+### 4. Three-tier certification framework
+
+- **Foundation level:** Core competencies all team members must demonstrate
+- **Practitioner level:** Role-specific mastery and application
+- **Expert/trainer level:** Ability to coach others and contribute to content
+
+Include certification criteria, assessment methods, and recertification requirements.
+
+### 5. Self-assessment tools
+
+- Pre-training knowledge checks
+- Module completion assessments
+- Quarterly self-evaluation frameworks
+- Gap analysis templates linking to specific training resources
+
+### 6. Practice scenarios & simulations
+
+- Realistic application exercises based on common mistakes
+- Role-play scripts and facilitation guides
+- Decision-tree scenarios
+- Safe-to-fail practice environments
+
+Design for specified delivery method and available tools.
+
+### 7. Refresher training modules
+
+- Quarterly update schedule addressing new products, strategies, and tools
+- Microlearning formats (5-15 minutes)
+- Change management integration for major updates
+- Push vs. pull content strategy
+
+### 8. Ongoing enablement calendar
+
+- 12-month rolling calendar
+- Monthly themes and focus areas
+- Quarterly deep-dives
+- Annual recertification cycles
+- Assigned ownership and integration with existing onboarding
+
+### 9. Measurement framework
+
+Establish metrics across four levels:
+- **Reaction:** Learner satisfaction and engagement
+- **Learning:** Knowledge and skill acquisition
+- **Behavior:** On-the-job application and performance change
+- **Results:** Business impact (tie to KPIs like time-to-productivity, error rates, customer satisfaction)
+
+Include:
+- Data collection methods
+- Reporting cadence and dashboards
+- Continuous improvement triggers
+- ROI calculation methodology
+
+### 10. Implementation roadmap
+
+- Phased rollout plan considering team size and roles
+- Quick wins vs. long-term builds
+- Resource requirements
+- Pilot program recommendations
+- Scalability considerations
+
+## Output specifications
+
+- **Length:** 3000-4000 words of instructional design documentation
+- **Format:** Structured document with clear sections, tables for frameworks, and actionable checklists
+- **Tone:** Professional, practical, and energizing—emphasizing growth and capability building
+- **Visuals:** Recommend diagrams for learning paths, certification progression, and 70-20-10 activity splits
+
+## Quality standards
+
+Ensure all deliverables:
+- Respect adult learning principles (relevance, autonomy, experience-integration)
+- Balance formal training with experiential and social learning
+- Progress logically through Bloom's cognitive levels
+- Include measurable outcomes at every stage
+- Accommodate training delivery preferences
+- Leverage available tools capabilities
+- Address common mistakes proactively
+- Enable enablement owner to execute independently
+
+## Client context
+
+[Paste all your prepared inputs here]
+
+### Team & organizational context
+- Current team size and roles: {{teamRoles}}
+- Existing onboarding process: {{onboardingProcess}}
+- Onboarding timeline: {{onboardingTimeline}}
+
+### Performance & gaps
+- Common mistakes: {{commonMistakes}}
+
+### Delivery & ownership
+- Training delivery preference: {{trainingPreference}}
+- Enablement owner: {{enablementOwner}}
+- Tools available: {{toolsAvailable}}
+
+### Optional context (if available)
+- Company/product overview: {{productDescription}}
+- Immediate training priorities: {{trainingPriorities}}
+- Success metrics: {{kpis}}
+```
+
+---
+
+## After you run it
+
+Turn this into your learning and development system:
+- **Build the onboarding program** first—get new hires productive faster
+- **Create module content** using your 16 foundational brand artifacts as source material
+- **Set up certification tracks** with clear criteria and assessment methods
+- **Schedule enablement calendar** and assign ownership for each session
+- **Implement measurement** - track time-to-productivity, knowledge retention, performance changes
+- **Pilot with one role** before rolling out company-wide
+
+Make it operational:
+- **Create learning resources** - videos, one-pagers, job aids, checklists
+- **Build assessment tools** - quizzes, role-plays, real-world application tests
+- **Record training sessions** so they're reusable for future hires
+- **Create a knowledge base** where team members can self-serve training content
+- **Establish coaching culture** where 20% of learning happens through peer-to-peer
+
+Review and iterate:
+- **Monthly:** Check completion rates and learner feedback
+- **Quarterly:** Update content for new products, messaging, or market changes
+- **Annually:** Comprehensive program review with ROI analysis
+
+Scale as you grow:
+- **At 10 people:** Founder-led training with documented playbooks
+- **At 25 people:** Dedicated enablement owner, structured onboarding program
+- **At 50+ people:** Full enablement function, LMS, certification tracks, ongoing programs
+
+## Examples
+
+[Coming soon—sample training and enablement frameworks from real consulting engagements]

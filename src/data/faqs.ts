@@ -1,4 +1,5 @@
 import type { FAQItem } from "@/components/ui/FAQ";
+import { AGENTIC_WEB_DEFINITION } from "@/lib/agentic-web/definition";
 
 /**
  * Single source of truth for every FAQ section on the site. Each page's
@@ -8,20 +9,32 @@ import type { FAQItem } from "@/components/ui/FAQ";
 export const FAQS = {
   home: [
     {
-      question: "Why hire a Fractional Marketing Lead instead of a full-time marketing executive?",
-      answer:
-        "A Fractional Marketing Lead gives you senior GTM leadership to build your strategy and operations without the bloated executive salary, equity package, and overhead of a full-timer who just wants to manage agencies. You get active system-building, positioning clarity, and operational pipeline setup for early-stage and Series A startups, rather than a slide-deck generator.",
-      link: { href: "/fractional-marketing-lead/cost", label: "See real engagement pricing →" },
+      question: "What is an AI-native website?",
+      answer: AGENTIC_WEB_DEFINITION,
+      link: { href: "/agentic-web", label: "Read the three layers \u2192" },
     },
     {
-      question: 'What does "demand generation as engineering" actually mean?',
+      question: "How is this different from SEO or AEO?",
       answer:
-        "It means I treat your pipeline like a software system—defined by data inputs, logic gates, and feedback loops—instead of a series of hope-based branding campaigns. I build intent detection, lead scoring, and automated GTM tracking to capture active buyers, rather than throwing budget at Google Ads and hoping for a miracle.",
+        "SEO gets you ranked. AEO gets you quoted. Neither gets you acted on. Most of that industry works the first two layers \u2014 what your site says, and what other sources say about you \u2014 and stops there. Agent Access, what an agent can actually do once it arrives, is where the 2026 protocol work landed: UCP, ACP, AP2, WebMCP, the W3C AI Agent Protocol group. Almost nobody in marketing is standing there.",
+      link: { href: "/agentic-web/agent-access", label: "See Layer 03 \u2192" },
     },
     {
-      question: "What size startups benefit most from Saren's consulting?",
+      question: "My site ranks fine on Google. Why does this matter?",
       answer:
-        "Startups that have product-market fit (usually $1M–$10M ARR) but find their growth is stalling because their messaging is muddy and their sales cycles are stretching. If you're spending $50k+/month on ads or sales development and can't trace where your best deals are coming from, we need to talk.",
+        "Ranking and being cited are different jobs. A model reads your site once, on a buyer\u2019s behalf, and either walks away with a stable answer to what you do or free-associates from whatever fragments it found. Your Google position does not decide that. Schema that matches the rendered page, one canonical description, and consistent entity identity decide it. Ranking well while being illegible to a model is a common combination.",
+      link: { href: "/agentic-web/machine-readability", label: "See Layer 02 \u2192" },
+    },
+    {
+      question: "What does an agentic readiness audit check?",
+      answer:
+        "All three layers, against a scope published before the work starts. Human Experience: can a stranger restate what your business does after seven seconds on the homepage. Machine Readability: does every schema claim match something actually visible on the rendered page. Agent Access: can an agent complete a task without a human in the loop. You get a scored gap map and a build sequence you can run yourself.",
+    },
+    {
+      question: "Why hire you instead of an AEO agency?",
+      answer:
+        "Because I build the systems rather than describing them. Twenty years across four retrieval regimes \u2014 directories, search engines, social graphs, now answer engines \u2014 including $4M in quarterly pipeline at Cylance before the $1.4B BlackBerry exit and 8:1 on $2.3M in paid media after it. This site is the reference implementation: the schema, the llms.txt, and the markdown alternates are live and checkable right now.",
+      link: { href: "/case-studies", label: "See the case studies \u2192" },
     },
   ],
 
@@ -403,7 +416,7 @@ export const FAQS = {
       question: "Do I need to rebuild my whole site?",
       answer:
         "No. The three layers, Human Experience, Machine Readability, Agent Access, can each be worked on independently, and most sites already have real strength in at least one. The audit exists to find out which layer is actually costing you before anything gets rebuilt.",
-      link: { href: "/services/audit", label: "See what the audit covers →" },
+      link: { href: "/contact", label: "Ask about the audit →" },
     },
     {
       question: "What is llms.txt, and do I actually need one?",
@@ -426,7 +439,7 @@ export const FAQS = {
       question: "What's the difference between the audit and the retainer?",
       answer:
         "The audit is a fixed-scope diagnostic across all three layers, a snapshot. The retainer is ongoing ownership of Machine Readability and Agent Access, because the standards, crawlers, and model behavior a site is legible against keep changing after the snapshot is taken.",
-      link: { href: "/agentic-web/standards", label: "See what's changed lately →" },
+      link: { href: "/contact", label: "Ask what's changed lately →" },
     },
   ],
 } satisfies Record<string, FAQItem[]>;

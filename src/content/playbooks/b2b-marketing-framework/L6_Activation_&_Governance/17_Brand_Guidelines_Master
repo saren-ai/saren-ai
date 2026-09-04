@@ -1,0 +1,305 @@
+# Brand guidelines master document
+
+## What this generates
+
+Your comprehensive Brand Guidelines Master Document using Modular Brand Architecture Framework and Living Brand Guideline principles. You'll get three versions: Internal (40-60 pages with complete positioning, messaging, voice, visual identity, and governance), External (25-35 pages for partners with essential brand elements), and Quick-Reference (8-12 pages for at-a-glance guidance). This compiles all 16 foundational artifacts into one cohesive, actionable source of truth.
+
+## Why you need this
+
+Without a master brand guidelines document, your team has scattered knowledge in 16 different docs that nobody reads or follows consistently. Sales uses off-brand language. Design creates logo variations that violate standards. Partners butcher your messaging. A comprehensive, well-organized guideline document turns your brand foundation into an operational system—one place where everyone can find the answer to "how should this look, sound, or be positioned?"
+
+## Before you start
+
+This prompt works best when you've already completed the 16 foundational artifacts:
+1. Target Customer Profiles
+2. Market & Competitive Analysis  
+3. Mission, Vision, Values & Brand Narrative
+4. Brand Voice & Tone
+5. Brand Personality & Archetype
+6. Unique Value Propositions
+7. Brand Positioning Statement
+8. Brand Promise
+9. Core Messaging Pillars
+10. Message Map
+11. Elevator Pitch & Boilerplate
+12. Example Communications
+13. Taglines & Slogans
+14. Sales Methodology
+15. Industry Context
+16. Product/Service Catalog
+
+You'll also need visual identity assets (logo, colors, typography) to include in the guidelines. If you don't have these yet, you can build the strategic/messaging sections now and add visual identity later.
+
+## Prepare your inputs
+
+Fill out this form before running the prompt. This is essentially gathering everything you've created so far.
+
+### Foundation documents
+
+**{{foundationDocs}}**  
+All completed brand foundation documents from artifacts 1-16. You can either upload/paste the complete documents or provide summaries with key takeaways.
+
+Include:
+- Target Customer Profiles
+- Market & Competitive Analysis
+- Mission, Vision, Values & Brand Narrative
+- Brand Voice & Tone guidelines
+- Brand Personality & Archetype
+- Unique Value Propositions
+- Brand Positioning Statement
+- Brand Promise
+- Core Messaging Pillars
+- Message Map
+- Elevator Pitch & Boilerplate
+- Example Communications (your swipe file)
+- Taglines & Slogans
+- Sales Methodology (if applicable)
+- Industry Context
+- Product/Service Catalog
+
+### Visual identity assets
+
+**{{visualAssets}}**  
+Your visual brand elements including:
+- Logo files (primary, secondary, icon variations)
+- Color specifications (hex codes, RGB, CMYK, Pantone)
+- Typography choices (font names, weights, usage rules)
+- Photography style examples or guidelines
+- Iconography system (if you have one)
+- Any existing design standards or templates
+
+If you don't have all visual assets finalized, note what you have and what's in development.
+
+### Organizational context
+
+**{{accessPermissions}}**  
+Define who should have access to which versions of the guidelines.
+
+Examples:
+- **Internal full access:** All marketing, sales, product, and customer success teams
+- **External version:** Agency partners, freelance designers, co-marketing partners
+- **Quick-reference:** Everyone in the company, especially those who don't touch brand daily (engineering, finance, legal)
+
+**{{existingTemplates}}**  
+Any current templates you want incorporated or referenced.
+
+Examples: PowerPoint template, Word letterhead, Email signature format, Social media post templates, Sales one-pager template, Case study template
+
+**{{consistencyChallenges}}**  
+Known pain points or areas where brand guidelines have been inconsistently applied in the past.
+
+Examples:
+- "Sales team uses generic value props instead of our messaging pillars"
+- "Regional offices use old logo versions"
+- "Social media tone varies wildly by channel"
+- "Partners create co-branded materials that violate our visual standards"
+- "Product team launches features without checking brand positioning"
+
+**Pro tip:** The "consistency challenges" section is critical—it tells the LLM where to add extra emphasis, examples, and guardrails in the guidelines. Don't skip this.
+
+## The prompt
+
+Copy everything below this line and paste it into your LLM. Fill in your prepared inputs where indicated.
+
+---
+```
+You are an expert brand strategist and documentation specialist tasked with creating a comprehensive Brand Guidelines Master Document that will serve as the definitive source of truth for all brand communications and applications.
+
+## Your mission
+
+Create a modular, professionally structured Brand Guidelines document that compiles all foundational brand elements into a cohesive, actionable resource. This document should follow industry-standard best practices from leading brand agencies (Pentagram, Wolff Olins, Siegel+Gale) while remaining flexible for future updates and scalable for organizational growth.
+
+## Framework approach
+
+Apply a Modular Brand Architecture Framework combined with Living Brand Guideline principles to create:
+- Distinct, standalone modules that can be updated independently
+- Clear navigation and logical information hierarchy
+- Version control and governance protocols
+- Scalable structure for team-specific distribution
+
+## Document structure & deliverables
+
+Create three distinct versions:
+
+### 1. Internal version (40-60 pages)
+
+Complete comprehensive guide including:
+- Detailed table of contents with hierarchical navigation
+- Full positioning and strategy rationale
+- Complete messaging architecture with usage contexts
+- Voice & tone guidelines with detailed examples
+- Visual identity system with technical specifications
+- Governance protocols and approval workflows
+- Brand stewardship responsibilities
+- Update request and review procedures
+
+### 2. External version (25-35 pages)
+
+Partner-facing guide including:
+- Executive summary of brand essence
+- Core messaging pillars and key narratives
+- Essential voice & tone guidelines
+- Visual identity usage rules and restrictions
+- Approved asset library access
+- Co-branding protocols (if applicable)
+- Contact information for brand questions
+
+### 3. Quick-reference version (8-12 pages)
+
+One-sheet style guide including:
+- Brand positioning statement
+- Top 5 messaging pillars
+- Voice & tone at-a-glance
+- Logo usage do's and don'ts
+- Color palette and typography essentials
+- Key contact information
+
+## Content requirements for each section
+
+### Table of contents
+- Logical hierarchical structure
+- Page number references
+- Section color-coding for easy navigation
+- Quick-jump index for frequently referenced items
+
+### Section templates (standardized format)
+
+For each brand component, include:
+
+**1. Brand positioning & strategy**
+- Brand purpose, vision, mission
+- Target audience definitions
+- Competitive positioning
+- Brand personality and archetype
+
+**2. Messaging architecture**
+- Value proposition
+- Messaging pillars (3-5 core themes)
+- Key messages by audience segment
+- Proof points and supporting evidence
+- Elevator pitch variations
+
+**3. Voice & tone guidelines**
+- Brand voice attributes with definitions
+- Tone variation matrix by context/channel
+- Language do's and don'ts
+- Example phrases and communications
+- Industry jargon guidance
+
+**4. Visual identity system**
+- Logo variations and usage rules
+- Color palette (primary, secondary, tertiary)
+- Typography specifications
+- Photography/illustration style
+- Iconography and graphic elements
+- Layout principles and grid systems
+
+**5. Application examples**
+- Digital applications (website, social, email)
+- Print applications (business cards, letterhead, brochures)
+- Environmental applications (signage, trade show)
+- Product/packaging applications (if applicable)
+
+**6. Digital & social media guidelines**
+- Channel-specific adaptations
+- Profile setup standards
+- Content formatting rules
+- Hashtag strategy
+- Response templates
+
+## Governance & maintenance protocol
+
+Include detailed documentation of:
+
+**Brand ownership structure**
+- Primary brand steward/owner (role and name)
+- Department responsibilities
+- Cross-functional brand council members
+
+**Update workflow**
+- How to request guideline updates
+- Approval chain and decision-making authority
+- Timeline for review and implementation
+- Version control numbering system
+
+**Review schedule**
+- Annual comprehensive review date
+- Quarterly spot-check protocols
+- Trigger events requiring immediate review
+
+**Compliance monitoring**
+- Brand audit frequency and methodology
+- Violation reporting process
+- Education and training requirements
+
+## Formatting & design specifications
+
+- **Balance:** 60% written content, 40% visual examples
+- **Accessibility:** Minimum 11pt font, high contrast, clear headings
+- **Navigation:** Clickable table of contents, section dividers, page footers with section names
+- **Visuals:** High-quality examples showing correct AND incorrect applications
+- **Clarity:** Executive summaries at the start of each major section
+
+## Output format
+
+Deliver the guidelines as:
+- Structured markdown document showing all content and hierarchy
+- Annotations indicating where visual assets should be placed
+- Clear labeling of which content appears in which version (Internal/External/Quick-Ref)
+- Separate governance and maintenance appendix
+
+## Quality checklist
+
+Before finalizing, ensure:
+- All foundation documents are accurately integrated
+- Consistent terminology throughout all sections
+- Clear rationale provided for brand decisions
+- Practical examples accompany every rule
+- Both aspirational and practical guidance included
+- Contact information and escalation paths are current
+- Version control information is prominent
+
+## Client context
+
+[Paste all your prepared inputs here]
+
+### Foundation documents
+{{foundationDocs}}
+
+### Visual identity assets
+{{visualAssets}}
+
+### Organizational context
+- Access permissions: {{accessPermissions}}
+- Existing templates: {{existingTemplates}}
+- Consistency challenges: {{consistencyChallenges}}
+```
+
+---
+
+## After you run it
+
+Don't let this become shelfware. Make it operational:
+- **Design the document** - Work with a designer to add visual examples, proper formatting, and make it visually engaging
+- **Host it centrally** - Put it on your intranet, Google Drive, Notion, or brand management platform where everyone can access it
+- **Train the organization** - Hold brand guideline sessions for every team that touches brand
+- **Enforce it** - Build approval workflows that require checking guidelines before launching anything
+- **Update it** - Assign a brand steward to maintain it quarterly and version control rigorously
+- **Audit against it** - Quarterly brand audits to catch violations and retrain teams
+
+Create derivative assets:
+- **Brand guideline video** - 5-minute walkthrough for new hires
+- **Channel-specific quick guides** - One-pagers for social media, email, sales decks
+- **Partner onboarding kit** - External version + templates + approval process
+- **Brand certification program** - Test teams on guidelines before they can create brand content
+
+Review and refresh:
+- **Annually:** Comprehensive review of all sections
+- **Quarterly:** Spot-checks on messaging, voice, visual identity
+- **As needed:** Updates after rebr
+
+ands, product launches, or major positioning shifts
+
+## Examples
+
+[Coming soon—sample brand guidelines master documents from real consulting engagements]

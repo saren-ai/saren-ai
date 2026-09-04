@@ -1,0 +1,195 @@
+# Core messaging pillars
+
+## What this generates
+
+Your complete core messaging framework with 3-5 named messaging pillars built on the Rule of Three and Challenger Sale's Commercial Teaching methodology. You'll get detailed pillar narratives, proof architecture, persona mapping, competitive response strategy, content activation plan, content calendar framework, and sales enablement notes. These pillars become the foundation for all customer communications.
+
+## Why you need this
+
+Random content and scattered messaging don't build conviction. You need 3-5 core themes that customers can remember, repeat, and act on. These pillars give your team a shared vocabulary, help sales reps lead better conversations, and ensure every piece of content ladders up to strategic positioning. Without pillars, you get marketing chaos—with them, you get a system that teaches customers why you matter and leads them to your unique strengths.
+
+## Before you start
+
+This prompt works best when you have:
+- Clear patterns in what resonates during sales conversations (what questions land, what stories convert)
+- Content performance data showing which topics drive engagement or conversions
+- Customer feedback revealing beliefs you need to change or misconceptions to address
+- Competitive intelligence about the narratives you need to counter
+
+If you're early-stage, you can build this based on founder insights, customer discovery patterns, and strategic hypotheses about what will differentiate you. Just be ready to test and iterate as you learn what actually drives conviction.
+
+## Prepare your inputs
+
+Fill out this form before running the prompt. The more specific your examples and data, the sharper your messaging pillars will be.
+
+### Customer intelligence
+
+**{{customerPriorities}}**  
+What are the 3-5 things your customers care most about? Include specific pain points, business objectives, and success metrics they're measured on.  
+Example: "1) Reducing sales cycle length—reps are measured on time-to-close. 2) Increasing win rates against competitors. 3) Maintaining consistent messaging across a growing team. 4) Proving ROI to leadership within first quarter. 5) Avoiding lengthy, disruptive implementations"
+
+**{{beliefShifts}}**  
+What beliefs or assumptions do you need to change in your market? What current misconceptions, outdated approaches, or status quo thinking prevents customers from seeing your value?  
+Example: "Belief to shift: 'Sales enablement is just a content library.' Reality we need to teach: 'Real enablement is about behavior change and rep consistency, not just organizing files.'"
+
+**{{winningConversations}}**  
+What do your best sales conversations sound like? Include actual quotes, questions that land well, conversation patterns from top performers, or moments where prospects have "aha" insights.  
+Example: "Our best reps ask: 'How much time does your average rep spend searching for the right content to send?' Prospects usually say '3-5 hours a week.' Then we ask: 'What if your top performer's approach was automatically replicated across your entire team?' That's when they lean in."
+
+### Content & market performance
+
+**{{highPerformingContent}}**  
+What content topics, formats, or messages have performed best? Include engagement metrics, conversion data, qualitative feedback, or patterns in what gets shared/saved/referenced.  
+Example: "Our 'Sales Velocity Calculator' tool gets 10x more conversions than any other lead magnet. Blog posts about 'onboarding new reps faster' have 3x higher engagement than posts about features. Case studies showing time-to-productivity improvements get requested most often in late-stage deals."
+
+**{{competitiveLandscape}}**  
+What competitor claims do you need to counter? List specific messaging, positioning angles, and market narratives from 2-3 key competitors.  
+Example: "Competitor A: 'We have the most comprehensive feature set and integrations.' Competitor B: 'We're the easiest to implement—up and running in 24 hours.' Competitor C: 'AI-powered recommendations mean reps don't have to think.'"
+
+### Strategic differentiation
+
+**{{productStrategy}}**  
+What makes your product strategy, approach, or methodology unique? Include proprietary frameworks, exclusive capabilities, or distinctive approaches that only you offer.  
+Example: "We're the only platform that learns from won/lost deals, not just content consumption. Our algorithm analyzes what content was sent in deals that closed vs. deals that lost, and recommends based on deal stage + buyer profile + competitive situation. We have a proprietary 'Deal Context Engine' that competitors can't replicate."
+
+### Optional context
+
+**{{voiceGuidelines}}**  
+If you've already defined your brand voice and tone, include it here or reference your Brand Voice & Tone doc.
+
+**{{existingMessaging}}**  
+Any current messaging documents, positioning statements, or value props you already use.
+
+**{{buyerPersonas}}**  
+Names and brief descriptions of your target personas. Reference your Target Customer Profiles if you've already created them.
+
+**{{customerFeedback}}**  
+Recent customer feedback, win/loss analysis, or patterns from customer success conversations.
+
+**Pro tip:** The "winning conversations" section is gold. If you can pull actual quotes or moments from sales calls where prospects had breakthrough insights, those become the foundation for your pillar narratives. Use Gong, call recordings, or interview your top 3 reps.
+
+## The prompt
+
+Copy everything below this line and paste it into your LLM. Fill in your prepared inputs where indicated.
+
+---
+```
+You are an expert strategic messaging architect specializing in developing core messaging pillars that drive customer conviction and commercial outcomes. Using the Rule of Three framework and Challenger Sale's Commercial Teaching methodology, you will create 3-5 powerful messaging pillars that form the foundation of all customer communications.
+
+## Your task
+
+Develop a comprehensive Core Messaging Pillars framework that includes:
+- 3-5 named messaging pillars - Each representing a distinct theme that resonates with target customers and differentiates the brand
+- Detailed pillar narratives - Compelling stories for each pillar that teach customers something new and challenge their current thinking
+- Proof architecture - Supporting evidence, data points, and validation for each pillar
+- Persona mapping - Clear guidance on which pillars resonate most with each target persona
+- Competitive response strategy - How each pillar neutralizes competitor positioning
+- Content activation plan - Specific content ideas and usage guidance for each pillar
+- Content calendar framework - Strategic sequencing of pillar-based messaging across channels
+
+## Context & methodology
+
+Apply the Rule of Three principle to ensure memorable, persuasive messaging that customers can retain and repeat. Use the Challenger Sale Commercial Teaching approach to craft pillars that:
+- Teach customers something valuable about their business
+- Tailor the message to their specific circumstances
+- Take control by leading to your unique capabilities
+
+Each pillar should follow the structure: Reframe → Rationalize → Emotional Connection → Unique Capability Link
+
+## Output structure
+
+Deliver a 1200-1500 word strategic document formatted as follows:
+
+### Executive summary
+Brief overview of the pillar strategy and how it supports positioning (100-150 words)
+
+### Messaging pillars overview
+
+For each of the 3-5 pillars, provide:
+
+**Pillar [#]: [Compelling Pillar Name]**
+
+- **Core narrative (150-200 words):** The teaching story that reframes customer thinking
+- **Key messages (3-4 bullet points):** Memorable statements that capture the pillar essence
+- **Proof points (3-5 items):** Data, case studies, third-party validation, or demonstrable evidence
+- **Customer beliefs addressed:** Which misconceptions this pillar changes
+- **Emotional driver:** The underlying emotional motivation this pillar taps into
+
+### Persona-to-pillar mapping matrix
+
+Table or grid showing:
+- Which personas are most influenced by each pillar (Primary/Secondary)
+- Recommended lead pillar by persona
+- Messaging emphasis adjustments by persona
+
+### Competitive response guide
+
+For each major competitor claim identified:
+- Which pillar(s) provide the counter-narrative
+- Specific rebuttal talking points
+- Redirection strategy to your strengths
+
+### Content activation plan
+
+For each pillar:
+- **Content ideas (5-7 per pillar):** Specific topics, formats, and angles
+- **Channel recommendations:** Where each pillar performs best
+- **Usage guidance:** When to lead with this pillar (buying stage, use case, persona)
+- **Proof type priority:** Which evidence types to emphasize
+
+### Content calendar framework
+
+- Quarterly thematic focus recommendations
+- Pillar rotation and integration strategy
+- Campaign sequencing that builds progressive conviction
+- Multi-pillar narrative arc suggestions
+
+### Sales enablement notes
+
+- Pillar-based conversation starters
+- Discovery questions aligned to each pillar
+- Objection handling connected to pillars
+- Win story examples for each pillar
+
+## Client context
+
+[Paste all your prepared inputs here]
+
+### Customer intelligence
+- Customer priorities: {{customerPriorities}}
+- Belief shifts needed: {{beliefShifts}}
+- Winning conversations: {{winningConversations}}
+
+### Content & market performance
+- High-performing content: {{highPerformingContent}}
+- Competitive landscape: {{competitiveLandscape}}
+
+### Strategic differentiation
+- Product strategy: {{productStrategy}}
+
+### Optional context (if available)
+- Brand voice guidelines: {{voiceGuidelines}}
+- Existing messaging: {{existingMessaging}}
+- Target personas: {{buyerPersonas}}
+- Customer feedback: {{customerFeedback}}
+```
+
+---
+
+## After you run it
+
+Turn these pillars into your messaging operating system:
+- **Train every customer-facing team** on all pillars—sales, CS, marketing, product marketing
+- **Build pillar-specific content libraries** organized by persona and buying stage
+- **Create conversation guides** for sales that show how to introduce each pillar
+- **Map existing content** to pillars and identify gaps
+- **Score opportunities** based on which pillars resonate most in discovery
+- **Review win/loss** through the lens of "which pillars did we lead with?"
+
+Test pillar resonance in real conversations. If reps struggle to explain a pillar or customers don't have "aha moments," the narrative needs work. Push back on the LLM and ask for clearer teaching stories.
+
+Refresh annually or when positioning shifts. Pillars should be stable, but the proof points, content activation, and competitive response will evolve as your market matures and competitors react.
+
+## Examples
+
+[Coming soon—sample core messaging pillars from real consulting engagements]

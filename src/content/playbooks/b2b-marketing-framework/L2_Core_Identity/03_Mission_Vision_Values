@@ -1,0 +1,216 @@
+# Mission, vision, values & brand narrative
+
+## What this generates
+
+Your complete brand foundation: mission statement, vision statement, core values, brand narrative, brand promise, positioning statement, messaging pillars, tagline options, elevator pitch, and voice guidelines. Built using Simon Sinek's Golden Circle, Sequoia's Company Narrative structure, and Donald Miller's StoryBrand Framework.
+
+## Why you need this
+
+Everything else in your marketing—website copy, sales decks, content strategy, hiring posts—flows from these foundational documents. Without them, you get inconsistent messaging, confused positioning, and a team that can't articulate why you exist. This is the North Star that keeps everyone aligned.
+
+## Before you start
+
+This prompt works best when you have:
+- A clear sense of your company's origin story and founding motivation
+- Some articulation of what makes your culture and values different
+- Customer feedback or win/loss data that shows what resonates
+- Competitive intelligence about how you're positioned in the market
+- A vision for where the company is headed (even if it's still evolving)
+
+If you're a solo founder or early-stage team, this is the perfect time to do this exercise. Codifying these elements now prevents drift and misalignment as you scale.
+
+## Prepare your inputs
+
+Fill out this form before running the prompt. The more specific and honest you are, the more authentic and ownable your outputs will be.
+
+### Company basics
+
+**{{companyName}}**  
+What is your company called?
+
+**{{originStory}}**  
+Why did the founders start this company? Tell the founding story—what was the catalyst, the "before" state, and the moment you decided to build this.
+
+**{{founderFrustration}}**  
+What problem were the founders personally frustrated by? What made this frustration big enough to warrant starting a company?
+
+**{{keyMilestones}}**  
+What are the most important milestones in your company's journey worth mentioning? Examples: first customer, key hires, funding rounds, product launches, major partnerships, pivot moments, revenue milestones, etc.
+
+### Team & culture
+
+**{{teamStructure}}**  
+How large is your team and how is it structured? Include department breakdown if relevant, and any notable aspects of how you work (remote, distributed, in-person, etc.)
+
+**{{values}}**  
+What are your current core values, or what values do you aspire to embody? If you already have defined values, list them. If not, describe the cultural principles or behaviors that matter most to your team.
+
+### Product & market
+
+**{{productList}}**  
+What do you sell or provide to customers? Be specific about what you offer and how customers engage with it.
+
+**{{icpDescription}}**  
+Who is your target customer? Include demographics, roles, industries, company characteristics, pain points, and any psychographic details that help paint a picture.
+
+**{{coreProblem}}**  
+What is the main problem you solve for customers? Focus on the business outcome or transformation, not just features.
+
+**{{competitorDifferentiation}}**  
+Who are your key competitors and how do you differentiate from them? Include direct competitors, adjacent solutions, and your unique positioning.
+
+### Future direction
+
+**{{vision}}**  
+Where do you aim to be in 3-5 years? Think big: market position, impact, scale, product evolution, team size, category leadership, etc.
+
+**Pro tip:** For the origin story and founder frustration, pull actual quotes or language from founding conversations, early pitch decks, or interviews. Authentic founder voice makes brand narratives way more compelling than corporate speak.
+
+## The prompt
+
+Copy everything below this line and paste it into your LLM. Fill in your prepared inputs where indicated.
+
+---
+```
+You are a world-class marketing strategist tasked with developing comprehensive foundational marketing artifacts for a client. You will leverage proven frameworks including Simon Sinek's Golden Circle, Sequoia Capital's Company Narrative structure, and Donald Miller's StoryBrand Framework to create compelling, cohesive brand messaging.
+
+## Your task
+
+Generate a complete set of foundational brand documents that will serve as the cornerstone for all marketing and communication activities. Each artifact should be strategically crafted, emotionally resonant, and commercially viable.
+
+## Required outputs
+
+Generate the following artifacts with depth, clarity, and strategic insight:
+
+### 1. Mission statement
+
+Using the Golden Circle's "Why," craft a concise, inspiring mission statement (1-2 sentences) that articulates:
+- The company's core purpose
+- The fundamental problem being solved
+- The impact on customers/world
+
+### 2. Vision statement
+
+Create an aspirational vision statement (2-3 sentences) that describes:
+- Future state the company is building toward
+- Long-term impact and legacy
+- Ambitious but achievable horizon (3-5 years)
+
+### 3. Core values (set of 4-6)
+
+Define values that guide behavior and decision-making, each with:
+- Value name (2-3 words)
+- Brief description (1 sentence)
+- Behavioral indicator (what this looks like in action)
+
+### 4. Brand narrative / company story
+
+Using Sequoia's structure and StoryBrand principles, write a compelling 300-500 word narrative covering:
+- **Origin:** The founder's journey and "aha moment"
+- **Problem:** The frustration/gap that needed solving
+- **Solution:** How the company uniquely addresses this
+- **Journey:** Key milestones demonstrating traction
+- **People:** Team culture and what makes them special
+- **Future:** Where the story is heading
+
+### 5. Brand promise
+
+Craft a single, powerful statement (1-2 sentences) that commits to:
+- The specific value delivered to customers
+- The transformation or outcome guaranteed
+- An emotional and functional benefit blend
+
+### 6. Brand positioning statement
+
+Using the classic format, create:
+
+"For [target customer] who [customer need], [Company Name] is the [category] that [unique benefit]. Unlike [competitors], we [key differentiation]."
+
+### 7. Messaging pillars (3-4 core messages)
+
+Develop 3-4 key messages that support positioning, each containing:
+- Pillar headline (compelling statement)
+- Supporting proof points (2-3 bullets with evidence)
+- Customer benefit (so what?)
+
+### 8. Tagline options (3-5 variations)
+
+Generate memorable taglines that:
+- Capture brand essence in 2-7 words
+- Are distinctive and ownable
+- Connect emotionally while hinting at functional benefit
+- Range from descriptive to aspirational
+
+### 9. Elevator pitch (30-second version)
+
+Write a conversational, compelling pitch that:
+- Opens with the problem/insight
+- Positions the company as the guide (StoryBrand)
+- Clearly states what you do
+- Highlights differentiation
+- Ends with a clear call-to-action or memorable statement
+
+### 10. Brand voice & tone guidelines
+
+Define the brand's communication style:
+- Voice attributes (3-4 adjectives with descriptions)
+- What we are / What we're not (comparison table)
+- Sample phrases showing voice in action
+
+## Framework application notes
+
+- **Golden Circle:** Ensure "Why" is evident in mission/narrative, "How" in values/differentiation, "What" in positioning
+- **StoryBrand:** Position customer as hero, company as guide; emphasize customer transformation
+- **Sequoia Structure:** Maintain narrative arc that builds credibility while inspiring
+
+## Quality standards
+
+- All outputs must be internally consistent and mutually reinforcing
+- Language should be authentic to the founder's voice and company culture
+- Avoid jargon and clichés; prioritize clarity and memorability
+- Balance aspiration with credibility
+- Ensure commercial viability (not just inspirational, but sellable)
+
+## Client context
+
+[Paste all your prepared inputs here]
+
+### Company basics
+- Company name: {{companyName}}
+- Origin story: {{originStory}}
+- Founder frustration: {{founderFrustration}}
+- Key milestones: {{keyMilestones}}
+
+### Team & culture
+- Team size and structure: {{teamStructure}}
+- Core values: {{values}}
+
+### Product & market
+- Primary products/services: {{productList}}
+- Ideal customer profile: {{icpDescription}}
+- Primary customer problem: {{coreProblem}}
+- Key competitors and differentiation: {{competitorDifferentiation}}
+
+### Future direction
+- Future vision (3-5 years): {{vision}}
+```
+
+---
+
+## After you run it
+
+Review everything for authenticity. Does this sound like your founder would actually say it? Does it feel true to your culture? If it reads like generic corporate mission statement bingo, push back and ask for more specificity.
+
+Use these artifacts to:
+- **Align your team** on who you are and where you're going
+- **Brief agencies or freelancers** so they can write in your voice
+- **Onboard new hires** with clarity on mission and values
+- **Build your website** with consistent messaging architecture
+- **Create sales enablement** materials that tell a coherent story
+- **Guide product decisions** through the lens of mission and values
+
+Update these annually or after major pivots. Your mission might stay stable, but positioning and messaging should evolve as your market and product mature.
+
+## Examples
+
+[Coming soon—sample brand foundation outputs from real consulting engagements]

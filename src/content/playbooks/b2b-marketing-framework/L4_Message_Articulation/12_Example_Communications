@@ -1,0 +1,211 @@
+# Example communications
+
+## What this generates
+
+Your strategic swipe file with 10-15 annotated content examples that capture your distinctive brand voice using the Before/After/Bridge (BAB) copywriting framework. You'll get voice and tone audits, messaging mechanics breakdowns, BAB structure mapping, CTA effectiveness analysis, performance context, anti-patterns guide, and quick-start templates. This becomes your training library and campaign development resource.
+
+## Why you need this
+
+Great brand voice isn't abstract—it lives in specific word choices, sentence structures, and proven frameworks. Without a swipe file of annotated examples, every new writer reinvents the wheel, every campaign feels inconsistent, and you can't systematically replicate what works. This framework dissects your best content to reveal the mechanics behind it, so anyone on your team can create on-brand, high-performing communications.
+
+## Before you start
+
+This prompt works best when you have:
+- 10-15 content examples you're actually proud of (not aspirational, but real pieces that worked)
+- Performance data for those examples (open rates, engagement, conversions)
+- Examples of content that missed the mark (so you can define guardrails)
+- A sense of what makes your voice distinctive vs. generic industry speak
+
+If you're early-stage, you can still do this with founder-written emails, early sales decks, or even competitor examples you want to emulate. Just be clear about what's validated vs. hypothetical.
+
+## Prepare your inputs
+
+Fill out this form before running the prompt. The more examples and performance data you provide, the more actionable your swipe file will be.
+
+### Content examples
+
+**{{contentExamples}}**  
+Provide 10-15 examples of content you're proud of. Include full text, screenshots, or links. Mix formats—emails, social posts, landing pages, ad copy, sales deck slides, case studies, etc.
+
+For each example, include:
+- The full content (text, image, or link)
+- What format it is (sales email, LinkedIn post, landing page hero, etc.)
+- Who the audience was (persona, role, company size)
+
+**{{highPerformingMetrics}}**  
+For each content example above, share specific results and performance data.  
+Examples:  
+- "Sales email: 38% open rate, 12% reply rate"  
+- "LinkedIn post: 450 likes, 87 comments, 23 shares"  
+- "Landing page: 18% conversion rate on demo requests"  
+- "Ad copy: 2.3% CTR, $45 CPA"
+
+**{{highEngagementSpecifics}}**  
+Which specific pieces drove your best results? Identify your top 3-5 performers and explain what success looked like.  
+Example: "Cold outreach email with subject line 'Your reps are wasting 5 hours/week' got 41% reply rate—3x our average. We think the specific time metric in the subject made it concrete and urgent."
+
+### Content to avoid
+
+**{{contentToAvoid}}**  
+Share 2-5 examples of content that "feels wrong" or off-brand. For each, explain why it doesn't work.  
+Examples:  
+- "This email feels too salesy and pushy—doesn't match our consultative approach"  
+- "This LinkedIn post sounds generic and could be from any company in our space"  
+- "This landing page copy is too feature-focused and doesn't lead with customer outcomes"
+
+### Context & guidelines
+
+**{{contentFormats}}**  
+List all content formats you regularly create. Check all that apply and add any missing formats.  
+Examples: Sales emails, Nurture emails, LinkedIn posts, Twitter/X posts, Sales deck slides, Landing pages, Ad copy (Facebook, LinkedIn, Google), Case studies, Blog posts, Product announcements, Webinar descriptions, etc.
+
+**{{targetAudience}}**  
+Who is your primary audience? Include:
+- Job titles/roles
+- Industry/sectors  
+- Key pain points they experience
+- What motivates their decisions
+
+Reference your Target Customer Profiles if you've already created them.
+
+**{{voiceNotes}}**  
+Do you have existing brand voice guidelines? If so, include them or reference your Brand Voice & Tone doc. If not, describe your desired brand personality in 3-5 adjectives.
+
+**Pro tip:** Don't just share the prettiest or most polished examples. Share the ones that actually drove results—even if they're scrappy. A plain-text email that got 40% reply rate is worth more than a beautifully designed email that got 2%.
+
+## The prompt
+
+Copy everything below this line and paste it into your LLM. Fill in your prepared inputs where indicated.
+
+---
+```
+You are a master copywriter and brand voice architect. Your task is to analyze real-world content examples and create a comprehensive swipe file that captures the client's distinctive brand voice while demonstrating proven messaging frameworks.
+
+## Your objective
+
+Create a strategic swipe file document containing 10-15 annotated content examples that serve as a training library and campaign development resource. Each example should be dissected to reveal the underlying messaging mechanics that make it effective.
+
+## Framework application
+
+Apply the Before/After/Bridge (BAB) copywriting structure to analyze each example:
+- **Before:** The pain point, problem, or current state
+- **After:** The desired outcome or transformation
+- **Bridge:** How the solution connects the two (your product/service)
+
+## Content analysis requirements
+
+For each of the 10-15 examples provided, create a detailed breakdown including:
+
+### 1. Content categorization
+
+Label each example by type:
+- Email (sales, nurture, announcement, etc.)
+- LinkedIn post
+- Sales deck slide
+- Landing page copy
+- Ad copy
+- Case study excerpt
+- Other relevant formats
+
+### 2. Core analysis components
+
+**Voice & tone audit:**
+- Identify distinctive voice characteristics (conversational, authoritative, playful, technical, etc.)
+- Note tonal shifts for different contexts or audiences
+- Highlight signature phrases or linguistic patterns
+
+**Messaging mechanics:**
+- **Message clarity:** How simply and directly is the core message communicated?
+- **Emotional pull:** What emotions are triggered? (urgency, relief, aspiration, fear, trust, etc.)
+- **Proof elements:** What credibility indicators are used? (data, testimonials, specificity, etc.)
+
+**BAB structure mapping:**
+- Annotate where the "Before" (pain/problem) appears in the copy
+- Highlight the "After" (transformation/benefit) language
+- Identify the "Bridge" (solution mechanism/product role)
+- Note if the structure is explicit or subtle
+
+**CTA effectiveness:**
+- Identify the call-to-action and its placement
+- Analyze CTA language (friction level, clarity, value proposition)
+- Note what makes it compelling or how it could improve
+
+### 3. Performance context
+
+For each example, document:
+- **Performance data:** What results did it drive? (reply rates, engagement, conversions, etc.)
+- **Why it works:** 2-3 specific reasons this example succeeded
+- **Replicable elements:** Which components can be systematically applied to future content?
+
+### 4. Anti-patterns section
+
+Create a separate section analyzing content to avoid:
+- What makes these examples feel "off-brand"?
+- Which messaging choices create friction or confusion?
+- What tonal elements should be avoided?
+- Document the "brand voice guardrails"
+
+## Deliverable structure
+
+Organize your swipe file as follows:
+
+### Section 1: Brand voice DNA
+- Summary of core voice attributes drawn from all examples
+- Do's and don'ts quick reference guide
+
+### Section 2: Annotated examples by category
+- Group similar content types together
+- Each example includes: original content + multi-layered annotations
+
+### Section 3: BAB framework in action
+- Cross-example analysis showing how BAB appears across different formats
+- Templates extracted from best examples
+
+### Section 4: CTA & conversion library
+- Collection of high-performing CTAs
+- Context for when each style works best
+
+### Section 5: Anti-pattern guide
+- Examples of what to avoid with explanations
+
+### Section 6: Quick-start templates
+- 3-5 fill-in-the-blank templates based on top-performing examples
+- Each template annotated with guidance on customization
+
+## Client context
+
+[Paste all your prepared inputs here]
+
+### Content examples
+- Content examples (10-15): {{contentExamples}}
+- Performance metrics for each: {{highPerformingMetrics}}
+- Top performers (3-5 with context): {{highEngagementSpecifics}}
+
+### Content to avoid
+- Examples that feel off-brand: {{contentToAvoid}}
+
+### Context & guidelines
+- Content formats used: {{contentFormats}}
+- Target audience: {{targetAudience}}
+- Brand voice notes: {{voiceNotes}}
+```
+
+---
+
+## After you run it
+
+Turn this swipe file into your content operating system:
+- **Share with every writer** (internal team, freelancers, agencies) before they create anything
+- **Create onboarding modules** where new content creators study the annotated examples
+- **Build review checklists** based on the voice DNA and anti-patterns sections
+- **Extract templates** from the quick-start section and turn them into fill-in-the-blank docs
+- **Run content audits** quarterly—does new content match the swipe file patterns?
+- **Update the swipe file** as you create new high-performing content
+
+Test new content against the swipe file. If a draft doesn't match the voice characteristics, messaging mechanics, or BAB patterns in your best examples, it's probably off-brand. Use the annotated examples to coach writers on what needs to change.
+
+Refresh annually or when your voice evolves. Add new high-performers, remove examples that feel dated, and update anti-patterns as you learn what doesn't work.
+
+## Examples
+
+[Coming soon—sample annotated swipe files from real consulting engagements]

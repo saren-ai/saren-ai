@@ -1,0 +1,196 @@
+# Brand voice & tone
+
+## What this generates
+
+Your complete brand communication framework: core voice attributes, tone variation matrix, do/don't examples, voice-in-action snippets across formats, tone modulation guide, messaging pillars, elevator pitch variations, and tagline options. Built using proven frameworks from Mailchimp, Ann Handley's voice matrix, and foundational messaging models.
+
+## Why you need this
+
+Inconsistent voice is one of the fastest ways to erode trust and confuse your audience. When your website sounds corporate, your emails sound casual, and your sales team sounds desperate, nobody knows who you really are. This framework gives everyone—writers, designers, sales, support—a shared language and clear guardrails.
+
+## Before you start
+
+This prompt works best when you have:
+- A clear sense of brands whose voice you admire (and why)
+- Examples of your own content that feels "right" vs. content that missed the mark
+- Customer or team feedback about how your current communications land
+- Some articulation of your target audience and what resonates with them
+
+If you don't have polished examples, that's fine. Rough drafts, email snippets, or even competitor examples that you want to emulate work just as well.
+
+## Prepare your inputs
+
+Fill out this form before running the prompt. The more specific your examples and preferences, the more ownable your voice guidelines will be.
+
+### Voice direction
+
+**{{voiceAdjectives}}**  
+Provide 3-5 adjectives describing how you want your brand to sound.  
+Examples: professional, approachable, innovative, trustworthy, witty, confident, empathetic, bold, conversational, authoritative
+
+**{{voiceDo}}**  
+List 2-3 companies whose brand voice you admire. For each, explain WHY you admire their voice (1-2 sentences).  
+Example: "Mailchimp - They make complex technical topics feel accessible without being condescending. Their voice is playful but never unprofessional."
+
+**{{voiceDont}}**  
+List 1-2 companies or voice styles you want to avoid. For each, explain WHY their voice doesn't resonate (1-2 sentences).  
+Example: "Generic tech startup voice - overly hyped, uses too many buzzwords like 'revolutionize' and 'disrupt,' feels inauthentic and exhausting."
+
+### Content examples
+
+**{{contentExamples}}**  
+Share 2-4 pieces of existing content that "sound like you" or are closest to your desired voice. Include: website copy, emails, social posts, presentations, product descriptions, etc. For each piece, indicate what specifically feels right about it.
+
+**{{contentFeedback}}**  
+Share 1-2 examples of content that missed the mark. Explain what felt wrong or what you'd change. Include any feedback you received from customers or your team about your current communications.
+
+### Company context
+
+**{{companyBackground}}**  
+Brief company description (2-3 sentences), primary products/services, target audience(s), and key differentiators.
+
+**{{businessContext}}**  
+Industry/market category, company stage (startup, growth, established), primary competitors (2-3), and your unique value proposition (draft is fine).
+
+**{{audienceDetails}}**  
+Primary audience persona(s) including titles, roles, and pain points. Also note secondary audiences, whether you're B2B/B2C/both, and the technical sophistication level of your audience.
+
+### Optional but valuable
+
+**{{personalityTraits}}**  
+If you've already defined brand personality traits or archetypes (e.g., "The Sage," "The Hero"), include them here.
+
+**{{legalClaimLimits}}**  
+Any industry regulations, compliance requirements, language/terminology to avoid, or required legal disclaimers.
+
+**{{geoCulturalContext}}**  
+Primary markets/regions, cultural considerations for voice/tone, and languages beyond English if relevant.
+
+**Pro tip:** For voice inspiration and anti-examples, pull actual quotes or copy from those brands. Showing specific examples of what you love (or hate) makes your voice guidelines way more precise than just saying "be professional."
+
+## The prompt
+
+Copy everything below this line and paste it into your LLM. Fill in your prepared inputs where indicated.
+
+---
+```
+You are a senior marketing strategist specializing in brand positioning and messaging architecture. Using proven frameworks including the Mailchimp Voice & Tone approach, Ann Handley's voice matrix, and foundational messaging models, you will develop comprehensive brand communication guidelines.
+
+## Your task
+
+Create a complete Brand Voice & Messaging Foundation document that includes:
+
+### 1. Brand voice & tone framework
+
+#### Core voice attributes (3-5)
+
+Define distinct voice characteristics using the format: "[Attribute] but not [opposite excess]"
+- Example structure: "witty but not snarky," "confident but not arrogant"
+- Ground each attribute in the brand's strategic positioning
+
+#### Tone variation matrix
+
+Create a tone adjustment guide for these scenarios:
+- Announcing success/achievements
+- Addressing problems/apologizing for issues
+- Educational/how-to content
+- Sales/promotional messaging
+- Customer support interactions
+- Crisis communication
+
+#### Do/don't examples
+
+For each voice attribute, provide:
+- 2-3 "Do" examples demonstrating the attribute correctly
+- 2-3 "Don't" examples showing what to avoid
+- Brief explanation of why each works or fails
+
+#### Voice-in-action snippets (5-10)
+
+Write example copy across these formats showing consistent voice:
+- Email subject line + opening paragraph
+- Social media post (LinkedIn or Twitter/X style)
+- Website hero headline + supporting copy
+- Product/feature announcement
+- Customer support response
+- Blog post opening
+
+#### Tone modulation guide
+
+Map tone shifts across:
+- Content types (email, social, web, video scripts, ads)
+- Audience segments (prospects, customers, partners, internal)
+- Sensitivity contexts (technical, emotional, urgent, celebratory)
+
+### 2. Foundation messaging elements
+
+#### Messaging pillars (3-4 core themes)
+
+For each pillar include:
+- Pillar name
+- Core message statement
+- Supporting proof points (3-5 per pillar)
+- Audience relevance
+
+#### Elevator pitch variations
+
+- 30-second version (75-100 words)
+- 10-second version (25-30 words)
+- One-sentence version
+
+#### Tagline options
+
+- Provide 5-7 tagline options with strategic rationale for each
+- Indicate primary recommendation and why
+
+## Output format
+
+Deliver the complete framework as a structured document with:
+- Executive summary
+- Detailed sections for each component
+- Visual examples where helpful
+- Quick-reference guide (1-page cheat sheet)
+- Implementation recommendations
+
+## Client context
+
+[Paste all your prepared inputs here]
+
+### Voice direction
+- Brand voice adjectives: {{voiceAdjectives}}
+- Voice inspiration brands: {{voiceDo}}
+- Voice anti-examples: {{voiceDont}}
+
+### Content examples
+- Existing content examples: {{contentExamples}}
+- Existing content feedback: {{contentFeedback}}
+
+### Company context
+- Company background: {{companyBackground}}
+- Business context: {{businessContext}}
+- Audience details: {{audienceDetails}}
+
+### Optional context (if available)
+- Brand personality: {{personalityTraits}}
+- Communication constraints: {{legalClaimLimits}}
+- Geographic/cultural context: {{geoCulturalContext}}
+```
+
+---
+
+## After you run it
+
+Don't let this become shelfware. Turn it into:
+- **A brand voice checklist** for writers and content reviewers
+- **Onboarding materials** for new marketing hires or agencies
+- **QA criteria** for content approval processes
+- **Sales enablement** so reps email in the same voice as marketing
+- **Templates** for common content types (emails, social posts, support responses)
+
+Test the guidelines with your team. Have them write something using the framework, then review it together. If the voice feels generic or hard to apply, push back on the LLM output and ask for more specific, ownable examples.
+
+Update this annually or when your positioning shifts. Voice should evolve as your brand matures, but the core attributes should remain stable.
+
+## Examples
+
+[Coming soon—sample brand voice frameworks from real consulting engagements]

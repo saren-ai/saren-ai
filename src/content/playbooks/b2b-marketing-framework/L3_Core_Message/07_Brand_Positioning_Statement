@@ -1,0 +1,230 @@
+# Brand positioning statement
+
+## What this generates
+
+Your complete brand positioning foundation using Geoffrey Moore's Positioning Template and April Dunford's Positioning Canvas. You'll get a precise positioning statement, competitive alternatives analysis, unique attributes mapping, value propositions, target segment definition, market category framing, proof points documentation, and a positioning-to-messaging bridge.
+
+## Why you need this
+
+Positioning is the strategic foundation everything else builds on. Without it, your messaging is inconsistent, your sales team tells different stories, and customers can't figure out where you fit or why you matter. This framework forces you to get brutally specific about who you're for, what makes you different, and why anyone should care—all backed by proof.
+
+## Before you start
+
+This prompt works best when you have:
+- Real customer quotes about why they chose you and what value you deliver
+- Win/loss data showing patterns in competitive deals
+- Quantified customer outcomes (time saved, revenue increased, etc.)
+- A clear sense of your competitive alternatives (including "do nothing")
+
+If you're pre-revenue, you can still do this exercise based on customer discovery, competitive research, and strategic hypotheses. Just label assumptions vs. validated insights.
+
+## Prepare your inputs
+
+Fill out this form before running the prompt. The more specific and evidence-based your inputs, the sharper your positioning will be.
+
+### Company basics
+
+**{{companyName}}**  
+Your legal entity or product name
+
+**{{productDescription}}**  
+What you sell or provide. Describe it in 50-150 words, focusing on what it does and the problem it solves, not feature lists.
+
+**{{category}}**  
+How do you currently describe your market category?  
+Examples: "CRM for small businesses," "AI-powered code review platform," "workflow automation software for healthcare," "API infrastructure"
+
+**{{originStory}}**  
+Why was this created? What problem inspired it? Include the founder's "aha moment" or the frustration that led to building this solution.
+
+### Customer understanding
+
+**{{icpDescription}}**  
+Who are your ideal customers? Include roles, company types, and situations.  
+Example: "Mid-market B2B SaaS companies (50-500 employees) with remote sales teams struggling to maintain consistent messaging across reps"
+
+**{{pains}}**  
+What specific needs or problems do they experience? Be concrete about the pain, not just the solution.  
+Example: "Sales reps waste 3-5 hours per week searching for the right content to send prospects, leading to inconsistent messaging and longer sales cycles"
+
+**{{customerQuotes}}**  
+Provide 5-10 verbatim quotes from customers about why they chose you, what value you provide, or how they describe you. Pull these from sales calls, customer interviews, reviews, or testimonials.
+
+**{{successMetrics}}**  
+Quantified outcomes customers have achieved using your solution.  
+Examples: "Reduced sales cycle by 30%," "Increased win rate from 18% to 34%," "Saved 10 hours per week per rep," "Achieved $500K in additional revenue in first quarter"
+
+### Competitive landscape
+
+**{{directCompetitors}}**  
+List 3-5 direct competitors. Include their names and a brief description if they're not well-known.
+
+**{{alternatives}}**  
+What do prospects use or do instead of your solution? Include manual processes, DIY approaches, incumbents, adjacent tools, or "do nothing."  
+Example: "Shared Google Drives, email attachments, Salesforce content library, hiring a sales enablement manager, or just letting reps figure it out themselves"
+
+**{{winLossData}}**  
+Why do you win vs. competitors? Why do you lose? Be specific about patterns you've observed.  
+Examples:  
+- "We win when speed of implementation matters more than feature depth"  
+- "We lose to Competitor X when prospects need on-premise deployment"  
+- "We win against DIY solutions when companies hit 20+ sales reps and consistency breaks down"
+
+### Differentiation & proof
+
+**{{uniqueCapabilities}}**  
+Features or capabilities only you offer (or do significantly better than alternatives). Focus on demonstrable, defensible differences—not just "better."  
+Example: "AI-powered content recommendation engine that learns from won/lost deals, not just content consumption patterns"
+
+**{{uniqueValue}}**  
+Business outcomes only achievable through your unique capabilities. Connect your differentiation to customer results.  
+Example: "Reps send the right content at the right time without searching, reducing sales cycle length and increasing win rates because messaging is consistently aligned to buyer stage"
+
+**{{proofPoints}}**  
+Evidence that validates your claims. Include:
+- Case studies with problem → solution → result format
+- Customer testimonials matched to specific value claims
+- Quantitative data (retention rates, NPS, performance benchmarks, ROI calculations)
+- Third-party validation (awards, analyst recognition, certifications, media coverage)
+
+### Strategic direction
+
+**{{businessGoals}}**  
+What are you trying to achieve in the next 12-24 months?  
+Examples: "Expand into enterprise segment," "Own the 'sales enablement for remote teams' category," "Double win rate against Competitor X"
+
+**{{positioningChallenges}}**  
+What current positioning problems are you trying to solve?  
+Examples: "Prospects confuse us with generic CRMs," "We're perceived as too expensive," "Sales team describes us 5 different ways," "We're invisible in a crowded market"
+
+**{{personalityTraits}}**  
+3-5 adjectives describing how you want to be perceived. Reference your Brand Personality & Archetype doc if you've already created it.
+
+**Pro tip:** The customer quotes section is gold. Real verbatim language from customers reveals positioning insights you can't manufacture. If you don't have quotes yet, go interview your last 5 customers or prospects and ask: "How would you describe us to a colleague?" and "Why did you choose us?"
+
+## The prompt
+
+Copy everything below this line and paste it into your LLM. Fill in your prepared inputs where indicated.
+
+---
+```
+You are a world-class brand strategist specializing in positioning frameworks. Your task is to develop comprehensive brand positioning artifacts using Geoffrey Moore's Positioning Template and April Dunford's Positioning Canvas methodologies.
+
+## Your deliverables
+
+Create the following artifacts:
+
+### 1. Geoffrey Moore positioning statement
+
+Craft a precise positioning statement following this structure:
+
+For [target customer]  
+Who [statement of need or opportunity]  
+The [product/service name] is a [product category]  
+That [key benefit, reason to buy]  
+Unlike [primary competitive alternative]  
+Our product/solution [statement of primary differentiation]
+
+### 2. April Dunford positioning canvas
+
+Develop a detailed positioning canvas including:
+
+**Competitive alternatives:**
+- What would customers use/do if your solution didn't exist?
+- List 3-5 realistic alternatives (including "do nothing")
+
+**Unique attributes:**
+- What capabilities/features do you have that alternatives don't?
+- Focus on demonstrable, defensible differences (not just "better")
+
+**Value (benefits):**
+- What measurable value do those unique attributes enable?
+- Translate features into business outcomes
+
+**Target customer segments:**
+- Who cares most about these specific value propositions?
+- Define by psychographics, firmographics, and behaviors—not just demographics
+
+**Market category:**
+- What market context makes your value obvious?
+- How do you frame the category to position your unique attributes as strengths?
+
+### 3. Proof points documentation
+
+For each unique attribute and value claim, provide:
+- Customer testimonials/quotes validating the claim
+- Quantitative data (metrics, ROI, performance benchmarks)
+- Case studies or specific use cases
+- Third-party validation (awards, analyst recognition, certifications)
+
+### 4. Positioning-to-messaging bridge
+
+Create a mapping document showing how the positioning statement directly informs:
+- Core messaging pillars (3-5 key themes)
+- Value propositions per customer segment
+- Differentiation narratives
+- Proof point alignment to each pillar
+
+## Output format
+
+Structure your response as follows:
+1. Executive summary (150-200 words)
+2. Geoffrey Moore positioning statement (formatted template)
+3. April Dunford positioning canvas (detailed breakdown with rationale)
+4. Proof points matrix (organized by claim type)
+5. Positioning-to-messaging map (visual/table format)
+6. Implementation recommendations (how to activate this positioning)
+
+Use authentic customer language throughout. Prioritize clarity over cleverness. Ensure every claim is defensible with provided proof points.
+
+## Client context
+
+[Paste all your prepared inputs here]
+
+### Company basics
+- Company name: {{companyName}}
+- Product/service description: {{productDescription}}
+- Product category: {{category}}
+- Founding story context: {{originStory}}
+
+### Customer understanding
+- Target customer description: {{icpDescription}}
+- Customer needs/problems: {{pains}}
+- Current customer quotes: {{customerQuotes}}
+- Customer success metrics: {{successMetrics}}
+
+### Competitive landscape
+- Main competitors: {{directCompetitors}}
+- Competitive alternatives: {{alternatives}}
+- Win/loss insights: {{winLossData}}
+
+### Differentiation & proof
+- Unique capabilities: {{uniqueCapabilities}}
+- Unique value delivered: {{uniqueValue}}
+- Proof points: {{proofPoints}}
+
+### Strategic direction
+- Business goals: {{businessGoals}}
+- Positioning challenges: {{positioningChallenges}}
+- Brand personality: {{personalityTraits}}
+```
+
+---
+
+## After you run it
+
+Don't just admire the output. Activate it:
+- **Test it with customers** - Does the positioning resonate? Do they immediately get it?
+- **Train your team** - Sales, support, marketing all need to internalize this
+- **Audit existing content** - Does your website, deck, and collateral match this positioning?
+- **Build messaging templates** - Create email, social, and sales talk tracks from the messaging bridge
+- **Update competitive battlecards** - Your differentiation statements become your competitive playbook
+- **Refine over time** - Track which positioning elements resonate in deals and iterate
+
+If prospects still confuse you with competitors or can't articulate your differentiation back to you, your positioning isn't sharp enough. Push back on the output and demand more specificity.
+
+Update this annually or after major shifts: new target market, significant product evolution, competitive landscape changes, or when your current positioning stops working in the market.
+
+## Examples
+
+[Coming soon—sample positioning frameworks from real consulting engagements]

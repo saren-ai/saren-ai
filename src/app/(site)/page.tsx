@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import HomeClient from "./HomeClient";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildGraph, ID, serviceId } from "@/lib/schema";
+import { FAQS } from "@/data/faqs";
 
 const TITLE = "Saren Sakurai | AI-native website architecture";
 const DESCRIPTION =
@@ -94,6 +95,7 @@ export default function HomePage() {
           description: DESCRIPTION,
           image: "https://saren.ai/images/og/home.png",
           dateModified: "2026-08-26T00:00:00Z",
+          faq: FAQS.home,
           extra: [architecturePracticeService],
         })}
       />

@@ -70,7 +70,9 @@ export default async function B2BFrameworkPage() {
             files.sort();
 
             for (const file of files) {
-                if (file.endsWith('.md')) {
+                // Step files ship without a .md extension in this content set (matches
+                // the source repo) — accept any regular file, just skip dotfiles.
+                if (!file.startsWith('.')) {
                     const content = await fs.readFile(path.join(levelDir, file), 'utf-8');
                     const title = file.replace('.md', '').replace(/_/g, ' ');
 

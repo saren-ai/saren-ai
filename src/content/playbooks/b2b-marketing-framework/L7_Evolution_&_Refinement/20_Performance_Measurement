@@ -1,0 +1,318 @@
+# Performance measurement framework
+
+## What this generates
+
+Your comprehensive performance measurement framework using OKRs, Marketing Mix Modeling, Brand Health Tracking, Balanced Scorecards, and Multi-Touch Attribution. You'll get strategic OKRs aligned with business goals, brand health scorecard, message effectiveness metrics, channel performance KPIs, leading vs. lagging indicators map, three-tiered dashboard structure (executive, management, specialist), reporting cadence calendar, and continuous improvement process. This connects marketing activities to business outcomes and enables data-driven decision-making.
+
+## Why you need this
+
+"We're doing marketing but we don't know what's working" is the death of a marketing budget. Without a measurement framework, you're flying blind—unable to prove ROI, optimize spend, or make strategic decisions. Tracking vanity metrics (followers, impressions) instead of business outcomes (pipeline, revenue, brand equity) means you can't answer the CEO's question: "What are we getting for this investment?" This framework balances short-term tactical metrics with long-term brand building, so you can both prove impact today and build sustainable competitive advantage.
+
+## Before you start
+
+This prompt works best when you have:
+- Clear business goals and growth targets for the next 12-24 months
+- Current metrics you're tracking (even if imperfect) with baseline performance data
+- Understanding of your biggest measurement blind spots—where you lack visibility
+- Inventory of analytics tools, CRM, and data sources you have access to
+- Clarity on who needs reports and how often they need them
+
+If you're early-stage, you can build this based on strategic priorities and available tools, even if you're not tracking much yet. The framework will guide what to implement first.
+
+## Prepare your inputs
+
+Fill out this form before running the prompt. The more specific your goals and context, the more actionable your measurement framework will be.
+
+### Business context
+
+**{{businessGoals}}**  
+What are your primary business objectives and specific growth targets for the next 12-24 months?  
+Examples:  
+- "Increase revenue from $5M to $10M ARR, expand from mid-market to enterprise segment, launch 2 new products, achieve 95% gross retention rate"  
+- "Double pipeline from $20M to $40M, reduce CAC by 20%, increase average deal size from $50K to $75K, enter European market"
+
+**{{currentMetrics}}**  
+What metrics are you currently tracking, and what are your baseline performance levels?  
+Examples:  
+- "Monthly website visitors: 50K, MQL to SQL conversion: 18%, Average sales cycle: 90 days, Customer acquisition cost: $8,500, NPS: 42, Email open rate: 24%, LinkedIn engagement rate: 2.3%"  
+- "We track basic Google Analytics (traffic, conversions) and Salesforce pipeline metrics, but don't have sophisticated attribution or brand health tracking"
+
+**{{blindSpots}}**  
+Where do you currently lack visibility or insights in your marketing performance?  
+Examples:  
+- "Don't know which marketing channels drive highest quality pipeline—just track first-touch attribution"  
+- "No visibility into brand perception vs. competitors—we're guessing about positioning effectiveness"  
+- "Can't connect marketing spend to revenue—sales says 'most deals come from referrals' but we can't prove it"  
+- "Don't know if our messaging is resonating—just measuring vanity metrics like impressions"
+
+### Operational context
+
+**{{toolsAvailable}}**  
+What analytics platforms, CRM systems, marketing automation tools, and data sources do you currently use?  
+Examples:  
+- "Google Analytics 4, HubSpot (CRM + marketing automation), Salesforce, LinkedIn Campaign Manager, Google Ads, SEMrush, no BI tool yet"  
+- "Basic tech stack: Google Analytics, Mailchimp, social platform native analytics. Budget for one new tool if needed"  
+- "Enterprise stack: Salesforce + Marketo + Tableau + 6sense + Gong + full martech suite"
+
+**{{teamStructure}}**  
+Who are the team members involved in measurement and reporting, and what are their roles?  
+Examples:  
+- "Marketing Director (owns strategy), Digital Marketing Manager (runs campaigns), Content Lead (creates content), no dedicated analyst—Director handles reporting"  
+- "VP Marketing, Demand Gen Manager, Content Marketing Manager, Marketing Ops Analyst (part-time), Sales Ops Manager (partner for attribution)"
+
+**{{reportingAudience}}**  
+Who are the key stakeholders who will consume these reports, and what do they care about?  
+Examples:  
+- "CEO (cares about pipeline and ROI), CFO (cares about budget efficiency), VP Sales (cares about lead quality and velocity), Board (cares about brand health and market position quarterly)"  
+- "Just founder + small team for now—need simple dashboards we can all understand"
+
+**{{reportingCadence}}**  
+What is your desired cadence for different types of reporting?  
+Examples:  
+- "Daily campaign snapshots for active campaigns, weekly channel performance review with marketing team, monthly comprehensive review with CEO, quarterly board presentation"  
+- "Weekly dashboard check-ins, monthly deep dives, quarterly strategic reviews—keep it simple for now"
+
+**Pro tip:** For "biggest blind spots," be brutally honest. "We have no idea if our $50K/month in LinkedIn ads is actually driving pipeline" is more useful than "we'd like better attribution." Specificity helps the LLM design measurements that actually solve your problems.
+
+## The prompt
+
+Copy everything below this line and paste it into your LLM. Fill in your prepared inputs where indicated.
+
+---
+```
+You are a performance measurement and marketing analytics expert specializing in OKRs, Marketing Mix Modeling, Brand Health Tracking, Balanced Scorecards, and Multi-Touch Attribution. Your task is to create a comprehensive Performance Measurement Framework that connects marketing activities to business outcomes and enables data-driven decision-making.
+
+## Context
+
+Using the provided client information, develop a measurement framework that:
+- Aligns marketing performance with strategic business objectives
+- Balances short-term tactical metrics with long-term brand building
+- Provides actionable insights across multiple marketing channels
+- Distinguishes between leading indicators (predictive) and lagging indicators (confirmatory)
+- Enables stakeholders at all levels to make informed decisions
+
+## Core framework approach
+
+Integrate these complementary methodologies:
+- **OKRs (Objectives & Key Results)** - To ensure measurement of what truly matters and maintain strategic focus
+- **Marketing Mix Modeling** - To accurately attribute results to the appropriate channels and optimize budget allocation
+- **Brand Health Tracking** - To monitor long-term brand equity and perception evolution
+- **Balanced Scorecard** - To connect marketing metrics with broader business strategy across financial, customer, internal process, and learning/growth dimensions
+- **Multi-Touch Attribution** - To understand the granular impact of each touchpoint in the customer journey
+
+## Required outputs
+
+Create a comprehensive Performance Measurement Framework document (3,000-3,500 words) containing:
+
+### 1. Strategic OKRs (400-500 words)
+
+Develop 4 strategic marketing objectives aligned with business goals, each with 3-5 measurable key results:
+- **Objective 1:** Brand awareness and perception
+- **Objective 2:** Demand generation and pipeline impact
+- **Objective 3:** Customer acquisition and conversion efficiency
+- **Objective 4:** Customer retention and lifetime value growth
+
+For each objective, specify:
+- The strategic "why" connecting to business goals
+- Key results with specific targets and timeframes
+- Owner/accountable party from team structure
+- How this addresses any identified blind spots
+
+### 2. Brand health scorecard (500-600 words)
+
+Design a comprehensive brand health measurement system including:
+- **Awareness metrics:** Aided/unaided awareness, share of voice, search volume trends
+- **Perception metrics:** Brand attributes, Net Promoter Score (NPS), sentiment analysis
+- **Consideration metrics:** Brand preference, purchase intent, competitive positioning
+- **Loyalty metrics:** Repeat purchase rate, customer lifetime value, advocacy behaviors
+- **Equity metrics:** Brand valuation indicators, price premium capability, brand extensions potential
+
+Specify:
+- Measurement methodology and data sources from available tools
+- Benchmarking approach (competitive and historical)
+- Recommended tracking frequency
+- How to interpret directional changes
+
+### 3. Message effectiveness metrics (400-500 words)
+
+Create a framework to measure message resonance and performance:
+- **Recall metrics:** Message retention, brand association, key message pull-through
+- **Comprehension metrics:** Understanding of value propositions, clarity scores
+- **Resonance metrics:** Emotional response, relevance ratings, persuasiveness scores
+- **Behavioral metrics:** Click-through rates on message-driven content, conversion impact by message variant
+- **Channel-specific adaptation:** How message effectiveness varies across channels
+
+Include testing methodologies and iteration protocols.
+
+### 4. Channel performance KPIs framework (500-600 words)
+
+Develop tailored metrics for each relevant marketing channel aligned with available tools:
+
+For each channel, define:
+- **Reach metrics:** Impressions, unique users, audience growth
+- **Engagement metrics:** Time spent, interaction rate, content consumption depth
+- **Conversion metrics:** Click-through rate, conversion rate, cost per acquisition
+- **Efficiency metrics:** ROI, ROAS, cost per engagement
+- **Attribution weighting:** Multi-touch attribution model specifications
+
+Create a channel attribution matrix showing how each channel contributes across the customer journey stages (awareness → consideration → decision → retention).
+
+### 5. Leading vs. lagging indicators map (300-400 words)
+
+Create a clear distinction between predictive and confirmatory metrics:
+
+**Leading indicators (early warning signals):**
+- Website engagement trends
+- Content consumption patterns
+- Pipeline velocity changes
+- Market share of voice shifts
+- Audience sentiment movements
+
+**Lagging indicators (results confirmation):**
+- Revenue and bookings
+- Customer acquisition cost
+- Conversion rates
+- Market share
+- Customer lifetime value
+
+Explain the relationship between leading and lagging indicators and how to use both for proactive decision-making.
+
+### 6. Dashboard structure blueprint (500-600 words)
+
+Design three-tiered dashboard architecture tailored to reporting audience:
+
+**Executive dashboard (strategic view):**
+- 6-8 north star metrics
+- Progress toward OKRs
+- Brand health summary
+- Revenue and pipeline impact
+- Month-over-month and year-over-year trends
+
+**Marketing management dashboard (tactical view):**
+- Channel performance comparison
+- Campaign effectiveness
+- Budget pacing and ROI
+- Message testing results
+- Leading indicator alerts
+
+**Specialist dashboard (operational view):**
+- Granular channel metrics
+- Real-time campaign performance
+- A/B test results
+- Content performance details
+- Technical optimization opportunities
+
+For each dashboard level, specify:
+- Key visualizations and chart types
+- Data refresh frequency
+- Implementation using available tools
+- Mobile vs. desktop considerations
+
+### 7. Reporting cadence calendar (300-400 words)
+
+Create a structured reporting schedule based on reporting frequency and audience:
+
+**Daily reporting:**
+- Automated snapshots for active campaigns
+- Real-time performance alerts
+- Who receives: Team operational roles
+
+**Weekly reporting:**
+- Channel performance summaries
+- Campaign progress updates
+- Optimization recommendations
+- Who receives: Marketing management
+
+**Monthly reporting:**
+- Comprehensive marketing performance review
+- OKR progress assessment
+- Brand health update
+- ROI analysis by channel and campaign
+- Who receives: Marketing leadership and relevant stakeholders
+
+**Quarterly reporting:**
+- Strategic performance review
+- Brand health deep dive
+- Multi-touch attribution insights
+- Budget reallocation recommendations
+- Who receives: Executive team and board
+
+Include report formats, presentation templates, and meeting structures.
+
+### 8. Continuous improvement process (300-400 words)
+
+Establish a framework for measurement evolution:
+- **Monthly metric reviews:** Evaluate whether current metrics still align with business goals
+- **Quarterly framework audits:** Assess measurement gaps revealed in blind spots
+- **Learning agenda:** Prioritized questions to answer through measurement
+- **Testing roadmap:** Systematic approach to message and channel testing
+- **Tool optimization:** Maximizing value from available tools and identifying gaps
+- **Team development:** Building analytical capabilities within team structure
+
+Include a change management process for introducing new metrics or retiring irrelevant ones.
+
+## Output format requirements
+
+- Use clear headers and subheaders for easy navigation
+- Include specific examples relevant to the client's context
+- Provide calculation formulas for custom metrics
+- Create visual descriptions for dashboard layouts (describe what would be shown)
+- Use tables to organize complex metric frameworks
+- Bold key metrics and important callouts
+- Include implementation timelines (quick wins vs. long-term builds)
+
+## Tone and style
+
+- Strategic yet practical
+- Data-driven but accessible to non-technical stakeholders
+- Action-oriented with clear next steps
+- Balanced between sophistication and simplicity
+- Reference specific tools from available tools where relevant
+
+## Client context
+
+[Paste all your prepared inputs here]
+
+### Business context
+- Business goals: {{businessGoals}}
+- Current metrics: {{currentMetrics}}
+- Biggest blind spots: {{blindSpots}}
+
+### Operational context
+- Available tools: {{toolsAvailable}}
+- Team structure: {{teamStructure}}
+- Reporting audience: {{reportingAudience}}
+- Reporting frequency: {{reportingCadence}}
+```
+
+---
+
+## After you run it
+
+Turn this framework into your measurement operating system:
+- **Implement dashboards** starting with the executive view—get leadership bought in first
+- **Set up OKR tracking** in a visible place (Notion, spreadsheet, OKR tool) that the team reviews weekly
+- **Configure tools** to collect the metrics you've defined (GA4 goals, CRM reports, attribution models)
+- **Establish reporting rituals** - weekly team reviews, monthly leadership reviews, quarterly board prep
+- **Train the team** on what metrics matter and how to interpret them
+- **Start brand health tracking** even if it's manual surveys at first—trend data is gold
+
+Build the infrastructure:
+- **Connect data sources** - integrate CRM, marketing automation, analytics platforms
+- **Create report templates** so reporting is consistent and efficient
+- **Automate where possible** - scheduled reports, dashboard refreshes, alert triggers
+- **Document definitions** - what exactly counts as an MQL? How is pipeline attributed?
+
+Review and evolve:
+- **Monthly:** Check if metrics are still answering the right questions
+- **Quarterly:** Audit for blind spots—what new questions emerged that you can't answer?
+- **Annually:** Comprehensive framework refresh aligned with new business goals
+
+Mature over time:
+- **Phase 1 (Months 1-3):** Basic dashboards, manual reporting, foundational OKRs
+- **Phase 2 (Months 4-6):** Automated reporting, multi-touch attribution, brand health baseline
+- **Phase 3 (Months 7-12):** Sophisticated attribution, predictive analytics, marketing mix modeling
+
+## Examples
+
+[Coming soon—sample performance measurement frameworks from real consulting engagements]

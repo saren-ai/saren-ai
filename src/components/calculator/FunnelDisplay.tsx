@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 import type { FunnelResult, ConversionRates, ViewMode } from "@/lib/calculator/types";
 import {
@@ -112,13 +112,22 @@ export function FunnelDisplay({
     },
   ];
 
-  const conversionRateValues = [
-    rates.visitorToLead,
-    rates.leadToMQL,
-    rates.mqlToSQL,
-    rates.sqlToOpportunity,
-    rates.opportunityToClose,
-  ];
+  const conversionRateValues = useMemo(
+    () => [
+      rates.visitorToLead,
+      rates.leadToMQL,
+      rates.mqlToSQL,
+      rates.sqlToOpportunity,
+      rates.opportunityToClose,
+    ],
+    [
+      rates.visitorToLead,
+      rates.leadToMQL,
+      rates.mqlToSQL,
+      rates.sqlToOpportunity,
+      rates.opportunityToClose,
+    ]
+  );
 
   const conversionRateBenchmarks = [
     benchmarks.visitorToLead,

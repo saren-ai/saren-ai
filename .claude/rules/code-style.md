@@ -16,6 +16,7 @@
 ## localStorage
 - `"theme"` — dark mode preference
 - `"saren-tier-list-votes"` — tier list user votes
+- `"saren-chat-session-id"` — live chat widget's session id (client-side only; the messages themselves live in Supabase)
 - No other localStorage keys without discussion
 
 ## TypeScript

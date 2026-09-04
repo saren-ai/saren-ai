@@ -1,0 +1,196 @@
+# Brand personality & archetype
+
+## What this generates
+
+Your complete brand personality foundation using Carl Jung's 12 Brand Archetypes and Jennifer Aaker's Brand Personality Dimensions. You'll get archetype identification, personality dimension scores, behavioral examples, voice expressions, and strategic implications—everything you need to ensure your brand shows up consistently across every touchpoint.
+
+## Why you need this
+
+A defined brand personality isn't fluffy marketing theory—it's the strategic framework that helps everyone make decisions. When your designer is choosing a color palette, your copywriter is drafting an email, or your product team is building a feature, they need to know: does this feel like us? Without clear personality guidelines, you get schizophrenic brand expressions that confuse customers and dilute your positioning.
+
+## Before you start
+
+This prompt works best when you have:
+- A gut sense of brands you admire (and why their personality resonates)
+- Some clarity on how formal or casual you want to be
+- Customer feedback about how your brand currently "feels" to them
+- Competitive intelligence about personality gaps in your market
+
+If you're pre-launch, that's fine. You can build this based on founder vision, target audience insights, and strategic positioning choices. Just be ready to test and refine as you get real customer interactions.
+
+## Prepare your inputs
+
+Fill out this form before running the prompt. The more honest and specific you are, the more differentiated your brand personality will be.
+
+### Brand basics
+
+**{{companyName}}**  
+Your company/brand name
+
+**{{companyDescription}}**  
+In 2-3 sentences, what does your brand do? What problem do you solve?
+
+**{{desiredFeelings}}**  
+How do you want customers to feel about your brand?  
+Examples: "trusted, inspired, empowered" or "confident, supported, innovative" or "safe, understood, capable"
+
+**{{personalityTraits}}**  
+List 3-5 adjectives that describe your ideal brand personality.  
+Examples: bold, authentic, innovative, approachable, expert, playful, premium, rebellious, nurturing, ambitious
+
+### Brand inspiration & direction
+
+**{{admiredBrands}}**  
+Name 3-5 brands you admire in ANY industry and briefly note why.  
+Examples:  
+- "Apple - minimalist and premium, never overexplains"  
+- "Patagonia - values-driven without being preachy"  
+- "Mailchimp - makes complex things approachable and fun"
+
+**{{antiBrands}}**  
+Name 2-3 brands or brand styles that feel wrong for your positioning and explain why.  
+Examples:  
+- "Too corporate like IBM - overly formal and distant"  
+- "Too playful like Innocent Smoothies - we need more authority"  
+- "Too luxury like Rolex - creates distance from our everyday audience"
+
+### Communication preferences
+
+**{{formalityLevel}}**  
+On a scale of 1-5, how formal should your brand voice be?  
+- 1 = very casual/conversational (startup, DTC, consumer tech)
+- 2 = friendly professional (modern B2B, SaaS)
+- 3 = balanced professional (traditional B2B)
+- 4 = formal professional (finance, legal, healthcare)
+- 5 = very formal/corporate (enterprise, government)
+
+**{{industryNormsApproach}}**  
+Should you follow industry communication norms, break them, or be selective? Explain your reasoning.  
+Examples:  
+- "Break them - our industry is stuck in corporate speak and we want to stand out"  
+- "Follow them - trust and credibility matter more than differentiation in our space"  
+- "Selective - professional when it matters, but more human than our competitors"
+
+**{{culturalNuances}}**  
+Are there specific cultural, regional, or demographic considerations that should influence your brand personality?  
+Examples:  
+- "B2B enterprise audience - need to balance approachable with authoritative"  
+- "Gen Z consumers - need to be authentic and values-forward"  
+- "Global brand with local sensitivity - avoid US-centric language"
+
+### Audience & market context
+
+**{{targetAudience}}**  
+Who are your primary customers? Include demographics, psychographics, and key characteristics.
+
+**{{competitiveLandscape}}**  
+What industry are you in? Who are your main competitors? What's the typical brand personality in your space? (e.g., "Cybersecurity - most brands are fear-based and technical, we want to be empowering")
+
+**Pro tip:** When identifying admired brands, look beyond your industry. Some of the best personality differentiation comes from borrowing traits from unexpected categories. A B2B SaaS company might learn from Patagonia's values-driven authenticity or Nike's motivational energy.
+
+## The prompt
+
+Copy everything below this line and paste it into your LLM. Fill in your prepared inputs where indicated.
+
+---
+```
+You are a strategic brand consultant specializing in brand identity frameworks. Using Carl Jung's 12 Brand Archetypes and Jennifer Aaker's Brand Personality Dimensions, develop a comprehensive brand personality foundation for the client described below.
+
+## Required output
+
+Deliver a comprehensive brand personality analysis structured as follows:
+
+### 1. Archetype identification (300 words)
+
+- **Primary archetype:** Name and provide detailed justification based on brand goals, customer desires, and market positioning
+- **Secondary archetype:** Identify the supporting archetype that adds nuance and depth
+- **Explanation:** How these archetypes work together to create a distinctive brand personality
+
+### 2. Aaker's personality dimension scores (200 words)
+
+Rate the brand on each dimension (1-10 scale) with brief rationale:
+- **Sincerity:** down-to-earth, honest, wholesome, cheerful
+- **Excitement:** daring, spirited, imaginative, up-to-date
+- **Competence:** reliable, intelligent, successful
+- **Sophistication:** upper class, charming
+- **Ruggedness:** outdoorsy, tough
+
+### 3. Behavioral manifestation examples (250 words)
+
+Provide 5 specific scenarios showing how this personality appears in real interactions:
+- Customer service response example
+- Social media interaction example
+- Product/service delivery moment
+- Crisis or complaint handling
+- Celebration or customer success moment
+
+### 4. Comparative brand examples (150 words)
+
+Identify 3 well-known brands (any industry) that exemplify similar archetype/personality combinations:
+- Brand name
+- Why they're comparable
+- Specific traits to emulate
+
+### 5. Voice expression examples (200 words)
+
+Write 3 distinct voice examples showing personality in action:
+- A headline or tagline
+- A welcome message or about us excerpt
+- A product/service description snippet
+
+### 6. Strategic implications (100 words)
+
+Brief summary of:
+- Key differentiators this personality creates
+- Potential risks or watch-outs
+- Consistency guidelines for future communications
+
+## Output specifications
+
+- Total length: 1,000-1,200 words
+- Tone: Strategic, insightful, actionable, with clear rationale for all recommendations
+- Format: Use markdown with clear headers and structure
+
+## Client context
+
+[Paste all your prepared inputs here]
+
+### Brand basics
+- Brand name: {{companyName}}
+- Brand description: {{companyDescription}}
+- Desired customer feelings: {{desiredFeelings}}
+- Personality adjectives: {{personalityTraits}}
+
+### Brand inspiration & direction
+- Admired brands: {{admiredBrands}}
+- Anti-brands: {{antiBrands}}
+
+### Communication preferences
+- Formality preference: {{formalityLevel}}
+- Industry norms approach: {{industryNormsApproach}}
+- Cultural nuances: {{culturalNuances}}
+
+### Audience & market context
+- Target audience: {{targetAudience}}
+- Industry and competitive landscape: {{competitiveLandscape}}
+```
+
+---
+
+## After you run it
+
+Use this framework to:
+- **Audit existing content** for personality consistency
+- **Brief creative agencies or freelancers** on your brand character
+- **Train customer-facing teams** so they embody the personality in interactions
+- **Guide design decisions** (colors, imagery, UI patterns that match the archetype)
+- **Evaluate partnerships** (does this partner brand align with our personality?)
+- **Screen new hires** for cultural fit with the brand personality
+
+Test the personality with your team. If everyone's interpretation is wildly different, the framework needs more specificity. Real brand personalities should be distinctive enough that you can tell when something's on-brand vs. off-brand.
+
+Revisit this when you rebrand, enter new markets, or get consistent feedback that your personality isn't landing as intended. Your archetype might stay stable, but the expression can evolve as your audience or market matures.
+
+## Examples
+
+[Coming soon—sample brand personality frameworks from real consulting engagements]

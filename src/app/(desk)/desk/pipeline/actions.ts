@@ -3,11 +3,20 @@
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 
+async function requireAuth() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) throw new Error("Not authenticated");
+  return { supabase, user };
+}
+
 // Log an outreach touch as SENT for a contact. Finds the contact's latest
 // sequence, computes the next touch_num, inserts one real touches row.
 // (sequences + touches are in database.types.ts, so this is fully typed.)
 export async function logTouchSent(contactId: string) {
-  const supabase = await createClient();
+  const { supabase } = await requireAuth();
 
   const { data: seq } = await supabase
     .from("sequences")
@@ -42,7 +51,7 @@ export async function logTouchSent(contactId: string) {
 
 // Remove a contact from the pipeline view without deleting them.
 export async function archiveContact(contactId: string) {
-  const supabase = await createClient();
+  const { supabase } = await requireAuth();
   const { error } = await supabase
     .from("contacts")
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -54,9 +63,7 @@ export async function archiveContact(contactId: string) {
 
 // Queue a research job for a contact (free, no credits).
 export async function queueResearchFromPipeline(contactId: string) {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) throw new Error("Not authenticated");
+  const { supabase, user } = await requireAuth();
 
   const { data: existing } = await supabase
     .from("agent_jobs")
@@ -91,7 +98,7 @@ export async function queueResearchFromPipeline(contactId: string) {
 
 // Record a reply on the contact's latest touch.
 export async function markReplied(contactId: string) {
-  const supabase = await createClient();
+  const { supabase } = await requireAuth();
 
   const { data: seq } = await supabase
     .from("sequences")

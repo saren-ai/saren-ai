@@ -10,6 +10,9 @@ const HEADER = `# Saren.ai — Fractional Marketing Lead & AI Marketing Operatio
 
 > Saren Sakurai is a fractional marketing lead and AI operations consultant based in Orange County, California. He helps early-stage and Series A founders in SaaS, cybersecurity, and AI build AI-powered demand generation systems that produce predictable revenue. Notable work includes scaling demand at Cylance ($1.4B BlackBerry acquisition), Qwiet AI, and Wethos AI — with documented results including $4M in quarterly pipeline, an 8:1 ROI on $2.3M in paid budget, and 344% lead growth.
 
+Full text of the agentic-web pillar, in one fetch: ${BASE_URL}/llms-full.txt
+Any page on this site is available as Markdown by appending ?format=md to its URL.
+
 ## What Saren Does (Capabilities)
 
 Saren Sakurai specializes in:

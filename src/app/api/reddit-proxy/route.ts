@@ -20,6 +20,18 @@ export const runtime = 'edge';
 
 const SUBREDDIT_PATTERN = /^[A-Za-z0-9_]{1,50}$/;
 
+function safeCompare(a: string, b: string): boolean {
+    const enc = new TextEncoder();
+    const aBytes = enc.encode(a);
+    const bBytes = enc.encode(b);
+    if (aBytes.byteLength !== bBytes.byteLength) return false;
+    let result = 0;
+    for (let i = 0; i < aBytes.byteLength; i++) {
+        result |= aBytes[i] ^ bBytes[i];
+    }
+    return result === 0;
+}
+
 export async function GET(request: Request) {
     const secret = process.env.REDDIT_PROXY_SECRET;
     if (!secret) {
@@ -29,8 +41,8 @@ export async function GET(request: Request) {
         );
     }
 
-    const authHeader = request.headers.get('authorization');
-    if (authHeader !== `Bearer ${secret}`) {
+    const authHeader = request.headers.get('authorization') ?? '';
+    if (!safeCompare(authHeader, `Bearer ${secret}`)) {
         return new NextResponse('Unauthorized', { status: 401 });
     }
 

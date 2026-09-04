@@ -478,6 +478,65 @@ export type Database = {
           },
         ]
       }
+      chat_sessions: {
+        Row: {
+          id: string
+          status: string
+          mode: string
+          created_at: string
+          last_message_at: string
+        }
+        Insert: {
+          id?: string
+          status?: string
+          mode?: string
+          created_at?: string
+          last_message_at?: string
+        }
+        Update: {
+          id?: string
+          status?: string
+          mode?: string
+          created_at?: string
+          last_message_at?: string
+        }
+        Relationships: []
+      }
+      chat_messages: {
+        Row: {
+          id: string
+          session_id: string
+          role: string
+          body: string
+          ip: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          session_id: string
+          role: string
+          body: string
+          ip?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          session_id?: string
+          role?: string
+          body?: string
+          ip?: string | null
+          created_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "chat_messages_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "chat_sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never

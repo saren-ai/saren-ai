@@ -1,0 +1,304 @@
+# Review and Iteration
+
+## What this generates
+
+Your comprehensive review and iteration protocol using Agile retrospective methodology, PDCA cycle (Plan-Do-Check-Act), Kaizen Continuous Improvement, and Lean Startup Build-Measure-Learn principles. You'll get multi-tiered review architecture, review content scope by interval, trigger-based review protocol, stakeholder roles and responsibilities, decision-making framework, version control and documentation system, change communication plan, success metrics for iteration, and annual brand calendar. This transforms brand management from static documents into a living, responsive practice.
+
+## Why you need this
+
+The 16 artifacts you just created will become shelfware without a system to keep them current. Markets shift, competitors move, customer language evolves, and products launch—your brand can't be a "set it and forget it" exercise. This protocol ensures your positioning stays sharp, your messaging stays relevant, and your team stays aligned as your business grows. It's the difference between a brand that ossifies and a brand that scales.
+
+## Before you start
+
+This prompt works best when you have:
+- Understanding of how quickly your market changes (fast-moving tech vs. stable industrial)
+- History of what's worked and failed in past brand updates (even if informal)
+- Clear sense of decision-making structure and who needs to be involved
+- All 16 foundational brand artifacts completed (these become the assets you'll iterate)
+
+If you're early-stage, you can build this based on founder decision-making patterns and anticipated growth trajectory. Just be ready to formalize it as your team scales.
+
+## Prepare your inputs
+
+Fill out this form before running the prompt. The more honest you are about organizational dynamics, the more practical your protocol will be.
+
+### Market & product context
+
+**{{marketChangeVelocity}}**  
+How rapidly does your industry, competitive landscape, and customer preferences change?  
+Examples:  
+- "B2B SaaS with new competitors launching monthly, AI disrupting buyer expectations quarterly—very fast-moving"  
+- "Manufacturing/industrial B2B with 3-5 year trend cycles, stable competitive set for past decade—slow-moving"  
+- "Healthcare tech with regulatory changes annually, but core buyer needs stable—moderate pace"
+
+**{{productLifecycleStage}}**  
+Where is your primary product/service in its lifecycle, and what changes are planned?  
+Examples:  
+- "Mature product with planned enterprise features launching Q2, SMB version launching Q3—active product evolution"  
+- "New market entry launching in 6 months, will require separate positioning and messaging"  
+- "Stable product, no major changes planned—focus is on market expansion, not product evolution"
+
+### Current state assessment
+
+**{{reviewCadence}}**  
+Describe your current brand review practices, if any. How often? Who participates? What format?  
+Examples:  
+- "Ad-hoc discussions in quarterly business reviews when someone notices messaging is off. No formal process. Marketing Manager raises issues, CEO decides"  
+- "Annual planning session where we refresh positioning, then nothing until next year. Too slow, causes drift"  
+- "No formal process—founder just updates messaging when they feel like it. Creates confusion"
+
+**{{changeHistory}}**  
+Share 2-3 examples of previous brand or messaging changes. What worked well? What challenges did you face? Key lessons learned?  
+Examples:  
+- "Repositioned from SMB to mid-market in 2023. Worked: Clear executive decision, updated all assets within 2 weeks. Didn't work: Sales team wasn't trained, kept using old pitch for 3 months"  
+- "Changed tagline in 2024 after customer feedback. Worked: Simple change, easy to implement. Didn't work: No testing beforehand, new tagline confused prospects"  
+- "Haven't made any major changes yet—this will be our first structured brand build"
+
+**{{currentPainPoints}}**  
+What are your biggest frustrations with how brand decisions are made or updated today?  
+Examples:  
+- "Takes 6 months to get CEO approval on anything—by the time we launch, market has moved"  
+- "Different teams (sales, marketing, CS) using completely inconsistent messaging—no single source of truth"  
+- "We update guidelines but nobody follows them—no enforcement or accountability"  
+- "Brand decisions are made in a vacuum without data or customer input"
+
+### Organizational structure
+
+**{{decisionStructure}}**  
+How are significant decisions typically made in your organization?  
+Examples:  
+- "CEO has final say on all brand matters—nothing ships without their approval. Slows us down but ensures consistency"  
+- "Collaborative, data-driven consensus model—marketing presents recommendations, leadership team discusses, CMO decides"  
+- "Marketing VP has full autonomy within budget—CEO only reviews quarterly results, not individual decisions"
+
+**{{teamAvailability}}**  
+What is the realistic availability of key stakeholders for regular brand review meetings? Who are the essential participants?  
+Examples:  
+- "CMO available monthly (owns process), Product Director quarterly, Sales VP quarterly, CEO quarterly for major decisions only"  
+- "Small team—founder + marketing manager can meet weekly if needed, but prefer bi-weekly"  
+- "Marketing team of 5 can dedicate Fridays to brand work, but executives only available quarterly"
+
+**{{companyStage}}**  
+Company size, structure, and geographic distribution?  
+Examples:  
+- "15-person single-office startup, everyone in same Slack workspace, fast decision-making"  
+- "200-person company across US and UK offices, decentralized marketing teams by region, need coordination"  
+- "50-person remote-first company, distributed globally, all async communication"
+
+**{{brandMaturity}}**  
+How established is your brand?  
+Examples:  
+- "Pre-launch startup defining initial brand from scratch—no legacy to manage"  
+- "3-year-old growth-stage company that's never formalized brand—lots of inconsistency to clean up"  
+- "10-year-old established brand needing refresh to stay relevant—have to balance legacy equity with evolution"
+
+**Pro tip:** The "past change history" and "current pain points" sections reveal exactly what to design for. If past changes failed because sales wasn't trained, your protocol needs robust change communication. If decisions take forever, you need clear decision thresholds and authority levels.
+
+## The prompt
+
+Copy everything below this line and paste it into your LLM. Fill in your prepared inputs where indicated.
+
+---
+```
+You are a strategic brand management expert specializing in creating adaptive, sustainable review and iteration systems. Using Agile retrospective methodology, the PDCA cycle (Plan-Do-Check-Act), Kaizen Continuous Improvement, and Lean Startup Build-Measure-Learn principles, you will develop a comprehensive Review & Iteration Protocol that transforms brand management from a static document into a living, responsive practice.
+
+## Your task
+
+Create a detailed, actionable Evolution & Refinement Protocol (3000-3500 words) that establishes how the client will continuously review, measure, and refine their brand messaging, positioning, and communication strategies over time.
+
+## Framework integration
+
+- **Agile Retrospectives:** Structure regular reflection points with "What worked?", "What didn't?", "What should we try?"
+- **PDCA Cycle:** Plan changes, Do implementation, Check results, Act on learnings
+- **Kaizen:** Emphasize incremental improvements and collaborative feedback loops
+- **Build-Measure-Learn:** Enable rapid testing of brand assumptions with market feedback
+
+## Required output components
+
+### 1. Review architecture (700-800 words)
+
+Design a multi-tiered review system:
+- **Continuous monitoring:** Real-time metrics and signals that inform ongoing brand health
+- **Sprint reviews (if applicable):** Monthly pulse checks on active campaigns or launches
+- **Quarterly business reviews:** Comprehensive brand performance assessment
+- **Annual strategic reviews:** Deep-dive brand evolution planning
+
+For each tier, specify:
+- Exact timing and duration
+- Participants and roles
+- Agenda structure
+- Decision-making authority
+- Documentation requirements
+
+Justify the recommended cadence based on market change velocity and product lifecycle stage.
+
+### 2. Review content scope (600-700 words)
+
+Define precisely what gets reviewed at each interval:
+- **Brand health metrics:** Awareness, perception, consideration, preference, loyalty indicators
+- **Messaging performance:** Which messages/channels/campaigns to evaluate
+- **Competitive positioning:** When and how to reassess competitive landscape
+- **Customer feedback integration:** VOC data, NPS trends, support themes
+- **Market signal analysis:** Industry trends, regulatory changes, cultural shifts
+
+Create a matrix showing review frequency for each element based on current pain points and brand maturity level.
+
+### 3. Trigger-based review protocol (500-600 words)
+
+Establish specific conditions that require immediate off-cycle brand reviews:
+- **Performance triggers:** Metric thresholds that signal problems
+- **Market triggers:** Competitive moves, industry disruption
+- **Internal triggers:** Leadership changes, M&A, product pivots
+- **External triggers:** PR crises, regulatory changes, cultural events
+
+For each trigger type:
+- Define clear thresholds
+- Specify response timeline
+- Identify review team composition
+- Outline expedited decision process
+
+Calibrate sensitivity based on market change velocity.
+
+### 4. Stakeholder roles & responsibilities (400-500 words)
+
+Map the review ecosystem considering decision-making structure and organizational size:
+- **Review facilitator:** Who runs the process
+- **Core review team:** Regular participants (marketing, product, sales, customer success)
+- **Executive sponsors:** Decision-making authority and escalation path
+- **Extended stakeholders:** When to involve finance, HR, operations, etc.
+- **External advisors:** Role of agencies, consultants, or board members
+
+Include RACI matrix for key decisions (Responsible, Accountable, Consulted, Informed).
+
+### 5. Decision-making framework (500-600 words)
+
+Create a structured approach for evaluating and implementing changes:
+- **Change assessment criteria:** Impact vs. effort matrix, brand consistency score, resource requirements
+- **Decision thresholds:** What level of change requires executive approval vs. team autonomy
+- **Testing protocol:** When/how to pilot changes before full rollout (A/B tests, soft launches)
+- **Go/No-go gates:** Clear criteria for proceeding with brand modifications
+- **Escalation path:** When consensus fails, how decisions get made
+
+Align with decision-making structure while introducing appropriate governance based on past change history.
+
+### 6. Version control & documentation system (400-500 words)
+
+Establish how brand assets and guidelines are managed:
+- **Versioning convention:** Naming and numbering system for brand materials
+- **Central repository:** Where master brand assets live (DAM, shared drives, etc.)
+- **Change log:** How modifications are tracked with rationale and approvals
+- **Archive protocol:** Retaining historical versions for reference
+- **Access controls:** Who can view, edit, and approve changes
+- **Sunset process:** Deprecating outdated materials
+
+Address pain points from current pain points regarding asset management.
+
+### 7. Change communication plan (400-500 words)
+
+Design how brand updates are socialized:
+
+**Internal communication:**
+- Announcement channels and timing
+- Training/enablement for teams using brand materials
+- Feedback collection mechanisms
+
+**External communication:**
+- When customers/partners need notification
+- Press/PR considerations for significant changes
+- Website and collateral update coordination
+
+Include templates and timelines aligned with organizational size.
+
+### 8. Success metrics for iteration (300-400 words)
+
+Define how to measure the review process itself:
+- Review meeting effectiveness (participation, decisions made, action item completion)
+- Time from insight to implementation
+- Brand consistency scores across touchpoints
+- Team satisfaction with review process
+- Business impact of implemented changes
+
+Create dashboard recommendations tied to existing review cadence improvements.
+
+### 9. Annual brand calendar (200-300 words)
+
+Provide a 12-month view integrating:
+- Scheduled review sessions
+- Typical business cycle events (planning, budgeting, product launches)
+- Industry events/seasonality relevant to market change velocity
+- Known strategic initiatives from product lifecycle stage
+
+Visualize as a calendar with review milestones and likely trigger points.
+
+## Tone & style requirements
+
+- **Practical and implementable:** Avoid theoretical frameworks without clear application
+- **Customized to context:** Constantly reference client's specific variables
+- **Balance structure with flexibility:** Provide rigor without bureaucracy
+- **Anticipate resistance:** Address common objections based on current pain points
+- **Enable action:** Include next steps, templates, and quick-start guidance
+
+## Deliverable structure
+
+- Executive summary (150-200 words): Why continuous brand evolution matters for this client
+- Numbered sections following the 9 components above
+- Implementation roadmap (200-250 words): 30-60-90 day plan to establish the review system
+- Appendices:
+  - Sample review meeting agenda
+  - Decision-making template
+  - Change request form
+  - Communication announcement template
+
+## Client context
+
+[Paste all your prepared inputs here]
+
+### Market & product context
+- Market change velocity: {{marketChangeVelocity}}
+- Product lifecycle stage: {{productLifecycleStage}}
+
+### Current state assessment
+- Existing review cadence: {{reviewCadence}}
+- Past change history: {{changeHistory}}
+- Current pain points: {{currentPainPoints}}
+
+### Organizational structure
+- Decision-making structure: {{decisionStructure}}
+- Team availability: {{teamAvailability}}
+- Organizational size: {{companyStage}}
+- Brand maturity level: {{brandMaturity}}
+```
+
+---
+
+## After you run it
+
+Implement this protocol immediately—don't let it become another document nobody uses:
+- **Schedule the first review** within 30 days using the protocol structure
+- **Set up the central repository** for brand assets with version control
+- **Train stakeholders** on their roles, responsibilities, and decision authority
+- **Create calendar holds** for all recurring reviews (monthly, quarterly, annual)
+- **Document the first review** using the templates provided—establish the pattern
+- **Measure the process** from day one—track decisions made, time to implementation, consistency improvements
+
+Start simple and scale:
+- **Month 1:** Establish core review team, schedule first quarterly review, set up asset repository
+- **Month 2:** Run first structured review, document decisions, implement quick wins
+- **Month 3:** Refine based on what worked/didn't, formalize trigger protocols, train extended team
+
+Build the culture:
+- **Make reviews non-negotiable** - They're as important as sales calls or product development
+- **Celebrate improvements** - When iteration leads to better results, acknowledge it
+- **Empower the team** - Give clear decision thresholds so people can move fast
+- **Stay disciplined** - Don't skip reviews when busy; that's when you need them most
+
+Evolve the protocol itself:
+- **After 3 reviews:** Survey participants—what's working, what's bureaucratic?
+- **After 6 months:** Adjust cadence if too frequent or too infrequent
+- **After 1 year:** Major protocol refresh based on organizational growth and market changes
+
+Your brand is now a system, not a document. Congratulations—you just built a Zero to GTM Motion Playbook that actually scales.
+
+## Examples
+
+[Coming soon—sample evolution and refinement protocols from real consulting engagements]

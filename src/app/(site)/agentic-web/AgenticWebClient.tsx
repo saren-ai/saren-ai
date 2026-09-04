@@ -108,7 +108,7 @@ export default function AgenticWebClient() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
                     >
-                        <Link href="/services/audit" className="btn-primary inline-flex items-center gap-2">
+                        <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
                             Get the agentic readiness audit <ArrowRight className="w-4 h-4" />
                         </Link>
                     </motion.div>
@@ -268,8 +268,8 @@ export default function AgenticWebClient() {
                         className="text-lg font-semibold max-w-2xl mt-10"
                     >
                         The target keeps moving.{" "}
-                        <Link href="/agentic-web/standards" className="text-ember underline underline-offset-4">
-                            See what changed most recently on this page.
+                        <Link href="/contact" className="text-ember underline underline-offset-4">
+                            Ask me what changed most recently.
                         </Link>
                     </motion.p>
                 </div>
@@ -301,7 +301,7 @@ export default function AgenticWebClient() {
                         transition={{ delay: 0.05 }}
                         className="flex flex-wrap justify-center items-center gap-4"
                     >
-                        <Link href="/services/audit" className="btn-primary">
+                        <Link href="/contact" className="btn-primary">
                             Get the agentic readiness audit
                         </Link>
                         <Link href="/agentic-web/glossary" className="text-sm text-ash/70 hover:text-ash transition-colors">

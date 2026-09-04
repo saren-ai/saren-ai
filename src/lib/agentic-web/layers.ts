@@ -36,7 +36,7 @@ export const LAYERS: LayerDefinition[] = [
       "This is copy, structure, and information architecture work, the same discipline that's always separated a site that converts from one that just exists. The difference now is that the same narrative has to survive being read by a model, which is a harder bar than reading well to a person alone.",
       "In practice this means rewriting the pitch until it holds up out loud, restructuring navigation around the buyer's actual decision path, and making sure proof is positioned where the claim it supports gets made, not filed away as an afterthought.",
     ],
-    serviceLink: { href: "/services/build", label: "See the fixed-scope build" },
+    serviceLink: { href: "/contact", label: "Ask about the build" },
   },
   {
     slug: "machine-readability",
@@ -62,7 +62,7 @@ export const LAYERS: LayerDefinition[] = [
       "This is the layer where a marketing-ops background actually transfers directly: building a taxonomy that survives contact with a real system is the same skill whether the system is a sales team's lead router or a language model's retrieval index.",
       "In practice this means auditing schema against rendered HTML for drift, writing one canonical description sentence and enforcing it everywhere, and structuring arguments and headings so a model can extract them cleanly instead of paraphrasing them into something wrong.",
     ],
-    serviceLink: { href: "/services/architecture-partner", label: "See the architecture retainer" },
+    serviceLink: { href: "/contact", label: "Ask about the retainer" },
   },
   {
     slug: "agent-access",
@@ -87,7 +87,7 @@ export const LAYERS: LayerDefinition[] = [
       "This layer barely existed as a discipline two years ago, so most of the work is building the first version of it rather than optimizing an existing one: crawler policy, structured feeds, and the machine-actionable paths that let an agent finish what it started.",
       "This site is the reference example, not a description of the idea: robots.txt here names retrieval crawlers explicitly rather than blanket-blocking or blanket-allowing everything with \"AI\" in the name, and every non-API page emits a markdown-negotiation header so an agent can request the plain-text version of a page instead of parsing rendered HTML.",
     ],
-    serviceLink: { href: "/services/architecture-partner", label: "See the architecture retainer" },
+    serviceLink: { href: "/contact", label: "Ask about the retainer" },
   },
 ];
 

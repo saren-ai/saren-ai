@@ -38,8 +38,12 @@ export default async function OutreachPage({ params }: Props) {
 
   if (!data) notFound()
 
-  // Fire-and-forget view count — don't await, don't block render
-  supabase.rpc('increment_page_view', { page_slug: slug })
+  // Fire-and-forget view count — don't block render, handle rejection safely
+  supabase
+    .rpc('increment_page_view', { page_slug: slug })
+    .then(null, (err) => {
+      console.error('outreach_pages: increment_page_view failed', err)
+    })
 
   return <OutreachPageClient page={data as OutreachPage} />
 }

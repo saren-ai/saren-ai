@@ -1,0 +1,222 @@
+# Taglines & slogans
+
+## What this generates
+
+Your complete tagline and slogan suite using David Aaker's seven characteristics of great taglines and classic copywriting principles. You'll get 10 tagline options with scoring, top 3 recommendations with rationale, 9 campaign slogans across three themes, a testing framework for choosing, and usage guidelines. This gives you both an enduring brand tagline and tactical slogans for campaigns.
+
+## Why you need this
+
+A great tagline is a strategic asset, not a creative afterthought. It captures your brand essence in a handful of words that customers remember and repeat. Without one, you're generic. With a bad one, you're forgettable or confusing. This framework uses David Aaker's proven criteria to develop options that are memorable, meaningful, differentiated, and built to last—plus campaign slogans for tactical activations.
+
+## Before you start
+
+This prompt works best when you have:
+- Clear brand positioning and value propositions already defined (reference your Positioning Statement and Message Map)
+- Examples of taglines you love and hate (so you can articulate what resonates)
+- Customer language patterns—words or phrases they use to describe you
+- Your elevator pitch nailed down (reference your Elevator Pitch doc)
+
+If you're early-stage, you can still create these based on founder vision and strategic positioning. Just be ready to test with customers before committing to one publicly.
+
+## Prepare your inputs
+
+Fill out this form before running the prompt. The more specific your examples and preferences, the more ownable your taglines will be.
+
+### Brand aspiration & inspiration
+
+**{{famousForSaying}}**  
+What do you want your brand to be famous for saying? What message or idea should people immediately associate with your brand?  
+Example: "We want to be known for the idea that sales enablement is about behavior change, not content libraries"
+
+**{{taglinesLove}}**  
+List 3-5 taglines from other brands (any industry) that you admire and explain briefly why they resonate with you.  
+Examples:  
+- "Nike: 'Just Do It' - Simple, motivational, works for any sport or activity"  
+- "Apple: 'Think Different' - Aspirational, positions users as creative rebels"  
+- "Avis: 'We Try Harder' - Turns competitive disadvantage into a strength"
+
+**{{taglinesHate}}**  
+List 2-3 taglines you dislike and explain what doesn't work about them for you.  
+Examples:  
+- "'Innovating Tomorrow Today' - Generic, could be any tech company, meaningless"  
+- "'The Power of Possible' - Vague, no clear value proposition, sounds corporate"
+
+### Company context
+
+**{{elevatorPitch}}**  
+Describe your business in one compelling sentence. What do you do and for whom? Reference your Elevator Pitch doc if you've already created it.  
+Example: "We help B2B sales teams scale consistent messaging by learning from won deals, not just content usage"
+
+**{{customerPhrase}}**  
+What word or phrase do your customers consistently use to describe your brand, product, or service? Pull from reviews, testimonials, or sales calls.  
+Example: "Customers always say 'you guys actually get it' or 'this is the first tool that understands how sales really works'"
+
+**{{existingTaglines}}**  
+List any taglines or slogans you've tried before and note what worked or didn't work about them.  
+Example: "We tried 'Sales Enablement Reimagined' but it felt generic. We also tried 'Win More Deals Faster' but it was too tactical and didn't capture our methodology"
+
+### Strategic foundation
+
+**{{positioningStatement}}**  
+Your brand positioning statement. If you've already created your Brand Positioning Statement doc, reference it or paste the positioning statement here.
+
+**{{targetAudience}}**  
+Primary target audience description. If you've already created your Target Customer Profiles, reference them or provide a brief summary.
+
+**{{valueProps}}**  
+Your core value propositions. If you've already created your Unique Value Propositions doc, reference it or provide key value props here.
+
+### Optional context
+
+**{{testingAudience}}**  
+Do you have access to customers or focus groups for testing? (Yes/No, and approximate size)
+
+**{{industryConstraints}}**  
+Are there any industry-specific regulations or conventions regarding claims or language?
+
+**{{geo}}**  
+Will this tagline be used globally or in specific markets? Any language or cultural considerations?
+
+**Pro tip:** The "taglines you love" and "taglines you hate" sections are critical. They reveal your aesthetic preferences and help the LLM understand what "great" means to you. Don't skip these—they're the difference between generic options and ownable ones.
+
+## The prompt
+
+Copy everything below this line and paste it into your LLM. Fill in your prepared inputs where indicated.
+
+---
+```
+You are a world-class brand copywriter and messaging strategist specializing in tagline development. Your task is to create a comprehensive taglines and slogans document using David Aaker's seven characteristics of great taglines and classic copywriting principles.
+
+## Framework foundation
+
+Apply David Aaker's seven characteristics:
+1. **Memorable** - Easy to recall and repeat
+2. **Meaningful** - Communicates brand positioning and value
+3. **Likeable** - Creates positive emotional response
+4. **Differentiated** - Stands apart from competitors
+5. **Protectable** - Legally and competitively defensible
+6. **Supports brand positioning** - Reinforces core strategy
+7. **Short and simple** - Concise and easily understood
+
+Combine with classic copywriting principles: rhythm, alliteration, metaphor, benefit-driven language, and emotional appeal.
+
+## Your deliverables
+
+### 1. Ten tagline options with scoring (400-500 words)
+
+Develop 10 distinct tagline options that reflect the client's brand essence. For each option:
+- Present the tagline
+- Score it against Aaker's seven characteristics (1-5 scale for each)
+- Provide total score out of 35
+- Include brief rationale (2-3 sentences) explaining strategic intent
+
+Consider variations in:
+- Length (3-7 words ideal)
+- Tone (aspirational, practical, provocative, warm)
+- Focus (functional benefit, emotional benefit, brand personality, customer transformation)
+
+### 2. Top 3 recommendations with rationale (250-300 words)
+
+Select the three highest-performing taglines and provide:
+- **Primary recommendation:** Why this tagline is "The Keeper"—the one that should become the enduring brand tagline
+- **Runner-up options:** Why these are strong alternatives, including contexts where they might outperform the primary
+- **Competitive differentiation analysis** for each
+- **Longevity assessment** (will it remain relevant in 5-10 years?)
+
+### 3. Nine campaign slogan ideas (200-250 words)
+
+Create 3 campaign slogans for each of these themes:
+
+**Theme 1: Product/service launch** - Focused on innovation, newness, or specific features
+
+**Theme 2: Seasonal/promotional** - Timely, action-oriented, conversion-focused
+
+**Theme 3: Brand building/awareness** - Emotional connection, brand values, or cultural relevance
+
+Each slogan should:
+- Complement (not compete with) the primary tagline
+- Be adaptable across channels
+- Include suggested use case
+
+### 4. Testing framework for choosing (150-200 words)
+
+Provide a structured evaluation methodology including:
+- **Recall testing protocol:** How to measure memorability (aided/unaided recall)
+- **Emotional resonance assessment:** Survey questions or semantic differential scales to measure emotional response
+- **Competitive differentiation analysis:** Method for testing distinctiveness against competitor taglines
+- **Stakeholder feedback template:** Questions for internal and customer testing groups
+- **Decision matrix:** Weighted scoring system for final selection
+
+### 5. Usage guidelines (100-150 words)
+
+Clear directives covering:
+- When to use primary tagline (brand touchpoints, signature applications)
+- When to use campaign slogans (tactical campaigns, promotional periods)
+- Formatting rules (punctuation, capitalization, lockup with logo)
+- Channel-specific applications (social media bios, email signatures, advertising, website)
+- Tone and voice considerations
+- Examples of correct and incorrect usage
+
+## Output requirements
+
+- Total length: 1000-1200 words
+- Tone: Professional, strategic, confident
+- Format: Clear headings, bullet points for scannability, tables for scoring
+- Structure: Follow the five-section format exactly as outlined above
+- Quality standard: Every tagline and slogan should be production-ready, not placeholder examples
+
+## Special considerations
+
+- Ensure linguistic clarity and avoid jargon unless it's industry-appropriate
+- Consider trademark availability concerns (flag potential issues)
+- Test for unintended meanings or negative associations
+- Ensure cultural sensitivity and global applicability if needed
+- Verify alignment with previously established brand positioning and messaging hierarchy
+
+## Client context
+
+[Paste all your prepared inputs here]
+
+### Brand aspiration & inspiration
+- Famous for saying: {{famousForSaying}}
+- Taglines they love: {{taglinesLove}}
+- Taglines they hate: {{taglinesHate}}
+
+### Company context
+- Elevator pitch: {{elevatorPitch}}
+- Customer phrase: {{customerPhrase}}
+- Existing taglines: {{existingTaglines}}
+
+### Strategic foundation
+- Brand positioning: {{positioningStatement}}
+- Target audience: {{targetAudience}}
+- Value propositions: {{valueProps}}
+
+### Optional context (if available)
+- Testing audience: {{testingAudience}}
+- Industry constraints: {{industryConstraints}}
+- Geographic scope: {{geo}}
+```
+
+---
+
+## After you run it
+
+Don't pick a tagline in a vacuum:
+- **Test top 3 with customers** using the testing framework—do they remember it? Does it resonate?
+- **Pressure-test internally** - Can everyone on your team say it without stumbling?
+- **Check trademark availability** before committing (consult legal counsel)
+- **Live with it for a week** - Put it in your email signature, say it out loud in pitches, see if it feels right
+- **Audit competitor taglines** - Does yours stand out or blend in?
+
+Once you choose one, commit fully:
+- **Update every brand touchpoint** - website, decks, email signatures, social bios, ads
+- **Train the team** - Everyone should know it and use it consistently
+- **Build campaign slogans** around it for tactical activations
+- **Resist the urge to change it** unless your positioning fundamentally shifts
+
+Taglines should be stable for 5-10 years minimum. Campaign slogans can rotate quarterly or seasonally. Don't confuse the two—one is strategic, one is tactical.
+
+## Examples
+
+[Coming soon—sample taglines and slogans from real consulting engagements]

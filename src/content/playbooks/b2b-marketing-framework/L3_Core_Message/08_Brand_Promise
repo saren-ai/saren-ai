@@ -1,0 +1,192 @@
+# Brand promise
+
+## What this generates
+
+Your complete brand promise framework using Duane Knapp's Brand Promise methodology. You'll get an external customer-facing promise, internal employee-facing promise, three promise pillars with measurable standards, proof points, KPIs for tracking delivery, and a recovery protocol for when things go wrong. This translates your aspirations into concrete, measurable commitments.
+
+## Why you need this
+
+Most companies make vague promises they can't measure or deliver consistently. "We deliver excellence" means nothing. A real brand promise is specific, measurable, and backed by systems that track delivery and fix failures. This framework ensures your promise is authentic (you can actually deliver it), distinctive (competitors aren't saying the same thing), and valuable (customers actually care).
+
+## Before you start
+
+This prompt works best when you have:
+- Clear patterns in customer feedback—what they consistently praise and complain about
+- Operational data showing what you can reliably deliver every time
+- Examples of how you currently handle failures or complaints
+- Understanding of what drives customer loyalty and retention
+
+If you're early-stage, you can build this based on founder vision, customer discovery interviews, and your operational capabilities. Just be honest about what you can guarantee vs. what you aspire to deliver.
+
+## Prepare your inputs
+
+Fill out this form before running the prompt. The more honest and specific you are about both your strengths and failure points, the more credible your promise will be.
+
+### Customer feedback
+
+**{{customerPraise}}**  
+What do customers consistently praise about your organization? Pull from reviews, testimonials, sales calls, support tickets, or NPS comments.  
+Example: "Customers constantly mention our response time—'I always get an answer within an hour' shows up in almost every positive review"
+
+**{{customerComplaints}}**  
+What's your most repeated customer complaint or pain point? Be honest—this helps you build a promise around what matters most.  
+Example: "Onboarding takes too long and feels confusing. Customers say they don't know what to do first or who to ask for help"
+
+**{{praisedAttributes}}**  
+Data or feedback on your most praised brand attributes. Include specific quotes, review snippets, or testimonials.  
+Example: "'Your team actually understands our industry' - CTO at mid-market SaaS company. 'We've never had a vendor respond this fast' - VP Operations at healthcare tech startup"
+
+### Strategic direction
+
+**{{desiredReputation}}**  
+What do you want to be known for? What's the reputation you're building toward?  
+Example: "The most responsive and reliable partner for scaling sales teams—the vendor you can count on when growth is chaotic"
+
+**{{brandPromise}}**  
+What can you guarantee will happen every single time a customer interacts with you? Only include what you can truly, consistently deliver.  
+Example: "Every support ticket gets a human response within 2 hours during business hours, and a resolution path within 24 hours"
+
+**{{retentionDrivers}}**  
+What makes your best customers stay loyal? Why don't they churn?  
+Example: "Customers who stay 3+ years say it's because we evolve with them—they don't have to switch vendors when they scale. They also mention our customer success team knows their business deeply"
+
+### Operational reality
+
+**{{failureResponse}}**  
+What happens when things go wrong? Describe your current approach to handling failures, complaints, or service breakdowns.  
+Example: "Currently, customer success manually escalates issues to engineering. Average resolution time is 4-7 days. No formal process for communicating progress to customers during that window"
+
+**{{failureScenarios}}**  
+List 3-5 realistic failure scenarios or breakdown points in your customer experience. Where do things typically go wrong?  
+Examples:  
+- "Onboarding takes longer than promised when customer has complex integrations"  
+- "Feature requests get lost and customers don't hear back"  
+- "Support response times spike during product launches"  
+- "Implementation team gets overwhelmed during Q4 and timelines slip"
+
+**Pro tip:** The failure scenarios and complaints sections are just as important as the praise. A credible brand promise acknowledges where you might break down and builds recovery protocols around it. Don't skip the uncomfortable questions.
+
+## The prompt
+
+Copy everything below this line and paste it into your LLM. Fill in your prepared inputs where indicated.
+
+---
+```
+You are a brand strategist specializing in Duane Knapp's Brand Promise methodology. Your task is to develop a comprehensive brand promise framework that defines what the organization commits to delivering to customers and employees, including measurement systems and recovery protocols.
+
+## Context
+
+Using the client information provided below, create a complete brand promise system that translates the organization's aspirations into concrete, measurable commitments. The brand promise should be authentic (based on what they can truly deliver), distinctive (differentiated from competitors), and valuable (meaningful to target audiences).
+
+## Required outputs
+
+Create the following brand promise artifacts (800-1000 words total):
+
+### 1. External brand promise (10-15 words)
+
+A customer-facing promise statement that is:
+- Clear and memorable
+- Benefit-focused (not feature-focused)
+- Emotionally resonant
+- Credible and deliverable
+- Differentiated from competitors
+
+### 2. Internal brand promise (1 statement)
+
+An employee-facing promise that:
+- Translates the external promise into internal commitment
+- Defines what employees must deliver
+- Inspires and guides behavior
+- Creates accountability
+
+### 3. Three promise pillars with standards
+
+For each pillar, include:
+- Pillar name (2-4 words)
+- Description of what this pillar means (2-3 sentences)
+- Specific, measurable standard of delivery
+- Connection to customer experience
+
+### 4. Proof points (3-5 concrete examples)
+
+Evidence that demonstrates the organization delivers on its promise:
+- Existing programs, policies, or practices
+- Customer testimonials or data
+- Operational capabilities
+- Unique differentiators
+- Tangible examples customers can verify
+
+### 5. Key performance indicators (3-5 metrics)
+
+Specific, measurable KPIs to track promise delivery:
+- Leading indicators (predict future performance)
+- Lagging indicators (measure results)
+- Both quantitative and qualitative measures
+- Trackable through existing or reasonable data collection
+- Linked directly to promise pillars
+
+### 6. Recovery protocol
+
+A framework for when the promise is broken:
+- **Acknowledgment:** How to recognize and admit the failure
+- **Immediate response:** First actions within 24 hours
+- **Resolution process:** Steps to fix the problem
+- **Prevention:** How to avoid repeat failures
+- **Restoration:** How to rebuild trust with affected customers
+
+## Formatting instructions
+
+- Use clear headers for each section
+- Write in a professional but accessible tone
+- Include brief rationale for key recommendations
+- Ensure all elements connect cohesively to the core promise
+- Bold key terms and statements
+- Use bullet points for clarity where appropriate
+
+## Quality standards
+
+The output should demonstrate:
+- Strategic alignment between external promise and internal capability
+- Realistic commitments (avoid over-promising)
+- Measurable success criteria
+- Actionable recovery plans
+- Authentic reflection of client's actual strengths and values
+
+## Client context
+
+[Paste all your prepared inputs here]
+
+### Customer feedback
+- What customers consistently praise: {{customerPraise}}
+- Most repeated complaint: {{customerComplaints}}
+- Most praised attributes: {{praisedAttributes}}
+
+### Strategic direction
+- Desired reputation: {{desiredReputation}}
+- Guaranteed delivery: {{brandPromise}}
+- Retention drivers: {{retentionDrivers}}
+
+### Operational reality
+- Current failure response: {{failureResponse}}
+- Potential failure scenarios: {{failureScenarios}}
+```
+
+---
+
+## After you run it
+
+Don't let this become aspirational fluff. Make it operational:
+- **Train every team** on the promise—sales, support, product, engineering, everyone
+- **Build the KPI dashboard** and review it weekly in leadership meetings
+- **Document the recovery protocol** and role-play failure scenarios with customer-facing teams
+- **Test promise delivery** by mystery shopping your own experience
+- **Update hiring criteria** to include "lives our brand promise" as a core competency
+- **Link compensation** to promise delivery metrics for customer-facing roles
+
+If you can't measure it or you're not willing to fire people who consistently break it, it's not a real promise—it's marketing copy.
+
+Review quarterly. Your promise should be stable, but standards and KPIs can evolve as you improve operational capabilities. If you consistently overdeliver on your promise, it might be time to raise the bar.
+
+## Examples
+
+[Coming soon—sample brand promise frameworks from real consulting engagements]
