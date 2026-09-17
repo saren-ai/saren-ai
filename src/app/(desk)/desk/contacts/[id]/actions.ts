@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { requireAuth } from "@/lib/supabase/server";
 import type { ThreadItem } from "@/components/desk/ThreadBubble";
 
 // ---------------------------------------------------------------------------
@@ -30,12 +30,7 @@ export async function queueJob(
   const spec = JOB_SPEC[jobKind];
   if (!spec) throw new Error(`Unknown job kind: ${jobKind}`);
 
-  const supabase = await createClient();
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) throw new Error("Not authenticated");
+  const { supabase, user } = await requireAuth();
 
   // Pull the contact's client/company so the engine has the routing context
   // without a second round-trip.
@@ -82,9 +77,7 @@ export async function pushToDrafts(
   subject: string | null,
   to: string | null
 ) {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) throw new Error("Not authenticated");
+  const { supabase, user } = await requireAuth();
 
   // Persist the edited body back to the touch so the UI reflects the final version.
   await supabase
@@ -145,11 +138,7 @@ export async function updateContactField(
   field: string,
   value: string
 ) {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) throw new Error("Not authenticated");
+  const { supabase } = await requireAuth();
 
   if (!ALLOWED_CONTACT_FIELDS.has(field)) {
     throw new Error(`Field '${field}' is not editable`);
@@ -169,11 +158,7 @@ export async function logReply(
   touchId: string,
   formData: FormData
 ) {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) throw new Error("Not authenticated");
+  const { supabase } = await requireAuth();
 
   const body = (formData.get("body") as string).trim();
   const sentiment = formData.get("sentiment") as string;

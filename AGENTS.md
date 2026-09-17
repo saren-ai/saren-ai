@@ -47,21 +47,17 @@ Next.js 16.2 (App Router) · React 19 · TypeScript (strict) · Tailwind CSS v4 
 - **Docs:** `docs/desk-runbook.md` (workflow), `docs/hustle-flow-schema-reference.md` (tables + write patterns).
 - **Note:** `src/lib/supabase/database.types.ts` predates `001–003` — regenerate it to type `v_pipeline`/`companies`/`clients` (a single justified cast reads the view meanwhile).
 
-## Admin (`/admin`) & Live Chat Cockpit
+## Admin (`/admin`)
 
-`/admin` is the administrative control surface for site operations (live chat cockpit, purchase logs, overview metrics), isolated in the `(admin)` route group.
+`/admin` is the administrative control surface for site operations (purchase logs, overview metrics), isolated in the `(admin)` route group.
 
 - **Edge Security:** Gated at the edge by Cloudflare Access and defense-in-depth validated in `src/proxy.ts` + each `/api/admin/*` route handler using `isAuthorizedAdminRequest` (`src/lib/admin/cloudflare-access.ts`). Verifies Cloudflare Access RS256 JWT tokens using Web Crypto against `https://${CF_ACCESS_TEAM_DOMAIN}/cdn-cgi/access/certs`.
-- **Routes:** `/admin` (overview cards: waiting chats, today's purchases/unlocks, Desk pipeline contacts); `/admin/chat` (live chat cockpit with message timelines and real-time admin replies); `/admin/purchases` (audit log of playbook entitlements and legacy purchases).
-- **Public Chat Architecture (`ChatWidget.tsx`):**
-  - **Protection:** Invisible Cloudflare Turnstile verification (`NEXT_PUBLIC_TURNSTILE_SITE_KEY`), burst rate-limiting (`src/lib/rate-limit.ts`), daily IP limits (20 messages/day), global session cap (100 sessions/day), and keyword/pattern spam filtering (`src/lib/chat/spam-filter.ts`).
-  - **Routing:** Day mode (7am–11pm Pacific) alerts Saren via Twilio SMS (`sendSms`) with two-way SMS reply webhook support (`/api/chat/twilio-webhook`). Night mode (11pm–7am Pacific) engages Claude Haiku 4.5 (`src/lib/chat/ai-reply.ts`) with bounded output (`maxOutputTokens: 300`) as an after-hours stand-in.
-  - **Performance:** `/api/chat/status` is edge-cached (`Cache-Control: public, s-maxage=60, stale-while-revalidate=300`) and lazy-checked on visitor interaction rather than firing uncached queries on every page view. Polling auto-pauses when the browser tab is hidden.
-  - **Database:** Supabase service-role only (`src/lib/supabase/admin.ts`), tables `chat_sessions` and `chat_messages` with RLS enabled and zero anon policies.
+- **Routes:** `/admin` (overview cards: today's purchases/unlocks, Desk pipeline contacts); `/admin/purchases` (audit log of playbook entitlements and legacy purchases).
+- **Note (2026-09-16):** The live chat widget, its admin cockpit (`/admin/chat`), and backend (`/api/chat/*`, `/api/admin/chat/*`, `src/lib/chat/`) were removed — no bandwidth to staff it. The `chat_sessions`/`chat_messages` Supabase tables (created in `009`/`010`) are dropped by `011_drop_live_chat.sql` — apply that migration to the live database if it hasn't run yet.
 
 ## Security Conventions
 
-- **Constant-Time Comparisons:** All bearer tokens and webhook signature checks (`process.env.CRON_SECRET`, `process.env.REDDIT_PROXY_SECRET`, `process.env.CHAT_TWILIO_AUTH_TOKEN`) must use constant-time byte comparisons (`crypto.timingSafeEqual` or bitwise XOR `safeCompare`) to prevent timing attacks. Never compare secrets with `!==`.
+- **Constant-Time Comparisons:** All bearer tokens and webhook signature checks (`process.env.CRON_SECRET`, `process.env.REDDIT_PROXY_SECRET`) must use constant-time byte comparisons (`src/lib/security/safe-compare.ts` — `safeCompare` for Node routes, `safeCompareEdge` for edge-runtime routes) to prevent timing attacks. Never compare secrets with `!==`.
 - **Fail-Closed Auth:** Protected API routes and cron endpoints must fail closed. If an authentication secret (`CRON_SECRET`) is missing or undefined in production, reject the request with 500/401 instead of skipping validation.
 - **Server Action Authorization & Whitelisting:** All Server Actions (`use server`) must verify the caller's session via `await supabase.auth.getUser()`. Any mutation that accepts field names (e.g. `updateContactField`) must check against an explicit whitelist (`ALLOWED_CONTACT_FIELDS`) before updating the database.
 - **Redirect Validation:** Any endpoint generating redirects or magic links (e.g. `/api/desk/send-otp`) must validate that `redirectTo` is a relative path or restricted to an approved origin.
@@ -147,7 +143,6 @@ Site-wide URLs and third-party endpoints (booking links, scheduler URLs, API bas
 /playbooks/hybrid-lead-scoring            Hybrid lead scoring tool
 /playbooks/its-good-to-be-pitched         TV spot storyboard / creative production demo
 /playbooks/roi-simulator                  Paid media ROI simulator tool
-/playbooks/vault-chat                     Ask-the-marketing-knowledge-base RAG chat tool
 /playbooks/[id]                           Dynamic playbook pages (free + paid tiers)
 /playbooks/[id]/success                   Route Handler — verifies Stripe session, sets dlx_ cookie, redirects
 /case-studies                             Case Studies index (static B2B narratives)
@@ -165,8 +160,7 @@ Site-wide URLs and third-party endpoints (booking links, scheduler URLs, API bas
 /signal-state/use-cases/cybersecurity
 /signal-state/use-cases/independent-creative
 /signal-state/use-cases/org-alignment
-/admin                                    Admin overview — live chat stats, purchases, Desk pipeline
-/admin/chat                               Live chat cockpit — session view, message timeline, admin replies
+/admin                                    Admin overview — purchases, Desk pipeline
 /admin/purchases                          Purchases cockpit — playbook entitlements & legacy downloads
 /privacy                                  Privacy policy
 /terms                                    Terms of service
@@ -182,7 +176,7 @@ Site-wide URLs and third-party endpoints (booking links, scheduler URLs, API bas
 /halcyon/resume
 ```
 
-`/api/*` route handlers (admin chat reply/sessions, checkout, desk OTP, download tokens, indexnow, MCP, record JSON feeds, reddit proxy, vault-chat, Stripe webhooks, Twilio chat webhook) and `/auth/callback` are omitted from this table — see `src/app/api/` directly.
+`/api/*` route handlers (checkout, desk OTP, download tokens, indexnow, MCP, record JSON feeds, reddit proxy, Stripe webhooks) and `/auth/callback` are omitted from this table — see `src/app/api/` directly.
 
 ### Components (`src/components/`)
 
@@ -192,7 +186,6 @@ Site-wide URLs and third-party endpoints (booking links, scheduler URLs, API bas
 | `behavioral-scoring/` | Lead scoring tool components |
 | `calculator/` | GTM budget calculator components |
 | `case-studies/` | Shared case study layout components |
-| `chat/` | Live chat widget (`ChatWidget`) with Turnstile verification, Edge-cached status, and lazy interaction loading |
 | `comparison-table/` | Comparison table UI |
 | `content-journey/` | 120-day content journey components |
 | `desk/` | Desk (Hustle & Flow) UI — JobTriggers, StatusPill, TouchDots, etc. |
@@ -211,7 +204,6 @@ Site-wide URLs and third-party endpoints (booking links, scheduler URLs, API bas
 | `sovereign-personas/` | Sovereign personas tool components |
 | `storyboard/` | Storyboard case study components |
 | `tier-list/` | AI stack tier list (About page) |
-| `vault-chat/` | Vault Chat (RAG playbook chat) components |
 | `ui/` | Shared primitives (navigation menu, etc.) |
 
 ### Libraries (`src/lib/`)
@@ -219,7 +211,7 @@ Site-wide URLs and third-party endpoints (booking links, scheduler URLs, API bas
 | File | Purpose |
 |---|---|
 | `admin/cloudflare-access.ts` | Cloudflare Access JWT verification via Web Crypto for `/admin` and `/api/admin/*` |
-| `chat/` | Live chat helpers: `ai-reply.ts` (Claude Haiku after-hours stand-in), `limits.ts`, `night-mode.ts`, `spam-filter.ts`, `turnstile.ts`, `twilio.ts`, `types.ts` |
+| `security/safe-compare.ts`, `security/safe-compare-edge.ts` | Constant-time string comparison — Node (`safeCompare`) and edge-runtime (`safeCompareEdge`) variants live in separate files so edge routes don't pull in `node:crypto` |
 | `feature.ts` | `FeatureArticle` type + `featureArticles` registry |
 | `mega-menu-content.ts` | Nav mega menu structure and links |
 | `playbooks.ts` | Playbooks data fetching and types (includes `paid?` field on `Playbook`) |

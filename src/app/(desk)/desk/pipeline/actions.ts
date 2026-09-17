@@ -1,16 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
-
-async function requireAuth() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) throw new Error("Not authenticated");
-  return { supabase, user };
-}
+import { requireAuth } from "@/lib/supabase/server";
 
 // Log an outreach touch as SENT for a contact. Finds the contact's latest
 // sequence, computes the next touch_num, inserts one real touches row.

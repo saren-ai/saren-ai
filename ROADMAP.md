@@ -143,8 +143,8 @@ Session shipped in `docs/changelogs/2026-08-15-jsonld-graph-consolidation.md`.
 
 Session shipped in `docs/changelogs/2026-06-17-ia-nav-search-restructure.md`. Immediate follow-ups:
 
-- [ ] **Vault Chat / Ingest Pipeline** — `scripts/ingest-vault.ts`, `/playbooks/vault-chat`, `/api/vault-chat` RAG interface over Obsidian prompt vault catalog
-- [x] **Linting & React 19 Hook Hygiene** — `RelativeTime.tsx` set-state-in-effect fix, eslint ignore for legacy prospecting/vault data, JSX entity escapes
+- ~~**Vault Chat / Ingest Pipeline** — RAG interface over the Obsidian prompt vault~~ — removed 2026-09-16 (page, `/api/vault-chat`, `scripts/ingest-vault.ts`, `src/lib/vault-search.ts`, and the `supabase-vault/` migrations all deleted)
+- [x] **Linting & React 19 Hook Hygiene** — `RelativeTime.tsx` set-state-in-effect fix, eslint ignore for legacy prospecting data, JSX entity escapes
 - [ ] **Oblique Techniques hero** — create `public/images/feature/oblique-techniques-hero.png` (1200×630 OG; spec in `public/images/feature/README.md`)
 - [ ] Verify `public/downloads/Saren-Sakurai-Resume.pdf` matches resume v03 content
 - [ ] Decide: homepage "Featured Downloads" section markets 3 Coming Soon products —

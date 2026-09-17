@@ -53,9 +53,7 @@ const nextConfig: NextConfig = {
     return [
       // ── Rebranded routes ─────────────────────────────────────────────────
       // ── v02 nav shipped ahead of the service pages; route to contact until built (2026-09-03) ─
-      { source: "/services/audit",                                  destination: "/contact",                                         permanent: false },
-      { source: "/services/build",                                  destination: "/contact",                                         permanent: false },
-      { source: "/services/architecture-partner",                   destination: "/contact",                                         permanent: false },
+      { source: "/services/:slug(audit|build|architecture-partner)", destination: "/contact",                                         permanent: false },
       { source: "/agentic-web/standards",                              destination: "/contact",                                         permanent: false },
       { source: "/ai-operations",                                    destination: "/ai-orchestration",                                permanent: true },
       // ── v02: duplicate case studies merged into the Agentic Web pillar (2026-08-26) ─
@@ -122,13 +120,13 @@ const nextConfig: NextConfig = {
   async headers() {
     const csp = [
       "default-src 'self'",
-      // Next.js + GTM + Sentry + Turnstile (chat bot protection) require unsafe-inline/eval for scripts
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://browser.sentry-cdn.com https://challenges.cloudflare.com",
+      // Next.js + GTM + Sentry require unsafe-inline/eval for scripts
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://browser.sentry-cdn.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: blob: https:",
-      "connect-src 'self' https://*.supabase.co https://*.sentry.io https://o*.ingest.sentry.io https://www.google-analytics.com https://analytics.google.com https://challenges.cloudflare.com",
-      "frame-src https://calendar.google.com https://www.googletagmanager.com https://challenges.cloudflare.com",
+      "connect-src 'self' https://*.supabase.co https://*.sentry.io https://o*.ingest.sentry.io https://www.google-analytics.com https://analytics.google.com",
+      "frame-src https://calendar.google.com https://www.googletagmanager.com",
       "frame-ancestors 'none'",
       "object-src 'none'",
       "base-uri 'self'",

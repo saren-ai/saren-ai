@@ -1,6 +1,5 @@
 import { createMcpHandler } from 'mcp-handler';
 import { z } from 'zod';
-import { searchVault } from '@/lib/vault-search';
 import { isRateLimited } from '@/lib/rate-limit';
 import { getActivePlaybooks, getPlaybookWithContent } from '@/lib/playbooks';
 import { PAID_TIERS } from '@/lib/playbook-tiers';
@@ -11,29 +10,6 @@ const SITE_URL = 'https://saren.ai';
 
 const handler = createMcpHandler(
   (server) => {
-    server.registerTool(
-      'search_saren_content',
-      {
-        title: 'Search Saren.ai Content',
-        description:
-          "Semantic search over Saren Sakurai's playbooks, case studies, and marketing/AI-ops writing. Returns the most relevant passages with their source file path.",
-        inputSchema: z.object({
-          query: z.string().min(1).describe('Natural-language question or topic to search for'),
-          limit: z.number().int().min(1).max(10).optional().describe('Max passages to return (default 5)'),
-        }),
-      },
-      async ({ query, limit = 5 }) => {
-        const matches = await searchVault(query, { matchCount: limit });
-        if (matches.length === 0) {
-          return { content: [{ type: 'text', text: 'No relevant content found for that query.' }] };
-        }
-        const text = matches
-          .map((m, i) => `[${i + 1}] ${m.file_path} (similarity ${m.similarity.toFixed(2)})\n${m.content}`)
-          .join('\n\n---\n\n');
-        return { content: [{ type: 'text', text }] };
-      },
-    );
-
     server.registerTool(
       'list_playbooks',
       {

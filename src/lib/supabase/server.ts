@@ -25,3 +25,14 @@ export async function createClient() {
     }
   )
 }
+
+// Server Action auth check per AGENTS.md Security Conventions — every
+// mutating action must verify the caller's session before touching data.
+export async function requireAuth() {
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+  if (!user) throw new Error('Not authenticated')
+  return { supabase, user }
+}

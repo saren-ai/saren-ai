@@ -20,9 +20,8 @@ const eslintConfig = defineConfig([
     ".claude/worktrees/**",
     // Pagefind-generated search index (not source code)
     "public/_pagefind/**",
-    // Legacy prospecting tool & local supabase vault scripts
+    // Legacy prospecting tool
     "prospecting/**",
-    "supabase-vault/**",
   ]),
 ]);
 

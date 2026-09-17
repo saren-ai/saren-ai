@@ -1,7 +1,6 @@
 import { unstable_cache } from "next/cache";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import ChatWidget from "@/components/chat/ChatWidget";
 import { PagefindProvider } from "@/components/search/PagefindProvider";
 import { SearchProvider } from "@/components/search/SearchContext";
 import SearchModal from "@/components/search/SearchModal";
@@ -30,7 +29,6 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
         </div>
         <main className="flex-1">{children}</main>
         <Footer />
-        <ChatWidget />
       </SearchProvider>
     </PagefindProvider>
   );

@@ -132,11 +132,6 @@ export const playbooksMegaMenu: MegaMenuContent = {
           label: "B2B Marketing Framework",
           description: "7-layer positioning built from scratch",
         },
-        {
-          href: "/playbooks/vault-chat",
-          label: "Vault Chat",
-          description: "RAG chat grounded in a live Obsidian marketing vault",
-        },
       ],
     },
   ],

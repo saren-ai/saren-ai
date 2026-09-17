@@ -1,12 +1,5 @@
-import { timingSafeEqual } from 'crypto';
 import { NextResponse } from 'next/server';
-
-function safeCompare(a: string, b: string): boolean {
-  const bufA = Buffer.from(a);
-  const bufB = Buffer.from(b);
-  if (bufA.length !== bufB.length) return false;
-  return timingSafeEqual(bufA, bufB);
-}
+import { safeCompare } from '@/lib/security/safe-compare';
 
 const SITE_URLS = [
   'https://saren.ai',
@@ -63,13 +56,11 @@ export async function GET(request: Request) {
     }
 
     try {
-        const urls = SITE_URLS;
-
         const indexNowData = {
             host: 'saren.ai',
             key: '802318bbd0a34b2d907f1ae8e68cfbca',
             keyLocation: 'https://saren.ai/802318bbd0a34b2d907f1ae8e68cfbca.txt',
-            urlList: urls,
+            urlList: SITE_URLS,
         };
 
         const response = await fetch('https://api.indexnow.org/indexnow', {
@@ -84,7 +75,7 @@ export async function GET(request: Request) {
             return NextResponse.json({
                 success: true,
                 message: 'IndexNow submission successful',
-                submittedLength: urls.length
+                submittedLength: SITE_URLS.length
             });
         } else {
             const errorText = await response.text();
