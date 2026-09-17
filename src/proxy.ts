@@ -1,13 +1,12 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 import { extractMain, htmlToMarkdown } from '@/lib/agent-markdown'
-import { isAuthorizedAdminRequest } from '@/lib/admin/cloudflare-access'
 
 // Common attack paths bots scan for — 404 them immediately
 const BLOCKED_PATH = /\/(\.env|\.git|\.svn|\.htaccess|\.htpasswd|wp-admin|wp-login|wp-content|xmlrpc|phpinfo|phpmyadmin|adminer|administrator|config\.php|setup\.php|install\.php|eval-stdin|shell|webshell|\.aws|\.ssh)(\/|$|\?|\.)/i
 
 // Routes with no meaningful HTML page to convert, or that must never be content-negotiated
-const MARKDOWN_EXCLUDED_PREFIXES = ['/desk', '/admin', '/api', '/auth']
+const MARKDOWN_EXCLUDED_PREFIXES = ['/desk', '/api', '/auth']
 
 function wantsMarkdown(request: NextRequest): boolean {
   const { pathname, searchParams } = request.nextUrl
@@ -82,18 +81,6 @@ export async function proxy(request: NextRequest) {
   // Agent content negotiation — serve markdown when explicitly requested
   if (wantsMarkdown(request)) {
     return serveMarkdown(request)
-  }
-
-  // /admin is gated by Cloudflare Access at the edge — this is defense in
-  // depth against the *.vercel.app fallback domain, which bypasses Cloudflare
-  // (and therefore Access) entirely. See src/lib/admin/cloudflare-access.ts.
-  // `next dev` never runs with NODE_ENV=production, so this bypass can't ship live.
-  const isLocalDev = process.env.NODE_ENV === 'development'
-  if (pathname.startsWith('/admin') || pathname.startsWith('/api/admin')) {
-    if (!isLocalDev && !(await isAuthorizedAdminRequest(request))) {
-      return new NextResponse('Forbidden', { status: 403 })
-    }
-    return NextResponse.next()
   }
 
   // Only gate desk (admin) routes past this point

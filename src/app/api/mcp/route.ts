@@ -2,7 +2,6 @@ import { createMcpHandler } from 'mcp-handler';
 import { z } from 'zod';
 import { isRateLimited } from '@/lib/rate-limit';
 import { getActivePlaybooks, getPlaybookWithContent } from '@/lib/playbooks';
-import { PAID_TIERS } from '@/lib/playbook-tiers';
 
 export const runtime = 'nodejs';
 
@@ -15,7 +14,7 @@ const handler = createMcpHandler(
       {
         title: 'List Playbooks',
         description:
-          "List Saren Sakurai's active playbooks (prompt sequences and interactive tools for GTM/AI-ops). Each entry notes whether it's free or a paid download.",
+          "List Saren Sakurai's active playbooks (prompt sequences and interactive tools for GTM/AI-ops).",
         inputSchema: z.object({
           category: z.string().optional().describe('Filter by category (exact match)'),
         }),
@@ -26,7 +25,7 @@ const handler = createMcpHandler(
         const text = filtered
           .map(
             (p) =>
-              `- ${p.playbook_id}: ${p.title} [${p.category}]${PAID_TIERS[p.playbook_id] ? ' (paid)' : ' (free)'}\n  ${p.description}\n  ${SITE_URL}/playbooks/${p.playbook_id}`,
+              `- ${p.playbook_id}: ${p.title} [${p.category}]\n  ${p.description}\n  ${SITE_URL}/playbooks/${p.playbook_id}`,
           )
           .join('\n');
         return { content: [{ type: 'text', text: text || 'No playbooks match that category.' }] };
@@ -38,7 +37,7 @@ const handler = createMcpHandler(
       {
         title: 'Get Playbook',
         description:
-          'Fetch a single playbook by id. Free playbooks return full step-by-step content. Paid playbooks return metadata and a purchase link only — full content is gated behind checkout on the site, same as for an anonymous visitor.',
+          'Fetch a single playbook by id — returns full step-by-step content.',
         inputSchema: z.object({
           playbook_id: z.string().min(1).describe('The playbook_id from list_playbooks'),
         }),
@@ -50,11 +49,6 @@ const handler = createMcpHandler(
         }
 
         const url = `${SITE_URL}/playbooks/${playbook.playbook_id}`;
-        if (PAID_TIERS[playbook.playbook_id]) {
-          const text = `${playbook.title}\n${playbook.description}\n\nThis is a paid playbook (${playbook.steps.length} steps). Full content is gated behind checkout: ${url}`;
-          return { content: [{ type: 'text', text }] };
-        }
-
         const steps = playbook.steps
           .map((s) => `### Step ${s.step}: ${s.title}\n${s.note ?? ''}\n\n${s.content ?? ''}`)
           .join('\n\n');

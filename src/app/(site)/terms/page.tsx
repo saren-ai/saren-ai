@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "Terms for using saren.ai — content, interactive tools, digital product purchases, and licensing.",
+    "Terms for using saren.ai — content, interactive tools, and licensing.",
   alternates: { canonical: "https://saren.ai/terms" },
 };
 
@@ -28,14 +28,6 @@ const sections = [
     ],
   },
   {
-    heading: "Digital product purchases",
-    body: [
-      "Paid playbooks are sold through Stripe Checkout. Prices are shown at checkout in US dollars. After payment, access is delivered to the device and email used at purchase.",
-      "Purchases are licensed, not sold: you get a personal, non-exclusive, non-transferable license to use the content for your own work or your company's internal use. You may not resell, redistribute, or republish it.",
-      "Because these are digital products delivered immediately, all sales are final once content has been delivered — except where the product is materially defective or a refund is required by law. If something went wrong with your purchase, email hello@saren.ai and I'll make it right.",
-    ],
-  },
-  {
     heading: "Intellectual property",
     body: [
       "The content on this site — text, frameworks, case studies, design, and code powering the interactive tools — belongs to Saren Sakurai / Identogram LLC unless credited otherwise. You're welcome to link to and quote brief excerpts with attribution. Wholesale reproduction requires written permission. Client names and trademarks shown belong to their respective owners.",
@@ -44,19 +36,19 @@ const sections = [
   {
     heading: "Acceptable use",
     body: [
-      "Don't attempt to break, overload, scrape at abusive rates, or gain unauthorized access to any part of the site, its APIs, or its purchase-gating mechanisms. Don't use the site for anything unlawful.",
+      "Don't attempt to break, overload, scrape at abusive rates, or gain unauthorized access to any part of the site or its APIs. Don't use the site for anything unlawful.",
     ],
   },
   {
     heading: "Third-party services and links",
     body: [
-      "The site links to and integrates third-party services (Stripe, Calendly, social platforms, external sites). Those services have their own terms, and I'm not responsible for their content or practices.",
+      "The site links to and integrates third-party services (Calendly, social platforms, external sites). Those services have their own terms, and I'm not responsible for their content or practices.",
     ],
   },
   {
     heading: "Disclaimers and limitation of liability",
     body: [
-      "The site and its content are provided “as is” without warranties of any kind, express or implied, including fitness for a particular purpose. To the maximum extent permitted by law, Saren Sakurai and Identogram LLC are not liable for indirect, incidental, or consequential damages arising from your use of the site, and total liability for any claim is limited to the amount you paid for the product giving rise to the claim (or $50 if you paid nothing).",
+      "The site and its content are provided “as is” without warranties of any kind, express or implied, including fitness for a particular purpose. To the maximum extent permitted by law, Saren Sakurai and Identogram LLC are not liable for indirect, incidental, or consequential damages arising from your use of the site, and total liability for any claim is limited to $50.",
     ],
   },
   {
@@ -81,7 +73,7 @@ export default function TermsPage() {
           Terms of Service
         </h1>
         <p className="font-mono text-sm text-slate dark:text-foreground-muted mb-12">
-          Effective June 12, 2026
+          Effective September 17, 2026
         </p>
 
         <div className="space-y-10">

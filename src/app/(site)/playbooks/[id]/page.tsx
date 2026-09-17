@@ -1,56 +1,15 @@
-import { cookies } from 'next/headers';
 import { getActivePlaybooks, getPlaybookWithContent } from '@/lib/playbooks';
-import { PAID_TIERS } from '@/lib/playbook-tiers';
-import { createAdminClient } from '@/lib/supabase/admin';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
 import { marked } from 'marked';
 import CopyButton from './CopyButton';
 import DownloadSkillButton from './DownloadSkillButton';
-import { BuyButton } from './BuyButton';
-import { DownloadButton } from './DownloadButton';
-import { GatedTeaser } from './GatedTeaser';
 import { AnimatedNavFramer } from '@/components/ui/navigation-menu';
 import { ProspectTable } from './ProspectTable';
-import type { Playbook } from '@/lib/playbooks';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import JsonLd from '@/components/seo/JsonLd';
 import { buildGraph, articleId, webPageId, howToId, ID } from '@/lib/schema';
-
-// ---------------------------------------------------------------------------
-// Access check — one lookup, one result, drives both the gate and the button
-// ---------------------------------------------------------------------------
-
-type Access =
-  | { state: 'free' }
-  | { state: 'locked' }
-  | { state: 'owned'; downloadToken: string };
-
-async function getAccess(playbook: Playbook): Promise<Access> {
-  if (!playbook.paid) return { state: 'free' };
-
-  const cookieToken = (await cookies()).get(`dlx_${playbook.playbook_id}`)?.value;
-  if (!cookieToken) return { state: 'locked' };
-
-  // Admin client required — entitlements table has RLS with no anon read policy
-  const supabase = createAdminClient();
-  const { data } = await supabase
-    .from('entitlements')
-    .select('download_token, expires_at')
-    .eq('playbook_id', playbook.playbook_id)
-    .eq('cookie_token', cookieToken)
-    .gt('expires_at', new Date().toISOString())
-    .maybeSingle();
-
-  if (!data) return { state: 'locked' };
-  return { state: 'owned', downloadToken: data.download_token };
-}
-
-// ---------------------------------------------------------------------------
-// Static params — free playbooks still pre-render; paid ones become dynamic
-// once cookies() is actually called (Next.js opt-out is call-site, not import)
-// ---------------------------------------------------------------------------
 
 export async function generateStaticParams() {
     const playbooks = await getActivePlaybooks();
@@ -153,23 +112,13 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
         notFound();
     }
 
-    // Merge paid tier config (catalog JSON doesn't carry this)
-    const paidTier = PAID_TIERS[playbook.playbook_id];
-    if (paidTier) playbook.paid = paidTier;
-
-    // Single entitlement check — result drives both gated content and CTA
-    const access = await getAccess(playbook);
-
-    // Parse markdown only when steps will actually render
-    const parsedSteps = access.state !== 'locked'
-        ? await Promise.all(
-            playbook.steps.map(async (step) => {
-                const cleaned = step.content ? cleanMarkdown(step.content, step.title) : '';
-                const parsedContent = cleaned ? await marked.parse(cleaned) : '*No content available for this step.*';
-                return { ...step, parsedContent };
-            })
-        )
-        : [];
+    const parsedSteps = await Promise.all(
+        playbook.steps.map(async (step) => {
+            const cleaned = step.content ? cleanMarkdown(step.content, step.title) : '';
+            const parsedContent = cleaned ? await marked.parse(cleaned) : '*No content available for this step.*';
+            return { ...step, parsedContent };
+        })
+    );
 
     const allPlaybooks = await getActivePlaybooks();
     const allUniqueCategories = Array.from(new Set(allPlaybooks.map(pb => pb.category))).sort();
@@ -193,9 +142,8 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
     const tagTerms = playbook.tags.map((tag) => ({ '@type': 'DefinedTerm', name: tag }));
 
     // Hand-built (not via buildGraph's `article` helper) because this Article node
-    // carries fields — abstract, keywords, teaches, isAccessibleForFree, offers,
-    // articleSection — the shared articleNode() builder doesn't model, and several
-    // are conditional on DB-backed playbook state that must be preserved exactly.
+    // carries fields — abstract, keywords, teaches, articleSection — the shared
+    // articleNode() builder doesn't model.
     const articleNode = {
         '@type': 'Article',
         '@id': articleId(path),
@@ -215,24 +163,14 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
         keywords: playbook.tags.join(', '),
         about: tagTerms,
         teaches: tagTerms,
-        isAccessibleForFree: !playbook.paid,
-        ...(playbook.paid && {
-            offers: {
-                '@type': 'Offer',
-                availability: 'https://schema.org/InStock',
-                seller: { '@id': ID.person },
-            },
-        }),
+        isAccessibleForFree: true,
         ...(playbook.date && { datePublished: `${playbook.date}T00:00:00Z` }),
         dateModified: '2026-04-01T00:00:00Z',
         inLanguage: 'en-US',
         articleSection: playbook.category,
     };
 
-    // Locked (paid, unpurchased) pages only ever show a step count via
-    // GatedTeaser — step titles and content never enter the rendered HTML — so
-    // the HowTo node (which lists both) must not be emitted while locked.
-    const howToNode = access.state !== 'locked' && playbook.steps.length > 0 ? {
+    const howToNode = playbook.steps.length > 0 ? {
         '@type': 'HowTo',
         '@id': howToId(path),
         name: playbook.title,
@@ -278,14 +216,9 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
                             <span className="px-3 py-1 rounded-full text-xs font-medium bg-lavender/10 dark:bg-lavender/10 text-lavender dark:text-lavender border border-lavender/20 dark:border-lavender/20">
                                 {playbook.category}
                             </span>
-                            {access.state === 'free' && playbook.steps.length > 0 && (
+                            {playbook.steps.length > 0 && (
                                 <span className="text-sm text-slate dark:text-slate font-medium">
                                     {playbook.steps.length} Steps
-                                </span>
-                            )}
-                            {playbook.paid && (
-                                <span className="px-3 py-1 rounded-full text-xs font-medium bg-ember/10 text-ember border border-ember/20">
-                                    Premium
                                 </span>
                             )}
                         </div>
@@ -313,111 +246,47 @@ export default async function PlaybookDetailPage({ params }: { params: Promise<{
 
                 <div className="w-full h-px bg-gradient-to-r from-charcoal/10 via-charcoal/20 to-charcoal/10 dark:from-charcoal/10 dark:via-charcoal/20 dark:to-charcoal/10" />
 
-                {/* ----------------------------------------------------------------
-                    Three-state gate. The && short-circuit is the security boundary:
-                    gated content never enters the RSC payload when state === locked.
-                ---------------------------------------------------------------- */}
-
-                {access.state === 'free' && (
-                    <div className="space-y-12">
-                        {parsedSteps.map((step, index) => (
-                            <div
-                                key={index}
-                                className="relative p-6 lg:p-10 bg-white dark:bg-charcoal/5 border border-charcoal/10 dark:border-charcoal/10 rounded-2xl shadow-xl overflow-hidden transition-colors"
-                                id={`step-${step.step}`}
-                            >
-                                <div className="absolute top-0 right-0 p-4 opacity-5">
-                                    <span className="text-8xl font-black">{step.step}</span>
-                                </div>
-                                <div className="relative z-10 space-y-6">
-                                    <div className="pb-4 border-b border-charcoal/10 dark:border-charcoal/5 flex justify-between items-start gap-4">
-                                        <div>
-                                            <span className="text-sm font-bold text-lavender dark:text-lavender uppercase tracking-widest mb-1 block">
-                                                Step {step.step}
-                                            </span>
-                                            <h2 className="text-2xl font-bold text-charcoal dark:text-white">
-                                                {step.title}
-                                            </h2>
-                                        </div>
-                                        {!(playbook.playbook_id === 'linkedin-prospect-dashboard' && step.step === 1) && (
-                                            <div className="pt-2 shrink-0">
-                                                <CopyButton textToCopy={step.content || ''} />
-                                            </div>
-                                        )}
-                                    </div>
-                                    <div
-                                        className="prose dark:prose-invert max-w-none
-                                        prose-headings:text-charcoal dark:prose-headings:text-ash
-                                        prose-p:text-slate dark:prose-p:text-ash/70 prose-p:leading-relaxed
-                                        prose-a:text-lavender dark:prose-a:text-lavender prose-a:no-underline hover:prose-a:underline
-                                        prose-code:text-lavender dark:prose-code:text-lavender prose-code:bg-lavender/10 dark:prose-code:bg-lavender/10 prose-code:before:content-none prose-code:after:content-none prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
-                                        prose-pre:bg-ash dark:prose-pre:bg-offblack prose-pre:border prose-pre:border-charcoal/10 dark:prose-pre:border-charcoal/10 prose-pre:shadow-inner
-                                        prose-blockquote:border-l-electric dark:prose-blockquote:border-l-electric prose-blockquote:bg-lavender/5 dark:prose-blockquote:bg-lavender/5 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:-ml-4 prose-blockquote:rounded-r-lg
-                                        prose-strong:text-charcoal dark:prose-strong:text-ash"
-                                        dangerouslySetInnerHTML={{ __html: step.parsedContent }}
-                                    />
-                                </div>
+                <div className="space-y-12">
+                    {parsedSteps.map((step, index) => (
+                        <div
+                            key={index}
+                            className="relative p-6 lg:p-10 bg-white dark:bg-charcoal/5 border border-charcoal/10 dark:border-charcoal/10 rounded-2xl shadow-xl overflow-hidden transition-colors"
+                            id={`step-${step.step}`}
+                        >
+                            <div className="absolute top-0 right-0 p-4 opacity-5">
+                                <span className="text-8xl font-black">{step.step}</span>
                             </div>
-                        ))}
-                    </div>
-                )}
-
-                {access.state === 'locked' && (
-                    <div className="space-y-8">
-                        <GatedTeaser playbook={playbook} priceCents={paidTier!.priceCents} />
-                        <div className="flex justify-center">
-                            <BuyButton playbookId={playbook.playbook_id} />
-                        </div>
-                    </div>
-                )}
-
-                {access.state === 'owned' && (
-                    <div className="space-y-12">
-                        {parsedSteps.map((step, index) => (
-                            <div
-                                key={index}
-                                className="relative p-6 lg:p-10 bg-white dark:bg-charcoal/5 border border-charcoal/10 dark:border-charcoal/10 rounded-2xl shadow-xl overflow-hidden transition-colors"
-                                id={`step-${step.step}`}
-                            >
-                                <div className="absolute top-0 right-0 p-4 opacity-5">
-                                    <span className="text-8xl font-black">{step.step}</span>
-                                </div>
-                                <div className="relative z-10 space-y-6">
-                                    <div className="pb-4 border-b border-charcoal/10 dark:border-charcoal/5 flex justify-between items-start gap-4">
-                                        <div>
-                                            <span className="text-sm font-bold text-lavender dark:text-lavender uppercase tracking-widest mb-1 block">
-                                                Step {step.step}
-                                            </span>
-                                            <h2 className="text-2xl font-bold text-charcoal dark:text-white">
-                                                {step.title}
-                                            </h2>
-                                        </div>
-                                        {!(playbook.playbook_id === 'linkedin-prospect-dashboard' && step.step === 1) && (
-                                            <div className="pt-2 shrink-0">
-                                                <CopyButton textToCopy={step.content || ''} />
-                                            </div>
-                                        )}
+                            <div className="relative z-10 space-y-6">
+                                <div className="pb-4 border-b border-charcoal/10 dark:border-charcoal/5 flex justify-between items-start gap-4">
+                                    <div>
+                                        <span className="text-sm font-bold text-lavender dark:text-lavender uppercase tracking-widest mb-1 block">
+                                            Step {step.step}
+                                        </span>
+                                        <h2 className="text-2xl font-bold text-charcoal dark:text-white">
+                                            {step.title}
+                                        </h2>
                                     </div>
-                                    <div
-                                        className="prose dark:prose-invert max-w-none
-                                        prose-headings:text-charcoal dark:prose-headings:text-ash
-                                        prose-p:text-slate dark:prose-p:text-ash/70 prose-p:leading-relaxed
-                                        prose-a:text-lavender dark:prose-a:text-lavender prose-a:no-underline hover:prose-a:underline
-                                        prose-code:text-lavender dark:prose-code:text-lavender prose-code:bg-lavender/10 dark:prose-code:bg-lavender/10 prose-code:before:content-none prose-code:after:content-none prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
-                                        prose-pre:bg-ash dark:prose-pre:bg-offblack prose-pre:border prose-pre:border-charcoal/10 dark:prose-pre:border-charcoal/10 prose-pre:shadow-inner
-                                        prose-blockquote:border-l-electric dark:prose-blockquote:border-l-electric prose-blockquote:bg-lavender/5 dark:prose-blockquote:bg-lavender/5 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:-ml-4 prose-blockquote:rounded-r-lg
-                                        prose-strong:text-charcoal dark:prose-strong:text-ash"
-                                        dangerouslySetInnerHTML={{ __html: step.parsedContent }}
-                                    />
+                                    {!(playbook.playbook_id === 'linkedin-prospect-dashboard' && step.step === 1) && (
+                                        <div className="pt-2 shrink-0">
+                                            <CopyButton textToCopy={step.content || ''} />
+                                        </div>
+                                    )}
                                 </div>
+                                <div
+                                    className="prose dark:prose-invert max-w-none
+                                    prose-headings:text-charcoal dark:prose-headings:text-ash
+                                    prose-p:text-slate dark:prose-p:text-ash/70 prose-p:leading-relaxed
+                                    prose-a:text-lavender dark:prose-a:text-lavender prose-a:no-underline hover:prose-a:underline
+                                    prose-code:text-lavender dark:prose-code:text-lavender prose-code:bg-lavender/10 dark:prose-code:bg-lavender/10 prose-code:before:content-none prose-code:after:content-none prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+                                    prose-pre:bg-ash dark:prose-pre:bg-offblack prose-pre:border prose-pre:border-charcoal/10 dark:prose-pre:border-charcoal/10 prose-pre:shadow-inner
+                                    prose-blockquote:border-l-electric dark:prose-blockquote:border-l-electric prose-blockquote:bg-lavender/5 dark:prose-blockquote:bg-lavender/5 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:-ml-4 prose-blockquote:rounded-r-lg
+                                    prose-strong:text-charcoal dark:prose-strong:text-ash"
+                                    dangerouslySetInnerHTML={{ __html: step.parsedContent }}
+                                />
                             </div>
-                        ))}
-                        <div className="flex justify-center pt-4 border-t border-charcoal/10 dark:border-charcoal/10">
-                            <DownloadButton token={access.downloadToken} />
                         </div>
-                    </div>
-                )}
-
+                    ))}
+                </div>
             </div>
         </div>
     );

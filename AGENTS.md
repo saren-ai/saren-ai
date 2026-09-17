@@ -34,7 +34,7 @@ npm test         # Vitest
 
 ## Tech Stack
 
-Next.js 16.2 (App Router) · React 19 · TypeScript (strict) · Tailwind CSS v4 (CSS-based config, no tailwind.config.js) · Framer Motion 12 · @dnd-kit (tier list only) · Lucide React icons · MDX for content · Pagefind (static search index, generated at build time) · Stripe (hosted checkout, webhooks) · Supabase (Postgres + Storage) · No external carousel/state libs
+Next.js 16.2 (App Router) · React 19 · TypeScript (strict) · Tailwind CSS v4 (CSS-based config, no tailwind.config.js) · Framer Motion 12 · @dnd-kit (tier list only) · Lucide React icons · MDX for content · Pagefind (static search index, generated at build time) · Supabase (Postgres + Storage) · No external carousel/state libs
 
 ## Desk (Hustle & Flow) — prospecting cockpit
 
@@ -47,17 +47,14 @@ Next.js 16.2 (App Router) · React 19 · TypeScript (strict) · Tailwind CSS v4 
 - **Docs:** `docs/desk-runbook.md` (workflow), `docs/hustle-flow-schema-reference.md` (tables + write patterns).
 - **Note:** `src/lib/supabase/database.types.ts` predates `001–003` — regenerate it to type `v_pipeline`/`companies`/`clients` (a single justified cast reads the view meanwhile).
 
-## Admin (`/admin`)
+## Removed features (historical)
 
-`/admin` is the administrative control surface for site operations (purchase logs, overview metrics), isolated in the `(admin)` route group.
-
-- **Edge Security:** Gated at the edge by Cloudflare Access and defense-in-depth validated in `src/proxy.ts` + each `/api/admin/*` route handler using `isAuthorizedAdminRequest` (`src/lib/admin/cloudflare-access.ts`). Verifies Cloudflare Access RS256 JWT tokens using Web Crypto against `https://${CF_ACCESS_TEAM_DOMAIN}/cdn-cgi/access/certs`.
-- **Routes:** `/admin` (overview cards: today's purchases/unlocks, Desk pipeline contacts); `/admin/purchases` (audit log of playbook entitlements and legacy purchases).
-- **Note (2026-09-16):** The live chat widget, its admin cockpit (`/admin/chat`), and backend (`/api/chat/*`, `/api/admin/chat/*`, `src/lib/chat/`) were removed — no bandwidth to staff it. The `chat_sessions`/`chat_messages` Supabase tables (created in `009`/`010`) are dropped by `011_drop_live_chat.sql` — apply that migration to the live database if it hasn't run yet.
+- **Live chat (2026-09-16):** the widget, its admin cockpit (`/admin/chat`), and backend (`/api/chat/*`, `/api/admin/chat/*`, `src/lib/chat/`) were removed — no bandwidth to staff it. `chat_sessions`/`chat_messages` (created in `009`/`010`) dropped by `011_drop_live_chat.sql`.
+- **Admin cockpit + digital-downloads monetization layer (2026-09-17):** `/admin` (overview, purchases audit) and the entire paid-playbook/Stripe/legacy-`/downloads` stack were removed — nothing was for sale and it wasn't worth the upkeep (Cloudflare Access setup was never even finished; `/admin` had been 403-locked in production the whole time). Removed: `(admin)` route group, `src/lib/admin/cloudflare-access.ts`, `/api/checkout`, `/api/webhooks/stripe`, `/api/download/[token]`, `/playbooks/[id]/success`, the `BuyButton`/`DownloadButton`/`GatedTeaser` components, `src/lib/stripe.ts`, `playbook-tiers.ts`, `products.ts`, and the `/downloads/success` legacy storefront. `playbooks/[id]/page.tsx` now always renders full content — no more locked/owned states. `entitlements`/`purchases` (empty, never a real sale) dropped by `012_drop_monetization_layer.sql`. Digital downloads is a project to revisit later, not abandoned for good — if it comes back, this note is the map of what has to be rebuilt.
 
 ## Security Conventions
 
-- **Constant-Time Comparisons:** All bearer tokens and webhook signature checks (`process.env.CRON_SECRET`, `process.env.REDDIT_PROXY_SECRET`) must use constant-time byte comparisons (`src/lib/security/safe-compare.ts` — `safeCompare` for Node routes, `safeCompareEdge` for edge-runtime routes) to prevent timing attacks. Never compare secrets with `!==`.
+- **Constant-Time Comparisons:** All bearer tokens and webhook signature checks (e.g. `process.env.CRON_SECRET`) must use constant-time byte comparisons (`safeCompare` in `src/lib/security/safe-compare.ts`) to prevent timing attacks. Never compare secrets with `!==`.
 - **Fail-Closed Auth:** Protected API routes and cron endpoints must fail closed. If an authentication secret (`CRON_SECRET`) is missing or undefined in production, reject the request with 500/401 instead of skipping validation.
 - **Server Action Authorization & Whitelisting:** All Server Actions (`use server`) must verify the caller's session via `await supabase.auth.getUser()`. Any mutation that accepts field names (e.g. `updateContactField`) must check against an explicit whitelist (`ALLOWED_CONTACT_FIELDS`) before updating the database.
 - **Redirect Validation:** Any endpoint generating redirects or magic links (e.g. `/api/desk/send-otp`) must validate that `redirectTo` is a relative path or restricted to an approved origin.
@@ -136,15 +133,13 @@ Site-wide URLs and third-party endpoints (booking links, scheduler URLs, API bas
 /studio                                   Studio — creative/editorial index (formerly /feature)
 /studio/ai-for-liberal-arts                AI for Liberal Arts Majors series hub
 /studio/oblique-techniques                 Oblique Techniques (Claude Skills promo)
-/downloads/success                        Post-purchase download page (purchases table; /downloads itself 301s to /playbooks — page deleted 2026-06-12)
 /playbooks                                Playbook Library index (toggle: Playbooks | Interactive Tools)
 /playbooks/b2b-marketing-framework        B2B marketing framework (prompt library + interactive)
 /playbooks/gtm-budget-calculator          SaaS revenue calculator tool
 /playbooks/hybrid-lead-scoring            Hybrid lead scoring tool
 /playbooks/its-good-to-be-pitched         TV spot storyboard / creative production demo
 /playbooks/roi-simulator                  Paid media ROI simulator tool
-/playbooks/[id]                           Dynamic playbook pages (free + paid tiers)
-/playbooks/[id]/success                   Route Handler — verifies Stripe session, sets dlx_ cookie, redirects
+/playbooks/[id]                           Dynamic playbook pages
 /case-studies                             Case Studies index (static B2B narratives)
 /case-studies/10-touch-sales-play         Case study
 /case-studies/120-day-content-journey     Case study
@@ -160,8 +155,6 @@ Site-wide URLs and third-party endpoints (booking links, scheduler URLs, API bas
 /signal-state/use-cases/cybersecurity
 /signal-state/use-cases/independent-creative
 /signal-state/use-cases/org-alignment
-/admin                                    Admin overview — purchases, Desk pipeline
-/admin/purchases                          Purchases cockpit — playbook entitlements & legacy downloads
 /privacy                                  Privacy policy
 /terms                                    Terms of service
 /oc                                       Local-SEO landing page — "GTM Engineer, Orange County" (lives at app root, not in the (site) group)
@@ -176,7 +169,7 @@ Site-wide URLs and third-party endpoints (booking links, scheduler URLs, API bas
 /halcyon/resume
 ```
 
-`/api/*` route handlers (checkout, desk OTP, download tokens, indexnow, MCP, record JSON feeds, reddit proxy, Stripe webhooks) and `/auth/callback` are omitted from this table — see `src/app/api/` directly.
+`/api/*` route handlers (desk OTP, indexnow, MCP, record JSON feeds) and `/auth/callback` are omitted from this table — see `src/app/api/` directly.
 
 ### Components (`src/components/`)
 
@@ -210,20 +203,16 @@ Site-wide URLs and third-party endpoints (booking links, scheduler URLs, API bas
 
 | File | Purpose |
 |---|---|
-| `admin/cloudflare-access.ts` | Cloudflare Access JWT verification via Web Crypto for `/admin` and `/api/admin/*` |
-| `security/safe-compare.ts`, `security/safe-compare-edge.ts` | Constant-time string comparison — Node (`safeCompare`) and edge-runtime (`safeCompareEdge`) variants live in separate files so edge routes don't pull in `node:crypto` |
+| `security/safe-compare.ts` | Constant-time string comparison (`safeCompare`) for bearer tokens/webhook signatures — Node runtime only |
 | `feature.ts` | `FeatureArticle` type + `featureArticles` registry |
 | `mega-menu-content.ts` | Nav mega menu structure and links |
-| `playbooks.ts` | Playbooks data fetching and types (includes `paid?` field on `Playbook`) |
-| `playbook-tiers.ts` | `PAID_TIERS` map of `playbook_id → { priceId, storageKey }` — add entries here to gate a playbook |
-| `products.ts` | Legacy `/downloads` product config (price, items, filePath) |
+| `playbooks.ts` | Playbooks data fetching and types |
 | `rate-limit.ts` | In-memory burst rate limiting |
 | `search-rank.ts` | Pagefind result ranking — title/body match scoring for “Best match” vs “Also mentioned on” |
-| `stripe.ts` | Lazy Stripe singleton (`getStripe()`) |
 | `portfolio-data.ts` | Portfolio item types |
 | `tier-list.ts` | AI tools list, SAREN_PICKS, stack categories |
 | `utils.ts` | Shared utility functions |
-| `supabase/admin.ts` | Service role Supabase client — server-side only, never expose to browser |
+| `supabase/admin.ts` | Service role Supabase client (used broadly for server-side writes) — server-side only, never expose to browser |
 | `supabase/client.ts` | Browser Supabase client |
 | `supabase/server.ts` | Cookie-based server Supabase client (for auth flows) |
 
@@ -237,13 +226,11 @@ Site-wide URLs and third-party endpoints (booking links, scheduler URLs, API bas
 
 **New tier list tool:** Add to `AI_TOOLS[]` in `src/lib/tier-list.ts` → 64x64 PNG in `public/logos/ai-apps/` → add ID to `SAREN_PICKS` → add to `stackCategories` in `src/app/about/page.tsx` (tier list lives inside `/about`, not a sub-route)
 
-**New case study:** Use `/project:new-case-study <slug>` command. `/case-studies/*` is for static B2B proof narratives only. Interactive tools and paid downloads go in `/playbooks/*`.
+**New case study:** Use `/project:new-case-study <slug>` command. `/case-studies/*` is for static B2B proof narratives only. Interactive tools go in `/playbooks/*`.
 
 **New Studio entry (feature article):** Add entry to `featureArticles` in `src/lib/feature.ts` → create `src/app/studio/<slug>/page.tsx` (server component, metadata + JSON-LD) + `src/app/studio/<slug>/ArticleClient.tsx` (`"use client"` if interactive) → create `src/components/feature/<slug>/` if the entry needs dedicated components → optionally surface in the Studio mega menu (`src/lib/mega-menu-content.ts`). Note: route base is `/studio`, but the internal lib/components domain is still named `feature` (the content type); the public section brand is "Studio".
 
 **Design system changes:** All in `src/app/globals.css` via `@theme inline` blocks (Tailwind v4 CSS-based config)
-
-**New paid playbook:** Add entry to `PAID_TIERS` in `src/lib/playbook-tiers.ts` with `priceId` (Stripe Price ID) and `storageKey` (Supabase Storage path in `downloads` bucket) → add catalog entry to `playbook-prompts/prompt_catalog.json` → build landing page copy and buy button on the `/playbooks/[id]` page. The RSC gate reads `cookies().get('dlx_' + id)` and validates against the `entitlements` table.
 
 **Adding searchable content:** New routes under `(site)/` are indexed automatically at build time. Root `layout.tsx` must stay static — do not add `headers()` or other dynamic APIs there (breaks Pagefind). Add `data-pagefind-ignore` to elements that should not be searched. Wrap section content with `<PagefindBoundary section="...">` to set group label. Halcyon and `/api/*` are excluded globally. Test locally with `npm run build && npm run start` (not `npm run dev` — index doesn't exist there).
 
@@ -253,7 +240,7 @@ Site-wide URLs and third-party endpoints (booking links, scheduler URLs, API bas
 
 Every `page.tsx` that should be indexed **must** declare `alternates: { canonical: 'https://saren.ai/path' }` in its `metadata` export. Pages missing this will appear in Search Console as "Duplicate without user-selected canonical." Check any new routes before pushing.
 
-Pages intentionally not indexed use `robots: { index: false, follow: false }` instead (e.g. `/downloads/success`, `/for/[slug]`, `/desk/*`).
+Pages intentionally not indexed use `robots: { index: false, follow: false }` instead (e.g. `/for/[slug]`, `/desk/*`).
 
 ### Redirect rules in `next.config.ts`
 
@@ -288,16 +275,16 @@ Every indexable page emits exactly **one** JSON-LD `@graph`, assembled by `src/l
 - **Breadcrumb rule:** `buildGraph({ breadcrumb: trail })` and the visible `<Breadcrumb trail={trail} />` (`src/components/ui/Breadcrumb.tsx`) must be fed the exact same `trail` array. A page must never emit `BreadcrumbList` JSON-LD without a corresponding visible breadcrumb on the page — that's the "never mark up anything not visible" rule made concrete, and it's checked in CI (see below).
 - **FAQ:** all FAQ content lives in `src/data/faqs.ts` (`FAQS` record) — the visible `<FAQ items={FAQS.x} />` and the JSON-LD `buildGraph({ faq: FAQS.x })` read the same array, so visible copy and markup cannot drift. `FAQ_SCHEMA_EXCLUDED` in that file flags FAQ sets whose answers are too short (under ~40 words) to be self-contained answer-engine citations — those still render visibly, just without `FAQPage` markup. `src/components/ui/FAQ.tsx` always renders answer text in the DOM (collapsed via height/opacity, never unmounted) — don't reintroduce a mount/unmount gate, or answers disappear from the server-rendered HTML again.
 - **LocalBusiness** is a service-area business (no street address or phone published) — `GeoCircle` centered on Irvine at a 10-mile radius. It's backed by visible "Irvine, California" + service-radius text in the sitewide footer and on `/contact`; don't widen the radius or change the city without updating that visible text too.
-- **Paywalled content:** on `playbooks/[id]/page.tsx`, the `HowTo` node is only built when `access.state !== 'locked' && playbook.steps.length > 0` — a locked (paid, unpurchased) page renders `GatedTeaser`, which shows a step *count* only, never step titles or content. If you add another gated content type anywhere, apply the same rule: a node describing content the paywall hides is a visibility violation, not just an access-control nuance.
-- **CI enforcement:** `.github/workflows/ci.yml` runs `npm run validate:schema` (`scripts/validate-schema.ts`) after `npm run build` — it parses every prerendered page's HTML, fails if a page has more than one `ld+json` block, fails on any dangling `@id` reference (via `validateGraph()` in `src/lib/schema/validate.ts`), and fails if a `Question`/`BreadcrumbList` item/`Article` headline in the graph doesn't appear as visible text on that page. Force-dynamic and DB-backed dynamic routes (`about/concerts`, `playbooks/[id]`) aren't prerendered so this check can't reach them — they're covered by the unit tests instead.
+- **Paywalled content:** none currently — the playbook paywall was removed 2026-09-17 (see Removed features). If you ever gate content again, apply the rule that got retired with it: a node describing content the paywall hides is a visibility violation, not just an access-control nuance — don't emit `HowTo`/similar markup for content that isn't actually rendered.
+- **CI enforcement:** `.github/workflows/ci.yml` runs `npm run validate:schema` (`scripts/validate-schema.ts`) after `npm run build` — it parses every prerendered page's HTML, fails if a page has more than one `ld+json` block, fails on any dangling `@id` reference (via `validateGraph()` in `src/lib/schema/validate.ts`), and fails if a `Question`/`BreadcrumbList` item/`Article` headline in the graph doesn't appear as visible text on that page. Force-dynamic and DB-backed dynamic routes (e.g. `about/concerts`) aren't prerendered so this check can't reach them — they're covered by the unit tests instead. (`playbooks/[id]` used to be in this list too — dropping the paywall cookie lookup made it fully static again, so CI now actually validates it.)
 - `src/app/(site)/halcyon/faq/FaqClient.tsx` has the same historical SSR gap FAQ.tsx used to have (answers absent until clicked) — left as-is since `/halcyon` is archived and disallowed in robots.txt. Don't use it as a reference pattern.
 
 ## IA Conventions
 
-**Classification rule:** Interactive feature on the page OR paid download → `/playbooks/*`. Static narrative proof → `/case-studies/*`. Prompt library items → `/playbooks/*`.
+**Classification rule:** Interactive feature on the page → `/playbooks/*`. Static narrative proof → `/case-studies/*`. Prompt library items → `/playbooks/*`.
 
 - `/case-studies/*` — static B2B proof narratives (no interactive widgets). Pure case studies only.
-- `/playbooks/*` — Playbook Library: prompt sequences, interactive tools, paid downloads. The index page has a toggle (Playbooks | Interactive Tools). Interactive tools live at `/playbooks/<tool-slug>/`. Paid playbooks gate content via HttpOnly cookie (`dlx_{id}`) validated against the `entitlements` table.
+- `/playbooks/*` — Playbook Library: prompt sequences and interactive tools, all free. The index page has a toggle (Playbooks | Interactive Tools). Interactive tools live at `/playbooks/<tool-slug>/`.
 - `/studio/*` — Studio: creative/editorial work, magazine-style articles, and the AI for Liberal Arts Majors series. Surfaced via the **Studio** mega menu. (Formerly `/feature/*`, which 301s here. Internal lib/components are still named `feature`.)
 - `/signal-state/*` — Signal State framework workspace (in development).
 - `/halcyon/*` — archived; do not link from primary nav. Routes still resolve.
